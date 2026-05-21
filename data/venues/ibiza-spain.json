@@ -1,0 +1,3642 @@
+{
+  "location": "Ibiza, Spain",
+  "generatedAt": "2026-05-17T19:44:50.350Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ76LJ-z1HmRIROeMZXjFOVUY",
+      "name": "The High Class Ibiza Weed Club",
+      "address": "Avinguda d'Ignasi Wallis, 44, 07800 Eivissa, Illes Balears, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 5,
+      "reviewCount": 6765,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "cultural_center",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 38.9131771,
+      "lng": 1.4298867,
+      "googleMapsUri": "https://maps.google.com/?cid=5068042929614480185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://weedhighclassibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.47
+    },
+    {
+      "googlePlaceId": "ChIJ7aLYZp0oQg0RWoitk33wlBA",
+      "name": "Museo Nacional del Prado",
+      "address": "Retiro, 28014 Madrid, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 152339,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.413781799999995,
+      "lng": -3.6921270999999996,
+      "googleMapsUri": "https://maps.google.com/?cid=1194844223299225690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museodelprado.es/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.23
+    },
+    {
+      "googlePlaceId": "ChIJeclqF84EdkgRtKAjTmWFr0I",
+      "name": "The National Gallery",
+      "address": "Trafalgar Square, London WC2N 5DN, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 61361,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.508928999999995,
+      "lng": -0.128299,
+      "googleMapsUri": "https://maps.google.com/?cid=4805205997576757428&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalgallery.org.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 89.76
+    },
+    {
+      "googlePlaceId": "ChIJvwbPqbFGmRIRkMtWbQIVzBw",
+      "name": "Castle of Ibiza",
+      "address": "Carrer Bisbe Torres Mayans, 14, 07800 Eivissa, Illes Balears, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 8022,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "church",
+        "castle",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "place_of_worship",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 38.9067529,
+      "lng": 1.4366501999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2075056628479478672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.65
+    },
+    {
+      "googlePlaceId": "ChIJc4b7z7AWmRIRM2AzngJ-l-E",
+      "name": "The Boat House",
+      "address": "Carrer Cala Sant Vicent A, 3, 07811 Cala de Sant Vicent, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4584,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "hamburger_restaurant",
+        "brunch_restaurant",
+        "fusion_restaurant",
+        "spanish_restaurant",
+        "sushi_restaurant",
+        "cocktail_bar",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "american_restaurant",
+        "japanese_restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.0752239,
+      "lng": 1.5903834,
+      "googleMapsUri": "https://maps.google.com/?cid=16255599929726296115&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theboathouseibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.57
+    },
+    {
+      "googlePlaceId": "ChIJq0HUUq6ipBIRWM6qGqALmok",
+      "name": "Park Güell",
+      "address": "Gràcia, 08024 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 234048,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.4144948,
+      "lng": 2.1526945,
+      "googleMapsUri": "https://maps.google.com/?cid=9915250311879642712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parkguell.barcelona/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.15
+    },
+    {
+      "googlePlaceId": "ChIJbQKLqmGXagwR8mjuzA0wqVA",
+      "name": "Siam Park",
+      "address": "Av. Siam, s/n, 38660 Costa Adeje, Santa Cruz de Tenerife, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 72326,
+      "priceLevel": null,
+      "primaryType": "water_park",
+      "types": [
+        "water_park",
+        "tourist_attraction",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.072087999999997,
+      "lng": -16.7255852,
+      "googleMapsUri": "https://maps.google.com/?cid=5812229629929220338&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://siampark.net/es/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.08
+    },
+    {
+      "googlePlaceId": "ChIJQXpEGjBHmRIROnZHhEscNeE",
+      "name": "Puerto Fino Ibiza",
+      "address": "Plaça de sa Riba, 4, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1434,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "steak_house",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.908957699999995,
+      "lng": 1.4399802,
+      "googleMapsUri": "https://maps.google.com/?cid=16227907942966851130&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://puertofinoibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.48
+    },
+    {
+      "googlePlaceId": "ChIJzdmhJBqYpBIR83dP63GAFSA",
+      "name": "CosmoCaixa Museum of Science",
+      "address": "Carrer d'Isaac Newton, 26, Sarrià-Sant Gervasi, 08022 Barcelona, Spain",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 47575,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.413180499999996,
+      "lng": 2.131123,
+      "googleMapsUri": "https://maps.google.com/?cid=2311895210492131315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cosmocaixa.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.94
+    },
+    {
+      "googlePlaceId": "ChIJv-yiGoMoQg0Rj1LLgnhKk1o",
+      "name": "Thyssen-Bornemisza National Museum",
+      "address": "P.º del Prado, 8, Centro, 28014 Madrid, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 46954,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.416040599999995,
+      "lng": -3.6949254000000002,
+      "googleMapsUri": "https://maps.google.com/?cid=6526642166440874639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museothyssen.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.9
+    },
+    {
+      "googlePlaceId": "ChIJNeB_691JmRIRtF42ufBc3bo",
+      "name": "Emove Ibiza",
+      "address": "Carrer dels Polls, 10, 07817 Sant Josep de sa Talaia, Illes Balears, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1820,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8949344,
+      "lng": 1.4015905000000002,
+      "googleMapsUri": "https://maps.google.com/?cid=13465020649876905652&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.emoveibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 87
+    },
+    {
+      "googlePlaceId": "ChIJbRBUQ0kUmRIRZM0Zekzh3EY",
+      "name": "Las Dalias de Ibiza",
+      "address": "Carretera, Km. 12, 07850 Sant Carles de Peralta, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 12499,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "parking_lot",
+        "parking",
+        "market",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "transportation_service",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.0284124,
+      "lng": 1.5577136999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5106203796113575268&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lasdalias.es/",
+      "openNow": null,
+      "matchedQueries": [
+        "food halls",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "best parks",
+        "vintage shops",
+        "farmers markets",
+        "flea markets",
+        "game night venues",
+        "trivia nights",
+        "paint and sip",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "outdoor-nature",
+        "shopping-markets",
+        "social-group-activities",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.91
+    },
+    {
+      "googlePlaceId": "ChIJ8ZJZTJRHmRIRoaneRemPE5A",
+      "name": "Restaurante Ohana Ibiza",
+      "address": "carrer camí, 1002, local 11, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2613,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "hawaiian_restaurant",
+        "meal_delivery",
+        "sushi_restaurant",
+        "meal_takeaway",
+        "food_delivery",
+        "american_restaurant",
+        "korean_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8960352,
+      "lng": 1.4144238999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10381799798081497505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ohanaibizarestaurant.com/ibiza/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.88
+    },
+    {
+      "googlePlaceId": "ChIJrxf1VyxEmRIRplqUErzS56Y",
+      "name": "Murphy's Ibiza",
+      "address": "Ctra. de Platja d'en Bossa, 18, 07817 Sant Josep de sa Talaia, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2577,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "night_club",
+        "bar",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8885307,
+      "lng": 1.4072242,
+      "googleMapsUri": "https://maps.google.com/?cid=12026813035123595942&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.murphysibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJiaJoa-FHmRIRY37zzBHqn6Y",
+      "name": "Cremat Beach Ibiza",
+      "address": "Passeig ses Pitiüses, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 2536,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.905220799999995,
+      "lng": 1.4244808,
+      "googleMapsUri": "https://maps.google.com/?cid=12006572493766884963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.crematrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJvQc62ygmQg0Rcb-6WdEUmDA",
+      "name": "Museo Nacional Centro de Arte Reina Sofía",
+      "address": "C. de Sta. Isabel, 52, Centro, 28012 Madrid, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 69841,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 40.4079123,
+      "lng": -3.6945569,
+      "googleMapsUri": "https://maps.google.com/?cid=3501571599666691953&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museoreinasofia.es/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.83
+    },
+    {
+      "googlePlaceId": "ChIJnyIYV2lHmRIRQ6LuTn3sKUQ",
+      "name": "BiBo Park (Ibiza Botánico Biotecnológico)",
+      "address": "Ctra. Eivissa-Sant Antoni, Km 7.5, 07816 Sant Rafel de Forca, Illes Balears, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 788,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "amusement_center",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9646915,
+      "lng": 1.3860952,
+      "googleMapsUri": "https://maps.google.com/?cid=4911716891563565635&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ibizabotanicobiotecnologico.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJB37hZQQ3mRIRRtLqlsoEsLc",
+      "name": "Monkey",
+      "address": "C. de Juan Bosca, 2, bajo, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1618,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "wine_bar",
+        "cocktail_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9841365,
+      "lng": 1.2953706999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13236084573003764294&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.monkeyibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "wine bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.62
+    },
+    {
+      "googlePlaceId": "ChIJQU4s7V_77SoRJBWosiAq5rg",
+      "name": "Into The Island Ibiza Tours",
+      "address": "Avinguda de Santa Eulària des Riu, 1006, 07800 Eivissa, Illes Balears, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 491,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "hiking_area",
+        "adventure_sports_center",
+        "tour_agency",
+        "travel_agency",
+        "sports_complex",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9134697,
+      "lng": 1.4355982999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13323382867546871076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.intotheisland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "sunset hikes",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJkfhnXM1FmRIRmcJYlh7nMb8",
+      "name": "Ushuaïa Ibiza",
+      "address": "Ctra. de Platja d'en Bossa, 10, 07817 Sant Jordi de ses Salines, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 7370,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8854444,
+      "lng": 1.4048859,
+      "googleMapsUri": "https://maps.google.com/?cid=13777046853660492441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theushuaiaexperience.com/en/club/calendar/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "immersive experiences",
+        "sunset date spots",
+        "game night venues",
+        "luxury lounges",
+        "bottle service",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "immersive-experiences",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.51
+    },
+    {
+      "googlePlaceId": "ChIJq1PwZ7tGmRIR2SeKsTFOnAc",
+      "name": "Puig des Molins, Ibiza",
+      "address": "Via Romana, 31, 07800 Eivissa, Illes Balears, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1308,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9071496,
+      "lng": 1.4295111999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=548399229971343321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.maef.eu/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 86.02
+    },
+    {
+      "googlePlaceId": "ChIJ2aPYxbBGmRIR7_FihFqOxR0",
+      "name": "MARINER",
+      "address": "Carrer Lluís Tur i Palau, 22, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1186,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9101043,
+      "lng": 1.4350454,
+      "googleMapsUri": "https://maps.google.com/?cid=2145277316931187183&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.marineribiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJ-QZYi3Q2mRIRc_lCgzzCtfw",
+      "name": "Sa Punta Galera",
+      "address": "Carrer Núm. 3 Punta Galera, 5, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1957,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.004631599999996,
+      "lng": 1.2931396,
+      "googleMapsUri": "https://maps.google.com/?cid=18209674233498499443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJ9a0P3ihHmRIRDzLmwNr68xI",
+      "name": "Cevitxef Ibiza",
+      "address": "Plaça dels Desemparats, 1, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 773,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9078918,
+      "lng": 1.4369067,
+      "googleMapsUri": "https://maps.google.com/?cid=1365710929469518351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cevitxefibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJO5b5XvtHmRIRNpozC9OsJRs",
+      "name": "Ibiza Boat Club",
+      "address": "Carrer de La Punta, 2, 07800 Eivissa, Illes Balears, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 2354,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.896601499999996,
+      "lng": 1.4149403,
+      "googleMapsUri": "https://maps.google.com/?cid=1956159635588356662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ibizaboatclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 85.53
+    },
+    {
+      "googlePlaceId": "ChIJ5YHCumZHmRIR1rCzZj3PwvM",
+      "name": "Bianca & Friends",
+      "address": "Carrer de Cipriano Garijo, 16, 07800 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1215,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9092173,
+      "lng": 1.4395240999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17564829359321362646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://biancayfriends.marketingbel.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJ2YA3v8kVmRIRMErDRZRe3EU",
+      "name": "Ibiza Outdoors & Walking Ibiza",
+      "address": "Correo de postal, Bar Anitas, 07850 Sant Carles de Peralta, Illes Balears, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 326,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.0346474,
+      "lng": 1.5654261999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5034002474411969072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.walkingibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 85.39
+    },
+    {
+      "googlePlaceId": "ChIJfTzqRGlJmRIRFIFZBvurgGM",
+      "name": "Aragma Ibiza",
+      "address": "Calle Madrid 4, Ed El Faro 1G, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 300,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9788895,
+      "lng": 1.2998082,
+      "googleMapsUri": "https://maps.google.com/?cid=7169919701405499668&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aragmaibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJuU9b9ptGmRIRSzufHJaaAB8",
+      "name": "Loveat Eivissa",
+      "address": "Av. Pere Matutes Noguera, 47, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 650,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "mediterranean_restaurant",
+        "pizza_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9009023,
+      "lng": 1.4185333999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=2233955384691735371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.facebook.com/loveatibiza",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 85.14
+    },
+    {
+      "googlePlaceId": "ChIJ2Y-LGuQ3mRIRxmjNakblH8c",
+      "name": "tapas Ibiza",
+      "address": "Camí des Regueró, 4, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 1985,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "mediterranean_restaurant",
+        "tapas_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.9745132,
+      "lng": 1.3123215,
+      "googleMapsUri": "https://maps.google.com/?cid=14348439028428007622&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tapasibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "wine bars",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 85.05
+    },
+    {
+      "googlePlaceId": "ChIJbxzsfbJFmRIRGs8DoSo6i0Y",
+      "name": "Zazú Ibiza",
+      "address": "Carrer del Fumarell, 2, 07817 Ibiza, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2717,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "sushi_restaurant",
+        "cocktail_bar",
+        "night_club",
+        "fusion_restaurant",
+        "bar",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.8873714,
+      "lng": 1.4073681999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5083220559182155546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zazuibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "nightclubs",
+        "jazz clubs",
+        "date night restaurants",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.79
+    },
+    {
+      "googlePlaceId": "ChIJieUQAblJmRIRFO-TwW-UGvI",
+      "name": "Zen Weed Ibiza Club",
+      "address": "Carrer de Cala de Bou, 9, 07829 Sant Josep de sa Talaia, Illes Balears, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 5,
+      "reviewCount": 4862,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "cultural_center",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9684536,
+      "lng": 1.3024225,
+      "googleMapsUri": "https://maps.google.com/?cid=17445419314283015956&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://weedclubibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.78
+    },
+    {
+      "googlePlaceId": "ChIJrbj21J9AmRIRvqUGmdBwd9Y",
+      "name": "Bambuddha Ibiza",
+      "address": "Diseminado P 25 Sta Gertrudis, 1, 07849, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2647,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "asian_restaurant",
+        "mediterranean_restaurant",
+        "fusion_restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.979722699999996,
+      "lng": 1.4661075,
+      "googleMapsUri": "https://maps.google.com/?cid=15453944687568004542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bambuddha.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "date night restaurants",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.71
+    },
+    {
+      "googlePlaceId": "ChIJoYA0MqKipBIRRwJG2R8H8s4",
+      "name": "Casa Vicens Gaudí",
+      "address": "Carrer de les Carolines, 20-26, Gràcia, 08012 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 21636,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.4034978,
+      "lng": 2.1506455,
+      "googleMapsUri": "https://maps.google.com/?cid=14911989149547758151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://casavicens.org/ca/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.61
+    },
+    {
+      "googlePlaceId": "ChIJJZgQ33AVmRIRVs1pVPO5N7k",
+      "name": "Noiam Ibiza",
+      "address": "Carrer de Sant Jaume, 56, 07840 Santa Eulària des Riu, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 528,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "hamburger_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "gastropub",
+        "coffee_shop",
+        "bar",
+        "cafe",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.985120699999996,
+      "lng": 1.5347697,
+      "googleMapsUri": "https://maps.google.com/?cid=13346340475480165718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.noiamibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences",
+        "best cocktail bars",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.55
+    },
+    {
+      "googlePlaceId": "ChIJ_y_4yipJmRIRJREcJK0XEvc",
+      "name": "Float Your Boat Ibiza - Beach Cruises",
+      "address": "Pg. de la Mar, S/N, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3545,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "marina",
+        "tour_agency",
+        "travel_agency",
+        "sports_club",
+        "service",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 38.9792573,
+      "lng": 1.3048541999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17803318309351592229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.floatyourboatibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.54
+    },
+    {
+      "googlePlaceId": "ChIJBUmiFTVBmRIREVzO4Q3XWvQ",
+      "name": "Pacha",
+      "address": "Av. 8 d'Agost, 07800 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 5346,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9182986,
+      "lng": 1.4432497,
+      "googleMapsUri": "https://maps.google.com/?cid=17607622147781319697&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pacha.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "trivia nights",
+        "bottle service",
+        "things to do this weekend",
+        "festivals this weekend",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.5
+    },
+    {
+      "googlePlaceId": "ChIJ6XgfLM1FmRIRk_e13AHRb1M",
+      "name": "The Site Hotel ibiza",
+      "address": "Platja d'en Bossa, 13, 07817 Platja den Bossa, Illes Balears, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6395,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8834011,
+      "lng": 1.4045397,
+      "googleMapsUri": "https://maps.google.com/?cid=6012253833490986899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.blesscollectionhotels.com/es/bless-ibiza-the-site/?partner=10214&utm_source=organic&utm_medium=mybusiness&utm_campaign=EC_ES_tsihib",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.41
+    },
+    {
+      "googlePlaceId": "ChIJVVVVVZU3mRIRustT0PVwoNQ",
+      "name": "Pikes Ibiza",
+      "address": "Camí de Sa Vorera, S/N, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1487,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "bar",
+        "lodging",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9912849,
+      "lng": 1.320158,
+      "googleMapsUri": "https://maps.google.com/?cid=15321370133378878394&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pikesibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "trivia nights",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.18
+    },
+    {
+      "googlePlaceId": "ChIJa3jSebtGmRIRsj_750w95sE",
+      "name": "Blue Marlin Eivissa",
+      "address": "Cala Jondal, s/n, 07800 Eivissa, Illes Balears, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 4383,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8679434,
+      "lng": 1.3176839,
+      "googleMapsUri": "https://maps.google.com/?cid=13971922294482354098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bluemarlinibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "barcades",
+        "sunset date spots",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJU_06astFmRIRiAAeqH3C1rQ",
+      "name": "Nassau Beach Club",
+      "address": "Ctra. de Platja d'en Bossa, s/n, 07817 Platja den Bossa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 2907,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8790877,
+      "lng": 1.4035218999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13030816416790347912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nassaubeachclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "romantic bars",
+        "sunset date spots",
+        "game night venues",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.88
+    },
+    {
+      "googlePlaceId": "ChIJdb3HlkpBmRIRjiz47iNgrlU",
+      "name": "Lío",
+      "address": "Passeig Joan Carles I, 1, 07800 Eivissa, Illes Balears, Spain",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 2900,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.913832899999996,
+      "lng": 1.4431250999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6173977846620892302&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lioibiza.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.87
+    },
+    {
+      "googlePlaceId": "ChIJ1eHQpDpAmRIRGSRHMCciYoc",
+      "name": "Amante Ibiza",
+      "address": "Cala Sol d'en Serra Calle Afueras, s/n, 07849 Cala Llonga, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1738,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "fine_dining_restaurant",
+        "yoga_studio",
+        "fitness_center",
+        "gym",
+        "wedding_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "sports_school",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "health",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.9472813,
+      "lng": 1.5103910999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9755397294546953241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.amanteibiza.com/es",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.52
+    },
+    {
+      "googlePlaceId": "ChIJjWdAtoo7mRIRcu-OCGE2kaU",
+      "name": "Cova de Can Marçà",
+      "address": "Cueva de Can Marsa, Port de Balansat, 07815 Puerto de San Miguel - Ibiza, Illes Balears, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 4830,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.083438,
+      "lng": 1.442341,
+      "googleMapsUri": "https://maps.google.com/?cid=11930376678264467314&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cuevasturisticas.es/cova-de-can-mara",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "sunset hikes",
+        "barcades",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 83.11
+    },
+    {
+      "googlePlaceId": "ChIJY0JededJmRIRVVoeTwERzwI",
+      "name": "O Beach Ibiza",
+      "address": "Carrer des Molí, 12-14, 07820 Ibiza, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 3245,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "association_or_organization",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.9718486,
+      "lng": 1.3065894999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=202399205574990421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.obeachibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "game night venues",
+        "trivia nights",
+        "bottle service",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.09
+    },
+    {
+      "googlePlaceId": "ChIJR13U3rRGmRIRCPMkJtQK9OY",
+      "name": "Calma",
+      "address": "Puerto Deportivo Ibiza Nueva, Paseo Juan Carlos I, s/n, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2752,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.913446,
+      "lng": 1.4425757,
+      "googleMapsUri": "https://maps.google.com/?cid=16641938429330125576&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://calmaibiza.com/es/carta",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.07
+    },
+    {
+      "googlePlaceId": "ChIJIyb3cytPmRIRVNHl9abVxAQ",
+      "name": "Cova Santa",
+      "address": "Ctra. San José, km 7 (desvío Sa Caleta), 07817 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2058,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "night_club",
+        "cocktail_bar",
+        "bar",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.894335000000005,
+      "lng": 1.331512,
+      "googleMapsUri": "https://maps.google.com/?cid=343634384653766996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.covasanta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "bottle service",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.9
+    },
+    {
+      "googlePlaceId": "ChIJVym_jcpGmRIRFvCjB_YOo6U",
+      "name": "La Gaia | Ibiza Gran Hotel",
+      "address": "Passeig Joan Carles I, 17, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 274,
+      "priceLevel": null,
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.917881799999996,
+      "lng": 1.4419724999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11935399887314874390&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lagaiaibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.7
+    },
+    {
+      "googlePlaceId": "ChIJGZ0n4MFMmRIRSrWrC8PGc4w",
+      "name": "Sa Pedrera de Cala d'Hort",
+      "address": "Sant Josep de sa Talaia, 07839, Balearic Islands, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1013,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8725874,
+      "lng": 1.2308647000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10120651328648361290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 82.69
+    },
+    {
+      "googlePlaceId": "ChIJcZQG1QZu5kcR3j0rWmV8tvc",
+      "name": "Virtual Room",
+      "address": "Virtual Room, 35 Bd Richard-Lenoir 11ème, 75011 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3375,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8580099,
+      "lng": 2.3707563,
+      "googleMapsUri": "https://maps.google.com/?cid=17849590947875864030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://paris.virtual-room.com/?utm_source=gmb&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.65
+    },
+    {
+      "googlePlaceId": "ChIJk2qxY8lFmRIRKHTk8rb1cFk",
+      "name": "The Unexpected Ibiza Hotel",
+      "address": "Ctra. de Platja d'en Bossa, 10, 07817 Sant Jordi de ses Salines, Illes Balears, Spain",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.6,
+      "reviewCount": 10510,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.884342499999995,
+      "lng": 1.4050114999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6444921232875090984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theunexpectedhotels.com/en/ibiza?partner=10214&utm_source=organic&utm_medium=mybusiness&utm_campaign=EC_ES_unexho",
+      "openNow": null,
+      "matchedQueries": [
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.57
+    },
+    {
+      "googlePlaceId": "ChIJM7-yVoA9mRIRNxFyO3GhGr0",
+      "name": "Rebrots",
+      "address": "Carrer de s'Arenal Petit, 34, 07810 Portinatx, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1456,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.108081999999996,
+      "lng": 1.5152040999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13626381130263564599&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rebrots.myrestoo.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 82.42
+    },
+    {
+      "googlePlaceId": "ChIJgfBZQrdGmRIRL9y9eINrUfI",
+      "name": "Ibiza Harbour",
+      "address": "Avinguda de Santa Eulària des Riu, 17, 07800 Eivissa, Illes Balears, Spain",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 23853,
+      "priceLevel": null,
+      "primaryType": "marina",
+      "types": [
+        "marina",
+        "tourist_attraction",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9106115,
+      "lng": 1.4376852,
+      "googleMapsUri": "https://maps.google.com/?cid=17460855442702720047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.29
+    },
+    {
+      "googlePlaceId": "ChIJCek3no5JmRIRQc4VSbT3qiY",
+      "name": "Boat Trip Salvador Ibiza",
+      "address": "Avinguda del Doctor Fleming, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1562,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9792401,
+      "lng": 1.3059813,
+      "googleMapsUri": "https://maps.google.com/?cid=2786311673174412865&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://salvadoribiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 82.22
+    },
+    {
+      "googlePlaceId": "ChIJu-hQIAZHmRIRVjgVrUtiV68",
+      "name": "Amnesia Ibiza",
+      "address": "Ctra. Ibiza a San Antonio, Km 5, 07816 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.1,
+      "reviewCount": 3457,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9476661,
+      "lng": 1.4080028,
+      "googleMapsUri": "https://maps.google.com/?cid=12634675356777134166&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amnesia.es/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "immersive experiences",
+        "game night venues",
+        "luxury lounges",
+        "bottle service",
+        "things to do this weekend",
+        "festivals this weekend",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "immersive-experiences",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.17
+    },
+    {
+      "googlePlaceId": "ChIJIy7BvaTgkWcRPDwVjNhG1sY",
+      "name": "HIKE STATION",
+      "address": "Carrer de s'Illa Plana, 9, local 3, 07800 Eivissa, Illes Balears, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 317,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.912026,
+      "lng": 1.4514508,
+      "googleMapsUri": "https://maps.google.com/?cid=14327717160402893884&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ibizahikestation.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 82.06
+    },
+    {
+      "googlePlaceId": "ChIJZcEL-UlJmRIRjkO8wlLK0WY",
+      "name": "Boat Trip - Lady Virginia Ibiza - Excursiones en barco",
+      "address": "Pg. de la Mar, s/n, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1439,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9792159,
+      "lng": 1.3060232,
+      "googleMapsUri": "https://maps.google.com/?cid=7408925318804423566&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ladyvirginiaibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 81.99
+    },
+    {
+      "googlePlaceId": "ChIJTXlCLdEoQg0RPDEcLaPcHx8",
+      "name": "Zero Latency",
+      "address": "C. de Londres, 25, Salamanca, 28028 Madrid, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 3807,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.431623699999996,
+      "lng": -3.6684618,
+      "googleMapsUri": "https://maps.google.com/?cid=2242753732848398652&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://meetspacevr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 81.89
+    },
+    {
+      "googlePlaceId": "ChIJT5iIeLBGmRIRa8oZ-Mbkb0E",
+      "name": "S'Escalinata",
+      "address": "Carrer Portal Nou, 10, 07800 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1651,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9079666,
+      "lng": 1.4339233,
+      "googleMapsUri": "https://maps.google.com/?cid=4715238878097295979&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "barcades",
+        "romantic bars",
+        "wine bars",
+        "game bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "sports-recreation",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.88
+    },
+    {
+      "googlePlaceId": "ChIJ4XY6_CBHmRIRTgIFqjwSGs8",
+      "name": "PINA BAR IBIZA",
+      "address": "C. d'Astúries, 2, 07800 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 5,
+      "reviewCount": 297,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.905473099999995,
+      "lng": 1.4231371,
+      "googleMapsUri": "https://maps.google.com/?cid=14923260367005352526&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pina-bar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 81.88
+    },
+    {
+      "googlePlaceId": "ChIJtX7yxLNGmRIRmk_bQWctykI",
+      "name": "The Rock Bar Ibiza",
+      "address": "Carrer de Cipriano Garijo, 14, 07800 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 746,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "atm",
+        "cocktail_bar",
+        "hookah_bar",
+        "lounge_bar",
+        "night_club",
+        "wholesaler",
+        "finance",
+        "manufacturer",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.909253,
+      "lng": 1.4393479999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4812709073308569498&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/therockbaribiza",
+      "openNow": null,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "nightclubs",
+        "game night venues",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 81.83
+    },
+    {
+      "googlePlaceId": "ChIJmd95SJQ3Yg0RRe5G9eCidoA",
+      "name": "Virtual Zone Alicante",
+      "address": "Placa de los Luceros, 17, Planta 1, 03004 Alacant, Alicante, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2508,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "video_arcade",
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.3465014,
+      "lng": -0.49034779999999994,
+      "googleMapsUri": "https://maps.google.com/?cid=9256765171178073669&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://virtualzonevr.com/centros/alicante",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 81.81
+    },
+    {
+      "googlePlaceId": "ChIJrQ1P75lLmRIR1XSV4BUJmEE",
+      "name": "Ibiza Buggy Adventure",
+      "address": "Avinguda del Doctor Fleming, 15, 07820 Ibiza, Illes Balears, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 251,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9776721,
+      "lng": 1.3078307999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4726537798492189909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ibizabuggyadventure.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "kids activities",
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 81.8
+    },
+    {
+      "googlePlaceId": "ChIJBVwbj6OplxIRhOf4-duR1yM",
+      "name": "Experimental Beach Ibiza",
+      "address": "Camino Cap des Falco, 4856, 07818 Ibiza, Illes Balears, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.2,
+      "reviewCount": 1973,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "cocktail_bar",
+        "tapas_restaurant",
+        "night_club",
+        "bar",
+        "spanish_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.851816899999996,
+      "lng": 1.3676533,
+      "googleMapsUri": "https://maps.google.com/?cid=2582693285297973124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.experimentalbeachibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots",
+        "trivia nights",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 81.68
+    },
+    {
+      "googlePlaceId": "ChIJgaLIbM2TlxIRietGX8VaCBI",
+      "name": "Realidad Virtual Another World Mallorca",
+      "address": "Centro comercial Ocimax, Carrer del Bisbe Pere de Puigdorfila, 1, Planta 0, Nord, 07010 Palma, Illes Balears, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1555,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "tourist_attraction",
+        "video_arcade",
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "health",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.5952029,
+      "lng": 2.648476,
+      "googleMapsUri": "https://maps.google.com/?cid=1299388296249928585&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://vr-arena.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 81.56
+    },
+    {
+      "googlePlaceId": "ChIJcxI9HchKmRIRiaBk-KCsGwA",
+      "name": "Cala Bassa beach Club",
+      "address": "Camí de la Bassa, 07829, Illes Balears, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 7425,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "bar_and_grill",
+        "tourist_attraction",
+        "fast_food_restaurant",
+        "sushi_restaurant",
+        "cafeteria",
+        "japanese_restaurant",
+        "bar",
+        "fusion_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9680706,
+      "lng": 1.239202,
+      "googleMapsUri": "https://maps.google.com/?cid=7789631733276809&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cbbcgroup.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "skating rinks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "romantic-date-night"
+      ],
+      "popularityScore": 81.53
+    },
+    {
+      "googlePlaceId": "ChIJCTXpjgc2mRIRrQyYP3s8CqU",
+      "name": "Aquarium Cap Blanc",
+      "address": "Ctra. de Cala Gració, s/n, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 2153,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9892785,
+      "lng": 1.2895037,
+      "googleMapsUri": "https://maps.google.com/?cid=11892384266070789293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aquariumcapblanc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 81.53
+    },
+    {
+      "googlePlaceId": "ChIJ8Uq2krBGmRIR8ikpPnu4ftA",
+      "name": "Teatro Pereyra Ibiza",
+      "address": "C. del Comte de Rosselló, 3, 07800 Eivissa, Illes Balears, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 839,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "brunch_restaurant",
+        "cultural_center",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "live_music_venue",
+        "bar",
+        "cafe",
+        "event_venue",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.9091181,
+      "lng": 1.4350341,
+      "googleMapsUri": "https://maps.google.com/?cid=15023648246417926642&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://teatropereyraibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "cultural centers",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "adult-after-dark"
+      ],
+      "popularityScore": 81.46
+    },
+    {
+      "googlePlaceId": "ChIJx4yc37NGmRIR-7Amdr80rz8",
+      "name": "Number5 IBIZA",
+      "address": "Carrer de Cipriano Garijo, 5, 07800 Eivissa, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 560,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "hookah_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.909440499999995,
+      "lng": 1.4387733999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4588944542239469819&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.number5ibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "game bars",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 81.42
+    },
+    {
+      "googlePlaceId": "ChIJPyjoZj1AmRIReswjuVVmMzY",
+      "name": "CasaPiedra",
+      "address": "Ctra. Cala Llonga, 42, 07849 Cala Llonga, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1010,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "fusion_restaurant",
+      "types": [
+        "fusion_restaurant",
+        "mediterranean_restaurant",
+        "sushi_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9565645,
+      "lng": 1.5097827,
+      "googleMapsUri": "https://maps.google.com/?cid=3905577820224736378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.casapiedraibiza.com/restaurante",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.39
+    },
+    {
+      "googlePlaceId": "ChIJGay6pFqjpBIRGcXCXgytarc",
+      "name": "Virtua",
+      "address": "Carrer de Viladomat, 95, Eixample, 08015 Barcelona, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2080,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.379055,
+      "lng": 2.157896,
+      "googleMapsUri": "https://maps.google.com/?cid=13216566325113177369&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.virtuabarcelona.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 81.28
+    },
+    {
+      "googlePlaceId": "ChIJtfLIa5lHmRIRqf29nx9iKIg",
+      "name": "[UNVRS]",
+      "address": "Urbanización San Rafael, s/n, 07816 Sant Rafel de Forca, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 1709,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9577013,
+      "lng": 1.4077946,
+      "googleMapsUri": "https://maps.google.com/?cid=9811199676190162345&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://unvrs.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "immersive experiences",
+        "VR experiences",
+        "game night venues",
+        "bottle service",
+        "festivals this weekend",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 81.27
+    },
+    {
+      "googlePlaceId": "ChIJWRz4itVFmRIRtNvLPnBHaCM",
+      "name": "Ibiza Weed Club",
+      "address": "Carrer dels Polls, 2, 07817 Sant Josep de sa Talaia, Illes Balears, Spain",
+      "category": "adult-after-dark",
+      "categoryLabel": "Adult / After-Dark Experiences",
+      "rating": 4.9,
+      "reviewCount": 2021,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "association_or_organization",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 38.89572080000001,
+      "lng": 1.4013423,
+      "googleMapsUri": "https://maps.google.com/?cid=2551367736320842676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ibizaweedclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "adult-after-dark"
+      ],
+      "popularityScore": 81.2
+    },
+    {
+      "googlePlaceId": "ChIJKel3dqNJmRIRY7NiZBZXmbw",
+      "name": "Ibiza Jet Ski Beach - Ibiza Tour y Excursiones",
+      "address": "Pg. de la Mar, s/n, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1979,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "tour_agency",
+        "travel_agency",
+        "sports_complex",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9792037,
+      "lng": 1.3060228,
+      "googleMapsUri": "https://maps.google.com/?cid=13589989104252269411&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ibizajetskibeach.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 81.14
+    },
+    {
+      "googlePlaceId": "ChIJLz70IaNGmRIRRdYybxmo20g",
+      "name": "Little Ibiza Restaurant and Bar",
+      "address": "Passeig ses Pitiüses, 7, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1050,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.905,
+      "lng": 1.4261111,
+      "googleMapsUri": "https://maps.google.com/?cid=5249974617823696453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/littleibizarestaurant/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 81.05
+    },
+    {
+      "googlePlaceId": "ChIJk445V4ApQg0RPU0P-NKITSE",
+      "name": "Virtual Zone Madrid",
+      "address": "Pl. de Carlos Trías Bertrán, 3, Planta 1, Tetuán, 28020 Madrid, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 2756,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.451491399999995,
+      "lng": -3.6943452000000003,
+      "googleMapsUri": "https://maps.google.com/?cid=2399724616144604477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://virtualzonevr.com/centros/madrid",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 80.98
+    },
+    {
+      "googlePlaceId": "ChIJDZL1Kzpz5kcRuDSgcQufSOc",
+      "name": "The EDGE - Beyond Virtual Experience",
+      "address": "60 Rue Notre Dame de Nazareth, 75003 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1251,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.867674799999996,
+      "lng": 2.3572140999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16665745292584301752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theedge-vr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 80.94
+    },
+    {
+      "googlePlaceId": "ChIJv82POuBJmRIR9q3BHjp5uDI",
+      "name": "Flahertys Irish Bar Ibiza",
+      "address": "Avinguda del Doctor Fleming, 3, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 1380,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "irish_pub",
+      "types": [
+        "irish_pub",
+        "sports_bar",
+        "pub",
+        "live_music_venue",
+        "bar",
+        "irish_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.979604599999995,
+      "lng": 1.3065025,
+      "googleMapsUri": "https://maps.google.com/?cid=3654804388142231030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pflaherty.com/index.php/ibiza/",
+      "openNow": true,
+      "matchedQueries": [
+        "barcades",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 80.72
+    },
+    {
+      "googlePlaceId": "ChIJDZnzjspGmRIRfdtQR6Ghi4w",
+      "name": "Ibiza Gran Hotel",
+      "address": "Passeig Joan Carles I, 17, 07800 Eivissa, Illes Balears, Spain",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.7,
+      "reviewCount": 1179,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9178244,
+      "lng": 1.4419568999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10127365901130980221&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ibizagranhotel.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "best spas",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 80.72
+    },
+    {
+      "googlePlaceId": "ChIJC4O1l9IVmRIRRpdL2diXXU8",
+      "name": "Esbirra Ibiza",
+      "address": "Avinguda Punta Arabí, 228, 07849 Es Canar, Illes Balears, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 543,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "concert_hall",
+        "auditorium",
+        "coffee_shop",
+        "brewpub",
+        "live_music_venue",
+        "banquet_hall",
+        "cafe",
+        "pub",
+        "night_club",
+        "event_venue",
+        "bar",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 38.994870999999996,
+      "lng": 1.5773457,
+      "googleMapsUri": "https://maps.google.com/?cid=5718894059444737862&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.esbirraibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "barcades",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 80.68
+    },
+    {
+      "googlePlaceId": "ChIJV9zdNitEmRIRlwxcfS_UlUU",
+      "name": "Gran Piruleto Park Ibiza",
+      "address": "Carrer de les Begònies, 31, 07817 Sant Josep de sa Talaia, Illes Balears, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 627,
+      "priceLevel": null,
+      "primaryType": "playground",
+      "types": [
+        "playground",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8911994,
+      "lng": 1.4052135000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5014147060578651287&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.granpiruletoparkibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 80.64
+    },
+    {
+      "googlePlaceId": "ChIJ31Kl15tGmRIRqxp4OlCy6is",
+      "name": "Oceanbeat Ibiza boat party",
+      "address": "Ibiza, Spanien, Carrer de La Punta, 5, Paseo, 07800 Eivissa, Illes Balears, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 1926,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8970704,
+      "lng": 1.4144519,
+      "googleMapsUri": "https://maps.google.com/?cid=3164537745829272235&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://oceanbeat.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 80.61
+    },
+    {
+      "googlePlaceId": "ChIJP94DnwM2mRIRrVh4XG9s8eA",
+      "name": "Bamboo",
+      "address": "Carrer Ponent, 10, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 417,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "pub",
+        "lounge_bar",
+        "cafe",
+        "bar",
+        "night_club",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9844672,
+      "lng": 1.2961961,
+      "googleMapsUri": "https://maps.google.com/?cid=16208855759431686317&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bamboobaribiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "romantic bars",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 80.59
+    },
+    {
+      "googlePlaceId": "ChIJqTPRsNJFmRIRhYJOnqWmDhw",
+      "name": "Grand Palladium Select Palace Ibiza - All Inclusive",
+      "address": "Ctra. de Platja d'en Bossa, s/n, 07817 Platja den Bossa, Illes Balears, Spain",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.6,
+      "reviewCount": 5142,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8769993,
+      "lng": 1.4000024000000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2021736512991691397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.palladiumhotelgroup.com/es/hoteles/espana/ibiza/ibiza-playabossa/grand-palladium-select-palace-ibiza?partner=10214&utm_source=organic&utm_medium=mybusiness&utm_campaign=EC_ES_palaceibiza",
+      "openNow": null,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 80.54
+    },
+    {
+      "googlePlaceId": "ChIJJXnoIrdFmRIRO_Vyhu-t3aA",
+      "name": "Friends Kitchen Ibiza",
+      "address": "Carrer de la Murtra, 2, 07817 Sant Josep de sa Talaia, Illes Balears, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 1271,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "video_arcade",
+        "playground",
+        "hamburger_restaurant",
+        "american_restaurant",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8919429,
+      "lng": 1.4081298,
+      "googleMapsUri": "https://maps.google.com/?cid=11591612260185994555&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.friendskitchenibiza.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 80.49
+    },
+    {
+      "googlePlaceId": "ChIJReA9dYo7mRIRB4pO7ATEMpA",
+      "name": "Hacienda Na Xamena, Ibiza",
+      "address": "Carrer na Xamena, sn, 07815 Ibiza, Illes Balears, Spain",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.4,
+      "reviewCount": 568,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "extended_stay_hotel",
+        "hotel",
+        "spa",
+        "lodging",
+        "health",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.078969699999995,
+      "lng": 1.4204444999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10390582815720638983&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.haciendanaxamena-ibiza.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences",
+        "family friendly things to do",
+        "sunset date spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation",
+        "family-kids",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 80.36
+    },
+    {
+      "googlePlaceId": "ChIJm3yDhLFGmRIRcajAh4G1vgc",
+      "name": "SA COVA - Old Town - Ibiza",
+      "address": "Carrer Santa Llúcia, 5, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 479,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "french_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9085489,
+      "lng": 1.4377160999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=558082971773479025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bistrosacova.es/old-town/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 80.33
+    },
+    {
+      "googlePlaceId": "ChIJe0gUu40UmRIRglLLXc6GB7g",
+      "name": "Aiyanna Ibiza",
+      "address": "Playa de, Av. Cala Nova, 07850 Eivissa, Illes Balears, Spain",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.5,
+      "reviewCount": 2182,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.0099509,
+      "lng": 1.5822277999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13260715848710705794&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aiyannaibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 80.27
+    },
+    {
+      "googlePlaceId": "ChIJXzeLTjI9mRIRLMvwqb0R4Bw",
+      "name": "Six Senses Ibiza",
+      "address": "Carrer Camí de sa Torre, 71, 07810 Portinatx, Illes Balears, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 798,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "spa",
+        "lodging",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.1104479,
+      "lng": 1.5087857,
+      "googleMapsUri": "https://maps.google.com/?cid=2080682534142790444&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sixsenses.com/en/hotels-resorts/europe/spain/ibiza/",
+      "openNow": null,
+      "matchedQueries": [
+        "immersive experiences",
+        "best spas",
+        "sound baths",
+        "family friendly things to do",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "wellness-relaxation",
+        "family-kids",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 80.22
+    },
+    {
+      "googlePlaceId": "ChIJURozJNwUmRIRz8kTy8JjTtU",
+      "name": "acrobosc",
+      "address": "Sin reserva,no booking,Salida definitiva, park exit is definitive, Solo efectivo,cash only, No perros, no dogs, Carr. s'Argamassa, 77, 07849 Santa Eulària des Riu, Illes Balears, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 164,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.994501400000004,
+      "lng": 1.5629404,
+      "googleMapsUri": "https://maps.google.com/?cid=15370332266543958479&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://acroboscibiza.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "arcades",
+        "skating rinks",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 80.15
+    },
+    {
+      "googlePlaceId": "ChIJ5xOF6fGipBIREVqhYxW5kKY",
+      "name": "Bobby's Free",
+      "address": "Carrer de Pau Claris, 85, Eixample, 08010 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 4346,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.389853599999995,
+      "lng": 2.1706685,
+      "googleMapsUri": "https://maps.google.com/?cid=12002296508459342353&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bobbysfree.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife"
+      ],
+      "popularityScore": 80.07
+    },
+    {
+      "googlePlaceId": "ChIJ43GG8tFHmRIRh4Z2eqvUkkU",
+      "name": "The Skinny Kitchen",
+      "address": "Passeig ses Pitiüses, 16, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 931,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9054843,
+      "lng": 1.4240884,
+      "googleMapsUri": "https://maps.google.com/?cid=5013303168175867527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theskinnykitchen.co.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 80.06
+    },
+    {
+      "googlePlaceId": "ChIJgyhFiKJHmRIR7B_kxsrGUBs",
+      "name": "Callas Ibiza Restaurante",
+      "address": "Carrer de la Mare de Déu, 48, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 295,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9089898,
+      "lng": 1.4396205,
+      "googleMapsUri": "https://maps.google.com/?cid=1968291611383439340&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/callas_ibiza?igsh=MW10HZvd3pwajV4Yg%3D%3D&ut-m_source=qr",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 80.06
+    },
+    {
+      "googlePlaceId": "ChIJDTHUUc1FmRIRq2wP7bvzi-o",
+      "name": "Hï Ibiza",
+      "address": "Platja d'en Bossa, 07817, Illes Balears, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 3.7,
+      "reviewCount": 7423,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8857636,
+      "lng": 1.4041367999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16900870015099563179&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hiibiza.com/?utm_source=googlemybusiness&utm_medium=organic&utm_campaign=gmblisting&utm_content=hi_ibiza_bio",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "immersive experiences",
+        "game night venues",
+        "luxury lounges",
+        "bottle service",
+        "things to do this weekend",
+        "festivals this weekend",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "immersive-experiences",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 79.93
+    },
+    {
+      "googlePlaceId": "ChIJj-htX7VHmRIRWQsLePosINg",
+      "name": "The Ibiza Private Chef",
+      "address": "Camí Vell de Sant Mateu, 8, bajos, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 82,
+      "priceLevel": null,
+      "primaryType": "catering_service",
+      "types": [
+        "catering_service",
+        "food_delivery",
+        "service",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9229847,
+      "lng": 1.4296453,
+      "googleMapsUri": "https://maps.google.com/?cid=15573496965714611033&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theibizaprivatechef.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "private dining rooms",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 79.76
+    },
+    {
+      "googlePlaceId": "ChIJ76wAVAlJmRIR8Xzsr1-mpJM",
+      "name": "A Day in Paradise",
+      "address": "Pg. de la Mar, 07820 Sant Antoni de Portmany, Illes Balears, Spain",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.9,
+      "reviewCount": 378,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.97922750000001,
+      "lng": 1.3045805,
+      "googleMapsUri": "https://maps.google.com/?cid=10638811149659569393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://adayinparadise.global/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 79.71
+    },
+    {
+      "googlePlaceId": "ChIJbRBUQ0kUmRIRBwb0t0_8sPg",
+      "name": "Bar Anita",
+      "address": "Lugar Barri San Carlos, s/n, Islas, Calle Venda de Peralta, 21, 07850 Sant Carles de Peralta, Illes Balears, Spain",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 5605,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.0346161,
+      "lng": 1.5655428000000002,
+      "googleMapsUri": "https://maps.google.com/?cid=17920100336626042375&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://baranitaibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 79.69
+    },
+    {
+      "googlePlaceId": "ChIJo-UHx_gVmRIRQhvGxHhRXkE",
+      "name": "Palm Ibiza",
+      "address": "Hostal La Bohemia del Río, Carrer del Sol, 9, 07840 Santa Eulària des Riu, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 131,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9846851,
+      "lng": 1.5320707999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4710291839415360322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://palmibiza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 79.57
+    },
+    {
+      "googlePlaceId": "ChIJ_T0HBCdHmRIRyCe5Dj_Wu1I",
+      "name": "Namaste Ibiza Restaurante",
+      "address": "Passatge de Castaví, 1, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 594,
+      "priceLevel": null,
+      "primaryType": "indian_restaurant",
+      "types": [
+        "indian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.909875899999996,
+      "lng": 1.4285094,
+      "googleMapsUri": "https://maps.google.com/?cid=5961594098073282504&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 79.49
+    },
+    {
+      "googlePlaceId": "ChIJ85ZGMmVHmRIR43BxHNFp5sc",
+      "name": "Ibiza Food Tours",
+      "address": "Carrer Lluís Tur i Palau, 07800 Eivissa, Illes Balears, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 39,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9103553,
+      "lng": 1.4354996,
+      "googleMapsUri": "https://maps.google.com/?cid=14404316805037388003&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ibizafoodtours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "immersive experiences",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 79.44
+    }
+  ]
+}

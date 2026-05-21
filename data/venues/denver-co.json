@@ -1,0 +1,3581 @@
+{
+  "location": "Denver, CO",
+  "generatedAt": "2026-05-17T19:29:03.163Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ18hsDtqCa4cRrdYsOQfng3w",
+      "name": "Red Rocks Park and Amphitheatre",
+      "address": "18300 W Alameda Pkwy, Morrison, CO 80465, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 64014,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.6655381,
+      "lng": -105.2052116,
+      "googleMapsUri": "https://maps.google.com/?cid=8972268900862187181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.redrocksonline.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "cultural centers",
+        "sunset hikes",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 102.9
+    },
+    {
+      "googlePlaceId": "ChIJ0T6BO7h-bIcRGm7RHsvfG0A",
+      "name": "Denver Botanic Gardens",
+      "address": "1007 York St, Denver, CO 80206, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 18089,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "art_gallery",
+        "wedding_venue",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.732096399999996,
+      "lng": -104.9612839,
+      "googleMapsUri": "https://maps.google.com/?cid=4619531906286972442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.botanicgardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.8
+    },
+    {
+      "googlePlaceId": "ChIJk9YPNLlQE4cRqLkLNe_-zIk",
+      "name": "Cave of the Winds Mountain Park",
+      "address": "100 Cave of the Winds Rd, Manitou Springs, CO 80829, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 18077,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8725916,
+      "lng": -104.9201269,
+      "googleMapsUri": "https://maps.google.com/?cid=9929591581785700776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://caveofthewinds.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 97.8
+    },
+    {
+      "googlePlaceId": "ChIJI3SnU1F5bIcREWJ08vMIP80",
+      "name": "Denver Museum of Nature & Science",
+      "address": "2001 Colorado Blvd, Denver, CO 80205, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 17998,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7475261,
+      "lng": -104.9428078,
+      "googleMapsUri": "https://maps.google.com/?cid=14789549545145786897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dmns.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.69
+    },
+    {
+      "googlePlaceId": "ChIJcY8lIE55bIcRKWyHPdIO_VM",
+      "name": "Denver Zoo",
+      "address": "2300 Steele St, Denver, CO 80205, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 31479,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "historical_landmark",
+        "non_profit_organization",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 39.7495961,
+      "lng": -104.95085189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6052009770394020905&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://denverzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.61
+    },
+    {
+      "googlePlaceId": "ChIJ6QNZReR5aYcRF4KOp0PuJ_o",
+      "name": "Rocky Mountain National Park",
+      "address": "Colorado, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.9,
+      "reviewCount": 27292,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.342793199999996,
+      "lng": -105.68363889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18025638007915053591&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/romo/index.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.2
+    },
+    {
+      "googlePlaceId": "ChIJ4dKpXeZ5bIcRhTtG7eztzw0",
+      "name": "Let's Roam",
+      "address": "1801 California St #2400, Denver, CO 80202, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 9395,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7474887,
+      "lng": -104.9898716,
+      "googleMapsUri": "https://maps.google.com/?cid=995275644521036677&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.letsroam.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "things to do this weekend",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.63
+    },
+    {
+      "googlePlaceId": "ChIJrY3Kkih5bIcRrc8NGVd5KQk",
+      "name": "Meow Wolf Denver's Convergence Station",
+      "address": "1338 1st St, Denver, CO 80204, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 17784,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "amusement_center",
+        "museum",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7408092,
+      "lng": -105.01565389999999,
+      "googleMapsUri": "https://maps.google.com/?cid=660192235375939501&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://meowwolf.com/visit/denver?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.45
+    },
+    {
+      "googlePlaceId": "ChIJW-JPBdF4bIcRsVLMVFuXFRo",
+      "name": "Corinne Denver",
+      "address": "1455 California St, Denver, CO 80202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 6128,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7440679,
+      "lng": -104.9938237,
+      "googleMapsUri": "https://maps.google.com/?cid=1879574838017544881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.corinnedenver.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 94.38
+    },
+    {
+      "googlePlaceId": "ChIJd3toZrh4bIcRhnfUNzcn7Hs",
+      "name": "Ball Arena",
+      "address": "1000 Chopper Cir, Denver, CO 80204, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 16512,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "stadium",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7486519,
+      "lng": -105.0075988,
+      "googleMapsUri": "https://maps.google.com/?cid=8929555279282206598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ballarena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.81
+    },
+    {
+      "googlePlaceId": "ChIJTySmYdh_bIcR8DukwXnd9ms",
+      "name": "Immersive Gamebox - 9+CO Denver",
+      "address": "825 Albion St, Denver, CO 80220, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3306,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7297635,
+      "lng": -104.9396421,
+      "googleMapsUri": "https://maps.google.com/?cid=7779648921338657776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/dco-denver-colorado/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.53
+    },
+    {
+      "googlePlaceId": "ChIJcdjZe9F4bIcRz8NXr1DPDlg",
+      "name": "Colorado Convention Center",
+      "address": "700 14th St, Denver, CO 80202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 12544,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.743135699999996,
+      "lng": -104.99555699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6345236870457705423&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://denverconvention.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.35
+    },
+    {
+      "googlePlaceId": "ChIJFaqhMyt_bIcRMfeTGF4E8kM",
+      "name": "Denver Art Museum",
+      "address": "100 W 14th Ave Pkwy, Denver, CO 80204, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 16162,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7371878,
+      "lng": -104.9893451,
+      "googleMapsUri": "https://maps.google.com/?cid=4895980547090937649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.denverartmuseum.org/en",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.1
+    },
+    {
+      "googlePlaceId": "ChIJ1YNrYr54bIcRZkKIcfIJiU8",
+      "name": "Downtown Aquarium",
+      "address": "700 Water St, Denver, CO 80211, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 22558,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "water_park",
+        "family_restaurant",
+        "amusement_park",
+        "association_or_organization",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.751848599999995,
+      "lng": -105.01401129999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5731122937697157734&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.downtownaquarium.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93
+    },
+    {
+      "googlePlaceId": "ChIJEUo-bo9jbIcRmEr7OZlVV6I",
+      "name": "Ka-Ko Jo's",
+      "address": "14200 E Alameda Ave Unit 1026, Aurora, CO 80012, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4853,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7082577,
+      "lng": -104.82320899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11697912673709279896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kakojos.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.99
+    },
+    {
+      "googlePlaceId": "ChIJiRWO19V5bIcRwghXclCcVxk",
+      "name": "Museum of Illusions",
+      "address": "951 16th St Mall, Denver, CO 80202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 7175,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7472159,
+      "lng": -104.99451409999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1826100043251648706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moidenver.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.68
+    },
+    {
+      "googlePlaceId": "ChIJC4cKadd4bIcRgbLBZ79ZiP8",
+      "name": "Guard and Grace",
+      "address": "1801 California St, Denver, CO 80202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4422,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "american_restaurant",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7475338,
+      "lng": -104.9895298,
+      "googleMapsUri": "https://maps.google.com/?cid=18413065755118645889&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.guardandgrace.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.25
+    },
+    {
+      "googlePlaceId": "ChIJJScW7h95bIcRje8-s9qYG4M",
+      "name": "The Denver Central Market",
+      "address": "2669 Larimer St, Denver, CO 80205, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 5977,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "pizza_restaurant",
+        "ice_cream_shop",
+        "sandwich_shop",
+        "tourist_attraction",
+        "food_court",
+        "coffee_shop",
+        "cafe",
+        "bakery",
+        "chocolate_shop",
+        "dessert_shop",
+        "candy_store",
+        "confectionery",
+        "bar",
+        "food_store",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.759360799999996,
+      "lng": -104.9846129,
+      "googleMapsUri": "https://maps.google.com/?cid=9447312708417286029&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://denvercentralmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "viral-eats"
+      ],
+      "popularityScore": 91.45
+    },
+    {
+      "googlePlaceId": "ChIJW-JPBdF4bIcRPRTSYvAOiEo",
+      "name": "54thirty Rooftop",
+      "address": "1475 California St, Denver, CO 80202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 3357,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7442539,
+      "lng": -104.993871,
+      "googleMapsUri": "https://maps.google.com/?cid=5370558981252191293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.54thirty.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "sunset hikes",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "game night venues",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "bottle service",
+        "adult nightlife",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "outdoor-nature",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.38
+    },
+    {
+      "googlePlaceId": "ChIJYaB0fWJ7bIcR6Z_x_JznycU",
+      "name": "Stanley Marketplace",
+      "address": "2501 Dallas St, Aurora, CO 80010, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 7929,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "shopping_mall",
+        "food_court",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.752862,
+      "lng": -104.87692100000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14252177157235253225&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stanleymarketplace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.25
+    },
+    {
+      "googlePlaceId": "ChIJd8jaltR-bIcRrftppzqiBeY",
+      "name": "Molly Brown House Museum",
+      "address": "1340 Pennsylvania St, Denver, CO 80203, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2873,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7374933,
+      "lng": -104.9807338,
+      "googleMapsUri": "https://maps.google.com/?cid=16574832376407522221&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mollybrown.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.89
+    },
+    {
+      "googlePlaceId": "ChIJJdKXyUKHa4cRPs7rfBrtZsI",
+      "name": "Sloan's Lake Park",
+      "address": "1700 N Sheridan Blvd, Denver, CO 80212, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6374,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.744568799999996,
+      "lng": -105.0454817,
+      "googleMapsUri": "https://maps.google.com/?cid=14008144389003267646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.denvergov.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.8
+    },
+    {
+      "googlePlaceId": "ChIJF4sShZR4bIcRZCQ8ZRvoh_c",
+      "name": "Linger",
+      "address": "2030 W 30th Ave, Denver, CO 80211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5539,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7595235,
+      "lng": -105.011411,
+      "googleMapsUri": "https://maps.google.com/?cid=17836480053584340068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ediblebeats.com/restaurants/linger/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.76
+    },
+    {
+      "googlePlaceId": "ChIJVyXXEMZ5bIcRqDchuk7T-Ic",
+      "name": "Beat The Bomb Denver",
+      "address": "3863 Steele St Unit 1273, Denver, CO 80205, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 966,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "indoor_playground",
+        "playground",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.770286,
+      "lng": -104.9573944,
+      "googleMapsUri": "https://maps.google.com/?cid=9797813324428162984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.beatthebomb.com/locations/denver",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.74
+    },
+    {
+      "googlePlaceId": "ChIJk6vByq9cE4cRTnc2pVsc0ZE",
+      "name": "Cheyenne Mountain Zoo",
+      "address": "4250 Cheyenne Mountain Zoo Rd, Colorado Springs, CO 80906, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 24786,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7703872,
+      "lng": -104.8548688,
+      "googleMapsUri": "https://maps.google.com/?cid=10507210585571489614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cmzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.55
+    },
+    {
+      "googlePlaceId": "ChIJ7Thv9ex4bIcRCDoTtC3kIy0",
+      "name": "Avanti Food & Beverage",
+      "address": "3200 N Pecos St, Denver, CO 80211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5026,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.762226399999996,
+      "lng": -105.0062466,
+      "googleMapsUri": "https://maps.google.com/?cid=3252694240837450248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.avantifandb.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "rooftop bars",
+        "interactive pop ups",
+        "viral food spots",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "immersive-experiences",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.45
+    },
+    {
+      "googlePlaceId": "ChIJNzlf3X95bIcRFeU_G_4p1rc",
+      "name": "The Mission Ballroom",
+      "address": "4242 Wynkoop St, Denver, CO 80216, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 6946,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.776204,
+      "lng": -104.969168,
+      "googleMapsUri": "https://maps.google.com/?cid=13246821525312496917&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.missionballroom.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJRzXpZbN_bIcRG7s51gIaATo",
+      "name": "Spectra Art Space",
+      "address": "1836 S Broadway, Denver, CO 80210, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 1993,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "event_venue",
+        "educational_institution",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.683227200000005,
+      "lng": -104.9872836,
+      "googleMapsUri": "https://maps.google.com/?cid=4179650528662895387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spectraartspace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJ8xSPRtx4bIcRjRU0wgaF2gE",
+      "name": "Viewhouse Ballpark",
+      "address": "2015 Market St, Denver, CO 80205, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 10364,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7540756,
+      "lng": -104.99330979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=133565403035342221&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.viewhouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.89
+    },
+    {
+      "googlePlaceId": "ChIJedEujDV5bIcRB1SGOdPEoqY",
+      "name": "Tom's Watch Bar - Coors Field",
+      "address": "1601 19th St Unit 100, Denver, CO 80202, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 8062,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "bar",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7544854,
+      "lng": -104.9967483,
+      "googleMapsUri": "https://maps.google.com/?cid=12007375968005411847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tomswatchbar.com/denver-coors-field/",
+      "openNow": true,
+      "matchedQueries": [
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 89.85
+    },
+    {
+      "googlePlaceId": "ChIJFYTr3bR6bIcRDFQWHjk0Jw8",
+      "name": "Rocky Mountain Arsenal National Wildlife Refuge",
+      "address": "6550 Gateway Rd, Commerce City, CO 80022, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5583,
+      "priceLevel": null,
+      "primaryType": "wildlife_refuge",
+      "types": [
+        "wildlife_refuge",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.838417,
+      "lng": -104.8485687,
+      "googleMapsUri": "https://maps.google.com/?cid=1091898854583194636&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fws.gov/refuge/rocky_mountain_arsenal/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 89.74
+    },
+    {
+      "googlePlaceId": "ChIJv6fqK854bIcREz-R0Panwd4",
+      "name": "Temple Hoyne Buell Theatre",
+      "address": "1350 Curtis Street, Denver, CO 80202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3649,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7445411,
+      "lng": -104.9976959,
+      "googleMapsUri": "https://maps.google.com/?cid=16051295225428131603&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.artscomplex.com/venues/detail/buell-theatre",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 89.49
+    },
+    {
+      "googlePlaceId": "ChIJo_UsR9V4bIcRjC1WKfsrSEA",
+      "name": "Civic Center Park",
+      "address": "101 W 14th Ave Pkwy, Denver, CO 80204, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 8914,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.739235799999996,
+      "lng": -104.9888592,
+      "googleMapsUri": "https://maps.google.com/?cid=4632000574480854412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.denver.org/listings/Civic-Center-Park/6823/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "best parks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.42
+    },
+    {
+      "googlePlaceId": "ChIJ5fIM0MN4bIcRb-fymS7_krs",
+      "name": "Tavernetta",
+      "address": "1889 16th St Mall, Denver, CO 80202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2527,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7530169,
+      "lng": -105.0019674,
+      "googleMapsUri": "https://maps.google.com/?cid=13516146007308691311&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tavernettadenver.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.38
+    },
+    {
+      "googlePlaceId": "ChIJL4Ldq_qNFIcRtOu4cboOj_A",
+      "name": "Royal Gorge Bridge & Park",
+      "address": "4218 Co Rd 3A, Cañon City, CO 81212, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 17068,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "historical_landmark",
+        "picnic_ground",
+        "amusement_center",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.4602607,
+      "lng": -105.3098415,
+      "googleMapsUri": "https://maps.google.com/?cid=17334089684706978740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://royalgorgebridge.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.32
+    },
+    {
+      "googlePlaceId": "ChIJ41RgjJR4bIcRBjglmmZSSaM",
+      "name": "El Five",
+      "address": "2930 Umatilla St Unit #500, Denver, CO 80211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3474,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "tapas_restaurant",
+      "types": [
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.7591116,
+      "lng": -105.01150129999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11766026102108403718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ediblebeats.com/restaurants/el-five/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.29
+    },
+    {
+      "googlePlaceId": "ChIJl19pYdB4bIcRsZYbkTs548w",
+      "name": "Union Lodge No.1",
+      "address": "1543 Champa St, Denver, CO 80202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1206,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.746276,
+      "lng": -104.994638,
+      "googleMapsUri": "https://maps.google.com/?cid=14763706931450975921&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.unionlodge1.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJiZdhRjR_bIcRcPMnysmKymQ",
+      "name": "Buckhorn Exchange",
+      "address": "1000 Osage St, Denver, CO 80204, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4821,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7322576,
+      "lng": -105.0051634,
+      "googleMapsUri": "https://maps.google.com/?cid=7262769948373021552&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://buckhornexchange.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.22
+    },
+    {
+      "googlePlaceId": "ChIJu_qfjOZ-bIcRwVGG3WNRYto",
+      "name": "Aspire Tours",
+      "address": "ROCKMOUNT, 1626 Wazee St #2A, Denver, CO 80202, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3727,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7514569,
+      "lng": -104.99924279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15736229537346113985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aspire-tours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.16
+    },
+    {
+      "googlePlaceId": "ChIJ-yVzEpN4bIcRn8UiXo68tUo",
+      "name": "Williams & Graham",
+      "address": "3160 Tejon St, Denver, CO 80211, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2195,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "bar_and_grill",
+        "lounge_bar",
+        "night_club",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.7619399,
+      "lng": -105.011026,
+      "googleMapsUri": "https://maps.google.com/?cid=5383416249242011039&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://williamsandgraham.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.93
+    },
+    {
+      "googlePlaceId": "ChIJaZ38Yam_a4cRhBs7Z7imOQU",
+      "name": "Golden Gate Canyon State Park",
+      "address": "92 Crawford Gulch Rd, Golden, CO 80403, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2892,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.8414296,
+      "lng": -105.4197987,
+      "googleMapsUri": "https://maps.google.com/?cid=376515354798267268&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cpw.state.co.us/placestogo/parks/GoldenGateCanyon",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.76
+    },
+    {
+      "googlePlaceId": "ChIJ5_dnCD2ba4cRNjskRpijxUo",
+      "name": "Lookout Mountain Park",
+      "address": "987 Lookout Mountain Rd, Golden, CO 80401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8060,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7333582,
+      "lng": -105.2384861,
+      "googleMapsUri": "https://maps.google.com/?cid=5387892403625802550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.denvergov.org/content/denvergov/en/denver-parks-and-recreation/parks/mountain-parks/mountain-park-attractions.html",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.75
+    },
+    {
+      "googlePlaceId": "ChIJtcachtF5bIcRZsMfPFA72Ks",
+      "name": "Alma Fonda Fina",
+      "address": "2556 15th St, Denver, CO 80211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1009,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7580312,
+      "lng": -105.0116729,
+      "googleMapsUri": "https://maps.google.com/?cid=12382712391247315814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.almalohidenver.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.68
+    },
+    {
+      "googlePlaceId": "ChIJS_vG1dF4bIcRHT1-cH_igaM",
+      "name": "Denver Performing Arts Complex",
+      "address": "1400 Curtis Street, Denver, CO 80204, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 4813,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7445062,
+      "lng": -104.99818739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11781947137153973533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://artscomplex.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 88.62
+    },
+    {
+      "googlePlaceId": "ChIJBf_eksB4bIcRpc3LOaKiFrM",
+      "name": "Elitch Gardens",
+      "address": "2000 Elitch Cir, Denver, CO 80204, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4,
+      "reviewCount": 14709,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "water_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.750183,
+      "lng": -105.01014169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12904680599914794405&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://elitchgardens.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.35
+    },
+    {
+      "googlePlaceId": "ChIJsWVI38R4bIcRNwgdFcxMoRE",
+      "name": "STK Steakhouse",
+      "address": "1550 Market St, Denver, CO 80202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6264,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "bar",
+        "event_venue",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7494081,
+      "lng": -104.9984684,
+      "googleMapsUri": "https://maps.google.com/?cid=1270381009306454071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/venues/denver/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.3
+    },
+    {
+      "googlePlaceId": "ChIJGwT_laR_bIcRrFBnk0uhQ5M",
+      "name": "Levitt Pavilion Denver",
+      "address": "1380 W Florida Ave, Denver, CO 80223, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2819,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.6865273,
+      "lng": -105.0030017,
+      "googleMapsUri": "https://maps.google.com/?cid=10611502492982661292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://levittdenver.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.23
+    },
+    {
+      "googlePlaceId": "ChIJLSylmJwJQYcRwLhT_DWNirw",
+      "name": "Glenwood Caverns Adventure Park",
+      "address": "51000 Two Rivers Plaza Road, Glenwood Springs, CO 81601, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 4871,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "roller_coaster",
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.5536567,
+      "lng": -107.33243159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13585826488922650816&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.glenwoodcaverns.com/?utm_source=googlebusiness&utm_medium=organic&utm_campaign=googlebusiness",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJI7lTxix5bIcRxfZH5jpE4Lc",
+      "name": "The 1up Arcade Bar - Colfax",
+      "address": "717 E Colfax Ave, Denver, CO 80203, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 2755,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7401255,
+      "lng": -104.97813289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13249665123486267077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://the1uparcadebar.com/pages/colfax",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.15
+    },
+    {
+      "googlePlaceId": "ChIJB8H2oa1-bIcR0v0lKsQugFw",
+      "name": "Atomic Cowboy home of Denver Biscuit Co & Fat Sully's NY Pizza",
+      "address": "3237 E Colfax Ave, Denver, CO 80206, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 8171,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "breakfast_restaurant",
+        "pizza_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7403976,
+      "lng": -104.9490503,
+      "googleMapsUri": "https://maps.google.com/?cid=6665378868563934674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theatomiccowboy.com/locations",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.09
+    },
+    {
+      "googlePlaceId": "ChIJe6ION5yDbIcRXXdtpbjKx1I",
+      "name": "Game Show Battle Rooms - Denver (Centennial)",
+      "address": "8230 S Colorado Blvd B, Centennial, CO 80122, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 5510,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "bar",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.567619,
+      "lng": -104.94060900000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5964959125873719133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gameshowbattlerooms.com/denver/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJPZpJJ9B4bIcRJqAStiN34l8",
+      "name": "Boettcher Concert Hall at Denver Performing Arts Complex",
+      "address": "1000 14th St #15, Denver, CO 80202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2250,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.744095400000006,
+      "lng": -104.9986696,
+      "googleMapsUri": "https://maps.google.com/?cid=6909215773601996838&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.artscomplex.com/venues/detail/boettcher-concert-hall",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJx2VML-N-bIcRD1NUD373_uk",
+      "name": "International Church of Cannabis",
+      "address": "400 S Logan St, Denver, CO 80209, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 7529,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "community_center",
+        "art_museum",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.7091597,
+      "lng": -104.98227759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16861186175716840207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.elevationists.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.88
+    },
+    {
+      "googlePlaceId": "ChIJb8q07h95bIcReD5YqVibPrk",
+      "name": "Nocturne",
+      "address": "between Larimer and Walnut on 27th, 1330 27th St, Denver, CO 80205, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1315,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7595964,
+      "lng": -104.9843854,
+      "googleMapsUri": "https://maps.google.com/?cid=13348277150673288824&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nocturnejazz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "date night restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.76
+    },
+    {
+      "googlePlaceId": "ChIJe8GEjdx4bIcRzREHBsEIEZI",
+      "name": "Summit Music Hall",
+      "address": "1902 Blake St, Denver, CO 80202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3325,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "wedding_venue",
+        "auditorium",
+        "night_club",
+        "banquet_hall",
+        "performing_arts_theater",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.7533806,
+      "lng": -104.9952472,
+      "googleMapsUri": "https://maps.google.com/?cid=10525203429264396749&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.summitdenver.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.65
+    },
+    {
+      "googlePlaceId": "ChIJR4fFryt8bIcRCdYL7cWaaA4",
+      "name": "Scarlett's Cabaret Denver",
+      "address": "4451 E Virginia Ave, Denver, CO 80246, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1027,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7077573,
+      "lng": -104.9353877,
+      "googleMapsUri": "https://maps.google.com/?cid=1038249888985110025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://scarlettsdenver.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service",
+        "adult nightlife",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.63
+    },
+    {
+      "googlePlaceId": "ChIJNRm0bcV4bIcRi74dMWUc_V8",
+      "name": "Larimer Square",
+      "address": "1430 Larimer St, Denver, CO 80202, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 9863,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7477084,
+      "lng": -104.999113,
+      "googleMapsUri": "https://maps.google.com/?cid=6916715823652257419&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://larimersquare.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 87.59
+    },
+    {
+      "googlePlaceId": "ChIJfch514p5bIcR7Zs5I_ZlQm4",
+      "name": "All Out Smash",
+      "address": "3899 Jackson St, Denver, CO 80205, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 4617,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.770794699999996,
+      "lng": -104.9430845,
+      "googleMapsUri": "https://maps.google.com/?cid=7945024800462314477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.alloutsmash.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 87.44
+    },
+    {
+      "googlePlaceId": "ChIJJ3w-CsN4bIcRnjIYAv0i6MU",
+      "name": "Mercantile",
+      "address": "1701 Wynkoop St #155, Denver, CO 80202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1904,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "vegetarian_restaurant",
+        "bakery",
+        "american_restaurant",
+        "coffee_shop",
+        "bar",
+        "cafe",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7536124,
+      "lng": -104.999707,
+      "googleMapsUri": "https://maps.google.com/?cid=14260686690125886110&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mercantiledenver.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.38
+    },
+    {
+      "googlePlaceId": "ChIJh7bq8dx4bIcRdOe1WzQf2BM",
+      "name": "The 1up Arcade Bar - LoDo",
+      "address": "1925 Blake St, Denver, CO 80202, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 4161,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.753907,
+      "lng": -104.99512999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1429927191427540852&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://the1uparcadebar.com/pages/lodo",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJCTTIBNV-bIcRK7lSxhA1hJw",
+      "name": "The Black Box",
+      "address": "314 E 13th Ave, Denver, CO 80203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1277,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "bar",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7367669,
+      "lng": -104.98309239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11278197713005623595&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.blackboxdenver.co/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "bottle service",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJ31UE2n1_bIcR1VeAa08lGkI",
+      "name": "Culinary Dropout",
+      "address": "4141 E 9th Ave, Denver, CO 80220, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2360,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "chicken_restaurant",
+        "hamburger_restaurant",
+        "brunch_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7311775,
+      "lng": -104.9390615,
+      "googleMapsUri": "https://maps.google.com/?cid=4763160578933938133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.culinarydropout.com/locations/denver-co/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJmzPYgJFZwokRg4zUwTlZwtI",
+      "name": "Comedy Cellar",
+      "address": "117 MacDougal St, New York, NY 10012, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 7899,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "tourist_attraction",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.730200200000006,
+      "lng": -74.0005639,
+      "googleMapsUri": "https://maps.google.com/?cid=15186798998046674051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://comedycellar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.93
+    },
+    {
+      "googlePlaceId": "ChIJHzj7kbt4bIcR_Fi8q1-va8A",
+      "name": "Children's Museum of Denver at Marsico Campus",
+      "address": "2121 Children's Museum Dr, Denver, CO 80211, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 1636,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "gift_shop",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7486272,
+      "lng": -105.01697779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13865368703228205308&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mychildsmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.91
+    },
+    {
+      "googlePlaceId": "ChIJPzbl2yx5bIcRsTOtTjPWiqU",
+      "name": "Fillmore Auditorium",
+      "address": "1510 N Clarkson St, Denver, CO 80218, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4518,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "auditorium",
+      "types": [
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7402029,
+      "lng": -104.9772394,
+      "googleMapsUri": "https://maps.google.com/?cid=11928582078895829937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fillmoredenver.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.87
+    },
+    {
+      "googlePlaceId": "ChIJYSIHF1J5bIcRe948PUN1mp8",
+      "name": "Oakwell Beer Spa Denver",
+      "address": "3004 N Downing St, Denver, CO 80205, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 2991,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "tourist_attraction",
+        "massage_spa",
+        "massage",
+        "spa",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.759684899999996,
+      "lng": -104.9731216,
+      "googleMapsUri": "https://maps.google.com/?cid=11500633530094640763&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://oakwell.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 86.71
+    },
+    {
+      "googlePlaceId": "ChIJyc3GZtB4bIcRxj3hmBOHGEo",
+      "name": "EscapeWorks Denver - Convention Center",
+      "address": "1529 Champa St, Denver, CO 80202, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5147,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7461574,
+      "lng": -104.9947285,
+      "googleMapsUri": "https://maps.google.com/?cid=5339165876486749638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://escapeworksdenver.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.68
+    },
+    {
+      "googlePlaceId": "ChIJ9xSkL5qPbIcR6Mvrj-uH_NA",
+      "name": "Activate Aurora",
+      "address": "6514 S Parker Rd Unit 102, Aurora, CO 80016, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 738,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.598509,
+      "lng": -104.80123280000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15059060699821755368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/aurora",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.64
+    },
+    {
+      "googlePlaceId": "ChIJYbtXR0h_bIcRGiAN3IRClYw",
+      "name": "Salt Water Social",
+      "address": "201 Columbine St, Denver, CO 80206, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 3582,
+      "priceLevel": null,
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "cocktail_bar",
+        "steak_house",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.719802099999995,
+      "lng": -104.95733589999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10130076075234762778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://saltwatersocial.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJd0pXag95bIcR2QSQASVIQV8",
+      "name": "The Hampton Social - Denver",
+      "address": "2501 16th St, Denver, CO 80211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2530,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.758717,
+      "lng": -105.00912579999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6863846630866552025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehamptonsocial.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJM6cGozNnbIcR-K7EmG_5rBA",
+      "name": "Copper Table",
+      "address": "6700 N Gaylord Rockies Blvd, Aurora, CO 80019, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4938,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.8166952,
+      "lng": -104.75180019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1201609458300792568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marriott.com/en-us/hotels/dengr-gaylord-rockies-resort-and-convention-center/dining/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJsVtN4lh-bIcRW0UTYKASFek",
+      "name": "Washington Park",
+      "address": "701 S Franklin St, Denver, CO 80209, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6788,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.6999628,
+      "lng": -104.97180469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16795350865364075867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.denvergov.org/content/denvergov/en/denver-parks-and-recreation/parks.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJG4dcFX55bIcRQvFup-odtxc",
+      "name": "Death & Co Denver",
+      "address": "1280 25th St, Denver, CO 80205, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1738,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "coffee_shop",
+        "cafe",
+        "lounge_bar",
+        "night_club",
+        "food_store",
+        "store",
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.7572854,
+      "lng": -104.98650389999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1708867477279011138&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.deathandcompany.com/news-item/denver/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJyzMnm2-Ha4cRAor8ibF19X4",
+      "name": "Inventing Room Dessert Shop - Tickets Required",
+      "address": "4433 W 29th Ave #101, Denver, CO 80212, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 4734,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.7586194,
+      "lng": -105.0448114,
+      "googleMapsUri": "https://maps.google.com/?cid=9148347623457720834&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tirdenver.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.41
+    },
+    {
+      "googlePlaceId": "ChIJ0-_i5e9wbIcRBJE85R7dLt4",
+      "name": "Mile High Flea Market",
+      "address": "7007 E 88th Ave, Henderson, CO 80640, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.3,
+      "reviewCount": 13516,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "tourist_attraction",
+        "food_court",
+        "farmers_market",
+        "market",
+        "home_goods_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.8589173,
+      "lng": -104.9069054,
+      "googleMapsUri": "https://maps.google.com/?cid=16009976850113401092&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.milehighfleamarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "flea markets",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJeZiserCJa4cRUvldgMdEb3M",
+      "name": "Akihabara Arcade and Bar",
+      "address": "8901 N Harlan St, Westminster, CO 80031, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 1083,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.858169200000006,
+      "lng": -105.0652146,
+      "googleMapsUri": "https://maps.google.com/?cid=8317942660419418450&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.akihabaraarcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.3
+    },
+    {
+      "googlePlaceId": "ChIJfbXb8xV5bIcR1EZgVEoh2Vk",
+      "name": "Wildflower",
+      "address": "3638 Navajo St, Denver, CO 80211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 650,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.767591599999996,
+      "lng": -105.003762,
+      "googleMapsUri": "https://maps.google.com/?cid=6474242542448690900&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wildflower-lohi.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.19
+    },
+    {
+      "googlePlaceId": "ChIJJyDOGlJ5bIcRQ-oSnAOOwf8",
+      "name": "Denver City Park",
+      "address": "2001 Colorado Blvd, Denver, CO 80205, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 12431,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7476212,
+      "lng": -104.9498084,
+      "googleMapsUri": "https://maps.google.com/?cid=18429167296331311683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.denver.org/listings/City-Park/6822/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.17
+    },
+    {
+      "googlePlaceId": "ChIJ9SgoeHC-bIcRV0zu9Bbgg3s",
+      "name": "Castlewood Canyon State Park",
+      "address": "2989 CO-83, Franktown, CO 80116, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3548,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3336344,
+      "lng": -104.7401173,
+      "googleMapsUri": "https://maps.google.com/?cid=8900203677817392215&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cpw.state.co.us/placestogo/Parks/castlewoodcanyon",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJPzv2vNF4bIcRhIj1J-3WHdc",
+      "name": "Big Blue Bear",
+      "address": "750-776 14th St, Denver, CO 80202, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 1752,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "sculpture",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7436238,
+      "lng": -104.9952912,
+      "googleMapsUri": "https://maps.google.com/?cid=15500781806545111172&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bluebearstudios.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJb1jBeTiFbIcRk197BfSYqD8",
+      "name": "Sandbox VR",
+      "address": "8429 Park Meadows Center Dr #125, Lone Tree, CO 80124, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4172,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.5623978,
+      "lng": -104.8772931,
+      "googleMapsUri": "https://maps.google.com/?cid=4587084394308263827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/lonetree",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJpRJi8f2Ha4cRMZ9MkHnryeg",
+      "name": "Edgewater Public Market",
+      "address": "5505 W 20th Ave, Edgewater, CO 80214, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4006,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.7491451,
+      "lng": -105.05718379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16774197194462633777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.edgewaterpublicmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJ7xAt8LR_bIcRQxJRZOGYB9Q",
+      "name": "The Brutal Poodle",
+      "address": "1967 S Broadway, Denver, CO 80210, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.7,
+      "reviewCount": 2791,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "sports_bar",
+        "karaoke",
+        "night_club",
+        "gastropub",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.6808802,
+      "lng": -104.9878461,
+      "googleMapsUri": "https://maps.google.com/?cid=15278348354695795267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://brutalpoodledenver.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "karaoke bars",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJvUYpfOCDbIcRDNtNgLCNpYU",
+      "name": "Main Event Highlands Ranch",
+      "address": "64 Centennial Blvd, Highlands Ranch, CO 80129, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 2309,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "bowling_alley",
+        "sports_complex",
+        "food",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.5611391,
+      "lng": -104.9889766,
+      "googleMapsUri": "https://maps.google.com/?cid=9630259167408020236&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mainevent.com/locations/colorado/highlands-ranch",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJ3fXUBgCda4cRieEb7ZWH6dQ",
+      "name": "Lair o’ the Bear Park",
+      "address": "22550 CO-74, Idledale, CO 80453, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3137,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.667774099999995,
+      "lng": -105.25771379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15341942683612209545&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jeffco.us/1254/Lair-o-the-Bear-Park/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.76
+    },
+    {
+      "googlePlaceId": "ChIJhY9j5894bIcRZyWZLZfchCw",
+      "name": "EDGE Restaurant & Bar",
+      "address": "1111 14th St, Denver, CO 80202, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 1111,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "lounge_bar",
+        "night_club",
+        "coffee_shop",
+        "wine_bar",
+        "brunch_restaurant",
+        "cafe",
+        "breakfast_restaurant",
+        "dessert_shop",
+        "bar",
+        "confectionery",
+        "restaurant",
+        "point_of_interest",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.7465671,
+      "lng": -104.9981076,
+      "googleMapsUri": "https://maps.google.com/?cid=3207931376457819495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.edgerestaurantdenver.com/?utm_source=google&utm_medium=organicsearch&utm_campaign=tor-den-fab-mid-seo-na&utm_content=na-na&utm_term=na",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.68
+    },
+    {
+      "googlePlaceId": "ChIJP_8dliZ_bIcR7WsoJc9YdPU",
+      "name": "House Of Immersions",
+      "address": "142 W 5th Ave, Denver, CO 80204, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1009,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7239138,
+      "lng": -104.99039189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17686859283295661037&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://houseofimmersions.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.68
+    },
+    {
+      "googlePlaceId": "ChIJQSk5EQCFbIcRLMRQrlR9n4g",
+      "name": "The Escape Game Lone Tree",
+      "address": "8423 Park Meadows Center Dr Suite E174, Lone Tree, CO 80124, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2629,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.562345199999996,
+      "lng": -104.87828239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9844725113110447148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/lone-tree/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=lone-tree",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJhw7HbNB4bIcR1RYprjjGutM",
+      "name": "Sam's No. 3",
+      "address": "1500 Curtis Street, Denver, CO 80202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 10495,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "diner",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7462085,
+      "lng": -104.9956144,
+      "googleMapsUri": "https://maps.google.com/?cid=15256724634413373141&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://samsno3.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJDTf8ajV2bIcRCRtw20wTHMQ",
+      "name": "Water World",
+      "address": "8801 N Pecos St, Federal Heights, CO 80260, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 7437,
+      "priceLevel": null,
+      "primaryType": "water_park",
+      "types": [
+        "water_park",
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.858257099999996,
+      "lng": -105.0096705,
+      "googleMapsUri": "https://maps.google.com/?cid=14131190951601773321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.waterworldcolorado.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJc1frSS15bIcRvEDDqHoi9qc",
+      "name": "Ogden Theatre",
+      "address": "935 E Colfax Ave, Denver, CO 80218, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4622,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7401704,
+      "lng": -104.9752697,
+      "googleMapsUri": "https://maps.google.com/?cid=12102898958817509564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ogdentheatre.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.44
+    },
+    {
+      "googlePlaceId": "ChIJ9QCDEdx4bIcRsnd-vzZmyx0",
+      "name": "Marquis Theater",
+      "address": "2009 Larimer St, Denver, CO 80205, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1652,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "night_club",
+        "pizza_restaurant",
+        "banquet_hall",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "service",
+        "point_of_interest",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.7532575,
+      "lng": -104.99252910000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2146922032699176882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marquisdenver.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.44
+    },
+    {
+      "googlePlaceId": "ChIJXYUFKCB_bIcRtKd6nOvWTJo",
+      "name": "Punch Bowl Social",
+      "address": "65 Broadway, Denver, CO 80203, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 4584,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.71792860000001,
+      "lng": -104.9879806,
+      "googleMapsUri": "https://maps.google.com/?cid=11118497887501854644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://punchbowlsocial.com/location/denver/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.36
+    },
+    {
+      "googlePlaceId": "ChIJO9N8BMGIbIcR53Jr1zP5s3g",
+      "name": "Cherry Creek State Park",
+      "address": "4201 S Parker Rd, Aurora, CO 80014, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 9580,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.625962,
+      "lng": -104.8424778,
+      "googleMapsUri": "https://maps.google.com/?cid=8697569306435351271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cpw.state.co.us/placestogo/parks/CherryCreek",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJH5sxlCp_bIcR7IqinQjhWYk",
+      "name": "History Colorado Center",
+      "address": "1200 Broadway, Denver, CO 80203, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3113,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7358374,
+      "lng": -104.98713049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9897189083244038892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.historycolorado.org/history-colorado-center?utm_source=GoogleBusinessListing",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.29
+    },
+    {
+      "googlePlaceId": "ChIJNc2D7qN_a4cR01TUP1zmqnQ",
+      "name": "Escape the Room Denver (Littleton)",
+      "address": "8501 W Bowles Ave, Littleton, CO 80123, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3270,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.6120528,
+      "lng": -105.0943956,
+      "googleMapsUri": "https://maps.google.com/?cid=8406784938322711763&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/denver?utm_source=GMBlisting&utm_medium=organic&utm_campaign=gbp_denver&utm_content=website_button",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJmWBd-iOJa4cRbBK-VAx2lOo",
+      "name": "Conundrum Escape Rooms",
+      "address": "6350 Wadsworth Blvd B, Arvada, CO 80003, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2285,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.812176799999996,
+      "lng": -105.0809981,
+      "googleMapsUri": "https://maps.google.com/?cid=16903265096761741932&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.conundrumescaperooms.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJY5watdZ4bIcRIDAE-njFBdA",
+      "name": "Maggiano's Little Italy",
+      "address": "Pavilions Mall, 500 16th St Mall Suite 150, Denver, CO 80202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4620,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "family_restaurant",
+        "catering_service",
+        "wine_bar",
+        "food_delivery",
+        "bar",
+        "event_venue",
+        "meal_takeaway",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.742869,
+      "lng": -104.9904559,
+      "googleMapsUri": "https://maps.google.com/?cid=14989604058153889824&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.maggianos.com/locations/colorado/denver/500-16th-st.?utm_source=google&utm_medium=organic&utm_campaign=Maggianos",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.19
+    },
+    {
+      "googlePlaceId": "ChIJaXL29SN5bIcR3rVUVP5pFyw",
+      "name": "Cervantes' Masterpiece Ballroom & Cervantes' Other Side",
+      "address": "2637 Welton St, Denver, CO 80205, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2906,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "lounge_bar",
+        "auditorium",
+        "night_club",
+        "performing_arts_theater",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7545132,
+      "lng": -104.9787432,
+      "googleMapsUri": "https://maps.google.com/?cid=3177124603190621662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cervantesmasterpiece.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJ3XERyVl8bIcRRoX_g4U8ZPo",
+      "name": "Wings Over the Rockies Air & Space Museum",
+      "address": "7711 E Academy Blvd, Denver, CO 80230, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6144,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "history_museum",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7208907,
+      "lng": -104.8955075,
+      "googleMapsUri": "https://maps.google.com/?cid=18042612551295927622&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wingsmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.04
+    }
+  ]
+}

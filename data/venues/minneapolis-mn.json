@@ -1,0 +1,3619 @@
+{
+  "location": "Minneapolis, MN",
+  "generatedAt": "2026-05-17T19:46:38.890Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJH0YSlAc1s1IRn8ngT3JNfLM",
+      "name": "Game Show Battle Rooms - Minneapolis (St. Louis Park)",
+      "address": "1661 West End Blvd, St Louis Park, MN 55416, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 11096,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "sports_activity_location",
+        "bar",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9665703,
+      "lng": -93.3476487,
+      "googleMapsUri": "https://maps.google.com/?cid=12933297383262964127&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gameshowbattlerooms.com/minneapolis/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.28
+    },
+    {
+      "googlePlaceId": "ChIJ5c3H2xArs1IRWl8vqH3Jq0U",
+      "name": "Como Park Zoo & Conservatory",
+      "address": "1225 Estabrook Dr, St Paul, MN 55103, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 19038,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9812012,
+      "lng": -93.15244849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5020327751164321626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.comozooconservatory.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.67
+    },
+    {
+      "googlePlaceId": "ChIJT0k6WbEys1IRpnx9LgDjLMU",
+      "name": "Minneapolis Institute of Art",
+      "address": "2400 3rd Ave S, Minneapolis, MN 55404, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 10270,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.958500099999995,
+      "lng": -93.273218,
+      "googleMapsUri": "https://maps.google.com/?cid=14207980514366553254&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://new.artsmia.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do",
+        "paint and sip",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.83
+    },
+    {
+      "googlePlaceId": "ChIJA-qYtHUx9ocRI1q3y1QdFlM",
+      "name": "Minnesota Zoo",
+      "address": "13000 Zoo Blvd, Apple Valley, MN 55124, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 16199,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.7669876,
+      "lng": -93.1950337,
+      "googleMapsUri": "https://maps.google.com/?cid=5987005004667902499&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mnzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.06
+    },
+    {
+      "googlePlaceId": "ChIJLWE8OWwv9ocRayh4boDxxrM",
+      "name": "Mall of America®",
+      "address": "60 E Broadway, Bloomington, MN 55425, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 68591,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "aquarium",
+        "miniature_golf_course",
+        "movie_theater",
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.8548651,
+      "lng": -93.2422148,
+      "googleMapsUri": "https://maps.google.com/?cid=12954306912089286763&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mallofamerica.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.6
+    },
+    {
+      "googlePlaceId": "ChIJ7aa2IwYp9ocRuWzQzvyimj4",
+      "name": "Minnehaha Regional Park",
+      "address": "4801 S Minnehaha Dr, Minneapolis, MN 55417, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 11074,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9167388,
+      "lng": -93.21010659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4511097183450197177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks__destinations/parks__lakes/minnehaha_regional_park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.57
+    },
+    {
+      "googlePlaceId": "ChIJPSMQJAAv9ocRfkXCeiAc-iw",
+      "name": "Great Big Game Show Minneapolis",
+      "address": "300 E Broadway, Bloomington, MN 55425, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3308,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.855492,
+      "lng": -93.24015399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3240933807670576510&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://greatbiggameshow.com/minneapolis?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=moa",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 94.47
+    },
+    {
+      "googlePlaceId": "ChIJsfSOI4QE9ocR4C-PXlDLseo",
+      "name": "University of Minnesota Landscape Arboretum",
+      "address": "3675 Arboretum Dr, Chaska, MN 55318, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 6646,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "tourist_attraction",
+        "garden",
+        "botanical_garden",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.8621639,
+      "lng": -93.6162667,
+      "googleMapsUri": "https://maps.google.com/?cid=16911521621797187552&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://arb.umn.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.46
+    },
+    {
+      "googlePlaceId": "ChIJP-Z9Agcp9ocR6DRV3bkKAcI",
+      "name": "Minnehaha Falls",
+      "address": "4801 S Minnehaha Dr, Minneapolis, MN 55417, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6093,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9153506,
+      "lng": -93.21100820000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13979466511733306600&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks__destinations/parks__lakes/minnehaha_regional_park/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.19
+    },
+    {
+      "googlePlaceId": "ChIJzQqnzIQzs1IRRumr4wyrfdo",
+      "name": "Tom's Watch Bar - Minneapolis",
+      "address": "609 Hennepin Ave, Minneapolis, MN 55403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 11286,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "cocktail_bar",
+        "hamburger_restaurant",
+        "sports_bar",
+        "american_restaurant",
+        "event_venue",
+        "bar",
+        "service",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9784843,
+      "lng": -93.2737437,
+      "googleMapsUri": "https://maps.google.com/?cid=15743927944204773702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tomswatchbar.com/minneapolis/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.98
+    },
+    {
+      "googlePlaceId": "ChIJPcUV954ys1IR-izrSPIygJg",
+      "name": "The Armory",
+      "address": "500 South 6th St, Minneapolis, MN 55415, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 7633,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": 44.975202599999996,
+      "lng": -93.2635268,
+      "googleMapsUri": "https://maps.google.com/?cid=10988839106970856698&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.armorymn.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "game night venues",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.8
+    },
+    {
+      "googlePlaceId": "ChIJCVqalcIys1IRb40obJwNy1M",
+      "name": "Minneapolis Sculpture Garden",
+      "address": "725 Vineland Pl, Minneapolis, MN 55403, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7588,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.969547899999995,
+      "lng": -93.28978029999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6037934690900938095&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.walkerart.org/garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.78
+    },
+    {
+      "googlePlaceId": "ChIJqcxEtYsrs1IRoFZk33KQ3eI",
+      "name": "Game Show Studio Roseville",
+      "address": "1595 MN-36 Suite 799, Roseville, MN 55113, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4284,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.0122904,
+      "lng": -93.17327159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16347381045473334944&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameshowstudio.com/minneapolis/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.53
+    },
+    {
+      "googlePlaceId": "ChIJTdwkx2wv9ocRsf6uHdDjlZE",
+      "name": "SEA LIFE at Mall of America",
+      "address": "Mall of America, 120 East Broadway East Side, Level One, Bloomington, MN 55425, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 10595,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.8547929,
+      "lng": -93.24004149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10490541390020148913&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitsealife.com/minnesota/?utm_source=local-listing&utm_medium=organic&utm_campaign=tickets",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "family friendly things to do",
+        "aquariums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 92.63
+    },
+    {
+      "googlePlaceId": "ChIJP6i4fJEys1IRRjMlfzcgua0",
+      "name": "First Avenue",
+      "address": "701 N 1st Ave, Minneapolis, MN 55403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 4839,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.978531499999995,
+      "lng": -93.2759978,
+      "googleMapsUri": "https://maps.google.com/?cid=12518072061981438790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://first-avenue.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "game night venues",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.37
+    },
+    {
+      "googlePlaceId": "ChIJzaW7gtsv9ocRSgpN2lmwSn4",
+      "name": "Museum of Illusions - Mall of America",
+      "address": "60 E Broadway Level 2, Bloomington, MN 55425, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3032,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.8546978,
+      "lng": -93.2419508,
+      "googleMapsUri": "https://maps.google.com/?cid=9100279897016568394&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moimallofamerica.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92
+    },
+    {
+      "googlePlaceId": "ChIJi_Ss-IUn9ocRvMqsej5hzIY",
+      "name": "Up-Down Minneapolis",
+      "address": "3012 Lyndale Ave S, Minneapolis, MN 55408, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 6006,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "pizza_restaurant",
+        "video_arcade",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 44.947832700000006,
+      "lng": -93.288372,
+      "googleMapsUri": "https://maps.google.com/?cid=9713245417305328316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.updownarcadebar.com/minneapolis",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.95
+    },
+    {
+      "googlePlaceId": "ChIJf2ekX5wys1IRi0SY3SQDO-M",
+      "name": "Historic Stone Arch Bridge",
+      "address": "100 Portland Ave, Minneapolis, MN 55401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2904,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "bridge",
+        "historical_place",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9807491,
+      "lng": -93.25369719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16373684327107019915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks__destinations/historical_sites/stone_arch_bridge/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "sunset date spots",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 91.86
+    },
+    {
+      "googlePlaceId": "ChIJgW6GHJYys1IRElRV1Glf69s",
+      "name": "Minnesota Orchestra",
+      "address": "1111 Nicollet Mall, Minneapolis, MN 55403, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 2903,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 44.972578999999996,
+      "lng": -93.27508480000002,
+      "googleMapsUri": "https://maps.google.com/?cid=15846864621971788818&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minnesotaorchestra.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.46
+    },
+    {
+      "googlePlaceId": "ChIJGZ4G0_0n9ocRaOCcTNtt8HE",
+      "name": "Midtown Global Market",
+      "address": "920 E Lake St, Minneapolis, MN 55407, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4327,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "gift_shop",
+        "cafe",
+        "grocery_store",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.948519,
+      "lng": -93.260485,
+      "googleMapsUri": "https://maps.google.com/?cid=8210182909347029096&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.midtownglobalmarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.92
+    },
+    {
+      "googlePlaceId": "ChIJxVSAem8ts1IR_-4YTVVSdSw",
+      "name": "Mill Ruins Park",
+      "address": "102 Portland Ave S, Minneapolis, MN 55401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3048,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.979804099999996,
+      "lng": -93.2563898,
+      "googleMapsUri": "https://maps.google.com/?cid=3203557236263153407&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks__destinations/parks__lakes/mill_ruins_park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "best parks",
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.91
+    },
+    {
+      "googlePlaceId": "ChIJpQmgMoQys1IRID1e5YB8eMo",
+      "name": "Spoon and Stable",
+      "address": "211 N 1st St, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3043,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.985524399999996,
+      "lng": -93.2694875,
+      "googleMapsUri": "https://maps.google.com/?cid=14589547885912538400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.spoonandstable.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.91
+    },
+    {
+      "googlePlaceId": "ChIJ9eTEmWMts1IRMm_h172NYZk",
+      "name": "Mill City Museum",
+      "address": "704 S 2nd St, Minneapolis, MN 55401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2991,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9787748,
+      "lng": -93.25726,
+      "googleMapsUri": "https://maps.google.com/?cid=11052270807054118706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mnhs.org/millcity",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.86
+    },
+    {
+      "googlePlaceId": "ChIJV7bgj2wv9ocRzSky_Znb20I",
+      "name": "The Escape Game Minneapolis",
+      "address": "300 E Broadway Floor 3, Bloomington, MN 55425, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 14373,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.855492,
+      "lng": -93.24015399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4817685680827279821&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/minneapolis/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=minneapolis",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.84
+    },
+    {
+      "googlePlaceId": "ChIJwQMAd8DLj4ARxETHpYQPprs",
+      "name": "Brit's Pub",
+      "address": "1110 Nicollet Mall, Minneapolis, MN 55403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 5586,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pub",
+      "types": [
+        "pub",
+        "cocktail_bar",
+        "sports_bar",
+        "british_restaurant",
+        "sports_complex",
+        "event_venue",
+        "bar",
+        "sports_club",
+        "sports_activity_location",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 44.972799099999996,
+      "lng": -93.2760876,
+      "googleMapsUri": "https://maps.google.com/?cid=13521511993617892548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://britspub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "trivia nights",
+        "game bars",
+        "paint and sip",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.62
+    },
+    {
+      "googlePlaceId": "ChIJm1Uwqx4n9ocRpzUNiKAAHTY",
+      "name": "The Breakfast Club MPLS",
+      "address": "1300 Lagoon Ave #100, Minneapolis, MN 55408, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 18752,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9494109,
+      "lng": -93.29606,
+      "googleMapsUri": "https://maps.google.com/?cid=3899273541850052007&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thebreakfastclubmpls.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 90.57
+    },
+    {
+      "googlePlaceId": "ChIJBcDbP4oys1IRg97QGrkjtH8",
+      "name": "Bar La Grassa",
+      "address": "800 N Washington Ave, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2615,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9892555,
+      "lng": -93.2787407,
+      "googleMapsUri": "https://maps.google.com/?cid=9202019216550583939&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barlagrassa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJQYan8awys1IRAIF-sDMDC0o",
+      "name": "American Swedish Institute",
+      "address": "2600 Park Ave, Minneapolis, MN 55407, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2164,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "castle",
+        "wedding_venue",
+        "gift_shop",
+        "historical_landmark",
+        "historical_place",
+        "art_museum",
+        "cultural_center",
+        "event_venue",
+        "store",
+        "service",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9545975,
+      "lng": -93.2658596,
+      "googleMapsUri": "https://maps.google.com/?cid=5335361704089780480&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.asimn.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.84
+    },
+    {
+      "googlePlaceId": "ChIJFU1nUEMzs1IRRnSiWSwKnNI",
+      "name": "Puttery",
+      "address": "240 Hennepin Ave, Minneapolis, MN 55401, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 2125,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "lounge_bar",
+        "cocktail_bar",
+        "indoor_golf_course",
+        "golf_course",
+        "night_club",
+        "athletic_field",
+        "bar",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9821163,
+      "lng": -93.2693942,
+      "googleMapsUri": "https://maps.google.com/?cid=15176016029930386502&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://puttery.com/locations/minneapolis",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "indoor golf simulators",
+        "barcades",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.78
+    },
+    {
+      "googlePlaceId": "ChIJe_YyOiUzs1IR0qgYBD0rkUM",
+      "name": "Butcher & The Boar",
+      "address": "901 N 3rd St Suite 195, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2983,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "steak_house",
+        "barbecue_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9881562,
+      "lng": -93.2803327,
+      "googleMapsUri": "https://maps.google.com/?cid=4868720213225941202&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.butcherandtheboarmpls.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.75
+    },
+    {
+      "googlePlaceId": "ChIJzxizBYUys1IRDx_NN0FVbNE",
+      "name": "Red Cow North Loop",
+      "address": "208 N 1st Ave, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4755,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "catering_service",
+        "hamburger_restaurant",
+        "bar_and_grill",
+        "breakfast_restaurant",
+        "family_restaurant",
+        "food_delivery",
+        "brunch_restaurant",
+        "meal_takeaway",
+        "bar",
+        "american_restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9836293,
+      "lng": -93.2696891,
+      "googleMapsUri": "https://maps.google.com/?cid=15090530190009114383&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://redcowmn.com/minneapolis-north-loop/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.71
+    },
+    {
+      "googlePlaceId": "ChIJlzITYRcn9ocRcMEfy0kSJWo",
+      "name": "Martina",
+      "address": "4312 Upton Ave S, Minneapolis, MN 55410, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2026,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "argentinian_restaurant",
+      "types": [
+        "argentinian_restaurant",
+        "south_american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9241805,
+      "lng": -93.3149508,
+      "googleMapsUri": "https://maps.google.com/?cid=7648539650308424048&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.martinarestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.63
+    },
+    {
+      "googlePlaceId": "ChIJrSqctJQts1IRc4Q-7QQpN5I",
+      "name": "Owamni by The Sioux Chef",
+      "address": "420 S 1st St, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2834,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9811238,
+      "lng": -93.2604073,
+      "googleMapsUri": "https://maps.google.com/?cid=10535934954393470067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://owamni.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.59
+    },
+    {
+      "googlePlaceId": "ChIJHa80f2sxs1IRSAlqsByPiLY",
+      "name": "Surly Brewing Co.",
+      "address": "520 Malcolm Ave SE, Minneapolis, MN 55414, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4013,
+      "priceLevel": null,
+      "primaryType": "brewery",
+      "types": [
+        "brewery",
+        "brewpub",
+        "pub",
+        "american_restaurant",
+        "bar",
+        "manufacturer",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 44.9729952,
+      "lng": -93.2098192,
+      "googleMapsUri": "https://maps.google.com/?cid=13152920065117129032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://surlybrewing.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "game night venues",
+        "trivia nights",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.58
+    },
+    {
+      "googlePlaceId": "ChIJJ7s0wmErs1IRr37ytITbk64",
+      "name": "Sandbox VR",
+      "address": "1595 Highway 36W 1035, Roseville, MN 55113, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7538,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.0125976,
+      "lng": -93.1708029,
+      "googleMapsUri": "https://maps.google.com/?cid=12579639547193884335&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/minneapolis",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJkXzI4m4rs1IRkr3SSCf_DcI",
+      "name": "Walker Art Center",
+      "address": "725 Vineland Pl, Minneapolis, MN 55403, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 6112,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "wedding_venue",
+        "performing_arts_theater",
+        "art_museum",
+        "event_venue",
+        "museum",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9681442,
+      "lng": -93.2886494,
+      "googleMapsUri": "https://maps.google.com/?cid=13983112962245836178&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://walkerart.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.4
+    },
+    {
+      "googlePlaceId": "ChIJ5eK8oXErs1IRnMJrYoP6Ibs",
+      "name": "Minnesota State Fair",
+      "address": "1265 Snelling Ave N, St Paul, MN 55108, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 14637,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9771682,
+      "lng": -93.1711754,
+      "googleMapsUri": "https://maps.google.com/?cid=13484334201522864796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mnstatefair.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.35
+    },
+    {
+      "googlePlaceId": "ChIJyXjHMLwys1IRmGRzHXK6QIU",
+      "name": "Minneapolis Convention Center",
+      "address": "1301 2nd Ave S, Minneapolis, MN 55404, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 5973,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 44.9698014,
+      "lng": -93.2736784,
+      "googleMapsUri": "https://maps.google.com/?cid=9601879404837037208&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolis.org/minneapolis-convention-center/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.33
+    },
+    {
+      "googlePlaceId": "ChIJvbxaZ10b9ocRNtcetMLuTHI",
+      "name": "Paisley Park",
+      "address": "7801 Audubon Rd, Chanhassen, MN 55317, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 5809,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.861697,
+      "lng": -93.56063569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8236220338566780726&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paisleypark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 89.04
+    },
+    {
+      "googlePlaceId": "ChIJ88m282Ats1IR07-KSSWdNeU",
+      "name": "U.S. Bank Stadium",
+      "address": "401 Chicago Ave, Minneapolis, MN 55415, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 21625,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "athletic_field",
+        "service",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.973646099999996,
+      "lng": -93.25749449999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16516279991924342739&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.usbankstadium.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 88.82
+    },
+    {
+      "googlePlaceId": "ChIJN-BrLq4q9ocRJT5wnCKW4LI",
+      "name": "Minnesota History Center",
+      "address": "345 W Kellogg Blvd, St Paul, MN 55102, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3002,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9495556,
+      "lng": -93.10555199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12889467208932015653&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mnhs.org/historycenter",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.72
+    },
+    {
+      "googlePlaceId": "ChIJ6ZJ3YYUys1IRihzyYe0WiGs",
+      "name": "112 Eatery",
+      "address": "112 N 3rd St, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1510,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "vietnamese_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.982548099999995,
+      "lng": -93.2717776,
+      "googleMapsUri": "https://maps.google.com/?cid=7748468367697255562&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.112eatery.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.71
+    },
+    {
+      "googlePlaceId": "ChIJM75Ao3Ets1IRftCVbIP51eY",
+      "name": "Alma",
+      "address": "528 University Ave SE, Minneapolis, MN 55414, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2096,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "hotel",
+        "cafe",
+        "lodging",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.983883999999996,
+      "lng": -93.248088,
+      "googleMapsUri": "https://maps.google.com/?cid=16633475141620584574&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.almampls.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.64
+    },
+    {
+      "googlePlaceId": "ChIJASkitrQq9ocRHP15PiT4PPY",
+      "name": "Science Museum of Minnesota",
+      "address": "120 W Kellogg Blvd, St Paul, MN 55102, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2091,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "educational_institution",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.942487,
+      "lng": -93.098798,
+      "googleMapsUri": "https://maps.google.com/?cid=17743329466483604764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://smm.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.63
+    },
+    {
+      "googlePlaceId": "ChIJT0FI6agss1IRHAf0ZX4Rw_0",
+      "name": "Can Can Wonderland - St. Paul",
+      "address": "755 Prior Ave N Suite #004, St Paul, MN 55104, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 5620,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.964859,
+      "lng": -93.1833496,
+      "googleMapsUri": "https://maps.google.com/?cid=18285478146628388636&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cancanwonderland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "game night venues",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJJYc87o0ys1IRVcUvE2JZ4uQ",
+      "name": "Target Field",
+      "address": "1 Twins Way, Minneapolis, MN 55403, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 18466,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "athletic_field",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.981742999999994,
+      "lng": -93.27762919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16492843063147742549&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/twins/ballpark",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.33
+    },
+    {
+      "googlePlaceId": "ChIJefyd9ZYys1IRcIk1rsMxfrc",
+      "name": "Escape The Room Minneapolis",
+      "address": "923 Nicollet Mall #375, Minneapolis, MN 55402, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6395,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9742671,
+      "lng": -93.2741944,
+      "googleMapsUri": "https://maps.google.com/?cid=13222060272517482864&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/minneapolis/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.29
+    },
+    {
+      "googlePlaceId": "ChIJ8Vbz38szs1IR6VaN-gkKEsE",
+      "name": "Roxy's Cabaret",
+      "address": "1333 Nicollet Mall, Minneapolis, MN 55403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 652,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "brunch_restaurant",
+        "performing_arts_theater",
+        "comedy_club",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 44.969935199999995,
+      "lng": -93.2776244,
+      "googleMapsUri": "https://maps.google.com/?cid=13912193236875433705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thenicolletdiner.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "nightclubs",
+        "events tonight",
+        "comedy shows",
+        "ticketed events",
+        "game night venues",
+        "game bars",
+        "events this weekend",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.27
+    },
+    {
+      "googlePlaceId": "ChIJvd9L-rQys1IRfYDJ_vnilyE",
+      "name": "LITT Pinball Bar",
+      "address": "2021 Hennepin Ave S, Minneapolis, MN 55405, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 2076,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9620755,
+      "lng": -93.2915932,
+      "googleMapsUri": "https://maps.google.com/?cid=2420652888084283517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://littpinballbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.21
+    },
+    {
+      "googlePlaceId": "ChIJ3b-bOGszs1IR9CBbnzdg3kI",
+      "name": "Eloise Butler Wildflower Garden and Bird Sanctuary",
+      "address": "1 Theodore Wirth Pkwy, Minneapolis, MN 55405, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 884,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9745452,
+      "lng": -93.3218818,
+      "googleMapsUri": "https://maps.google.com/?cid=4818394443346026740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks__destinations/gardens__bird_sanctuaries/eloise_butler_wildflower_garden_and_bird_sanctuary/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "sunset date spots",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJETdbnN0ss1IRd44pyon08aI",
+      "name": "The Market At Malcolm Yards",
+      "address": "501 30th Ave SE, Minneapolis, MN 55414, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2399,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "food_court",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.972763,
+      "lng": -93.21340169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11741434576171011703&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.malcolmyards.market/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "viral food spots",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJMRDEWCoY9ocRejVyeNYs1X0",
+      "name": "Valleyfair",
+      "address": "1 Valley Fair Dr, Shakopee, MN 55379, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 13411,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.7987426,
+      "lng": -93.4536912,
+      "googleMapsUri": "https://maps.google.com/?cid=9067202724435735930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://valleyfair.enchantedparks.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.92
+    },
+    {
+      "googlePlaceId": "ChIJO0vUunsts1IRl9Dz-4LhB_k",
+      "name": "Aster Cafe",
+      "address": "125 SE Main St, Minneapolis, MN 55414, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2296,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "live_music_venue",
+        "cafe",
+        "event_venue",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9845256,
+      "lng": -93.2550522,
+      "googleMapsUri": "https://maps.google.com/?cid=17944559192970088599&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://astercafe.com/?y_source=1_NjE4OTYwOC03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJHdyLsZwq9ocRBXrrMHRemq8",
+      "name": "Mississippi National River & Recreation Area",
+      "address": "120 W Kellogg Blvd, St Paul, MN 55102, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 7066,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "tourist_attraction",
+        "national_park",
+        "park",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9321407,
+      "lng": -93.112697,
+      "googleMapsUri": "https://maps.google.com/?cid=12653529956180785669&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nps.gov/miss/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJs0zWB7Mss1IRjSzYU0Vfqfo",
+      "name": "PuzzleWorks Escape Co.",
+      "address": "755 Prior Ave N Suite 007A, St Paul, MN 55104, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4977,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9641494,
+      "lng": -93.1829757,
+      "googleMapsUri": "https://maps.google.com/?cid=18062072531910143117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.puzzleworksmn.com/?utm_source=GMBlisting&utm_medium=Organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.51
+    },
+    {
+      "googlePlaceId": "ChIJe1j2u5Eys1IR7I-ZF9E9Xdg",
+      "name": "Target Center",
+      "address": "600 N 1st Ave, Minneapolis, MN 55403, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 9755,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "stadium",
+        "event_venue",
+        "service",
+        "store",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9794633,
+      "lng": -93.2760947,
+      "googleMapsUri": "https://maps.google.com/?cid=15590685453279924204&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.targetcenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.37
+    },
+    {
+      "googlePlaceId": "ChIJ-QOCaQAzs1IRuQH66gGRBEw",
+      "name": "Diane's Place",
+      "address": "117 14th Ave NE, Minneapolis, MN 55413, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1108,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.0015128,
+      "lng": -93.27036179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5477662484212613561&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dianesplacemn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.34
+    },
+    {
+      "googlePlaceId": "ChIJIRuC3GEzs1IR95ImVc1yzlE",
+      "name": "Demi",
+      "address": "212 N 2nd St Suite 100, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 480,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9851187,
+      "lng": -93.2707188,
+      "googleMapsUri": "https://maps.google.com/?cid=5894775188497011447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://demimpls.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.31
+    },
+    {
+      "googlePlaceId": "ChIJweDHAY0zs1IRUMtMvFN9GFE",
+      "name": "The Butcher's Tale",
+      "address": "1121 Hennepin Ave, Minneapolis, MN 55403, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 924,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "fine_dining_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9747637,
+      "lng": -93.27980620000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5843558315108125520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://butcherstale.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.17
+    },
+    {
+      "googlePlaceId": "ChIJpcQ6D5cys1IRGIkZfb0UOUg",
+      "name": "Hell's Kitchen Inc.",
+      "address": "80 S 9th St, Minneapolis, MN 55402, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 7191,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9747862,
+      "lng": -93.2730205,
+      "googleMapsUri": "https://maps.google.com/?cid=5204213648483518744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hellskitcheninc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.06
+    },
+    {
+      "googlePlaceId": "ChIJMRcB_oUn9ocRxQbJv2bdfAg",
+      "name": "Volstead's Emporium Uptown",
+      "address": "711 W Lake St, Minneapolis, MN 55408, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1232,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.948008300000005,
+      "lng": -93.2887417,
+      "googleMapsUri": "https://maps.google.com/?cid=611607082789570245&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.volsteads.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.97
+    },
+    {
+      "googlePlaceId": "ChIJkx7g3aYn9ocRwbR6Ws04wq0",
+      "name": "Lyndale Park",
+      "address": "1300 W 42nd St, Minneapolis, MN 55409, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 984,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9275251,
+      "lng": -93.2953725,
+      "googleMapsUri": "https://maps.google.com/?cid=12520632368680842433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks__destinations/gardens__bird_sanctuaries/lyndale_park_gardens/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJL-FGVpEys1IR6Oz9krHwKDc",
+      "name": "Orpheum Theatre",
+      "address": "910 Hennepin Ave, Minneapolis, MN 55403, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5447,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "comedy_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.976302499999996,
+      "lng": -93.27746289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3974691316620455144&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hennepinarts.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJMQ-JEQ4n9ocRxtjjFXtBZHU",
+      "name": "Lake Harriet Regional Park",
+      "address": "4135 W Lake Harriet Pkwy, Minneapolis, MN 55409, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2911,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9281483,
+      "lng": -93.30768669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8458957997012670662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://minneapolisparks.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.87
+    },
+    {
+      "googlePlaceId": "ChIJUal9fj4ts1IR3Xnhat4e9Lo",
+      "name": "Klassics Kitchen + Cocktails",
+      "address": "428 S 2nd St, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 950,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.980465699999996,
+      "lng": -93.26102279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13471426325996730845&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.klassicsmn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "best cocktail bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJAScX3ZVKs1IRB3UQ4Ht57gI",
+      "name": "Breakout Games",
+      "address": "12369 Wayzata Blvd, Minnetonka, MN 55305, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5432,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9678021,
+      "lng": -93.4382353,
+      "googleMapsUri": "https://maps.google.com/?cid=211239805480105223&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/minneapolis?utm_source=google&utm_medium=organic&utm_campaign=gmb-minneapolis",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.68
+    },
+    {
+      "googlePlaceId": "ChIJ801y1psW9ocRoX4TOQCdDiI",
+      "name": "Mystic Lake Casino Hotel",
+      "address": "2400 Mystic Lk Blvd, Prior Lake, MN 55372, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.1,
+      "reviewCount": 26889,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "resort_hotel",
+        "tourist_attraction",
+        "hotel",
+        "live_music_venue",
+        "golf_course",
+        "athletic_field",
+        "sports_activity_location",
+        "lodging",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.7307803,
+      "lng": -93.4736248,
+      "googleMapsUri": "https://maps.google.com/?cid=2454071471246638753&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mysticlake.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.41
+    },
+    {
+      "googlePlaceId": "ChIJe7CNMHUv9ocRtw4OQUaM_qI",
+      "name": "Activate Bloomington",
+      "address": "312 E Broadway, Bloomington, MN 55425, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3254,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.8551919,
+      "lng": -93.24022719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11744979111595871927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/mallofamerica",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.17
+    },
+    {
+      "googlePlaceId": "ChIJtY3uKc0zs1IRQo14tsoB7NA",
+      "name": "Lumi Restaurant",
+      "address": "921 Nicollet Mall, Minneapolis, MN 55402, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 952,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "turkish_restaurant",
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.974272899999995,
+      "lng": -93.2741372,
+      "googleMapsUri": "https://maps.google.com/?cid=15054409624549100866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lumimn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJv1UdCkMts1IRJx2heTQYc4w",
+      "name": "The Cedar Cultural Center",
+      "address": "416 Cedar Ave, Minneapolis, MN 55454, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 911,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "cultural_center",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "non_profit_organization",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.969513899999995,
+      "lng": -93.2475806,
+      "googleMapsUri": "https://maps.google.com/?cid=10120459401289604391&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thecedar.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.02
+    },
+    {
+      "googlePlaceId": "ChIJx3QbkF4p9ocRTtNOav-9YZ0",
+      "name": "Hidden Falls Regional Park",
+      "address": "1313 Hidden Falls Dr, St Paul, MN 55116, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1464,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.906278799999995,
+      "lng": -93.19305179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11340554241393480526&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.stpaul.gov/facilities/hidden-falls-regional-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJ2RrVbzYk9ocRtStI5Zm8xeI",
+      "name": "Nickelodeon Universe",
+      "address": "5000 Center Ct, Bloomington, MN 55425, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 17377,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "shopping_mall",
+        "amusement_center",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.854739699999996,
+      "lng": -93.2420255,
+      "googleMapsUri": "https://maps.google.com/?cid=16340674192146443189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nickelodeonuniverse.com/home/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.93
+    },
+    {
+      "googlePlaceId": "ChIJy3VuDNgts1IRRHLfCsYGDHs",
+      "name": "The Briar",
+      "address": "1231 Washington St NE, Minneapolis, MN 55413, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 438,
+      "priceLevel": null,
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "cocktail_bar",
+        "coffee_shop",
+        "wine_bar",
+        "bar",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.0007491,
+      "lng": -93.2573541,
+      "googleMapsUri": "https://maps.google.com/?cid=8866469214041371204&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.briarbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.92
+    },
+    {
+      "googlePlaceId": "ChIJrYas0UMn9ocRqCjAkQa6HTo",
+      "name": "The Bakken Museum",
+      "address": "3537 Zenith Ave S, Minneapolis, MN 55416, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 605,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9383359,
+      "lng": -93.321289,
+      "googleMapsUri": "https://maps.google.com/?cid=4187707765902289064&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thebakken.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJY1w39YUys1IRMdvKbP6rZoE",
+      "name": "The Monte Carlo",
+      "address": "219 N 3rd Ave, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1723,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "seafood_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.984742399999995,
+      "lng": -93.27174099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9324329187752467249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.montecarlomn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJc6VARrsvs1IR5AeI3nwdlDM",
+      "name": "Crooners Supper Club",
+      "address": "6161 Hwy 65 NE, Minneapolis, MN 55432, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 1696,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "steak_house",
+        "cocktail_bar",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "american_restaurant",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.079208699999995,
+      "lng": -93.24300439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3716628014634108900&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://croonersmn.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "jazz clubs",
+        "seasonal pop ups",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.77
+    },
+    {
+      "googlePlaceId": "ChIJh-xHBiUQ9ocRnwwWjboqfYQ",
+      "name": "Minnesota Renaissance Festival",
+      "address": "12364 Chestnut Blvd, Shakopee, MN 55379, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 6363,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.7447989,
+      "lng": -93.5977083,
+      "googleMapsUri": "https://maps.google.com/?cid=9546833765814635679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.renaissancefest.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJ69VqQ6grs1IRan8gE9yohzU",
+      "name": "Smash Park Roseville",
+      "address": "1721 County Rd C West, Roseville, MN 55113, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 1574,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "athletic_field",
+        "bar",
+        "restaurant",
+        "food",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.0217884,
+      "lng": -93.1722372,
+      "googleMapsUri": "https://maps.google.com/?cid=3857237269033287530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://smashpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "pickleball courts",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJ6dxNCmQts1IRc8PPh1iADMg",
+      "name": "Guthrie Theater",
+      "address": "818 S 2nd St, Minneapolis, MN 55415, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 5432,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "non_profit_organization",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9781701,
+      "lng": -93.2558665,
+      "googleMapsUri": "https://maps.google.com/?cid=14415037625030132595&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.guthrietheater.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.58
+    },
+    {
+      "googlePlaceId": "ChIJ2yBUaqk4s1IR1d4sJy6IGOk",
+      "name": "Elm Creek Park Reserve",
+      "address": "12400 James Deane Pkwy, Maple Grove, MN 55369, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4306,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "picnic_ground",
+        "wedding_venue",
+        "hiking_area",
+        "athletic_field",
+        "park",
+        "event_venue",
+        "playground",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.137982900000004,
+      "lng": -93.4378898,
+      "googleMapsUri": "https://maps.google.com/?cid=16796324542085390037&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.threeriversparks.org/location/elm-creek-park-reserve",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJQU3CQaoZ9ocRXVLAfdcdbNA",
+      "name": "Sandbox VR",
+      "address": "8251 Flying Cloud Dr #2000, Eden Prairie, MN 55344, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3726,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.8540777,
+      "lng": -93.4247274,
+      "googleMapsUri": "https://maps.google.com/?cid=15018411668738691677&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/edenprairie",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJZYd6KSgts1IR7E7ivg_if2U",
+      "name": "Boom Island Park",
+      "address": "724 Sibley St NE, Minneapolis, MN 55413, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1488,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9920367,
+      "lng": -93.2686552,
+      "googleMapsUri": "https://maps.google.com/?cid=7313812877127864044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJY7-MmhArs1IR8sLhbyqZYPY",
+      "name": "Marjorie McNeely Conservatory",
+      "address": "1225 Estabrook Dr, St Paul, MN 55103, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1717,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.981707899999996,
+      "lng": -93.1512774,
+      "googleMapsUri": "https://maps.google.com/?cid=17753358138639237874&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.comozooconservatory.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJd6p4n3ots1IRsvZ9bqqonfU",
+      "name": "Father Hennepin Bluff Park",
+      "address": "420 SE Main St, Minneapolis, MN 55414, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 778,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9826286,
+      "lng": -93.2526985,
+      "googleMapsUri": "https://maps.google.com/?cid=17698487560587572914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks__destinations/parks__lakes/father_hennepin_bluff_park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJKUStfyEn9ocRSvEKf8e3aGk",
+      "name": "Bûcheron",
+      "address": "4257 Nicollet Ave, Minneapolis, MN 55409, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 338,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9251922,
+      "lng": -93.27768560000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7595522839018139978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bucheronrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJX_65qacn9ocR1FHBYs7q6Ww",
+      "name": "Lyndale Park Rose Garden",
+      "address": "4124 Roseway Rd, Minneapolis, MN 55409, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1643,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.927417299999995,
+      "lng": -93.29576,
+      "googleMapsUri": "https://maps.google.com/?cid=7848061997810799060&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minneapolisparks.org/parks-destinations/parks-lakes/gardens__bird_sanctuaries/lyndale_park_rose_garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJa4AQBInSslIR10SqnLzXyFI",
+      "name": "PINZ",
+      "address": "7520 32nd St N, Oakdale, MN 55128, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 4200,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "video_arcade",
+        "american_restaurant",
+        "sports_complex",
+        "restaurant",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9968697,
+      "lng": -92.95318320000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5965254911534449879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tripleshift.com/pinz/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJpXpIKFvV94cRMRyfmaCIEQQ",
+      "name": "St. Paul Farmers' Market",
+      "address": "290 5th St E, St Paul, MN 55101, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 2230,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.949547,
+      "lng": -93.085039,
+      "googleMapsUri": "https://maps.google.com/?cid=293165674109279281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stpaulfarmersmarket.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.93
+    },
+    {
+      "googlePlaceId": "ChIJXSY6YDAzs1IRReCrw0wzWi8",
+      "name": "Minneapolis Trolley Tours",
+      "address": "100 E 22nd St, Minneapolis, MN 55403, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 570,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9611884,
+      "lng": -93.276156,
+      "googleMapsUri": "https://maps.google.com/?cid=3412096072479924293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://minneapolistrolleytours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.85
+    },
+    {
+      "googlePlaceId": "ChIJj2Sea4kys1IR8FbtTsPKoug",
+      "name": "Smack Shack",
+      "address": "603 N Washington Ave, Minneapolis, MN 55401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4275,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9868107,
+      "lng": -93.27640629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16763183703218018032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.smack-shack.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.78
+    },
+    {
+      "googlePlaceId": "ChIJqeQqrYQb9ocRicWTVqTMTxQ",
+      "name": "Chanhassen Dinner Theatres",
+      "address": "501 W 78th St, Chanhassen, MN 55317, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5690,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "comedy_club",
+        "wedding_venue",
+        "live_music_venue",
+        "performing_arts_theater",
+        "service",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.861705,
+      "lng": -93.5337687,
+      "googleMapsUri": "https://maps.google.com/?cid=1463613410117928329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chanhassendt.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.63
+    },
+    {
+      "googlePlaceId": "ChIJgemRIQArs1IRi5dppWsr5G0",
+      "name": "Neko Clawww",
+      "address": "1716 Lexington Ave N, Roseville, MN 55113, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 968,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9932316,
+      "lng": -93.1454706,
+      "googleMapsUri": "https://maps.google.com/?cid=7918501786160830347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nekoclawww.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.51
+    },
+    {
+      "googlePlaceId": "ChIJL-FGVpEys1IREbavJnGpCk0",
+      "name": "State Theatre",
+      "address": "805 Hennepin Ave, Minneapolis, MN 55402, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2479,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "comedy_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.976857599999995,
+      "lng": -93.27607719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5551435794133005841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hennepinarts.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.42
+    },
+    {
+      "googlePlaceId": "ChIJ_blDSE3V94cR86FdIHgyP5c",
+      "name": "Minnesota Children's Museum",
+      "address": "10 7th St W, St Paul, MN 55102, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 1253,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.947766099999996,
+      "lng": -93.0970241,
+      "googleMapsUri": "https://maps.google.com/?cid=10898485114780361203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mcm.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.42
+    },
+    {
+      "googlePlaceId": "ChIJIdPdpYs7s1IRqmTarWZPLXI",
+      "name": "Grand Slam Family Fun Center",
+      "address": "2941 Coon Rapids Blvd NW, Coon Rapids, MN 55433, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 1492,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "indoor_playground",
+        "playground",
+        "miniature_golf_course",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "home_goods_store",
+        "store",
+        "establishment"
+      ],
+      "lat": 45.1733062,
+      "lng": -93.34039229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8227319396697793706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.grandslamcoonrapids.com/?y_source=1_MjMyMzg0Ny03MTUtbG9jYXRpb24ud2Vic2l0ZQ==",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.27
+    },
+    {
+      "googlePlaceId": "ChIJdRNA5jky9ocRK4Sh851hx84",
+      "name": "Lebanon Hills Regional Park",
+      "address": "860 Cliff Rd, Eagan, MN 55123, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3472,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "visitor_center",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 44.7899886,
+      "lng": -93.12427620000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14899985223203783723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.co.dakota.mn.us/parks/parksTrails/LebanonHills/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.17
+    },
+    {
+      "googlePlaceId": "ChIJXTEuKWwv9ocR1CGDb9ciJRE",
+      "name": "FlyOver America",
+      "address": "5120 Center Ct, Bloomington, MN 55425, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 2702,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.854268399999995,
+      "lng": -93.2429317,
+      "googleMapsUri": "https://maps.google.com/?cid=1235431981467247060&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.flyover-america.com/?utm_source=local&utm_medium=organic&utm_campaign=gmb&utm_content=moa",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.04
+    },
+    {
+      "googlePlaceId": "ChIJN11Koewn9ocR0R1l7NmJzgw",
+      "name": "Hola Arepa",
+      "address": "3501 Nicollet Ave, Minneapolis, MN 55408, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 3770,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "latin_american_restaurant",
+      "types": [
+        "latin_american_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 44.9393379,
+      "lng": -93.2774072,
+      "googleMapsUri": "https://maps.google.com/?cid=922826542724488657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://holaarepa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.98
+    },
+    {
+      "googlePlaceId": "ChIJw0scAPIys1IRjXyEK6Y27fo",
+      "name": "Minneapolis Farmers Market",
+      "address": "312 East Lyndale Ave N, Minneapolis, MN 55405, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 1321,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "atm",
+        "wholesaler",
+        "finance",
+        "market",
+        "point_of_interest",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 44.981254199999995,
+      "lng": -93.28577589999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18081168166284983437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mplsfarmersmarket.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJr03h2Jkys1IREtlw7i5kytw",
+      "name": "Hen House Eatery",
+      "address": "114 S 8th St, Minneapolis, MN 55402, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6446,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "cafe",
+        "breakfast_restaurant",
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.9750527,
+      "lng": -93.2706235,
+      "googleMapsUri": "https://maps.google.com/?cid=15909638786371344658&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://henhouseeatery.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.92
+    }
+  ]
+}

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confetti — Cold Email Playbook</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --cream: #fbf5e5;
+    --ink: #140b06;
+    --coral: #ff5032;
+    --gold: #fdc010;
+    --purple: #513bb2;
+    --pink: #ff2f6a;
+    --teal: #00bec7;
+    --card: #ffffff;
+    --border: #dcdde5;
+    --muted: #5b5d69;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 48px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .logo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+  }
+  .logo-dot { color: var(--coral); }
+  .header-meta {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+
+  /* Hero */
+  .hero {
+    margin-bottom: 56px;
+  }
+  .hero h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+  .hero h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--coral);
+    font-weight: 400;
+  }
+  .hero .subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  .hero .description {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+
+  /* Pill tags */
+  .pill {
+    display: inline-block;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  .pill--coral { background: var(--coral); color: white; border-color: var(--coral); }
+  .pill--gold { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .pill--purple { background: var(--purple); color: white; border-color: var(--purple); }
+  .pill--pink { background: var(--pink); color: white; border-color: var(--pink); }
+  .pill--teal { background: var(--teal); color: white; border-color: var(--teal); }
+
+  /* Email Cards */
+  .email-card {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .email-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+  }
+  .email-card.e1::before { background: var(--coral); }
+  .email-card.e2::before { background: var(--gold); }
+  .email-card.e3::before { background: var(--purple); }
+  .email-card.e4::before { background: var(--pink); }
+  .email-card.e5::before { background: var(--teal); }
+
+  .email-number {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    opacity: 0.08;
+    position: absolute;
+    top: 12px;
+    right: 32px;
+    line-height: 1;
+  }
+
+  .email-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .email-step {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+  .email-timing {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 3px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .email-label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .email-purpose {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .field-group {
+    margin-bottom: 16px;
+  }
+  .field-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .subject-line {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px 16px;
+    background: var(--cream);
+    border-radius: 10px;
+    border: 1px dashed var(--border);
+  }
+  .subject-line code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--gold);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+  .email-body {
+    font-size: 14px;
+    line-height: 1.8;
+    padding: 20px 24px;
+    background: var(--cream);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    white-space: pre-line;
+  }
+  .email-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--gold);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  .pro-tip {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--coral);
+    background: rgba(255, 80, 50, 0.06);
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .pro-tip strong {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--coral);
+  }
+
+  /* Cadence Timeline */
+  .cadence-section {
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+  .cadence-section h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .cadence-section h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--coral);
+    font-weight: 400;
+  }
+  .cadence-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .timeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 24px 0;
+    position: relative;
+  }
+  .timeline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border);
+    z-index: 0;
+    border-style: dashed;
+  }
+  .tl-node {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .tl-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    border: 2px solid var(--ink);
+  }
+  .tl-dot.c1 { background: var(--coral); }
+  .tl-dot.c2 { background: var(--gold); color: var(--ink); }
+  .tl-dot.c3 { background: var(--purple); }
+  .tl-dot.c4 { background: var(--pink); }
+  .tl-dot.c5 { background: var(--teal); }
+  .tl-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+  }
+  .tl-day {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  /* Personalization Tags */
+  .tags-section {
+    margin-bottom: 56px;
+  }
+  .tags-section h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .tags-section h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--purple);
+    font-weight: 400;
+  }
+  .tags-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .tag-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+  }
+  .tag-item code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--gold);
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .tag-item span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .footer-right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+  .footer-legal {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* Section Divider */
+  .divider {
+    height: 2px;
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 48px 0;
+  }
+
+  @media print {
+    .page { padding: 40px 36px; }
+    .email-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="logo">confetti<span class="logo-dot">.</span></div>
+    </div>
+    <div class="header-meta">
+      Heritage Power Group LLC<br>
+      Cold Email Playbook<br>
+      May 2026
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Cold Email<br><em>Playbook.</em></h1>
+    <div class="subtitle">Venue Partner Outreach &middot; 5-Email Sequence</div>
+    <p class="description">
+      A 5-touch outreach sequence designed to land venue partnerships for Confetti's advertising platform.
+      Each email builds on the last — from curiosity to conversion.
+    </p>
+    <div style="margin-top: 20px;">
+      <span class="pill pill--coral">5 Emails</span>
+      <span class="pill pill--gold">14-Day Cadence</span>
+      <span class="pill pill--purple">Personalization Tags</span>
+    </div>
+  </div>
+
+  <!-- Cadence Timeline -->
+  <div class="cadence-section">
+    <h2>Timing <em>cadence.</em></h2>
+    <div class="cadence-subtitle">14-day drip sequence</div>
+    <div class="timeline">
+      <div class="tl-node">
+        <div class="tl-dot c1">1</div>
+        <div class="tl-day">Day 1</div>
+        <div class="tl-label">Intro</div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot c2">2</div>
+        <div class="tl-day">Day 3</div>
+        <div class="tl-label">Value</div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot c3">3</div>
+        <div class="tl-day">Day 6</div>
+        <div class="tl-label">Social Proof</div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot c4">4</div>
+        <div class="tl-day">Day 10</div>
+        <div class="tl-label">Urgency</div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot c5">5</div>
+        <div class="tl-day">Day 14</div>
+        <div class="tl-label">Breakup</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Email 1 -->
+  <div class="email-card e1">
+    <div class="email-number">01</div>
+    <div class="email-header">
+      <span class="pill pill--coral">Email 1</span>
+      <span class="email-timing">Day 1 &middot; Tuesday 9:00 AM</span>
+    </div>
+    <div class="email-label">The Warm Open</div>
+    <div class="email-purpose">Hook with a compliment + immediate relevance.</div>
+
+    <div class="field-group">
+      <div class="field-label">Subject Line Options</div>
+      <div class="subject-line">
+        <code>{{venue_name}}</code> + Confetti = more covers on slow nights
+      </div>
+      <div class="subject-line" style="margin-top: 8px;">
+        Quick idea for <code>{{venue_name}}</code> — 2 min read
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Email Body</div>
+      <div class="email-body">Hey <code>{{first_name}}</code>,
+
+I was putting together a night in <code>{{city}}</code> last week and <code>{{venue_name}}</code> came up as the exact kind of spot people want on their itinerary — great vibe, walkable, worth showing up for.
+
+That's basically what Confetti does. We're an AI-powered outing planner that builds full evening itineraries — dinner, drinks, late-night — with real reservations and routing. Think of us as the friend who always knows where to go.
+
+We're onboarding select venues in <code>{{neighborhood}}</code> as Featured Partners, which means your spot gets placed directly into plans when someone's vibe matches what you offer.
+
+Would you be open to a 10-minute call this week to see if it's a fit?
+
+Best,
+<code>{{sender_name}}</code>
+Confetti — Plans with a pulse.
+Heritage Power Group LLC</div>
+    </div>
+    <div class="pro-tip"><strong>Pro Tip:</strong> Reference a specific dish, cocktail, or design element from their Instagram to make the compliment land.</div>
+  </div>
+
+  <!-- Email 2 -->
+  <div class="email-card e2">
+    <div class="email-number">02</div>
+    <div class="email-header">
+      <span class="pill pill--gold">Email 2</span>
+      <span class="email-timing">Day 3 &middot; Thursday 10:30 AM</span>
+    </div>
+    <div class="email-label">The Value Drop</div>
+    <div class="email-purpose">Lead with numbers. Make the ROI undeniable.</div>
+
+    <div class="field-group">
+      <div class="field-label">Subject Line Options</div>
+      <div class="subject-line">
+        What 2,847 plans tell us about <code>{{neighborhood}}</code>
+      </div>
+      <div class="subject-line" style="margin-top: 8px;">
+        <code>{{venue_name}}</code> — you're already being searched
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Email Body</div>
+      <div class="email-body">Hey <code>{{first_name}}</code>,
+
+Quick follow-up — wanted to share some context.
+
+Confetti users have built 2,847+ plans and counting. In <code>{{city}}</code>, the top vibe requests are "walkable dinner + drinks," "date night that doesn't feel basic," and "group-friendly with good energy."
+
+That's literally your wheelhouse.
+
+Here's what Featured Partners get:
+— Priority placement in AI-generated itineraries
+— A branded venue card with photos, hours, and direct booking links
+— Monthly performance dashboard (impressions, click-throughs, bookings)
+— Boost Credits to surge visibility on peak nights
+
+Starts at $79/mo for Spotlight. No contracts, cancel anytime.
+
+Worth a quick look?
+
+<code>{{sender_name}}</code></div>
+    </div>
+    <div class="pro-tip"><strong>Pro Tip:</strong> If you have any local data (neighborhood search volume, vibe match %), include it as a screenshot or one-liner.</div>
+  </div>
+
+  <!-- Email 3 -->
+  <div class="email-card e3">
+    <div class="email-number">03</div>
+    <div class="email-header">
+      <span class="pill pill--purple">Email 3</span>
+      <span class="email-timing">Day 6 &middot; Monday 9:00 AM</span>
+    </div>
+    <div class="email-label">The Social Proof</div>
+    <div class="email-purpose">Show them they're not the first — and won't be the last.</div>
+
+    <div class="field-group">
+      <div class="field-label">Subject Line Options</div>
+      <div class="subject-line">
+        Why <code>{{competitor_venue}}</code> just signed up
+      </div>
+      <div class="subject-line" style="margin-top: 8px;">
+        3 spots in <code>{{neighborhood}}</code> already on Confetti
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Email Body</div>
+      <div class="email-body">Hey <code>{{first_name}}</code>,
+
+Just a heads up — we've been onboarding venues in <code>{{neighborhood}}</code> and the response has been strong. A few spots you'd recognize are already live on the platform.
+
+The way Confetti works, when someone says "build me a chill dinner-to-drinks night in <code>{{neighborhood}}</code>," our AI picks from partner venues first. If you're not in the mix, your neighbors are getting those bookings.
+
+Not trying to create FOMO (okay, a little) — but we're capping Featured Partner slots per neighborhood to keep recommendations authentic.
+
+Happy to send over a sample of what your venue card would look like. Just reply "show me."
+
+<code>{{sender_name}}</code></div>
+    </div>
+    <div class="pro-tip"><strong>Pro Tip:</strong> Attach or link a mockup of their venue card inside a Confetti itinerary. Make it feel real.</div>
+  </div>
+
+  <!-- Email 4 -->
+  <div class="email-card e4">
+    <div class="email-number">04</div>
+    <div class="email-header">
+      <span class="pill pill--pink">Email 4</span>
+      <span class="email-timing">Day 10 &middot; Friday 11:00 AM</span>
+    </div>
+    <div class="email-label">The Gentle Push</div>
+    <div class="email-purpose">Create urgency without being desperate.</div>
+
+    <div class="field-group">
+      <div class="field-label">Subject Line Options</div>
+      <div class="subject-line">
+        Last <code>{{available_slots}}</code> Featured spots in <code>{{neighborhood}}</code>
+      </div>
+      <div class="subject-line" style="margin-top: 8px;">
+        Re: <code>{{venue_name}}</code> + Confetti
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Email Body</div>
+      <div class="email-body">Hey <code>{{first_name}}</code>,
+
+I know inboxes are brutal, so I'll keep this one short.
+
+We're down to <code>{{available_slots}}</code> Featured Partner slots in <code>{{neighborhood}}</code> before we cap it for the summer. Once we hit the limit, new venues go on a waitlist.
+
+If you've been thinking about it, now's the window.
+
+I can have your venue card live in under 48 hours. All I need is a 10-minute call to walk through the tiers and get your content set up.
+
+Here's my calendar: <code>{{calendar_link}}</code>
+
+<code>{{sender_name}}</code></div>
+    </div>
+    <div class="pro-tip"><strong>Pro Tip:</strong> Use a real Calendly or Cal.com link. Remove friction — don't make them reply to schedule.</div>
+  </div>
+
+  <!-- Email 5 -->
+  <div class="email-card e5">
+    <div class="email-number">05</div>
+    <div class="email-header">
+      <span class="pill pill--teal">Email 5</span>
+      <span class="email-timing">Day 14 &middot; Tuesday 9:00 AM</span>
+    </div>
+    <div class="email-label">The Breakup</div>
+    <div class="email-purpose">Graceful exit that leaves the door open.</div>
+
+    <div class="field-group">
+      <div class="field-label">Subject Line Options</div>
+      <div class="subject-line">
+        Closing the loop on <code>{{venue_name}}</code>
+      </div>
+      <div class="subject-line" style="margin-top: 8px;">
+        No hard feelings, <code>{{first_name}}</code>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Email Body</div>
+      <div class="email-body">Hey <code>{{first_name}}</code>,
+
+I've reached out a few times and haven't heard back — totally understand, running a venue is nonstop.
+
+I'll close this loop for now, but wanted to leave you with this:
+
+Confetti is growing fast in <code>{{city}}</code>. When your slow nights need a boost or you're looking for a new way to reach the "where should we go tonight?" crowd, we'll be here.
+
+You can always check us out at confettiplan.com or just reply to this thread.
+
+Wishing <code>{{venue_name}}</code> a packed house this weekend.
+
+<code>{{sender_name}}</code>
+Confetti — Plans with a pulse.
+Heritage Power Group LLC</div>
+    </div>
+    <div class="pro-tip"><strong>Pro Tip:</strong> Breakup emails have the highest reply rate. Keep it warm and human — many will come back weeks later.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Personalization Tags Reference -->
+  <div class="tags-section">
+    <h2>Personalization <em>tags.</em></h2>
+    <div class="cadence-subtitle">Merge fields for your email tool</div>
+    <div class="tags-grid">
+      <div class="tag-item">
+        <code>{{first_name}}</code>
+        <span>Contact's first name</span>
+      </div>
+      <div class="tag-item">
+        <code>{{venue_name}}</code>
+        <span>Business / venue name</span>
+      </div>
+      <div class="tag-item">
+        <code>{{city}}</code>
+        <span>City (e.g., Washington DC)</span>
+      </div>
+      <div class="tag-item">
+        <code>{{neighborhood}}</code>
+        <span>Area (e.g., Shaw, Adams Morgan)</span>
+      </div>
+      <div class="tag-item">
+        <code>{{sender_name}}</code>
+        <span>Your name / rep name</span>
+      </div>
+      <div class="tag-item">
+        <code>{{competitor_venue}}</code>
+        <span>Nearby venue already on platform</span>
+      </div>
+      <div class="tag-item">
+        <code>{{available_slots}}</code>
+        <span>Remaining slots in area</span>
+      </div>
+      <div class="tag-item">
+        <code>{{calendar_link}}</code>
+        <span>Scheduling link (Calendly, etc.)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      <div class="footer-left">confetti<span style="color: var(--coral);">.</span> / Heritage Power Group LLC</div>
+      <div class="footer-legal">Confidential — Internal Sales Use Only</div>
+    </div>
+    <div class="footer-right">
+      confettiplan.com<br>
+      Washington, DC
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

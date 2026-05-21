@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confetti — Corporate Media & Advertising Kit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Instrument+Serif:ital@1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+  :root {
+    --cream: #FBF5E5;
+    --dark: #140B06;
+    --coral: #FF5032;
+    --gold: #FDC010;
+    --purple: #513BB2;
+    --border: 2.5px solid var(--dark);
+    --shadow: 6px 6px 0 var(--dark);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--cream);
+    color: var(--dark); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* MONOSPACE LABEL */
+  .mono-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 2.5px; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; width: 100%; z-index: 100; background: var(--cream);
+    border-bottom: 2px solid var(--dark); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 32px;
+    display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 800;
+    color: var(--dark); }
+  .logo .dot { color: var(--coral); }
+  .logo-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    color: var(--dark); opacity: 0.5; letter-spacing: 1px; margin-left: 10px; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 1.5px; color: var(--dark); text-decoration: none;
+    opacity: 0.6; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta { display: inline-block; padding: 10px 24px; border-radius: 999px;
+    background: var(--dark); color: var(--cream); font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+    text-decoration: none; transition: transform 0.2s; }
+  .nav-cta:hover { transform: translateY(-1px); }
+
+  /* HERO */
+  .hero { background: var(--cream); padding: 160px 32px 100px; text-align: center; }
+  .hero-content { max-width: 850px; margin: 0 auto; }
+  .hero-badge { display: inline-block; padding: 8px 20px; border-radius: 999px;
+    border: var(--border); font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px;
+    margin-bottom: 28px; color: var(--dark); }
+  .hero h1 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 64px;
+    font-weight: 800; line-height: 1.05; margin-bottom: 24px; color: var(--dark); }
+  .hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic;
+    color: var(--coral); font-weight: 400; }
+  .hero p { font-size: 18px; color: var(--dark); opacity: 0.6; max-width: 600px; margin: 0 auto; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--dark); opacity: 0.15;
+    max-width: 1200px; margin: 0 auto; }
+
+  /* SECTION COMMONS */
+  section { padding: 80px 32px; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 2.5px; color: var(--dark); opacity: 0.5;
+    margin-bottom: 12px; }
+  .section-label::before { content: '✦ '; }
+  section h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 42px;
+    font-weight: 800; margin-bottom: 16px; color: var(--dark); line-height: 1.1; }
+  section h2 em { font-family: 'Instrument Serif', serif; font-style: italic;
+    color: var(--coral); font-weight: 400; }
+  section .subtitle { font-size: 16px; color: var(--dark); opacity: 0.55; margin-bottom: 48px;
+    max-width: 620px; }
+
+  /* STATS GRID */
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 40px;
+    border: var(--border); border-radius: 16px; overflow: hidden; }
+  .stat-card { padding: 32px 24px; text-align: center;
+    border-right: 2.5px solid var(--dark); }
+  .stat-card:last-child { border-right: none; }
+  .stat-card .num { font-family: 'Bricolage Grotesque', sans-serif; font-size: 36px;
+    font-weight: 800; margin-bottom: 6px; }
+  .stat-card .label { font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 1.5px; color: var(--dark); opacity: 0.5; }
+
+  /* GAP CALLOUT */
+  .gap-card { padding: 28px 32px; border: var(--border); border-radius: 16px;
+    box-shadow: var(--shadow); background: var(--cream); }
+  .gap-card strong { color: var(--coral); }
+
+  /* ABOUT GRID */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .about-text h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px;
+    font-weight: 800; margin-bottom: 16px; }
+  .about-text p { font-size: 15px; color: var(--dark); opacity: 0.65; margin-bottom: 16px; line-height: 1.7; }
+  .features-bordered { display: grid; grid-template-columns: 1fr 1fr; border: var(--border);
+    border-radius: 16px; overflow: hidden; }
+  .feat-cell { padding: 24px; border-right: 2.5px solid var(--dark);
+    border-bottom: 2.5px solid var(--dark); }
+  .feat-cell:nth-child(2n) { border-right: none; }
+  .feat-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .feat-cell .icon { font-size: 22px; margin-bottom: 8px; }
+  .feat-cell h4 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px;
+    font-weight: 800; margin-bottom: 4px; }
+  .feat-cell p { font-size: 12px; color: var(--dark); opacity: 0.5; }
+
+  /* AUDIENCE */
+  .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr);
+    border: var(--border); border-radius: 16px; overflow: hidden; }
+  .audience-card { padding: 36px 28px; text-align: center;
+    border-right: 2.5px solid var(--dark); }
+  .audience-card:last-child { border-right: none; }
+  .audience-card .icon { font-size: 36px; margin-bottom: 16px; }
+  .audience-card h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px;
+    font-weight: 800; margin-bottom: 10px; }
+  .audience-card p { font-size: 14px; color: var(--dark); opacity: 0.6; line-height: 1.6; }
+  .audience-tag { display: inline-block; margin-top: 14px; padding: 6px 16px;
+    border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+    border: 2px solid var(--dark); color: var(--dark); }
+
+  /* TIERS SECTION (dark bg) */
+  .dark-section { background: var(--dark); border: var(--border); border-radius: 20px;
+    padding: 64px 48px; color: var(--cream); box-shadow: 8px 8px 0 rgba(20,11,6,0.3); }
+  .dark-section .section-label { color: var(--gold); opacity: 1; }
+  .dark-section h2 { color: var(--cream); }
+  .dark-section h2 em { color: var(--gold); }
+  .dark-section .subtitle { color: var(--cream); opacity: 0.5; }
+
+  .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 2.5px solid rgba(251,245,229,0.2); border-radius: 16px; overflow: hidden; }
+  .tier-card { padding: 40px 28px; text-align: center; position: relative;
+    border-right: 2.5px solid rgba(251,245,229,0.2); }
+  .tier-card:last-child { border-right: none; }
+  .tier-card.featured { background: rgba(251,245,229,0.06); }
+  .tier-badge { display: inline-block; padding: 6px 18px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+    border: 2px solid rgba(251,245,229,0.3); color: var(--cream); }
+  .tier-card.featured .tier-badge { border-color: var(--gold); color: var(--gold); }
+  .tier-price { font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px;
+    font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+  .tier-period { font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--cream); opacity: 0.4; letter-spacing: 1px; margin-bottom: 28px; }
+  .tier-features { list-style: none; text-align: left; }
+  .tier-features li { padding: 10px 0; font-size: 14px; color: var(--cream); opacity: 0.7;
+    padding-left: 22px; position: relative; border-bottom: 1px solid rgba(251,245,229,0.08); }
+  .tier-features li:last-child { border-bottom: none; }
+  .tier-features li::before { content: '✦'; position: absolute; left: 0;
+    color: var(--coral); font-size: 10px; top: 12px; }
+  .most-popular { position: absolute; top: 0; left: 0; right: 0; padding: 7px;
+    background: var(--coral); text-align: center; font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--cream); }
+
+  /* BOOST */
+  .boost-grid { display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 2.5px solid rgba(251,245,229,0.15); border-radius: 16px; overflow: hidden;
+    margin-top: 32px; }
+  .boost-card { padding: 24px; text-align: center;
+    border-right: 2.5px solid rgba(251,245,229,0.15); }
+  .boost-card:last-child { border-right: none; }
+  .boost-card h4 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px;
+    font-weight: 800; color: var(--cream); margin-bottom: 6px; }
+  .boost-card .price { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px;
+    font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+  .boost-card p { font-size: 12px; color: var(--cream); opacity: 0.4; }
+
+  .discount-card { margin-top: 32px; padding: 24px 32px; border-radius: 16px;
+    border: 2px solid rgba(253,192,16,0.3); background: rgba(253,192,16,0.06); }
+  .discount-card strong { color: var(--gold); }
+  .discount-card p { font-size: 14px; color: var(--cream); opacity: 0.65; }
+
+  /* GROWTH CHART */
+  .growth-chart { display: flex; align-items: flex-end; gap: 16px; height: 260px;
+    padding: 36px 32px; border: var(--border); border-radius: 16px; margin-top: 36px;
+    background: var(--cream); }
+  .growth-bar { flex: 1; border-radius: 10px 10px 0 0; position: relative;
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+  .growth-bar .val { position: absolute; top: -30px; font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 15px; font-weight: 800; color: var(--dark); }
+  .growth-bar .lbl { position: absolute; bottom: -30px; font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 1px; color: var(--dark); opacity: 0.45; font-weight: 500; }
+
+  /* PHASE GRID */
+  .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr);
+    border: var(--border); border-radius: 16px; overflow: hidden; margin-top: 56px; }
+  .phase-card { padding: 32px; border-right: 2.5px solid var(--dark); }
+  .phase-card:last-child { border-right: none; }
+  .phase-card h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px;
+    font-weight: 800; margin-bottom: 10px; }
+  .phase-card p { font-size: 14px; color: var(--dark); opacity: 0.55; line-height: 1.6; }
+
+  /* WHY GRID */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; border: var(--border);
+    border-radius: 16px; overflow: hidden; }
+  .why-card { padding: 36px 32px; border-right: 2.5px solid var(--dark);
+    border-bottom: 2.5px solid var(--dark); }
+  .why-card:nth-child(2n) { border-right: none; }
+  .why-card:nth-last-child(-n+2) { border-bottom: none; }
+  .why-card h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px;
+    font-weight: 800; margin-bottom: 10px; }
+  .why-card p { font-size: 14px; color: var(--dark); opacity: 0.55; line-height: 1.7; }
+
+  /* CTA */
+  .cta-section { background: var(--coral); border-radius: 20px; padding: 80px 48px;
+    text-align: center; color: var(--cream); }
+  .cta-section h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px;
+    font-weight: 800; color: var(--cream); margin-bottom: 16px; }
+  .cta-section h2 em { font-family: 'Instrument Serif', serif; font-style: italic;
+    color: var(--dark); font-weight: 400; }
+  .cta-section p { font-size: 17px; color: var(--cream); opacity: 0.8; max-width: 520px;
+    margin: 0 auto 36px; }
+  .cta-btn { display: inline-block; padding: 16px 44px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px; color: var(--dark); background: var(--cream);
+    text-decoration: none; border: var(--border); transition: transform 0.2s; }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .cta-options { display: flex; justify-content: center; gap: 48px; margin-top: 44px; }
+  .cta-opt { text-align: center; }
+  .cta-opt .label { font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 2px; color: var(--cream); opacity: 0.5;
+    margin-bottom: 4px; }
+  .cta-opt .value { font-size: 14px; font-weight: 600; color: var(--cream); }
+
+  footer { text-align: center; padding: 40px 32px; font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dark);
+    opacity: 0.35; border-top: 1px solid rgba(20,11,6,0.1); max-width: 1200px; margin: 0 auto; }
+  footer span { display: block; margin-top: 8px; font-size: 9px; letter-spacing: 1px; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 38px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid .stat-card:nth-child(2) { border-right: none; }
+    .stats-grid .stat-card:nth-child(1), .stats-grid .stat-card:nth-child(2) { border-bottom: 2.5px solid var(--dark); }
+    .tiers-grid, .audience-grid, .phase-grid { grid-template-columns: 1fr; }
+    .tiers-grid .tier-card, .audience-grid .audience-card, .phase-grid .phase-card {
+      border-right: none; border-bottom: 2.5px solid rgba(251,245,229,0.15); }
+    .tiers-grid .tier-card:last-child, .audience-grid .audience-card:last-child,
+    .phase-grid .phase-card:last-child { border-bottom: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card { border-right: none !important; }
+    .why-card:nth-last-child(-n+1) { border-bottom: none; }
+    .boost-grid { grid-template-columns: repeat(2, 1fr); }
+    .boost-card:nth-child(2) { border-right: none; }
+    .boost-card:nth-child(1), .boost-card:nth-child(2) { border-bottom: 2.5px solid rgba(251,245,229,0.15); }
+    .nav-links { display: none; }
+    .dark-section { padding: 40px 24px; }
+    section { padding: 60px 20px; }
+    .cta-options { flex-direction: column; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div style="display: flex; align-items: baseline;">
+      <div class="logo">confetti<span class="dot">.</span></div>
+      <span class="logo-sub">/ corporate kit</span>
+    </div>
+    <div class="nav-links">
+      <a href="#market">Market</a>
+      <a href="#platform">Platform</a>
+      <a href="#audience">Audience</a>
+      <a href="#tiers">Advertising</a>
+      <a href="#growth">Growth</a>
+      <a href="#contact" class="nav-cta">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Corporate Advertising Partners</div>
+    <h1>Reach the People Who <em>Go Out</em></h1>
+    <p>Confetti connects your brand to 21–45 year-old urban professionals at the moment they're deciding where to eat, drink, and experience their city.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- MARKET OPPORTUNITY -->
+<section id="market">
+  <div class="section-label">Market Opportunity</div>
+  <h2>A Massive, <em>Underserved</em> Market</h2>
+  <p class="subtitle">The dining and nightlife discovery space is fragmented. Confetti unifies it with AI — and your brand can be part of every plan.</p>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="num" style="color: var(--purple);">$1.1T</div>
+      <div class="label">Global Restaurant Industry (2026)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" style="color: var(--coral);">$293B</div>
+      <div class="label">US Restaurant Industry</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" style="color: var(--gold);">72%</div>
+      <div class="label">Millennials Prefer Experiences</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" style="color: var(--purple);">$52B</div>
+      <div class="label">US Dining Spend (Ages 25–44)</div>
+    </div>
+  </div>
+  <div class="gap-card">
+    <p style="font-size: 15px; color: var(--dark); opacity: 0.65;"><strong>The Gap:</strong> People use 3–4 different apps and websites to plan a single night out — reviews on one, reservations on another, parking on a third. Confetti is the single platform that does it all with AI, and your business can be the featured recommendation.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PLATFORM OVERVIEW -->
+<section id="platform">
+  <div class="section-label">The Platform</div>
+  <h2>What Is <em>Confetti</em>?</h2>
+  <p class="subtitle">An AI-powered lifestyle concierge that transforms how people discover and experience dining, nightlife, and city adventures worldwide.</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>Not a Listing. A <em style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--coral);">Concierge.</em></h3>
+      <p>Confetti doesn't show users 400 restaurants and wish them luck. It asks them what vibe they're feeling — Date Night, Rooftop Energy, Crew Outing, Family, Surprise Me — and builds a complete, bookable, multi-stop itinerary tailored to them.</p>
+      <p>Think of it as the difference between a phone book and a personal assistant. Your venue doesn't just get listed — it gets <strong>recommended</strong> by AI to the right person at the right moment.</p>
+      <p>Every itinerary is styled as a "Boarding Pass" — Departure, Layovers, Destination — making each outing feel like an adventure. Users earn Confetti points and unlock badges for completing itineraries, driving repeat engagement.</p>
+    </div>
+    <div class="features-bordered">
+      <div class="feat-cell">
+        <div class="icon">🎯</div>
+        <h4>Mood-Driven Discovery</h4>
+        <p>AI matches user vibes to your venue</p>
+      </div>
+      <div class="feat-cell">
+        <div class="icon">🤖</div>
+        <h4>AI Chat Concierge</h4>
+        <p>Natural language planning and recs</p>
+      </div>
+      <div class="feat-cell">
+        <div class="icon">🎫</div>
+        <h4>Boarding Pass Itineraries</h4>
+        <p>Multi-stop plans with booking built in</p>
+      </div>
+      <div class="feat-cell">
+        <div class="icon">🏆</div>
+        <h4>Gamification</h4>
+        <p>Points, badges, stats drive repeat visits</p>
+      </div>
+      <div class="feat-cell">
+        <div class="icon">⚡</div>
+        <h4>One-Tap Booking</h4>
+        <p>Reserve all stops in a single action</p>
+      </div>
+      <div class="feat-cell">
+        <div class="icon">👥</div>
+        <h4>Social Layer</h4>
+        <p>Chat rooms, group voting, activity feeds</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="section-label">Who Uses Confetti</div>
+  <h2>Your Ideal Customer, <em>Ready to Spend</em></h2>
+  <p class="subtitle">Confetti users aren't browsing — they're planning. They open the app with intent and budget.</p>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="icon">💼</div>
+      <h3>Urban Professionals</h3>
+      <p>Ages 25–40, household income $75K–$200K+. They eat out 3–4x per week and value convenience over price.</p>
+      <div class="audience-tag">High Disposable Income</div>
+    </div>
+    <div class="audience-card">
+      <div class="icon">❤️</div>
+      <h3>Social Planners</h3>
+      <p>The person in every friend group who organizes the outings. They influence where 4–8 people go on any given night.</p>
+      <div class="audience-tag">Multiplier Effect</div>
+    </div>
+    <div class="audience-card">
+      <div class="icon">✈️</div>
+      <h3>Experience Seekers</h3>
+      <p>Travelers and locals who want curated, insider recommendations — not tourist traps. They share experiences on social media.</p>
+      <div class="audience-tag">High Social Reach</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ADVERTISING TIERS -->
+<section id="tiers">
+  <div class="dark-section">
+    <div class="section-label">Advertising Packages</div>
+    <h2>Choose Your <em>Visibility</em></h2>
+    <p class="subtitle">Three tiers designed to fit every budget — from local favorites to national brands.</p>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-badge">Spotlight</div>
+        <div class="tier-price">$79</div>
+        <div class="tier-period">per month</div>
+        <ul class="tier-features">
+          <li>Enhanced venue profile with photos and menu highlights</li>
+          <li>Priority placement in mood-based results</li>
+          <li>Verified badge on your listing</li>
+          <li>Basic analytics dashboard</li>
+          <li>2 Boost Credits per month</li>
+          <li>Community review management</li>
+        </ul>
+      </div>
+      <div class="tier-card featured" style="padding-top: 52px;">
+        <div class="most-popular">Most Popular</div>
+        <div class="tier-badge">Featured</div>
+        <div class="tier-price">$299</div>
+        <div class="tier-period">per month</div>
+        <ul class="tier-features">
+          <li>Everything in Spotlight, plus:</li>
+          <li>Featured placement in AI itineraries</li>
+          <li>Branded content cards in user feeds</li>
+          <li>Targeted push notifications to nearby users</li>
+          <li>Advanced analytics with conversion tracking</li>
+          <li>8 Boost Credits per month</li>
+          <li>Dedicated account manager</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">Premier</div>
+        <div class="tier-price">$999</div>
+        <div class="tier-period">per month</div>
+        <ul class="tier-features">
+          <li>Everything in Featured, plus:</li>
+          <li>Exclusive category ownership (e.g., "Best Rooftop")</li>
+          <li>Custom branded Boarding Pass itineraries</li>
+          <li>Sponsored AI chat recommendations</li>
+          <li>White-glove onboarding and strategy</li>
+          <li>25 Boost Credits per month</li>
+          <li>Co-branded Confetti events</li>
+          <li>Multi-location support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 800; color: var(--cream); margin-bottom: 8px;">Boost Credits — <em style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--gold);">On-Demand</em> Visibility</h3>
+      <p style="font-size: 14px; color: var(--cream); opacity: 0.45; margin-bottom: 16px;">Buy additional visibility for high-traffic moments. $15 each, volume discounts available.</p>
+      <div class="boost-grid">
+        <div class="boost-card">
+          <h4>Quick Boost</h4>
+          <div class="price">1 credit</div>
+          <p>2-hour priority in your category</p>
+        </div>
+        <div class="boost-card">
+          <h4>Night Boost</h4>
+          <div class="price">3 credits</div>
+          <p>Featured from 6 PM to midnight</p>
+        </div>
+        <div class="boost-card">
+          <h4>Weekend Surge</h4>
+          <div class="price">5 credits</div>
+          <p>Fri 5 PM through Sun midnight</p>
+        </div>
+        <div class="boost-card">
+          <h4>Event Spotlight</h4>
+          <div class="price">8 credits</div>
+          <p>7-day featured for special events</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="discount-card">
+      <p><strong>Volume Discounts:</strong> Quarterly billing saves 10%. Annual billing saves 20%. Founding partners get a free 30-day trial of any tier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTED GROWTH -->
+<section id="growth">
+  <div class="section-label">Growth Trajectory</div>
+  <h2>Get In <em>Early</em>, Grow With Us</h2>
+  <p class="subtitle">Confetti is in its launch phase. Early advertising partners lock in founding rates and grow alongside the platform.</p>
+
+  <div class="growth-chart">
+    <div class="growth-bar" style="height: 15%; background: rgba(81,59,178,0.25); border-radius: 10px 10px 0 0;">
+      <span class="val">5K</span><span class="lbl">Q3 '26</span>
+    </div>
+    <div class="growth-bar" style="height: 30%; background: rgba(81,59,178,0.35); border-radius: 10px 10px 0 0;">
+      <span class="val">15K</span><span class="lbl">Q4 '26</span>
+    </div>
+    <div class="growth-bar" style="height: 50%; background: rgba(81,59,178,0.5); border-radius: 10px 10px 0 0;">
+      <span class="val">50K</span><span class="lbl">Q1 '27</span>
+    </div>
+    <div class="growth-bar" style="height: 70%; background: rgba(255,80,50,0.5); border-radius: 10px 10px 0 0;">
+      <span class="val">120K</span><span class="lbl">Q2 '27</span>
+    </div>
+    <div class="growth-bar" style="height: 85%; background: rgba(255,80,50,0.65); border-radius: 10px 10px 0 0;">
+      <span class="val">250K</span><span class="lbl">Q3 '27</span>
+    </div>
+    <div class="growth-bar" style="height: 100%; background: var(--coral); border-radius: 10px 10px 0 0;">
+      <span class="val">500K</span><span class="lbl">Q4 '27</span>
+    </div>
+  </div>
+  <p style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dark); opacity: 0.35; margin-top: 44px;">Projected Active Users — Targets based on market analysis and planned city launches</p>
+
+  <div class="phase-grid">
+    <div class="phase-card">
+      <h3 style="color: var(--purple);">Phase 1: Launch Cities</h3>
+      <p>Washington DC, New York, Miami, Los Angeles, Atlanta — establishing core user base and venue partnerships.</p>
+    </div>
+    <div class="phase-card">
+      <h3 style="color: var(--coral);">Phase 2: Expansion</h3>
+      <p>Top 25 US metros plus London, Toronto, Dubai. Influencer partnerships and viral growth campaigns.</p>
+    </div>
+    <div class="phase-card">
+      <h3 style="color: var(--gold);">Phase 3: Global</h3>
+      <p>Worldwide coverage with localized venue data, multi-language AI, and regional partnerships.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WHY ADVERTISE -->
+<section>
+  <div class="section-label">Why Confetti</div>
+  <h2>Why Advertise <em>With Us</em></h2>
+  <p class="subtitle">Confetti isn't another listing directory. Here's what makes advertising with us different.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>Intent-Based Placement</h3>
+      <p>Users open Confetti when they're ready to go out and spend. Your ad reaches them at the moment of decision — not while they're doom-scrolling.</p>
+    </div>
+    <div class="why-card">
+      <h3>AI-Powered Matching</h3>
+      <p>Your venue is recommended by AI to users whose mood, budget, and preferences align. It's not a banner ad — it's a personalized recommendation.</p>
+    </div>
+    <div class="why-card">
+      <h3>Full-Funnel Conversion</h3>
+      <p>Discovery to reservation in one tap. No handoff to another app. Users see your venue, add it to their Boarding Pass, and book — all inside Confetti.</p>
+    </div>
+    <div class="why-card">
+      <h3>Measurable ROI</h3>
+      <p>Track impressions, itinerary adds, bookings, and actual visits. Know exactly what your advertising spend is generating — no guesswork.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="cta-section">
+    <h2>Let's Build <em>Together</em></h2>
+    <p>Whether you're a neighborhood gem or a national brand, there's a Confetti partnership that fits. Get in early and grow with us.</p>
+    <a href="mailto:partnerships@confettiplan.com?subject=Confetti%20Corporate%20Advertising%20Inquiry" class="cta-btn">Start a Conversation</a>
+    <div class="cta-options">
+      <div class="cta-opt">
+        <div class="label">Email</div>
+        <div class="value">partnerships@confettiplan.com</div>
+      </div>
+      <div class="cta-opt">
+        <div class="label">Founded By</div>
+        <div class="value">Tyrone Crossland</div>
+      </div>
+      <div class="cta-opt">
+        <div class="label">Location</div>
+        <div class="value">Washington, DC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Confetti. All rights reserved. Washington, DC.
+  <span>Projections are forward-looking estimates based on market analysis and planned growth initiatives. Actual results may vary.</span>
+</footer>
+
+</body>
+</html>

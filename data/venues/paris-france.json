@@ -1,0 +1,3478 @@
+{
+  "location": "Paris, France",
+  "generatedAt": "2026-05-17T20:07:32.149Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJLU7jZClu5kcR4PcOOO6p3I0",
+      "name": "Eiffel Tower",
+      "address": "Av. Gustave Eiffel, 75007 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 486798,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "monument",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.858370099999995,
+      "lng": 2.2944812999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=10222232094831998944&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toureiffel.paris/fr",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.7
+    },
+    {
+      "googlePlaceId": "ChIJD3uTd9hx5kcR1IQvGfr8dbk",
+      "name": "Louvre Museum",
+      "address": "75001 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 365767,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8606111,
+      "lng": 2.337644,
+      "googleMapsUri": "https://maps.google.com/?cid=13363865620386383060&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.louvre.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.94
+    },
+    {
+      "googlePlaceId": "ChIJ442GNENu5kcRGYUrvgqHw88",
+      "name": "Basilique du Sacré-Cœur de Montmartre",
+      "address": "35 Rue du Chevalier de la Barre, 75018 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 162893,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.886704599999995,
+      "lng": 2.3431043,
+      "googleMapsUri": "https://maps.google.com/?cid=14970958066519606553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sacre-coeur-montmartre.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 97.77
+    },
+    {
+      "googlePlaceId": "ChIJjx37cOxv5kcRPWQuEW5ntdk",
+      "name": "Arc de Triomphe",
+      "address": "Pl. Charles de Gaulle, 75008 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 290554,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "museum",
+        "cultural_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8737917,
+      "lng": 2.2950274999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15687558599447307325&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris-arc-de-triomphe.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.57
+    },
+    {
+      "googlePlaceId": "ChIJveJ6yhkd5kcRYOYQY8v4-lc",
+      "name": "Disneyland Paris",
+      "address": "Bd de Parc, 77700 Coupvray, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 321017,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8673858,
+      "lng": 2.7835929999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6339652977901495904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.disneylandparis.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.39
+    },
+    {
+      "googlePlaceId": "ChIJe2jeNttx5kcRi_mJsGHdkQc",
+      "name": "Jardin du Luxembourg",
+      "address": "75006 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 125340,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8466144,
+      "lng": 2.3363309,
+      "googleMapsUri": "https://maps.google.com/?cid=545460441531939211&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://jardin.senat.fr/",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 97.07
+    },
+    {
+      "googlePlaceId": "ChIJoxY3R-Nv5kcRWsRDGBoNIOk",
+      "name": "Jardins du Trocadéro",
+      "address": "Pl. du Trocadéro et du 11 Novembre, 75016 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 149454,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8616885,
+      "lng": 2.2892799000000004,
+      "googleMapsUri": "https://maps.google.com/?cid=16798441015819355226&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/lieux/jardins-du-trocadero-1789",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.44
+    },
+    {
+      "googlePlaceId": "ChIJG5Qwtitu5kcR2CNEsYy9cdA",
+      "name": "Musée d'Orsay",
+      "address": "Esplanade Valéry Giscard d'Estaing, 75007 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 113411,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.859961399999996,
+      "lng": 2.3265614,
+      "googleMapsUri": "https://maps.google.com/?cid=15019994644224418776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.musee-orsay.fr/fr",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 96.41
+    },
+    {
+      "googlePlaceId": "ChIJAQAAMCxu5kcRx--_4QnbGcI",
+      "name": "Tuileries Garden",
+      "address": "75001 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 117545,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.863491599999996,
+      "lng": 2.3274942999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=13986450953264426951&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parisjetaime.com/culture/jardin-des-tuileries-p3545",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.8
+    },
+    {
+      "googlePlaceId": "ChIJB0gcnCBw5kcRHoIAPcTEApc",
+      "name": "Champ de Mars",
+      "address": "75007 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 221122,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.85580470000001,
+      "lng": 2.2983766,
+      "googleMapsUri": "https://maps.google.com/?cid=10881475996796617246&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/lieux/parc-du-champ-de-mars-1807#acces",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.24
+    },
+    {
+      "googlePlaceId": "ChIJQ7aZhzNv5kcR2ukcRnOizeQ",
+      "name": "Bouillon République",
+      "address": "39 Bd du Temple, 75003 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 37441,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "butcher_shop",
+        "food_store",
+        "restaurant",
+        "food",
+        "manufacturer",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.8661074,
+      "lng": 2.3646338,
+      "googleMapsUri": "https://maps.google.com/?cid=16487012426854492634&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bouillonlesite.com/bouillon-republique",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 93.84
+    },
+    {
+      "googlePlaceId": "ChIJc8mX0udx5kcRWKcjTwDr5QA",
+      "name": "Panthéon",
+      "address": "Pl. du Panthéon, 75005 Paris, France",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 67429,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.846221799999995,
+      "lng": 2.3464138,
+      "googleMapsUri": "https://maps.google.com/?cid=64716156227004248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris-pantheon.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.57
+    },
+    {
+      "googlePlaceId": "ChIJR4kFR0xv5kcR-x6duNRh3uE",
+      "name": "Sphère",
+      "address": "18 Rue La Boétie, 75008 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 13598,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8742665,
+      "lng": 2.3169386999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=16275553669621817083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://restaurantsphere.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.24
+    },
+    {
+      "googlePlaceId": "ChIJa-wm0fBx5kcRTj1XkfsieqY",
+      "name": "Jardin des Plantes",
+      "address": "75005 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 50701,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8439069,
+      "lng": 2.359658,
+      "googleMapsUri": "https://maps.google.com/?cid=11995939021325286734&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jardindesplantesdeparis.fr/fr",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 92.05
+    },
+    {
+      "googlePlaceId": "ChIJh9M-FMZt5kcRkZSVdmDta_I",
+      "name": "Parc des Buttes-Chaumont",
+      "address": "75019 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 27099,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8809496,
+      "lng": 2.3827609,
+      "googleMapsUri": "https://maps.google.com/?cid=17468316578248758417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/lieux/parc-des-buttes-chaumont-1757",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.88
+    },
+    {
+      "googlePlaceId": "ChIJdUyx15R95kcRj85ZX8H8OAU",
+      "name": "Palace of Versailles",
+      "address": "Place d'Armes, 78000 Versailles, France",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 166049,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "history_museum",
+        "historical_place",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8048649,
+      "lng": 2.1203554,
+      "googleMapsUri": "https://maps.google.com/?cid=376328476344045199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chateauversailles.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.73
+    },
+    {
+      "googlePlaceId": "ChIJT1Hoyxgd5kcRJqSfRoM3SAo",
+      "name": "Disney Adventure World",
+      "address": "Pl. des Frères Lumière, 77700 Chessy, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 84315,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8680792,
+      "lng": 2.7803918,
+      "googleMapsUri": "https://maps.google.com/?cid=740903175667557414&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.disneylandparis.com/fr-fr/destinations/parc-walt-disney-studios",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 91.66
+    },
+    {
+      "googlePlaceId": "ChIJaYIUUk9u5kcRfAhRNL_ZJgw",
+      "name": "Pink Mamma",
+      "address": "20bis Rue de Douai, 75009 Paris, France",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 48913,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "family_restaurant",
+        "mediterranean_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 48.881946899999996,
+      "lng": 2.3345309,
+      "googleMapsUri": "https://maps.google.com/?cid=875626592809846908&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigmammagroup.com/italian-restaurants/pink-mamma?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 91.31
+    },
+    {
+      "googlePlaceId": "ChIJATr1n-Fx5kcRjQb6q6cdQDY",
+      "name": "Notre-Dame Cathedral of Paris",
+      "address": "6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 91776,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 48.85296820000001,
+      "lng": 2.3499021,
+      "googleMapsUri": "https://maps.google.com/?cid=3909157082539624077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.notredamedeparis.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.24
+    },
+    {
+      "googlePlaceId": "ChIJSUOPztFv5kcRnEbSPYG-9fM",
+      "name": "Petit Palais",
+      "address": "Av. Winston Churchill, 75008 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 24695,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8660479,
+      "lng": 2.3145896,
+      "googleMapsUri": "https://maps.google.com/?cid=17579166182807848604&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.petitpalais.paris.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.98
+    },
+    {
+      "googlePlaceId": "ChIJ0dzuSNBv5kcRa6BHUVdFm0k",
+      "name": "Grand Palais",
+      "address": "75008 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 28862,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "monument",
+        "tourist_attraction",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.866109099999996,
+      "lng": 2.3124544,
+      "googleMapsUri": "https://maps.google.com/?cid=5303909227487010923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.grandpalais.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "skating rinks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.95
+    },
+    {
+      "googlePlaceId": "ChIJHbrByclt5kcRn-ZGU8KjU_g",
+      "name": "La Villette",
+      "address": "211 Av. Jean Jaurès, 75019 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 69124,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "convention_center",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.8931617,
+      "lng": 2.3905342,
+      "googleMapsUri": "https://maps.google.com/?cid=17893825799489250975&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lavillette.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJf9hphiUd5kcR5RdeomHtvFA",
+      "name": "Disneyland Park",
+      "address": "Bd de Parc, 77700 Chessy, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 51881,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.87105,
+      "lng": 2.7788006999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=5817785822247524325&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.disneylandparis.com/fr-fr/destinations/parc-disneyland/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 90.37
+    },
+    {
+      "googlePlaceId": "ChIJ-Qr6Qxdy5kcRaThUcSf8m5g",
+      "name": "Accor Arena",
+      "address": "8 Bd de Bercy, 75012 Paris, France",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 38256,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "tennis_court",
+        "performing_arts_theater",
+        "athletic_field",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8386038,
+      "lng": 2.3784703,
+      "googleMapsUri": "https://maps.google.com/?cid=10996660161490466921&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.accorarena.com/fr",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "skating rinks",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.95
+    },
+    {
+      "googlePlaceId": "ChIJ9fq2je1v5kcRZY-ReLUsuB8",
+      "name": "Passionné",
+      "address": "17 Rue Bergère, 75009 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4428,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "european_restaurant",
+        "fusion_restaurant",
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8722139,
+      "lng": 2.3455604,
+      "googleMapsUri": "https://maps.google.com/?cid=2285625968814034789&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://restaurantpassionne.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJg5DO-ypv5kcRLo19dFCDJ6w",
+      "name": "Le P'tit Piano",
+      "address": "26 Rue Cadet, 75009 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4285,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "wine_bar",
+        "diner",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8756486,
+      "lng": 2.3436490000000005,
+      "googleMapsUri": "https://maps.google.com/?cid=12405028080190328110&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://leptitpianobar.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.15
+    },
+    {
+      "googlePlaceId": "ChIJixChAzdu5kcRkxWrzUU4d-Y",
+      "name": "Galeries Lafayette Haussmann",
+      "address": "40 Bd Haussmann, 75009 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 94463,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "cosmetics_store",
+        "toy_store",
+        "womens_clothing_store",
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.873622399999995,
+      "lng": 2.3321099,
+      "googleMapsUri": "https://maps.google.com/?cid=16606804023406433683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://haussmann.galerieslafayette.com/?utm_medium=FIchegmbhsm&utm_source=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJ62uOOx1u5kcRhQssBujerII",
+      "name": "Le Ju'",
+      "address": "16 Rue des Archives, 75004 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 13236,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8576911,
+      "lng": 2.3548054,
+      "googleMapsUri": "https://maps.google.com/?cid=9416146009042193285&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://le-ju-paris.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "food halls",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.92
+    },
+    {
+      "googlePlaceId": "ChIJqSmqRVdv5kcRWn3NXEJnXIg",
+      "name": "Jungle Palace",
+      "address": "12 Rue de la Fidélité, 75010 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 21076,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "family_restaurant",
+        "european_restaurant",
+        "french_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 48.874801399999996,
+      "lng": 2.3566499999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=9825842021738052954&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ephemera-group.com/jungle-palace-ephemera?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "viral-eats"
+      ],
+      "popularityScore": 88.41
+    },
+    {
+      "googlePlaceId": "ChIJrbxjimxt5kcR8wRf2dLRao4",
+      "name": "Stellar by Ephemera",
+      "address": "45 Rue Saint-Sébastien, 75011 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 20700,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "fusion_restaurant",
+        "family_restaurant",
+        "european_restaurant",
+        "french_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 48.8618209,
+      "lng": 2.3716149000000004,
+      "googleMapsUri": "https://maps.google.com/?cid=10262245404437316851&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ephemera-group.com/stellar-ephemera?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJZZTY3PBt5kcR6jdmzirZ-eY",
+      "name": "Atelier des Lumières",
+      "address": "38 Rue Saint-Maur, 75011 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 36641,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.861615,
+      "lng": 2.380813,
+      "googleMapsUri": "https://maps.google.com/?cid=16643572675799037930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.atelier-lumieres.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.34
+    },
+    {
+      "googlePlaceId": "ChIJRQJBH5Fv5kcRFXwf6qpaz6E",
+      "name": "Riviera Fuga",
+      "address": "10 Port des Invalides, 75007 Paris, France",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 9648,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "italian_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 48.863141999999996,
+      "lng": 2.312379,
+      "googleMapsUri": "https://maps.google.com/?cid=11659637650404375573&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 88.32
+    },
+    {
+      "googlePlaceId": "ChIJo6qq6i5u5kcRCpYBp4rQP9w",
+      "name": "Musée de l'Orangerie",
+      "address": "Jardin des Tuileries, 75001 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 23706,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8637884,
+      "lng": 2.3226724,
+      "googleMapsUri": "https://maps.google.com/?cid=15870632905802880522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.musee-orangerie.fr/fr",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.27
+    },
+    {
+      "googlePlaceId": "ChIJwxT3mL5v5kcRAsTd3v0lJOY",
+      "name": "Parc Monceau",
+      "address": "75008 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 23275,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "city_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8796835,
+      "lng": 2.308955,
+      "googleMapsUri": "https://maps.google.com/?cid=16583421500181038082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/lieux/parc-monceau-1804",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.22
+    },
+    {
+      "googlePlaceId": "ChIJoz9C9kBy5kcRPSVvYbS1MTs",
+      "name": "Les Pavillons de Bercy - Musée des Arts Forains",
+      "address": "53 Av. des Terroirs de France, 75012 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7946,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.832639199999996,
+      "lng": 2.3892933,
+      "googleMapsUri": "https://maps.google.com/?cid=4265390108429985085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://arts-forains.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.95
+    },
+    {
+      "googlePlaceId": "ChIJCfUElBFy5kcR5-HZRzpGR9k",
+      "name": "Ground Control",
+      "address": "81 Rue du Charolais, 75012 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 13886,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cultural_center",
+        "coworking_space",
+        "coffee_shop",
+        "cafe",
+        "fusion_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8438517,
+      "lng": 2.3816725,
+      "googleMapsUri": "https://maps.google.com/?cid=15656559845704327655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.groundcontrolparis.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "cultural centers",
+        "board game cafes",
+        "game bars",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJUzCPuddv5kcRasGAnEUUWkU",
+      "name": "Hôtel des Invalides",
+      "address": "75007 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 42922,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.856528999999995,
+      "lng": 2.3127059,
+      "googleMapsUri": "https://maps.google.com/?cid=4997329025731969386&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJSZ4LxTpu5kcRRCkWYByfVkg",
+      "name": "Secret Food Tours Paris",
+      "address": "14 Rue Frochot, 75009 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 3290,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8817472,
+      "lng": 2.3373991,
+      "googleMapsUri": "https://maps.google.com/?cid=5212528562947893572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.secretfoodtours.com/paris/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "dining",
+        "local-exploration"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJVb7Sx0Vu5kcR5gDcYjssPWw",
+      "name": "Bouillon Pigalle",
+      "address": "22 Bd de Clichy, 75018 Paris, France",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 55425,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.882624199999995,
+      "lng": 2.3374170999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=7799438763248845030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bouillonlesite.com/bouillon-pigalle",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJiQxv_05u5kcRESFIh6-QTvQ",
+      "name": "Moulin Rouge",
+      "address": "82 Bd de Clichy, 75018 Paris, France",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 16638,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "tourist_attraction",
+        "night_club",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8841232,
+      "lng": 2.3322518999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=17604167077001175313&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moulinrouge.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "things to do this weekend",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.28
+    },
+    {
+      "googlePlaceId": "ChIJceqX5iJu5kcRrVDagC96PM0",
+      "name": "Gallery of Evolution",
+      "address": "36 Rue Geoffroy-Saint-Hilaire, 75005 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 16259,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.841724,
+      "lng": 2.3560529999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=14788829620821708973&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jardindesplantesdeparis.fr/fr/programme/galeries-jardins-zoo-bibliotheques/grande-galerie-levolution-2763",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.27
+    },
+    {
+      "googlePlaceId": "ChIJ28laW9p65kcRLkyGSRGcV04",
+      "name": "Bois de Boulogne",
+      "address": "75016 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.3,
+      "reviewCount": 28817,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8619839,
+      "lng": 2.2523138,
+      "googleMapsUri": "https://maps.google.com/?cid=5645152255994121262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/lieux/bois-de-boulogne-2779",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJc5-_QyVv5kcRnEfYven1jiY",
+      "name": "PANIK ROOM - Le Manoir Deveaux | Escape Game Horreur",
+      "address": "38 Rue Croix des Petits Champs, 75001 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3023,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.864356699999995,
+      "lng": 2.3405462,
+      "googleMapsUri": "https://maps.google.com/?cid=2778428404395427740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.panikroom.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.17
+    },
+    {
+      "googlePlaceId": "ChIJv-rX7Ndv5kcRJ0IdTc55HnY",
+      "name": "Musée de l'Armée",
+      "address": "129 Rue de Grenelle, 75007 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 27951,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.855793299999995,
+      "lng": 2.3125934,
+      "googleMapsUri": "https://maps.google.com/?cid=8511374272740803111&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.musee-armee.fr/votre-visite/les-espaces-du-musee/lhotel-national-des-invalides.html",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJOYNm1DBu5kcRZwdtKBzyq6k",
+      "name": "Palais Garnier",
+      "address": "Pl. de l'Opéra, 75009 Paris, France",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 58477,
+      "priceLevel": null,
+      "primaryType": "opera_house",
+      "types": [
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8719697,
+      "lng": 2.3316014,
+      "googleMapsUri": "https://maps.google.com/?cid=12226131816178583399&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.operadeparis.fr/",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJfbUGhght5kcRuhRQ02ZJfrE",
+      "name": "Seven Squares Paris",
+      "address": "Boom Boom Villette, 30 Av. Corentin Cariou, 75019 Paris, France",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 3430,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "miniature_golf_course",
+        "amusement_center",
+        "video_arcade",
+        "bowling_alley",
+        "bar",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.895970999999996,
+      "lng": 2.389393,
+      "googleMapsUri": "https://maps.google.com/?cid=12789740697759519930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://paris.sevensquares.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "bowling alleys",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.41
+    },
+    {
+      "googlePlaceId": "ChIJk16wp8Fz5kcRkHv9uQxB30M",
+      "name": "La Felicità",
+      "address": "5 Parv. Alan Turing, 75013 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 33259,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "hamburger_restaurant",
+        "pizza_restaurant",
+        "wine_bar",
+        "pastry_shop",
+        "snack_bar",
+        "cocktail_bar",
+        "bakery",
+        "bar",
+        "dessert_shop",
+        "meal_takeaway",
+        "american_restaurant",
+        "confectionery",
+        "food_store",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8334295,
+      "lng": 2.3718736,
+      "googleMapsUri": "https://maps.google.com/?cid=4890699243263458192&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lafelicita.fr/?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.33
+    },
+    {
+      "googlePlaceId": "ChIJSYqUIpRx5kcRRav_z3ZSZyM",
+      "name": "Le Son de la Terre",
+      "address": "2 Port de Montebello, 75005 Paris, France",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1488,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "live_music_venue",
+        "night_club",
+        "brunch_restaurant",
+        "event_venue",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.851475099999995,
+      "lng": 2.3511096,
+      "googleMapsUri": "https://maps.google.com/?cid=2551098384177933125&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sondelaterre.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "jazz clubs",
+        "romantic bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.33
+    },
+    {
+      "googlePlaceId": "ChIJAQquYc1v5kcRLKslDuENAxg",
+      "name": "Place de la Concorde",
+      "address": "75008 Paris, France",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 69876,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "tourist_attraction",
+        "landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8656331,
+      "lng": 2.3212357,
+      "googleMapsUri": "https://maps.google.com/?cid=1730241942096554796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parisjetaime.com/transport/place-de-la-concorde-p1981",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJu0FPRK5x5kcRQvu8cZ0oz5U",
+      "name": "Parc Asterix",
+      "address": "Les Arènes Romaines, Parc Astérix, 60128 Plailly, France",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 80386,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "hotel",
+        "roller_coaster",
+        "performing_arts_theater",
+        "event_venue",
+        "lodging",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 49.134232000000004,
+      "lng": 2.571278,
+      "googleMapsUri": "https://maps.google.com/?cid=10794891488513555266&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parcasterix.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.09
+    },
+    {
+      "googlePlaceId": "ChIJU3if9Zxv5kcRJfwyLlF2eds",
+      "name": "Francette",
+      "address": "1 Port de Suffren, 75007 Paris, France",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 7927,
+      "priceLevel": null,
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 48.858805,
+      "lng": 2.2913978,
+      "googleMapsUri": "https://maps.google.com/?cid=15814801657527729189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fugafamily.com/restaurants/francette",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86
+    },
+    {
+      "googlePlaceId": "ChIJmaQQ8Stv5kcRyMci5HuNroY",
+      "name": "KaraFun Paris",
+      "address": "3 Imp. Bonne Nouvelle, 75010 Paris, France",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 6487,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "karaoke",
+        "night_club",
+        "sports_activity_location",
+        "bar",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8706819,
+      "lng": 2.350469,
+      "googleMapsUri": "https://maps.google.com/?cid=9704849810277976008&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.karafunbar.com/l/paris/gmb-home",
+      "openNow": false,
+      "matchedQueries": [
+        "game night venues",
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJNUTIphpu5kcR4h07VuxFIHc",
+      "name": "Musée des Arts et Métiers",
+      "address": "60 Rue Réaumur, 75003 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 9911,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8660399,
+      "lng": 2.3556152,
+      "googleMapsUri": "https://maps.google.com/?cid=8583937771129478626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arts-et-metiers.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.94
+    },
+    {
+      "googlePlaceId": "ChIJozXM6h1u5kcRQI8K6E2MEQ0",
+      "name": "Free Tour Paris - PARIS STEP BY STEP TOURS",
+      "address": "Pl. Saint-Michel, 75005 Paris, France",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 3250,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.8533459,
+      "lng": 2.3437346999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=941688063330520896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parispasoapasotours.com/?utm_source=google&utm_medium=local",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJO74Y2x5x5kcRT5fjpElADrA",
+      "name": "Free Walking Tour",
+      "address": "Pl. Saint-Michel, 75005 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 1737,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8532714,
+      "lng": 2.3438524,
+      "googleMapsUri": "https://maps.google.com/?cid=12686147885392435023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tantulika27.wixsite.com/travel/eiffel",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 85.69
+    },
+    {
+      "googlePlaceId": "ChIJ64SRn-xv5kcRH7AlSsBFASQ",
+      "name": "Restaurant Guy Savoy",
+      "address": "11 Quai de Conti, 75006 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1756,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8567046,
+      "lng": 2.3391490999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=2594431552522137631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.guysavoy.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJVeUHqupv5kcRDHPinmB3LtU",
+      "name": "Epicure",
+      "address": "112 Rue du Faubourg Saint-Honoré, 75008 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1726,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8717373,
+      "lng": 2.3148527999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=15361346635873547020&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bars/epicure/?utm_source=google&utm_medium=organic&utm_campaign=google_local_epicure",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.62
+    },
+    {
+      "googlePlaceId": "ChIJ3UNa3cNy5kcR7W1Dkn-YBdY",
+      "name": "Bois de Vincennes",
+      "address": "Rte de la Pyramide, 75012 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 41323,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.828279699999996,
+      "lng": 2.4330971999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=15421900172682292717&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/equipements/bois-de-vincennes-6598",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJAeRVfq1z5kcRmhTOUXiRL8M",
+      "name": "Eclipso Paris",
+      "address": "45 Rue des Pirogues de Bercy, 75012 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7601,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "video_arcade",
+        "cultural_center",
+        "museum",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8332027,
+      "lng": 2.3874374,
+      "googleMapsUri": "https://maps.google.com/?cid=14064620107255911578&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://eclipso-entertainment.com/paris/?utm_source=googlebusiness&utm_medium=organic&utm_campaign=paris_local",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.28
+    },
+    {
+      "googlePlaceId": "ChIJVUrgmz5u5kcRWPSN-T8a730",
+      "name": "Musée Grévin",
+      "address": "10 Bd Montmartre, 75009 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 33490,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.871837799999994,
+      "lng": 2.3422204,
+      "googleMapsUri": "https://maps.google.com/?cid=9074500636246930520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.grevin-paris.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.25
+    },
+    {
+      "googlePlaceId": "ChIJR3122B9u5kcRaCck3PlB9DM",
+      "name": "Sainte-Chapelle",
+      "address": "10 Bd du Palais, 75001 Paris, France",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 48736,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "monument",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.855374999999995,
+      "lng": 2.3449609,
+      "googleMapsUri": "https://maps.google.com/?cid=3743689731647743848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sainte-chapelle.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJn6TYegFy5kcRg_-xruXtHZY",
+      "name": "Coulée Verte René-Dumont",
+      "address": "Coulée Verte René-Dumont, 75012 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6792,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8494548,
+      "lng": 2.3714863,
+      "googleMapsUri": "https://maps.google.com/?cid=10817063450747993987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/lieux/coulee-verte-rene-dumont-1772",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJSSjNVtpv5kcR06opbMVDFes",
+      "name": "Bateaux-Mouches",
+      "address": "Pont de l'Alma, Port de la Conférence, 75008 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 32129,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8640106,
+      "lng": 2.3059374,
+      "googleMapsUri": "https://maps.google.com/?cid=16939520088626277075&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bateaux-mouches.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.14
+    },
+    {
+      "googlePlaceId": "ChIJxYJUC2lv5kcRlhdpWba_aGU",
+      "name": "Le Tout-Paris",
+      "address": "8 Quai du Louvre, 75001 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2049,
+      "priceLevel": null,
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8587493,
+      "lng": 2.3422529,
+      "googleMapsUri": "https://maps.google.com/?cid=7307301185313642390&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://letoutparis.fr/?y_source=1_MjM2NzUwMDEtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.98
+    },
+    {
+      "googlePlaceId": "ChIJu0Sg-TBu5kcRUIDfQSE4_yw",
+      "name": "Harry's New York Bar",
+      "address": "5 Rue Daunou, 75002 Paris, France",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 2893,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8692018,
+      "lng": 2.3320688,
+      "googleMapsUri": "https://maps.google.com/?cid=3242371972220289104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.harrysbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJZX-BcR9u5kcR2xLSVBwfbs8",
+      "name": "59 Rivoli",
+      "address": "59 Rue de Rivoli, 75001 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7449,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.859218399999996,
+      "lng": 2.3456696,
+      "googleMapsUri": "https://maps.google.com/?cid=14946918419831853787&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.59rivoli.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.78
+    },
+    {
+      "googlePlaceId": "ChIJncEh5nRx5kcRyG5gBu7742U",
+      "name": "La Crème de Paris Notre-Dame",
+      "address": "1 Quai Saint-Michel, 75005 Paris, France",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 17361,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 48.853054799999995,
+      "lng": 2.3465361,
+      "googleMapsUri": "https://maps.google.com/?cid=7341988817271811784&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lacremedeparis.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJbZefceVx5kcRY1quoJYXXl4",
+      "name": "The Game",
+      "address": "51 Rue du Cardinal Lemoine, 75005 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3412,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.846701599999996,
+      "lng": 2.3520779,
+      "googleMapsUri": "https://maps.google.com/?cid=6799898423084341859&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thegame-france.com/?utm_source=RS_GMB&utm_medium=lien_fiche_GMB_CL&utm_campaign=home-page_CL",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJBWVK9zNl5kcRYvMftNkuw4o",
+      "name": "Jardin d'Acclimatation",
+      "address": "Bois de Boulogne, Rte de la Prte Dauphine à la Prte des Sablons, 75116 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.3,
+      "reviewCount": 20017,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "park",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8777811,
+      "lng": 2.2697643999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=9998887110257406818&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jardindacclimatation.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 84.52
+    },
+    {
+      "googlePlaceId": "ChIJHwzjqZJv5kcRCir2RjPAaKE",
+      "name": "Chouchou",
+      "address": "23 Bd de Sébastopol, 75001 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 24781,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "moroccan_restaurant",
+        "mediterranean_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8599744,
+      "lng": 2.3487234,
+      "googleMapsUri": "https://maps.google.com/?cid=11630757364150708746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.restaurantchouchouparis.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.49
+    },
+    {
+      "googlePlaceId": "ChIJo5Al72xz5kcRFkvhZNO_uUw",
+      "name": "Kafkaf - Paris 11",
+      "address": "7 Rue Keller, 75011 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 16247,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "halal_restaurant",
+        "coffee_stand",
+        "breakfast_restaurant",
+        "tea_house",
+        "coffee_shop",
+        "cafe",
+        "restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.853983899999996,
+      "lng": 2.3763766,
+      "googleMapsUri": "https://maps.google.com/?cid=5528660932225485590&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kafkaf.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.46
+    },
+    {
+      "googlePlaceId": "ChIJpciWaGVz5kcRV0a0JR-T9lc",
+      "name": "Under the Sea",
+      "address": "1-3, Rue du 4 Septembre, 92130 Issy-les-Moulineaux, France",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 24314,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "cocktail_bar",
+        "mediterranean_restaurant",
+        "european_restaurant",
+        "fusion_restaurant",
+        "seafood_restaurant",
+        "french_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.829898,
+      "lng": 2.2848725,
+      "googleMapsUri": "https://maps.google.com/?cid=6338415287556392535&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ephemera-group.com/nos-restaurants/under-the-sea-issy?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.44
+    },
+    {
+      "googlePlaceId": "ChIJkUxqWTlu5kcRFKhCD_RZKY4",
+      "name": "La Tête dans les Nuages",
+      "address": "Drouot, lignes 8, Métro Richelieu, 5 Bd des Italiens et 9, 75002 Paris, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 8212,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "video_arcade",
+        "bowling_alley",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.871556299999995,
+      "lng": 2.3391802,
+      "googleMapsUri": "https://maps.google.com/?cid=10243817732193822740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://latetedanslesnuages.com/centres/parisopera/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.29
+    },
+    {
+      "googlePlaceId": "ChIJPxXD_mRv5kcR85S7z6ef4Uk",
+      "name": "Bon Bouquet Café",
+      "address": "30 Rue Le Peletier, 75009 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 15129,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "halal_restaurant",
+        "coffee_stand",
+        "breakfast_restaurant",
+        "tea_house",
+        "coffee_shop",
+        "cafe",
+        "restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.8742841,
+      "lng": 2.3393488,
+      "googleMapsUri": "https://maps.google.com/?cid=5323711777622168819&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thehungryfamily.com/bon-bouquet-cafe/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.27
+    },
+    {
+      "googlePlaceId": "ChIJcWEX1N5x5kcRW9fEfwMFTic",
+      "name": "La Jacobine",
+      "address": "59-61 Rue Saint-André des Arts, 75006 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5286,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "tea_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.853381899999995,
+      "lng": 2.3389252,
+      "googleMapsUri": "https://maps.google.com/?cid=2832206728249268059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lajacobine.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.26
+    },
+    {
+      "googlePlaceId": "ChIJF81Lvo5v5kcR34BLAZe2U1o",
+      "name": "La Scène",
+      "address": "32 Av. Matignon, 75008 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1028,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.872063399999995,
+      "lng": 2.3145637,
+      "googleMapsUri": "https://maps.google.com/?cid=6508746646158541023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.la-scene.paris/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.24
+    },
+    {
+      "googlePlaceId": "ChIJN4tOxqNx5kcRsa159MJv2Q0",
+      "name": "Parc Montsouris",
+      "address": "2 Rue Gazan, 75014 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 17183,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8226716,
+      "lng": 2.3376598,
+      "googleMapsUri": "https://maps.google.com/?cid=997951675555229105&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paris.fr/equipements/parc-montsouris-1810",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.16
+    },
+    {
+      "googlePlaceId": "ChIJqX52zjhu5kcRCQQ6Rm-cL1g",
+      "name": "Kozy",
+      "address": "46 Rue La Fayette, 75009 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 14469,
+      "priceLevel": null,
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "coffee_stand",
+        "vegetarian_restaurant",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "cafe",
+        "dessert_shop",
+        "confectionery",
+        "restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 48.874781999999996,
+      "lng": 2.3401411999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=6354469600976569353&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kozy.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.15
+    },
+    {
+      "googlePlaceId": "ChIJUeiI4P9x5kcRqEwHl6V32GQ",
+      "name": "Place des Vosges",
+      "address": "Pl. des Vosges, 75004 Paris, France",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 32473,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.85561140000001,
+      "lng": 2.3655266,
+      "googleMapsUri": "https://maps.google.com/?cid=7266689551849442472&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parisjetaime.com/transport/place-des-vosges-p1907",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.11
+    },
+    {
+      "googlePlaceId": "ChIJ-QC82zNu5kcRCvAZXBubjnI",
+      "name": "L'Olympia",
+      "address": "28 Bd des Capucines, 75009 Paris, France",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 13911,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8702097,
+      "lng": 2.3283872,
+      "googleMapsUri": "https://maps.google.com/?cid=8254705708828323850&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.olympiahall.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84
+    },
+    {
+      "googlePlaceId": "ChIJQ9vMHipw5kcRWHC2ESjYaGQ",
+      "name": "Musée Rodin",
+      "address": "77 Rue de Varenne, 75007 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 20287,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8553072,
+      "lng": 2.3158354,
+      "googleMapsUri": "https://maps.google.com/?cid=7235270467978162264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.musee-rodin.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.96
+    },
+    {
+      "googlePlaceId": "ChIJS3JfE-xx5kcRBwxbA7agJOQ",
+      "name": "Rue Mouffetard Market",
+      "address": "139 Rue Mouffetard, 75005 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2097,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8404307,
+      "lng": 2.3498002,
+      "googleMapsUri": "https://maps.google.com/?cid=16439441243409943559&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rue-mouffetard.com/market.html",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJJ7PDpyJx5kcRsjM5jPPoNPo",
+      "name": "Kozy",
+      "address": "6 Rue du Petit Pont, 75005 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 13216,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8524077,
+      "lng": 2.3462799,
+      "googleMapsUri": "https://maps.google.com/?cid=18029291340998194098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kozy.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.91
+    },
+    {
+      "googlePlaceId": "ChIJVYQc4ehv5kcRxAmY5t4c54k",
+      "name": "Le Speakeasy Paris, Festive Restaurant & Piano Club, Night Cub.",
+      "address": "25 Rue Jean Giraudoux, 75016 Paris, France",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 3030,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "live_music_venue",
+        "sports_club",
+        "night_club",
+        "event_venue",
+        "bar",
+        "food",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 48.8694717,
+      "lng": 2.2964842,
+      "googleMapsUri": "https://maps.google.com/?cid=9936942846493329860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lespeakeasy.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service",
+        "adult nightlife",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.83
+    },
+    {
+      "googlePlaceId": "ChIJpyY--JApVQ0RqUfd4KL6kX8",
+      "name": "Bassins des Lumières",
+      "address": "Imp. Brown de Colstoun, 33300 Bordeaux, France",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 18755,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "cultural_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.870335,
+      "lng": -0.5600636999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9192403891904137129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bassins-lumieres.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.75
+    },
+    {
+      "googlePlaceId": "ChIJ3_UUXAZu5kcRfpTN8bZRXMU",
+      "name": "Little Red Door",
+      "address": "60 Rue Charlot, 75003 Paris, France",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 2936,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8636097,
+      "lng": 2.3636334999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=14221331569511863422&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lrdparis.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.74
+    },
+    {
+      "googlePlaceId": "ChIJ5bx0qiVu5kcRs_dMpI5ttiY",
+      "name": "Jardin du Palais Royal",
+      "address": "8 Rue de Montpensier, 75001 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9605,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8649723,
+      "lng": 2.3378061,
+      "googleMapsUri": "https://maps.google.com/?cid=2789537478611892147&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.domaine-palais-royal.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.71
+    },
+    {
+      "googlePlaceId": "ChIJf-oe7Wdu5kcRRto099RQ9Fc",
+      "name": "Sacrée Fleur Montmartre",
+      "address": "50 Rue de Clignancourt, 75018 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3579,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8876187,
+      "lng": 2.3479882,
+      "googleMapsUri": "https://maps.google.com/?cid=6337779451227855430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sacreefleur.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.67
+    },
+    {
+      "googlePlaceId": "ChIJQ8pJ8F9v5kcRyvHV5QVQ6eQ",
+      "name": "Les Parisiens",
+      "address": "1 Rue du Pré aux Clercs, 75007 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1550,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.856660899999994,
+      "lng": 2.3303688,
+      "googleMapsUri": "https://maps.google.com/?cid=16494803096482214346&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pavillon-faubourg-saint-germain.com/restaurant-les-parisiens",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.59
+    },
+    {
+      "googlePlaceId": "ChIJ87weU0du5kcRsDjKb4Lm4f0",
+      "name": "Babylon Tours Paris",
+      "address": "99 Rue de Rivoli, 75001 Paris, France",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2636,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.862766,
+      "lng": 2.3348006999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=18294156609251326128&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://babylontours.com/paris/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.55
+    },
+    {
+      "googlePlaceId": "ChIJF4z0gwZu5kcRmxOUEU2R8Iw",
+      "name": "Marché couvert des Enfants Rouges",
+      "address": "39 Rue de Bretagne, 75003 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4821,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "tourist_attraction",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8628656,
+      "lng": 2.3620448,
+      "googleMapsUri": "https://maps.google.com/?cid=10155776919913894811&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.paris.fr/lieux/marche-couvert-des-enfants-rouges-5461",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.32
+    },
+    {
+      "googlePlaceId": "ChIJZXST6-5v5kcR2yYcipYCUqA",
+      "name": "L'Oiseau Blanc",
+      "address": "19 Av. Kléber, 75116 Paris, France",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 1926,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "french_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 48.8707437,
+      "lng": 2.2933136999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=11552298839744194267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.peninsula.com/en/paris/hotel-fine-dining/french-rooftop-loiseau-blanc",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.32
+    },
+    {
+      "googlePlaceId": "ChIJR-gUQN1v5kcRD2CrR0acr4c",
+      "name": "Crazy Horse Paris",
+      "address": "12 Av. George V, 75008 Paris, France",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 6625,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8659828,
+      "lng": 2.301881,
+      "googleMapsUri": "https://maps.google.com/?cid=9777205141708693519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lecrazyhorseparis.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.12
+    },
+    {
+      "googlePlaceId": "ChIJlyUF0QNy5kcRoW19XauvNzQ",
+      "name": "Supersonic",
+      "address": "9 Rue Biscornet, 75012 Paris, France",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 3450,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.850313199999995,
+      "lng": 2.3697078,
+      "googleMapsUri": "https://maps.google.com/?cid=3762669164234108321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.supersonic-club.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.07
+    },
+    {
+      "googlePlaceId": "ChIJR3122B9u5kcR9RZ_OWxSy80",
+      "name": "Domaine National du Palais-Royal",
+      "address": "75001 Paris, France",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 21243,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8637569,
+      "lng": 2.3371261000000003,
+      "googleMapsUri": "https://maps.google.com/?cid=14829036822822065909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.domaine-palais-royal.fr/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.98
+    },
+    {
+      "googlePlaceId": "ChIJr3SOmOdv5kcRJUwZDs3C3mA",
+      "name": "Musée d'Art Moderne de Paris",
+      "address": "11 Av. du Président Wilson, 75116 Paris, France",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8551,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.864342099999995,
+      "lng": 2.2978207999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6980230658431470629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mam.paris.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 82.95
+    },
+    {
+      "googlePlaceId": "ChIJTweH9X9x5kcRGOH_w__UC0M",
+      "name": "Wonderland brunchy Notre Dame/ Restaurant Brunch",
+      "address": "4 Quai d'Orléans, 75004 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4059,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.8512846,
+      "lng": 2.3558291,
+      "googleMapsUri": "https://maps.google.com/?cid=4831189220255064344&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/p/CpK6rLdIo13/?igshid=YmMyMTA2M2Y=",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 82.91
+    },
+    {
+      "googlePlaceId": "ChIJlTr0NSVu5kcR-Zf_HVedVq8",
+      "name": "Discover Walks",
+      "address": "1 Rue Thérèse, 75001 Paris, France",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 722,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.865671899999995,
+      "lng": 2.3363704999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=12634458802125510649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.discoverwalks.com/tour/city/paris-walking-tours/",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 82.9
+    },
+    {
+      "googlePlaceId": "ChIJlxxVG4Fv5kcRbG69SnOmFJ8",
+      "name": "Immersion Vendôme - Brunch & Coffee",
+      "address": "23 Rue Danielle Casanova, 75001 Paris, France",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 8964,
+      "priceLevel": null,
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "halal_restaurant",
+        "coffee_stand",
+        "vegetarian_restaurant",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "cafe",
+        "restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 48.867847999999995,
+      "lng": 2.3316813,
+      "googleMapsUri": "https://maps.google.com/?cid=11462969965670133356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.immersionparis.fr/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 82.87
+    },
+    {
+      "googlePlaceId": "ChIJ16iAVchv5kcR2iUDThaRlkE",
+      "name": "Eating Europe Food Tours Paris",
+      "address": "Rue des Récollets 20, 75010 Paris, France",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2036,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 48.874820199999995,
+      "lng": 2.3607883,
+      "googleMapsUri": "https://maps.google.com/?cid=4726124383956051418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eatingeurope.com/paris/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 82.86
+    }
+  ]
+}

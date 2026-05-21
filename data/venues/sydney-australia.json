@@ -1,0 +1,3428 @@
+{
+  "location": "Sydney, Australia",
+  "generatedAt": "2026-05-17T20:29:28.296Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ3S-JXmauEmsRUcIaWtf4MzE",
+      "name": "Sydney Opera House",
+      "address": "Bennelong Point, Sydney NSW 2000, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 91441,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": -33.856784399999995,
+      "lng": 151.21529669999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3545450935484072529&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sydneyoperahouse.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJt9trB0euEmsR8NbepO14j3M",
+      "name": "Darling Harbour",
+      "address": "Sydney NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 64092,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.874880000000005,
+      "lng": 151.2009,
+      "googleMapsUri": "https://maps.google.com/?cid=8327007198099986160&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.darlingharbour.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.61
+    },
+    {
+      "googlePlaceId": "ChIJbegy10GuEmsRPo7jHLYIOsE",
+      "name": "Next Level Escape",
+      "address": "LG, 23 O'Connell St, Sydney NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 15414,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.865216,
+      "lng": 151.2092122,
+      "googleMapsUri": "https://maps.google.com/?cid=13923450776231054910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nextlevelescape.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.55
+    },
+    {
+      "googlePlaceId": "ChIJWaTdYGuuEmsRoOfx-Wh9AQ8",
+      "name": "Royal Botanic Garden Sydney",
+      "address": "Mrs Macquaries Rd, Sydney NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 25231,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "research_institute",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.864185899999995,
+      "lng": 151.2165708,
+      "googleMapsUri": "https://maps.google.com/?cid=1081283275369080736&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.botanicgardens.org.au/royal-botanic-garden-sydney",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.75
+    },
+    {
+      "googlePlaceId": "ChIJPVqlfGyuEmsRHPcnCX1X1OE",
+      "name": "Art Gallery of New South Wales",
+      "address": "Art Gallery Rd, Sydney NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 15345,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "cultural_center",
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8688037,
+      "lng": 151.2174138,
+      "googleMapsUri": "https://maps.google.com/?cid=16272727548132587292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.artgallery.nsw.gov.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.23
+    },
+    {
+      "googlePlaceId": "ChIJDflB7BWuEmsRYPbx-Wh9AQ8",
+      "name": "Hyde Park",
+      "address": "Elizabeth St, Sydney NSW 2000, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 18061,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8715202,
+      "lng": 151.21162429999998,
+      "googleMapsUri": "https://maps.google.com/?cid=1081283275369084512&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cityofsydney.nsw.gov.au/parks/hyde-park?utm_content=Hyde%20Park%20-%20Sydney&utm_campaign=googlemybusiness&utm_medium=organic&utm_source=google&utm_term=plcid_12610484903724465125",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.63
+    },
+    {
+      "googlePlaceId": "ChIJlwsH0RWuEmsR3Cg3WEDw76I",
+      "name": "Australian Museum",
+      "address": "1 William St, Darlinghurst NSW 2010, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 13259,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8743446,
+      "lng": 151.2131667,
+      "googleMapsUri": "https://maps.google.com/?cid=11740866912726755548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://australian.museum/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.68
+    },
+    {
+      "googlePlaceId": "ChIJ49XqJV2uEmsRPsTAF7eOlGg",
+      "name": "Sydney Harbour Bridge",
+      "address": "Sydney Hbr Brg, Sydney NSW, Australia",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 20892,
+      "priceLevel": null,
+      "primaryType": "bridge",
+      "types": [
+        "bridge",
+        "tourist_attraction",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.852306299999995,
+      "lng": 151.2107871,
+      "googleMapsUri": "https://maps.google.com/?cid=7535804993526350910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/sydney-harbour-bridge",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.28
+    },
+    {
+      "googlePlaceId": "ChIJYV-J-ziuEmsRIMyoFaMedU4",
+      "name": "SEA LIFE Sydney Aquarium",
+      "address": "1-5 Wheat Rd, Sydney NSW 2000, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 22552,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8695997,
+      "lng": 151.20213809999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5653458593025412128&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitsealife.com/sydney/?utm_source=gmb&utm_medium=organic&utm_campaign=yext&utm_content=2",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.01
+    },
+    {
+      "googlePlaceId": "ChIJ10M4PT-uEmsRMeqvCIcacXo",
+      "name": "The Baxter Inn",
+      "address": "152/156 Clarence St, Sydney NSW 2000, Australia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 3916,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8696238,
+      "lng": 151.2055976,
+      "googleMapsUri": "https://maps.google.com/?cid=8822862312264165937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.swillhouse.com/venues/the-baxter-inn",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.05
+    },
+    {
+      "googlePlaceId": "ChIJSytgJF2uEmsRC6q8BDZh5qA",
+      "name": "BridgeClimb Sydney",
+      "address": "3 Cumberland St, The Rocks NSW 2000, Australia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 6349,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.857439,
+      "lng": 151.2077747,
+      "googleMapsUri": "https://maps.google.com/?cid=11594061175347522059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bridgeclimb.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": null,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.78
+    },
+    {
+      "googlePlaceId": "ChIJF5-RdGquEmsR5rN_H74uSqQ",
+      "name": "Restaurant Hubert",
+      "address": "15 Bligh St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5001,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.865130400000005,
+      "lng": 151.2104197,
+      "googleMapsUri": "https://maps.google.com/?cid=11838325964603896806&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.swillhouse.com/venues/restaurant-hubert",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.7
+    },
+    {
+      "googlePlaceId": "ChIJo7Ntu_OuEmsRaX-EEnZoAwc",
+      "name": "Blues Point Reserve",
+      "address": "Blues Point Rd, North Sydney NSW 2060, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3491,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "tourist_attraction",
+        "national_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.849866299999995,
+      "lng": 151.2038631,
+      "googleMapsUri": "https://maps.google.com/?cid=505362439521730409&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.northsydney.nsw.gov.au/directory-record/1384/blues-point-reserve",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do",
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 90.7
+    },
+    {
+      "googlePlaceId": "ChIJq6qqWiSsEmsRJuIpepyEua4",
+      "name": "Taronga Zoo Sydney",
+      "address": "Bradleys Head Rd, Mosman NSW 2088, Australia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 35488,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8435473,
+      "lng": 151.2413418,
+      "googleMapsUri": "https://maps.google.com/?cid=12590240040890262054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://taronga.org.au/sydney-zoo",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.6
+    },
+    {
+      "googlePlaceId": "ChIJ8z-aqziuEmsRqUXOYXDGnwE",
+      "name": "ICC Sydney",
+      "address": "14 Darling Dr, Sydney NSW 2000, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 6720,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8748582,
+      "lng": 151.199509,
+      "googleMapsUri": "https://maps.google.com/?cid=117030301314467241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.iccsydney.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "cultural centers",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.5
+    },
+    {
+      "googlePlaceId": "ChIJtSxTkCSuEmsR-vGr9RrZSko",
+      "name": "Paddy's Markets Haymarket",
+      "address": "Shop R1.05/13 Hay St, Haymarket NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 18670,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "deli",
+        "clothing_store",
+        "farmers_market",
+        "jewelry_store",
+        "grocery_store",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": -33.8800089,
+      "lng": 151.2035622,
+      "googleMapsUri": "https://maps.google.com/?cid=5353329816897319418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.paddysmarkets.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.33
+    },
+    {
+      "googlePlaceId": "ChIJZ6DWeEOuEmsRYO_x-Wh9AQ8",
+      "name": "Observatory Hill Park",
+      "address": "1001 Upper Fort St, Millers Point NSW 2000, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3017,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "dog_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8594047,
+      "lng": 151.2048859,
+      "googleMapsUri": "https://maps.google.com/?cid=1081283275369082720&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cityofsydney.nsw.gov.au/parks/observatory-park?utm_source=google&utm_medium=organic&utm_content=observatory-hill-park&utm_campaign=googlemybusiness&utm_term=plcid_5080452170415577644",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.25
+    },
+    {
+      "googlePlaceId": "ChIJdXLt_eOvEmsRICLwb4ZFjQU",
+      "name": "KOKO Amusement Town Hall",
+      "address": "614 George St, Sydney NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 2102,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.87565560000001,
+      "lng": 151.20661389999998,
+      "googleMapsUri": "https://maps.google.com/?cid=400052385611784736&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kokoamusement.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.24
+    },
+    {
+      "googlePlaceId": "ChIJn97JQNpC1moRIcJsVMEQLI8",
+      "name": "Melbourne Museum",
+      "address": "11 Nicholson St, Carlton VIC 3053, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 19264,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "wedding_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -37.803273,
+      "lng": 144.9717408,
+      "googleMapsUri": "https://maps.google.com/?cid=10316639268930109985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museumsvictoria.com.au/melbournemuseum",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.83
+    },
+    {
+      "googlePlaceId": "ChIJF9mEdEeuEmsRO3QF3fOwfs8",
+      "name": "Untied - Rooftop Sydney",
+      "address": "Lvl 4/400 Barangaroo Ave, Barangaroo NSW 2000, Australia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 3787,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8655553,
+      "lng": 151.2019956,
+      "googleMapsUri": "https://maps.google.com/?cid=14951582374348289083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.untiedsydney.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb&utm_term=plcid_8384449097513870665",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJTUlBSwJsEmsRVHuAQ15DjzM",
+      "name": "Scenic World",
+      "address": "Violet St &, Cliff Dr, Katoomba NSW 2780, Australia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 23106,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.7286119,
+      "lng": 150.3010359,
+      "googleMapsUri": "https://maps.google.com/?cid=3715262289742429012&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://scenicworld.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.29
+    },
+    {
+      "googlePlaceId": "ChIJv2Yr02quEmsRTqyo1N7vfeE",
+      "name": "Hyde Park Barracks",
+      "address": "Queens Square, Macquarie St, Sydney NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2203,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "historical_landmark",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8696036,
+      "lng": 151.212585,
+      "googleMapsUri": "https://maps.google.com/?cid=16248406770952219726&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mhnsw.au/visit-us/hyde-park-barracks/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.29
+    },
+    {
+      "googlePlaceId": "ChIJNcXcR12uEmsRkpSvsrO--1g",
+      "name": "The Rocks Market",
+      "address": "George St, The Rocks NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6235,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8577866,
+      "lng": 151.2085595,
+      "googleMapsUri": "https://maps.google.com/?cid=6411928173498307730&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.therocks.com/things-to-do/the-rocks-markets/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJ7w7CsmKvEmsR19M0RHhqZL8",
+      "name": "BISTECCA",
+      "address": "3 Dalley St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2120,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "cocktail_bar",
+        "italian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8632981,
+      "lng": 151.2078628,
+      "googleMapsUri": "https://maps.google.com/?cid=13791265023688233943&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.liquidandlarder.com.au/venues/bistecca/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJPX3g_z6uEmsRx_q3uZHXjGQ",
+      "name": "State Theatre",
+      "address": "49 Market St, Sydney NSW 2000, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3413,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.870829199999996,
+      "lng": 151.2076151,
+      "googleMapsUri": "https://maps.google.com/?cid=7245402921418357447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.statetheatre.com.au/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.13
+    },
+    {
+      "googlePlaceId": "ChIJsScGOS2xEmsRT1N1blDBjwY",
+      "name": "Hyper Karting",
+      "address": "Car Park, Level 5/207 Park Rd S, Moore Park NSW 2021, Australia",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 5894,
+      "priceLevel": null,
+      "primaryType": "go_karting_venue",
+      "types": [
+        "go_karting_venue",
+        "video_arcade",
+        "amusement_center",
+        "race_course",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8953177,
+      "lng": 151.22598860000002,
+      "googleMapsUri": "https://maps.google.com/?cid=472809037091918671&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hyperkarting.com.au/?utm_source=google&utm_medium=organic&utm_campaign=GMB-Sydney",
+      "openNow": false,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.05
+    },
+    {
+      "googlePlaceId": "ChIJ384_FGCuEmsRFAbHLAWVPGg",
+      "name": "Luna Park Sydney",
+      "address": "1 Olympic Dr, Milsons Point NSW 2061, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 16756,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.847698699999995,
+      "lng": 151.2098382,
+      "googleMapsUri": "https://maps.google.com/?cid=7511042128005760532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lunaparksydney.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.9
+    },
+    {
+      "googlePlaceId": "ChIJK4Tktz-uEmsR4wAu4Lf6dCg",
+      "name": "Infinity at Sydney Tower",
+      "address": "Westfield Sydney, Level 4/108 Market St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3934,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "australian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8704147,
+      "lng": 151.2089691,
+      "googleMapsUri": "https://maps.google.com/?cid=2915230526462623971&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://infinitysydneytower.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.86
+    },
+    {
+      "googlePlaceId": "ChIJuUFiBzmuEmsRB5kohGRewMg",
+      "name": "Madame Tussauds Sydney",
+      "address": "1-5 Wheat Rd, Sydney NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 5619,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8696002,
+      "lng": 151.2017779,
+      "googleMapsUri": "https://maps.google.com/?cid=14465665788921026823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madametussauds.com/sydney/?utm_source=gmb&utm_medium=organic&utm_campaign=yext&utm_content=2",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.85
+    },
+    {
+      "googlePlaceId": "ChIJX1tnBUXEEmsRoKry-Wh9AQ8",
+      "name": "Royal National Park",
+      "address": "New South Wales, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5447,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.1184375,
+      "lng": 151.0636875,
+      "googleMapsUri": "https://maps.google.com/?cid=1081283275369130656&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/royal-national-park?utm_source=google&utm_medium=organic&utm_campaign=Google%20My%20Business&utm_term=plcid_3493957530872373573&utm_content=Royal%20National%20Park%20-%20Royal%20National%20Park",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 88.81
+    },
+    {
+      "googlePlaceId": "ChIJqVVpmPSuEmsRd8WEFt6XOQc",
+      "name": "Wendy Whiteley's Secret Garden",
+      "address": "Lavender St, Lavender Bay NSW 2060, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3629,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.844159,
+      "lng": 151.2090212,
+      "googleMapsUri": "https://maps.google.com/?cid=520614212054336887&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wendyssecretgarden.org.au/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.66
+    },
+    {
+      "googlePlaceId": "ChIJqy_-dTGuEmsRtBGe8eEFI8E",
+      "name": "Sydney Fish Market",
+      "address": "1 Bridge Rd, Glebe NSW 2037, Australia",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.2,
+      "reviewCount": 28742,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "tourist_attraction",
+        "market",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8751173,
+      "lng": 151.18999200000002,
+      "googleMapsUri": "https://maps.google.com/?cid=13916973741484413364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sydneyfishmarket.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJhXXngUOuEmsRryJYPyfsBtQ",
+      "name": "Sydney Observatory",
+      "address": "1003 Upper Fort St, Millers Point NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4065,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.8598345,
+      "lng": 151.2048766,
+      "googleMapsUri": "https://maps.google.com/?cid=15278158439211606703&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://powerhouse.com.au/visit/sydney-observatory",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.31
+    },
+    {
+      "googlePlaceId": "ChIJTze93zmuEmsRhvE6T4Y9DhU",
+      "name": "Australian National Maritime Museum",
+      "address": "2 Murray St, Darling Hbr, Sydney NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6227,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.8693567,
+      "lng": 151.19863279999998,
+      "googleMapsUri": "https://maps.google.com/?cid=1517217771534610822&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sea.museum/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJ68aBlEKuEmsRHUA9oME5Zh0",
+      "name": "Museum of Contemporary Art Australia",
+      "address": "140 George St, The Rocks NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 9378,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "art_gallery",
+        "tourist_attraction",
+        "museum",
+        "cafe",
+        "event_venue",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.859935799999995,
+      "lng": 151.2090295,
+      "googleMapsUri": "https://maps.google.com/?cid=2118444178504237085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mca.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJjZQwVOKvEmsRzgN9F6zfkWU",
+      "name": "Fortress Sydney",
+      "address": "Central Park Mall, Level 2/28 Broadway, Chippendale NSW 2008, Australia",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 2101,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "arena",
+        "event_venue",
+        "internet_cafe",
+        "restaurant",
+        "food",
+        "association_or_organization",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.8846114,
+      "lng": 151.200737,
+      "googleMapsUri": "https://maps.google.com/?cid=7318876799675204558&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fortress.games/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.64
+    },
+    {
+      "googlePlaceId": "ChIJ7TRHa5ekEmsRUELx-Wh9AQ8",
+      "name": "Blaxland Riverside Park",
+      "address": "Blaxland Riverside Park, Jamieson St, Sydney Olympic Park NSW 2127, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5122,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8269082,
+      "lng": 151.05917259999998,
+      "googleMapsUri": "https://maps.google.com/?cid=1081283275369038416&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sydneyolympicpark.com.au/parks-and-playgrounds/blaxland-riverside-park",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.52
+    },
+    {
+      "googlePlaceId": "ChIJmXrQJKilEmsR721qVvT2ERw",
+      "name": "ClassBento",
+      "address": "Level 1/251 Riley St, Surry Hills NSW 2010, Australia",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 5,
+      "reviewCount": 3462,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "educational_institution",
+        "service",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8811877,
+      "lng": 151.2134347,
+      "googleMapsUri": "https://maps.google.com/?cid=2022669236948332015&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://classbento.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "cooking classes",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJdRmuCG2vEmsRYPe76JjEY5I",
+      "name": "Aalia Restaurant Sydney",
+      "address": "Shop 7.07-7.08/25 Martin Pl, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1174,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "middle_eastern_restaurant",
+      "types": [
+        "middle_eastern_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8680725,
+      "lng": 151.2093505,
+      "googleMapsUri": "https://maps.google.com/?cid=10548490913250539360&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aaliarestaurant.com/?utm_content=AALIA+Restaurant+Sydney&utm_campaign=Google+My+Business&utm_medium=organic&utm_source=google&utm_term=plcid_6952976032146166324",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.36
+    },
+    {
+      "googlePlaceId": "ChIJdxxU1WeuEmsR11c4fswX-Io",
+      "name": "Aria Restaurant Sydney",
+      "address": "1 Macquarie St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2400,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "australian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8592041,
+      "lng": 151.21326349999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10013779938516686807&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ariasydney.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=Aria_Restaurant_Sydney&utm_term=plcid_18420151015366914459",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.35
+    },
+    {
+      "googlePlaceId": "ChIJoUI9VbyvEmsRiDszlV0ZSck",
+      "name": "BE Escape Room",
+      "address": "746-748 George St, Haymarket NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5808,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8799746,
+      "lng": 151.2053785,
+      "googleMapsUri": "https://maps.google.com/?cid=14504151964649208712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.be-escape.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.31
+    },
+    {
+      "googlePlaceId": "ChIJAdgvpTSvEmsRG2zKBNpxNTo",
+      "name": "Bouillon L'Entrecôte",
+      "address": "6 Loftus St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2002,
+      "priceLevel": null,
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.862500499999996,
+      "lng": 151.21059590000002,
+      "googleMapsUri": "https://maps.google.com/?cid=4194383809162669083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bouillonlentrecote.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJvyZ8WvCvEmsRTqM2KE94_aw",
+      "name": "Grana",
+      "address": "Ground Floor/5-7 Young St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2253,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8625166,
+      "lng": 151.2109494,
+      "googleMapsUri": "https://maps.google.com/?cid=12465251625003819854&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.grana.sydney/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.15
+    },
+    {
+      "googlePlaceId": "ChIJy6BwuD-uEmsRyiRskH1UG-I",
+      "name": "Sydney Tower Eye",
+      "address": "Westfield Sydney, Level 5/108 Market St, Sydney NSW 2000, Australia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 15897,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8703155,
+      "lng": 151.2088801,
+      "googleMapsUri": "https://maps.google.com/?cid=16292708975213552842&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sydneytowereye.com.au/?utm_source=gmb&utm_medium=organic&utm_campaign=yext&utm_content=5",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 87.04
+    },
+    {
+      "googlePlaceId": "ChIJt9hSLzyuEmsRkqxRHn5nqOM",
+      "name": "I'm Free Walking Tours Sydney",
+      "address": "483 George St, Sydney NSW 2000, Australia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2422,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.873393899999996,
+      "lng": 151.2065802,
+      "googleMapsUri": "https://maps.google.com/?cid=16404475434069240978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.imfree.tours/sydney/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.03
+    },
+    {
+      "googlePlaceId": "ChIJQcmNYGauEmsR84D5HAJJUhw",
+      "name": "Bennelong",
+      "address": "Sydney Opera House, Bennelong Point, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2165,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "australian_restaurant",
+      "types": [
+        "australian_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8574468,
+      "lng": 151.21474310000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2040773854577131763&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bennelong.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.03
+    },
+    {
+      "googlePlaceId": "ChIJrzOaiy-uEmsRM4FVjuzZ5UU",
+      "name": "Local Sauce Tours - Sydney Food, Bar & Walking Tours",
+      "address": "2/63 Dixon St, Haymarket NSW 2000, Australia",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 5,
+      "reviewCount": 1030,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.8789164,
+      "lng": 151.2039309,
+      "googleMapsUri": "https://maps.google.com/?cid=5036671368307245363&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.localsaucetours.com.au/?utm_source=gbp&utm_medium=view_website_button&utm_campaign=Google+Business+Profile",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "local-exploration"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJY8CFEVqvEmsROwc8OdA6bEk",
+      "name": "Esteban",
+      "address": "1 Temperance Ln, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1813,
+      "priceLevel": null,
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.86961410000001,
+      "lng": 151.2065551,
+      "googleMapsUri": "https://maps.google.com/?cid=5290668328241334075&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.estebanrestaurant.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJa4fkFF-vEmsR72eKWs-X4pA",
+      "name": "ESCAPE THIS - Sydney CBD",
+      "address": "630 George St, Sydney NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5123,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8759565,
+      "lng": 151.2064873,
+      "googleMapsUri": "https://maps.google.com/?cid=10440073803031275503&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapethis.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJs-MWMVuuEmsRN7STbIW1hv8",
+      "name": "Barangaroo Reserve",
+      "address": "Hickson Rd, Barangaroo NSW 2000, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4710,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.857208,
+      "lng": 151.20120599999998,
+      "googleMapsUri": "https://maps.google.com/?cid=18412603711207748663&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barangaroo.com/precincts/barangaroo-reserve",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.86
+    },
+    {
+      "googlePlaceId": "ChIJCZ5rATyuEmsRcAjUsjLzbGU",
+      "name": "Customs House",
+      "address": "31 Alfred St, Sydney NSW 2000, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2027,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "library",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8617931,
+      "lng": 151.2109447,
+      "googleMapsUri": "https://maps.google.com/?cid=7308483694389626992&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cityofsydney.nsw.gov.au/landmarks/customs-house?utm_source=google&utm_medium=organic&utm_content=customshouse&utm_campaign=googlemybusiness&utm_term=plcid_18233047679705832412",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.83
+    },
+    {
+      "googlePlaceId": "ChIJISz8NjyuEmsRFTQ9Iw7Ear8",
+      "name": "Queen Victoria Building",
+      "address": "455 George St, Sydney NSW 2000, Australia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 20844,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8717161,
+      "lng": 151.2067008,
+      "googleMapsUri": "https://maps.google.com/?cid=13793052373775365141&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.qvb.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.82
+    },
+    {
+      "googlePlaceId": "ChIJ1awzXCSuEmsRGNU50w2fKcc",
+      "name": "Timezone Haymarket",
+      "address": "Shop 9/13 Hay St, Haymarket NSW 2000, Australia",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2001,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8799445,
+      "lng": 151.2035053,
+      "googleMapsUri": "https://maps.google.com/?cid=14351176569319970072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-au/venues/nsw/timezone-haymarket/?utm_source=googlemybusiness&utm_medium=organic&utm_campaign=google_my_business",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJA2ZVtEm7EmsRak5pPES1zNA",
+      "name": "Sydney Markets",
+      "address": "Sydney Markets, 250-318 Parramatta Rd, Homebush West NSW 2140, Australia",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.3,
+      "reviewCount": 6677,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.863152,
+      "lng": 151.07188209999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15045599759813922410&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sydneymarkets.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJK2AbsHuvEmsRn_2kVh8Sv5w",
+      "name": "Hustlers. Syd",
+      "address": "LG/24 York St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 924,
+      "priceLevel": null,
+      "primaryType": "asian_fusion_restaurant",
+      "types": [
+        "asian_fusion_restaurant",
+        "fusion_restaurant",
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8682265,
+      "lng": 151.2061216,
+      "googleMapsUri": "https://maps.google.com/?cid=11294766316275432863&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hustlerssyd.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.63
+    },
+    {
+      "googlePlaceId": "ChIJD-SIVEivEmsRv4lBu6DIchc",
+      "name": "Print Paint Pot - Pottery Class Sydney",
+      "address": "Unit 4/53 Dickson Ave, Artarmon NSW 2064, Australia",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 5,
+      "reviewCount": 4650,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "educational_institution",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.8160964,
+      "lng": 151.1831177,
+      "googleMapsUri": "https://maps.google.com/?cid=1689633402879314367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.printpaintpot.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 86.62
+    },
+    {
+      "googlePlaceId": "ChIJwan5wN6vEmsRqgO4aPUcVoQ",
+      "name": "Immersive Gamebox Sydney",
+      "address": "Aquarium Wharf, Sydney NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 450,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8701779,
+      "lng": 151.20250049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9535841101353059242&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/en-AU/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.62
+    },
+    {
+      "googlePlaceId": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4",
+      "name": "St Mary's Cathedral",
+      "address": "St Marys Rd, Sydney NSW 2000, Australia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 8968,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8711905,
+      "lng": 151.2133254,
+      "googleMapsUri": "https://maps.google.com/?cid=18337096409049085662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stmaryscathedral.org.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.44
+    },
+    {
+      "googlePlaceId": "ChIJuasXSJivEmsR8XembUrbNVc",
+      "name": "Old Mate's Place",
+      "address": "level 4/199 Clarence St, Sydney NSW 2000, Australia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1384,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8695467,
+      "lng": 151.205153,
+      "googleMapsUri": "https://maps.google.com/?cid=6284169967779084273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://oldmates.sydney/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJn6BNSpajEmsRMlca8iQjMvQ",
+      "name": "Scram Escape Rooms",
+      "address": "level 1/240 Church St, Parramatta NSW 2150, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4091,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.814196599999995,
+      "lng": 151.0034259,
+      "googleMapsUri": "https://maps.google.com/?cid=17596165335677556530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.scramescaperooms.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.23
+    },
+    {
+      "googlePlaceId": "ChIJ__9PaTyuEmsR73SEdCl2H0U",
+      "name": "Entermission Sydney CBD - VR Escape Rooms",
+      "address": "1/484 Kent St, Sydney NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1828,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8745577,
+      "lng": 151.2055435,
+      "googleMapsUri": "https://maps.google.com/?cid=4980829633315632367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://enterthemission.com/sydney/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJf_fSDT-uEmsR3m-imkcKH4Q",
+      "name": "Virtual Room Sydney: Virtual Reality Escape Room",
+      "address": "5/393 George St, Sydney NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1090,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8696532,
+      "lng": 151.2068003,
+      "googleMapsUri": "https://maps.google.com/?cid=9520339439937810398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sydney.virtual-room.com/?utm_source=cta_site&utm_medium=GMB&utm_id=GMB",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 86.08
+    },
+    {
+      "googlePlaceId": "ChIJrWQcnzuuEmsRPTRAtkD-Fag",
+      "name": "Darling Quarter",
+      "address": "1/25 Harbour St, Sydney NSW 2000, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2231,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "playground",
+        "corporate_office",
+        "cafe",
+        "restaurant",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8744198,
+      "lng": 151.20218119999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12111866326771840061&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.darlingquarter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJu21BygGyEmsRhncYi7NJIi0",
+      "name": "Centennial Park",
+      "address": "15 Locked Bag, Paddington NSW 2021, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7727,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8983887,
+      "lng": 151.234801,
+      "googleMapsUri": "https://maps.google.com/?cid=3252242916396529542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.centennialparklands.com.au/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.98
+    },
+    {
+      "googlePlaceId": "ChIJXZmJ1RGjEmsR77zLEsxMnoM",
+      "name": "Labyrinth Escape Rooms",
+      "address": "1B Victoria Rd, Parramatta NSW 2150, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5391,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8089103,
+      "lng": 151.0059661,
+      "googleMapsUri": "https://maps.google.com/?cid=9484102304661224687&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.labyrinthescaperooms.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.98
+    },
+    {
+      "googlePlaceId": "ChIJB5NuYGauEmsROhQEpJXe5qo",
+      "name": "Opera Bar",
+      "address": "Sydney Opera House, Lower Concourse Level, Sydney NSW 2000, Australia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 12746,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "oyster_bar_restaurant",
+        "australian_restaurant",
+        "pizza_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8584964,
+      "lng": 151.21362489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12314774965374424122&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://operabar.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJI9MVVPyxEmsRIfYeHrm_ELU",
+      "name": "The Entertainment Quarter",
+      "address": "122 Lang Rd, Moore Park NSW 2021, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.2,
+      "reviewCount": 4134,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "shopping_mall",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8947746,
+      "lng": 151.2270446,
+      "googleMapsUri": "https://maps.google.com/?cid=13047138922287527457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.entertainmentquarter.com.au/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.71
+    },
+    {
+      "googlePlaceId": "ChIJo22WlVmvEmsRByojRqrkUuE",
+      "name": "Crockd Studios Neutral Bay",
+      "address": "5/81-91 Military Rd, Neutral Bay NSW 2089, Australia",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 4.9,
+      "reviewCount": 4841,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "art_studio",
+        "educational_institution",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.8305534,
+      "lng": 151.2193471,
+      "googleMapsUri": "https://maps.google.com/?cid=16236291026596342279&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://studios.crockd.com/pages/neutral-bay-pottery-studio",
+      "openNow": false,
+      "matchedQueries": [
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJT2hT3iuvEmsRCpWlGLHt6IE",
+      "name": "Ice Break Escape Room",
+      "address": "Suite 1, Level 10/428 George St, Sydney NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2735,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8699455,
+      "lng": 151.20733439999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9360993170368075018&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.icebreakescaperoom.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJ1x5ypR-vEmsRxCcvSx5c94o",
+      "name": "Welcome to Travel | Sydney",
+      "address": "812B George St, Haymarket NSW 2000, Australia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1899,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.881842,
+      "lng": 151.2046667,
+      "googleMapsUri": "https://maps.google.com/?cid=10013573581661743044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://welcometo.travel/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJlUJwjJWvEmsRrYIZEuHArqY",
+      "name": "Paint Clay Sip Sydney",
+      "address": "Unit 3/27 Dickson Ave, Artarmon NSW 2064, Australia",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 1163,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "educational_institution",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.815266099999995,
+      "lng": 151.1848119,
+      "googleMapsUri": "https://maps.google.com/?cid=12010749329147527853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paintclaysip.com.au/",
+      "openNow": null,
+      "matchedQueries": [
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJr9lSEmuvEmsRRD_l58GVOKk",
+      "name": "Luna Lu - Asian Fusion, The Rocks",
+      "address": "Ground Level, Bays 4 and 5, Campbells Cove, 7-27 Circular Quay W, The Rocks NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2552,
+      "priceLevel": null,
+      "primaryType": "asian_fusion_restaurant",
+      "types": [
+        "asian_fusion_restaurant",
+        "fusion_restaurant",
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8569483,
+      "lng": 151.2091906,
+      "googleMapsUri": "https://maps.google.com/?cid=12193660651157405508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lunalu.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.39
+    },
+    {
+      "googlePlaceId": "ChIJVXe9J2R5EmsRoMPy-Wh9AQ8",
+      "name": "Blue Mountains National Park",
+      "address": "New South Wales, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6307,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8492854,
+      "lng": 150.2738856,
+      "googleMapsUri": "https://maps.google.com/?cid=1081283275369137056&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalparks.nsw.gov.au/visit-a-park/parks/blue-mountains-national-park?utm_source=google&utm_medium=organic&utm_campaign=Google%20My%20Business%20Page",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.36
+    },
+    {
+      "googlePlaceId": "ChIJYXuDOxyyEmsRtRZV6GZjGuM",
+      "name": "Bondi to Coogee Walk",
+      "address": "Coogee NSW 2034, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3357,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9183926,
+      "lng": 151.2584756,
+      "googleMapsUri": "https://maps.google.com/?cid=16364501489639823029&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bonditocoogeewalk.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJV1e-jDWvEmsR8fNyvxjFii8",
+      "name": "Mission Escape George St",
+      "address": "Hsbc Building, Level 5/724 George St, Haymarket NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2873,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8788931,
+      "lng": 151.20580859999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3425767176650552305&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.missionsydney.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJUQ_b-SOuEmsRih7zh9urWnw",
+      "name": "Side Bar",
+      "address": "509 Pitt St, Haymarket NSW 2000, Australia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 3414,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8822614,
+      "lng": 151.2046178,
+      "googleMapsUri": "https://maps.google.com/?cid=8960663367974067850&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sidebarsydney.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "game night venues",
+        "trivia nights",
+        "adult nightlife",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJTbj38CiuEmsRpup8So3hlMM",
+      "name": "Ozia Tours",
+      "address": "Corner of Darling Drive and, Ultimo Rd, Haymarket NSW 2000, Australia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2176,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "tour_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.882970799999995,
+      "lng": 151.19653100000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14093137130905463462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oziatours.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.95
+    },
+    {
+      "googlePlaceId": "ChIJeb_-XhdNFmsR5ZuDF8x3UFw",
+      "name": "Questacon - National Science and Technology Centre",
+      "address": "King Edward Terrace, Parkes ACT 2600, Australia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 7705,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -35.298035899999995,
+      "lng": 149.1309561,
+      "googleMapsUri": "https://maps.google.com/?cid=6651948368077757413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.questacon.edu.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.87
+    },
+    {
+      "googlePlaceId": "ChIJWdOGHRKuEmsR6al3OVtQAqQ",
+      "name": "Eau De Vie Sydney",
+      "address": "Basement Level, Enter Via Wynyard Lane, 285 George St, Sydney NSW 2000, Australia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 743,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.865455,
+      "lng": 151.2068885,
+      "googleMapsUri": "https://maps.google.com/?cid=11818096724909992425&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://eaudevie.com.au/sydney/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJ_1pC8mmuEmsRrvud0Ftcoyg",
+      "name": "Museum of Sydney",
+      "address": "Cnr Bridge Street &, Phillip St, Sydney NSW 2000, Australia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.2,
+      "reviewCount": 3066,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8636288,
+      "lng": 151.2114567,
+      "googleMapsUri": "https://maps.google.com/?cid=2928285732132748206&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mhnsw.au/visit-us/museum-of-sydney/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJXdh5zWmuEmsRXi8KW8VhQmM",
+      "name": "Martin Place",
+      "address": "1 Martin Pl, Sydney NSW 2000, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2014,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8682108,
+      "lng": 151.2079675,
+      "googleMapsUri": "https://maps.google.com/?cid=7152386658481614686&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cityofsydney.nsw.gov.au/hireable-outdoor-spaces/amphitheatre-martin-place?utm_content=Martin%20Place%20-%20Sydney&utm_campaign=googlemybusiness&utm_medium=organic&utm_source=google&utm_term=plcid_3891446599172043375",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.66
+    },
+    {
+      "googlePlaceId": "ChIJGSKJ3HivEmsRB7XmCEIosh4",
+      "name": "Sydney Lyric",
+      "address": "55 Pirrama Rd, Pyrmont NSW 2009, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5624,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8683331,
+      "lng": 151.1961039,
+      "googleMapsUri": "https://maps.google.com/?cid=2211874631074624775&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sydneylyric.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.56
+    },
+    {
+      "googlePlaceId": "ChIJ_e7au4y_EmsREr8vzq9p_uA",
+      "name": "Entertainment Park",
+      "address": "361 Milperra Rd, Bankstown NSW 2200, Australia",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 1372,
+      "priceLevel": null,
+      "primaryType": "go_karting_venue",
+      "types": [
+        "go_karting_venue",
+        "miniature_golf_course",
+        "video_arcade",
+        "cafe",
+        "amusement_center",
+        "race_course",
+        "indoor_golf_course",
+        "golf_course",
+        "amusement_park",
+        "athletic_field",
+        "event_venue",
+        "food",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.928453399999995,
+      "lng": 150.9900332,
+      "googleMapsUri": "https://maps.google.com/?cid=16212511912379793170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.entertainmentpark.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "mini golf",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.54
+    },
+    {
+      "googlePlaceId": "ChIJB7lkaV2uEmsRoPnko9dUzYw",
+      "name": "6HEAD Sydney",
+      "address": "Bay 10 & 11, Campbell’s Stores, 7-27 Circular Quay W, The Rocks NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3382,
+      "priceLevel": null,
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "wine_bar",
+        "oyster_bar_restaurant",
+        "australian_restaurant",
+        "steak_house",
+        "cocktail_bar",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.856647599999995,
+      "lng": 151.2090994,
+      "googleMapsUri": "https://maps.google.com/?cid=10145858820679989664&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://6head.com.au/sydney-restaurant/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.5
+    },
+    {
+      "googlePlaceId": "ChIJb1PVN9SoEmsRX-e0Oni3tKM",
+      "name": "Timezone Chatswood",
+      "address": "1 Anderson St, Westfield, Shop 605, Level 6 Victoria Ave, Chatswood NSW 2067, Australia",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 2313,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.796502499999995,
+      "lng": 151.18294899999998,
+      "googleMapsUri": "https://maps.google.com/?cid=11796255050999064415&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-au/venues/nsw/timezone-chatswood/?utm_source=googlemybusiness&utm_medium=organic&utm_campaign=google_my_business",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.43
+    },
+    {
+      "googlePlaceId": "ChIJPVxms2avEmsRDjsvVlgc0A8",
+      "name": "Elements Bar and Grill Pyrmont",
+      "address": "2/3 Harris St, Pyrmont NSW 2009, Australia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 6622,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "wine_bar",
+        "australian_restaurant",
+        "family_restaurant",
+        "bar_and_grill",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8656891,
+      "lng": 151.1910005,
+      "googleMapsUri": "https://maps.google.com/?cid=1139441871453371150&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elementsbarandgrill.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb-pyrmont",
+      "openNow": false,
+      "matchedQueries": [
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.41
+    },
+    {
+      "googlePlaceId": "ChIJQ9b_zXquEmsRY6cF2rm2v0M",
+      "name": "Mrs Macquarie's Chair",
+      "address": "Mrs Macquaries Rd, Sydney NSW 2000, Australia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 9371,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8596639,
+      "lng": 151.22257059999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4881821430435915619&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.botanicgardens.org.au/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.37
+    },
+    {
+      "googlePlaceId": "ChIJ3fS4eFxNDWsRnNUErp51fNg",
+      "name": "West Head Lookout",
+      "address": "W Head Rd, Ku-ring-gai Chase NSW 2084, Australia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2522,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.5792883,
+      "lng": 151.3092882,
+      "googleMapsUri": "https://maps.google.com/?cid=15599472533689390492&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalparks.nsw.gov.au/things-to-do/lookouts/west-head-lookout?utm_source=google&utm_medium=organic&utm_campaign=Google+My+Business+Page&utm_term=plcid_5434961884997999797&utm_content=West%20Head%20Lookout%20-%20Ku-Ring-Gai%20Chase",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.3
+    },
+    {
+      "googlePlaceId": "ChIJ-5XVOziwEmsRyX6Ja8Ke_nA",
+      "name": "Enmore Theatre",
+      "address": "118-132 Enmore Rd, Newtown NSW 2042, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5124,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8989556,
+      "lng": 151.1741389,
+      "googleMapsUri": "https://maps.google.com/?cid=8142119734197452489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.enmoretheatre.com.au/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.27
+    },
+    {
+      "googlePlaceId": "ChIJ4xjv8bGxEmsRWX89xT8LZEQ",
+      "name": "Archie Brothers Alexandria",
+      "address": "75 O'Riordan St, Alexandria NSW 2015, Australia",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 2881,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.916167699999995,
+      "lng": 151.1928943,
+      "googleMapsUri": "https://maps.google.com/?cid=4928076260770152281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://archiebrothers.com.au/locations/alexandria?utm_source=google-business&utm_medium=organic&utm_campaign=search-google-business",
+      "openNow": false,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.21
+    },
+    {
+      "googlePlaceId": "ChIJwWBUqD-uEmsRl9SNDJ2L86M",
+      "name": "Westfield Sydney",
+      "address": "Cnr Pitt St Mall &, Market St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 17915,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8705723,
+      "lng": 151.208515,
+      "googleMapsUri": "https://maps.google.com/?cid=11813939754159690903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.westfield.com.au/sydney",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.16
+    },
+    {
+      "googlePlaceId": "ChIJ9zwf4EKuEmsRqEeeQXdxn-E",
+      "name": "PANiQ-ROOM - Escape Room Sydney",
+      "address": "13 Cambridge St, The Rocks NSW 2000, Australia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2965,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8594929,
+      "lng": 151.2073834,
+      "googleMapsUri": "https://maps.google.com/?cid=16257837936846718888&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paniqroom.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.15
+    },
+    {
+      "googlePlaceId": "ChIJsfWVuAOvEmsRlIlTGlDNuWI",
+      "name": "The Sanderson Sydney",
+      "address": "Enter Via Wynyard Lane, 285 George St, Sydney NSW 2000, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 408,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8654717,
+      "lng": 151.2068885,
+      "googleMapsUri": "https://maps.google.com/?cid=7113942830331169172&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thesanderson.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.13
+    },
+    {
+      "googlePlaceId": "ChIJLTHAiEKuEmsRlE0sat9xXZE",
+      "name": "Sightseeing Bus & Walking Tours Sydney - Locl Tour",
+      "address": "110 Elizabeth St, Sydney NSW 2000, Australia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 930,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8710133,
+      "lng": 151.21175069999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10474653512706575764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://locltour.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.1
+    },
+    {
+      "googlePlaceId": "ChIJH65tFCOuEmsRo4_kx9khfrU",
+      "name": "Capitol Theatre",
+      "address": "13 Campbell St, Haymarket NSW 2000, Australia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5841,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.879398699999996,
+      "lng": 151.20630309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13077927587175763875&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://capitoltheatre.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.02
+    },
+    {
+      "googlePlaceId": "ChIJnZ01bU-vEmsRf67XoAHXIc4",
+      "name": "Glebe Markets",
+      "address": "Derby Place, Glebe Point Rd, Glebe NSW 2037, Australia",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.3,
+      "reviewCount": 2709,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8833975,
+      "lng": 151.1909906,
+      "googleMapsUri": "https://maps.google.com/?cid=14853389448038035071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://glebevillagemarkets.com.au/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.02
+    },
+    {
+      "googlePlaceId": "ChIJ04KCEUOvEmsRh8X673_FvX4",
+      "name": "Elements Bar and Grill Walsh Bay",
+      "address": "Pier 8-9/23 Hickson Rd, Millers Point NSW 2000, Australia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 4008,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "australian_restaurant",
+        "cocktail_bar",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "bar",
+        "cafe",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.855828599999995,
+      "lng": 151.203657,
+      "googleMapsUri": "https://maps.google.com/?cid=9132672772654941575&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elementsbarandgrill.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb-walsh-bay",
+      "openNow": false,
+      "matchedQueries": [
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.97
+    },
+    {
+      "googlePlaceId": "ChIJVyiVBxiuEmsRvRl_kNMT5-A",
+      "name": "NOMAD Sydney",
+      "address": "16 Foster St, Surry Hills NSW 2010, Australia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2806,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "australian_restaurant",
+      "types": [
+        "australian_restaurant",
+        "wine_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8799057,
+      "lng": 151.2103612,
+      "googleMapsUri": "https://maps.google.com/?cid=16205943583499295165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nomad.sydney/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.93
+    },
+    {
+      "googlePlaceId": "ChIJx9QaT4WtEmsRjmz5jpuUTzo",
+      "name": "Crockd Studios Bondi",
+      "address": "2-4 Flood St, Bondi NSW 2026, Australia",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 4.9,
+      "reviewCount": 2745,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "educational_institution",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.8895724,
+      "lng": 151.2595404,
+      "googleMapsUri": "https://maps.google.com/?cid=4201740373199514766&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://studios.crockd.com/collections/crockd-studios-bondi",
+      "openNow": false,
+      "matchedQueries": [
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 83.91
+    },
+    {
+      "googlePlaceId": "ChIJK4CesSauEmsR0dk6YwtdVMk",
+      "name": "ULTIMATE Travel",
+      "address": "Level 1/695-699 George St, Haymarket NSW 2000, Australia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2735,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8801576,
+      "lng": 151.2047151,
+      "googleMapsUri": "https://maps.google.com/?cid=14507322603158034897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ultimate.travel/",
+      "openNow": false,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.9
+    }
+  ]
+}

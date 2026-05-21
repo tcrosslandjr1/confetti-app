@@ -1,0 +1,3356 @@
+{
+  "location": "Tokyo, Japan",
+  "generatedAt": "2026-05-17T20:10:10.205Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJszdHEQN9GGARy9MJ1TY22eQ",
+      "name": "Tokyo Disneyland",
+      "address": "1-1 Maihama, Urayasu, Chiba 279-0031, Japan",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 123378,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6328964,
+      "lng": 139.8803943,
+      "googleMapsUri": "https://maps.google.com/?cid=16490271119724106699&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyodisneyresort.jp/tdl/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "holiday markets",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJ8T1GpMGOGGARDYGSgpooDWw",
+      "name": "Sensō-ji",
+      "address": "2-chōme-3-1 Asakusa, Taito City, Tokyo 111-0032, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 94881,
+      "priceLevel": null,
+      "primaryType": "buddhist_temple",
+      "types": [
+        "buddhist_temple",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7147651,
+      "lng": 139.7966553,
+      "googleMapsUri": "https://maps.google.com/?cid=7785923974874169613&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.senso-ji.jp/",
+      "openNow": null,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.82
+    },
+    {
+      "googlePlaceId": "ChIJszdHEQN9GGARJS23SnAdR0E",
+      "name": "Tokyo DisneySea",
+      "address": "1-13 Maihama, Urayasu, Chiba 279-8511, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 106061,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6267108,
+      "lng": 139.8850779,
+      "googleMapsUri": "https://maps.google.com/?cid=4703760703938833701&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyodisneyresort.jp/tds/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.05
+    },
+    {
+      "googlePlaceId": "ChIJCewJkL2LGGAR3Qmk0vCTGkg",
+      "name": "Tokyo Tower",
+      "address": "4-chōme-2-8 Shibakōen, Minato City, Tokyo 105-0011, Japan",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 96544,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "shopping_mall",
+        "art_gallery",
+        "landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6585805,
+      "lng": 139.7454329,
+      "googleMapsUri": "https://maps.google.com/?cid=5195627782660688349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyotower.co.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "sunset hikes",
+        "pickleball courts",
+        "family friendly things to do",
+        "sunset date spots",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.77
+    },
+    {
+      "googlePlaceId": "ChIJ35ov0dCOGGARKvdDH7NPHX0",
+      "name": "Tokyo Skytree",
+      "address": "1-chōme-1-2 Oshiage, Sumida City, Tokyo 131-0045, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 114410,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7100627,
+      "lng": 139.81070040000003,
+      "googleMapsUri": "https://maps.google.com/?cid=9015449659807889194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-skytree.jp/?utm_source=google&utm_medium=maps",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.17
+    },
+    {
+      "googlePlaceId": "ChIJ5SZMmreMGGARcz8QSTiJyo8",
+      "name": "Meiji Jingu",
+      "address": "1-1 Yoyogikamizonochō, Shibuya, Tokyo 151-8557, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 50220,
+      "priceLevel": null,
+      "primaryType": "shinto_shrine",
+      "types": [
+        "shinto_shrine",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6763976,
+      "lng": 139.6993259,
+      "googleMapsUri": "https://maps.google.com/?cid=10361244767556222835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.meijijingu.or.jp/",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.92
+    },
+    {
+      "googlePlaceId": "ChIJPyOTG8KMGGARh_IXobWxHmo",
+      "name": "Shinjuku Gyoen National Garden",
+      "address": "11 Naitōmachi, Shinjuku City, Tokyo 160-0014, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 44822,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "state_park",
+        "playground",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.685176299999995,
+      "lng": 139.7100517,
+      "googleMapsUri": "https://maps.google.com/?cid=7646744610971579015&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.env.go.jp/garden/shinjukugyoen/index.html",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.58
+    },
+    {
+      "googlePlaceId": "ChIJSeco5wiJGGARItbTS8lQ5G0",
+      "name": "teamLab Planets TOKYO DMM",
+      "address": "6-chōme-1-16 Toyosu, Koto City, Tokyo 135-0061, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 51785,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "amusement_center",
+        "amusement_park",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6491207,
+      "lng": 139.7897739,
+      "googleMapsUri": "https://maps.google.com/?cid=7918542870314997282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.teamlab.art/jp/e/planets/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.91
+    },
+    {
+      "googlePlaceId": "ChIJm6kfD4IJAWAR8e9bSVIKXXc",
+      "name": "Samurai Ninja Museum Asakusa Tokyo",
+      "address": "1-chōme-8-13 Nishiasakusa, Taito City, Tokyo 111-0035, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 18543,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7115126,
+      "lng": 139.79177460000002,
+      "googleMapsUri": "https://maps.google.com/?cid=8601042211881873393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mai-ko.com/samurai/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 95.49
+    },
+    {
+      "googlePlaceId": "ChIJQ5Sa1PqJGGARUSaNKKOrMVg",
+      "name": "teamLab Borderless: MORI Building DIGITAL ART MUSEUM",
+      "address": "Japan, 〒106-0041 Tokyo, Minato City, Toranomon, 5-chōme−9−９ Azabudai Hills Garden Plaza B, B1",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 28175,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6620689,
+      "lng": 139.7432671,
+      "googleMapsUri": "https://maps.google.com/?cid=6355049266444838481&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.teamlab.art/jp/e/tokyo/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.19
+    },
+    {
+      "googlePlaceId": "ChIJ4Rr2JWiLGGARcyRSHuZ-9G8",
+      "name": "Shibuya Sky",
+      "address": "Japan, 〒150-6145 Tokyo, Shibuya, 2-chōme−24−１２ スクランブルスクエア 14階・45階 46階・屋上",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 24867,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6586719,
+      "lng": 139.7019848,
+      "googleMapsUri": "https://maps.google.com/?cid=8067212359343678579&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.shibuya-scramble-square.com/sky/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.82
+    },
+    {
+      "googlePlaceId": "ChIJw2qQRZuOGGARWmROEiM2y7E",
+      "name": "Ueno Park",
+      "address": "4 Uenokoen, Taito City, Tokyo 110-0007, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 34009,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "state_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7147557,
+      "lng": 139.7734312,
+      "googleMapsUri": "https://maps.google.com/?cid=12811393089244390490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kensetsu.metro.tokyo.lg.jp/jimusho/toubuk/ueno",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 93.55
+    },
+    {
+      "googlePlaceId": "ChIJZzjXkvLtGGARm2YFfi26zoU",
+      "name": "The Making of Harry Potter - Warner Bros. Studio Tour Tokyo",
+      "address": "1-chōme-1-7 Kasugachō, Nerima City, Tokyo 179-0074, Japan",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 15886,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.745183,
+      "lng": 139.6460909,
+      "googleMapsUri": "https://maps.google.com/?cid=9641848556797388443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wbstudiotour.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 93.08
+    },
+    {
+      "googlePlaceId": "ChIJLYwD5TTuGGARBZKEP5BV4U0",
+      "name": "Ghibli Museum",
+      "address": "1-chōme-1-83 Shimorenjaku, Mitaka, Tokyo 181-0013, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 19133,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.696238,
+      "lng": 139.5704317,
+      "googleMapsUri": "https://maps.google.com/?cid=5611860688709652997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ghibli-museum.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 92.94
+    },
+    {
+      "googlePlaceId": "ChIJMwpiebSMGGARPr_454zHvDQ",
+      "name": "Yoyogi Park",
+      "address": "2-1 Yoyogikamizonochō, Shibuya, Tokyo 151-0052, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 27021,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6700649,
+      "lng": 139.6949656,
+      "googleMapsUri": "https://maps.google.com/?cid=3800131593595043646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-park.or.jp/park/yoyogi/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.87
+    },
+    {
+      "googlePlaceId": "ChIJEX3XFIOOGGAR3XdJvRjWLyM",
+      "name": "Tokyo National Museum",
+      "address": "13-9 Uenokōen, Taito City, Tokyo 110-8712, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 30243,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7188351,
+      "lng": 139.7765215,
+      "googleMapsUri": "https://maps.google.com/?cid=2535480516976146397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tnm.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.8
+    },
+    {
+      "googlePlaceId": "ChIJ89TugkeMGGARDmSeJIiyWFA",
+      "name": "Tokyo Dome",
+      "address": "1-chōme-3-61 Kōraku, Bunkyo City, Tokyo 112-0004, Japan",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 50190,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "sports_complex",
+        "athletic_field",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7056396,
+      "lng": 139.75189129999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5789573618784429070&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-dome.co.jp/dome/",
+      "openNow": null,
+      "matchedQueries": [
+        "bowling alleys",
+        "skating rinks",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.11
+    },
+    {
+      "googlePlaceId": "ChIJyy9daHiLGGARRVj5x6-Rn5Q",
+      "name": "Rokusan Angel (Burlesque Tokyo)",
+      "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 3-chōme−8−１５ 日拓ビル B2F",
+      "category": "adult-after-dark",
+      "categoryLabel": "Adult / After-Dark Experiences",
+      "rating": 5,
+      "reviewCount": 19237,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.6633285,
+      "lng": 139.7341877,
+      "googleMapsUri": "https://maps.google.com/?cid=10709438623070640197&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rokusanangel.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.95
+    },
+    {
+      "googlePlaceId": "ChIJzaLT0Bl9GGARX3OJ1IrbKdo",
+      "name": "Tokyo Disney Resort",
+      "address": "1-1 Maihama, Urayasu, Chiba 279-0031, Japan",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 108444,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.630657899999996,
+      "lng": 139.8828695,
+      "googleMapsUri": "https://maps.google.com/?cid=15720337363631174495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyodisneyresort.jp/",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.96
+    },
+    {
+      "googlePlaceId": "ChIJOWXu4TSJGGAR07vEEi8fZAw",
+      "name": "Edo-Tokyo Museum",
+      "address": "1-chōme-4-1 Yokoami, Sumida City, Tokyo 130-0015, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 13360,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6965972,
+      "lng": 139.7957336,
+      "googleMapsUri": "https://maps.google.com/?cid=892872913165007827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.edo-tokyo-museum.or.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.76
+    },
+    {
+      "googlePlaceId": "ChIJwfegutyLGGARGjiY-L2eSps",
+      "name": "Hamarikyu Gardens",
+      "address": "1-1 Hamarikyūteien, Chuo City, Tokyo 104-0046, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 12291,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "playground",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6596559,
+      "lng": 139.7634091,
+      "googleMapsUri": "https://maps.google.com/?cid=11189930762912151578&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.51
+    },
+    {
+      "googlePlaceId": "ChIJ9RJ2PJGMGGARwG4ChjnDW3I",
+      "name": "Meiji Jingu Gaien",
+      "address": "1-1 Kasumigaokamachi, Shinjuku City, Tokyo 160-0013, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.3,
+      "reviewCount": 15363,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "garden",
+        "playground",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6754399,
+      "lng": 139.71826679999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8240394595033312960&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.meijijingugaien.jp/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "skating rinks",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.08
+    },
+    {
+      "googlePlaceId": "ChIJT0NgR6eOGGARRQCUEuKhtCc",
+      "name": "Tokyo Free Walking Tour - Tokyo Localized",
+      "address": "Japan, 〒110-0005 Tokyo, Taito City, Ueno, 3-chōme−15−７ UenoYour 510",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 5449,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7055703,
+      "lng": 139.7726841,
+      "googleMapsUri": "https://maps.google.com/?cid=2861089655633477701&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyolocalized.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.94
+    },
+    {
+      "googlePlaceId": "ChIJAQCEbPGLGGARFa0L-v-rNtg",
+      "name": "Kokyo Gaien National Garden",
+      "address": "1-1 Kōkyogaien, Chiyoda City, Tokyo 100-0002, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 9642,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "scenic_spot",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.680116999999996,
+      "lng": 139.7583125,
+      "googleMapsUri": "https://maps.google.com/?cid=15579829076834888981&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fng.or.jp/koukyo/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.79
+    },
+    {
+      "googlePlaceId": "ChIJC9RL4azhGGAREzW1g7ZN2tc",
+      "name": "Showa Kinen Park",
+      "address": "3173 Midorichō, Tachikawa, Tokyo 190-0014, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 15798,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "playground",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.711786499999995,
+      "lng": 139.393631,
+      "googleMapsUri": "https://maps.google.com/?cid=15553829709366506771&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.showakinen-koen.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "local events"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.76
+    },
+    {
+      "googlePlaceId": "ChIJW2cLzSGLGGARXAKXv6EkbqI",
+      "name": "Fish Market Tsukiji Outer Market",
+      "address": "Japan, 〒104-0045 Tokyo, Chuo City, Tsukiji, 4-chōme−16 および６丁目一部",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.2,
+      "reviewCount": 55635,
+      "priceLevel": null,
+      "primaryType": "wholesaler",
+      "types": [
+        "wholesaler",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6647703,
+      "lng": 139.7702515,
+      "googleMapsUri": "https://maps.google.com/?cid=11704332758705177180&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tsukiji.or.jp/",
+      "openNow": null,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.57
+    },
+    {
+      "googlePlaceId": "ChIJr7mGZdmMGGARjxoMFeHApXE",
+      "name": "Shinjuku Golden-Gai",
+      "address": "Japan, 〒160-0021 Tokyo, Shinjuku City, Kabukichō, 1-chōme−1−６ あかるい花園 五番街",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 12688,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "ramen_restaurant",
+        "bar",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6941118,
+      "lng": 139.70476109999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8189163570396404367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://goldengai.jp/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "game night venues",
+        "trivia nights",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.51
+    },
+    {
+      "googlePlaceId": "ChIJP-vO9nuLGGARGJ2q8uryJUA",
+      "name": "The National Art Center, Tokyo",
+      "address": "7-chōme-22-2 Roppongi, Minato City, Tokyo 106-8558, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 21623,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.665289,
+      "lng": 139.726374,
+      "googleMapsUri": "https://maps.google.com/?cid=4622367683473218840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nact.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 89.2
+    },
+    {
+      "googlePlaceId": "ChIJ8Vuh65yOGGARyj4L5IBFiIk",
+      "name": "National Museum of Nature and Science",
+      "address": "7-20 Uenokōen, Taito City, Tokyo 110-8718, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 28702,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7164273,
+      "lng": 139.7763336,
+      "googleMapsUri": "https://maps.google.com/?cid=9910247399912849098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kahaku.go.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.15
+    },
+    {
+      "googlePlaceId": "ChIJn2FoeFmLGGARnIog2ijRZXw",
+      "name": "Gyukatsu Motomura Shibuya Branch",
+      "address": "Japan, 〒150-0002 Tokyo, Shibuya, 3-chōme−18−１０ 大野ビル2号館 B1F",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 14758,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "tonkatsu_restaurant",
+      "types": [
+        "tonkatsu_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.656977000000005,
+      "lng": 139.7039981,
+      "googleMapsUri": "https://maps.google.com/?cid=8963800606739303068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gyukatsu-motomura.com/store/Shibuya?utm_source=google&utm_medium=GBP_shibuya",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 88.31
+    },
+    {
+      "googlePlaceId": "ChIJzakNjPToAGARzCwIriDFg28",
+      "name": "Osaka Aquarium Kaiyukan",
+      "address": "1-chōme-1-10 Kaigandōri, Minato Ward, Osaka, 552-0022, Japan",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 58336,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.6545182,
+      "lng": 135.4289645,
+      "googleMapsUri": "https://maps.google.com/?cid=8035482904308493516&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kaiyukan.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.01
+    },
+    {
+      "googlePlaceId": "ChIJnRBchk-NGGARl4O6MNpXllM",
+      "name": "T2 SHINJUKU (Nightclub)",
+      "address": "Japan, 〒160-0023 Tokyo, Shinjuku City, Nishishinjuku, 7-chōme−1−１ 新宿カレイドビル 7F",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 6158,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "japanese_izakaya_restaurant",
+        "tourist_attraction",
+        "japanese_restaurant",
+        "bar",
+        "sports_club",
+        "association_or_organization",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6941128,
+      "lng": 139.69908709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6023098146286633879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://t2-shinjuku.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.85
+    },
+    {
+      "googlePlaceId": "ChIJIV1URwSNGGARiQnemkAyUHc",
+      "name": "ATOM",
+      "address": "Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 5-chōme−17−１３ 7,8F",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 6913,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6929413,
+      "lng": 139.7052152,
+      "googleMapsUri": "https://maps.google.com/?cid=8597426941707815305&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.8
+    },
+    {
+      "googlePlaceId": "ChIJ8WQHFoqNGGARpc767pcSol8",
+      "name": "HALAL WAGYU RAMEN SHINJUKU-TEI Tokyo Shinjuku",
+      "address": "Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3-chōme−11−６ エクレ新宿 B103",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 8860,
+      "priceLevel": null,
+      "primaryType": "halal_restaurant",
+      "types": [
+        "halal_restaurant",
+        "ramen_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.691919,
+      "lng": 139.706456,
+      "googleMapsUri": "https://maps.google.com/?cid=6891090823589056165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.halal-shinjukutei.com/shinjuku-store",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.44
+    },
+    {
+      "googlePlaceId": "ChIJbXJXkKeMGGARp6EVFMxZR44",
+      "name": "Ninja Food Tours",
+      "address": "7-chōme-19-21 Nishishinjuku, Shinjuku City, Tokyo 160-0023, Japan",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 3954,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6946854,
+      "lng": 139.6962029,
+      "googleMapsUri": "https://maps.google.com/?cid=10252261809777385895&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ninjafoodtours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJF6xTyvmJGGARU8t5NIqkNeI",
+      "name": "Unicorn Gundam",
+      "address": "Japan, 〒135-0064 Tokyo, Koto City, Aomi, 1-chōme−1−１０ ダイバーシティ東京プラザ内 2Fフェスティバル広場",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 29028,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.624451,
+      "lng": 139.7754917,
+      "googleMapsUri": "https://maps.google.com/?cid=16300115339830217555&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.unicorn-gundam-statue.jp/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.03
+    },
+    {
+      "googlePlaceId": "ChIJ52hyb9iNGGAREupSSr9e5Eo",
+      "name": "QOO",
+      "address": "Japan, 〒150-0001 Tokyo, Shibuya, Jingūmae, 5-chōme−2−６ B1F-2F",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.9,
+      "reviewCount": 5249,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "thrift_store",
+        "discount_store",
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.665901999999996,
+      "lng": 139.70947289999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5396542429175409170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.qoo-online.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 86.97
+    },
+    {
+      "googlePlaceId": "ChIJ57Hp_52LGGARvt4ghJExG_g",
+      "name": "Age.3 GINZA",
+      "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 1-chōme−24−１１ 杉浦ビル 1Ｆ",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 19425,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "sandwich_shop",
+        "snack_bar",
+        "dessert_restaurant",
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6727584,
+      "lng": 139.77129449999998,
+      "googleMapsUri": "https://maps.google.com/?cid=17877937646834081470&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fruits-sand-three.com/pages/age-3",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.93
+    },
+    {
+      "googlePlaceId": "ChIJiXsyjf-PGGAR3G9iaPQ3tj8",
+      "name": "Tokyo Skytree Town",
+      "address": "1-chōme-1-1 Oshiage, Sumida City, Tokyo 131-0045, Japan",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 13271,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7099311,
+      "lng": 139.8116642,
+      "googleMapsUri": "https://maps.google.com/?cid=4590918393013628892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://advance-ticket.com/tokyo-skytree-town",
+      "openNow": null,
+      "matchedQueries": [
+        "kids activities",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJoTcat9SMGGAR6GGG8zdcZvE",
+      "name": "Tokyo Metropolitan Government Building No.1",
+      "address": "2-chōme-8-1 Nishishinjuku, Shinjuku City, Tokyo 163-8001, Japan",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 7017,
+      "priceLevel": null,
+      "primaryType": "government_office",
+      "types": [
+        "tourist_attraction",
+        "city_hall",
+        "local_government_office",
+        "government_office",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6894807,
+      "lng": 139.6916863,
+      "googleMapsUri": "https://maps.google.com/?cid=17394692006143746536&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.metro.tokyo.lg.jp/",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.69
+    },
+    {
+      "googlePlaceId": "ChIJq36lVPSNGGAR-bVrINX5lT4",
+      "name": "Bar Composition",
+      "address": "Japan, 〒160-0023 Tokyo, Shinjuku City, Nishishinjuku, 1-chōme−15−７ 新宿西口ライフビル B1",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 734,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.688754900000006,
+      "lng": 139.69720999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4509785295648699897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcomposition.com/menu",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 86.5
+    },
+    {
+      "googlePlaceId": "ChIJj7GKVMmLGGARBvmLex_NeY0",
+      "name": "Halal Wagyu Ramen Shinjuku-Tei Ginza Tokyo",
+      "address": "Japan, 〒100-0011 Tokyo, Chiyoda City, Uchisaiwaichō, 1-chōme−6−６ 裏コリド 2F K区画",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 4294,
+      "priceLevel": null,
+      "primaryType": "halal_restaurant",
+      "types": [
+        "halal_restaurant",
+        "ramen_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.669406099999996,
+      "lng": 139.7585416,
+      "googleMapsUri": "https://maps.google.com/?cid=10194404766630279430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.halal-shinjukutei.com/ginza-store",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.37
+    },
+    {
+      "googlePlaceId": "ChIJLZsh0H-LGGARsI7HvojIbS4",
+      "name": "Tokyo Comedy Bar (TCB)",
+      "address": "3rd floor, 1-chōme-５-9 道玄坂 渋谷区 東京都 150-0043, Japan",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 1377,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6582623,
+      "lng": 139.6994422,
+      "googleMapsUri": "https://maps.google.com/?cid=3345550587848003248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyocomedybar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.23
+    },
+    {
+      "googlePlaceId": "ChIJ18IK6x2KGGARKTc2yLS-030",
+      "name": "Odaiba Marine Park",
+      "address": "1-chōme-4-4 Daiba, Minato City, Tokyo 135-0091, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 15453,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6300488,
+      "lng": 139.77569119999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9066800158489327401&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tptc.co.jp/park/01_02",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJmYBOrGaLGGARUHAVps9SV9k",
+      "name": "Blue Note Tokyo",
+      "address": "6-chōme-3-16 Minamiaoyama, Minato City, Tokyo 107-0062, Japan",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 3879,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6611386,
+      "lng": 139.7160849,
+      "googleMapsUri": "https://maps.google.com/?cid=15661077281002319952&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bluenote.co.jp/?utm_source=google&utm_medium=google_map&utm_campaign=tech_01",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 86.02
+    },
+    {
+      "googlePlaceId": "ChIJf8D6JkCLGGARZICNBhKPn24",
+      "name": "Bar TRENCH",
+      "address": "Japan, 〒150-0021 Tokyo, Shibuya, Ebisunishi, 1-chōme−5−８ １０２",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 877,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.648418,
+      "lng": 139.70795099999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7971247173051187300&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://small-axe.net/bar-trench/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 85.94
+    },
+    {
+      "googlePlaceId": "ChIJn2HllUSLGGARARAp87ykNx8",
+      "name": "Waho-An Nature Tokyo",
+      "address": "1F, 7-8 Daikanyamachō, Shibuya, Tokyo 150-0034, Japan",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 2526,
+      "priceLevel": null,
+      "primaryType": "massage",
+      "types": [
+        "chiropractor",
+        "massage",
+        "health",
+        "educational_institution",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.650893599999996,
+      "lng": 139.7052311,
+      "googleMapsUri": "https://maps.google.com/?cid=2249447670335213569&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.natura-w.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas",
+        "sound baths"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.89
+    },
+    {
+      "googlePlaceId": "ChIJnctryNSMGGARLv4MknPFseU",
+      "name": "Tokyo Metropolitan Government Building | North Observation Deck",
+      "address": "Japan, 〒163-8001 Tokyo, Shinjuku City, Nishishinjuku, 2-chōme−8−１ Tochomae Station, 45F",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 8537,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.689733,
+      "lng": 139.6916563,
+      "googleMapsUri": "https://maps.google.com/?cid=16551227205725519406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 85.53
+    },
+    {
+      "googlePlaceId": "ChIJT8uMzZwIAWARnGzsARCjnrY",
+      "name": "Nishiki Market",
+      "address": "Higashiuoyacho, Nakagyo Ward, Kyoto, 604-8055, Japan",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.3,
+      "reviewCount": 51664,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.0050258,
+      "lng": 135.764723,
+      "googleMapsUri": "https://maps.google.com/?cid=13159134450370243740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kyoto-nishiki.or.jp/",
+      "openNow": null,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.45
+    },
+    {
+      "googlePlaceId": "ChIJb_o7HiiMGGARUKu8uO7fGIQ",
+      "name": "Tokyo Metropolitan Art Museum",
+      "address": "8-36 Uenokōen, Taito City, Tokyo 110-0007, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 15716,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.717211299999995,
+      "lng": 139.7729387,
+      "googleMapsUri": "https://maps.google.com/?cid=9518604028842126160&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tobikan.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.4
+    },
+    {
+      "googlePlaceId": "ChIJB5cSL6-MGGARy54ZXakbYH4",
+      "name": "The SG Club",
+      "address": "1-chōme-7-8 Jinnan, Shibuya, Tokyo 150-0041, Japan",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1478,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6642434,
+      "lng": 139.69923140000003,
+      "googleMapsUri": "https://maps.google.com/?cid=9106308860768526027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/the_sg_club/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 85.29
+    },
+    {
+      "googlePlaceId": "ChIJu6pWgRmLGGAR5ADsVJXLK3A",
+      "name": "HEAD SPA Kuu Omotesando Branch",
+      "address": "Japan, 〒107-0062 Tokyo, Minato City, Minamiaoyama, 5-chōme−11−２ SANWA 南青山ビル 6F",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 1918,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "massage",
+        "health",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6622748,
+      "lng": 139.7118607,
+      "googleMapsUri": "https://maps.google.com/?cid=8082777798481805540&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://omotesando.spa-kuu.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas",
+        "sound baths"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJV7oGAWWLGGARslO9OGTuG-A",
+      "name": "L’Effervescence",
+      "address": "2-chōme-26-4 Nishiazabu, Minato City, Tokyo 106-0031, Japan",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 950,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.660213999999996,
+      "lng": 139.719405,
+      "googleMapsUri": "https://maps.google.com/?cid=16148763003083117490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.leffervescence.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJf8xB-pyOGGARizzhlNTcI7s",
+      "name": "The National Museum of Western Art",
+      "address": "7-7 Uenokōen, Taito City, Tokyo 110-0007, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 11707,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7153869,
+      "lng": 139.77581379999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13484864514866363531&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nmwa.go.jp/jp/?utm_source=google&utm_medium=map",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJVwzQv8KNGGAR604QPGXjpz4",
+      "name": "KINGDOM TOKYO",
+      "address": "Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 2-chōme−10−１０ 7TOMビル 1F",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 1618,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "pub",
+        "night_club",
+        "sports_club",
+        "bar",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6900994,
+      "lng": 139.70809459999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4514827175401115371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kingtokyo.jp/kingdom/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.96
+    },
+    {
+      "googlePlaceId": "ChIJK9EM68qLGGARacmu4KJj5SA",
+      "name": "Shibuya Crossing",
+      "address": "21 Udagawacho, Shibuya, Tokyo 150-0042, Japan",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.5,
+      "reviewCount": 20857,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.659482,
+      "lng": 139.7005596,
+      "googleMapsUri": "https://maps.google.com/?cid=2370410330085837161&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://play-shibuya.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.94
+    },
+    {
+      "googlePlaceId": "ChIJCzp6MKGMGGARPtLXGLx9x_o",
+      "name": "AMORE Omotesando",
+      "address": "5-chōme-1-15 Jingūmae, Shibuya, Tokyo 150-0001, Japan",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.9,
+      "reviewCount": 2647,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "clothing_store",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6656088,
+      "lng": 139.70947189999998,
+      "googleMapsUri": "https://maps.google.com/?cid=18070550276671525438&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amorevintagejapan.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 84.93
+    },
+    {
+      "googlePlaceId": "ChIJxU48-2OLGGARHMtB5RAhytA",
+      "name": "Nezu Museum",
+      "address": "6-chōme-5-1 Minamiaoyama, Minato City, Tokyo 107-0062, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 6339,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6622568,
+      "lng": 139.7170937,
+      "googleMapsUri": "https://maps.google.com/?cid=15044873861634050844&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nezu-muse.or.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.89
+    },
+    {
+      "googlePlaceId": "ChIJLYqwJ1KPGGARGW1cGp7piZc",
+      "name": "Sushi Making Tokyo｜No1 Cooking Class in Japan",
+      "address": "2-chōme-17-9 Kaminarimon, Taito City, Tokyo 111-0034, Japan",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 5,
+      "reviewCount": 3179,
+      "priceLevel": null,
+      "primaryType": "food",
+      "types": [
+        "sushi_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7108284,
+      "lng": 139.7955792,
+      "googleMapsUri": "https://maps.google.com/?cid=10919515636792847641&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sushimakingjapan.com/tokyo",
+      "openNow": false,
+      "matchedQueries": [
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 84.83
+    },
+    {
+      "googlePlaceId": "ChIJ5dXSUJSNGGARwR8GTsnEgI8",
+      "name": "Gyumon Ikebukuro",
+      "address": "Japan, 〒171-0014 Tokyo, Toshima City, Ikebukuro, 2-chōme−42−１ 4階",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 6597,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "halal_restaurant",
+      "types": [
+        "halal_restaurant",
+        "ramen_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.733521599999996,
+      "lng": 139.7098658,
+      "googleMapsUri": "https://maps.google.com/?cid=10340481113319153601&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gyumon-group.com/en/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.81
+    },
+    {
+      "googlePlaceId": "ChIJV8EJyvWPGGARHWJnaCZRpqY",
+      "name": "Japanese food Wagyu Restaurant (Halal) Steak&Burger-Ramen 5W-Tokyo AkihabaraUeno Beef Dining",
+      "address": "Japan, 〒110-0016 Tokyo, Taito City, Taitō, 2-chōme−5−３ 2F",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2170,
+      "priceLevel": null,
+      "primaryType": "hamburger_restaurant",
+      "types": [
+        "hamburger_restaurant",
+        "steak_house",
+        "ramen_restaurant",
+        "halal_restaurant",
+        "american_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7026268,
+      "lng": 139.778098,
+      "googleMapsUri": "https://maps.google.com/?cid=12008374681832219165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://halal-burger-akihabaraueno.5w-tokyo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.74
+    },
+    {
+      "googlePlaceId": "ChIJuTdPXvaJGGARJhT_Ai6urFQ",
+      "name": "Tokyo Joypolis",
+      "address": "Japan, 〒135-0091 Tokyo, Minato City, Daiba, 1-chōme−6−１ DECKS Tokyo Beach, 3F～5F",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4,
+      "reviewCount": 7588,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.628659999999996,
+      "lng": 139.775364,
+      "googleMapsUri": "https://maps.google.com/?cid=6101443107822179366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tokyo-joypolis.com/index.html",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.67
+    },
+    {
+      "googlePlaceId": "ChIJAQAQgaSMGGAR31zJxUoIEtc",
+      "name": "Roast Beef Ohno Harajuku Branch",
+      "address": "Japan, 〒150-0001 Tokyo, Shibuya, Jingūmae, 4-chōme−31−１０ YMスクウェア原宿 地下1階",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 8745,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "japanese_restaurant",
+        "snack_bar",
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6690422,
+      "lng": 139.7062561,
+      "googleMapsUri": "https://maps.google.com/?cid=15497458384974208223&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://roastbeef-ohno.com/shop/harajuku/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.55
+    },
+    {
+      "googlePlaceId": "ChIJi9W-AKmMGGARgTIvRY42-po",
+      "name": "TK NIGHTCLUB",
+      "address": "Japan, 〒150-0042 Tokyo, Shibuya, Udagawachō, 13−８ B1",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1560,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.660941099999995,
+      "lng": 139.6985674,
+      "googleMapsUri": "https://maps.google.com/?cid=11167298210692543105&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tk-nightclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "game night venues",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.35
+    },
+    {
+      "googlePlaceId": "ChIJ8W36eaGLGGARyraUMe00ZHI",
+      "name": "Arigato Travel / Arigato Japan Food Tours",
+      "address": "Japan, 〒154-0004 Tokyo, Setagaya City, Taishidō, 4-chōme−17−１０ Heights – 200",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1451,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.645761799999995,
+      "lng": 139.6694894,
+      "googleMapsUri": "https://maps.google.com/?cid=8242771411338573514&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://arigatotravel.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.24
+    },
+    {
+      "googlePlaceId": "ChIJB3qyjVF9GGARE1Gz1IicoBY",
+      "name": "Kasai Rinkai Park",
+      "address": "6-chōme-2-2 Rinkaichō, Edogawa City, Tokyo 134-0086, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.3,
+      "reviewCount": 18737,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6419847,
+      "lng": 139.8603206,
+      "googleMapsUri": "https://maps.google.com/?cid=1630475176606126355&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-park.or.jp/park/format/index026.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.17
+    },
+    {
+      "googlePlaceId": "ChIJsyTJ06B5A2ARvt6FJ9xiqaE",
+      "name": "Port Of Nagoya Public Aquarium",
+      "address": "1-3 Minatomachi, Minato Ward, Nagoya, Aichi 455-0033, Japan",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 23039,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.090508799999995,
+      "lng": 136.8784377,
+      "googleMapsUri": "https://maps.google.com/?cid=11648950608865910462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nagoyaaqua.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.14
+    },
+    {
+      "googlePlaceId": "ChIJp_-ltKGMGGARmK5OwD06Mb4",
+      "name": "AMORE Vintage AOYAMA",
+      "address": "Japan, 〒150-0001 Tokyo, Shibuya, Jingūmae, 5-chōme−1−６ ２F ２階",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.9,
+      "reviewCount": 3639,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.665805,
+      "lng": 139.7100254,
+      "googleMapsUri": "https://maps.google.com/?cid=13704799177958928024&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amorevintagejapan.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 84.13
+    },
+    {
+      "googlePlaceId": "ChIJwSVXgqqLGGARubPCMCZfySU",
+      "name": "NUIR",
+      "address": "Japan, 〒150-0042 Tokyo, Shibuya, Udagawachō, 3−５ 5階",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 5,
+      "reviewCount": 2508,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6627103,
+      "lng": 139.6989688,
+      "googleMapsUri": "https://maps.google.com/?cid=2722812067353637817&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nuir-vintage.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 84.12
+    },
+    {
+      "googlePlaceId": "ChIJfdAL24iLGGARbuv3uxZvV6I",
+      "name": "Tokiotours - Your Personal Tour Guide in Japan",
+      "address": "2-14-1-1402, １丁目-１１ 西新橋 港区 東京都 105-0003, Japan",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 758,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.668714099999995,
+      "lng": 139.7530694,
+      "googleMapsUri": "https://maps.google.com/?cid=11697940700551703406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tokiotours.nl/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.05
+    },
+    {
+      "googlePlaceId": "ChIJMfOWowSiGWARX2wK6ac5jlg",
+      "name": "The Hakone Open-Air Museum",
+      "address": "1121 Ninotaira, Hakone, Ashigarashimo District, Kanagawa 250-0493, Japan",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 15286,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2451601,
+      "lng": 139.0507271,
+      "googleMapsUri": "https://maps.google.com/?cid=6381101115362667615&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hakone-oam.or.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.02
+    },
+    {
+      "googlePlaceId": "ChIJX53MMgCNGGART78Pfc57ZuQ",
+      "name": "Tokyo Night & Light",
+      "address": "2-chōme-8-1 Nishishinjuku, Shinjuku City, Tokyo 163-8001, Japan",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 663,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "cultural_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6896633,
+      "lng": 139.6928239,
+      "googleMapsUri": "https://maps.google.com/?cid=16457978015063719759&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tokyoprojectionmappingproject.jp/en/event/20240225/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "immersive experiences",
+        "interactive pop ups",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 84
+    },
+    {
+      "googlePlaceId": "ChIJx6xXOPKLGGARtPr6qZZ2nHA",
+      "name": "Hibiya Park",
+      "address": "1-6 Hibiyakōen, Chiyoda City, Tokyo 100-0012, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.2,
+      "reviewCount": 15409,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6736115,
+      "lng": 139.75587690000003,
+      "googleMapsUri": "https://maps.google.com/?cid=8114491018083760820&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-park.or.jp/park/format/index037.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.99
+    },
+    {
+      "googlePlaceId": "ChIJh7VWYQCNGGAR4HpE2vH8gAU",
+      "name": "LOST BAR",
+      "address": "Japan, 〒150-0042 Tokyo, Shibuya, Udagawachō, 33−１ 2階",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1345,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6607552,
+      "lng": 139.69742979999998,
+      "googleMapsUri": "https://maps.google.com/?cid=396594882887842528&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lostjapan.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.96
+    },
+    {
+      "googlePlaceId": "ChIJBVDeRkaMGGARXsIjrhYCIhs",
+      "name": "Koishikawa Korakuen",
+      "address": "1-chōme-6-6 Kōraku, Bunkyo City, Tokyo 112-0004, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 6650,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7056913,
+      "lng": 139.7492718,
+      "googleMapsUri": "https://maps.google.com/?cid=1955127484666331742&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-park.or.jp/park/koishikawakorakuen/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.93
+    },
+    {
+      "googlePlaceId": "ChIJu8dltYOOGGARqNvbup6WlHE",
+      "name": "National Institutes for Cultural Heritage",
+      "address": "13-9 Uenokōen, Taito City, Tokyo 110-0007, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8078,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "association_or_organization",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7200066,
+      "lng": 139.7756635,
+      "googleMapsUri": "https://maps.google.com/?cid=8184332031323003816&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nich.go.jp/",
+      "openNow": null,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.86
+    },
+    {
+      "googlePlaceId": "ChIJP9eKBdeMGGAR0zzBXJNVj5A",
+      "name": "Omoide Yokocho Memory Lane",
+      "address": "1 Chome-2 Nishishinjuku, Shinjuku City, Tokyo 160-0023, Japan",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 14726,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6927011,
+      "lng": 139.6995778,
+      "googleMapsUri": "https://maps.google.com/?cid=10416638554535967955&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://shinjuku-omoide.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.85
+    },
+    {
+      "googlePlaceId": "ChIJp_jBLZ2LGGARiGF_tor9Xzo",
+      "name": "TANTRA TOKYO",
+      "address": "Japan, 〒106-0032 Tokyo, Minato City, Roppongi, 3-chōme−9−５ ゼックスバウム館, B2F",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 888,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.663694899999996,
+      "lng": 139.734028,
+      "googleMapsUri": "https://maps.google.com/?cid=4206359349196448136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tantra-tokyo.com/ja/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.82
+    },
+    {
+      "googlePlaceId": "ChIJU1puu0ONGGARyyUNJrpLJN4",
+      "name": "Shinjuku-tei Yotsuya Halal Wagyu Ramen",
+      "address": "Japan, 〒160-0004 Tokyo, Shinjuku City, Yotsuya, 1-chōme−２３ 上野ビル 地下1階",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 3272,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "ramen_restaurant",
+      "types": [
+        "ramen_restaurant",
+        "halal_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6870122,
+      "lng": 139.7274128,
+      "googleMapsUri": "https://maps.google.com/?cid=16007002238455981515&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.halal-ramen-shinjuku.shop/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.81
+    },
+    {
+      "googlePlaceId": "ChIJsy0pbliNGGARUMTvdy0TrsE",
+      "name": "JAPAN PANORAMIC TOURS / 株式会社DOA JAPAN",
+      "address": "Japan, 〒160-0023 Tokyo, Shinjuku City, Nishishinjuku, 8-chōme−12−８ 梅屋ビル 2階",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3203,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.6955406,
+      "lng": 139.6923325,
+      "googleMapsUri": "https://maps.google.com/?cid=13956113381274403920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jptours.co.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.75
+    },
+    {
+      "googlePlaceId": "ChIJVUc4LXuLGGARfGAmI-Cbd7E",
+      "name": "Cocktail Gastronomy KYU YASUI TOKYO",
+      "address": "Japan, 〒106-0031 Tokyo, Minato City, Nishiazabu, 2-chōme−10−４ Cocktail Gastronomy KYU YASUI TOKYO キャッスルたてはる １ 階",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 199,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "gastropub",
+        "pub",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6618327,
+      "lng": 139.7218359,
+      "googleMapsUri": "https://maps.google.com/?cid=12787861053906509948&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/kyu_yasui/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 83.72
+    },
+    {
+      "googlePlaceId": "ChIJR-PMBx2MGGARPFrgtULaJB0",
+      "name": "GiGO Akihabara Building 3",
+      "address": "Japan, 〒101-0021 Tokyo, Chiyoda City, Sotokanda, 1-chōme−11−１１ 1丁目ビルディング",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 3718,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6992456,
+      "lng": 139.7709552,
+      "googleMapsUri": "https://maps.google.com/?cid=2100043306315569724&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gigo.co.jp/shops/akihabara3/?utm_campaign=mov&utm_medium=GBP&utm_source=website-button",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.65
+    },
+    {
+      "googlePlaceId": "ChIJgzpnLVCLGGARSJNqhxqG27U",
+      "name": "CÉ LA VI TOKYO",
+      "address": "Japan, 〒150-0043 Tokyo, Shibuya, Dōgenzaka, 1-chōme−2−３ 東急プラザ渋谷17階 ＆18階",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 3205,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "barbecue_restaurant",
+        "observation_deck",
+        "beer_garden",
+        "western_restaurant",
+        "night_club",
+        "fine_dining_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.657427,
+      "lng": 139.7001263,
+      "googleMapsUri": "https://maps.google.com/?cid=13104214989263770440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.celavi.com/ja/tokyo/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.65
+    },
+    {
+      "googlePlaceId": "ChIJfQYVKUGLGGARTPG-4xvT0eA",
+      "name": "Mark's Tokyo",
+      "address": "1-chōme-23-14 Meguro, Meguro City, Tokyo 153-0063, Japan",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 191,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6352541,
+      "lng": 139.7106637,
+      "googleMapsUri": "https://maps.google.com/?cid=16199961451366904140&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://markstokyo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.6
+    },
+    {
+      "googlePlaceId": "ChIJM9xJEHeLGGARAshMWUgC_ls",
+      "name": "Roppongi Hills",
+      "address": "6-chōme-10-1 Roppongi, Minato City, Tokyo 106-6108, Japan",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.2,
+      "reviewCount": 39881,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6607397,
+      "lng": 139.7292319,
+      "googleMapsUri": "https://maps.google.com/?cid=6628738211295053826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.roppongihills.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.58
+    },
+    {
+      "googlePlaceId": "ChIJw3vF3WeNGGARBKHkDk2qsLA",
+      "name": "SALAMANCA",
+      "address": "Japan, 〒150-0001 Tokyo, Shibuya, Jingūmae, 6-chōme−7−１０ ネスト原宿 VII 201号",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 5,
+      "reviewCount": 2091,
+      "priceLevel": null,
+      "primaryType": "thrift_store",
+      "types": [
+        "thrift_store",
+        "discount_store",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.6667852,
+      "lng": 139.7061211,
+      "googleMapsUri": "https://maps.google.com/?cid=12731863394515460356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/salvntg_tokyo",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 83.58
+    },
+    {
+      "googlePlaceId": "ChIJf2129yiMGGAR9I6Yoe-1uHY",
+      "name": "Ueno Zoo",
+      "address": "9-83 Uenokōen, Taito City, Tokyo 110-8711, Japan",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.2,
+      "reviewCount": 39762,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.716015299999995,
+      "lng": 139.77288199999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8554787533003198196&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-zoo.net/ueno/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 83.57
+    },
+    {
+      "googlePlaceId": "ChIJYUQ-972NGGAR5W_2E0N3SHY",
+      "name": "Rikugien Gardens",
+      "address": "6-chōme-16-3 Honkomagome, Bunkyo City, Tokyo 113-0021, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 10555,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7331005,
+      "lng": 139.7457335,
+      "googleMapsUri": "https://maps.google.com/?cid=8523193424780095461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-park.or.jp/park/rikugien/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.56
+    },
+    {
+      "googlePlaceId": "ChIJD9Pd-daOGGARCYgMMXqki5E",
+      "name": "Tokyo Solamachi",
+      "address": "1-chōme-1-2 Oshiage, Sumida City, Tokyo 131-0045, Japan",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.2,
+      "reviewCount": 38800,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "restaurant",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7102333,
+      "lng": 139.8115747,
+      "googleMapsUri": "https://maps.google.com/?cid=10487657001978202121&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tokyo-solamachi.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.5
+    },
+    {
+      "googlePlaceId": "ChIJE3pSTlSNGGARD0KogbdRISw",
+      "name": "Ninja Experience Cafe Harajuku In Tokyo",
+      "address": "Japan, 〒150-0001 Tokyo, Shibuya, Jingūmae, 1-chōme−16−１１ 539 Bldg., B1",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 992,
+      "priceLevel": null,
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "tourist_attraction",
+        "amusement_center",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6709562,
+      "lng": 139.7049288,
+      "googleMapsUri": "https://maps.google.com/?cid=3179912660496433679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ninja-cafe.com/en/harajuku/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 83.5
+    },
+    {
+      "googlePlaceId": "ChIJA0JP-seLGGAR_wvUkaSg5cg",
+      "name": "LUXURY BAR & KARAOKE PALACE SHIBUYA",
+      "address": "Japan, 〒150-0002 Tokyo, Shibuya, 1-chōme−25−６ Shibuya Parkside Kyodo Bldg., 4F",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 1393,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "wine_bar",
+        "bar_and_grill",
+        "karaoke",
+        "pizza_restaurant",
+        "night_club",
+        "italian_restaurant",
+        "bar",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.659687,
+      "lng": 139.7014882,
+      "googleMapsUri": "https://maps.google.com/?cid=14476153205934001151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://palace-bar-lounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "karaoke bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.42
+    },
+    {
+      "googlePlaceId": "ChIJhc6dSJdTPWARF6Kvf3gGDg8",
+      "name": "Kamogawa Sea World",
+      "address": "1464-18 Higashichō, Kamogawa, Chiba 296-0041, Japan",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 17713,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.115895,
+      "lng": 140.1203229,
+      "googleMapsUri": "https://maps.google.com/?cid=1084811674850927127&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kamogawa-seaworld.jp/?utm_source=google&utm_medium=maps",
+      "openNow": false,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 83.36
+    },
+    {
+      "googlePlaceId": "ChIJmz9niCmNGGAR6P5MTopPkmQ",
+      "name": "Brand Jungle Vintage Shopブランドジャングル新宿本店",
+      "address": "1-chōme-2-7 Nishishinjuku, Shinjuku City, Tokyo 160-0023, Japan",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 5,
+      "reviewCount": 1895,
+      "priceLevel": null,
+      "primaryType": "thrift_store",
+      "types": [
+        "thrift_store",
+        "discount_store",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.6927474,
+      "lng": 139.69963719999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7246942205830299368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://shinjuku-omoide.com/shop/brandjungle",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 83.28
+    },
+    {
+      "googlePlaceId": "ChIJ4SQrWeCLGGAReS0C8nOn7vo",
+      "name": "Sora",
+      "address": "Japan, 〒150-0002 Tokyo, Shibuya, 3-chōme−18−５ 佐藤エステートビル新館 5F",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 1853,
+      "priceLevel": null,
+      "primaryType": "massage_spa",
+      "types": [
+        "massage_spa",
+        "spa",
+        "massage",
+        "health",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6573856,
+      "lng": 139.7035462,
+      "googleMapsUri": "https://maps.google.com/?cid=18081573670362426745&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sora-massage.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 83.22
+    },
+    {
+      "googlePlaceId": "ChIJbWVFlTCKGGARr5l6ox-7_CA",
+      "name": "Rainbow Bridge",
+      "address": "3 Chome Kaigan, Minato City, Tokyo 105-0000, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 3905,
+      "priceLevel": null,
+      "primaryType": "bridge",
+      "types": [
+        "bridge",
+        "tourist_attraction",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6365639,
+      "lng": 139.7631443,
+      "googleMapsUri": "https://maps.google.com/?cid=2376980447905880495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.shutoko.jp/fun/lightup/rainbowbridge/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 83.19
+    },
+    {
+      "googlePlaceId": "ChIJTWMULnmMGGARNNsNKxPR_Uk",
+      "name": "Ninja Tokyo",
+      "address": "Japan, 〒100-0004 Tokyo, Chiyoda City, Ōtemachi, 2-chōme−2−１ 新大手町ビル地下1階",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1314,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fusion_restaurant",
+      "types": [
+        "fusion_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6845764,
+      "lng": 139.76756079999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5331647414133447476&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ninja-tokyo.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 83.19
+    },
+    {
+      "googlePlaceId": "ChIJL0kSfg2MGGARKv5KX53ZZ2Y",
+      "name": "The National Museum of Modern Art, Tokyo",
+      "address": "3-1 Kitanomarukōen, Chiyoda City, Tokyo 102-0091, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 7444,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6905432,
+      "lng": 139.7546932,
+      "googleMapsUri": "https://maps.google.com/?cid=7379105784401690154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.momat.go.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.17
+    },
+    {
+      "googlePlaceId": "ChIJ_SvuyD-JGGARUQZhJInwMIc",
+      "name": "Kiyosumi Gardens",
+      "address": "3-chōme-3-9 Kiyosumi, Koto City, Tokyo 135-0024, Japan",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 5421,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6809021,
+      "lng": 139.7972649,
+      "googleMapsUri": "https://maps.google.com/?cid=9741550465813907025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tokyo-park.or.jp/park/kiyosumi/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 83.07
+    },
+    {
+      "googlePlaceId": "ChIJz_149P6JGGARoImMn3NlsfY",
+      "name": "Museum of Emerging Science and Innovation",
+      "address": "2-chōme-3-6 Aomi, Koto City, Tokyo 135-0064, Japan",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.1,
+      "reviewCount": 16247,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.619335899999996,
+      "lng": 139.7763995,
+      "googleMapsUri": "https://maps.google.com/?cid=17776100751480490400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miraikan.jst.go.jp/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 83.05
+    },
+    {
+      "googlePlaceId": "ChIJH9IFXgCNGGARX-OhK4Bl3vE",
+      "name": "Ninja + Kabuki Tokyo",
+      "address": "Japan, 〒160-0021 Tokyo, Shinjuku City, Kabukichō, 1-chōme−21−１ 第二東亜会館",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 3577,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6952407,
+      "lng": 139.70128219999998,
+      "googleMapsUri": "https://maps.google.com/?cid=17428479209132647263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ninja-kabukitokyo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.98
+    }
+  ]
+}

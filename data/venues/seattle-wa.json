@@ -1,0 +1,3588 @@
+{
+  "location": "Seattle, WA",
+  "generatedAt": "2026-05-17T19:26:12.114Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ-bfVTh8VkFQRDZLQnmioK9s",
+      "name": "Space Needle",
+      "address": "400 Broad St, Seattle, WA 98109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 57055,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6205063,
+      "lng": -122.3492774,
+      "googleMapsUri": "https://maps.google.com/?cid=15792901685599310349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spaceneedle.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.6
+    },
+    {
+      "googlePlaceId": "ChIJsQLp1UUVkFQRUpflIwS6nYA",
+      "name": "Seattle Center",
+      "address": "305 Harrison St, Seattle, WA 98109, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 47585,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "amphitheatre",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "historical_landmark",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.620597599999996,
+      "lng": -122.3505055,
+      "googleMapsUri": "https://maps.google.com/?cid=9267768135143233362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattlecenter.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "skating rinks",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "sports-recreation",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.04
+    },
+    {
+      "googlePlaceId": "ChIJVTtr1kUVkFQRh-YAfijbQXs",
+      "name": "Chihuly Garden and Glass",
+      "address": "305 Harrison St, Seattle, WA 98109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 24118,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.620559899999996,
+      "lng": -122.3504476,
+      "googleMapsUri": "https://maps.google.com/?cid=8881620907110491783&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chihulygardenandglass.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.03
+    },
+    {
+      "googlePlaceId": "ChIJUS2ELmoVkFQRjrUkJB5o9zM",
+      "name": "Kerry Park",
+      "address": "211 W Highland Dr, Seattle, WA 98119, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 19100,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "city_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.629469199999996,
+      "lng": -122.35992239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3744576093846549902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattle.gov/parks/find/parks/kerry-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 95.65
+    },
+    {
+      "googlePlaceId": "ChIJY8p6-EYVkFQREthJEc0p6dE",
+      "name": "Museum of Pop Culture",
+      "address": "325 5th Ave N, Seattle, WA 98109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 19071,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6214824,
+      "lng": -122.3481245,
+      "googleMapsUri": "https://maps.google.com/?cid=15125666784235608082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mopop.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.2
+    },
+    {
+      "googlePlaceId": "ChIJgTy59sYUkFQRin5kehZcTqI",
+      "name": "Washington Park Arboretum",
+      "address": "2300 Arboretum Dr E, Seattle, WA 98112, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8168,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6364162,
+      "lng": -122.2958146,
+      "googleMapsUri": "https://maps.google.com/?cid=11695386533940199050&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://botanicgardens.uw.edu/washington-park-arboretum/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.77
+    },
+    {
+      "googlePlaceId": "ChIJPcr187JrkFQRLApO8QKP8ZM",
+      "name": "Pike Place Market",
+      "address": "85 Pike St, Seattle, WA 98101, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 78755,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "farmers_market",
+        "historical_landmark",
+        "business_center",
+        "tourist_attraction",
+        "historical_place",
+        "grocery_store",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6094076,
+      "lng": -122.34183580000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10660459035763804716&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pikeplacemarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "local-exploration"
+      ],
+      "popularityScore": 94.6
+    },
+    {
+      "googlePlaceId": "ChIJK6R3jFYVkFQRLA8uS-80dDA",
+      "name": "Sandbox VR",
+      "address": "526 Westlake Ave N, Seattle, WA 98109, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4241,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.623787799999995,
+      "lng": -122.33819380000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3491473813482114860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/seattle",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.83
+    },
+    {
+      "googlePlaceId": "ChIJUX-M-a1qkFQRxtrx3nOQIKU",
+      "name": "The Seattle Great Wheel",
+      "address": "1301 Alaskan Wy, Seattle, WA 98101, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 12168,
+      "priceLevel": null,
+      "primaryType": "ferris_wheel",
+      "types": [
+        "ferris_wheel",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6061342,
+      "lng": -122.34252459999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11898669042848881350&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seattlegreatwheel.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.8
+    },
+    {
+      "googlePlaceId": "ChIJh0vJ7ubNkFQRGKSRT_uh9Fw",
+      "name": "Mount Rainier National Park",
+      "address": "Washington, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 20010,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 46.8671484,
+      "lng": -121.69985589999997,
+      "googleMapsUri": "https://maps.google.com/?cid=6698156646550578200&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/mora/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.65
+    },
+    {
+      "googlePlaceId": "ChIJn0CO4fAVkFQRIGP6pMpCmFE",
+      "name": "Discovery Park",
+      "address": "Seattle, WA 98199, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8328,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "scenic_spot",
+        "tourist_attraction",
+        "hiking_area",
+        "playground",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6613197,
+      "lng": -122.41714130000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5879522751650882336&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattle.gov/parks/allparks/discovery-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 93.33
+    },
+    {
+      "googlePlaceId": "ChIJQ_oEiK1qkFQRg3bU4l3mmWs",
+      "name": "Seattle Aquarium",
+      "address": "1483 Alaskan Way Pier 59, Seattle, WA 98101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 23031,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6074002,
+      "lng": -122.34295589999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7753481524406941315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattleaquarium.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.48
+    },
+    {
+      "googlePlaceId": "ChIJ91YOzrJqkFQRKmSW0B1qrbo",
+      "name": "The Pink Door",
+      "address": "1919 Post Alley, Seattle, WA 98101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 7029,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "european_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6103652,
+      "lng": -122.34256040000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13451524338311652394&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thepinkdoor.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.1
+    },
+    {
+      "googlePlaceId": "ChIJc88dJ1AVkFQRmZ_S-xv-_Hs",
+      "name": "Olympic Sculpture Park",
+      "address": "2901 Western Ave, Seattle, WA 98121, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 9274,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.616602799999995,
+      "lng": -122.35531669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8934295156938678169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattleartmuseum.org/visit/olympic-sculpture-park/",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.86
+    },
+    {
+      "googlePlaceId": "ChIJ046-cUQVkFQRJy7KU2evBN4",
+      "name": "Climate Pledge Arena",
+      "address": "334 1st Ave N, Seattle, WA 98109, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 9254,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.622094,
+      "lng": -122.353984,
+      "googleMapsUri": "https://maps.google.com/?cid=15998104634649095719&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://climatepledgearena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "skating rinks",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.85
+    },
+    {
+      "googlePlaceId": "ChIJ4bePy7NqkFQRlsQmVwwcpvM",
+      "name": "Benaroya Hall",
+      "address": "200 University St, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 4709,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.608174999999996,
+      "lng": -122.33676390000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17556751036677801110&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattlesymphony.org/benaroyahall",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.56
+    },
+    {
+      "googlePlaceId": "ChIJAxZWvUwVkFQRPuvwC7JTqZk",
+      "name": "Pacific Science Center",
+      "address": "200 Sue Bird Ct N, Seattle, WA 98109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7496,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6200033,
+      "lng": -122.3515819,
+      "googleMapsUri": "https://maps.google.com/?cid=11072473183036697406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pacificsciencecenter.org/?utm_source=local&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.2
+    },
+    {
+      "googlePlaceId": "ChIJ72JgjmQWkFQRygp_TI2DLFs",
+      "name": "Golden Gardens Park",
+      "address": "8498 Seaview Pl NW, Seattle, WA 98117, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8873,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "fishing_pier",
+        "scenic_spot",
+        "tourist_attraction",
+        "picnic_ground",
+        "hiking_area",
+        "playground",
+        "dog_park",
+        "park",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6917517,
+      "lng": -122.40309119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6569770599323732682&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattle.gov/parks/find/parks/golden-gardens-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.92
+    },
+    {
+      "googlePlaceId": "ChIJydSuSkkUkFQRsqhB-cEtYnw",
+      "name": "Woodland Park Zoo",
+      "address": "Seattle, WA 98103, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 23079,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.668436,
+      "lng": -122.3508786,
+      "googleMapsUri": "https://maps.google.com/?cid=8962776519554476210&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.79
+    },
+    {
+      "googlePlaceId": "ChIJRxVwIjlCkFQRqroZdomSpAE",
+      "name": "The Museum of Flight",
+      "address": "Seattle, WA 98108, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 18043,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5185379,
+      "lng": -122.2968545,
+      "googleMapsUri": "https://maps.google.com/?cid=118380609308048042&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museumofflight.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 90.73
+    },
+    {
+      "googlePlaceId": "ChIJSxh5JbJqkFQRxI1KoO7oZHs",
+      "name": "Seattle Art Museum",
+      "address": "1300 1st Ave, Seattle, WA 98101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 7275,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6075253,
+      "lng": -122.3379599,
+      "googleMapsUri": "https://maps.google.com/?cid=8891487675925302724&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattleartmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.71
+    },
+    {
+      "googlePlaceId": "ChIJ0XIEzwmAjlQRUXl9squHIAA",
+      "name": "Olympic National Park",
+      "address": "3002 Mt Angeles Rd, Port Angeles, WA 98362, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 10610,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.802106699999996,
+      "lng": -123.6043524,
+      "googleMapsUri": "https://maps.google.com/?cid=9156370758465873&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/olym/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.58
+    },
+    {
+      "googlePlaceId": "ChIJgRduxd1rkFQR0YqnSPyuQw0",
+      "name": "Bill Speidel’s Underground Tour",
+      "address": "614 1st Ave, Seattle, WA 98104, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 9600,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "bar",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6023525,
+      "lng": -122.33368039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=955799944506608337&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.undergroundtour.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.47
+    },
+    {
+      "googlePlaceId": "ChIJKxjxuaNqkFQR3CK6O1HNNqY",
+      "name": "Lumen Field",
+      "address": "800 Occidental Ave S, Seattle, WA 98134, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 18858,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5951518,
+      "lng": -122.33163940000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11976986007816512220&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lumenfield.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.16
+    },
+    {
+      "googlePlaceId": "ChIJf7BbsgIVkFQRlmFJ7KtVbh4",
+      "name": "Gas Works Park",
+      "address": "2101 N Northlake Way, Seattle, WA 98103, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 11351,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "scenic_spot",
+        "tourist_attraction",
+        "picnic_ground",
+        "playground",
+        "park",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6456308,
+      "lng": -122.33435320000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2192784265468010902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattle.gov/parks/allparks/gas-works-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.69
+    },
+    {
+      "googlePlaceId": "ChIJ6x3yk7pqkFQRW2zXQJUlScA",
+      "name": "Smith Tower",
+      "address": "506 2nd Ave, Seattle, WA 98104, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 3215,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "observation_deck",
+        "tourist_attraction",
+        "wedding_venue",
+        "historical_place",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 47.601852799999996,
+      "lng": -122.33185829999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13855647051550256219&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.smithtower.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots",
+        "mixology classes",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "learning-classes",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.67
+    },
+    {
+      "googlePlaceId": "ChIJ_UHsyUMVkFQRucL7Hw-w7UE",
+      "name": "Toulouse Petit Kitchen & Lounge",
+      "address": "601 Queen Anne Ave N, Seattle, WA 98109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6492,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "french_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.624761299999996,
+      "lng": -122.3569487,
+      "googleMapsUri": "https://maps.google.com/?cid=4750646760953332409&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toulousepetit.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 89.65
+    },
+    {
+      "googlePlaceId": "ChIJdWjwULVqkFQRh8ifgzporms",
+      "name": "Paramount Theatre",
+      "address": "911 Pine St, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 10172,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.613524399999996,
+      "lng": -122.33151339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7759253808531622023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stgpresents.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJ320c77NqkFQR2SRL16MUXfU",
+      "name": "The Capital Grille",
+      "address": "1301 4th Ave, Seattle, WA 98101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2165,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "wine_bar",
+        "steak_house",
+        "seafood_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.608256,
+      "lng": -122.33519799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17680310406050686169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thecapitalgrille.com/locations/wa/seattle/seattle/8030?cmpid=br:tcg_ag:ie_ch:loc_ca:TCGGMB_sn:gmb_gt:seattle-wa-8030_pl:locurl_rd:1026",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.54
+    },
+    {
+      "googlePlaceId": "ChIJRXCfNwUVkFQRxraD8U-dANE",
+      "name": "Canlis",
+      "address": "2576 Aurora Ave N, Seattle, WA 98109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2801,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6430933,
+      "lng": -122.34675349999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15060210120606856902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://canlis.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJ2xeRu7NqkFQRQjsj5C2QP9I",
+      "name": "The Triple Door",
+      "address": "216 Union St, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2482,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6088003,
+      "lng": -122.3374663,
+      "googleMapsUri": "https://maps.google.com/?cid=15149986198273080130&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thetripledoor.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "bottle service",
+        "events this weekend",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.87
+    },
+    {
+      "googlePlaceId": "ChIJGRCaVrJqkFQRn9Tw2gidw-c",
+      "name": "The Showbox",
+      "address": "1426 1st Ave, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3936,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6085565,
+      "lng": -122.33932689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16700364504578446495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.showboxpresents.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.8
+    },
+    {
+      "googlePlaceId": "ChIJ28RdUJ9qkFQRlf2mprMp-MY",
+      "name": "T-Mobile Park",
+      "address": "1250 1st Ave S, Seattle, WA 98134, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 23540,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "athletic_field",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.591471999999996,
+      "lng": -122.33258319999997,
+      "googleMapsUri": "https://maps.google.com/?cid=14337255265305820565&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://seattle.mariners.mlb.com/sea/ballpark/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 88.7
+    },
+    {
+      "googlePlaceId": "ChIJJw0ZWa5rkFQR0QhsKVQ9vck",
+      "name": "Museum of Illusions - Seattle",
+      "address": "1330 5th Ave, Seattle, WA 98101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1648,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6096365,
+      "lng": -122.33443390000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14536842603903322321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moiseattle.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.7
+    },
+    {
+      "googlePlaceId": "ChIJcUvNJ7JqkFQR_qdDVl2ZRfo",
+      "name": "Diller Room",
+      "address": "1224 1st Ave, Seattle, WA 98101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2297,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6068168,
+      "lng": -122.33794060000001,
+      "googleMapsUri": "https://maps.google.com/?cid=18033988909033302014&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dillerroom.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "luxury lounges",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 88.63
+    },
+    {
+      "googlePlaceId": "ChIJt6GM-bJqkFQRGOqskPuiqp4",
+      "name": "Can Can Seattle: A Culinary Cabaret",
+      "address": "95 Pine St, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1022,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "cocktail_bar",
+        "performing_arts_theater",
+        "bar",
+        "event_venue",
+        "manufacturer",
+        "association_or_organization",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6095609,
+      "lng": -122.34115159999998,
+      "googleMapsUri": "https://maps.google.com/?cid=11433129805381167640&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cancanseattle.com/tickets",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "date night restaurants",
+        "mixology classes",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "learning-classes",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.32
+    },
+    {
+      "googlePlaceId": "ChIJoV-kzM1qkFQRRPfZI7Iz7XI",
+      "name": "Unicorn",
+      "address": "1118 E Pike St, Seattle, WA 98122, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 4039,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "bar_and_grill",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 47.614222999999996,
+      "lng": -122.31729200000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8281332130002892612&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.unicornseattle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJKTWVIEQVkFQRNBx2rIY03Z0",
+      "name": "International Fountain",
+      "address": "305 Harrison St, Seattle, WA 98109, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 5573,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6225227,
+      "lng": -122.35203229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11375305986831424564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seattlecenter.com/explore/attractions/international-fountain",
+      "openNow": null,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJtWc9tK58hVQRX6XhX2fNLKM",
+      "name": "Deception Pass State Park",
+      "address": "41229 State Rte 20, Oak Harbor, WA 98277, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 13437,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "childrens_camp",
+        "tourist_attraction",
+        "camping_cabin",
+        "hiking_area",
+        "campground",
+        "park",
+        "lodging",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.406498899999995,
+      "lng": -122.64492519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11757998571031471455&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.wa.gov/497/Deception-Pass",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.06
+    },
+    {
+      "googlePlaceId": "ChIJi-OPx7BqkFQR9TDCUWqViHc",
+      "name": "Sky View Observatory - Columbia Center",
+      "address": "700 4th Ave, Seattle, WA 98104, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 3750,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.604363899999996,
+      "lng": -122.3310111,
+      "googleMapsUri": "https://maps.google.com/?cid=8613298571216826613&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://skyviewobservatory.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88
+    },
+    {
+      "googlePlaceId": "ChIJibX4ME8VkFQRypD16V31l-Q",
+      "name": "The 5 Point Cafe",
+      "address": "415 Cedar St, Seattle, WA 98121, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 8689,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "diner",
+      "types": [
+        "diner",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.618071199999996,
+      "lng": -122.3473786,
+      "googleMapsUri": "https://maps.google.com/?cid=16471903945836826826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.the5pointcafe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJaxrA761qkFQRq5e7F5SZ8kI",
+      "name": "Wings Over Washington",
+      "address": "1301 Alaskan Wy, Seattle, WA 98101, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 1795,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6062079,
+      "lng": -122.34206419999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4824087012199602091&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wingsoverwa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "arcades",
+        "kids activities",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJC2j55LNqkFQRRqBoRA_a_3A",
+      "name": "Purple Café and Wine Bar",
+      "address": "1225 4th Ave, Seattle, WA 98101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3560,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "wine_bar",
+        "cafe",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.607957299999995,
+      "lng": -122.33520169999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8142466410416218182&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.purplecafe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "rooftop bars",
+        "romantic bars",
+        "wine bars",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.79
+    },
+    {
+      "googlePlaceId": "ChIJBWAqmCxdkFQR-eFf_B3v250",
+      "name": "Tukwila Family Fun Center & Bullwinkle's Restaurant",
+      "address": "7300 Fun Center Way, Tukwila, WA 98188, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 4949,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "bowling_alley",
+        "go_karting_venue",
+        "race_course",
+        "amusement_park",
+        "sports_complex",
+        "sports_activity_location",
+        "miniature_golf_course",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.465440099999995,
+      "lng": -122.243703,
+      "googleMapsUri": "https://maps.google.com/?cid=11374948195921551865&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bullwinkles.com/tukwila",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJ9ZJkV0wVkFQRtdsA9Pb7FtI",
+      "name": "Puzzle Break - Room Escape & Team Games",
+      "address": "2124 2nd Ave, Seattle, WA 98121, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5510,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6131125,
+      "lng": -122.34376639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15138564235526724533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.puzzlebreak.us/seattle-escape-rooms",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJ4V9t25ANkFQRa8lfUv7v6TY",
+      "name": "Sandbox VR",
+      "address": "12675 120th Ave NE Suite 195, Kirkland, WA 98034, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4467,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.7134856,
+      "lng": -122.1809228,
+      "googleMapsUri": "https://maps.google.com/?cid=3956957623204432235&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/seattle",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJDegKJLtqkFQRTOTyeFUdN6o",
+      "name": "Flatstick Pub - Pioneer Square",
+      "address": "240 2nd Ave S, Seattle, WA 98104, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 2547,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "pub",
+      "types": [
+        "pub",
+        "bar",
+        "miniature_golf_course",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.600319999999996,
+      "lng": -122.331191,
+      "googleMapsUri": "https://maps.google.com/?cid=12265304363105444940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://flatstickpub.com/pioneer-square/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.45
+    },
+    {
+      "googlePlaceId": "ChIJhdZMaVIVkFQRi8VtUoNN7Qo",
+      "name": "Six Seven Restaurant",
+      "address": "2411 Alaskan Wy Pier 67, Seattle, WA 98121, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2219,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.612361,
+      "lng": -122.35223909999999,
+      "googleMapsUri": "https://maps.google.com/?cid=787370736278685067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.edgewaterhotel.com/seattle-six-seven-restaurant.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.42
+    },
+    {
+      "googlePlaceId": "ChIJxcPk-q1qkFQROJUNAI77zfw",
+      "name": "Miner’s Landing Pier 57 Seattle",
+      "address": "1301 Alaskan Wy, Seattle, WA 98101, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2170,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "ferris_wheel",
+        "video_arcade",
+        "ice_cream_shop",
+        "food_court",
+        "seafood_restaurant",
+        "dessert_shop",
+        "confectionery",
+        "bakery",
+        "food_store",
+        "sports_activity_location",
+        "store",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 47.6061039,
+      "lng": -122.3408515,
+      "googleMapsUri": "https://maps.google.com/?cid=18216492655088342328&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.minerslanding.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.35
+    },
+    {
+      "googlePlaceId": "ChIJEbIG9xUUkFQReKeuJo4qVKk",
+      "name": "Green Lake Park",
+      "address": "7201 East Green Lake Dr N, Seattle, WA 98115, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 10263,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tennis_court",
+        "fishing_pier",
+        "tourist_attraction",
+        "playground",
+        "city_park",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 47.680214299999996,
+      "lng": -122.32840209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12201424080476219256&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattle.gov/parks/find/parks/green-lake-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJa2POnksVkFQRCRo3bna-3Gc",
+      "name": "Dimitriou's Jazz Alley",
+      "address": "2033 6th Ave, Seattle, WA 98121, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3318,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6148157,
+      "lng": -122.33961699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7484066096647445001&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jazzalley.com/www-home/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJYSjPILJqkFQRE-m7s1g6K0Y",
+      "name": "Von's 1000Spirits",
+      "address": "1225 1st Ave, Seattle, WA 98101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 7239,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6066052,
+      "lng": -122.3384085,
+      "googleMapsUri": "https://maps.google.com/?cid=5056199159300483347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vons1000spirits.com/?utm_source=gmb&utm_medium=organic&utm_campaign=gmbpost",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.19
+    },
+    {
+      "googlePlaceId": "ChIJyVw29LsWkFQRtWZ3uO0R9hA",
+      "name": "Carkeek Park",
+      "address": "950 NW Carkeek Park Rd, Seattle, WA 98177, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4381,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "scenic_spot",
+        "tourist_attraction",
+        "picnic_ground",
+        "hiking_area",
+        "playground",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.7115955,
+      "lng": -122.36820049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1222184061577422517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattle.gov/parks/find/parks/carkeek-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.98
+    },
+    {
+      "googlePlaceId": "ChIJibaRDLBqkFQRfu7LzHZRVas",
+      "name": "Beneath the Streets",
+      "address": "102 Cherry St, Seattle, WA 98104, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 2160,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6028497,
+      "lng": -122.3340931,
+      "googleMapsUri": "https://maps.google.com/?cid=12345863524189990526&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.beneath-the-streets.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJnRb12DlBkFQR_SuL0fockuc",
+      "name": "Lincoln Park",
+      "address": "8011 Fauntleroy Wy SW, Seattle, WA 98136, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5290,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "city_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.530570999999995,
+      "lng": -122.39599199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16686431432944069629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattle.gov/parks/find/parks/lincoln-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJxzwPCbVqkFQRabwmIXYs0zg",
+      "name": "Seattle Convention Center | Arch",
+      "address": "705 Pike St, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 7599,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.611899699999995,
+      "lng": -122.3328012,
+      "googleMapsUri": "https://maps.google.com/?cid=4094665372083862633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seattleconventioncenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJsWqP6qkVkFQRjhkg-a6Xsxs",
+      "name": "Nectar Lounge",
+      "address": "412 N 36th St, Seattle, WA 98103, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1767,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "dance_hall",
+        "night_club",
+        "concert_hall",
+        "auditorium",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.65238790000001,
+      "lng": -122.3538607,
+      "googleMapsUri": "https://maps.google.com/?cid=1996105837614995854&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nectarlounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.71
+    },
+    {
+      "googlePlaceId": "ChIJNYwFwDsVkFQR10uGlmF3-YU",
+      "name": "Museum of History & Industry (MOHAI)",
+      "address": "860 Terry Ave N, Seattle, WA 98109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1923,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6275834,
+      "lng": -122.3369027,
+      "googleMapsUri": "https://maps.google.com/?cid=9653878537266285527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mohai.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJq4gnjMcVkFQRFWV3mPF7z7M",
+      "name": "Mox Boarding House",
+      "address": "5105 Leary Ave NW, Seattle, WA 98107, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.7,
+      "reviewCount": 3735,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "cocktail_bar",
+        "event_venue",
+        "bar",
+        "cafe",
+        "toy_store",
+        "restaurant",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 47.664944399999996,
+      "lng": -122.38053330000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12956710930543502613&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moxboardinghouse.com/seattle",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 86.49
+    },
+    {
+      "googlePlaceId": "ChIJSxHAcbNqkFQRimpTht7bPsM",
+      "name": "Yard House",
+      "address": "1501 4th Ave, Seattle, WA 98101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6308,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bar_and_grill",
+        "gastropub",
+        "vegetarian_restaurant",
+        "meal_takeaway",
+        "sports_bar",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.61051,
+      "lng": -122.33735,
+      "googleMapsUri": "https://maps.google.com/?cid=14068924034734844554&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.yardhouse.com/locations/wa/seattle/seattle-4th-and-pike/8343?cmpid=br:yh_ag:ie_ch:loc_ca:YHGMB_sn:gmb_gt:seattle-wa-8343_pl:locurl_rd:1041",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJKSt0VkwVkFQRiA__LC8Kihw",
+      "name": "Jupiter Bar",
+      "address": "2126 2nd Ave Suite A, Seattle, WA 98121, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 1500,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.613171,
+      "lng": -122.343849,
+      "googleMapsUri": "https://maps.google.com/?cid=2056467377582706568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://jupiterbarseattle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.21
+    },
+    {
+      "googlePlaceId": "ChIJjdGpD8IVkFQRUy8VM9-VXIM",
+      "name": "Ballard (Hiram M. Chittenden) Locks",
+      "address": "3015 NW 54th St, Seattle, WA 98107, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 10066,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "visitor_center",
+        "tourist_information_center",
+        "history_museum",
+        "botanical_garden",
+        "tour_agency",
+        "travel_agency",
+        "museum",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 47.665504299999995,
+      "lng": -122.39718379999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9465605302693211987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ballardlocks.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.06
+    },
+    {
+      "googlePlaceId": "ChIJL7yqjK1qkFQRDj6HS3N-GiA",
+      "name": "Waterfront Park",
+      "address": "1401 Alaskan Wy, Seattle, WA 98101, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 2832,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.60704,
+      "lng": -122.34182759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2313300392261664270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattle.gov/parks/find/parks/waterfront-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJpylJiEkVkFQRNfzgg6jksp8",
+      "name": "The Butcher's Table",
+      "address": "2121 Westlake Ave N, Seattle, WA 98121, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2300,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.61751290000001,
+      "lng": -122.3385507,
+      "googleMapsUri": "https://maps.google.com/?cid=11507511410303237173&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thebutcherstable.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJA2y97GVCkFQRLhpMnRq2Nd8",
+      "name": "Kubota Garden",
+      "address": "9817 55th Ave S, Seattle, WA 98118, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5367,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5134676,
+      "lng": -122.2658737,
+      "googleMapsUri": "https://maps.google.com/?cid=16083961869648009774&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kubotagarden.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJHwkpvepBkFQRiiHDx1On4Uc",
+      "name": "Evergreen Escapes",
+      "address": "701 S Lander St, Seattle, WA 98134, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1837,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5791793,
+      "lng": -122.32415749999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5179605024728359306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.evergreenescapes.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.83
+    },
+    {
+      "googlePlaceId": "ChIJM8NOvJAVkFQRLxGv1qVf4MI",
+      "name": "Seattle Convention Center | Summit",
+      "address": "900 Pine St, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1045,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.613841699999995,
+      "lng": -122.3319298,
+      "googleMapsUri": "https://maps.google.com/?cid=14042328804017246511&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seattleconventioncenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.78
+    },
+    {
+      "googlePlaceId": "ChIJPVXmJKtCkFQRBLWAnTwawZE",
+      "name": "8-Bit Arcade",
+      "address": "916 S 3rd St, Renton, WA 98057, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1467,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "pizza_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.479831700000005,
+      "lng": -122.2049424,
+      "googleMapsUri": "https://maps.google.com/?cid=10502704653647525124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/8bitarcaderenton/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJ6xt4uKkVkFQRCkeinBzKS8A",
+      "name": "Add-A-Ball",
+      "address": "315 N 36th St #2b, Seattle, WA 98103, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1457,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6519757,
+      "lng": -122.3549551,
+      "googleMapsUri": "https://maps.google.com/?cid=13856390902771238666&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://add-a-ball.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.72
+    },
+    {
+      "googlePlaceId": "ChIJ__8DfstqkFQR_cgIxwcjzG8",
+      "name": "Salt & Straw",
+      "address": "714 E Pike St Suite A, Seattle, WA 98122, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 2997,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 47.6141937,
+      "lng": -122.3232668,
+      "googleMapsUri": "https://maps.google.com/?cid=8055852349769959677&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.saltandstraw.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.55
+    },
+    {
+      "googlePlaceId": "ChIJH80My6wVkFQRhkCumVaMG6c",
+      "name": "Fremont Sunday Street Market",
+      "address": "3401 Evanston Ave N, Seattle, WA 98103, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 2137,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.650505800000005,
+      "lng": -122.3544624,
+      "googleMapsUri": "https://maps.google.com/?cid=12041372332278562950&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fremontmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "flea markets",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.55
+    },
+    {
+      "googlePlaceId": "ChIJYf8WJK5qkFQRMCUJj7i3nHk",
+      "name": "Argosy Cruises - Seattle Waterfront",
+      "address": "1101 Alaskan Wy Pier 55, #201, Seattle, WA 98101, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 8505,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "wedding_venue",
+        "tour_agency",
+        "travel_agency",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.604884,
+      "lng": -122.33997590000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8763080978257749296&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.argosycruises.com/?utm_source=local&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.54
+    },
+    {
+      "googlePlaceId": "ChIJP6TdmW9AkFQRSB9q_tCFP1o",
+      "name": "The NOOK",
+      "address": "2206 California Ave SW APT A, Seattle, WA 98116, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 411,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5837566,
+      "lng": -122.38622209999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6503063519614345032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thenookwestseattle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.49
+    },
+    {
+      "googlePlaceId": "ChIJa-hJdxIVkFQRZ7LNdZtTpv4",
+      "name": "How to Cook a Wolf",
+      "address": "2208 Queen Anne Ave N, Seattle, WA 98109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1186,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "wine_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6387234,
+      "lng": -122.35664229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18349445658929115751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://howtocookawolf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJbUAe611rkFQR_EFtZDsxaT4",
+      "name": "Ludi's Restaurant",
+      "address": "120 Stewart St, Seattle, WA 98101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2349,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "filipino_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.610943999999996,
+      "lng": -122.3407198,
+      "googleMapsUri": "https://maps.google.com/?cid=4497179834063864316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://order.toasttab.com/online/ludis-restaurant-120-stewart-street",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.45
+    },
+    {
+      "googlePlaceId": "ChIJo8wNCFZskFQRrlQ9Fdyv2eE",
+      "name": "Mox Boarding House",
+      "address": "13310 NE Bel Red Rd, Bellevue, WA 98005, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.7,
+      "reviewCount": 4595,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "store",
+      "types": [
+        "cocktail_bar",
+        "toy_store",
+        "bar",
+        "association_or_organization",
+        "event_venue",
+        "restaurant",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.62273460000001,
+      "lng": -122.1625911,
+      "googleMapsUri": "https://maps.google.com/?cid=16274232088264004782&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moxboardinghouse.com/bellevue/",
+      "openNow": true,
+      "matchedQueries": [
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.38
+    },
+    {
+      "googlePlaceId": "ChIJ-42sd3QVkFQRuLT1DqxuGsM",
+      "name": "Aerlume Seattle",
+      "address": "2003 Western Ave Suite C, Seattle, WA 98121, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 806,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6106445,
+      "lng": -122.3447539,
+      "googleMapsUri": "https://maps.google.com/?cid=14058670872054838456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aerlumeseattle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.38
+    },
+    {
+      "googlePlaceId": "ChIJ3TTM_CcVkFQRtMStux6Hvyw",
+      "name": "Volunteer Park",
+      "address": "1247 15th Ave E, Seattle, WA 98112, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5517,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6310836,
+      "lng": -122.3163794,
+      "googleMapsUri": "https://maps.google.com/?cid=3224444424288060596&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattle.gov/parks/find/parks/volunteer-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.3
+    },
+    {
+      "googlePlaceId": "ChIJNVUpO3FTkFQRKSgD0goKV2U",
+      "name": "Point Defiance Zoo & Aquarium",
+      "address": "5400 N Pearl St, Tacoma, WA 98407, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 15831,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.3049533,
+      "lng": -122.52165749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7302316362393921577&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pdza.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.27
+    },
+    {
+      "googlePlaceId": "ChIJ1UulXfUUkFQRK5Li7pZkyK8",
+      "name": "Neptune Theatre",
+      "address": "1303 NE 45th St, Seattle, WA 98105, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3577,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.661172199999996,
+      "lng": -122.3139806,
+      "googleMapsUri": "https://maps.google.com/?cid=12666484551395217963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stgpresents.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.25
+    },
+    {
+      "googlePlaceId": "ChIJoT6vDbRqkFQRtTKgZ3GsZc0",
+      "name": "The 5th Avenue Theatre",
+      "address": "1308 5th Ave, Seattle, WA 98101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3027,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.609187999999996,
+      "lng": -122.33385460000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14800425353492837045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.5thavenue.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJY_OBYTVpkFQR64426ZIdHHw",
+      "name": "Soak & Sage - A Social Wellness Sauna Spa",
+      "address": "1135 Lake Washington Blvd N suite 60, Renton, WA 98057, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 2100,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "wellness_center",
+        "massage_spa",
+        "swimming_pool",
+        "association_or_organization",
+        "massage",
+        "beauty_salon",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "health",
+        "establishment"
+      ],
+      "lat": 47.5026539,
+      "lng": -122.2016996,
+      "googleMapsUri": "https://maps.google.com/?cid=8943055476866060011&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://soakandsagespa.com/locations/seattle/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJmSqiRFcUkFQRgbfKOITF33k",
+      "name": "Ballard Farmers Market",
+      "address": "5345 Ballard Ave NW, Seattle, WA 98107, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.8,
+      "reviewCount": 1838,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6673627,
+      "lng": -122.38451269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8781954970074920833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sfmamarkets.com/visit-ballard-farmers-market",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.14
+    },
+    {
+      "googlePlaceId": "ChIJteupenNrkFQR9Af94utuQOY",
+      "name": "Waterfall Garden",
+      "address": "219 2nd Ave S, Seattle, WA 98104, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1209,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.600231199999996,
+      "lng": -122.3320588,
+      "googleMapsUri": "https://maps.google.com/?cid=16591382986637510644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pioneersquare.org/experiences/waterfall-garden-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.14
+    },
+    {
+      "googlePlaceId": "ChIJvfhzOJ5qkFQRclAWTXeI12E",
+      "name": "Showbox SoDo",
+      "address": "1700 1st Ave S, Seattle, WA 98134, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 4208,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5879112,
+      "lng": -122.3339439,
+      "googleMapsUri": "https://maps.google.com/?cid=7050253787647594610&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.showboxpresents.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.06
+    },
+    {
+      "googlePlaceId": "ChIJ0WDw1ckFkFQRPwmrdzc9nPg",
+      "name": "Escapology Escape Rooms Lynnwood",
+      "address": "18602 Alderwood Mall Pkwy Ste 1120, Lynnwood, WA 98037, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2370,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.829569,
+      "lng": -122.27004609999997,
+      "googleMapsUri": "https://maps.google.com/?cid=17914260726213183807&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/lynnwood-wa",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.87
+    },
+    {
+      "googlePlaceId": "ChIJraE-ONMVkFQRfq4QGgtdsbQ",
+      "name": "The Escape Game Seattle (Southcenter)",
+      "address": "21 Southcenter Mall, Tukwila, WA 98188, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2242,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.458977399999995,
+      "lng": -122.26079499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13020290299968138878&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/seattle/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=seattle-southcenter",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.7
+    },
+    {
+      "googlePlaceId": "ChIJUawu4LRqkFQRepty8cj4N2w",
+      "name": "GameWorks Seattle",
+      "address": "1511 7th Ave, Seattle, WA 98101, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.1,
+      "reviewCount": 3776,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "amusement_center",
+        "family_restaurant",
+        "sports_bar",
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 47.6117917,
+      "lng": -122.33383579999997,
+      "googleMapsUri": "https://maps.google.com/?cid=7797974821743270778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameworks.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.67
+    },
+    {
+      "googlePlaceId": "ChIJtyvP_2ZskFQRAz9MdO6RqfM",
+      "name": "Bellevue Botanical Garden",
+      "address": "12001 Main St, Bellevue, WA 98005, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6319,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6091944,
+      "lng": -122.1787564,
+      "googleMapsUri": "https://maps.google.com/?cid=17557725075619987203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bellevuebotanical.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.62
+    },
+    {
+      "googlePlaceId": "ChIJY8YvcCtBkFQRVuO9KSSycus",
+      "name": "Monkey Loft",
+      "address": "2915 1st Ave S, Seattle, WA 98134, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1262,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.577185199999995,
+      "lng": -122.33464930000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16965818614646956886&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/monkeyloftseattle/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "ticketed events",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.57
+    },
+    {
+      "googlePlaceId": "ChIJk02uzf5pkFQRRMKsDi02r7E",
+      "name": "Monster Mini Golf Bellevue",
+      "address": "4080 Factoria Square Mall SE, Bellevue, WA 98006, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 1386,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "video_arcade",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5736061,
+      "lng": -122.1721744,
+      "googleMapsUri": "https://maps.google.com/?cid=12803511832785240644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://monsterminigolf.com/locations/us/wa/bellevue/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "indoor golf simulators",
+        "bowling alleys"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.51
+    },
+    {
+      "googlePlaceId": "ChIJldHS8bJqkFQRJ3mW7Hb1pQ0",
+      "name": "Pike Place Chowder - Pike Place Market",
+      "address": "1530 Post Alley, Seattle, WA 98101, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 7968,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "soup_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6094243,
+      "lng": -122.34121920000001,
+      "googleMapsUri": "https://maps.google.com/?cid=983461984774551847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pikeplacechowder.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.24
+    },
+    {
+      "googlePlaceId": "ChIJuTGWZA9rkFQRS8bDs0wnsXU",
+      "name": "COMMUNION Restaurant & Bar",
+      "address": "2350 E Union St, Seattle, WA 98122, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1093,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "soul_food_restaurant",
+        "american_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6131325,
+      "lng": -122.30165649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8480602783702304331&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.communionseattle.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.12
+    },
+    {
+      "googlePlaceId": "ChIJ5xqmaWkOkFQRPzsLd5Jie4c",
+      "name": "Zulu's Board Game Cafe",
+      "address": "10234 Main St, Bothell, WA 98011, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 2138,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pub",
+        "toy_store",
+        "bar",
+        "association_or_organization",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.7604864,
+      "lng": -122.20238450000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9762504998457654079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.zulusgames.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 84.11
+    },
+    {
+      "googlePlaceId": "ChIJFZddJa9vkFQRqmHy4SfkGPw",
+      "name": "Lake Sammamish State Park",
+      "address": "2010 NW Sammamish Rd, Issaquah, WA 98027, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5243,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.5584317,
+      "lng": -122.0588751,
+      "googleMapsUri": "https://maps.google.com/?cid=18165519956944511402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://parks.state.wa.us/533/Lake-Sammamish",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.04
+    },
+    {
+      "googlePlaceId": "ChIJhzUmRMtqkFQRkSDS1IZpAJE",
+      "name": "The Tilted Table",
+      "address": "501 E Pine St, Seattle, WA 98122, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 837,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "video_arcade",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.615061399999995,
+      "lng": -122.325194,
+      "googleMapsUri": "https://maps.google.com/?cid=10448467163316625553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.raygunlounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84
+    },
+    {
+      "googlePlaceId": "ChIJTSbT3aATkFQRHymm3sgqcb8",
+      "name": "Warren G. Magnuson Park",
+      "address": "7400 Sand Point Way NE, Seattle, WA 98115, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5026,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6797687,
+      "lng": -122.25360219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13794854175829797151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seattle.gov/parks/find/parks/magnuson-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.91
+    },
+    {
+      "googlePlaceId": "ChIJdcDHu9kVkFQRmqfC_OfDtTI",
+      "name": "National Nordic Museum",
+      "address": "2655 NW Market St, Seattle, WA 98107, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2289,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "history_museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.6684157,
+      "lng": -122.39250899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3654042073826502554&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nordicmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.87
+    },
+    {
+      "googlePlaceId": "ChIJC9OBpFudmVQRZsr9AbFXveA",
+      "name": "The Gorge Amphitheatre",
+      "address": "754 Silica Rd NW, George, WA 98848, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 6895,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "tourist_attraction",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.099757,
+      "lng": -119.9946588,
+      "googleMapsUri": "https://maps.google.com/?cid=16194196252848409190&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gorgeamphitheatre.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.79
+    },
+    {
+      "googlePlaceId": "ChIJpWFsC4sUkFQRymSlzMITE84",
+      "name": "Burke Museum of Natural History and Culture",
+      "address": "4303 Memorial Way Northeast, Seattle, WA 98195, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 1113,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "tourist_attraction",
+        "research_institute",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.660614699999996,
+      "lng": -122.31159869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14849234123748631754&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.burkemuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 83.78
+    }
+  ]
+}

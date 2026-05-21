@@ -1,0 +1,3527 @@
+{
+  "location": "Berlin, Germany",
+  "generatedAt": "2026-05-17T20:23:54.895Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJbygR2x5OqEcRbhbkZsMB_DA",
+      "name": "Alexanderplatz",
+      "address": "10178 Berlin, Germany",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 241460,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.521981399999994,
+      "lng": 13.413305999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3529698146708100718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlin.de/sehenswuerdigkeiten/3560109-3558930-alexanderplatz.html",
+      "openNow": null,
+      "matchedQueries": [
+        "skating rinks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.3
+    },
+    {
+      "googlePlaceId": "ChIJS6_t9aZHqEcRGCiRSnvpm94",
+      "name": "East Side Gallery",
+      "address": "Mühlenstraße, 10243 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 64162,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "landmark",
+        "tourist_attraction",
+        "art_gallery",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.505022399999994,
+      "lng": 13.439695299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16040671213551429656&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.stiftung-berliner-mauer.de/de/east-side-gallery",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.86
+    },
+    {
+      "googlePlaceId": "ChIJiQnyVcZRqEcRY0xnhE77uyY",
+      "name": "Brandenburg Gate",
+      "address": "Pariser Platz, 10117 Berlin, Germany",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 185011,
+      "priceLevel": null,
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "tourist_attraction",
+        "historical_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.516274599999996,
+      "lng": 13.377704,
+      "googleMapsUri": "https://maps.google.com/?cid=2791100708733537379&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlin.de/sehenswuerdigkeiten/3560266-3558930-brandenburger-tor.html",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.95
+    },
+    {
+      "googlePlaceId": "ChIJTQam0-lRqEcR1JAU4DjCewA",
+      "name": "Friedrichstadt-Palast",
+      "address": "Friedrichstraße 107, 10117 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 24138,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.52393,
+      "lng": 13.388821,
+      "googleMapsUri": "https://maps.google.com/?cid=34834971668811988&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.palast.berlin/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.2
+    },
+    {
+      "googlePlaceId": "ChIJIeqReMlRqEcRquFNJTyYoUw",
+      "name": "Potsdamer Platz",
+      "address": "Potsdamer Platz, 10785 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 70449,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5092312,
+      "lng": 13.376105299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5521862002224259498&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.potsdamerplatz.de/de/",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "arcades",
+        "barcades",
+        "skating rinks",
+        "family friendly things to do",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.92
+    },
+    {
+      "googlePlaceId": "ChIJ5XFlUE9OqEcRMsUFkycI-Rg",
+      "name": "Uber Arena",
+      "address": "Uber Platz 1, 10243 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 37442,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "arena",
+        "stadium",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5063143,
+      "lng": 13.4436316,
+      "googleMapsUri": "https://maps.google.com/?cid=1799478492174599474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.uber-arena.de/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "arcades",
+        "barcades",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.24
+    },
+    {
+      "googlePlaceId": "ChIJ4dHdSq5RqEcReqvQ3PGSw4M",
+      "name": "Tiergarten",
+      "address": "Str. des 17. Juni, 10785 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 24617,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5141516,
+      "lng": 13.3591634,
+      "googleMapsUri": "https://maps.google.com/?cid=9494594006916574074&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlin.de/senuvk/berlin_tipps/grosser_tiergarten/index.shtml",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.15
+    },
+    {
+      "googlePlaceId": "ChIJ6_8UkB9OqEcRoeRJQ0j8-sg",
+      "name": "Berlin TV Tower",
+      "address": "Panoramastraße 1A, 10178 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 51593,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "observation_deck",
+        "tourist_attraction",
+        "historical_place",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.520815,
+      "lng": 13.409419,
+      "googleMapsUri": "https://maps.google.com/?cid=14482164939060012193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tv-turm.de/?utm_source=google&utm_medium=organic&utm_campaign=gmb-website&utm_content=website_button",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "skating rinks",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.04
+    },
+    {
+      "googlePlaceId": "ChIJuyVqNDJQqEcReGoSmZuRNUQ",
+      "name": "German Museum of Technology",
+      "address": "Trebbiner Str. 9, 10963 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 26684,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.4986982,
+      "lng": 13.3778846,
+      "googleMapsUri": "https://maps.google.com/?cid=4914994665818843768&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://technikmuseum.berlin/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.98
+    },
+    {
+      "googlePlaceId": "ChIJ__9PfAFSqEcRpB_GmWJj-hg",
+      "name": "SANDEMANs Berlin, Free Walking Tour",
+      "address": "Pariser Platz 4A, 10117 Berlin, Germany",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 20098,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "tour_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 52.516866199999996,
+      "lng": 13.379700099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1799860276225777572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.neweuropetours.eu/berlin-walking-tours/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 92.23
+    },
+    {
+      "googlePlaceId": "ChIJ65nY9-hPqEcRi3G7rJmOiYg",
+      "name": "Tempelhofer Feld",
+      "address": "Tempelhofer Damm, 12101 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 29124,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "city_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.4748569,
+      "lng": 13.4005926,
+      "googleMapsUri": "https://maps.google.com/?cid=9838551651646665099&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tempelhoferfeld.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 92.13
+    },
+    {
+      "googlePlaceId": "ChIJIaI61QlRqEcRrNKsDrmCnCo",
+      "name": "Insider Tour Berlin",
+      "address": "Reichstagufer 17, 10117 Berlin, Germany",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 18757,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 52.5207239,
+      "lng": 13.3869408,
+      "googleMapsUri": "https://maps.google.com/?cid=3070472777286603436&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.insidertour.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 92.03
+    },
+    {
+      "googlePlaceId": "ChIJd-d5Rx1SqEcRgCz33OsCSZQ",
+      "name": "Mauerpark",
+      "address": "Bernauer Str. 63, 13355 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 24289,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "cultural_center",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5427179,
+      "lng": 13.402652,
+      "googleMapsUri": "https://maps.google.com/?cid=10685074802960968832&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mauerpark.info/",
+      "openNow": null,
+      "matchedQueries": [
+        "cultural centers",
+        "best parks",
+        "skating rinks",
+        "flea markets",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "sports-recreation",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.01
+    },
+    {
+      "googlePlaceId": "ChIJGxI7OfFOqEcRMQHytn2AOLE",
+      "name": "Original Berlin Walks",
+      "address": "Friedrichstraße 95, 10117 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 5715,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 52.5193851,
+      "lng": 13.388696399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12770098020837622065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.berlinwalks.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 91.93
+    },
+    {
+      "googlePlaceId": "ChIJaW_IvapRqEcRfq6A6TrrOYE",
+      "name": "Berlin Zoological Garden",
+      "address": "Hardenbergpl. 8, 10787 Berlin, Germany",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 73493,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.507830299999995,
+      "lng": 13.3394157,
+      "googleMapsUri": "https://maps.google.com/?cid=9311732342823366270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zoo-berlin.de/de",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.89
+    },
+    {
+      "googlePlaceId": "ChIJYYLF9XRFqEcRcjMc_yXeNYE",
+      "name": "Britzer Garten",
+      "address": "Sangerhauser Weg 1, 12349 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 13684,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.438720599999996,
+      "lng": 13.412898799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9310592059433562994&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.britzergarten.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.84
+    },
+    {
+      "googlePlaceId": "ChIJ2Rv9kd5RqEcRCk1Dri7L9aU",
+      "name": "Lustgarten",
+      "address": "Unter den Linden 1, 10178 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 9450,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.518699999999995,
+      "lng": 13.3992,
+      "googleMapsUri": "https://maps.google.com/?cid=11958687786904800522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlin.de/sehenswuerdigkeiten/3560037-3558930-lustgarten.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.45
+    },
+    {
+      "googlePlaceId": "ChIJy3mwIxZOqEcRbFYNqFP7VaM",
+      "name": "A Mano",
+      "address": "Strausberger Pl. 2, 10243 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4075,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5193916,
+      "lng": 13.427386499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11769589537922963052&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amano-ristorante.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.27
+    },
+    {
+      "googlePlaceId": "ChIJWVbXxhhPqEcR3OZE5GXI9I4",
+      "name": "Berlin Treptower Park",
+      "address": "Puschkinallee, Elsenstraße, 12435 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 26043,
+      "priceLevel": null,
+      "primaryType": "transportation_service",
+      "types": [
+        "transportation_service",
+        "park",
+        "transit_depot",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.4939659,
+      "lng": 13.4613863,
+      "googleMapsUri": "https://maps.google.com/?cid=10301078587650139868&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bahnhof.de/id/6251",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.06
+    },
+    {
+      "googlePlaceId": "ChIJS9HC895RqEcR_IovsNVoDng",
+      "name": "Berlin Cathedral",
+      "address": "Am Lustgarten, 10178 Berlin, Germany",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 45832,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5190608,
+      "lng": 13.401078,
+      "googleMapsUri": "https://maps.google.com/?cid=8650967201218530044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlinerdom.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.91
+    },
+    {
+      "googlePlaceId": "ChIJZ0KxF_JRqEcRrLHB-4r-U-o",
+      "name": "Berlin Wall Memorial",
+      "address": "Bernauer Str. 111, 13355 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 45794,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.535052099999994,
+      "lng": 13.3901898,
+      "googleMapsUri": "https://maps.google.com/?cid=16885119300824838572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.stiftung-berliner-mauer.de/de/gedenkstaette-berliner-mauer",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.91
+    },
+    {
+      "googlePlaceId": "ChIJk2RWp_9RqEcRGouaKUdZcFg",
+      "name": "Rüyam Gemüse Kebab",
+      "address": "Schönhauser Allee 44A, 10435 Berlin, Germany",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 43039,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "kebab_shop",
+      "types": [
+        "kebab_shop",
+        "fast_food_restaurant",
+        "turkish_restaurant",
+        "vegetarian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5405338,
+      "lng": 13.412581399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6372691634904795930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rueyamdoener.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 89.78
+    },
+    {
+      "googlePlaceId": "ChIJlQBPDWpOqEcRuHogjEmANio",
+      "name": "Computer Games Museum",
+      "address": "Karl-Marx-Allee 93a, 10243 Berlin, Germany",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 10634,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "gift_shop",
+        "museum",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 52.5174697,
+      "lng": 13.4419545,
+      "googleMapsUri": "https://maps.google.com/?cid=3041759651707255480&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.computerspielemuseum.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "interactive kids museums",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.68
+    },
+    {
+      "googlePlaceId": "ChIJv3tmQf5RqEcR59oCqua3rRs",
+      "name": "Kulturbrauerei",
+      "address": "Schönhauser Allee 36, 10435 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8207,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "tourist_attraction",
+        "live_music_venue",
+        "performing_arts_theater",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5382032,
+      "lng": 13.4127133,
+      "googleMapsUri": "https://maps.google.com/?cid=1994452411317672679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kulturbrauerei.de/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "cultural centers",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.95
+    },
+    {
+      "googlePlaceId": "ChIJseeo2MdRqEcRj7JiGX-sBgI",
+      "name": "Gamer Berlin - Die Gameshow",
+      "address": "Charlottenstraße 62, 10117 Berlin, Germany",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1594,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "miniature_golf_course",
+        "video_arcade",
+        "amusement_center",
+        "tourist_attraction",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.511721699999995,
+      "lng": 13.391319,
+      "googleMapsUri": "https://maps.google.com/?cid=145993699822842511&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gamer.now/berlin?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=website_button",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.72
+    },
+    {
+      "googlePlaceId": "ChIJA3tAkR5OqEcRHQ3BP-tASds",
+      "name": "Hofbräu Wirtshaus Berlin",
+      "address": "Karl-Liebknecht-Str. 30, 10178 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 29515,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "german_restaurant",
+      "types": [
+        "german_restaurant",
+        "bavarian_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 52.5247247,
+      "lng": 13.4137705,
+      "googleMapsUri": "https://maps.google.com/?cid=15801232146737204509&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hofbraeu-wirtshaus.de/berlin",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "TikTok restaurants",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.61
+    },
+    {
+      "googlePlaceId": "ChIJvaZWgElOqEcRElWjL2P9AZg",
+      "name": "Markthalle Neun",
+      "address": "Eisenbahnstraße 42/43, 10997 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 19781,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.502134999999996,
+      "lng": 13.4315988,
+      "googleMapsUri": "https://maps.google.com/?cid=10953314371184579858&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.markthalleneun.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "viral-eats"
+      ],
+      "popularityScore": 88.58
+    },
+    {
+      "googlePlaceId": "ChIJnZP4HtxRqEcRw0epcRGQ-_k",
+      "name": "German Historical Museum",
+      "address": "Unter den Linden 2, 10117 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 10557,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5186138,
+      "lng": 13.396359799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18013149539194193859&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dhm.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 88.56
+    },
+    {
+      "googlePlaceId": "ChIJaW_IvapRqEcR_gdex2YGEm8",
+      "name": "Aquarium Berlin",
+      "address": "Budapester Str. 32, 10787 Berlin, Germany",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 21136,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.506017299999996,
+      "lng": 13.341022599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8003466526292051966&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aquarium-berlin.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJKe1GVI5RqEcRNkufK3YES0E",
+      "name": "BLESS Restaurant",
+      "address": "Hausvogteipl. 10, 10117 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2073,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "fusion_restaurant",
+        "french_restaurant",
+        "vietnamese_restaurant",
+        "indonesian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5124086,
+      "lng": 13.396790399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4704859141303126838&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bless-restaurants.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJMUj5z85RqEcRJFWt9uG8OZ8",
+      "name": "Mall of Berlin",
+      "address": "Leipziger Pl. 12, 10117 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 55978,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5105246,
+      "lng": 13.381104599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11473409204395267364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mallofberlin.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 88.27
+    },
+    {
+      "googlePlaceId": "ChIJs9n-LklRqEcRvNwJIBlx5BA",
+      "name": "The Upside Down Berlin",
+      "address": "The Playce, Unite BZ, Alte Potsdamer Str. 7, 10785 Berlin, Germany",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1990,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5068649,
+      "lng": 13.3735482,
+      "googleMapsUri": "https://maps.google.com/?cid=1217222152022514876&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://the-upsidedown.com/berlin",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.25
+    },
+    {
+      "googlePlaceId": "ChIJ61P_Gt9RqEcR0Zp4VZCfHHw",
+      "name": "Humboldt Forum",
+      "address": "Schloßpl., 10178 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 9290,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "observation_deck",
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.517252199999994,
+      "lng": 13.401708699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8943198402309036753&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.humboldtforum.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "events this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJf0sWKuZRqEcR2B4cnN_H_eI",
+      "name": "Night Kitchen",
+      "address": "Heckmann Höfe, Oranienburger Str. 32, 10117 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2772,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5255777,
+      "lng": 13.3939795,
+      "googleMapsUri": "https://maps.google.com/?cid=16356449184890232536&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nightkitchenberlin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 88.09
+    },
+    {
+      "googlePlaceId": "ChIJC7tHUElQqEcRJ13PfQTtpcg",
+      "name": "Urban Nation",
+      "address": "Bülowstraße 7, 10783 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4629,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.4987058,
+      "lng": 13.356503600000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14458222782289239335&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.urban-nation.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.03
+    },
+    {
+      "googlePlaceId": "ChIJM28dat1RqEcRC0AVNUpwAuk",
+      "name": "Alte Nationalgalerie",
+      "address": "Bodestraße 1-3, 10178 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 9695,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.520810399999995,
+      "lng": 13.398352899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16790105824811106315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.smb.museum/museen-einrichtungen/alte-nationalgalerie/home/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 87.92
+    },
+    {
+      "googlePlaceId": "ChIJBfIPPbtPqEcRMnne4FZmMfk",
+      "name": "Klunkerkranich",
+      "address": "Karl-Marx-Straße 66, 12043 Berlin, Germany",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 8416,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "snack_bar",
+        "beer_garden",
+        "bar",
+        "night_club",
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.482195,
+      "lng": 13.431852399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17956245712628775218&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.klunkerkranich.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "cultural centers",
+        "romantic bars",
+        "sunset date spots",
+        "paint and sip",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "arts-culture",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.92
+    },
+    {
+      "googlePlaceId": "ChIJExpfyL9RqEcROQaM3Ff0a7A",
+      "name": "Futurium",
+      "address": "Alexanderufer 2, 10117 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 12819,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.524087599999994,
+      "lng": 13.374350699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12712523031382853177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.futurium.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.61
+    },
+    {
+      "googlePlaceId": "ChIJrSxP199RqEcRFa8BCrr9-O4",
+      "name": "Berlin Dungeon",
+      "address": "Spandauer Str. 2, 10178 Berlin, Germany",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 11076,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 52.5213206,
+      "lng": 13.4035306,
+      "googleMapsUri": "https://maps.google.com/?cid=17219792150724718357&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thedungeons.com/berlin/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.6
+    },
+    {
+      "googlePlaceId": "ChIJtTXiYzlOqEcR7JQ6fV-DRLA",
+      "name": "Holzmarkt 25",
+      "address": "Holzmarktstraße 25, 10243 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 12760,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "beer_garden",
+        "park",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.511543499999995,
+      "lng": 13.4268548,
+      "googleMapsUri": "https://maps.google.com/?cid=12701421295237764332&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.holzmarkt.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "cultural centers",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJXwgrtYpRqEcRlHjqNnB3a9U",
+      "name": "100 GRAMM Bar",
+      "address": "Weinbergsweg 25, 10119 Berlin, Germany",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 4347,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "catering_service",
+        "live_music_venue",
+        "food_delivery",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 52.5306534,
+      "lng": 13.401757,
+      "googleMapsUri": "https://maps.google.com/?cid=15378516676428069012&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://100grammbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.21
+    },
+    {
+      "googlePlaceId": "ChIJm1TpwwFPqEcRU0r4kZYkODU",
+      "name": "Sandbox VR Berlin",
+      "address": "Tamara-Danz-Str. 11, 10243 Berlin, Germany",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1721,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5056613,
+      "lng": 13.4460638,
+      "googleMapsUri": "https://maps.google.com/?cid=3834855311818639955&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/berlin",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.19
+    },
+    {
+      "googlePlaceId": "ChIJZ4w__M8jZUERE7WaomeuxqU",
+      "name": "Sphere Tim Raue",
+      "address": "Alexanderplatz, Panoramastraße 1A, 10178 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 9035,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "german_restaurant",
+      "types": [
+        "german_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5208204,
+      "lng": 13.409367699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11945426821779731731&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tv-turm.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.02
+    },
+    {
+      "googlePlaceId": "ChIJo-eHdyBOqEcR4D16krRocKg",
+      "name": "Bebelplatz",
+      "address": "Unter den Linden, 10117 Berlin, Germany",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 15938,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.516616199999994,
+      "lng": 13.394147,
+      "googleMapsUri": "https://maps.google.com/?cid=12137316120524373472&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.berlin.de/sehenswuerdigkeiten/3561138-3558930-bebelplatz.html",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJ_S5uaxJOqEcRdg-gu1fEgcI",
+      "name": "Volkspark Friedrichshain",
+      "address": "10249 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 15915,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5280353,
+      "lng": 13.436393400000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14015699396442722166&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlin.de/sehenswuerdigkeiten/3560363-3558930-volkspark-friedrichshain.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJ71LfPyRQqEcREPzINNw8hII",
+      "name": "Viktoria Park",
+      "address": "Katzbachstraße, 10965 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 12534,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "state_park",
+        "city_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.488226999999995,
+      "lng": 13.380014399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9404708838332496912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlin.de/senuvk/umwelt/stadtgruen/gruenanlagen/de/gruenanlagen_plaetze/kreuzberg/viktoriapark/index.shtml",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.9
+    },
+    {
+      "googlePlaceId": "ChIJA-K5lEpQqEcRHGv7ScsVIXs",
+      "name": "Restaurant Facil",
+      "address": "Potsdamer Str. 3, 10785 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1230,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5089804,
+      "lng": 13.37369,
+      "googleMapsUri": "https://maps.google.com/?cid=8872396703760345884&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://facil.de/de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJywdI5etRqEcRUVD-ycuGL6M",
+      "name": "Schnitzelei Mitte",
+      "address": "Chausseestr. 8 Hinterhof erreichbar über: Chausseestr. 8 oder, Novalisstraße 11, 10115 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7335,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "german_restaurant",
+      "types": [
+        "german_restaurant",
+        "tapas_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5285831,
+      "lng": 13.387885299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11758765361913024593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://schnitzelei.de/mitte/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.88
+    },
+    {
+      "googlePlaceId": "ChIJW2oZB8ZRqEcRyFvuEpCnNBQ",
+      "name": "Memorial to the Murdered Jews of Europe",
+      "address": "Cora-Berliner-Straße 1, 10117 Berlin, Germany",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 48985,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "cultural_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5139474,
+      "lng": 13.3787126,
+      "googleMapsUri": "https://maps.google.com/?cid=1455972816782253000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.stiftung-denkmal.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJV5veJQBPqEcRbBXEeGnCPoE",
+      "name": "Beast Berlin",
+      "address": "Karl-Liebknecht-Str. 29, 10178 Berlin, Germany",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 1740,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "barbecue_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.524768699999996,
+      "lng": 13.4121757,
+      "googleMapsUri": "https://maps.google.com/?cid=9313094837702235500&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://beast-berlin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.77
+    },
+    {
+      "googlePlaceId": "ChIJ6w8lPm5RqEcRqAOszOrK_dA",
+      "name": "Deutschlandmuseum",
+      "address": "Leipziger Pl. 7, 10117 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4252,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "adventure_sports_center",
+        "amusement_park",
+        "history_museum",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5087602,
+      "lng": 13.3783615,
+      "googleMapsUri": "https://maps.google.com/?cid=15059415838801789864&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.deutschlandmuseum.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.69
+    },
+    {
+      "googlePlaceId": "ChIJbVDuQcdRqEcR5X3xq9NSG2Q",
+      "name": "Reichstag Building",
+      "address": "Platz der Republik 1, 11011 Berlin, Germany",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 9876,
+      "priceLevel": null,
+      "primaryType": "government_office",
+      "types": [
+        "government_office",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5186202,
+      "lng": 13.3761871,
+      "googleMapsUri": "https://maps.google.com/?cid=7213450297240288741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bundestag.de/besuche/architektur/reichstag/",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.67
+    },
+    {
+      "googlePlaceId": "ChIJB0YLe-lRqEcRIi1O4MkOwOo",
+      "name": "Pantry",
+      "address": "Friedrichstraße 120, 10117 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1094,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "barbecue_restaurant",
+        "cocktail_bar",
+        "fusion_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "german_restaurant",
+        "european_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.526615,
+      "lng": 13.3868762,
+      "googleMapsUri": "https://maps.google.com/?cid=16915536460618018082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pantry-berlin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.56
+    },
+    {
+      "googlePlaceId": "ChIJI3j-erlRqEcRGyL6CQHYGO8",
+      "name": "TIPI AM KANZLERAMT Berlin",
+      "address": "Große Querallee, 10557 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3955,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "comedy_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5184527,
+      "lng": 13.3671312,
+      "googleMapsUri": "https://maps.google.com/?cid=17228757873479787035&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tipi-am-kanzleramt.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.49
+    },
+    {
+      "googlePlaceId": "ChIJzdgmXNFRqEcRyIl9R0IApSM",
+      "name": "Checkpoint Charlie",
+      "address": "Friedrichstraße 43-45, 10117 Berlin, Germany",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.1,
+      "reviewCount": 95636,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5074434,
+      "lng": 13.3903913,
+      "googleMapsUri": "https://maps.google.com/?cid=2568459447151987144&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berlin.de/sehenswuerdigkeiten/3560059-3558930-checkpoint-charlie.html",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJl3Fsw29QqEcRFB1NVkDkpeE",
+      "name": "Zig Zag Jazz Club Berlin",
+      "address": "Hauptstraße 89, 12159 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 4007,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.474941,
+      "lng": 13.3398828,
+      "googleMapsUri": "https://maps.google.com/?cid=16259652994667978004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.zigzag-jazzclub.berlin/",
+      "openNow": true,
+      "matchedQueries": [
+        "jazz clubs",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.33
+    },
+    {
+      "googlePlaceId": "ChIJFVk_su0EqEcRkb0vdZKGFCA",
+      "name": "Tropical Islands",
+      "address": "Tropical-Islands-Allee 1, 15910 Krausnick-Groß Wasserburg, Germany",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 3.9,
+      "reviewCount": 62191,
+      "priceLevel": null,
+      "primaryType": "water_park",
+      "types": [
+        "water_park",
+        "sauna",
+        "amusement_center",
+        "hotel",
+        "amusement_park",
+        "swimming_pool",
+        "public_bath",
+        "tourist_attraction",
+        "spa",
+        "sports_activity_location",
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": 52.038993,
+      "lng": 13.748653000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2311620472337317265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tropical-islands.de/?utm_id=GMBtraffic&utm_medium=OrganicGMB&utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJx3iXOMxRqEcRSGbJBczVSzc",
+      "name": "Topography of Terror",
+      "address": "Niederkirchnerstraße 8, 10963 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 40062,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.506747,
+      "lng": 13.3837099,
+      "googleMapsUri": "https://maps.google.com/?cid=3984513367586465352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.topographie.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJZ7RAZvxRqEcROs1TBIEFlC0",
+      "name": "Lobby Lounge & Bar Hotel Adlon",
+      "address": "Unter den Linden 77, 10117 Berlin, Germany",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 3897,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "cafe",
+        "night_club",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.516206399999994,
+      "lng": 13.3805,
+      "googleMapsUri": "https://maps.google.com/?cid=3284256079941455162&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kempinski.com/en/hotel-adlon/restaurants-bars/lobby-lounge-bar?utm_medium=organic&utm_source=google&utm_campaign=KIBER2&utm_content=gmb&source=S308962248",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJG3uBla9PqEcRK33OKMyyeCo",
+      "name": "VR Arena - Another World Berlin",
+      "address": "Oranienstraße 183/3. Hinterhof, Aufgang D (links), 3. Etage, 10999 Berlin, Germany",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 651,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5001014,
+      "lng": 13.420350099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3060392536725945643&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://berlin.another-world.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJQ2g8mO9RqEcRpOSC8NXG7io",
+      "name": "Katz Orange",
+      "address": "Bergstraße 22, 10115 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2898,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "german_restaurant",
+      "types": [
+        "german_restaurant",
+        "european_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5314438,
+      "lng": 13.394624499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3093628616215553188&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.katzorange.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJbTLweuNRqEcRiaNAPjuqhB4",
+      "name": "PeterPaul",
+      "address": "Torstraße 99, 10119 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1315,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "german_restaurant",
+      "types": [
+        "german_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.529979399999995,
+      "lng": 13.404265899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2199069689487860617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://peterpaul.berlin/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.98
+    },
+    {
+      "googlePlaceId": "ChIJE1RFJflQqEcRDl6vEXx7bqk",
+      "name": "Maxxim",
+      "address": "Joachimsthaler Str. 15, 10719 Berlin, Germany",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 5208,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.501913099999996,
+      "lng": 13.3308153,
+      "googleMapsUri": "https://maps.google.com/?cid=12208831412650860046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.maxxim-berlin.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.92
+    },
+    {
+      "googlePlaceId": "ChIJB-UVvM5RqEcRWpnQuzXqXt0",
+      "name": "German Spy Museum",
+      "address": "Leipziger Pl. 9, 10117 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 19143,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "history_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.508922,
+      "lng": 13.379308199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15951444446698051930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.deutsches-spionagemuseum.de/?utm_source=local&utm_medium=organic&utm_campaign=gmb-website-button",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.89
+    },
+    {
+      "googlePlaceId": "ChIJ5xaQvsRRqEcRN8-Wy6L3dEE",
+      "name": "Nante-Eck | Restaurant Berlin Mitte",
+      "address": "Unter den Linden 35, 10117 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5930,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "german_restaurant",
+      "types": [
+        "german_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.516672199999995,
+      "lng": 13.388301,
+      "googleMapsUri": "https://maps.google.com/?cid=4716666988336172855&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nante-eck.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJM60oqdJRqEcRbCfOX8Hg96o",
+      "name": "Tempodrom",
+      "address": "Möckernstraße 10, 10963 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 12243,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.501625999999995,
+      "lng": 13.381228,
+      "googleMapsUri": "https://maps.google.com/?cid=12319562426835937132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tempodrom.de/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.73
+    },
+    {
+      "googlePlaceId": "ChIJMSwDTudRqEcRz6qTF1A-3CU",
+      "name": "Restaurant Dae Mon",
+      "address": "Monbijoupl. 11, 10178 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 788,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fusion_restaurant",
+      "types": [
+        "fusion_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.52276990000001,
+      "lng": 13.399358,
+      "googleMapsUri": "https://maps.google.com/?cid=2728123987993537231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dae-mon.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.64
+    },
+    {
+      "googlePlaceId": "ChIJ85FCdSVRqEcRGv55KkmuuIs",
+      "name": "Charlottenburg Palace",
+      "address": "Spandauer Damm 10-22, 14059 Berlin, Germany",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 31064,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5209319,
+      "lng": 13.2956165,
+      "googleMapsUri": "https://maps.google.com/?cid=10067988596255227418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spsg.de/schloesser-gaerten/objekt/schloss-charlottenburg-altes-schloss",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.56
+    },
+    {
+      "googlePlaceId": "ChIJlywkys9RqEcR-E9kCez9oM0",
+      "name": "Byblos Restaurant Berlin by Nassib Fadel",
+      "address": "Spichernstraße 24, 10777 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 2805,
+      "priceLevel": null,
+      "primaryType": "lebanese_restaurant",
+      "types": [
+        "lebanese_restaurant",
+        "wine_bar",
+        "cocktail_bar",
+        "vegetarian_restaurant",
+        "halal_restaurant",
+        "bar_and_grill",
+        "mediterranean_restaurant",
+        "middle_eastern_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.49768170000001,
+      "lng": 13.3340756,
+      "googleMapsUri": "https://maps.google.com/?cid=14817121964260610040&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://byblosrestaurantberlin.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.32
+    },
+    {
+      "googlePlaceId": "ChIJOwzNtsNLqEcR5oI4qHhyuxU",
+      "name": "Gardens of the World",
+      "address": "Blumberger Damm 44, 12685 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 22370,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "botanical_garden",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5379611,
+      "lng": 13.5692782,
+      "googleMapsUri": "https://maps.google.com/?cid=1565971157985297126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gaertenderwelt.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.28
+    },
+    {
+      "googlePlaceId": "ChIJzfw4cNBRqEcR7fwXfYYScu4",
+      "name": "Restaurant Maximilians Berlin",
+      "address": "Friedrichstraße 185-190, 10117 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 13003,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bavarian_restaurant",
+      "types": [
+        "bavarian_restaurant",
+        "beer_garden",
+        "german_restaurant",
+        "european_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.511405499999995,
+      "lng": 13.3892688,
+      "googleMapsUri": "https://maps.google.com/?cid=17181815897205505261&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.maximilians-berlin.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.25
+    },
+    {
+      "googlePlaceId": "ChIJ3eWqqpRRqEcRjILZ3j4y0Hs",
+      "name": "Museum für Naturkunde Berlin",
+      "address": "Invalidenstraße 43, 10115 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7001,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "research_institute",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5305726,
+      "lng": 13.379175499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8921686107429110412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museumfuernaturkunde.berlin/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.25
+    },
+    {
+      "googlePlaceId": "ChIJlXHHz5xRqEcRgl7PRtlkPPU",
+      "name": "Upper Grill & Bar",
+      "address": "Oranienburger Str. 4, 10178 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3930,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "barbecue_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "hamburger_restaurant",
+        "bar",
+        "american_restaurant",
+        "steak_house",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5238777,
+      "lng": 13.400953399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17671109922253659778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://uppergrill.bar/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.17
+    },
+    {
+      "googlePlaceId": "ChIJ-RAVYVVQqEcRIfxE6EjRZ38",
+      "name": "NENI Berlin",
+      "address": "Budapester Str. 40, 10787 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 4661,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "israeli_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.505658100000005,
+      "lng": 13.337894799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9180536476482731041&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nenifood.com/restaurants/berlin",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJK_QFBbZRqEcRZgBlwtwfnv0",
+      "name": "Philharmonie Berlin",
+      "address": "Herbert-von-Karajan-Straße 1, 10785 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 12232,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.510031899999994,
+      "lng": 13.369693,
+      "googleMapsUri": "https://maps.google.com/?cid=18275079370930716774&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.berliner-philharmoniker.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJ328jQ2BRqEcRhtcplP6VfIs",
+      "name": "Coccodrillo",
+      "address": "Veteranenstraße 9, 10119 Berlin, Germany",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 17812,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "family_restaurant",
+        "mediterranean_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 52.532335499999995,
+      "lng": 13.401728499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10051073389024106374&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigmammagroup.com/italian-restaurants/coccodrillo-berlin?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJM2I85TpOqEcRhpuXVCrbvtA",
+      "name": "Kraftwerk Berlin",
+      "address": "Köpenicker Str. 70, 10179 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1584,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5104936,
+      "lng": 13.4202274,
+      "googleMapsUri": "https://maps.google.com/?cid=15041700780318366598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kraftwerkberlin.de/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJZ5QEJ19PqEcR0ciT7zE11sE",
+      "name": "Mio Berlin",
+      "address": "Panoramastraße 1a, 10179 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 4370,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cafe",
+        "italian_restaurant",
+        "ice_cream_shop",
+        "bar",
+        "dessert_shop",
+        "confectionery",
+        "event_venue",
+        "food_store",
+        "store",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 52.5208357,
+      "lng": 13.4094084,
+      "googleMapsUri": "https://maps.google.com/?cid=13967409782925281489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mioberlin.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "food halls",
+        "popular dessert spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJyZXViNtRqEcRcSwNBFp7GYE",
+      "name": "Berlin State Opera",
+      "address": "Unter den Linden 7, 10117 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5030,
+      "priceLevel": null,
+      "primaryType": "opera_house",
+      "types": [
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "tourist_attraction",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5171049,
+      "lng": 13.394703,
+      "googleMapsUri": "https://maps.google.com/?cid=9302602131855715441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.staatsoper-berlin.de/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.77
+    },
+    {
+      "googlePlaceId": "ChIJBZen5B9OqEcRuS401DOfy1U",
+      "name": "Oase Deluxe I Cocktailbar Alexanderplatz",
+      "address": "Karl-Liebknecht-Str. 11, 10178 Berlin, Germany",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1581,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "dance_hall",
+        "karaoke",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5217594,
+      "lng": 13.407391899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6182209958448475833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://oasecocktail-berlin.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.75
+    },
+    {
+      "googlePlaceId": "ChIJLbrkMMpRqEcRmnxeOTxwk0w",
+      "name": "Le Petit Chef",
+      "address": "Marlene-Dietrich-Platz 2, 10785 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 552,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "performing_arts_theater",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5078775,
+      "lng": 13.3724986,
+      "googleMapsUri": "https://maps.google.com/?cid=5517877372421831834&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lepetitchef.com/berlin/?utm_source=google&utm_medium=local&utm_campaign=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.63
+    },
+    {
+      "googlePlaceId": "ChIJcTam3ZlRqEcR68Oox2o8BpA",
+      "name": "EXIT - Live Escape Game",
+      "address": "Friedrichstraße 101, 10117 Berlin, Germany",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1741,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.520965499999996,
+      "lng": 13.3887939,
+      "googleMapsUri": "https://maps.google.com/?cid=10378048820635812843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.exit-game.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.62
+    },
+    {
+      "googlePlaceId": "ChIJE9AVed5RqEcRht4HHiMNiYg",
+      "name": "UNESCO Weltkulturerbe Museumsinsel",
+      "address": "Bodestraße, 10178 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3224,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5195605,
+      "lng": 13.3988917,
+      "googleMapsUri": "https://maps.google.com/?cid=9838409305446407814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museumsinsel-berlin.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 84.61
+    },
+    {
+      "googlePlaceId": "ChIJJ7T1BFVQqEcR1Xze1phIANg",
+      "name": "Samurai Museum Berlin",
+      "address": "Auguststraße 68, 10117 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3180,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5268094,
+      "lng": 13.3952948,
+      "googleMapsUri": "https://maps.google.com/?cid=15564520133469568213&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://samuraimuseum.de/?utm_source=google_profile&utm_campaign=localo&utm_medium=mainlink",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.57
+    },
+    {
+      "googlePlaceId": "ChIJP5ILdrVRqEcR3N9mlK-56sE",
+      "name": "New National Gallery",
+      "address": "Potsdamer Str. 50, 10785 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6197,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5069946,
+      "lng": 13.367604,
+      "googleMapsUri": "https://maps.google.com/?cid=13973184957630570460&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.smb.museum/museen-einrichtungen/neue-nationalgalerie/home/",
+      "openNow": false,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.51
+    },
+    {
+      "googlePlaceId": "ChIJx_-OilBOqEcRYmUROWNMgNg",
+      "name": "Matrix Club Berlin",
+      "address": "Warschauer Pl. 18, 10245 Berlin, Germany",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4,
+      "reviewCount": 11863,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5046514,
+      "lng": 13.4493349,
+      "googleMapsUri": "https://maps.google.com/?cid=15600553098254312802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.matrix-berlin.de/",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.49
+    },
+    {
+      "googlePlaceId": "ChIJ3b92pjZJqEcR3P-0LbMptL8",
+      "name": "Tierpark Berlin",
+      "address": "Am Tierpark 125, 10319 Berlin, Germany",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 30660,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5021834,
+      "lng": 13.5314733,
+      "googleMapsUri": "https://maps.google.com/?cid=13813711806594875356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tierpark-berlin.de/de",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.42
+    },
+    {
+      "googlePlaceId": "ChIJV4_rtsRRqEcRIKoaNDZ0VnQ",
+      "name": "Cookies Cream",
+      "address": "Behrenstraße 55, 10117 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1408,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5157102,
+      "lng": 13.3877054,
+      "googleMapsUri": "https://maps.google.com/?cid=8383015532547975712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cookiescream.com/de/?utm_source=gbm&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.42
+    },
+    {
+      "googlePlaceId": "ChIJqc2JIkRPqEcRLdpX7ohXL0U",
+      "name": "DARK MATTER",
+      "address": "Köpenicker Ch 46, 10317 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6170,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.4927414,
+      "lng": 13.492695399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4985299558148332077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.darkmatter.berlin/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.25
+    },
+    {
+      "googlePlaceId": "ChIJ-RAVYVVQqEcRPZ3e-XXyPbg",
+      "name": "Monkey Bar",
+      "address": "Budapester Str. 40, 10787 Berlin, Germany",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.1,
+      "reviewCount": 7332,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.5056454,
+      "lng": 13.337854499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13276033865075301693&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.monkeybarberlin.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.23
+    },
+    {
+      "googlePlaceId": "ChIJS8OUk91RqEcRNauNAPV5P40",
+      "name": "Neues Museum",
+      "address": "Bodestraße 1-3, 10178 Berlin, Germany",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 15127,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.520134899999995,
+      "lng": 13.397646199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10177987776063843125&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.smb.museum/museen-einrichtungen/neues-museum/home/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.18
+    },
+    {
+      "googlePlaceId": "ChIJE1SsOnZPqEcRzCUQGqktYH0",
+      "name": "Laserstar® Berlin Lasertag, Abenteuer Minigolf, Escape Rooms & Arcade Games",
+      "address": "Karl-Marx-Straße 255, 12057 Berlin, Germany",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 5752,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "bistro",
+        "miniature_golf_course",
+        "amusement_center",
+        "sports_complex",
+        "supplier",
+        "sports_activity_location",
+        "manufacturer",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 52.4661325,
+      "lng": 13.4426361,
+      "googleMapsUri": "https://maps.google.com/?cid=9034271056815203788&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://laserstar.rocks/berlin",
+      "openNow": false,
+      "matchedQueries": [
+        "mini golf"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.1
+    },
+    {
+      "googlePlaceId": "ChIJT02g-LdPqEcRNhorxJsXyxg",
+      "name": "Huxleys Neue Welt",
+      "address": "Hasenheide 107/113, 10967 Berlin, Germany",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6816,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.486418199999996,
+      "lng": 13.421531,
+      "googleMapsUri": "https://maps.google.com/?cid=1786547634961062454&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://huxleysneuewelt.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.08
+    },
+    {
+      "googlePlaceId": "ChIJjfrdZphRqEcRT6O7Rn8rVLI",
+      "name": "Vabali",
+      "address": "Seydlitzstraße 6, 10557 Berlin, Germany",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.5,
+      "reviewCount": 14391,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.528522099999996,
+      "lng": 13.3593514,
+      "googleMapsUri": "https://maps.google.com/?cid=12849943462442410831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vabali.de/berlin/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 84.04
+    },
+    {
+      "googlePlaceId": "ChIJU310oQZRqEcR0B4vanxHCTY",
+      "name": "LVL World of Gaming - Berlin",
+      "address": "Schützenstraße 73, 10117 Berlin, Germany",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 654,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "hamburger_restaurant",
+        "cocktail_bar",
+        "video_arcade",
+        "movie_theater",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 52.508738699999995,
+      "lng": 13.3908872,
+      "googleMapsUri": "https://maps.google.com/?cid=3893721952521494224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lvl.global/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.01
+    },
+    {
+      "googlePlaceId": "ChIJd65mbYlPqEcRlDrFKwi3Yzw",
+      "name": "DeJa Vu Museum",
+      "address": "Rochstraße 14c, 10178 Berlin, Germany",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 9422,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.522798599999994,
+      "lng": 13.4075043,
+      "googleMapsUri": "https://maps.google.com/?cid=4351522910691998356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dejavumuseum.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJt4VZ0U1OqEcRkg1EbzcZyvU",
+      "name": "Duo Sicilian Ice Cream",
+      "address": "Skalitzer Str. 82, 10997 Berlin, Germany",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 7766,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 52.5006767,
+      "lng": 13.4388173,
+      "googleMapsUri": "https://maps.google.com/?cid=17710996210468523410&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.duoicecream.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.84
+    },
+    {
+      "googlePlaceId": "ChIJvSuCkWNRqEcRF5CLT6TVIWs",
+      "name": "Guruwalk S.L.",
+      "address": "Unter den Linden 21, 10117 Berlin, Germany",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1486,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 52.5166207,
+      "lng": 13.3897757,
+      "googleMapsUri": "https://maps.google.com/?cid=7719686137975640087&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.guruwalk.com/berlin?ref=500196c4cgrnyn29pnr4&ref_campaign=berlin",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.78
+    },
+    {
+      "googlePlaceId": "ChIJoVJVtDhPqEcRqdDVp5yCxfA",
+      "name": "Vorwerck Restaurant - Dine & Show",
+      "address": "Karl-Marx-Straße 131, 12043 Berlin, Germany",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 855,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.477581900000004,
+      "lng": 13.4391316,
+      "googleMapsUri": "https://maps.google.com/?cid=17349416748857020585&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vorwerck-berlin.de/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.72
+    },
+    {
+      "googlePlaceId": "ChIJLQhWKi5RqEcRuLWq4wG9HDE",
+      "name": "Schlossgarten Charlottenburg",
+      "address": "Spandauer Damm 10-22, 14059 Berlin, Germany",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 10695,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "state_park",
+        "garden",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 52.523866399999996,
+      "lng": 13.2924939,
+      "googleMapsUri": "https://maps.google.com/?cid=3538911223018599864&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spsg.de/schloesser-gaerten/objekt/schlossgarten-charlottenburg/",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.65
+    }
+  ]
+}

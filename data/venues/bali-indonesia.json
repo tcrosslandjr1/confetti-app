@@ -1,0 +1,3544 @@
+{
+  "location": "Bali, Indonesia",
+  "generatedAt": "2026-05-17T19:57:44.520Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJq95xT4I30i0RaU3j93Diq8o",
+      "name": "Tanah Lot",
+      "address": "Beraban, Kediri, Tabanan Regency, Bali 82121, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 102330,
+      "priceLevel": null,
+      "primaryType": "hindu_temple",
+      "types": [
+        "hindu_temple",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.621213,
+      "lng": 115.086807,
+      "googleMapsUri": "https://maps.google.com/?cid=14604015191502048617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tanahlot.id/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJSRrSTuNH0i0RX7GpKfK5k0k",
+      "name": "FINNS Beach Club",
+      "address": "Jl. Pantai Berawa No.99, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 45140,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6667652,
+      "lng": 115.13939839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5301785636077416799&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wa.me/6287871447042",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "best cocktail bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "trivia nights",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 98.22
+    },
+    {
+      "googlePlaceId": "ChIJx97hVM9E0i0RUVpPBj5miBk",
+      "name": "Garuda Wisnu Kencana Cultural Park",
+      "address": "Jl. Raya Uluwatu, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80364, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 70801,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.8104228,
+      "lng": 115.16759859999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1839832864360716881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gwkbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.38
+    },
+    {
+      "googlePlaceId": "ChIJR7MWORA90i0Rj7ugb0Lss4g",
+      "name": "This Is Bali - Balinese Food & Desserts",
+      "address": "Jl. Goutama No.2, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 16369,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "indonesian_restaurant",
+      "types": [
+        "indonesian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5081513,
+      "lng": 115.2642473,
+      "googleMapsUri": "https://maps.google.com/?cid=9850476580074208143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thisbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 97.34
+    },
+    {
+      "googlePlaceId": "ChIJZ5sY9kM90i0RVsPvSxZD7LY",
+      "name": "Sacred Monkey Forest Sanctuary",
+      "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 58643,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5193727,
+      "lng": 115.26062990000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13180983972448944982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://monkeyforestubud.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.81
+    },
+    {
+      "googlePlaceId": "ChIJVwisn2yJ0S0RUxvb5GhlJBg",
+      "name": "Ulun Danu Beratan Temple",
+      "address": "Candikuning, Baturiti, Tabanan Regency, Bali, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 50869,
+      "priceLevel": null,
+      "primaryType": "hindu_temple",
+      "types": [
+        "hindu_temple",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.2751807,
+      "lng": 115.16682340000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1739626857262422867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.98
+    },
+    {
+      "googlePlaceId": "ChIJ3WIjMitH0i0RSQ9H29oFhl8",
+      "name": "The Goat Seminyak",
+      "address": "Jl. Kayu Aya A Oberoi No.176, Kerobokan Kelod, Seminyak, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 9064,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pub",
+      "types": [
+        "pub",
+        "sports_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.683911,
+      "lng": 115.16265000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6883195518022258505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegoatbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "events tonight",
+        "live music events",
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.55
+    },
+    {
+      "googlePlaceId": "ChIJ34KP7qNG0i0RpX9A85PWkRI",
+      "name": "Waterbom Bali",
+      "address": "Jl. Kartika Plaza, Kuta, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 18150,
+      "priceLevel": null,
+      "primaryType": "water_park",
+      "types": [
+        "water_park",
+        "tourist_attraction",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.728581499999999,
+      "lng": 115.1692888,
+      "googleMapsUri": "https://maps.google.com/?cid=1338086495235375013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://waterbom-bali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.45
+    },
+    {
+      "googlePlaceId": "ChIJhY50BH9H0i0RCdXsyoE0uGU",
+      "name": "Atlas Beach Club",
+      "address": "Jl. Pantai Berawa No.88, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 16672,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.665529,
+      "lng": 115.13812370000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7329666125605426441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://atlasbeachfest.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "sunset date spots",
+        "game night venues",
+        "luxury lounges",
+        "bottle service",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.2
+    },
+    {
+      "googlePlaceId": "ChIJ_XZL_xFH0i0RTo0EWBqsnRs",
+      "name": "Potato Head Beach Club",
+      "address": "Jl. Petitenget No.51B, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 23399,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": null,
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6794353,
+      "lng": 115.1499342,
+      "googleMapsUri": "https://maps.google.com/?cid=1989935839513447758&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seminyak.potatohead.co/feast/beach-club?utm_source=google&utm_medium=gmb&utm_campaign=potato-head-beach-club&utm_term=restaurant&utm_content=landing-page",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "family friendly things to do",
+        "romantic bars",
+        "sunset date spots",
+        "trivia nights",
+        "luxury lounges",
+        "events this weekend",
+        "things to do this weekend",
+        "seasonal pop ups",
+        "street fairs",
+        "local events",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "family-kids",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 95.12
+    },
+    {
+      "googlePlaceId": "ChIJGYdvhUBF0i0RnjYUd0m8u58",
+      "name": "El Kabron",
+      "address": "Jl. Pantai Cemongkak, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 13321,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": null,
+      "types": [
+        "seafood_restaurant",
+        "live_music_venue",
+        "spanish_restaurant",
+        "association_or_organization",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.8018997,
+      "lng": 115.1173509,
+      "googleMapsUri": "https://maps.google.com/?cid=11510000296391882398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elkabron.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "live music events",
+        "sunset date spots",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 94.51
+    },
+    {
+      "googlePlaceId": "ChIJtTFh4PQY0i0RwewUdwFaolM",
+      "name": "Pura Tirta Empul",
+      "address": "Tampaksiring, Gianyar Regency, Bali 80552, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 29632,
+      "priceLevel": null,
+      "primaryType": "hindu_temple",
+      "types": [
+        "hindu_temple",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.4156589,
+      "lng": 115.3153284,
+      "googleMapsUri": "https://maps.google.com/?cid=6026478213714472129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 94.34
+    },
+    {
+      "googlePlaceId": "ChIJkYHLIPxP0i0RlQTbpxuNuQw",
+      "name": "Uluwatu Temple",
+      "address": "Pecatu, South Kuta, Badung Regency, Bali, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 51925,
+      "priceLevel": null,
+      "primaryType": "hindu_temple",
+      "types": [
+        "hindu_temple",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.829143199999999,
+      "lng": 115.08490690000001,
+      "googleMapsUri": "https://maps.google.com/?cid=916919149066388629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.29
+    },
+    {
+      "googlePlaceId": "ChIJOX0fuEYU0i0R7FQubHicszQ",
+      "name": "The Amazing Taman Safari Bali",
+      "address": "Jl. Prof. Dr. Ida Bagus Mantra No.19, Serongga, Kec. Blahbatuh, Kabupaten Gianyar, Bali 80515, Indonesia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 24022,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "amusement_center",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5822029,
+      "lng": 115.34725729999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3797550951828444396&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tamansafari.com/taman-safari-bali/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 94.1
+    },
+    {
+      "googlePlaceId": "ChIJ4wD5Iwsi0i0R7QRsOGmJGo0",
+      "name": "Tegallalang Rice Terrace",
+      "address": "Jl. Raya Tegallalang, Tegallalang, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 53233,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.431711199999999,
+      "lng": 115.279303,
+      "googleMapsUri": "https://maps.google.com/?cid=10167590193753490669&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.92
+    },
+    {
+      "googlePlaceId": "ChIJoeoD4wFF0i0RTVXPW1YXjP0",
+      "name": "Hatch Uluwatu",
+      "address": "Jl. Labuansait No.54, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 7614,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "night_club",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.814356799999999,
+      "lng": 115.112087,
+      "googleMapsUri": "https://maps.google.com/?cid=18270003448010200397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hatchuluwatu.com/bookings",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "game night venues",
+        "game bars",
+        "local events",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.92
+    },
+    {
+      "googlePlaceId": "ChIJD0zF-k4-0i0RLDhW9qwgiV8",
+      "name": "Bali Bird Park",
+      "address": "Jl. Serma Cok Ngurah Gambir Singapadu, Jl. Bird Park, Batubulan, Kec. Sukawati, Kabupaten Gianyar, Bali 80582, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 14002,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "wildlife_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5996431,
+      "lng": 115.2520569,
+      "googleMapsUri": "https://maps.google.com/?cid=6884069432651823148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.balibirdpark.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.57
+    },
+    {
+      "googlePlaceId": "ChIJpaq6LTxH0i0R-sLTkZu2JjY",
+      "name": "ShiShi Nightclub & Izakaya Lounge",
+      "address": "Jl. Petitenget No.208X, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 9700,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6772574,
+      "lng": 115.1537929,
+      "googleMapsUri": "https://maps.google.com/?cid=3902006906445873914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.shishibali.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service",
+        "adult nightlife",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.55
+    },
+    {
+      "googlePlaceId": "ChIJqfTkrG4Z0i0RGTQM35oWGTM",
+      "name": "Penglipuran Village",
+      "address": "Jl. Penglipuran, Kubu, Kec. Bangli, Kabupaten Bangli, Bali 80611, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 30457,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.422503899999999,
+      "lng": 115.35975309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3681999024774984729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://penglipuran.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.12
+    },
+    {
+      "googlePlaceId": "ChIJy7e5hxdH0i0RjAOjvEGFCTI",
+      "name": "La Favela",
+      "address": "Jl. Laksamana Basangkasa No.177X, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 20809,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "night_club",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6838942,
+      "lng": 115.162865,
+      "googleMapsUri": "https://maps.google.com/?cid=3605559494070961036&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lafavelabali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "jazz clubs",
+        "romantic bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.57
+    },
+    {
+      "googlePlaceId": "ChIJ8xFMkw1H0i0R99vsgANGkbU",
+      "name": "The Goat Legian",
+      "address": "Jl. Werkudara No.521, Legian, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 5058,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "sports_bar",
+        "pub",
+        "cafe",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6995452,
+      "lng": 115.16667779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13083315373349854199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegoatlegian.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "game night venues",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.28
+    },
+    {
+      "googlePlaceId": "ChIJQ5l7Df1H0i0RdiEgN090Cuw",
+      "name": "The Iron Fairies Bali",
+      "address": "Jl. Petitenget No.19x, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 4035,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "hookah_bar",
+        "cocktail_bar",
+        "lounge_bar",
+        "live_music_venue",
+        "bar",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6771175,
+      "lng": 115.15511939999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17008534826294190454&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theironfairies.co.id/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.99
+    },
+    {
+      "googlePlaceId": "ChIJq6N3zHcf0i0RYHZzviq1TaY",
+      "name": "Pemulan Bali Farm Cooking School, Ubud",
+      "address": "Jl. Raya Patas, Taro, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 3186,
+      "priceLevel": null,
+      "primaryType": "food",
+      "types": [
+        "farmers_market",
+        "tourist_attraction",
+        "cultural_center",
+        "garden",
+        "market",
+        "farm",
+        "educational_institution",
+        "restaurant",
+        "food",
+        "association_or_organization",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.3580667,
+      "lng": 115.3004526,
+      "googleMapsUri": "https://maps.google.com/?cid=11983433378691249760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pemulanbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "cultural centers",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "learning-classes"
+      ],
+      "popularityScore": 91.72
+    },
+    {
+      "googlePlaceId": "ChIJWyomITtD0i0RvhGZyTEFy8Q",
+      "name": "Zahra Spa Nusa Dua",
+      "address": "Jl. Nusa Dua, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 33413,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "massage",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.798589800000002,
+      "lng": 115.2241845,
+      "googleMapsUri": "https://maps.google.com/?cid=14180433563099926974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zahraspa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 91.25
+    },
+    {
+      "googlePlaceId": "ChIJk41ld9Fb0i0RStb1NFpDAno",
+      "name": "Tropical Temptation - Adult Only Beach Club by Wonderspace",
+      "address": "Melasti Beach 88, Uluwatu, Jl. Melasti, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 7915,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "night_club",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.848148499999999,
+      "lng": 115.1603641,
+      "googleMapsUri": "https://maps.google.com/?cid=8791663477295273546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ttbeach.club/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "luxury lounges",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.19
+    },
+    {
+      "googlePlaceId": "ChIJDSEiPAyJ0S0RxX3GamOTQ4k",
+      "name": "Bali Botanical Garden",
+      "address": "Jl. Kebun Raya, Candikuning, Kec. Baturiti, Kabupaten Tabanan, Bali 82191, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 18109,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.276121500000002,
+      "lng": 115.15420289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9890911261838179781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kebunraya.id/bali",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature"
+      ],
+      "popularityScore": 91.1
+    },
+    {
+      "googlePlaceId": "ChIJGQ6sdIdA0i0RHsllnemsju4",
+      "name": "Werdhi Budaya Art Centre",
+      "address": "Jl. Nusa Indah No.1, Sumerta Kelod, Kec. Denpasar Tim., Kota Denpasar, Bali 80236, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 9870,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6555237,
+      "lng": 115.23437480000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17189866947087812894&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91
+    },
+    {
+      "googlePlaceId": "ChIJ-9cMAqsn0i0RmoPm81-HDy8",
+      "name": "Jatiluwih Rice Terraces",
+      "address": "Jl. Jatiluwih Kawan, Jatiluwih, Kec. Penebel, Kabupaten Tabanan, Bali 82152, Indonesia",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 14717,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.3700942,
+      "lng": 115.1312269,
+      "googleMapsUri": "https://maps.google.com/?cid=3391077890616886170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://jatiluwih.id/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.92
+    },
+    {
+      "googlePlaceId": "ChIJE3N6eqhG0i0RckSPuw726-A",
+      "name": "The Keranjang Bali",
+      "address": "Jl. Bypass Ngurah Rai No.97, Kuta, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.8,
+      "reviewCount": 42616,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "shopping_mall",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.7317862,
+      "lng": 115.17800029999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16207318227159565426&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thekeranjangbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 90.89
+    },
+    {
+      "googlePlaceId": "ChIJhwAqoysh0i0R70f2yLfD06s",
+      "name": "Secret Garden Village",
+      "address": "Jl. Raya Denpasar Bedugul No.Km. 36, Mekarsari, Kec. Baturiti, Kabupaten Tabanan, Bali 82191, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5541,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "cosmetics_store",
+        "cafe",
+        "wedding_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.3726635,
+      "lng": 115.1932669,
+      "googleMapsUri": "https://maps.google.com/?cid=12381454994689640431&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.secretgarden.co.id/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "cultural centers",
+        "immersive experiences",
+        "best parks",
+        "scenic walks",
+        "family friendly things to do",
+        "viral food spots",
+        "popular dessert spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.75
+    },
+    {
+      "googlePlaceId": "ChIJu_qOPVQR0i0RakIDyqqGB50",
+      "name": "Asri Dining by Samanvaya",
+      "address": "Banjar Tabola, Telaga Tawang, Kec. Sidemen, Kabupaten Karangasem, Bali 80864, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 3231,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "indonesian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.4747729,
+      "lng": 115.44079869999997,
+      "googleMapsUri": "https://maps.google.com/?cid=11315160656883434090&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://samanvaya-bali.com/restaurant-sidemen-asri/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 90.67
+    },
+    {
+      "googlePlaceId": "ChIJ28dn2hdH0i0RMJGidoQ8ilw",
+      "name": "Mamasan Bali",
+      "address": "Jl. Raya Kerobokan No.135, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5069,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "wine_bar",
+        "cocktail_bar",
+        "vietnamese_restaurant",
+        "thai_restaurant",
+        "chinese_restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6821655,
+      "lng": 115.16477159999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6668208737899155760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mamasanbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.48
+    },
+    {
+      "googlePlaceId": "ChIJ4f9QNY9H0i0REbMfgG5iI18",
+      "name": "Desa Potato Head Bali",
+      "address": "Jl. Petitenget No.51B, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 8872,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "wedding_venue",
+        "hotel",
+        "spa",
+        "event_venue",
+        "lodging",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.6790217,
+      "lng": 115.15093650000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6855431284523512593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seminyak.potatohead.co/sleep?utm_source=google&utm_medium=gmb&utm_campaign=gmb_desa-potato-head&utm_term=creative-village&utm_content=landing-page",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.03
+    },
+    {
+      "googlePlaceId": "ChIJ0Zo39DZH0i0R0acI0bADr2U",
+      "name": "Tirta Gangga",
+      "address": "HHQQ+836, Jalan Raya Abang Desa Adat Jl. Raya Tirta Gangga, Ababi, Kec. Abang, Kabupaten Karangasem, Bali 80852, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 22628,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.4123473,
+      "lng": 115.5872919,
+      "googleMapsUri": "https://maps.google.com/?cid=7327079176711219153&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tirtaganggabali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.02
+    },
+    {
+      "googlePlaceId": "ChIJ5-i32Xoj0i0RCSWhj3kwqX4",
+      "name": "Begawan Biji Restaurant Ubud (Organic Farm-To-Table)",
+      "address": "Melinggih Kelod, Payangan, Gianyar Regency, Bali 80572, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 993,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.4506822,
+      "lng": 115.24106529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9126879418501899529&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://begawanbiji.com/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp-listing",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.94
+    },
+    {
+      "googlePlaceId": "ChIJuzPhw5s50i0R0C1ZhCEPAfA",
+      "name": "Manhattan Cocktail Hookah Kitchen",
+      "address": "Jl. Pantai Batu Bolong No.58, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 3926,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "hookah_bar",
+        "bar_and_grill",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "european_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6518227,
+      "lng": 115.13378110000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17294120680708189648&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://linktr.ee/manhattan.bali",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.76
+    },
+    {
+      "googlePlaceId": "ChIJzRRQ4QJF0i0Rz9K6Oqfkl-o",
+      "name": "Rock Bar",
+      "address": "Jalan Karang Mas Sejahtera, Jimbaran, Kec. Kuta Sel., Kabupaten Badung, Bali 80364, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 8087,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.784239399999999,
+      "lng": 115.1384712,
+      "googleMapsUri": "https://maps.google.com/?cid=16904231133254439631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ayana.com/bali/dining/rock-bar-bali/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.7
+    },
+    {
+      "googlePlaceId": "ChIJNYE3V1VH0i0RH5XbZz848tM",
+      "name": "Atlas Super Club",
+      "address": "Jl. Pantai Berawa No.88, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2627,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6642899,
+      "lng": 115.1391861,
+      "googleMapsUri": "https://maps.google.com/?cid=15272331131343312159&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://atlasbeachfest.com/super-club",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "game night venues",
+        "adult nightlife",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.59
+    },
+    {
+      "googlePlaceId": "ChIJy0JszGxH0i0RocRhbrUkd1w",
+      "name": "Ling-Ling's Bali",
+      "address": "Jl. Petitenget No.43B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 9026,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "cocktail_bar",
+        "diner",
+        "asian_fusion_restaurant",
+        "sushi_restaurant",
+        "fusion_restaurant",
+        "meal_takeaway",
+        "bar",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6741987,
+      "lng": 115.15739990000002,
+      "googleMapsUri": "https://maps.google.com/?cid=6662834535377519777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.linglingsbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.43
+    },
+    {
+      "googlePlaceId": "ChIJQzwvTf5H0i0RwI9gcUzjjQQ",
+      "name": "IZZI ROOFTOP LOUNGE & RESTAURANT & BAR & SHISHA",
+      "address": "Jl. Batu Belig No.38, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1642,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "hookah_bar",
+        "cocktail_bar",
+        "bar",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6728005,
+      "lng": 115.15182899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=328168265327087552&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://izzibali.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.26
+    },
+    {
+      "googlePlaceId": "ChIJt8VSxRdH0i0R0KAQj5Qs0yE",
+      "name": "Boy'N'Cow",
+      "address": "Jl. Raya Kerobokan No.138, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 8456,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.682078299999999,
+      "lng": 115.16435539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2437340839904583888&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.boyncow.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJYUi2MOI50i0RFUr3eL2-pBk",
+      "name": "Santanera",
+      "address": "Jl. Tanah Barak No.55-57, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2900,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "wine_bar",
+        "cocktail_bar",
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "south_american_restaurant",
+        "spanish_restaurant",
+        "latin_american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6518645,
+      "lng": 115.1310544,
+      "googleMapsUri": "https://maps.google.com/?cid=1847811468116314645&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.santanerabali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJL626sPVA0i0RLJoATqtQcfY",
+      "name": "Bajra Sandhi Monument",
+      "address": "86HJ+9X5, Jl. Raya Puputan No.142, Renon, Denpasar Selatan, Kota Denpasar, Bali 80234, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 15735,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6717817,
+      "lng": 115.23389619999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17758063502376868396&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJ21XBrn040i0Rjf7GPV4so38",
+      "name": "Old Man's",
+      "address": "old man's, Jl. Pantai Batu Bolong No.117X, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6292,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "pub",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6589741,
+      "lng": 115.13080289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9197243647295684237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://oldmans.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "trivia nights",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.94
+    },
+    {
+      "googlePlaceId": "ChIJ5ZiPtys90i0RUok0dF7Lh9w",
+      "name": "Real Bali Swing",
+      "address": "Jl. Dewi Saraswati No.7, Bongkasa Pertiwi, Kec. Abiansemal, Kabupaten Badung, Bali 80352, Indonesia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 14870,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.4906347,
+      "lng": 115.2399794,
+      "googleMapsUri": "https://maps.google.com/?cid=15890893416737048914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.realbaliswing.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.75
+    },
+    {
+      "googlePlaceId": "ChIJlfQM_IFH0i0Rg5LOtxtDaB0",
+      "name": "The Forge",
+      "address": "Jl. Petitenget No.43C, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.6,
+      "reviewCount": 4527,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pub",
+      "types": [
+        "pub",
+        "gastropub",
+        "sports_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -8.6741964,
+      "lng": 115.1573154,
+      "googleMapsUri": "https://maps.google.com/?cid=2119017411004764803&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://forgebali.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 88.64
+    },
+    {
+      "googlePlaceId": "ChIJDbbjIIY90i0Rf-Qzhcm9ggw",
+      "name": "Setia Darma House of Mask and Puppets",
+      "address": "Jl. Tegal Bingin, Banjar Tengkulak Tengah, Kemenuh, Kec. Sukawati, Kabupaten Gianyar, Bali 80582, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1277,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "art_gallery",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.533706200000001,
+      "lng": 115.27947119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=901491548648367231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.maskandpuppets.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.5
+    },
+    {
+      "googlePlaceId": "ChIJTe2NwXcf0i0RfgmpBTFaIlM",
+      "name": "Taman Dukuh Bali Farm Cooking School | Cooking Class Ubud",
+      "address": "Jl. Raya Banjar Jati, Taro, Kec. Tegallalang, Kabupaten Gianyar, Bali 80561, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 3098,
+      "priceLevel": null,
+      "primaryType": "food",
+      "types": [
+        "tourist_attraction",
+        "farm",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.362605,
+      "lng": 115.30334099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5990449620951042430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tamandukuh.com/cooking-classes/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes"
+      ],
+      "popularityScore": 88.39
+    },
+    {
+      "googlePlaceId": "ChIJLRYIWdwZ0i0RCHtLfhUv-A8",
+      "name": "Akar Ubud by K Club",
+      "address": "K Club, Jalan Raya Cebok, Kedisan, Jl. Raya Cebok, Tegallalang, Kecamatan Ubud, Kabupaten Gianyar, Bali 80561, Indonesia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 1151,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.4414377,
+      "lng": 115.28597049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1150721474152856328&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.akarubud.com/?utm_source=website&utm_medium=organic&utm_campaign=google_business_profile",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.19
+    },
+    {
+      "googlePlaceId": "ChIJ5esTIBtH0i0RaqMKf-MsMZE",
+      "name": "KU DE TA",
+      "address": "Jl. Kayu Aya No.9, Seminyak, Kec. Kuta, Kabupaten Badung, Bali, Indonesia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 9512,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "breakfast_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6871361,
+      "lng": 115.15475019999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10462192764958974826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kudeta.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.04
+    },
+    {
+      "googlePlaceId": "ChIJb8UIyH8V0i0RZaXefe5gpKU",
+      "name": "Hidden Mini Zoo Bali",
+      "address": "Banjar Sakih, Jl. Pandu, Guwang, Kec. Sukawati, Kabupaten Gianyar, Bali 80582, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3179,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.611428,
+      "lng": 115.28654499999998,
+      "googleMapsUri": "https://maps.google.com/?cid=11935771489868883301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hiddenminizoobali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.02
+    },
+    {
+      "googlePlaceId": "ChIJpe5hQz4-0i0RvsbXvzbr9Ds",
+      "name": "Bali Zoo",
+      "address": "Jl. Raya Singapadu, Singapadu, Kec. Sukawati, Kabupaten Gianyar, Bali 80582, Indonesia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 27387,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "wildlife_park",
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5918875,
+      "lng": 115.26567480000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4320336562934499006&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bali-zoo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88
+    },
+    {
+      "googlePlaceId": "ChIJ5ehYbsRb0i0Rnj3KrYIaYrI",
+      "name": "Oliverra",
+      "address": "Jl. Melasti, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80364, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 749,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.847152,
+      "lng": 115.1595306,
+      "googleMapsUri": "https://maps.google.com/?cid=12853865435032599966&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hilton.com/en/hotels/dpsolol-umana-bali-resort/dining/oliverra/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJCdPou9hH0i0RgIY7umQ751U",
+      "name": "Friends Bar",
+      "address": "Jl. Pantai Berawa, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 705,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6642134,
+      "lng": 115.1464087,
+      "googleMapsUri": "https://maps.google.com/?cid=6189981516651267712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.friendsbarbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "wine bars",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.8
+    },
+    {
+      "googlePlaceId": "ChIJfa0L6xBH0i0R5n4bJj--7vQ",
+      "name": "Sisterfields",
+      "address": "Jl. Kayu Cendana No.7, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 14858,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "coffee_shop",
+        "bar",
+        "breakfast_restaurant",
+        "family_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6830307,
+      "lng": 115.15755180000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17649253168143105766&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sisterfieldsbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJTTAC8G5H0i0RdDfm3LXnCgU",
+      "name": "Gusto Gelato & Caffé",
+      "address": "Jl. Mertanadi No.46B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 20414,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "coffee_shop",
+        "cafe",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "store",
+        "food",
+        "cafeteria",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6797792,
+      "lng": 115.16773979999998,
+      "googleMapsUri": "https://maps.google.com/?cid=363357488237918068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gusto-gelateria.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.56
+    },
+    {
+      "googlePlaceId": "ChIJZQ6QreVH0i0RYbzxVvNaqV4",
+      "name": "Mookiland Park Bali",
+      "address": "Jl. Raya Kedampang, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 1900,
+      "priceLevel": null,
+      "primaryType": "playground",
+      "types": [
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6656583,
+      "lng": 115.1724229,
+      "googleMapsUri": "https://maps.google.com/?cid=6821083111811562593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.balimookilandpark.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.56
+    },
+    {
+      "googlePlaceId": "ChIJi_JxtdT1aS4R7Vhgb1ZBFaQ",
+      "name": "National Museum of Indonesia",
+      "address": "Jl. Medan Merdeka Barat No.12, RT.2/RW.3, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110, Indonesia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 20115,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -6.1764021,
+      "lng": 106.8215901,
+      "googleMapsUri": "https://maps.google.com/?cid=11823428236222683373&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museumnasional.or.id/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.51
+    },
+    {
+      "googlePlaceId": "ChIJWVI_xhFb0i0RHbJQjeR5nPg",
+      "name": "Zahra Spa Uluwatu",
+      "address": "Jl. Raya Uluwatu, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 9671,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.8205832,
+      "lng": 115.1496102,
+      "googleMapsUri": "https://maps.google.com/?cid=17914327440303370781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zahraspauluwatu.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJv-pCBGtH0i0RtjgHkk_uF-g",
+      "name": "Livingstone",
+      "address": "Jl. Petitenget No.88X, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 13772,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "bakery",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6717861,
+      "lng": 115.16142219999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16724097766783400118&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/livingstonebakery/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJ851bCiRD0i0Ru9rd_xOddAE",
+      "name": "Bali International Convention Centre",
+      "address": "Kawasan Pariwisata Nusa Dua, BTDC Lot N-3, Benoa, Kuta Selatan, Benoa, South Kuta, Nusa Dua, Bali 80363, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2591,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "wedding_venue",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.7955961,
+      "lng": 115.23029569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=104881400559033019&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.baliconvention.com/?&EM=EM_YEXT_GLOBAL_WEBSITE_WI_35_AP_&SWAQ=953P",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJQ1AQ5Tg90i0R2VCJUm61Ddc",
+      "name": "Cantina Rooftop Restaurant | Ubud",
+      "address": "Sayan, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 882,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "bar_and_grill",
+        "steak_house",
+        "cocktail_bar",
+        "lounge_bar",
+        "barbecue_restaurant",
+        "night_club",
+        "bar",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.504764,
+      "lng": 115.254103,
+      "googleMapsUri": "https://maps.google.com/?cid=15496241378287505625&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cantinarooftopbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "jazz clubs",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.38
+    },
+    {
+      "googlePlaceId": "ChIJbZgU8gRb0i0RmWRatK3bd3I",
+      "name": "Pandawa Beach",
+      "address": "553P+R5G, Jl. Pantai Pandawa, Kutuh, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 44993,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.8444517,
+      "lng": 115.18584209999997,
+      "googleMapsUri": "https://maps.google.com/?cid=8248302781654000793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.36
+    },
+    {
+      "googlePlaceId": "ChIJlSyXaMJG0i0Ri8eAr1pHGaU",
+      "name": "Azul Beach Club Bali",
+      "address": "Jl. Padma No.2, Legian, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 3067,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_fusion_restaurant",
+      "types": [
+        "asian_fusion_restaurant",
+        "asian_restaurant",
+        "fusion_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.707223299999999,
+      "lng": 115.1665601,
+      "googleMapsUri": "https://maps.google.com/?cid=11896618345492957067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.azulbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots",
+        "luxury lounges",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.21
+    },
+    {
+      "googlePlaceId": "ChIJH3RCeChD0i0RA2rFdUdzLm4",
+      "name": "Devdan Show at Bali Nusa Dua Theatre",
+      "address": "Komplek, Jl. ITDC Nusa Dua, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali 80363, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2409,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.800628999999999,
+      "lng": 115.23386810000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7939409943856507395&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.devdanshow.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.18
+    },
+    {
+      "googlePlaceId": "ChIJP_nGbohF0i0R-RxCvScOBRE",
+      "name": "Zahra Luxury Spa Nusa Dua",
+      "address": "Jl. Bypass Ngurah Rai Jl. Nusa Dua No. 8x, Bali, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 8548,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.797323100000002,
+      "lng": 115.22110339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1226402037370068217&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zahraluxuryspa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 87.12
+    },
+    {
+      "googlePlaceId": "ChIJ7SHlDCg50i0RaM29YbEeVjg",
+      "name": "Penny Lane",
+      "address": "Jl. Munduk Catu No.9, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6665,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "indonesian_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.653356300000002,
+      "lng": 115.1305667,
+      "googleMapsUri": "https://maps.google.com/?cid=4059465861318954344&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pennylanebali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJXz2mf0Y90i0RuaYn0Rf84hs",
+      "name": "Hanging Gardens Of Bali",
+      "address": "Buahan, Payangan, Gianyar Regency, Bali 80571, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1891,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "swimming_pool",
+        "hotel",
+        "spa",
+        "sports_activity_location",
+        "lodging",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -8.4127542,
+      "lng": 115.23863899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2009445562984146617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hanginggardensofbali.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJEcsIC6JA0i0RXn4iHsIOYMA",
+      "name": "Badung Market",
+      "address": "Jl. Sulawesi, Dauh Puri Kangin, Kec. Denpasar Bar., Kota Denpasar, Bali 80112, Indonesia",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 18310,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6564332,
+      "lng": 115.21248989999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13862095879938408030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJ7zJPKng90i0RbR79Jed2XTU",
+      "name": "INKA Ubud Spa",
+      "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 7620,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5133725,
+      "lng": 115.2606325,
+      "googleMapsUri": "https://maps.google.com/?cid=3845360391991139949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.inkaubudspa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 86.77
+    },
+    {
+      "googlePlaceId": "ChIJrfg6aXY40i0RKbzqxLedkoY",
+      "name": "La Brisa Bali | Beach Club",
+      "address": "Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 21475,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cafe",
+        "bar",
+        "food",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6542178,
+      "lng": 115.1250199,
+      "googleMapsUri": "https://maps.google.com/?cid=9696986360290393129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://labrisa-bali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.61
+    },
+    {
+      "googlePlaceId": "ChIJYWZP2EFH0i0RrP3VLGk11MY",
+      "name": "Vault Nightclub Bali",
+      "address": "Jl. Pantai Berawa No.99, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1975,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "cocktail_bar",
+        "bar",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.66012,
+      "lng": 115.1383357,
+      "googleMapsUri": "https://maps.google.com/?cid=14327135040412450220&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vault-bali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "game night venues",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.52
+    },
+    {
+      "googlePlaceId": "ChIJ790fQLVE0i0R1w-Ejc2k8Po",
+      "name": "Patung Garuda Wisnu Kencana",
+      "address": "55P8+9J5, Ungasan, South Kuta, Badung Regency, Bali 80361, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 9660,
+      "priceLevel": null,
+      "primaryType": "sculpture",
+      "types": [
+        "sculpture",
+        "tourist_attraction",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.814113599999999,
+      "lng": 115.16661400000001,
+      "googleMapsUri": "https://maps.google.com/?cid=18082133706642034647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gwkbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJdegEep2P0S0RlyNNjuDZzE4",
+      "name": "Banyumala Waterfall",
+      "address": "Wanagiri, Sukasada, Buleleng Regency, Bali 81161, Indonesia",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 5335,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.217187299999999,
+      "lng": 115.1016811,
+      "googleMapsUri": "https://maps.google.com/?cid=5678152788690674583&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJ9eEG4rJgei4RXAgfDABWo2Q",
+      "name": "Museum Geopark Batur",
+      "address": "Jl. Kayu Ambua, Batur Sel., Kec. Kintamani, Kabupaten Bangli, Bali 80652, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2122,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.2837969,
+      "lng": 115.36470449999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7251734383199979612&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ppsdm-geominerba.esdm.go.id/home/museum_gunung_api_batur",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJLVao4_JH0i0RidjYDicL39k",
+      "name": "Shooters Bali",
+      "address": "Jl. Petitenget No.43D, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1292,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "cocktail_bar",
+        "ice_cream_shop",
+        "family_restaurant",
+        "beer_garden",
+        "dessert_shop",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6743391,
+      "lng": 115.15714769999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15699279088417560713&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.shootersbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJ-a6fRhpF0i0RJMln_j5IiuU",
+      "name": "Gooseberry French Restaurant | Uluwatu",
+      "address": "Gg. Pirta, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 9129,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.812029599999999,
+      "lng": 115.11869859999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16540112016864954660&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gooseberry-restaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJiV9q8WpH0i0RNk8rG_kzSTQ",
+      "name": "SUNDARI Wellness",
+      "address": "Jalan Petitenget 7 Kerobokan, Jl. Petitenget, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 6322,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.671695099999999,
+      "lng": 115.1632332,
+      "googleMapsUri": "https://maps.google.com/?cid=3767599708267826998&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sundari-wellness.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJ16_VXhpH0i0RJm_bsp3gFF8",
+      "name": "Warung Nia Balinese Food & Pork Ribs",
+      "address": "Jl. Kayu Aya No.19-21, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 8783,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "indonesian_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "indonesian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.686033,
+      "lng": 115.1566185,
+      "googleMapsUri": "https://maps.google.com/?cid=6851347901052579622&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://warungnia.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJk0rRixJH0i0RLUg5-J_2IEE",
+      "name": "Merah Putih | Indonesian Restaurant",
+      "address": "Jalan Petitenget. 100X Kerobokan Kelod, Jl. Petitenget, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2915,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "cocktail_bar",
+        "fine_dining_restaurant",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6767071,
+      "lng": 115.15456069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4693021978644793389&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://merahputihbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJy90qtQ890i0RvafFU9HgGgo",
+      "name": "Hesa Wellness Spa Ubud",
+      "address": "Jl. Sandat, Ubud, Kecamatan, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 4052,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5031886,
+      "lng": 115.26678050000001,
+      "googleMapsUri": "https://maps.google.com/?cid=728141479432005565&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hesaspa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.95
+    },
+    {
+      "googlePlaceId": "ChIJv2wXvMBB0i0R1kQY9rpXQv4",
+      "name": "Hire Bali Driver",
+      "address": "Jl. Raya Kedewatan Ubud, Kedewatan, Kec. Gianyar, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 3910,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -8.4728771,
+      "lng": 115.24802919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18321302694600918230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hirebalidriver.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.85
+    },
+    {
+      "googlePlaceId": "ChIJe3MSQ01B0i0RkSVO8Bobqjg",
+      "name": "Bali Orchid Spa",
+      "address": "Jl. Bypass Ngurah Rai No.108, Pemogan, Denpasar Selatan, Kota Denpasar, Bali 80361, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.8,
+      "reviewCount": 7957,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.721670099999999,
+      "lng": 115.1897817,
+      "googleMapsUri": "https://maps.google.com/?cid=4083105814679528849&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.baliorchidspa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJi7uXp2o90i0RU5vJCtDVtSQ",
+      "name": "Donna",
+      "address": "Jl. Monkey Forest No.67, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7839,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "hookah_bar",
+        "bar",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5130447,
+      "lng": 115.26071840000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2645255445660932947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://donnaubud.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.76
+    },
+    {
+      "googlePlaceId": "ChIJnYN3zEs90i0RPY0Y_l_EMjw",
+      "name": "Ramu Kitchen",
+      "address": "Jl. Cok Rai Pudak No.48, Peliatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 985,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "fusion_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5280141,
+      "lng": 115.27121989999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4337745307675168061&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ramukitchen.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJ49kn4n0V0i0RjtqUIkEdXBw",
+      "name": "Omma Dayclub Bali",
+      "address": "C7FQ+MV6, Kemenuh, Sukawati, Gianyar Regency, Bali 80581, Indonesia",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.8,
+      "reviewCount": 7357,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.5756152,
+      "lng": 115.28949709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2043540496509622926&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ommabali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.56
+    },
+    {
+      "googlePlaceId": "ChIJY-tZB45E0i0Rn5cpBentRVw",
+      "name": "The Calma Spa Bali - Jimbaran Beach",
+      "address": "Jl. Uluwatu II No.108X, Jimbaran, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 5096,
+      "priceLevel": null,
+      "primaryType": "massage_spa",
+      "types": [
+        "massage_spa",
+        "massage",
+        "spa",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.784181,
+      "lng": 115.17099820000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6648982009952180127&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.calmaspabali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.55
+    },
+    {
+      "googlePlaceId": "ChIJM_W4DE890i0R3GNgDMNqK0M",
+      "name": "The Blue Door Bar, Restaurant & Club",
+      "address": "Jl. Monkey Forest, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2026,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "sports_bar",
+        "night_club",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -8.5140359,
+      "lng": 115.26028369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4840079610498540508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thebluedoorbali.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "jazz clubs",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.55
+    },
+    {
+      "googlePlaceId": "ChIJa1rQSB5F0i0RtR5i6i4o0nM",
+      "name": "UNIQUE Rooftop Bar & Restaurant",
+      "address": "RIMBA by AYANA Bali, Jl. Karang Mas Sejahtera, Jimbaran, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 992,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "mexican_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.793986199999999,
+      "lng": 115.1396353,
+      "googleMapsUri": "https://maps.google.com/?cid=8345777241436855989&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ayana.com/bali/dining/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.54
+    },
+    {
+      "googlePlaceId": "ChIJ6U72l1BH0i0R4QbOo1l0fHs",
+      "name": "Pavilion Surf Club Legian Beach",
+      "address": "Jl. Pantai Double Six No.10, Legian, Kuta, Legian, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 4893,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6991345,
+      "lng": 115.16270910000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8898114892126357217&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pavilionsurfclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.43
+    },
+    {
+      "googlePlaceId": "ChIJQZjAqBdH0i0RcZSMoySV7KQ",
+      "name": "Brunch Club Legian",
+      "address": "Jl. Raya Legian No.457, Legian, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 6524,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "brunch_restaurant",
+        "dessert_restaurant",
+        "western_restaurant",
+        "coffee_shop",
+        "breakfast_restaurant",
+        "family_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.7011703,
+      "lng": 115.16972299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11884037501319156849&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://brunchclubbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJrV__rE5b0i0RXnKoLXZQDEk",
+      "name": "Savaya Bali",
+      "address": "Jl. Belimbing Sari, Banjar Tambiyak, Pecatu, Uluwatu, Kabupaten Badung, Bali 80364, Indonesia",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.1,
+      "reviewCount": 5401,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.846474299999999,
+      "lng": 115.1407208,
+      "googleMapsUri": "https://maps.google.com/?cid=5263670532991644254&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://savaya.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "luxury lounges",
+        "bottle service",
+        "events this weekend",
+        "local events",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJPZ2n63E50i0RW5gN4jyJ4lA",
+      "name": "Nuanu Creative City",
+      "address": "93CX+6C, Beraban, Kediri, Tabanan Regency, Bali 80351, Indonesia",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 3214,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6304965,
+      "lng": 115.10045860000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5828371762354427995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nuanu.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJt7JIN74c0i0RSrvRjHk5_As",
+      "name": "Besakih Great Temple",
+      "address": "Besakih, Kec. Rendang, Kabupaten Karangasem, Bali 80863, Indonesia",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.5,
+      "reviewCount": 18658,
+      "priceLevel": null,
+      "primaryType": "hindu_temple",
+      "types": [
+        "hindu_temple",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.3739976,
+      "lng": 115.45255669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=863628422764673866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.besakih.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJQwwZdJ050i0R0ehpWb6QBQc",
+      "name": "Barboa Bali",
+      "address": "Jl. Canggu Padang Linjong No.81, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4315,
+      "priceLevel": null,
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.6466468,
+      "lng": 115.13299950000001,
+      "googleMapsUri": "https://maps.google.com/?cid=505969680367347921&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://barboabali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJR9QHZVMU0i0RqPSd8MZymgI",
+      "name": "Sababay Winery",
+      "address": "Jalan Professor Doktor Ida Bagus Mantra No.333X Keramas, Medahan, Kec. Blahbatuh, Kabupaten Gianyar, Bali 80581, Indonesia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 4265,
+      "priceLevel": null,
+      "primaryType": "winery",
+      "types": [
+        "winery",
+        "tourist_attraction",
+        "farm",
+        "service",
+        "food",
+        "point_of_interest",
+        "manufacturer",
+        "establishment"
+      ],
+      "lat": -8.5937948,
+      "lng": 115.3382052,
+      "googleMapsUri": "https://maps.google.com/?cid=187588533255271592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sababaywinery.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJ-eCH8qJF0i0RSH-lYGlzcTw",
+      "name": "SAKA Museum",
+      "address": "Jl. Karang Mas Sejahtera, Jimbaran, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 803,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.789751899999999,
+      "lng": 115.1432875,
+      "googleMapsUri": "https://maps.google.com/?cid=4355389211074199368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sakamuseum.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.95
+    },
+    {
+      "googlePlaceId": "ChIJwe6tHg9D0i0RwTEivF7_NO0",
+      "name": "Nusa By/Suka - Nusa Dua",
+      "address": "Jl. Kw. Nusa Dua Resort, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 5714,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "pizza_restaurant",
+        "mediterranean_restaurant",
+        "bar_and_grill",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.8017057,
+      "lng": 115.2293099,
+      "googleMapsUri": "https://maps.google.com/?cid=17092567268126241217&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bysuka.com/nusa-nusa-dua",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJ0TjohfRF0i0RFRZoAqbb9Xc",
+      "name": "GWK Cultural Park",
+      "address": "Jl. Kw. Garuda Wisnu Kencana, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80364, Indonesia",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8116,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.8109019,
+      "lng": 115.1671947,
+      "googleMapsUri": "https://maps.google.com/?cid=8644056565858965013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gwkbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.76
+    },
+    {
+      "googlePlaceId": "ChIJe7KSn4dH0i0RsfzzpwFhwpQ",
+      "name": "The Barn Pub & Kitchen",
+      "address": "Jl. Lkr. Nelayan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali, Indonesia",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1563,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_bar",
+        "pub",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -8.656900499999999,
+      "lng": 115.13250660000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10719236722835848369&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thebarnbali.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.76
+    }
+  ]
+}

@@ -1,0 +1,3515 @@
+{
+  "location": "Cape Town, South Africa",
+  "generatedAt": "2026-05-17T19:55:21.982Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJpUSVz1BnzB0RgEe7eAWGwx0",
+      "name": "V&A Waterfront",
+      "address": "Cape Town, 8001, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 109185,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "art_gallery",
+        "tourist_attraction",
+        "cultural_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.907991599999995,
+      "lng": 18.420161999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=2144705205616985984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.waterfront.co.za/?utm_source=local&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJecz6YqhCzB0RZqXqcdmKfBs",
+      "name": "Kirstenbosch National Botanical Garden",
+      "address": "Rhodes Dr, Newlands, Cape Town, 7735, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 33967,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.987501099999996,
+      "lng": 18.432722,
+      "googleMapsUri": "https://maps.google.com/?cid=1980610602659915110&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sanbi.org/gardens/kirstenbosch/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.28
+    },
+    {
+      "googlePlaceId": "ChIJKeByCDY-zB0RECn0gAHgvHw",
+      "name": "Boulders Beach",
+      "address": "Simon's Town, Cape Town, 7995, South Africa",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 28216,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.1956153,
+      "lng": 18.4503585,
+      "googleMapsUri": "https://maps.google.com/?cid=8988305253387741456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sanparks.org/parks/table_mountain/tourism/attractions.php#boulders",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.52
+    },
+    {
+      "googlePlaceId": "ChIJfeaqwlpnzB0Rl2i0iRvp6SI",
+      "name": "Two Oceans Aquarium",
+      "address": "Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8002, South Africa",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 24776,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.908031699999995,
+      "lng": 18.4176607,
+      "googleMapsUri": "https://maps.google.com/?cid=2515798171346823319&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquarium.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.13
+    },
+    {
+      "googlePlaceId": "ChIJETLciCFnzB0RH1qo-JSNf38",
+      "name": "Mojo Market",
+      "address": "30 Regent Rd, Sea Point, Cape Town, 8060, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 16924,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "food_court",
+        "sports_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9192971,
+      "lng": 18.3858253,
+      "googleMapsUri": "https://maps.google.com/?cid=9187217435825560095&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mojomarket.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "seasonal pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.88
+    },
+    {
+      "googlePlaceId": "ChIJrfmRVzZnzB0RupuFfQj-5D0",
+      "name": "Green Point Park",
+      "address": "1 Fritz Sonnenberg Rd, Green Point, Cape Town, 8051, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 12697,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9041068,
+      "lng": 18.4010964,
+      "googleMapsUri": "https://maps.google.com/?cid=4459968843422735290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.71
+    },
+    {
+      "googlePlaceId": "ChIJgdxoiwsWzB0R56oDSE8qJGQ",
+      "name": "Table Mountain National Park",
+      "address": "Cape Town, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 22328,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "state_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.2105673,
+      "lng": 18.391750599999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7215939022953360103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sanparks.org/parks/table_mountain/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.66
+    },
+    {
+      "googlePlaceId": "ChIJxZpWKIpdzB0R4p7yjUOgkTs",
+      "name": "Artscape Theatre Centre",
+      "address": "D.F. Malan St, Foreshore, Cape Town, 8001, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 8755,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9198185,
+      "lng": 18.430110900000003,
+      "googleMapsUri": "https://maps.google.com/?cid=4292388131865534178&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.artscape.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.99
+    },
+    {
+      "googlePlaceId": "ChIJAf2PqQkjzB0RTEFJZ9rJSSM",
+      "name": "Cape Point Nature Reserve",
+      "address": "Cape Peninsula, Simon's Town, 7995, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 10510,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "hiking_area",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.3507582,
+      "lng": 18.4845731,
+      "googleMapsUri": "https://maps.google.com/?cid=2542785404500263244&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.capepoint.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.89
+    },
+    {
+      "googlePlaceId": "ChIJE7YNUZlbzB0RxqDae6iSHiY",
+      "name": "GrandWest Casino and Entertainment World",
+      "address": "1 Jakes Gerwel Dr, Goodwood, Cape Town, 7460, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.2,
+      "reviewCount": 35556,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "tourist_attraction",
+        "fast_food_restaurant",
+        "video_arcade",
+        "ice_skating_rink",
+        "concert_hall",
+        "auditorium",
+        "wine_bar",
+        "family_restaurant",
+        "live_music_venue",
+        "sports_complex",
+        "bar",
+        "sports_activity_location",
+        "night_club",
+        "service",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.917766,
+      "lng": 18.5474428,
+      "googleMapsUri": "https://maps.google.com/?cid=2746794075072667846&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.suninternational.com/grandwest/?utm_medium=organic&utm_source=google&utm_campaign=grandwest&utm_term=gran&utm_content=hyperlink",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "skating rinks",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.82
+    },
+    {
+      "googlePlaceId": "ChIJJda7Ik5nzB0RNkLL5Oqi17c",
+      "name": "Oranjezicht City Farm Market",
+      "address": "Parking Deck, Breakwater Blvd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 7082,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9031083,
+      "lng": 18.417244699999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13247235958678176310&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ozcf.co.za/market",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.35
+    },
+    {
+      "googlePlaceId": "ChIJFx2nS6FdzB0RWr9GNWrCGI8",
+      "name": "HintHunt Cape Town",
+      "address": "The, 17 Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 2935,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9066621,
+      "lng": 18.4185551,
+      "googleMapsUri": "https://maps.google.com/?cid=10311205108280901466&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hinthunt.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.89
+    },
+    {
+      "googlePlaceId": "ChIJc6IAMYRdzB0R9yLw41HjQtM",
+      "name": "Stardust Theatrical Dining",
+      "address": "118 Sir Lowry Rd, Woodstock, Cape Town, 7925, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3038,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.927679499999996,
+      "lng": 18.434541499999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15222979631321719543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stardustcapetown.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "events this weekend",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.89
+    },
+    {
+      "googlePlaceId": "ChIJeWUZ4F1nzB0RFcD_RkR-5Uw",
+      "name": "The Cape Wheel",
+      "address": "The Lawns, Breakwater Blvd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 10534,
+      "priceLevel": null,
+      "primaryType": "ferris_wheel",
+      "types": [
+        "ferris_wheel",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9026183,
+      "lng": 18.4193928,
+      "googleMapsUri": "https://maps.google.com/?cid=5540973748263305237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.capewheel.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.7
+    },
+    {
+      "googlePlaceId": "ChIJQ3QXtiZdzB0RZZ6QY6d99Ls",
+      "name": "Baxter Theatre Centre",
+      "address": "Main Rd, Rondebosch, Cape Town, 7700, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 6516,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9569255,
+      "lng": 18.470269599999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13543588137293356645&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://baxter.uct.ac.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJ_YCpaGBnzB0Rk2X8H9iVvtU",
+      "name": "CTICC (Cape Town International Convention Centre)",
+      "address": "Convention Square, 1 Lower Long St, Cape Town City Centre, Cape Town, 8001, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8552,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9157015,
+      "lng": 18.4267461,
+      "googleMapsUri": "https://maps.google.com/?cid=15401912531135784339&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cticc.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.32
+    },
+    {
+      "googlePlaceId": "ChIJCWq-g2FCzB0R4RYvykSREW4",
+      "name": "La Colombe Restaurant",
+      "address": "Silvermist Wine Estate, Main Road, Constantia Nek, Cape Town, 7806, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2589,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.0151706,
+      "lng": 18.4033113,
+      "googleMapsUri": "https://maps.google.com/?cid=7931280143412041441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lacolombe.restaurant/la-colombe",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.76
+    },
+    {
+      "googlePlaceId": "ChIJATyxYDhpzB0RSc_BKFnHZJQ",
+      "name": "Bay Harbour Market",
+      "address": "31 Harbour Rd, Hout Bay, Cape Town, 7872, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6016,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.0550097,
+      "lng": 18.347264199999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10692890601034207049&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bayharbour.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.66
+    },
+    {
+      "googlePlaceId": "ChIJ80jKO6BbzB0RXVy70NYNQZ0",
+      "name": "GrandWest Grand Arena",
+      "address": "1 Jakes Gerwel Dr, Acacia Park, Cape Town, 7460, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4147,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9160821,
+      "lng": 18.5468853,
+      "googleMapsUri": "https://maps.google.com/?cid=11331353353716980829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.suninternational.com/grandwest/conferencing/grand-arena/?utm_medium=organic&utm_source=google&utm_campaign=arena&utm_term=gran&utm_content=businesslisting",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "arcades",
+        "barcades",
+        "skating rinks",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.63
+    },
+    {
+      "googlePlaceId": "ChIJ_Tc00XFnzB0R1TIppn46x4I",
+      "name": "Kloof Street House",
+      "address": "30 Kloof St, Gardens, Cape Town, 8005, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 5502,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9282119,
+      "lng": 18.412091699999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9423565060924060373&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kloofstreethouse.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.39
+    },
+    {
+      "googlePlaceId": "ChIJac4xtKZdzB0RL0YLY5wsnyE",
+      "name": "The Neighbourgoods Market",
+      "address": "373 Albert Rd, Woodstock, Cape Town, 7925, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4238,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "cultural_landmark",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.927491599999996,
+      "lng": 18.4569433,
+      "googleMapsUri": "https://maps.google.com/?cid=2422704174736819759&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "seasonal pop ups",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.3
+    },
+    {
+      "googlePlaceId": "ChIJVWO4oURnzB0RNaPCKWYBfZE",
+      "name": "Belly of the beast",
+      "address": "110 Harrington St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1193,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9294399,
+      "lng": 18.4226168,
+      "googleMapsUri": "https://maps.google.com/?cid=10483537045887296309&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bellyofthebeast.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJwUYG_oddzB0RZYGNwMhCuy0",
+      "name": "Castle of Good Hope",
+      "address": "Castle St, Foreshore, Cape Town, 8001, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 12940,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.926046,
+      "lng": 18.428058099999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3295300982343041381&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.castleofgoodhope.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJjSQp42VnzB0R6WYFH3MPXjk",
+      "name": "Iziko Bo-Kaap Museum",
+      "address": "71 Wale St, Schotsche Kloof, Cape Town, 8001, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 6454,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9215332,
+      "lng": 18.4149866,
+      "googleMapsUri": "https://maps.google.com/?cid=4133758495088797417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.iziko.org.za/museums/bo-kaap-museum/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.77
+    },
+    {
+      "googlePlaceId": "ChIJmb1qtKZdzB0RQGPrsOVHzDk",
+      "name": "The Old Biscuit Mill",
+      "address": "373 Albert Rd, Woodstock, Cape Town, 7925, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 7677,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "market",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9273136,
+      "lng": 18.457449999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4164782807252165440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theoldbiscuitmill.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "flea markets",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.64
+    },
+    {
+      "googlePlaceId": "ChIJQzy7VENnzB0RYZWUTTOByco",
+      "name": "Pigalle Restaurant",
+      "address": "57A Somerset Rd, Green Point, Cape Town, 8051, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2736,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9129563,
+      "lng": 18.416268300000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14612352523325183329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pigalle.capetown/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.38
+    },
+    {
+      "googlePlaceId": "ChIJTSLvwHNnzB0RaqtUbCq0nZU",
+      "name": "Be.UP Park Waterfront (Pop-up)",
+      "address": "The V&A Waterfront Watershed, 17 Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8002, South Africa",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 1189,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "cafe",
+        "food",
+        "child_care_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.907012,
+      "lng": 18.4181721,
+      "googleMapsUri": "https://maps.google.com/?cid=10780971177293949802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://beuppark.co.za/waterfront/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "best parks",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.07
+    },
+    {
+      "googlePlaceId": "ChIJw6DpmqlCzB0RE1F49m4hhSE",
+      "name": "Kirstenbosch Gardens Concert Stage",
+      "address": "Kirstenbosch National Botanical Garden, Rhodes Dr, Newlands, Cape Town, 8001, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1239,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.989914399999996,
+      "lng": 18.4319959,
+      "googleMapsUri": "https://maps.google.com/?cid=2415373535619338515&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sanbi.org/gardens/kirstenbosch/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJQwMdnua1zR0RcM1d092KRrI",
+      "name": "Lourensford Market",
+      "address": "Lourensford Wine Estate, Lourensford Estate, Lourensford Rd, Somerset West, Cape Town, 7130, South Africa",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 3520,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.0680239,
+      "lng": 18.893079,
+      "googleMapsUri": "https://maps.google.com/?cid=12846107672459464048&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lfhm.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "seasonal pop ups",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.64
+    },
+    {
+      "googlePlaceId": "ChIJ9R4HXlyzzR0ROcnRemwIbWA",
+      "name": "Root44 Market",
+      "address": "Corner of R44 and, Annandale Rd, Stellenbosch, 7600, South Africa",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 10867,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "wine_bar",
+        "tourist_attraction",
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.995458299999996,
+      "lng": 18.8279362,
+      "googleMapsUri": "https://maps.google.com/?cid=6948219062112602425&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.root44.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJ-acdUQBnzB0RcjUMHFYec2g",
+      "name": "Museum of Illusions Cape Town",
+      "address": "10 Kloof St, Gardens, Cape Town, 8001, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1401,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9276915,
+      "lng": 18.412873899999997,
+      "googleMapsUri": "https://maps.google.com/?cid=7526392757452813682&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moicapetown.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.46
+    },
+    {
+      "googlePlaceId": "ChIJ-dzh-Y5dzB0Rw-fJM0x6QnM",
+      "name": "Total Ninja Black River Park - Cape Town",
+      "address": "The Warehouse, South Park Entrance, Black River Park, Observatory, Cape Town, 7925, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1326,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "amusement_center",
+        "fitness_center",
+        "gym",
+        "sports_activity_location",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": -33.9342069,
+      "lng": 18.4710388,
+      "googleMapsUri": "https://maps.google.com/?cid=8305335130529589187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.totalninja.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.29
+    },
+    {
+      "googlePlaceId": "ChIJYxj8tKZdzB0R2_H65PgjFV4",
+      "name": "The Pot Luck Club",
+      "address": "6, The Silo, The Old Biscuit Mill, 373-375 Albert Rd, Woodstock, Cape Town, 7915, South Africa",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2262,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9275985,
+      "lng": 18.457482199999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6779364365976662491&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thepotluckclub.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJn5Y5l2dnzB0Rh5Bm-QZC0fo",
+      "name": "Utopia Cape Town",
+      "address": "15th floor, 40 Chiappini St, De Waterkant, Cape Town, 8001, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2613,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "bistro",
+        "seafood_restaurant",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9173932,
+      "lng": 18.417866,
+      "googleMapsUri": "https://maps.google.com/?cid=18073299377335996551&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.utopiacapetown.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJJ0e5HexnzB0RSHGrwMMH40k",
+      "name": "Bo-Vine Wine & Grill House Camps Bay",
+      "address": "Shop 1a, The Promenade, 87 Victoria Rd, Camps Bay, Cape Town, 8005, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1479,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9534598,
+      "lng": 18.3771363,
+      "googleMapsUri": "https://maps.google.com/?cid=5324107721814536520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bovinegrillhouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.97
+    },
+    {
+      "googlePlaceId": "ChIJMW70K09nzB0ROXRQqLI9zac",
+      "name": "DHL Stadium",
+      "address": "Fritz Sonnenberg Rd, Green Point, Cape Town, 8051, South Africa",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 17259,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "sports_complex",
+        "live_music_venue",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9034439,
+      "lng": 18.411154700000004,
+      "googleMapsUri": "https://maps.google.com/?cid=12091388412096967737&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dhlstadium.co.za/",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.78
+    },
+    {
+      "googlePlaceId": "ChIJWd7KtuJBzB0Rsa7pgH8eAH0",
+      "name": "Norval Foundation",
+      "address": "4 Steenberg Rd, Tokai, Cape Town, 7945, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1682,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "garden",
+        "tourist_attraction",
+        "museum",
+        "park",
+        "association_or_organization",
+        "wedding_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -34.076479899999995,
+      "lng": 18.4287945,
+      "googleMapsUri": "https://maps.google.com/?cid=9007232787713470129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.norvalfoundation.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJJXjP9dFnzB0RKRtezQrweYM",
+      "name": "Fyn Restaurant",
+      "address": "5th Floor, Speakers Corner, 37 Parliament St, Cape Town City Centre, Cape Town, 8001, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1257,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.924723,
+      "lng": 18.421803099999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9473867220336384809&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fynrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJ3dD0bFlnzB0RGBEddr2FeY8",
+      "name": "Zeitz Museum of Contemporary Art Africa",
+      "address": "S Arm Rd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 5505,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.908411799999996,
+      "lng": 18.4226404,
+      "googleMapsUri": "https://maps.google.com/?cid=10338441468382613784&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zeitzmocaa.museum/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.39
+    },
+    {
+      "googlePlaceId": "ChIJl5Jcv3NnzB0RuG1OswkRez0",
+      "name": "Asoka Restaurant, Bar and Lounge",
+      "address": "68 Kloof St, Gardens, Cape Town, 8001, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2723,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9323635,
+      "lng": 18.408345999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4430153391809654200&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.asoka.za.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "jazz clubs",
+        "romantic bars",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJyVkk11pnzB0Rw2MYWsZZzXs",
+      "name": "City Sightseeing Cape Town | Official Hop-On Hop-Off Tour",
+      "address": "Ticket Office outside the Aquarium, Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8005, South Africa",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 5438,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9076489,
+      "lng": 18.4175291,
+      "googleMapsUri": "https://maps.google.com/?cid=8920885145340765123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://citysightseeing.co.za/en/cape-town",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJTWnOjq1nzB0R0eqYenNIgI0",
+      "name": "Waterfront, Cape Town",
+      "address": "Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5296,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9028128,
+      "lng": 18.422357299999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10196229217182083793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJ48es9MhbzB0RHr4WcSX2_8c",
+      "name": "N1 City Mall",
+      "address": "Louwtjie Rothman St, N1 City, Cape Town, 7463, South Africa",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 18288,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.891541499999995,
+      "lng": 18.5597477,
+      "googleMapsUri": "https://maps.google.com/?cid=14411507973280415262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.n1citymall.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.81
+    },
+    {
+      "googlePlaceId": "ChIJewRWnAddzB0RRRs-qXskh-Y",
+      "name": "Reverie Social Table",
+      "address": "226A Lower Main Rd, Observatory, Cape Town, 7925, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 267,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9313011,
+      "lng": 18.4658336,
+      "googleMapsUri": "https://maps.google.com/?cid=16611285864118360901&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.reverie.capetown/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.77
+    },
+    {
+      "googlePlaceId": "ChIJQ0RSyRJUzB0R6q60lVi2JBE",
+      "name": "Bugz Playpark",
+      "address": "56 Tarentaal Rd, Joostenberg Vlakte, Cape Town, 7570, South Africa",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 5250,
+      "priceLevel": null,
+      "primaryType": "playground",
+      "types": [
+        "playground",
+        "amusement_park",
+        "amusement_center",
+        "indoor_playground",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8331096,
+      "lng": 18.7366377,
+      "googleMapsUri": "https://maps.google.com/?cid=1235312689391382250&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bugzplaypark.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.59
+    },
+    {
+      "googlePlaceId": "ChIJ3c0kTQRnzB0RHyTnI5OYSd4",
+      "name": "Lion's Head Hiking Trail",
+      "address": "Signal Hill Rd, Signal Hill, Cape Town, 8001, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3075,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "nature_preserve",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9368154,
+      "lng": 18.3948401,
+      "googleMapsUri": "https://maps.google.com/?cid=16017501307449844767&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hikelionshead.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.53
+    },
+    {
+      "googlePlaceId": "ChIJNfdIDG9nzB0R-rkmvRkgaJM",
+      "name": "Rooftop on Bree",
+      "address": "170 Bree St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 501,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "wedding_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.924760899999995,
+      "lng": 18.413954399999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10621775016073017850&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rooftoponbree.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "events tonight",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.46
+    },
+    {
+      "googlePlaceId": "ChIJUWybPLtQzB0RnW2g9TZm59A",
+      "name": "Toboggan Family Park (Pty) Ltd., t/a Cool Runnings",
+      "address": "Off Carl Cronje Dr, Tygervalley, Cape Town, 7530, South Africa",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 5639,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8802328,
+      "lng": 18.629963999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15053112665744371101&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://coolrunnings.capetown/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.16
+    },
+    {
+      "googlePlaceId": "ChIJIxTTSGVnzB0RJpaYKQENSAQ",
+      "name": "The Company's Garden Restaurant",
+      "address": "15 Queen Victoria St, Cape Town City Centre, Cape Town, 8001, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.3,
+      "reviewCount": 9517,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.9267147,
+      "lng": 18.416855299999998,
+      "googleMapsUri": "https://maps.google.com/?cid=308510873118873126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thecompanysgarden.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "viral-eats"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJp-uEhAVdzB0RxWSUgly4Sw0",
+      "name": "Cape Town Science Centre",
+      "address": "370B Main Rd, Observatory, Cape Town, 7925, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 1809,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9383614,
+      "lng": 18.4640718,
+      "googleMapsUri": "https://maps.google.com/?cid=958062053213627589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ctsc.org.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 83.93
+    },
+    {
+      "googlePlaceId": "ChIJofb7MF5nzB0RxvdtVMuM8JY",
+      "name": "Hugo Social Club",
+      "address": "9th Floor, 2 Kings Rd, Sea Point, Cape Town, 8060, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 720,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.9225321,
+      "lng": 18.3811312,
+      "googleMapsUri": "https://maps.google.com/?cid=10876347905022490566&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hugosocialclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.8
+    },
+    {
+      "googlePlaceId": "ChIJY9ntP8HKzR0RYC-WGTh9yKY",
+      "name": "Quicket",
+      "address": "99 Hope St, Gardens, Cape Town, 8001, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 645,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9314792,
+      "lng": 18.418567,
+      "googleMapsUri": "https://maps.google.com/?cid=12017993285539082080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.quicket.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.72
+    },
+    {
+      "googlePlaceId": "ChIJ7Rdn5mZnzB0RyOHHPQvv-1Q",
+      "name": "GOLD Restaurant",
+      "address": "15 Bennett St, Green Point, Cape Town, 8005, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4167,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "african_restaurant",
+      "types": [
+        "african_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9128367,
+      "lng": 18.419109799999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6123750949900509640&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.goldrestaurant.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 83.65
+    },
+    {
+      "googlePlaceId": "ChIJZcHRD5FBzB0RweeI-w3GvCY",
+      "name": "Freedom Adventure Park Tokai",
+      "address": "333 Main Rd, Tokai, Cape Town, 7965, South Africa",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 1418,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pizza_restaurant",
+      "types": [
+        "pizza_restaurant",
+        "hamburger_restaurant",
+        "indoor_playground",
+        "playground",
+        "family_restaurant",
+        "american_restaurant",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -34.07438460000001,
+      "lng": 18.4591334,
+      "googleMapsUri": "https://maps.google.com/?cid=2791323632419792833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.freedomadventurepark.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.65
+    },
+    {
+      "googlePlaceId": "ChIJe2gBkllnzB0R35vu-Kck2Sw",
+      "name": "The Nelson Mandela Gateway To Robben Island",
+      "address": "V&A Waterfront, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 5938,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9064912,
+      "lng": 18.4224036,
+      "googleMapsUri": "https://maps.google.com/?cid=3231654511469566943&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://robben-island.org.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 83.62
+    },
+    {
+      "googlePlaceId": "ChIJ93CE265UzB0Rc51vcsIOhyQ",
+      "name": "Giraffe House",
+      "address": "Corner of, R101) & R304, Old Paarl Rd, Muldersvlei, Cape Town, 7600, South Africa",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 5276,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.82907,
+      "lng": 18.7991104,
+      "googleMapsUri": "https://maps.google.com/?cid=2632088735527705971&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.giraffehouse.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 83.51
+    },
+    {
+      "googlePlaceId": "ChIJSXxE6GVnzB0RtsJEWII0esg",
+      "name": "The Gin Bar",
+      "address": "64A Wale St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1536,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9225869,
+      "lng": 18.417124299999998,
+      "googleMapsUri": "https://maps.google.com/?cid=14445916489175581366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theginbar.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.49
+    },
+    {
+      "googlePlaceId": "ChIJrd6WymhnzB0RtAbmT_Q9mhc",
+      "name": "Yours Truly",
+      "address": "73 Kloof St, Schotsche Kloof, Cape Town, 8001, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2725,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9302078,
+      "lng": 18.4109002,
+      "googleMapsUri": "https://maps.google.com/?cid=1700739928807573172&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.allyoursco.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "wine bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.42
+    },
+    {
+      "googlePlaceId": "ChIJ9yvW9VJmzB0Rapxiq556WjU",
+      "name": "Chinchilla by Kove Collection",
+      "address": "Shop 120, Second Floor, The Promenade, Victoria Rd, Camps Bay, Cape Town, 8005, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 1528,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9530715,
+      "lng": 18.3773593,
+      "googleMapsUri": "https://maps.google.com/?cid=3844520053812927594&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wa.me/+2760%20400%203374",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.42
+    },
+    {
+      "googlePlaceId": "ChIJwbFS9TZnzB0RHNw0fzuQdpQ",
+      "name": "Homecoming Centre",
+      "address": "15 Buitenkant St, District Six, Cape Town, 7800, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 243,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9270926,
+      "lng": 18.4245148,
+      "googleMapsUri": "https://maps.google.com/?cid=10697896550076832796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://homecomingcentre.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.39
+    },
+    {
+      "googlePlaceId": "ChIJLyTjAOVnzB0R1s32fvn-MhU",
+      "name": "Ayepyep Lifestyle Lounge",
+      "address": "14 Kloof St, Gardens, Cape Town, 8001, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1008,
+      "priceLevel": null,
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9277823,
+      "lng": 18.412813,
+      "googleMapsUri": "https://maps.google.com/?cid=1527563571162435030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ayepyep.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.27
+    },
+    {
+      "googlePlaceId": "ChIJbaERfk5dzB0R5TM_LwwtRvI",
+      "name": "Newlands Forest",
+      "address": "Table Mountain National Park, Table Mountain (Nature Reserve), Cape Town, 0001, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4905,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "tourist_attraction",
+        "national_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9712233,
+      "lng": 18.4501663,
+      "googleMapsUri": "https://maps.google.com/?cid=17457690535903835109&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sanparks.org/parks/table_mountain/about/contact.php",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.09
+    },
+    {
+      "googlePlaceId": "ChIJw4PxgGZnzB0RYeCBVQAgNbY",
+      "name": "The House of Machines",
+      "address": "84 Shortmarket St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1931,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "coffee_shop",
+        "cafe",
+        "live_music_venue",
+        "event_venue",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9212643,
+      "lng": 18.4187685,
+      "googleMapsUri": "https://maps.google.com/?cid=13129435474475212897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thehouseofmachines.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "live music events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 83.08
+    },
+    {
+      "googlePlaceId": "ChIJS8DTnFlnzB0Rw6e4sH0cTdE",
+      "name": "Cape Town Diamond Museum",
+      "address": "Level 1 Clock Tower, Clock Tower District, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1138,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9071229,
+      "lng": 18.4224672,
+      "googleMapsUri": "https://maps.google.com/?cid=15081742053295040451&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.capetowndiamondmuseum.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 83.03
+    },
+    {
+      "googlePlaceId": "ChIJ880OJCBnzB0RLQv_25AQjzo",
+      "name": "JARRYDS.",
+      "address": "90 Regent Rd, Sea Point, Cape Town, 8005, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3254,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "family_restaurant",
+        "cafe",
+        "restaurant",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9215552,
+      "lng": 18.382167199999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4219609590221703981&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nonamehg.com/jarryds",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 82.9
+    },
+    {
+      "googlePlaceId": "ChIJMSWE43FnzB0Rjil_wEY8TfA",
+      "name": "Cause Effect Cocktail Kitchen",
+      "address": "The Rocket Shed, 280 Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 1784,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9052339,
+      "lng": 18.4192207,
+      "googleMapsUri": "https://maps.google.com/?cid=17315562416884361614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://causeandeffect.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.79
+    },
+    {
+      "googlePlaceId": "ChIJ99CMkRVnzB0RmK-qLtzKsF4",
+      "name": "Grub & Vine",
+      "address": "103 Bree St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 843,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bistro",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.921292,
+      "lng": 18.4182442,
+      "googleMapsUri": "https://maps.google.com/?cid=6823176482490855320&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.grubandvine.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "wine bars",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.73
+    },
+    {
+      "googlePlaceId": "ChIJHZWGeDRdzB0Rfja84XXFWd8",
+      "name": "Springbok Arms",
+      "address": "135 Lower Main Rd, Observatory, Cape Town, 7925, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 528,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "comedy_club",
+        "karaoke",
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9385037,
+      "lng": 18.468703899999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16094111853474231934&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://armchair.kamooni.africa/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "karaoke bars",
+        "trivia nights",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.42
+    },
+    {
+      "googlePlaceId": "ChIJKe3s-mVnzB0R7Pcsl9FMGlY",
+      "name": "fable",
+      "address": "Corner Bree &, Wale St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 527,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9225006,
+      "lng": 18.4164714,
+      "googleMapsUri": "https://maps.google.com/?cid=6204355899724462060&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fablecocktailbar.capetown/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.41
+    },
+    {
+      "googlePlaceId": "ChIJP7nmnlRAzB0RUDOqP1opjOE",
+      "name": "Blue Bird Garage Food and Goods Market",
+      "address": "39 Albertyn Rd, Muizenberg, Cape Town, 7945, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1533,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.1035708,
+      "lng": 18.4693096,
+      "googleMapsUri": "https://maps.google.com/?cid=16252410622865191760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bluebirdgarage.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 82.38
+    },
+    {
+      "googlePlaceId": "ChIJHXMVPF1dzB0RdZqrrIqwx6g",
+      "name": "Rose's Table",
+      "address": "79 Roeland St, District Six, Cape Town, 8001, District Six, Cape Town, 8000, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 120,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.929575899999996,
+      "lng": 18.422298599999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12161883428386216565&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://chefherorose.co.za/roses-table-cape-town/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.37
+    },
+    {
+      "googlePlaceId": "ChIJl68pHNtCzB0RFkwA0Kg6hMY",
+      "name": "Arderne Gardens",
+      "address": "222 Main Rd, Claremont, Cape Town, 7708, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 3088,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9872914,
+      "lng": 18.4648833,
+      "googleMapsUri": "https://maps.google.com/?cid=14304622813154135062&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ardernegardens.org.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.34
+    },
+    {
+      "googlePlaceId": "ChIJb27tOVtnzB0RMh88jaCL3uU",
+      "name": "One&Only Cape Town",
+      "address": "One&Only Cape Town, 0C Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.7,
+      "reviewCount": 3543,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.908631299999996,
+      "lng": 18.416290500000002,
+      "googleMapsUri": "https://maps.google.com/?cid=16563830001195818802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oneandonlyresorts.com/cape-town?utm_medium=organic-search&utm_source=gbp&utm_campaign=gbp_ao_y_ooct_row_wt__ao__kz&utm_content=__&utm_term=one-and-only-cape-town&utm_id=hj9x2d",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 82.11
+    },
+    {
+      "googlePlaceId": "ChIJZdIh1ntnzB0RAjkMOWET5X8",
+      "name": "The Dog's Bollocks at YARD",
+      "address": "6 Roodehek St, Gardens, Cape Town, 8001, South Africa",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 3443,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "hamburger_restaurant",
+      "types": [
+        "hamburger_restaurant",
+        "chicken_wings_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.932265,
+      "lng": 18.419169,
+      "googleMapsUri": "https://maps.google.com/?cid=9215793520773445890&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.yardco.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 82.02
+    },
+    {
+      "googlePlaceId": "ChIJjbd4kOJmzB0RkE0iy_wAkQc",
+      "name": "The Rock",
+      "address": "405 Ocean View Dr, Bantry Bay, Cape Town, 8005, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 787,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.931356199999996,
+      "lng": 18.3792635,
+      "googleMapsUri": "https://maps.google.com/?cid=545218115628322192&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.capetownetc.com/things-to-do-cape-town/5-picture-perfect-spots-around-cape-town/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 81.92
+    },
+    {
+      "googlePlaceId": "ChIJe3Ob9lpnzB0RirlxEBIYU3c",
+      "name": "The Watershed",
+      "address": "V&A Waterfront, 17 Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8002, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 6734,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9069582,
+      "lng": 18.4185352,
+      "googleMapsUri": "https://maps.google.com/?cid=8598242579444775306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.waterfront.co.za/area/watershed/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 81.85
+    },
+    {
+      "googlePlaceId": "ChIJNRoa0nFnzB0R_nTLopTzzY8",
+      "name": "Cape Town Free Walking Tours",
+      "address": "Morning Mojo Cafe & Deli, 150 St Georges Mall, Cape Town City Centre, Cape Town, 8001, South Africa",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 694,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9242286,
+      "lng": 18.419375199999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10362206137361331454&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.freewalkingtourscapetown.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 81.79
+    },
+    {
+      "googlePlaceId": "ChIJ_2wa9o1nzB0R64vZmO-aVvg",
+      "name": "Platteklip Gorge Starting Point",
+      "address": "Tafelberg Rd, Table Mountain (Nature Reserve), Cape Town, 8001, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1747,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9553849,
+      "lng": 18.4157838,
+      "googleMapsUri": "https://maps.google.com/?cid=17894660523255499755&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://platteklipgorge.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 81.73
+    },
+    {
+      "googlePlaceId": "ChIJR5R8qsZdzB0RjfKL8RsnvG4",
+      "name": "Cape Town Heritage Tours - Historical Walking Tours",
+      "address": "202 Panorama Mansions, 7 St James St, Vredehoek, Cape Town, 8001, South Africa",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 108,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "tourist_attraction",
+        "consultant",
+        "service",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": -33.939882499999996,
+      "lng": 18.428015,
+      "googleMapsUri": "https://maps.google.com/?cid=7979295640763757197&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://capetownheritagetours.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 81.65
+    },
+    {
+      "googlePlaceId": "ChIJ523J8npnzB0Rfvs7MyenlN8",
+      "name": "Iziko South African Museum",
+      "address": "25 Queen Victoria St, Gardens, Cape Town, 8001, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 846,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "planetarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9284896,
+      "lng": 18.4148554,
+      "googleMapsUri": "https://maps.google.com/?cid=16110685553816238974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.iziko.org.za/museums/south-african-museum",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 81.64
+    },
+    {
+      "googlePlaceId": "ChIJaTKUJGRnzB0RnAr6arozcDE",
+      "name": "City Sightseeing Downtown Tour Office",
+      "address": "81 Long St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 1687,
+      "priceLevel": null,
+      "primaryType": "transportation_service",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9219558,
+      "lng": 18.4197785,
+      "googleMapsUri": "https://maps.google.com/?cid=3562404181001767580&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.citysightseeing.co.za/en/cape-town/?utm_source=gmb&utm_medium=organic&utm_campaign=downtown",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 81.62
+    },
+    {
+      "googlePlaceId": "ChIJs0cTe7BQzB0R5kimHg9uQUs",
+      "name": "The Barnyard Theatre Tyger Valley",
+      "address": "Entrance 12, Tyger valley Shopping Centre, Bellville, Cape Town, 7536, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4212,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.8725062,
+      "lng": 18.6334184,
+      "googleMapsUri": "https://maps.google.com/?cid=5422736437548566758&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barnyardtheatre.co.za/tygervalley",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 81.53
+    },
+    {
+      "googlePlaceId": "ChIJzQ436ahnzB0RuyXAWZPL2qw",
+      "name": "Jack@SKYE Rooftop Bar and Restaurant",
+      "address": "13 London Rd, Sea Point, Cape Town, 8005, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 560,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "swimming_pool",
+        "bar",
+        "sports_activity_location",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.91204,
+      "lng": 18.39065,
+      "googleMapsUri": "https://maps.google.com/?cid=12455491553172923835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehydehotel.com/venues",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.5
+    },
+    {
+      "googlePlaceId": "ChIJZx2KoLVnzB0R2oRst7jI_g4",
+      "name": "Upper Union",
+      "address": "3 Upper Union St, Gardens, Cape Town, 8001, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 479,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9319367,
+      "lng": 18.4083853,
+      "googleMapsUri": "https://maps.google.com/?cid=1080521656292377818&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.upperunion.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.48
+    },
+    {
+      "googlePlaceId": "ChIJbcI4RGFnzB0RHb2CyuOUMrI",
+      "name": "Pwned Games",
+      "address": "207B Buchanan Square, 160 Sir Lowry Rd, Foreshore, Cape Town, 8001, South Africa",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 543,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "toy_store",
+        "association_or_organization",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9277579,
+      "lng": 18.43716,
+      "googleMapsUri": "https://maps.google.com/?cid=12840489193662758173&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pwnedgames.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 81.45
+    },
+    {
+      "googlePlaceId": "ChIJia99_XdnzB0RhWZnbERGLUI",
+      "name": "Bo-Vine Wine & Grill House In The City",
+      "address": "101 Hout St, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 322,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9203186,
+      "lng": 18.418267,
+      "googleMapsUri": "https://maps.google.com/?cid=4768544840145659525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bovinegrillhouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.38
+    },
+    {
+      "googlePlaceId": "ChIJXdpUhHtnzB0RI8TYhHL5028",
+      "name": "District Six Museum",
+      "address": "25A Buitenkant St, District Six, Cape Town, 8000, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 2580,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9277222,
+      "lng": 18.423676999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8058058428546335779&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.districtsix.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 81.35
+    },
+    {
+      "googlePlaceId": "ChIJHf2TYGZnzB0RIfeC17qjQ8Q",
+      "name": "Bouchon Bistro",
+      "address": "95 Hout St, Cape Town City Centre, Cape Town, 8001, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 751,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9203338,
+      "lng": 18.418454,
+      "googleMapsUri": "https://maps.google.com/?cid=14142327277748418337&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bouchon.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 81.33
+    },
+    {
+      "googlePlaceId": "ChIJtYNwJi8NlR4RyvM6ba_WU_U",
+      "name": "PIER Restaurant",
+      "address": "Pierhead Building (next to the NSRI V&A Waterfront, Bowl, Cape Town, 8001, South Africa",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 641,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.905582599999995,
+      "lng": 18.4210777,
+      "googleMapsUri": "https://maps.google.com/?cid=17677709011299529674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lacolombe.restaurant/pier",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.3
+    },
+    {
+      "googlePlaceId": "ChIJA5rgAAVczB0RxY9hxxv-SWg",
+      "name": "Intaka Island",
+      "address": "Grand Central Precintp, 2 Park Ln, Century City, Cape Town, 7441, South Africa",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 1864,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.888283,
+      "lng": 18.513561,
+      "googleMapsUri": "https://maps.google.com/?cid=7514816848507015109&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.intaka.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 81.22
+    },
+    {
+      "googlePlaceId": "ChIJ4VLbedFCzB0RudnQ6-aK5A4",
+      "name": "Rush Extreme Claremont",
+      "address": "25 Stegman Rd, Claremont, Cape Town, 7708, South Africa",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 3787,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "adventure_sports_center",
+        "amusement_center",
+        "playground",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -33.9791422,
+      "lng": 18.466578,
+      "googleMapsUri": "https://maps.google.com/?cid=1073135335624464825&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rushsa.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 81.21
+    },
+    {
+      "googlePlaceId": "ChIJl45bYqpnzB0RlzXvUN2moF8",
+      "name": "The Lawns at the Roundhouse",
+      "address": "Round House Rd, Camps Bay, Cape Town, 8005, South Africa",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 3772,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "wedding_venue",
+        "event_venue",
+        "bar",
+        "service",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.943843099999995,
+      "lng": 18.3847393,
+      "googleMapsUri": "https://maps.google.com/?cid=6890690899352696215&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thelawnsct.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.15
+    },
+    {
+      "googlePlaceId": "ChIJN5B9av5nzB0RgVc6MlUzrzw",
+      "name": "The Athletic Club & Social",
+      "address": "35 Buitengracht St, CBD, Cape Town, 8001, South Africa",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1790,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9194999,
+      "lng": 18.4188692,
+      "googleMapsUri": "https://maps.google.com/?cid=4372770204207961985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theathletic.co.za/",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 81.1
+    },
+    {
+      "googlePlaceId": "ChIJLx1pVURnzB0RpitxTRiaz9A",
+      "name": "Hudsons - The Burger Joint (Green Point)",
+      "address": "Shop 1A, Portside Mall, Main Rd, Green Point, Cape Town, 8051, South Africa",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 4920,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "hamburger_restaurant",
+      "types": [
+        "hamburger_restaurant",
+        "pizza_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.9091206,
+      "lng": 18.4127592,
+      "googleMapsUri": "https://maps.google.com/?cid=15046414309237271462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theburgerjoint.co.za/?utm_source=google_maps&utm_medium=website_button&utm_campaign=SP&utm_content=SP",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 80.9
+    },
+    {
+      "googlePlaceId": "ChIJpVDOWVlnzB0RYnHAJitnkyw",
+      "name": "Gigi Rooftop Restaurant & Bar",
+      "address": "118 St Georges Mall, Cape Town City Centre, Cape Town, 8000, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 953,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.923605699999996,
+      "lng": 18.4200855,
+      "googleMapsUri": "https://maps.google.com/?cid=3212024394276696418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gigirooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 80.9
+    },
+    {
+      "googlePlaceId": "ChIJX8r0RWWKzB0R5nIoI8y2e5c",
+      "name": "Robben Island Museum",
+      "address": "Robben Island, Cape Town, 7400, South Africa",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4895,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.7997539,
+      "lng": 18.3722834,
+      "googleMapsUri": "https://maps.google.com/?cid=10915519109741966054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.robben-island.org.za/",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 80.88
+    },
+    {
+      "googlePlaceId": "ChIJOyr15cpnzB0RkSKOlVBhfHA",
+      "name": "The Nines by Kove Collection",
+      "address": "9th Floor, Station House, 19 Kloof Rd, Sea Point, Cape Town, 8005, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 944,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": -33.918891699999996,
+      "lng": 18.3874323,
+      "googleMapsUri": "https://maps.google.com/?cid=8105460428094448273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thenines.co.za/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 80.87
+    },
+    {
+      "googlePlaceId": "ChIJSQfrsjdmzB0R-XGTGAe06iI",
+      "name": "12 Apostles Hotel & Spa",
+      "address": "Victoria Rd, Camps Bay, Cape Town, 8005, South Africa",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.6,
+      "reviewCount": 3329,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9835262,
+      "lng": 18.3589679,
+      "googleMapsUri": "https://maps.google.com/?cid=2516021284409930233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.12apostleshotel.com/?utm_source=google&utm_medium=local&utm_campaign=hotel-12-apostles-hotel-spa",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 80.82
+    },
+    {
+      "googlePlaceId": "ChIJbRCT62NnzB0R6ICqv_D4yyI",
+      "name": "Bascule Bar",
+      "address": "W Quay Rd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 214,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -33.9082337,
+      "lng": 18.4201684,
+      "googleMapsUri": "https://maps.google.com/?cid=2507371330453274856&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://capegrace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 80.8
+    },
+    {
+      "googlePlaceId": "ChIJJ6NGVYtCzB0RfUs5FS3mIBI",
+      "name": "Alphen Trail",
+      "address": "31 Alphen Dr, Alphen, Cape Town, 7806, South Africa",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2103,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -34.0135076,
+      "lng": 18.4512793,
+      "googleMapsUri": "https://maps.google.com/?cid=1306296973241437053&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 80.79
+    }
+  ]
+}

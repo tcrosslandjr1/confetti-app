@@ -1,0 +1,3587 @@
+{
+  "location": "Nashville, TN",
+  "generatedAt": "2026-05-17T19:31:56.557Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJVSpg989pZIgRdex84bjnfic",
+      "name": "Grand Ole Opry",
+      "address": "600 Opry Mills Dr, Nashville, TN 37214, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 32636,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "auditorium",
+        "tourist_attraction",
+        "event_venue",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.2068571,
+      "lng": -86.69210849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2845966795787791477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.opry.com/?utm_campaign=opry&utm_medium=organicsearch&utm_source=googlemybusiness&utm_audience=tofu_googlemybusiness&utm_content=brandstory_google_my_business_website_link",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.75
+    },
+    {
+      "googlePlaceId": "ChIJ2zNcAORnZIgRDegDF_fkiW0",
+      "name": "The Hampton Social - Nashville",
+      "address": "201 1st Ave S, Nashville, TN 37201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 18899,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1599591,
+      "lng": -86.7732544,
+      "googleMapsUri": "https://maps.google.com/?cid=7893091571837691917&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehamptonsocial.com/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 99.12
+    },
+    {
+      "googlePlaceId": "ChIJletJO1lmZIgRq0UiSZV5AGM",
+      "name": "Ryman Auditorium",
+      "address": "116 Rep. John Lewis Way N, Nashville, TN 37219, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 20975,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "tourist_attraction",
+        "gift_shop",
+        "performing_arts_theater",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.1612481,
+      "lng": -86.7784714,
+      "googleMapsUri": "https://maps.google.com/?cid=7133835491838936491&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ryman.com/?utm_campaign=ryman&utm_medium=organicsearch&utm_source=googlemybusiness&utm_audience=tofu_googlemybusiness&utm_content=brandstory_google_my_business_website_link",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.35
+    },
+    {
+      "googlePlaceId": "ChIJ-2w5_iZpZIgR4oI_otpeiQU",
+      "name": "Great Big Game Show Nashville",
+      "address": "521 Opry Mills Dr, Nashville, TN 37214, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7870,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.205334,
+      "lng": -86.69418,
+      "googleMapsUri": "https://maps.google.com/?cid=398954335116952290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://greatbiggameshow.com/nashville?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.44
+    },
+    {
+      "googlePlaceId": "ChIJR2SNw15mZIgREmY_zX5TAKk",
+      "name": "Bridgestone Arena",
+      "address": "501 Broadway, Nashville, TN 37203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 17330,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "stadium",
+        "athletic_field",
+        "event_venue",
+        "sports_club",
+        "sports_complex",
+        "sports_activity_location",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.159173599999995,
+      "lng": -86.7784959,
+      "googleMapsUri": "https://maps.google.com/?cid=12177825196484290066&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bridgestonearena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "skating rinks",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.64
+    },
+    {
+      "googlePlaceId": "ChIJ_5bAt9BpZIgRu1egin5QyTo",
+      "name": "Gaylord Opryland Resort & Convention Center",
+      "address": "2800 Opryland Dr, Nashville, TN 37214, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 34005,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "wedding_venue",
+        "event_venue",
+        "lodging",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.2122412,
+      "lng": -86.6946459,
+      "googleMapsUri": "https://maps.google.com/?cid=4236005428940527547&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marriott.com/en-us/hotels/bnago-gaylord-opryland-resort-and-convention-center/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "waterfront gardens",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.58
+    },
+    {
+      "googlePlaceId": "ChIJGUdyG7tmZIgR1Ajq8DD8b_M",
+      "name": "Centennial Park",
+      "address": "2500 West End Ave, Nashville, TN 37203, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 15279,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1489459,
+      "lng": -86.81274979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17541516360761870548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nashville.gov/departments/parks/parks/centennial-park",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.24
+    },
+    {
+      "googlePlaceId": "ChIJS2U0MVxmZIgRZw7MYMgQuKU",
+      "name": "Country Music Hall of Fame and Museum",
+      "address": "222 Rep. John Lewis Way S, Nashville, TN 37203, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 19776,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1582632,
+      "lng": -86.7761258,
+      "googleMapsUri": "https://maps.google.com/?cid=11941312864776359527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://countrymusichalloffame.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.96
+    },
+    {
+      "googlePlaceId": "ChIJMxurOoe5YIgRY3FVb4GNFQk",
+      "name": "Fall Creek Falls State Park",
+      "address": "2009 Village Camp Rd, Spencer, TN 38585, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8718,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.706918699999996,
+      "lng": -85.3821486,
+      "googleMapsUri": "https://maps.google.com/?cid=654584907910443363&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tnstateparks.com/parks/fall-creek-falls",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.57
+    },
+    {
+      "googlePlaceId": "ChIJt4SWAYBvZIgR5n1NFy9tC_Y",
+      "name": "Nashville Zoo at Grassmere",
+      "address": "3777 Nolensville Pk, Nashville, TN 37211, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 21265,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0894986,
+      "lng": -86.74247059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17729384407095934438&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nashvillezoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "holiday markets",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.09
+    },
+    {
+      "googlePlaceId": "ChIJVVVVVYVvZIgR9SLLnlliRbA",
+      "name": "Johnny Cash Museum",
+      "address": "Lower Level, 119 3rd Ave S, Nashville, TN 37201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 11165,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1609385,
+      "lng": -86.77575709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12701666461124076277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.johnnycashmuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.15
+    },
+    {
+      "googlePlaceId": "ChIJFRj7iGuYXogRYSR1p8Fvkjw",
+      "name": "Great Smoky Mountains National Park",
+      "address": "United States",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 50192,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6130503,
+      "lng": -83.55315370000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4364673866404275297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/grsm/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 93.96
+    },
+    {
+      "googlePlaceId": "ChIJD71cuSRnZIgRcwLkirc7vXg",
+      "name": "The Finch",
+      "address": "111 10th Ave S #310, Nashville, TN 37203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4800,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1566325,
+      "lng": -86.7839138,
+      "googleMapsUri": "https://maps.google.com/?cid=8700175714644918899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thefinchnashville.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "wine bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.67
+    },
+    {
+      "googlePlaceId": "ChIJryDB4Q1nZIgR7ToLmwlalqY",
+      "name": "Assembly Food Hall",
+      "address": "5055 Broadway, Nashville, TN 37203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 6650,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food_court",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1609805,
+      "lng": -86.77933329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12003880854105045741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.assemblyfoodhall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "interactive pop ups",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "viral-eats"
+      ],
+      "popularityScore": 93.61
+    },
+    {
+      "googlePlaceId": "ChIJv6YfiMFlZIgR8T9z7EhuAFk",
+      "name": "The Escape Game Nashville (Berry Hill)",
+      "address": "510 E Iris Dr, Nashville, TN 37204, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 16776,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1166346,
+      "lng": -86.76336409999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6413247128859262961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/nashville/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=nsh-berry-hill",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 93.34
+    },
+    {
+      "googlePlaceId": "ChIJa4wvovBiZIgRI6Lt_1xPLsI",
+      "name": "Cheekwood",
+      "address": "1200 Forrest Park Dr, Nashville, TN 37205, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 6023,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "sculpture",
+        "tourist_attraction",
+        "art_museum",
+        "historical_landmark",
+        "wedding_venue",
+        "historical_place",
+        "event_venue",
+        "museum",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.088447099999996,
+      "lng": -86.8759749,
+      "googleMapsUri": "https://maps.google.com/?cid=13992208353136058915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cheekwood.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "best parks",
+        "waterfront gardens",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.29
+    },
+    {
+      "googlePlaceId": "ChIJmVZ-DgBnZIgRSUQEcY9F-u8",
+      "name": "Aba Nashville",
+      "address": "435 Houston St, Nashville, TN 37203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 2860,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1426611,
+      "lng": -86.76740149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17292210201621185609&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.abarestaurants.com/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.13
+    },
+    {
+      "googlePlaceId": "ChIJE_njnQ5lZIgRPxscwkjMpyY",
+      "name": "Game Terminal",
+      "address": "201 Terminal Ct, Nashville, TN 37210, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 3995,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "beer_garden",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.131641099999996,
+      "lng": -86.74544619999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2785419507418274623&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameterminal.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.09
+    },
+    {
+      "googlePlaceId": "ChIJAYJDhGv_W4gRJ-1KgfemR4c",
+      "name": "The Island in Pigeon Forge",
+      "address": "131 The Island Dr, Pigeon Forge, TN 37863, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 62300,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.802977999999996,
+      "lng": -83.5704181,
+      "googleMapsUri": "https://maps.google.com/?cid=9747943500423032103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://islandinpigeonforge.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 92.45
+    },
+    {
+      "googlePlaceId": "ChIJkTimkhVnZIgR1L49miz0jVM",
+      "name": "Harper's",
+      "address": "2 Lea Ave, Nashville, TN 37210, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3245,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1576287,
+      "lng": -86.7694068,
+      "googleMapsUri": "https://maps.google.com/?cid=6020736749267697364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.harpersnashville.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.43
+    },
+    {
+      "googlePlaceId": "ChIJJ38D4XJnZIgRW3qeXNBbRZI",
+      "name": "Friends in Low Places Bar & Honky-Tonk",
+      "address": "411 Broadway, Nashville, TN 37203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 4430,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1606953,
+      "lng": -86.7775951,
+      "googleMapsUri": "https://maps.google.com/?cid=10539931453395728987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://friendsbarnashville.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.32
+    },
+    {
+      "googlePlaceId": "ChIJb6eoeE__W4gRSZP4fr18cj4",
+      "name": "Titanic Museum Attraction",
+      "address": "2134 Parkway, Pigeon Forge, TN 37863, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 24061,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.82055,
+      "lng": -83.5789351,
+      "googleMapsUri": "https://maps.google.com/?cid=4499796131017429833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://titanicattraction.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 91.58
+    },
+    {
+      "googlePlaceId": "ChIJhdXu3FtmZIgR3NE0dkDYkr0",
+      "name": "Ole Red",
+      "address": "300 Broadway, Nashville, TN 37201, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 13480,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "gift_shop",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.1617138,
+      "lng": -86.77618819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13660218391140815324&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.olered.com/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 91.5
+    },
+    {
+      "googlePlaceId": "ChIJ28EdRF5mZIgRQFrZCMmHaq4",
+      "name": "Music City Center",
+      "address": "201 Rep. John Lewis Way S, Nashville, TN 37203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5768,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1577902,
+      "lng": -86.7778496,
+      "googleMapsUri": "https://maps.google.com/?cid=12568007007637428800&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nashvillemusiccitycenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.41
+    },
+    {
+      "googlePlaceId": "ChIJEQk8r_VmZIgRm35FEOeHM-c",
+      "name": "Frist Art Museum",
+      "address": "919 Broadway, Nashville, TN 37203, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4655,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "gift_shop",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.1578972,
+      "lng": -86.78385279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16659808873053781659&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fristartmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.38
+    },
+    {
+      "googlePlaceId": "ChIJgz_abddpZIgRQQqH4s6SobY",
+      "name": "Opry Mills",
+      "address": "433 Opry Mills Dr, Nashville, TN 37214, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 30886,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.2048497,
+      "lng": -86.6930726,
+      "googleMapsUri": "https://maps.google.com/?cid=13159961003414719041&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/opry-mills",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 91.28
+    },
+    {
+      "googlePlaceId": "ChIJt8ez9WRmZIgRNzhR_gLvjiA",
+      "name": "Adventure Science Center",
+      "address": "800 Fort Negley Blvd, Nashville, TN 37203, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 6154,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1466142,
+      "lng": -86.775481,
+      "googleMapsUri": "https://maps.google.com/?cid=2346075252042315831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.adventuresci.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.16
+    },
+    {
+      "googlePlaceId": "ChIJi__4cp-MQYgRRdAIjXXXrvI",
+      "name": "Ark Encounter",
+      "address": "1 Ark Encounter Dr, Williamstown, KY 41097, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 40060,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "place_of_worship",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 38.627910799999995,
+      "lng": -84.5809292,
+      "googleMapsUri": "https://maps.google.com/?cid=17487151303003525189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://arkencounter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.05
+    },
+    {
+      "googlePlaceId": "ChIJW4zRh1lmZIgR1Ac9_jSsHz0",
+      "name": "The Escape Game Nashville (Downtown)",
+      "address": "162 3rd Ave N, Nashville, TN 37201, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 13636,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.163524200000005,
+      "lng": -86.77705720000002,
+      "googleMapsUri": "https://maps.google.com/?cid=4404428304195323860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/nashville/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=nsh-downtown",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.93
+    },
+    {
+      "googlePlaceId": "ChIJCVTHx1lmZIgRNGijjXbdj68",
+      "name": "Bourbon Street Blues and Boogie Bar",
+      "address": "220 Printers Alley, Nashville, TN 37201, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 4855,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1644533,
+      "lng": -86.7788491,
+      "googleMapsUri": "https://maps.google.com/?cid=12650573379559188532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bourbonstreetblues.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "interactive pop ups",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.86
+    },
+    {
+      "googlePlaceId": "ChIJdUBOc1xmZIgRmphTMC6DQDg",
+      "name": "Nashville Symphony Schermerhorn Symphony Center",
+      "address": "1 Symphony Pl, Nashville, TN 37201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 3599,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "tourist_attraction",
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1599353,
+      "lng": -86.7759626,
+      "googleMapsUri": "https://maps.google.com/?cid=4053383899035965594&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nashvillesymphony.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.61
+    },
+    {
+      "googlePlaceId": "ChIJ-x9c99tVWYgROYPHA2WPm9s",
+      "name": "Ripley's Aquarium of the Smokies",
+      "address": "88 River Rd, Gatlinburg, TN 37738, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 43702,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7142227,
+      "lng": -83.51318429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15824399379714245433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ripleys.com/attractions/ripleys-aquarium-of-the-smokies/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.23
+    },
+    {
+      "googlePlaceId": "ChIJl89GFWdnZIgREzwdIcT0yh4",
+      "name": "Bungalow 10 Dining",
+      "address": "1910 Belcourt Ave, Nashville, TN 37212, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2273,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1369811,
+      "lng": -86.7992986,
+      "googleMapsUri": "https://maps.google.com/?cid=2218854889639722003&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bungalow10dining.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.2
+    },
+    {
+      "googlePlaceId": "ChIJ23DXqlxmZIgRNeksJdnFqtM",
+      "name": "Ascend Federal Credit Union Amphitheater",
+      "address": "310 1st Ave S, Nashville, TN 37201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4854,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1597,
+      "lng": -86.77148799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15252220624465881397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ascendamphitheater.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.01
+    },
+    {
+      "googlePlaceId": "ChIJj8Rtp0ZcYIgRoW7nm2Y2Ez8",
+      "name": "Rock City Gardens",
+      "address": "1400 Patten Rd, Lookout Mountain, GA 30750, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 28156,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.973022,
+      "lng": -85.3502156,
+      "googleMapsUri": "https://maps.google.com/?cid=4545036263277162145&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://seerockcity.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.93
+    },
+    {
+      "googlePlaceId": "ChIJjYUYWVhmZIgRizOTUrFR_1M",
+      "name": "Puckett's Restaurant",
+      "address": "500 Church St, Nashville, TN 37219, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 8998,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "family_restaurant",
+      "types": [
+        "family_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1632246,
+      "lng": -86.78046309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6052646246245675915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://puckettsrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.77
+    },
+    {
+      "googlePlaceId": "ChIJ6VZhyFtmZIgR3wc_pOZYUq4",
+      "name": "The Stillery",
+      "address": "113 2nd Ave N, Nashville, TN 37201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4450,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "live_music_venue",
+        "bar",
+        "american_restaurant",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.162251,
+      "lng": -86.77570999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12561200058311051231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thestillery.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.73
+    },
+    {
+      "googlePlaceId": "ChIJs8eMBlhmZIgRhwAFFFtMMag",
+      "name": "Tennessee State Museum",
+      "address": "1000 Rosa L Parks Blvd, Nashville, TN 37208, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3814,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1724769,
+      "lng": -86.79008639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12119552026292322439&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tnmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.7
+    },
+    {
+      "googlePlaceId": "ChIJuc6N7GFeYIgRHjOJY9ERWPE",
+      "name": "Tennessee Aquarium",
+      "address": "1 Broad St, Chattanooga, TN 37402, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 25386,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.055822899999995,
+      "lng": -85.3110646,
+      "googleMapsUri": "https://maps.google.com/?cid=17390669552106943262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tnaqua.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJTXSBdydnZIgRXBcw4KiHEBQ",
+      "name": "Red Phone Booth",
+      "address": "136 Rosa L Parks Blvd, Nashville, TN 37203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1844,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1600957,
+      "lng": -86.7825723,
+      "googleMapsUri": "https://maps.google.com/?cid=1445804639771432796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.redphonebooth.com/locations/tn/nashville?utm_source=google&utm_medium=organic&utm_campaign=gbp_nashville&utm_content=website_button",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.54
+    },
+    {
+      "googlePlaceId": "ChIJD4_4GNZlZIgRH6o0xN2A-2U",
+      "name": "Team Building Hub by The Escape Game",
+      "address": "508 E Iris Dr, Nashville, TN 37204, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 8303,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1162561,
+      "lng": -86.7636046,
+      "googleMapsUri": "https://maps.google.com/?cid=7348608906953009695&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://teambuildinghub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.36
+    },
+    {
+      "googlePlaceId": "ChIJ_zzlU5xvZIgRfSuzRT9RLmI",
+      "name": "Plaza Mariachi",
+      "address": "3955 Nolensville Pk, Nashville, TN 37211, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 6864,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "food_court",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0846976,
+      "lng": -86.7302385,
+      "googleMapsUri": "https://maps.google.com/?cid=7074681396839787389&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://plazamariachi.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.36
+    },
+    {
+      "googlePlaceId": "ChIJtQ0Qdc9pZIgRJvF7izE-fBY",
+      "name": "Madame Tussauds Nashville",
+      "address": "Opry Mills, 515 Opry Mills Dr, Nashville, TN 37214, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 3489,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.204839899999996,
+      "lng": -86.69404709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1620238348461011238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madametussauds.com/nashville/?utm_source=local-listing&utm_medium=organic&utm_campaign=tickets",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.36
+    },
+    {
+      "googlePlaceId": "ChIJfZPsIAH_W4gRX4x0GYCF5xQ",
+      "name": "The Old Mill Restaurant",
+      "address": "164 Old Mill Ave, Pigeon Forge, TN 37863, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 32485,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.788238799999995,
+      "lng": -83.55365379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1506319385608096863&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://old-mill.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 89.29
+    },
+    {
+      "googlePlaceId": "ChIJo0_dOVlmZIgR1LQajfg9viM",
+      "name": "Tootsies Orchid Lounge",
+      "address": "422 Broadway, Nashville, TN 37203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 7144,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "tourist_attraction",
+        "live_music_venue",
+        "bar_and_grill",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.160901599999995,
+      "lng": -86.77829229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2575564174631023828&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tootsies.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "nightclubs",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.03
+    },
+    {
+      "googlePlaceId": "ChIJq5TkomppZIgRD2CZwz2goks",
+      "name": "The Escape Game Nashville (Opry Mills)",
+      "address": "523 Opry Mills Dr, Nashville, TN 37214, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7364,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.2053863,
+      "lng": -86.6942567,
+      "googleMapsUri": "https://maps.google.com/?cid=5450094686206779407&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/nashville/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=nsh-opry-mills",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.98
+    },
+    {
+      "googlePlaceId": "ChIJzfaPQRlnZIgRFCke5bFIO0s",
+      "name": "Nashville Farmers' Market",
+      "address": "900 Rosa L Parks Blvd, Nashville, TN 37208, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 8566,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1707184,
+      "lng": -86.7888787,
+      "googleMapsUri": "https://maps.google.com/?cid=5421006505360894228&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nashvillefarmersmarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.96
+    },
+    {
+      "googlePlaceId": "ChIJmUydNdR-ZIgR8fEBGHeKsqw",
+      "name": "Breakout Games",
+      "address": "1209 Lakeview Dr, Franklin, TN 37067, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7206,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.919867800000006,
+      "lng": -86.8258575,
+      "googleMapsUri": "https://maps.google.com/?cid=12444160964486623729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/nashville?utm_source=google&utm_medium=organic&utm_campaign=gmb-nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.91
+    },
+    {
+      "googlePlaceId": "ChIJbSWOSZJmZIgRSzkFD1OWLPY",
+      "name": "The Patterson House",
+      "address": "700 8th Ave S Fifth Floor, Nashville, TN 37203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1501,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.150632099999996,
+      "lng": -86.77869919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17738718315783993675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thepattersonnashville.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.89
+    },
+    {
+      "googlePlaceId": "ChIJmefx5j1nZIgR5RzqV-zqqEA",
+      "name": "The Twelve Thirty Club",
+      "address": "550 Broadway, Nashville, TN 37203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2758,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "steak_house",
+        "cocktail_bar",
+        "seafood_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1604309,
+      "lng": -86.7790234,
+      "googleMapsUri": "https://maps.google.com/?cid=4659232115322920165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thetwelvethirtyclub.com/#section-four?utm_source=google&utm_medium=organic&utm_campaign=maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "rooftop bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.62
+    },
+    {
+      "googlePlaceId": "ChIJGXl4K1pmZIgR2GZ_bBCfgbQ",
+      "name": "Another Broken Egg Cafe",
+      "address": "208 Commerce St, Nashville, TN 37201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 12809,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.163208,
+      "lng": -86.776596,
+      "googleMapsUri": "https://maps.google.com/?cid=13006852091711284952&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anotherbrokenegg.com/locations/nashville-tn/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 88.54
+    },
+    {
+      "googlePlaceId": "ChIJs8eMBlhmZIgR7r6-XQQ9wqM",
+      "name": "Tennessee Performing Arts Center",
+      "address": "505 Deaderick St, Nashville, TN 37243, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3412,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "auditorium",
+        "live_music_venue",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1646584,
+      "lng": -86.782552,
+      "googleMapsUri": "https://maps.google.com/?cid=11800061062626066158&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tpac.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 88.24
+    },
+    {
+      "googlePlaceId": "ChIJf2rnpoJqZIgRQyx--6HBumM",
+      "name": "Andrew Jackson’s Hermitage",
+      "address": "4580 Rachels Ln, Hermitage, TN 37076, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5828,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.2138698,
+      "lng": -86.61620020000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7186269056876293187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thehermitage.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 88.19
+    },
+    {
+      "googlePlaceId": "ChIJlS8xEmmxQYgR79nUVdZZxM8",
+      "name": "Newport Aquarium",
+      "address": "1 Levee Wy, Newport, KY 41071, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 21438,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.09466400000001,
+      "lng": -84.4974482,
+      "googleMapsUri": "https://maps.google.com/?cid=14971189838384257519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.newportaquarium.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.97
+    },
+    {
+      "googlePlaceId": "ChIJG4OEhhNcYIgRJhPbD2am6Z4",
+      "name": "Ruby Falls",
+      "address": "1720 Scenic Hwy, Chattanooga, TN 37409, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 21089,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "scenic_spot",
+        "historical_landmark",
+        "nature_preserve",
+        "historical_place",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.0190839,
+      "lng": -85.3393555,
+      "googleMapsUri": "https://maps.google.com/?cid=11450866484849087270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rubyfalls.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.92
+    },
+    {
+      "googlePlaceId": "ChIJ9y96fABnZIgRytIwj71jK5w",
+      "name": "Play Playground",
+      "address": "128 2nd Ave N, Nashville, TN 37201, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 1521,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.1629827,
+      "lng": -86.7753746,
+      "googleMapsUri": "https://maps.google.com/?cid=11253197759717626570&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.playplayground.com/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJ69n8M11mZIgRXRMlhRrUdBk",
+      "name": "Joyride Nashville",
+      "address": "833 9th Ave S, Nashville, TN 37203, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2393,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 36.1472341,
+      "lng": -86.78041979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1834324158614672221&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://joyrideus.com/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJeSyP_K5oZIgRIWnykjaj0og",
+      "name": "Lane Motor Museum",
+      "address": "702 Murfreesboro Pike, Nashville, TN 37210, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3510,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1401967,
+      "lng": -86.73457979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9859121989056358689&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lanemotormuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.68
+    },
+    {
+      "googlePlaceId": "ChIJKXHtdeQqYYgRzigFJJCRBs8",
+      "name": "Rock Island State Park",
+      "address": "82 Beach Rd, Rock Island, TN 38581, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5506,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "campground",
+        "tourist_attraction",
+        "real_estate_agency",
+        "travel_agency",
+        "lodging",
+        "park",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.8104283,
+      "lng": -85.641787,
+      "googleMapsUri": "https://maps.google.com/?cid=14917770863976982734&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tnstateparks.com/parks/rock-island",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.61
+    },
+    {
+      "googlePlaceId": "ChIJ7QEyJu5nZIgRJwrOkb-YMRk",
+      "name": "Honky Tonk Highway",
+      "address": "501 Broadway, Nashville, TN 37203, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 7687,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1603925,
+      "lng": -86.7784322,
+      "googleMapsUri": "https://maps.google.com/?cid=1815400073359395367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitmusiccity.com/visitors/honkytonkhighway",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.57
+    },
+    {
+      "googlePlaceId": "ChIJ3W9FQ8JnZIgRBXF9KYtQyx0",
+      "name": "STK Steakhouse",
+      "address": "700 12th Ave S, Nashville, TN 37203, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 7474,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "cocktail_bar",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "event_venue",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.150621,
+      "lng": -86.783964,
+      "googleMapsUri": "https://maps.google.com/?cid=2146898205998936325&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/venues/nashville/",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.48
+    },
+    {
+      "googlePlaceId": "ChIJSy7tWh1nZIgR7o6crVziEqY",
+      "name": "Rolf and Daughters",
+      "address": "700 Taylor St, Nashville, TN 37208, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1360,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "lounge_bar",
+        "wine_bar",
+        "night_club",
+        "italian_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1775447,
+      "lng": -86.7928888,
+      "googleMapsUri": "https://maps.google.com/?cid=11966876047554416366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rolfanddaughters.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.48
+    },
+    {
+      "googlePlaceId": "ChIJ6zL0W7dlZIgRZfib2FK1qeA",
+      "name": "The Butter Milk Ranch",
+      "address": "2407 12th Ave S, Nashville, TN 37204, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1899,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.125805199999995,
+      "lng": -86.789454,
+      "googleMapsUri": "https://maps.google.com/?cid=16188669702986004581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://buttermilkranch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "TikTok restaurants",
+        "popular dessert spots",
+        "private dining rooms",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.44
+    },
+    {
+      "googlePlaceId": "ChIJSSZRQcVkZIgRIuWW24L7QsU",
+      "name": "Radnor Lake State Park",
+      "address": "1160 Otter Creek Rd, Nashville, TN 37220, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4009,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "hiking_area",
+        "nature_preserve",
+        "tourist_attraction",
+        "sports_activity_location",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0630891,
+      "lng": -86.8096497,
+      "googleMapsUri": "https://maps.google.com/?cid=14214199913383126306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tnstateparks.com/parks/radnor-lake",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.25
+    },
+    {
+      "googlePlaceId": "ChIJKS-GfklnZIgR7COi4RO7Ycc",
+      "name": "National Museum of African American Music",
+      "address": "510 Broadway, Nashville, TN 37203, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 1988,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.160552599999995,
+      "lng": -86.77893379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14366969980352865260&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nmaam.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJLURpfjbkZYgRipykUJPYSl0",
+      "name": "National Corvette Museum",
+      "address": "350 Corvette Dr, Bowling Green, KY 42101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 11940,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.0041426,
+      "lng": -86.37461700000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6722423521028643978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.corvettemuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.21
+    },
+    {
+      "googlePlaceId": "ChIJkTQCCvlmZIgRKv6TB6H-Wow",
+      "name": "Bicentennial Capitol Mall State Park",
+      "address": "600 James Robertson Pkwy, Nashville, TN 37243, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4221,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1708875,
+      "lng": -86.78758900000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10113675880784199210&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tnstateparks.com/parks/bicentennial-mall",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 87.17
+    },
+    {
+      "googlePlaceId": "ChIJf0kSAc9pZIgRf5vONgKk_5k",
+      "name": "Dave & Buster's Nashville",
+      "address": "540 Opry Mills Dr, Nashville, TN 37214, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 7862,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "video_arcade",
+        "amusement_center",
+        "family_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.205949499999996,
+      "lng": -86.69428549999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11096768336280591231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.14
+    },
+    {
+      "googlePlaceId": "ChIJY4PSTpwnZ4gRp4RFq_P5cKE",
+      "name": "Burgess Falls State Park",
+      "address": "4000 Burgess Falls Dr, Sparta, TN 38583, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4592,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.044306,
+      "lng": -85.5985039,
+      "googleMapsUri": "https://maps.google.com/?cid=11633072662443820199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tnstateparks.com/parks/burgess-falls",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.03
+    },
+    {
+      "googlePlaceId": "ChIJG36-nU5iZIgRn-piPWpaiWQ",
+      "name": "Belle Meade Historic Site & Winery",
+      "address": "5025 Harding Pike, Nashville, TN 37205, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 3230,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "history_museum",
+        "winery",
+        "historical_landmark",
+        "museum",
+        "event_venue",
+        "historical_place",
+        "manufacturer",
+        "food",
+        "farm",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1049162,
+      "lng": -86.8646954,
+      "googleMapsUri": "https://maps.google.com/?cid=7244420887945079455&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://visitbellemeade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 86.97
+    },
+    {
+      "googlePlaceId": "ChIJMQjgCv1mZIgRNRrINpRe1VA",
+      "name": "Monell's",
+      "address": "1235 6th Ave N, Nashville, TN 37208, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7765,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "family_restaurant",
+        "historical_landmark",
+        "meal_takeaway",
+        "catering_service",
+        "food_delivery",
+        "american_restaurant",
+        "historical_place",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1758242,
+      "lng": -86.7902572,
+      "googleMapsUri": "https://maps.google.com/?cid=5824665683740858933&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://monellstn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.95
+    },
+    {
+      "googlePlaceId": "ChIJQYCIuZRmZIgRtexTtM_iNG4",
+      "name": "The Rabbit Hole VR",
+      "address": "633 7th Ave S, Nashville, TN 37203, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 393,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1515877,
+      "lng": -86.77787289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7941221424672533685&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.therabbitholevr.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJDffnH_17ZIgRleyqu9sIDOk",
+      "name": "Extreme Escape Games",
+      "address": "1735 Galleria Blvd #1015, Franklin, TN 37067, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3718,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.9631845,
+      "lng": -86.8136024,
+      "googleMapsUri": "https://maps.google.com/?cid=16792806850397138069&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.extremeescapegames.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJ58b_zllmZIgRu4RrAop7XuY",
+      "name": "Skull's Rainbow Room",
+      "address": "222 Printers Alley, Nashville, TN 37219, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 3050,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.164578299999995,
+      "lng": -86.77883020000002,
+      "googleMapsUri": "https://maps.google.com/?cid=16599841109210531003&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://skullsrainbowroom.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "date night restaurants",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJN5C-Z75iZIgRETiSeN142EU",
+      "name": "Warner Parks",
+      "address": "50 Vaughn Rd, Nashville, TN 37221, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2438,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0500058,
+      "lng": -86.904158,
+      "googleMapsUri": "https://maps.google.com/?cid=5032905476192483345&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://warnerparks.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJ08SQYzBnZIgRkX_4Bi6psoY",
+      "name": "Pins Mechanical Co.",
+      "address": "1102 Grundy St, Nashville, TN 37203, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1658,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "bowling_alley",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1585402,
+      "lng": -86.7880567,
+      "googleMapsUri": "https://maps.google.com/?cid=9706006162087378833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pinsbar.com/locations/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.61
+    },
+    {
+      "googlePlaceId": "ChIJr9uRgQloZIgRCDTIxsY-h2s",
+      "name": "The Fox Bar & Cocktail Club",
+      "address": "2905B Gallatin Pike, Nashville, TN 37216, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 516,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "fine_dining_restaurant",
+        "wine_bar",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "bar",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.2028611,
+      "lng": -86.7392778,
+      "googleMapsUri": "https://maps.google.com/?cid=7748230707373683720&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thefoxnashville.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.61
+    },
+    {
+      "googlePlaceId": "ChIJf0fzuvRmZIgR1Bnbo93dIjA",
+      "name": "Kayne Prime",
+      "address": "1103 McGavock St, Nashville, TN 37203, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2862,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.155800899999996,
+      "lng": -86.78608369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3468578607035259348&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kayneprimenashville.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJb3lqe1xmZIgR9f1AAIPhV1M",
+      "name": "etch",
+      "address": "303 Demonbreun St, Nashville, TN 37201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1982,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "dessert_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.159194899999996,
+      "lng": -86.7750164,
+      "googleMapsUri": "https://maps.google.com/?cid=6005516580883070453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://etchrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.52
+    },
+    {
+      "googlePlaceId": "ChIJyb7xKG1nZIgRT4XZJVvCcbs",
+      "name": "Up-Down Nashville",
+      "address": "927 Woodland St, Nashville, TN 37206, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 983,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "pizza_restaurant",
+        "video_arcade",
+        "amusement_center",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.175982999999995,
+      "lng": -86.7545616,
+      "googleMapsUri": "https://maps.google.com/?cid=13506790454193653071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.updownarcadebar.com/nashville/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJGVuc4xGGZIgR7fI2E4yqTpU",
+      "name": "The Loveless Cafe",
+      "address": "8400 TN-100, Nashville, TN 37221, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 12906,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "catering_service",
+        "breakfast_restaurant",
+        "cafe",
+        "american_restaurant",
+        "food_delivery",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.0352782,
+      "lng": -86.9720191,
+      "googleMapsUri": "https://maps.google.com/?cid=10758724078429205229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lovelesscafe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJf0kSAc9pZIgRuzxmUB_-bDs",
+      "name": "Aquarium Restaurant",
+      "address": "516 Opry Mills Dr, Nashville, TN 37214, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 9109,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "aquarium",
+        "family_restaurant",
+        "amusement_park",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.205505800000005,
+      "lng": -86.69387689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4282076756168817851&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariumnashville.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "dining",
+        "family-kids"
+      ],
+      "popularityScore": 86.3
+    },
+    {
+      "googlePlaceId": "ChIJFTIhGrxnZIgR1LMF9dtcEY8",
+      "name": "Fifth + Broadway",
+      "address": "5036 Broadway, Nashville, TN 37203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3109,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "food_court",
+        "live_music_venue",
+        "clothing_store",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.1605138,
+      "lng": -86.7797514,
+      "googleMapsUri": "https://maps.google.com/?cid=10309123121806160852&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fifthandb.com/?utm_source=2060digital&utm_medium=localseo&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJeZZrB31nZIgRAV2QYOHPU1o",
+      "name": "Luke's 32 Bridge",
+      "address": "301 Broadway, Nashville, TN 37201, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 4439,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1613185,
+      "lng": -86.7760066,
+      "googleMapsUri": "https://maps.google.com/?cid=6508774453375163649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lukes32bridge.com/?utm_source=Google_GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJOQh_KVhmZIgRVXhWXPWYS4c",
+      "name": "Jeff Ruby's Steakhouse",
+      "address": "300 4th Ave N, Nashville, TN 37219, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.8,
+      "reviewCount": 3462,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "sushi_restaurant",
+        "fine_dining_restaurant",
+        "japanese_restaurant",
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.1653479,
+      "lng": -86.7799411,
+      "googleMapsUri": "https://maps.google.com/?cid=9749053997957150805&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jeffruby.com/nashville",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJt7aDReVlXogR8Zog6c9O5fU",
+      "name": "The Lost Sea Adventure",
+      "address": "140 Lost Sea Rd, Sweetwater, TN 37874, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 8449,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.5356294,
+      "lng": -84.43103839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17718654963835509489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thelostsea.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.12
+    },
+    {
+      "googlePlaceId": "ChIJq-Q5rPbVlw4RSpXxrvswnYI",
+      "name": "Nashville Tours - Ghost Tours, Speakeasy Tours, and Bus Tours",
+      "address": "604 Dr. M.L.K. Jr Blvd, Nashville, TN 37219, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 948,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1651319,
+      "lng": -86.7838154,
+      "googleMapsUri": "https://maps.google.com/?cid=9411732653804197194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gonashvilletours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.98
+    },
+    {
+      "googlePlaceId": "ChIJ0_BT8DxWWYgR4JxBzZpLjH4",
+      "name": "Anakeesta",
+      "address": "576 Parkway, Gatlinburg, TN 37738, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.2,
+      "reviewCount": 15873,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "observation_deck",
+        "playground",
+        "amusement_park",
+        "botanical_garden",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.713082899999996,
+      "lng": -83.5117751,
+      "googleMapsUri": "https://maps.google.com/?cid=9118746473759087840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anakeesta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJ-S2CKmVnZIgRv95fip6gNQQ",
+      "name": "A Little Local Flavor - Nashville Food Tours",
+      "address": "309 Church St #505, Nashville, TN 37201, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1584,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.163578699999995,
+      "lng": -86.7784987,
+      "googleMapsUri": "https://maps.google.com/?cid=303325152704192191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.alittlelocalflavor.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJ5zPtclhmZIgRR9LD3lCO_yA",
+      "name": "Escape Experience - Nashville Escape Games (Downtown)",
+      "address": "501 Union St, Nashville, TN 37219, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2204,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.164250599999995,
+      "lng": -86.78130379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2377775606260814407&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapeexperience.com/nashville",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.81
+    },
+    {
+      "googlePlaceId": "ChIJicAHErBmZIgRuVvdONKjiWQ",
+      "name": "The Local Nashville",
+      "address": "110 28th Ave N, Nashville, TN 37203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1578,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1458981,
+      "lng": -86.8125998,
+      "googleMapsUri": "https://maps.google.com/?cid=7244501598894644153&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.localnash.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJewtTROxnZIgRBVKGKePkrOg",
+      "name": "The Lookout at Ole Red",
+      "address": "300 Broadway, Nashville, TN 37201, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1345,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1617736,
+      "lng": -86.77628320000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16766027177098891781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://olered.com/nashville/private-events/the-lookout/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.69
+    },
+    {
+      "googlePlaceId": "ChIJf30gRllmZIgRF7GYbqvbKmw",
+      "name": "The Stage on Broadway",
+      "address": "412 Broadway, Nashville, TN 37203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 3046,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.160906,
+      "lng": -86.777846,
+      "googleMapsUri": "https://maps.google.com/?cid=7794283634459455767&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thestageonbroadway.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 85.68
+    },
+    {
+      "googlePlaceId": "ChIJL7O-21dmZIgRaAWY7QV7RIo",
+      "name": "Musicians Hall of Fame and Museum",
+      "address": "401 Gay St, Nashville, TN 37219, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2425,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1678327,
+      "lng": -86.7823859,
+      "googleMapsUri": "https://maps.google.com/?cid=9963223541041595752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.musicianshalloffame.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJj_hz54pmZIgRn5QViEJT9I4",
+      "name": "L.A. Jackson",
+      "address": "401 11th Ave S, Nashville, TN 37203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1074,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "lounge_bar",
+        "brunch_restaurant",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1523973,
+      "lng": -86.784106,
+      "googleMapsUri": "https://maps.google.com/?cid=10300949792919229599&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lajacksonbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJHb_TpG0NZIgRwEEwWCfONfo",
+      "name": "Stars and Strikes",
+      "address": "333 N Lowry St, Smyrna, TN 37167, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2978,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "video_arcade",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.993218299999995,
+      "lng": -86.5256832,
+      "googleMapsUri": "https://maps.google.com/?cid=18029543351626252736&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://starsandstrikes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.61
+    },
+    {
+      "googlePlaceId": "ChIJrXHSR2BmZIgRU3ajmm8O5PY",
+      "name": "Cannery Hall",
+      "address": "1 Cannery Row, Nashville, TN 37203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1158,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1529728,
+      "lng": -86.7804979,
+      "googleMapsUri": "https://maps.google.com/?cid=17790360300518864467&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.canneryhall.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.47
+    },
+    {
+      "googlePlaceId": "ChIJpdVYp1tmZIgRb216bK39wmE",
+      "name": "Acme Feed & Seed",
+      "address": "101 Broadway, Nashville, TN 37201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6810,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.162015499999995,
+      "lng": -86.7744129,
+      "googleMapsUri": "https://maps.google.com/?cid=7044471688452009327&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.acmefeedandseed.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.38
+    },
+    {
+      "googlePlaceId": "ChIJYfFAkGFmZIgRnvABV2XtMfg",
+      "name": "V Modern Italian",
+      "address": "820 Division St, Nashville, TN 37203, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 4631,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1502942,
+      "lng": -86.7806635,
+      "googleMapsUri": "https://maps.google.com/?cid=17884336614772175006&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://v.restaurant/nashville/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.31
+    },
+    {
+      "googlePlaceId": "ChIJ0YlaaidkZIgRV6vFaASK5hI",
+      "name": "Belmont Mansion",
+      "address": "Belmont Blvd. and, Acklen Ave, Nashville, TN 37212, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1177,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.135512999999996,
+      "lng": -86.7947659,
+      "googleMapsUri": "https://maps.google.com/?cid=1361927688868440919&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.belmontmansion.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 85.27
+    }
+  ]
+}

@@ -1,0 +1,3746 @@
+{
+  "location": "Pittsburgh, PA",
+  "generatedAt": "2026-05-17T19:24:14.653Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJBZlC-InxNIgRDUaGB-UvoSg",
+      "name": "Phipps Conservatory and Botanical Gardens",
+      "address": "1 Schenley Dr, Pittsburgh, PA 15213, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 10303,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "wedding_venue",
+        "garden",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.4390155,
+      "lng": -79.947951,
+      "googleMapsUri": "https://maps.google.com/?cid=2927673893487789581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phipps.conservatory.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "escape rooms",
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "cooking classes",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "learning-classes",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.32
+    },
+    {
+      "googlePlaceId": "ChIJDcKfuBTzNIgRyANv9mblUsc",
+      "name": "Sandbox VR",
+      "address": "1681 Smallman St, Pittsburgh, PA 15222, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5020,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4504526,
+      "lng": -79.98711209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14362794392021828552&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 97.14
+    },
+    {
+      "googlePlaceId": "ChIJjbGBQav2NIgRoARMOwbkqD4",
+      "name": "Point State Park",
+      "address": "601 Commonwealth Pl, Pittsburgh, PA 15222, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9517,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4415719,
+      "lng": -80.00785379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4515109341854696608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/point-state-park.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.95
+    },
+    {
+      "googlePlaceId": "ChIJQWwT8oLyNIgRQJ7eRRxugRs",
+      "name": "Pittsburgh Zoo & Aquarium",
+      "address": "7370 Baker St, Pittsburgh, PA 15206, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 17542,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4842648,
+      "lng": -79.922206,
+      "googleMapsUri": "https://maps.google.com/?cid=1981986378730085952&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pittsburghzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.77
+    },
+    {
+      "googlePlaceId": "ChIJHQL8tVfxNIgRz1GXcA7VrXM",
+      "name": "Benedum Center for the Performing Arts",
+      "address": "237 7th St, Pittsburgh, PA 15222, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 5851,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4429853,
+      "lng": -80.000016,
+      "googleMapsUri": "https://maps.google.com/?cid=8335552743327879631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trustarts.org/pct_home/visit/facilities/benedum",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "cultural centers",
+        "festivals this weekend",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 95.45
+    },
+    {
+      "googlePlaceId": "ChIJ3Tlna2-LNIgRJaPyfVsXcg0",
+      "name": "Breakout Games",
+      "address": "8035 McKnight Rd Suite G5, McKnight, PA 15237, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7691,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.5535254,
+      "lng": -80.021384,
+      "googleMapsUri": "https://maps.google.com/?cid=968862551560594213&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/pittsburgh?utm_source=google&utm_medium=organic&utm_campaign=gmb-pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.3
+    },
+    {
+      "googlePlaceId": "ChIJZQMgFq72NIgRGOvv7lfJj9c",
+      "name": "Grandview Overlook",
+      "address": "136-160 Grandview Ave, Pittsburgh, PA 15211, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5575,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.432082199999996,
+      "lng": -80.0073615,
+      "googleMapsUri": "https://maps.google.com/?cid=15532855019332168472&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitpittsburgh.com/neighborhoods/mt-washington/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "sunset date spots",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 95.29
+    },
+    {
+      "googlePlaceId": "ChIJW77IvAf0NIgRC6dk0e502kY",
+      "name": "National Aviary",
+      "address": "700 Arch St, Pittsburgh, PA 15212, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 7585,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "non_profit_organization",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 40.4533299,
+      "lng": -80.00960529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5105521696641951499&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aviary.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local events",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.2
+    },
+    {
+      "googlePlaceId": "ChIJgVVd0Or1NIgRs0BeWUojDz4",
+      "name": "Tom's Watch Bar - Pittsburgh",
+      "address": "261 North Shore Drive Suite 3, Pittsburgh, PA 15212, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 3697,
+      "priceLevel": null,
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "bar",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.446179,
+      "lng": -80.008876,
+      "googleMapsUri": "https://maps.google.com/?cid=4471831757236093107&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tomswatchbar.com/pittsburgh/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "trivia nights",
+        "game bars",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 95.03
+    },
+    {
+      "googlePlaceId": "ChIJwRKe38LzNIgRqMb7UcsjkSI",
+      "name": "Carnegie Museum of Natural History",
+      "address": "4400 Forbes Ave, Pittsburgh, PA 15213, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 4530,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "research_institute",
+        "tourist_attraction",
+        "historical_landmark",
+        "art_museum",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.443321499999996,
+      "lng": -79.949974,
+      "googleMapsUri": "https://maps.google.com/?cid=2490811425073383080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://carnegiemnh.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.6
+    },
+    {
+      "googlePlaceId": "ChIJf9S9olbxNIgRp7QQmDW0lLY",
+      "name": "Market Square",
+      "address": "Pittsburgh, PA 15222, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 8303,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.440781699999995,
+      "lng": -80.00248359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13156338553733559463&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://marketsquarepgh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "farmers markets",
+        "seasonal pop ups",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "shopping-markets",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.4
+    },
+    {
+      "googlePlaceId": "ChIJA0RsGIvxNIgRJuH3-K4PStI",
+      "name": "Schenley Park",
+      "address": "Pittsburgh, PA 15213, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8644,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4350634,
+      "lng": -79.9417467,
+      "googleMapsUri": "https://maps.google.com/?cid=15152941140417175846&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pittsburghpa.gov/citiparks",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "pickleball courts"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 94.14
+    },
+    {
+      "googlePlaceId": "ChIJ2VBVVSVWxokR0GCj7N5QgPI",
+      "name": "Longwood Gardens",
+      "address": "1001 Longwood Rd, Kennett Square, PA 19348, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 31795,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.8735119,
+      "lng": -75.67342169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17474055472580616400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://longwoodgardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 93.89
+    },
+    {
+      "googlePlaceId": "ChIJ_YWRTAPvNIgRJh-2f6ieslg",
+      "name": "Kennywood",
+      "address": "4800 Kennywood Blvd, West Mifflin, PA 15122, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 17672,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "historical_landmark",
+        "amusement_center",
+        "historical_place",
+        "tourist_attraction",
+        "roller_coaster",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.386635,
+      "lng": -79.861795,
+      "googleMapsUri": "https://maps.google.com/?cid=6391345267726491430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kennywood.com/?utm_id=GMBtraffic&utm_medium=OrganicGMB&utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.6
+    },
+    {
+      "googlePlaceId": "ChIJSd-GQlbxNIgRl0iYLIqnRF8",
+      "name": "Heinz Hall for the Performing Arts",
+      "address": "600 Penn Ave, Pittsburgh, PA 15222, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3177,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4425691,
+      "lng": -80.00196799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6864795943914981527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pittsburghsymphony.org/pso_home/web/heinz-hall",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.43
+    },
+    {
+      "googlePlaceId": "ChIJq6qqqofxNIgRMCSmPhfoAcs",
+      "name": "The Andy Warhol Museum",
+      "address": "117 Sandusky St, Pittsburgh, PA 15212, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5748,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4483755,
+      "lng": -80.0024907,
+      "googleMapsUri": "https://maps.google.com/?cid=14628228251209049136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.warhol.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.19
+    },
+    {
+      "googlePlaceId": "ChIJAS-KzAn0NIgRPWwtdsC6vBw",
+      "name": "Randyland",
+      "address": "1501 Arch St, Pittsburgh, PA 15212, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3677,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4579311,
+      "lng": -80.0097399,
+      "googleMapsUri": "https://maps.google.com/?cid=2070735264462761021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://randyland.club/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.81
+    },
+    {
+      "googlePlaceId": "ChIJpbSt6wnuNIgR8B9ypMWg5hU",
+      "name": "Frick Park",
+      "address": "1981 Beechwood Blvd, Pittsburgh, PA 15217, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4105,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4340962,
+      "lng": -79.9035703,
+      "googleMapsUri": "https://maps.google.com/?cid=1578125490167881712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pittsburghparks.org/explore-your-parks/regional-parks/frick-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "pickleball courts"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 92.78
+    },
+    {
+      "googlePlaceId": "ChIJW805AkzxNIgRwN8uxlTzDfU",
+      "name": "Emerald View Park",
+      "address": "Bailey Ave, Pittsburgh, PA 15211, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3542,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.426969899999996,
+      "lng": -79.99699439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17658037259417345984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pittsburghparks.org/explore-your-parks/regional-parks/emerald-view-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.69
+    },
+    {
+      "googlePlaceId": "ChIJr7aBzePzNIgRi2Dp2ZCFmUY",
+      "name": "Senator John Heinz History Center",
+      "address": "1212 Smallman St, Pittsburgh, PA 15222, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3304,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4468415,
+      "lng": -79.9920696,
+      "googleMapsUri": "https://maps.google.com/?cid=5087244111269421195&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.heinzhistorycenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.46
+    },
+    {
+      "googlePlaceId": "ChIJi__4cp-MQYgRRdAIjXXXrvI",
+      "name": "Ark Encounter",
+      "address": "1 Ark Encounter Dr, Williamstown, KY 41097, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 40060,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "history_museum",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.627910799999995,
+      "lng": -84.5809292,
+      "googleMapsUri": "https://maps.google.com/?cid=17487151303003525189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://arkencounter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 92.45
+    },
+    {
+      "googlePlaceId": "ChIJBeS8FAL0NIgRyLlVH4nRkIU",
+      "name": "Acrisure Stadium",
+      "address": "100 Art Rooney Ave, Pittsburgh, PA 15212, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 14567,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "event_venue",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4467648,
+      "lng": -80.0157603,
+      "googleMapsUri": "https://maps.google.com/?cid=9624422790557186504&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://acrisurestadium.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.36
+    },
+    {
+      "googlePlaceId": "ChIJK8bAfE3xNIgRsskapCjbvdI",
+      "name": "Gateway Clipper Fleet",
+      "address": "350 W Station Square Dr, Pittsburgh, PA 15219, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4148,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "wedding_venue",
+        "banquet_hall",
+        "tour_agency",
+        "travel_agency",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.435339899999995,
+      "lng": -80.0078987,
+      "googleMapsUri": "https://maps.google.com/?cid=15185534486161574322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gatewayclipper.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "kids activities",
+        "sunset date spots",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.11
+    },
+    {
+      "googlePlaceId": "ChIJncYoN9M1NYgRGQJdA49bkFE",
+      "name": "Ohiopyle State Park",
+      "address": "124 Main St, Ohiopyle, PA 15470, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 9472,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.868021999999996,
+      "lng": -79.4942011,
+      "googleMapsUri": "https://maps.google.com/?cid=5877298183513375257&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dcnr.pa.gov/StateParks/FindAPark/OhiopyleStatePark/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 92.04
+    },
+    {
+      "googlePlaceId": "ChIJPz5dmKX2NIgRgcESndEXxLQ",
+      "name": "Monterey Bay Fish Grotto",
+      "address": "1411 Grandview Ave, Pittsburgh, PA 15211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2875,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4387009,
+      "lng": -80.0214233,
+      "googleMapsUri": "https://maps.google.com/?cid=13025562211313172865&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.montereybayfishgrotto.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92
+    },
+    {
+      "googlePlaceId": "ChIJVdO9smTzNIgRQtvkZjByRok",
+      "name": "Puttery",
+      "address": "1415 Smallman St, Pittsburgh, PA 15222, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 2915,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "cocktail_bar",
+        "lounge_bar",
+        "indoor_golf_course",
+        "night_club",
+        "event_venue",
+        "bar",
+        "golf_course",
+        "athletic_field",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.448346199999996,
+      "lng": -79.9903812,
+      "googleMapsUri": "https://maps.google.com/?cid=9891719183776144194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.puttery.com/locations/pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "indoor golf simulators",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.65
+    },
+    {
+      "googlePlaceId": "ChIJq6qqjl7xNIgR_sVp8tsfGxw",
+      "name": "PPG Paints Arena",
+      "address": "1001 Fifth Ave, Pittsburgh, PA 15219, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 16141,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.439309699999995,
+      "lng": -79.98955289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2025247486958487038&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ppgpaintsarena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 91.2
+    },
+    {
+      "googlePlaceId": "ChIJdZvdU_7zNIgRGSPAei2BAbo",
+      "name": "PNC Park",
+      "address": "115 Federal St, Pittsburgh, PA 15212, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 21950,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "sports_complex",
+        "event_venue",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4474692,
+      "lng": -80.0071603,
+      "googleMapsUri": "https://maps.google.com/?cid=13403135998364230425&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/pirates/ballpark",
+      "openNow": true,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.46
+    },
+    {
+      "googlePlaceId": "ChIJkUgwC_31NIgRZ1le8bPwAig",
+      "name": "Museum of Illusions Pittsburgh",
+      "address": "267 North Shore Drive, Pittsburgh, PA 15212, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2251,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "amusement_center",
+        "tourist_attraction",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.446148,
+      "lng": -80.00903199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2883131367109843303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moipittsburgh.com/?utm_source=Google+GMB&utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.09
+    },
+    {
+      "googlePlaceId": "ChIJx1nHvyD0NIgRx4hReBjWcoM",
+      "name": "West End Overlook Park",
+      "address": "Marlow St, Pittsburgh, PA 15205, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1739,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.445656,
+      "lng": -80.03375489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9471868366899742919&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://registerparks.pittsburghpa.gov/ViewFacilityDetails.aspx?Fid=43&Rid=89",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.94
+    },
+    {
+      "googlePlaceId": "ChIJXzT5vqv2NIgRfqEmldPesjc",
+      "name": "Point State Park Fountain",
+      "address": "601 Commonwealth Pl, Pittsburgh, PA 15222, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1837,
+      "priceLevel": null,
+      "primaryType": "fountain",
+      "types": [
+        "fountain",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.441812899999995,
+      "lng": -80.0127711,
+      "googleMapsUri": "https://maps.google.com/?cid=4013515218262335870&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dcnr.state.pa.us/stateparks/findapark/point/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 89.87
+    },
+    {
+      "googlePlaceId": "ChIJY4oV6DjxNIgRmaNZyV7lqY8",
+      "name": "Alla Famiglia",
+      "address": "804 E Warrington Ave, Pittsburgh, PA 15210, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1468,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4216311,
+      "lng": -79.993466,
+      "googleMapsUri": "https://maps.google.com/?cid=10352057413755577241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.allafamiglia.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.78
+    },
+    {
+      "googlePlaceId": "ChIJWdAveK_2NIgRLTc86K9aJpk",
+      "name": "Altius",
+      "address": "1230 Grandview Ave, Pittsburgh, PA 15211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2011,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4384823,
+      "lng": -80.0192857,
+      "googleMapsUri": "https://maps.google.com/?cid=11035607648480016173&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://altiuspgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.72
+    },
+    {
+      "googlePlaceId": "ChIJBbsKoFbxNIgRfZy_c4Gysew",
+      "name": "City Works (Market Square - Pittsburgh)",
+      "address": "2 PPG Place, Pittsburgh, PA 15222, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.6,
+      "reviewCount": 8803,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "sports_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.440574999999995,
+      "lng": -80.00325450000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17055609532891241597&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cityworksrestaurant.com/locations/pittsburgh/",
+      "openNow": true,
+      "matchedQueries": [
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJGfCWEFfxNIgRKdud4avVJZk",
+      "name": "The Capital Grille",
+      "address": "301 Fifth Ave, Pittsburgh, PA 15222, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1891,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "steak_house",
+        "wine_bar",
+        "seafood_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.440756,
+      "lng": -80.000116,
+      "googleMapsUri": "https://maps.google.com/?cid=11035461396142611241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thecapitalgrille.com/locations/pa/pittsburgh/pittsburgh/8031?cmpid=br:tcg_ag:ie_ch:loc_ca:TCGGMB_sn:gmb_gt:pittsburgh-pa-8031_pl:locurl_rd:1027",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.52
+    },
+    {
+      "googlePlaceId": "ChIJZapX9vjzNIgRSu7rbfVfChA",
+      "name": "Federal Galley",
+      "address": "200 Children's Way, Pittsburgh, PA 15212, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2596,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4515068,
+      "lng": -80.00603389999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1155841762089758282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.federalgalley.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJ245kxzzuNIgR18efmji6tw4",
+      "name": "The Waterfront",
+      "address": "149 West Bridge St, Homestead, PA 15120, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 11588,
+      "priceLevel": null,
+      "primaryType": "business_center",
+      "types": [
+        "business_center",
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4107194,
+      "lng": -79.9107295,
+      "googleMapsUri": "https://maps.google.com/?cid=1060520989544138711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.waterfrontpgh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.4
+    },
+    {
+      "googlePlaceId": "ChIJydWFLQD0NIgRLe9Z6TV7cns",
+      "name": "Stage AE",
+      "address": "400 North Shore Drive, Pittsburgh, PA 15212, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 5322,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4461361,
+      "lng": -80.0122828,
+      "googleMapsUri": "https://maps.google.com/?cid=8895307685488619309&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stageae.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.23
+    },
+    {
+      "googlePlaceId": "ChIJ5w95FDqUxokRPiFOVYyT8T4",
+      "name": "Escape Room Mystery",
+      "address": "840 1st Ave #500, King of Prussia, PA 19406, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5482,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.0961667,
+      "lng": -75.40089809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4535568530674688318&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escaperoommystery.com/kop-location/?utm_source=GMBlisting&utm_medium=Organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.18
+    },
+    {
+      "googlePlaceId": "ChIJuXiabp5ZNIgR6lS1H-L-v40",
+      "name": "Pittsburgh Botanic Garden",
+      "address": "799 Pinkerton Run Rd, Oakdale, PA 15071, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1703,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.417474399999996,
+      "lng": -80.1719597,
+      "googleMapsUri": "https://maps.google.com/?cid=10214162727047615722&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pittsburghbotanicgarden.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "escape rooms",
+        "waterfront gardens",
+        "sound baths",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "wellness-relaxation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJNQRp4lfxNIgRGH2CGXvmzaA",
+      "name": "Rick's Cabaret & Sports Bar Pittsburgh",
+      "address": "135 9th St, Pittsburgh, PA 15222, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1131,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "sports_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.444203,
+      "lng": -79.998344,
+      "googleMapsUri": "https://maps.google.com/?cid=11587170832677502232&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rickspittsburgh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service",
+        "adult nightlife",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.92
+    },
+    {
+      "googlePlaceId": "ChIJA_tYsujtNIgRsrxn4vaPuvc",
+      "name": "The Frick Pittsburgh Museums & Gardens",
+      "address": "7227 Reynolds St, Pittsburgh, PA 15208, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1541,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "art_gallery",
+        "tourist_attraction",
+        "cultural_center",
+        "museum",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4474811,
+      "lng": -79.9017563,
+      "googleMapsUri": "https://maps.google.com/?cid=17850738363559558322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thefrickpittsburgh.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.84
+    },
+    {
+      "googlePlaceId": "ChIJH_yjzvy-zokRRT2Xk3_dC5Y",
+      "name": "Penn's Cave and Wildlife Park",
+      "address": "222 Penns Cave Rd, Centre Hall, PA 16828, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 4917,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "wildlife_park",
+        "zoo",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.8825498,
+      "lng": -77.61165679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10811978870439755077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pennscave.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 88.77
+    },
+    {
+      "googlePlaceId": "ChIJE2GouT3uNIgRAbT_1kfLxoA",
+      "name": "Dave & Buster's Pittsburgh - Homestead",
+      "address": "180 E Waterfront Dr, Homestead, PA 15120, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.2,
+      "reviewCount": 5650,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "amusement_center",
+        "bar_and_grill",
+        "family_restaurant",
+        "event_venue",
+        "bar",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4093105,
+      "lng": -79.9140998,
+      "googleMapsUri": "https://maps.google.com/?cid=9279327591653684225&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/homestead/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.73
+    },
+    {
+      "googlePlaceId": "ChIJr2OIl6X2NIgRqsPcXqQV31I",
+      "name": "Points of View",
+      "address": "1435 Grandview Ave, Pittsburgh, PA 15211, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1078,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4392746,
+      "lng": -80.0213101,
+      "googleMapsUri": "https://maps.google.com/?cid=5971515426626913194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJU-E_KhvzNIgRfi53Eoj79i8",
+      "name": "Fig & Ash",
+      "address": "514 E Ohio St, Pittsburgh, PA 15212, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 910,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4537583,
+      "lng": -80.0001581,
+      "googleMapsUri": "https://maps.google.com/?cid=3456226325897358974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.figandashpgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJGd1QdsBLtokRihAkR6N6TdE",
+      "name": "Sandbox VR",
+      "address": "1656 Silver Hill Dr, Tysons, VA 22102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5517,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.924360400000005,
+      "lng": -77.23272949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15081845568825462922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/mclean",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.1
+    },
+    {
+      "googlePlaceId": "ChIJ__CDbd7vNIgRA-z5bg2SVdk",
+      "name": "Playground Dropout (formerly LumberjAxes)",
+      "address": "2 Sedgwick St, Pittsburgh, PA 15209, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 3074,
+      "priceLevel": null,
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "bar",
+        "sports_club",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4794516,
+      "lng": -79.9747046,
+      "googleMapsUri": "https://maps.google.com/?cid=15660583865644870659&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playgrounddropout.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 87.92
+    },
+    {
+      "googlePlaceId": "ChIJE5jufHPxNIgR9RZQiw-tENE",
+      "name": "Liberty Magic",
+      "address": "811 Liberty Ave, Pittsburgh, PA 15222, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 424,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4430069,
+      "lng": -79.9986036,
+      "googleMapsUri": "https://maps.google.com/?cid=15064731035827705589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://trustarts.org/magic",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "immersive experiences",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJX9ktc2nxNIgRKtka3-vd0pA",
+      "name": "Escape the Room Pittsburgh",
+      "address": "1505 E Carson St floor 2, Pittsburgh, PA 15203, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5132,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.4290553,
+      "lng": -79.9831387,
+      "googleMapsUri": "https://maps.google.com/?cid=10435647291700992298&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/pittsburgh?utm_source=GMBlisting&utm_medium=organic&utm_campaign=gbp_pittsburgh&utm_content=website_button",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJq6qqqofxNIgR-D-Y_7LMQ9s",
+      "name": "Kamin Science Center",
+      "address": "1 Allegheny Ave, Pittsburgh, PA 15212, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 2225,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "planetarium",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4456828,
+      "lng": -80.01818519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15799696986910244856&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kaminsciencecenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJ94jpoOLzNIgRJYcVFw-XWSU",
+      "name": "Sienna Mercato",
+      "address": "942 Penn Ave, Pittsburgh, PA 15222, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 3103,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.443965999999996,
+      "lng": -79.99641199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2691348343398172453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.siennamercato.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "private dining rooms",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.85
+    },
+    {
+      "googlePlaceId": "ChIJ05tdhjTGxokReHRD0wXejyE",
+      "name": "The Franklin Institute",
+      "address": "222 N 20th St, Philadelphia, PA 19103, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 13712,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "historical_landmark",
+        "history_museum",
+        "event_venue",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9582109,
+      "lng": -75.17313469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2418395641521861752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fi.edu/?utm_source=google&utm_medium=googlemybusiness&utm_campaign=2021",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.81
+    },
+    {
+      "googlePlaceId": "ChIJ1_4-hn_tNIgRl3wbggWysNs",
+      "name": "Highland Park",
+      "address": "Reservoir Drive, Pittsburgh, PA 15206, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 4611,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4793534,
+      "lng": -79.9155311,
+      "googleMapsUri": "https://maps.google.com/?cid=15830348426934713495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.trailpittsburgh.org/parks/highland-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJWWjFalTxNIgRZEwdzBj_toI",
+      "name": "Eddie Merlot's",
+      "address": "444 Liberty Ave, Pittsburgh, PA 15222, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2862,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "seafood_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4408858,
+      "lng": -80.004724,
+      "googleMapsUri": "https://maps.google.com/?cid=9418996152660741220&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eddiemerlots.com/pittsburgh/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.64
+    },
+    {
+      "googlePlaceId": "ChIJWc78NOLzNIgRcQKCaa4pSCU",
+      "name": "Eleven",
+      "address": "1150 Smallman St, Pittsburgh, PA 15222, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1817,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "family_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4460652,
+      "lng": -79.993172,
+      "googleMapsUri": "https://maps.google.com/?cid=2686443006797677169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.elevenck.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.64
+    },
+    {
+      "googlePlaceId": "ChIJpemMcFjxNIgRzz-ObXA1yAU",
+      "name": "August Wilson African American Cultural Center",
+      "address": "980 Liberty Ave, Pittsburgh, PA 15222, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 730,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4431648,
+      "lng": -79.9956665,
+      "googleMapsUri": "https://maps.google.com/?cid=416641722522419151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://awaacc.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "cultural exhibits",
+        "cultural centers",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.48
+    },
+    {
+      "googlePlaceId": "ChIJbcJEVVbyNIgRqNV9hr7lGX4",
+      "name": "Spirit",
+      "address": "242 51st St, Pittsburgh, PA 15201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1515,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "concert_hall",
+        "pizza_delivery",
+        "wedding_venue",
+        "auditorium",
+        "meal_delivery",
+        "night_club",
+        "food_delivery",
+        "live_music_venue",
+        "banquet_hall",
+        "event_venue",
+        "bar",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.478637899999995,
+      "lng": -79.9565781,
+      "googleMapsUri": "https://maps.google.com/?cid=9086546329659626920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.spiritpgh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "jazz clubs",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJQTc3Ij6LNIgRQwvx_ZPCwp4",
+      "name": "Fun Slides Carpet Skatepark and Party Center",
+      "address": "1130 Perry Hwy, Pittsburgh, PA 15237, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 2181,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.547497,
+      "lng": -80.0351498,
+      "googleMapsUri": "https://maps.google.com/?cid=11439919944350894915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://funslidespark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 87.19
+    },
+    {
+      "googlePlaceId": "ChIJd3L547iGM4gR_yHdYrtrct0",
+      "name": "McConnells Mill State Park",
+      "address": "1761 McConnells Mill Rd, Portersville, PA 16051, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3349,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.9511122,
+      "lng": -80.1691826,
+      "googleMapsUri": "https://maps.google.com/?cid=15956934882288804351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dcnr.state.pa.us/stateparks/findapark/mcconnellsmill/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.11
+    },
+    {
+      "googlePlaceId": "ChIJex8BUU6TNIgRDHb0Ce5PXfQ",
+      "name": "Oakmont Bakery",
+      "address": "1 Sweet St, Oakmont, PA 15139, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 7688,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 40.5256507,
+      "lng": -79.8422951,
+      "googleMapsUri": "https://maps.google.com/?cid=17608318001876334092&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://oakmontbakery.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87
+    },
+    {
+      "googlePlaceId": "ChIJK0Gg3U3xNIgR91MmvokkqIE",
+      "name": "Grand Concourse",
+      "address": "100 W Station Square Dr, Pittsburgh, PA 15219, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 3255,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4334169,
+      "lng": -80.003885,
+      "googleMapsUri": "https://maps.google.com/?cid=9342757600999396343&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.grandconcourserestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.91
+    },
+    {
+      "googlePlaceId": "ChIJb026fVHyNIgRp717s78G9n0",
+      "name": "The Abbey on Butler Street",
+      "address": "4635 Butler St, Pittsburgh, PA 15201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 2316,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.473827199999995,
+      "lng": -79.9584053,
+      "googleMapsUri": "https://maps.google.com/?cid=9076449519431564711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://theabbeyonbutlerstreet.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "date night restaurants",
+        "sunset date spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJjfRLD03yNIgRLdf1DsJeq9U",
+      "name": "Thunderbird Café & Music Hall",
+      "address": "4053 Butler St, Pittsburgh, PA 15201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 964,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4693991,
+      "lng": -79.9616095,
+      "googleMapsUri": "https://maps.google.com/?cid=15396503938663831341&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thunderbirdmusichall.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJ09FFvEzxNIgRcfAZqB7fJQQ",
+      "name": "The Summit",
+      "address": "200 Shiloh St, Pittsburgh, PA 15211, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 604,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "coffee_shop",
+        "cafe",
+        "live_music_venue",
+        "bar",
+        "night_club",
+        "event_venue",
+        "food_store",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.4307527,
+      "lng": -80.0075324,
+      "googleMapsUri": "https://maps.google.com/?cid=298890273052291185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thesummitpgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "seasonal pop ups",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJnw9tGFbxNIgR9SNEo-PPitw",
+      "name": "Byham Theater",
+      "address": "101 6th St, Pittsburgh, PA 15222, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1302,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4437911,
+      "lng": -80.00247490000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15891742811733894133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trustarts.org/pct_home/visit/facilities/byham",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJ4SrQ-rTzNIgRBCWal8EzERk",
+      "name": "Morcilla",
+      "address": "3519 Butler St, Pittsburgh, PA 15201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1001,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4645709,
+      "lng": -79.9661648,
+      "googleMapsUri": "https://maps.google.com/?cid=1806281832117445892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://morcillapittsburgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.77
+    },
+    {
+      "googlePlaceId": "ChIJnetrqnTyNIgR7bt3L49RUTM",
+      "name": "Casbah",
+      "address": "229 S Highland Ave, Pittsburgh, PA 15206, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 1375,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "brunch_restaurant",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.458152999999996,
+      "lng": -79.9249504,
+      "googleMapsUri": "https://maps.google.com/?cid=3697826444466437101&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.casbah.kitchen/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.72
+    },
+    {
+      "googlePlaceId": "ChIJNWsYMQD0NIgRcrsPM640AcM",
+      "name": "BURN by Rocky Patel Pittsburgh",
+      "address": "346 North Shore Drive, Pittsburgh, PA 15212, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1109,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.446137199999995,
+      "lng": -80.0110897,
+      "googleMapsUri": "https://maps.google.com/?cid=14051570235158281074&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.burnbyrockypatel.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "jazz clubs",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.66
+    },
+    {
+      "googlePlaceId": "ChIJ3ejbFb_zNIgRbaGSDkFD6Jw",
+      "name": "Scratch & Co.",
+      "address": "1720 Lowrie St, Pittsburgh, PA 15212, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 790,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "pub",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4644963,
+      "lng": -79.9823298,
+      "googleMapsUri": "https://maps.google.com/?cid=11306360811210056045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.scratchandcopgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.64
+    },
+    {
+      "googlePlaceId": "ChIJM9Z6zkPyNIgRCj3GnnCU_ik",
+      "name": "Mixtape",
+      "address": "4907 Penn Ave, Pittsburgh, PA 15224, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 561,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "night_club",
+        "food_store",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.465473599999996,
+      "lng": -79.9448439,
+      "googleMapsUri": "https://maps.google.com/?cid=3026019211060591882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mixtapepgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "interactive pop ups",
+        "board game cafes",
+        "bottle service",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.61
+    },
+    {
+      "googlePlaceId": "ChIJLZHGBgDyNIgR_loKsLl7JI4",
+      "name": "Hidden Harbor",
+      "address": "1708 Shady Ave, Pittsburgh, PA 15217, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 768,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.437635199999995,
+      "lng": -79.9194888,
+      "googleMapsUri": "https://maps.google.com/?cid=10242447489999985406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hiddenharborpgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJDZ5sNKjzNIgR5QIcsD-M-e4",
+      "name": "Mr. Smalls Theatre",
+      "address": "400 Lincoln Ave, Millvale, PA 15209, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2486,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "wedding_venue",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.4808185,
+      "lng": -79.97224949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17219948855393256165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mrsmalls.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.52
+    },
+    {
+      "googlePlaceId": "ChIJCSIR6lDxNIgRd7OvmgHVQCA",
+      "name": "Bottlerocket Social Hall",
+      "address": "1226 Arlington Ave, Pittsburgh, PA 15210, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 388,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "comedy_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.421047099999996,
+      "lng": -79.99222499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2324091610590065527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bottlerocketpgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "interactive pop ups",
+        "bottle service",
+        "events this weekend",
+        "seasonal pop ups",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.49
+    },
+    {
+      "googlePlaceId": "ChIJtQzg4dZ9OIgRW3IMV8vgxvE",
+      "name": "Otherworld",
+      "address": "5819 Chantry Dr, Columbus, OH 43232, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 9072,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9221317,
+      "lng": -82.8360785,
+      "googleMapsUri": "https://maps.google.com/?cid=17421859372472758875&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://otherworld.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJ06OQr6_2NIgRICqUO8vUW2s",
+      "name": "Le Mont Restaurant",
+      "address": "1114 Grandview Ave, Pittsburgh, PA 15211, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 1988,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "wedding_venue",
+        "banquet_hall",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.437594,
+      "lng": -80.017692,
+      "googleMapsUri": "https://maps.google.com/?cid=7736010754281974304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lemontpittsburgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJcVbuBGmTNIgR-ykQAXPpRew",
+      "name": "Zone 28",
+      "address": "2525 Freeport Rd, Pittsburgh, PA 15238, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 2687,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "beer_garden",
+        "video_arcade",
+        "amusement_center",
+        "bar",
+        "sports_complex",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.5349182,
+      "lng": -79.84428609999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17025270646492375547&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zone28.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJZ0VnWfTxNIgRzwmWRLP4sy4",
+      "name": "The Eagle - Pittsburgh",
+      "address": "737 Penn Ave, Pittsburgh, PA 15222, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1359,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "chicken_restaurant",
+        "meal_takeaway",
+        "catering_service",
+        "food_delivery",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.4437105,
+      "lng": -79.9997072,
+      "googleMapsUri": "https://maps.google.com/?cid=3365306795409410511&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eaglerestaurant.com/locations/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs&utm_content=Pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.23
+    },
+    {
+      "googlePlaceId": "ChIJo5WPDkLxNIgRJgQ_B-b_hps",
+      "name": "Victory Pointe Arcade",
+      "address": "1113 E Carson St, Pittsburgh, PA 15203, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 487,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.428945,
+      "lng": -79.98689399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11206926086187189286&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.victorypointe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJ540K6-LzNIgRYQr2OmmpawM",
+      "name": "David L. Lawrence Convention Center",
+      "address": "1000 Fort Duquesne Blvd, Pittsburgh, PA 15222, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4251,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4455472,
+      "lng": -79.9962844,
+      "googleMapsUri": "https://maps.google.com/?cid=246476874047687265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pittsburghcc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.09
+    },
+    {
+      "googlePlaceId": "ChIJ_____1bxNIgRTeuet-WXiZ4",
+      "name": "Arcade Comedy Theater",
+      "address": "943 Liberty Ave, Pittsburgh, PA 15222, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 477,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "non_profit_organization",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4434627,
+      "lng": -79.99653289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11423828942685924173&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://arcadecomedytheater.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "immersive experiences",
+        "arcades",
+        "game night venues",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJMfTiXCbyNIgRdvqfBv4hy2M",
+      "name": "Carnegie Museum of Art",
+      "address": "4400 Forbes Ave, Pittsburgh, PA 15213, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1982,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4437052,
+      "lng": -79.9489727,
+      "googleMapsUri": "https://maps.google.com/?cid=7190878604943686262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://carnegieart.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.02
+    },
+    {
+      "googlePlaceId": "ChIJ6zIgaPdANIgRjRqLxHgzfWY",
+      "name": "Raccoon Creek State Park",
+      "address": "3000 PA-18, Hookstown, PA 15050, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3357,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.507862,
+      "lng": -80.433497,
+      "googleMapsUri": "https://maps.google.com/?cid=7385115557744024205&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dcnr.pa.gov/StateParks/FindAPark/RaccoonCreekStatePark/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJc_77XibuNIgRqmsI8Fy-g8E",
+      "name": "Pittsburgh Improv",
+      "address": "166 East Bridge St, Homestead, PA 15120, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2001,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "performing_arts_theater",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 40.408938299999996,
+      "lng": -79.9149412,
+      "googleMapsUri": "https://maps.google.com/?cid=13944198177642539946&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://improv.com/pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86
+    },
+    {
+      "googlePlaceId": "ChIJWzbU5SryNIgRyAcYWxrYdpw",
+      "name": "Petersen Events Center",
+      "address": "3719 Terrace St, Pittsburgh, PA 15261, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 1996,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4439212,
+      "lng": -79.96229439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11274436324877666248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.peterseneventscenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86
+    },
+    {
+      "googlePlaceId": "ChIJp_wPvlXzNIgR1ua9flvQiQ8",
+      "name": "The Forge",
+      "address": "3345 Penn Ave, Pittsburgh, PA 15201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 461,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "mediterranean_restaurant",
+        "lounge_bar",
+        "pizza_restaurant",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4626145,
+      "lng": -79.9675396,
+      "googleMapsUri": "https://maps.google.com/?cid=1119655073765254870&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theforgepgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJXXutnFbxNIgR7UUU81s_VKg",
+      "name": "The Yard",
+      "address": "100 Fifth Ave, Pittsburgh, PA 15222, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 1733,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "gastropub",
+      "types": [
+        "gastropub",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4412646,
+      "lng": -80.0027879,
+      "googleMapsUri": "https://maps.google.com/?cid=12129389360568354285&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theyardpgh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "rooftop bars",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "viral-eats"
+      ],
+      "popularityScore": 85.93
+    },
+    {
+      "googlePlaceId": "ChIJQ_YZ4tjrNIgRRjyhmZ1Pws4",
+      "name": "Full Throttle Adrenaline Park - Pittsburgh",
+      "address": "360 Mall Cir Dr, Monroeville, PA 15146, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 1504,
+      "priceLevel": null,
+      "primaryType": "go_karting_venue",
+      "types": [
+        "go_karting_venue",
+        "tourist_attraction",
+        "video_arcade",
+        "amusement_center",
+        "sports_complex",
+        "race_course",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.4268014,
+      "lng": -79.795628,
+      "googleMapsUri": "https://maps.google.com/?cid=14898558055600962630&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gofullthrottle.com/locations/pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJk8jCsFfxNIgRMmNkTMues7A",
+      "name": "The Warren Bar & Burrow",
+      "address": "245 7th St, Pittsburgh, PA 15222, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1070,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar_and_grill",
+        "sushi_restaurant",
+        "sports_bar",
+        "bar",
+        "american_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.4427436,
+      "lng": -79.9997935,
+      "googleMapsUri": "https://maps.google.com/?cid=12732695167503721266&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewarrenpgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.89
+    },
+    {
+      "googlePlaceId": "ChIJR62iBlTHxokR7cwJdUPCS8o",
+      "name": "Sandbox VR",
+      "address": "1712 Walnut St, Philadelphia, PA 19103, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1980,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.949968299999995,
+      "lng": -75.16982999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14576958213896916205&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/philadelphia",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJuanz3VnxNIgRevJ0mtJ3D9c",
+      "name": "Ritual House",
+      "address": "524 William Penn Pl, Pittsburgh, PA 15219, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 846,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.440315999999996,
+      "lng": -79.99716599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15496736589223359098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ritualhousepgh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.76
+    },
+    {
+      "googlePlaceId": "ChIJt08r58pnNIgRWCdZw9IBJbw",
+      "name": "Pinball PA",
+      "address": "2284 Brodhead Rd #10b, Aliquippa, PA 15001, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 825,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "history_museum",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.585907899999995,
+      "lng": -80.2577203,
+      "googleMapsUri": "https://maps.google.com/?cid=13557244258000906072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pinballpa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.73
+    },
+    {
+      "googlePlaceId": "ChIJiWPIuyvxNIgRA6z-Ji_96KI",
+      "name": "Space Bar",
+      "address": "22 Market Square, Pittsburgh, PA 15222, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 297,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "cocktail_bar",
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.441276599999995,
+      "lng": -80.0029758,
+      "googleMapsUri": "https://maps.google.com/?cid=11738910807700712451&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spacebarpittsburgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "interactive pop ups",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.61
+    },
+    {
+      "googlePlaceId": "ChIJQbn8FKQ_NYgRfyp4FVhxJ_0",
+      "name": "Laurel Caverns State Park",
+      "address": "1065 Skyline Dr, Farmington, PA 15437, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 1778,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.7996611,
+      "lng": -79.7115228,
+      "googleMapsUri": "https://maps.google.com/?cid=18241673438818740863&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://laurelcaverns.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJUVt861t9NIgRsU6UAgm8di4",
+      "name": "Fun Fore All Family Fun Park",
+      "address": "8 Progress Ave, Cranberry Twp, PA 16066, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 1982,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "go_karting_venue",
+        "miniature_golf_course",
+        "video_arcade",
+        "race_course",
+        "amusement_park",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7090263,
+      "lng": -80.10495019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3348070119880543921&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://funforeall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 85.32
+    },
+    {
+      "googlePlaceId": "ChIJR-ud98TzNIgREwnaG2ksz6k",
+      "name": "DiAnoia's Eatery",
+      "address": "2549 Penn Ave, Pittsburgh, PA 15222, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2356,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "deli",
+        "cafe",
+        "bar",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 40.454922599999996,
+      "lng": -79.97877729999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12236047542539389203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dianoiaseatery.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJpcQ-YivxNIgRfsSgGe2EKfM",
+      "name": "Con Alma",
+      "address": "613 Penn Ave, Pittsburgh, PA 15222, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 997,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4429744,
+      "lng": -80.0017234,
+      "googleMapsUri": "https://maps.google.com/?cid=17521681979133707390&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.conalmapgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "nightclubs",
+        "jazz clubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJhzfBnaXxNIgRst084Ew3i7E",
+      "name": "Page's",
+      "address": "4112 E Carson St, Pittsburgh, PA 15210, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 3166,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "dessert_shop",
+        "sandwich_shop",
+        "ice_cream_shop",
+        "confectionery",
+        "restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 40.4111741,
+      "lng": -79.9558361,
+      "googleMapsUri": "https://maps.google.com/?cid=12793379969795153330&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pagedairymart.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.17
+    },
+    {
+      "googlePlaceId": "ChIJ8bNluGnzNIgRc3hDyLKY2uQ",
+      "name": "Puttshack - Pittsburgh",
+      "address": "1729 Smallman St, Pittsburgh, PA 15222, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 1375,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.450847499999995,
+      "lng": -79.98655339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16490660879201958003&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.puttshack.com/locations/pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "mini golf",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.17
+    },
+    {
+      "googlePlaceId": "ChIJwROTeR30NIgRcqMaE3fB2Co",
+      "name": "Rivers Casino",
+      "address": "777 Casino Dr, Pittsburgh, PA 15212, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4,
+      "reviewCount": 16953,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "tourist_attraction",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.4478179,
+      "lng": -80.023202,
+      "googleMapsUri": "https://maps.google.com/?cid=3087430261728256882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.riverscasino.com/pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.16
+    }
+  ]
+}

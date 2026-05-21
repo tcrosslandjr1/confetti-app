@@ -1,0 +1,3663 @@
+{
+  "location": "San Juan, Puerto Rico",
+  "generatedAt": "2026-05-17T19:10:36.670Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJwwVZuMFoA4wR1wTUeubh2Ds",
+      "name": "Plaza Las Américas",
+      "address": "525 Avenida F.D. Roosevelt, San Juan, 00918, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 34175,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4217487,
+      "lng": -66.073848,
+      "googleMapsUri": "https://maps.google.com/?cid=4312445023226692823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.plazalasamericas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.4
+    },
+    {
+      "googlePlaceId": "ChIJm52A4r5uA4wRtAoN6BmRT38",
+      "name": "San Juan National Historic Site",
+      "address": "FVCG+5HX, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 21494,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4704822,
+      "lng": -66.1235165,
+      "googleMapsUri": "https://maps.google.com/?cid=9173710506430368436&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/saju/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.05
+    },
+    {
+      "googlePlaceId": "ChIJuWLC2b1uA4wRI18mdUpCAGo",
+      "name": "Castillo San Felipe del Morro",
+      "address": "501 Calle Norzagaray, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 16473,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4706276,
+      "lng": -66.1239202,
+      "googleMapsUri": "https://maps.google.com/?cid=7638177855580823331&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/saju/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.22
+    },
+    {
+      "googlePlaceId": "ChIJydD9LrOhBIwR0SSym7z2QoM",
+      "name": "El Yunque National Forest",
+      "address": "Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 15266,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "tourist_attraction",
+        "national_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.295134700000002,
+      "lng": -65.8000327,
+      "googleMapsUri": "https://maps.google.com/?cid=9458393457357890769&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fs.usda.gov/elyunque",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.98
+    },
+    {
+      "googlePlaceId": "ChIJDblZxcNuA4wRbSV3VbkJ5dM",
+      "name": "San Cristóbal Castle",
+      "address": "501 Calle Norzagaray, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8279,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4673652,
+      "lng": -66.1110077,
+      "googleMapsUri": "https://maps.google.com/?cid=15268620803277006189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/saju/learn/historyculture/san-cristobal.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.06
+    },
+    {
+      "googlePlaceId": "ChIJVyGzq7toA4wR0lC9QI1tqvA",
+      "name": "Coliseo de Puerto Rico José Miguel Agrelot",
+      "address": "500 Av. Arterial B, San Juan, 00918, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 10216,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.427730999999998,
+      "lng": -66.0613868,
+      "googleMapsUri": "https://maps.google.com/?cid=17341793768587481298&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.coliseodepuertorico.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "immersive experiences",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.62
+    },
+    {
+      "googlePlaceId": "ChIJG64BzXpvA4wRk_rTlzmNXHM",
+      "name": "DISTRITO T-Mobile",
+      "address": "250 Convention Blvd, San Juan, 00907, Puerto Rico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 9094,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4554862,
+      "lng": -66.0918045,
+      "googleMapsUri": "https://maps.google.com/?cid=8312674290718997139&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.distritot-mobile.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.25
+    },
+    {
+      "googlePlaceId": "ChIJ8-Rcavs6A4wRXUdnFqNqpPk",
+      "name": "Toro Verde Adventure Park",
+      "address": "Bo Road 155, Orocovis, 00720, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 6173,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.2564827,
+      "lng": -66.3902099,
+      "googleMapsUri": "https://maps.google.com/?cid=17988620060312684381&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.toroverdepr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.14
+    },
+    {
+      "googlePlaceId": "ChIJSa4blSlvA4wRONh8jsK1BKI",
+      "name": "Puerto Rico Convention Center",
+      "address": "100 Convention Blvd, San Juan, 00907, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 7711,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.453443399999998,
+      "lng": -66.0922646,
+      "googleMapsUri": "https://maps.google.com/?cid=11674655981269997624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://prconvention.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events",
+        "interactive pop ups",
+        "VR experiences",
+        "events this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.74
+    },
+    {
+      "googlePlaceId": "ChIJgXI932hoA4wRoro39iaHOFk",
+      "name": "Centro de Bellas Artes Luis A. Ferré",
+      "address": "Ave. Ponce De León Pda. 22 1/2, San Juan, 00907, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5711,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4465793,
+      "lng": -66.06872129999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6429037069480737442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cba.pr.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "cultural exhibits",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.8
+    },
+    {
+      "googlePlaceId": "ChIJl4soV8FuA4wROZotGFr8EU8",
+      "name": "Plaza Colón",
+      "address": "FV8Q+C57, C. de la Fortaleza, San Juan, 00901, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 5559,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4660267,
+      "lng": -66.1120694,
+      "googleMapsUri": "https://maps.google.com/?cid=5697612467483286073&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.discoverpuertorico.com/profile/plaza-colon-san-juan/8039",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "events this weekend",
+        "things to do this weekend",
+        "seasonal pop ups",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.71
+    },
+    {
+      "googlePlaceId": "ChIJP4rwd01vA4wRZuPBahLhvwk",
+      "name": "Christianson",
+      "address": "1131 Ashford Ave, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 7493,
+      "priceLevel": null,
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.456417599999998,
+      "lng": -66.0725136,
+      "googleMapsUri": "https://maps.google.com/?cid=702527536109839206&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://christiansonbrunch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 92.6
+    },
+    {
+      "googlePlaceId": "ChIJbQsnHzZvA4wRGK6HrswJSk8",
+      "name": "La Plaza del Mercado de Santurce",
+      "address": "La Placita de Santurce, 1348 C. Jose M. Raffucci, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5763,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "sports_bar",
+        "tourist_attraction",
+        "live_music_venue",
+        "hookah_bar",
+        "market",
+        "night_club",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4504731,
+      "lng": -66.0704671,
+      "googleMapsUri": "https://maps.google.com/?cid=5713389851979001368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mardelnyinc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "live music events",
+        "farmers markets",
+        "flea markets",
+        "festivals this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.73
+    },
+    {
+      "googlePlaceId": "ChIJ_cMtd-1oA4wR-dh8BRA1v9Y",
+      "name": "Parque Luis Muñoz Marín",
+      "address": "Av. Jesús T. Piñero, San Juan, 00918, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 4625,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.407532099999997,
+      "lng": -66.0730507,
+      "googleMapsUri": "https://maps.google.com/?cid=15474145187596130553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sanjuan.pr/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.04
+    },
+    {
+      "googlePlaceId": "ChIJc9aTvp5oA4wRiQJndEa2cVg",
+      "name": "La Factoría",
+      "address": "51 C. de San José, San Juan, 00901, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4566,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4672058,
+      "lng": -66.1175368,
+      "googleMapsUri": "https://maps.google.com/?cid=6373075361422836361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/lafactoriapr?igsh=MWlycmxzdW1ld2gwOA==",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "romantic bars",
+        "wine bars",
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "TikTok restaurants",
+        "luxury lounges",
+        "bottle service",
+        "mixology classes",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "learning-classes",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91
+    },
+    {
+      "googlePlaceId": "ChIJYXyNtcZuA4wRNttsW6Mi8gQ",
+      "name": "Marmalade",
+      "address": "317 C. de la Fortaleza, San Juan, 00901, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2021,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4656092,
+      "lng": -66.11331659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=356385405524564790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marmaladepr.com/?fbclid=PAY2xjawHHLp9leHRuA2FlbQIxMQABpnaqDlFV6hpaff_Wh8F1p_XjY5qmFFgapDN7ZPUYFTHkKHPnRTwMq9JMVg_aem_7Qb7Fd7EIjFwJxED5YB1kg",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.64
+    },
+    {
+      "googlePlaceId": "ChIJhxdl6rhuA4wRSksPbJ7afN4",
+      "name": "Puerta de San Juan",
+      "address": "FV8J+354 Caleta de San Juan, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3165,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.465133599999998,
+      "lng": -66.1195327,
+      "googleMapsUri": "https://maps.google.com/?cid=16031929147484752714&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.55
+    },
+    {
+      "googlePlaceId": "ChIJozt2381Gw4URNQUkY687NlQ",
+      "name": "Aquarium of Veracruz",
+      "address": "Blvd. Manuel Ávila Camacho S/n-Int. 25, Ricardo Flores Magón, 91900 Veracruz, Ver., Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 71189,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.187182099999998,
+      "lng": -96.12289410000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6068103172396942645&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariumpuertodeveracruz.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.25
+    },
+    {
+      "googlePlaceId": "ChIJRb-2hrhuA4wRfKAan5xdqhQ",
+      "name": "Parque de las Palomas",
+      "address": "FV7J+HWR, C. Tetuán, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3470,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4639894,
+      "lng": -66.11774869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1489105554064973948&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.conoceapuertorico.com/parque-de-las-palomas/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.14
+    },
+    {
+      "googlePlaceId": "ChIJGYZKTeNoA4wR6HGDU33r-LU",
+      "name": "Museo de Arte de Puerto Rico",
+      "address": "299 Avenida José de Diego, San Juan, 00909, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2340,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.448276,
+      "lng": -66.066284,
+      "googleMapsUri": "https://maps.google.com/?cid=13112489238593761768&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mapr.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 90
+    },
+    {
+      "googlePlaceId": "ChIJ3aH0FThvA4wR43PrtEo2iFo",
+      "name": "Ropa Vieja Grill",
+      "address": "55 Avenida Condado Esq, Av. Ashford, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 6546,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "caribbean_restaurant",
+        "seafood_restaurant",
+        "cuban_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.455804999999998,
+      "lng": -66.0716097,
+      "googleMapsUri": "https://maps.google.com/?cid=6523523754736972771&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ropaviejagrill.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.97
+    },
+    {
+      "googlePlaceId": "ChIJZafB0olvA4wRbI8jAAa_pyA",
+      "name": "La Placita de Santurce",
+      "address": "300 C. dos Hermanos, San Juan, 00909, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2170,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4504555,
+      "lng": -66.0705457,
+      "googleMapsUri": "https://maps.google.com/?cid=2353059362817412972&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mardelnyinc.com/la-placita-de-santurce",
+      "openNow": null,
+      "matchedQueries": [
+        "food halls",
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "game night venues",
+        "karaoke bars",
+        "trivia nights",
+        "game bars",
+        "bottle service",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "holiday markets",
+        "adult nightlife",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.77
+    },
+    {
+      "googlePlaceId": "ChIJZQSYdDlvA4wR_EvjZNy2gy4",
+      "name": "Ventana al Mar",
+      "address": "1054 Ashford Ave, San Juan, 00907, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3450,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4579743,
+      "lng": -66.0749621,
+      "googleMapsUri": "https://maps.google.com/?cid=3351723605395459068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.72
+    },
+    {
+      "googlePlaceId": "ChIJBeoQUWhvA4wRveVU-9BQNe0",
+      "name": "San Juan Sip & Paint",
+      "address": "201 C. de la Cruz, San Juan, 00901, Puerto Rico",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 746,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "art_studio",
+        "educational_institution",
+        "home_goods_store",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 18.4653362,
+      "lng": -66.1162088,
+      "googleMapsUri": "https://maps.google.com/?cid=17092656819254650301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sanjuansipandpaint.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip",
+        "cooking classes",
+        "pottery classes",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.72
+    },
+    {
+      "googlePlaceId": "ChIJV-lFG8duA4wRNUpcr_hPCO8",
+      "name": "Flavors Food Tours - San Juan",
+      "address": "206 C. Tetuán, San Juan, 00901, Puerto Rico",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 5,
+      "reviewCount": 1938,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.464042799999998,
+      "lng": -66.1151943,
+      "googleMapsUri": "https://maps.google.com/?cid=17224104704391006773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sanjuanfoodtours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cooking classes",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "learning-classes",
+        "local-exploration"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJkYDYclNvA4wRbJpiYMKzERQ",
+      "name": "La Casita Blanca",
+      "address": "351 C. Tapia, San Juan, 00912, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3891,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.443380299999998,
+      "lng": -66.0536872,
+      "googleMapsUri": "https://maps.google.com/?cid=1446134602784741996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.casita-blanca.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.4
+    },
+    {
+      "googlePlaceId": "ChIJd6U7RnxvA4wRa9Ffixh1QcU",
+      "name": "Coca-Cola Music Hall",
+      "address": "250 Convention Blvd, San Juan, 00907, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2603,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.455128,
+      "lng": -66.0926951,
+      "googleMapsUri": "https://maps.google.com/?cid=14213770647235973483&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cocacolamusichall.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "arcades",
+        "barcades",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJM0uwAktvA4wRAdWfqS7iKD8",
+      "name": "Lote 23",
+      "address": "1552 PR-25, San Juan, 00909, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4074,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "pizza_restaurant",
+        "cocktail_bar",
+        "ice_cream_shop",
+        "hamburger_restaurant",
+        "ramen_restaurant",
+        "meal_takeaway",
+        "mexican_restaurant",
+        "japanese_restaurant",
+        "dessert_shop",
+        "confectionery",
+        "bar",
+        "food_store",
+        "american_restaurant",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4450632,
+      "lng": -66.0671411,
+      "googleMapsUri": "https://maps.google.com/?cid=4551136113500083457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "food trucks",
+        "seasonal pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.14
+    },
+    {
+      "googlePlaceId": "ChIJ_wl9dy9vA4wReA-OeIhk7uc",
+      "name": "Casita Miramar",
+      "address": "605 Av. Miramar, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3565,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.455822899999998,
+      "lng": -66.0851077,
+      "googleMapsUri": "https://maps.google.com/?cid=16712405804519395192&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.casita-miramar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJRfCROG9vA4wRmHaGxNZGCts",
+      "name": "Havana Bar & Grill",
+      "address": "1025 Ashford Ave, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2918,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4601001,
+      "lng": -66.07856749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15783505732307416728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.havanabarandgrill.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "romantic bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.94
+    },
+    {
+      "googlePlaceId": "ChIJbThYTLtmA4wRnInX9IiSAlY",
+      "name": "Museo del Niño de Carolina",
+      "address": "Ave. Campo Rico intersección, Av. José Fidalgo Díaz, Carolina, 00982, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3750,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4188123,
+      "lng": -65.9681575,
+      "googleMapsUri": "https://maps.google.com/?cid=6197677154136197532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museodelninocarolina.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.88
+    },
+    {
+      "googlePlaceId": "ChIJS2g2wB9vA4wRE3zZZTgvbrU",
+      "name": "Drunken Cookies",
+      "address": "151 C. de la Cruz, San Juan, 00901, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 10442,
+      "priceLevel": null,
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4660997,
+      "lng": -66.1163954,
+      "googleMapsUri": "https://maps.google.com/?cid=13073438687576554515&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://drunkencookies.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 88.64
+    },
+    {
+      "googlePlaceId": "ChIJ95ljukBvA4wR0k9TilTauwQ",
+      "name": "The Atlantic at The Tryst",
+      "address": "1 Cll Vendig, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2054,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4571237,
+      "lng": -66.0723525,
+      "googleMapsUri": "https://maps.google.com/?cid=341106253429428178&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theatlanticpr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.49
+    },
+    {
+      "googlePlaceId": "ChIJz8JmTYFoA4wRqik8UNdNdT8",
+      "name": "Miramar Food Truck Park",
+      "address": "1006 Av. de la Constitución, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1995,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.453124199999998,
+      "lng": -66.07851149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4572646583824034218&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/MiramarFoodTruckPark/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "viral food spots",
+        "food trucks",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJt2zuY8duA4wR56__Tgqqm0M",
+      "name": "Barrachina",
+      "address": "104 C. de la Fortaleza, San Juan, 00901, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 8001,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "caribbean_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.464512199999998,
+      "lng": -66.1174211,
+      "googleMapsUri": "https://maps.google.com/?cid=4871674383183097831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barrachina.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "game bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.35
+    },
+    {
+      "googlePlaceId": "ChIJ408h5L1CA4wR_4_ulVkwJo4",
+      "name": "The Outlets at Montehiedra",
+      "address": "9410 Calle los Romero STE. 120, San Juan, 00926, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 13188,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.3392966,
+      "lng": -66.068268,
+      "googleMapsUri": "https://maps.google.com/?cid=10242927563826434047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.montehiedratowncenter.com/?utm_source=google%20my%20business&utm_medium=listing&utm_campaign=visit%20website",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.22
+    },
+    {
+      "googlePlaceId": "ChIJlzu1eHZvA4wRatXpphw6Mt4",
+      "name": "el Refrán",
+      "address": "1104 Ashford Ave, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1283,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4567676,
+      "lng": -66.0740509,
+      "googleMapsUri": "https://maps.google.com/?cid=16010923519989372266&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/elrefranbar",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJ-8sKWzdvA4wRwQOWvbsJfUw",
+      "name": "Laguna del Condado Profesor Jaime Benítez Rexach National Park",
+      "address": "1110 C. Vieques, San Juan, 00907, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2000,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "plaza",
+        "picnic_ground",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4548389,
+      "lng": -66.07565749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5511572220915614657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.01
+    },
+    {
+      "googlePlaceId": "ChIJOckQDzhvA4wRQBXguqV-nDo",
+      "name": "Cocina Abierta",
+      "address": "58 Caribe St, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1715,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4551286,
+      "lng": -66.07059149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4223389800836633920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cocinaabierta.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 87.93
+    },
+    {
+      "googlePlaceId": "ChIJZX1SdsduA4wRLLxibo1u_WQ",
+      "name": "Princesa - Cocina Cultura",
+      "address": "2 Paseo De La Princesa, Calle Shurmberg, San Juan, 00901, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2285,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.463632999999998,
+      "lng": -66.1167493,
+      "googleMapsUri": "https://maps.google.com/?cid=7277094126621998124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://princesapr.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.08
+    },
+    {
+      "googlePlaceId": "ChIJA-3hytxuA4wRiRKuwzM2CXw",
+      "name": "Costco Wholesale",
+      "address": "1185, 3403 Av. 65 de Infantería, San Juan, 00924, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 8962,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "warehouse_store",
+      "types": [
+        "warehouse_store",
+        "department_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.399934500000004,
+      "lng": -65.9978447,
+      "googleMapsUri": "https://maps.google.com/?cid=8937734531447657097&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.costco.com/warehouse-locations/san-juan-PR-335.html?utm_term=KW&utm_campaign=Homepage&utm_medium=GMB&utm_source=Google&utm_content=Link",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJLXDY7ClvA4wRJsI_l5EOI5Y",
+      "name": "Casino Metro",
+      "address": "200 Convention Blvd, San Juan, 00907, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2528,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "lounge_bar",
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4548137,
+      "lng": -66.0901927,
+      "googleMapsUri": "https://maps.google.com/?cid=10818506748344648230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.casinometro.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.95
+    },
+    {
+      "googlePlaceId": "ChIJXU0w50lvA4wRK09bRkrSAqI",
+      "name": "Santaella",
+      "address": "219 C. Canals, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1777,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "cocktail_bar",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.450087399999997,
+      "lng": -66.0698676,
+      "googleMapsUri": "https://maps.google.com/?cid=11674124400547548971&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://josesantaella.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJpwH5y-tvA4wR85Gt_v-xGI0",
+      "name": "Antiguo 26",
+      "address": "261 C. Tetuán, San Juan, 00901, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 433,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.464669999999998,
+      "lng": -66.1143329,
+      "googleMapsUri": "https://maps.google.com/?cid=10167071871836459507&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.antiguo26.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJX73PVsFuA4wR73e_2A8OCEw",
+      "name": "Spoon",
+      "address": "Plaza de La Catedral, San Juan, 00901, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 726,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 18.4661526,
+      "lng": -66.11792849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5478644407919933423&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thespoonexperience.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes",
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes",
+        "local-exploration"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJZ6EMODRqA4wRawL9xjrrSSQ",
+      "name": "Dave & Buster's Bayamon",
+      "address": "Plaza del Sol Mall, 725 W Main Ave Ste 300, Bayamón, 00961, Puerto Rico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 8218,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "sports_bar",
+        "video_arcade",
+        "amusement_center",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 18.4071251,
+      "lng": -66.162159,
+      "googleMapsUri": "https://maps.google.com/?cid=2614879696344384107&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/puerto-rico-bayamon",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.74
+    },
+    {
+      "googlePlaceId": "ChIJiW1nYghvA4wRrr5wP_5rfPM",
+      "name": "Arena Medalla",
+      "address": "250 Convention Blvd, San Juan, 00907, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1164,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4554261,
+      "lng": -66.09180649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17545016988058828462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.distritot-mobile.com/eat-and-drink/restaurant?id=5",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.72
+    },
+    {
+      "googlePlaceId": "ChIJ6SmVhO5vA4wRSEhU0CFjWu8",
+      "name": "Scryer Rum Barrelhouse & Rooftop",
+      "address": "259 C. Tetuán, San Juan, 00901, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 555,
+      "priceLevel": null,
+      "primaryType": "manufacturer",
+      "types": [
+        "taco_restaurant",
+        "beer_garden",
+        "cocktail_bar",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "manufacturer",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4646592,
+      "lng": -66.11444329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17247206719848990792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.scryerrum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "trivia nights",
+        "mixology classes",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "learning-classes",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.6
+    },
+    {
+      "googlePlaceId": "ChIJVal-WS5vA4wRXAmTv3wxbj0",
+      "name": "Eter Rooftop & Lounge",
+      "address": "752 Av. Manuel Fernández Juncos, San Juan, 00907, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 3174,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4525124,
+      "lng": -66.0842839,
+      "googleMapsUri": "https://maps.google.com/?cid=4426529895611566428&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://eterlounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.56
+    },
+    {
+      "googlePlaceId": "ChIJrfMDN4FoA4wRAUUCsx2AtQ8",
+      "name": "El Boricua",
+      "address": "5 C. Saldaña, San Juan, 00925, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1053,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4004908,
+      "lng": -66.051732,
+      "googleMapsUri": "https://maps.google.com/?cid=1131951746399225089&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/elboricuarp/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.4
+    },
+    {
+      "googlePlaceId": "ChIJ_Zna5sZuA4wR3UTMa4ystWU",
+      "name": "Café Cuatro Sombras",
+      "address": "259 C. del Recinto Sur, San Juan, 00901, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2541,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "coffee_shop",
+      "types": [
+        "coffee_shop",
+        "coffee_roastery",
+        "breakfast_restaurant",
+        "cafe",
+        "food_store",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 18.464324899999998,
+      "lng": -66.114336,
+      "googleMapsUri": "https://maps.google.com/?cid=7328953687719298269&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cuatrosombras.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "board game cafes",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJhdC_YH1w44kRSX0V1oo9pt0",
+      "name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 27964,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3592478,
+      "lng": -71.0491475,
+      "googleMapsUri": "https://maps.google.com/?cid=15971520795022556489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.neaq.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJz30kKxlpA4wRAov6Av0HI0A",
+      "name": "Handlebar",
+      "address": "C. Monterrey, San Juan, 00920, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1605,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.422134,
+      "lng": -66.0999582,
+      "googleMapsUri": "https://maps.google.com/?cid=4621546425870355202&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.facebook.com/HandlebarPR",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJbaZ9y9NvA4wRYCuSQX7zv9I",
+      "name": "Night Kayak",
+      "address": "1014 Ashford Ave, San Juan, 00907, Puerto Rico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 4774,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 18.4587494,
+      "lng": -66.0778334,
+      "googleMapsUri": "https://maps.google.com/?cid=15186124192108129120&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nightkayak.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.19
+    },
+    {
+      "googlePlaceId": "ChIJ3W_r-zBvA4wROSZa2TE_kq0",
+      "name": "MUSA",
+      "address": "613 Calle Cerra, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1390,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4522087,
+      "lng": -66.079437,
+      "googleMapsUri": "https://maps.google.com/?cid=12507128598493799993&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.musarestaurants.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.17
+    },
+    {
+      "googlePlaceId": "ChIJD1cjdNOeBIwRHbyLyaI3gCQ",
+      "name": "Carabalí Rainforest Park",
+      "address": "Puerto Rico 992, Luquillo, 00773, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9457,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "go_karting_venue",
+        "amusement_park",
+        "race_course",
+        "event_venue",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.364614,
+      "lng": -65.763666,
+      "googleMapsUri": "https://maps.google.com/?cid=2630163354689977373&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.carabalirainforestpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.13
+    },
+    {
+      "googlePlaceId": "ChIJLyCGlDlvA4wRd2KwBduu__M",
+      "name": "Semilla Kitchen & Bar",
+      "address": "57 Cll Delcasse, San Juan, 00907, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3560,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4564837,
+      "lng": -66.0749182,
+      "googleMapsUri": "https://maps.google.com/?cid=17581963725994222199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/pg/semillakitchenbar",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.92
+    },
+    {
+      "googlePlaceId": "ChIJ4bQS3TqXBIwRhcgrZrCOQgA",
+      "name": "Reserva Natural Cabezas de San Juan (Para la Naturaleza)",
+      "address": "Carr. 987 Km 5.9 Las Croabas, Fajardo, 00738, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 615,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "historical_landmark",
+        "visitor_center",
+        "tourist_information_center",
+        "tourist_attraction",
+        "park",
+        "tour_agency",
+        "travel_agency",
+        "historical_place",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.3813719,
+      "lng": -65.620674,
+      "googleMapsUri": "https://maps.google.com/?cid=18734236742436997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://reservaciones.paralanaturaleza.org/index.jsf",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJ-3rDMcduA4wRgPxPq5_A1e0",
+      "name": "Chocobar Cortés",
+      "address": "210 C. de San Francisco, San Juan, 00901, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 8316,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "chocolate_shop",
+        "tapas_restaurant",
+        "candy_store",
+        "brunch_restaurant",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4656323,
+      "lng": -66.1155564,
+      "googleMapsUri": "https://maps.google.com/?cid=17137815749034769536&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chocobarcortes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.72
+    },
+    {
+      "googlePlaceId": "ChIJrUxgHMBvA4wRdVvi46Ry0Nk",
+      "name": "Kane Rum Bar",
+      "address": "1060 Ashford Ave, San Juan, 00907, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 409,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4570893,
+      "lng": -66.0750242,
+      "googleMapsUri": "https://maps.google.com/?cid=15695170753909644149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kanerumbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJA-3hytxuA4wR6uqi4jZodUE",
+      "name": "Parque Luis Muñoz Rivera",
+      "address": "FW75+HVR, Av. Luis Muñoz Rivera, San Juan, 00901, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 4708,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.463995099999998,
+      "lng": -66.09036569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4716790769680313066&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.conoceapuertorico.com/parque-luis-munoz-rivera/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.64
+    },
+    {
+      "googlePlaceId": "ChIJWaXe_sZuA4wRfzH3qryghug",
+      "name": "La Casita de Rones",
+      "address": "C. Comercio, San Juan, 00901, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.2,
+      "reviewCount": 3231,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tourist_attraction",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.463358,
+      "lng": -66.11445499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16755256195861131647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rum.house/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJs9vyO8tvA4wRMEGD123Fq8A",
+      "name": "Paseo de la Princesa",
+      "address": "FV7M+9CV, Paseo de la Princesa, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 633,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4634809,
+      "lng": -66.11644,
+      "googleMapsUri": "https://maps.google.com/?cid=13883407351857496368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJ2zw2FE9vA4wRttWZtvBaYdI",
+      "name": "Bebo's Café",
+      "address": "1600 C. Loíza, San Juan, 00911, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 8929,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "latin_american_restaurant",
+        "diner",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 18.4517246,
+      "lng": -66.06272109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15159497810607986102&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/pages/category/Caribbean-Restaurant/Bebos-Cafe-271502216255394/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJzfq7OkpvA4wRIlmPcS4c07E",
+      "name": "Sala Sinfónica Pablo Casals",
+      "address": "298 C. Culto, San Juan, 00907, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 622,
+      "priceLevel": null,
+      "primaryType": "auditorium",
+      "types": [
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.446884999999998,
+      "lng": -66.0684289,
+      "googleMapsUri": "https://maps.google.com/?cid=12813616350598486306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cba.pr.gov/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.46
+    },
+    {
+      "googlePlaceId": "ChIJC20ScTFvA4wRgONxH2uoaEw",
+      "name": "El Batey Bar",
+      "address": "101 Calle del Cristo, San Juan, 00901, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 537,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.466310399999998,
+      "lng": -66.1182135,
+      "googleMapsUri": "https://maps.google.com/?cid=5505835722502955904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.elbateytavernpr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "trivia nights",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.4
+    },
+    {
+      "googlePlaceId": "ChIJ5X-dYPplA4wR5FJcvxNJAbo",
+      "name": "Bistro Café",
+      "address": "29 C. Júpiter, San Juan, Carolina 00979, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7149,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 18.448909399999998,
+      "lng": -66.0373817,
+      "googleMapsUri": "https://maps.google.com/?cid=13403074315195011812&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bistro-cafe.shop/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.25
+    },
+    {
+      "googlePlaceId": "ChIJiUXpAT9mA4wRiROVIaibhiQ",
+      "name": "The Mall of San Jaun",
+      "address": "1000 The Mall of San Juan Blvd, San Juan, 00924, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 10121,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4124412,
+      "lng": -66.0254179,
+      "googleMapsUri": "https://maps.google.com/?cid=2631962178664862601&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/the-mall-of-san-juan",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJI5ixc4ZpA4wR-NNMl_7P6ws",
+      "name": "Tours to do Puerto Rico",
+      "address": "1752 Av. Manuel Fernández Juncos, San Juan, 00909, Puerto Rico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 808,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 18.441042,
+      "lng": -66.06371399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=859008846311248888&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tourstodopr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.22
+    },
+    {
+      "googlePlaceId": "ChIJm0YwI1BvA4wRrHOojO9rGhg",
+      "name": "La Cueva del Mar | Calle Loíza",
+      "address": "1904 C. Loíza, San Juan, 00911, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3442,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "caribbean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4511951,
+      "lng": -66.05754689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1736819282905953196&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/lacuevadelmar/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJ27Ja0rhuA4wRKFXso8d5xmI",
+      "name": "Casa Blanca",
+      "address": "1 C. de San Sebastián, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 693,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.466401899999997,
+      "lng": -66.1200722,
+      "googleMapsUri": "https://maps.google.com/?cid=7117510159461274920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.discoverpuertorico.com/profile/museo-casa-blanca/8488",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJq6qqBgZpA4wRVARdg8MjenQ",
+      "name": "San Patricio Plaza",
+      "address": "100 Av. San Patricio, Guaynabo, 00968, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 13681,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4091256,
+      "lng": -66.1054193,
+      "googleMapsUri": "https://maps.google.com/?cid=8393060178187846740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sanpatricio.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.08
+    },
+    {
+      "googlePlaceId": "ChIJTVwe4pNoA4wRNAfpljz8oqs",
+      "name": "Restaurante Casa Emilio",
+      "address": "307 Av. Ing. Manuel Domenech, San Juan, 00918, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1682,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "catering_service",
+        "spanish_restaurant",
+        "food_delivery",
+        "american_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "service",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4139049,
+      "lng": -66.0644264,
+      "googleMapsUri": "https://maps.google.com/?cid=12367724863872894772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://casaemiliorest.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJMxvD2GW9BIwRiZXmNWIMkTY",
+      "name": "East Island Excursions",
+      "address": "Marina Puerto Del Rey, Fajardo, 00738, Puerto Rico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 4523,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 18.2857579,
+      "lng": -65.6358657,
+      "googleMapsUri": "https://maps.google.com/?cid=3931937565621785993&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.eastislandpr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.92
+    },
+    {
+      "googlePlaceId": "ChIJ4Ym4_8ZuA4wRlgtg2smat4I",
+      "name": "Plaza Dársena - Plaza de la Marina",
+      "address": "FV7P+84G, San Juan, 00901, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1270,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4633094,
+      "lng": -66.1146601,
+      "googleMapsUri": "https://maps.google.com/?cid=9419167337411513238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "waterfront gardens",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 84.84
+    },
+    {
+      "googlePlaceId": "ChIJM4aV2-xoA4wRlOteEJYgVl4",
+      "name": "Eco's Sports Park",
+      "address": "Stadium St, San Juan, 00936, Puerto Rico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 1580,
+      "priceLevel": null,
+      "primaryType": "sports_complex",
+      "types": [
+        "sports_complex",
+        "sports_activity_location",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.413885800000003,
+      "lng": -66.0716717,
+      "googleMapsUri": "https://maps.google.com/?cid=6797656516454181780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ecossportspark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "pickleball courts",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.82
+    },
+    {
+      "googlePlaceId": "ChIJ8UmF4UlvA4wRaIgdbzcVUQ0",
+      "name": "Museo de Arte Contemporáneo de Puerto Rico",
+      "address": "1220 Ave. Ponce de León Esq. R.H. Todd Pda 18, San Juan, 00907, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 985,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4499776,
+      "lng": -66.0743549,
+      "googleMapsUri": "https://maps.google.com/?cid=959571523438217320&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museomac.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.69
+    },
+    {
+      "googlePlaceId": "ChIJ44_7gTNvA4wRPVmcdNbzzDw",
+      "name": "Walmart Supercenter",
+      "address": "701 Av. Roberto H. Todd, San Juan, 00907, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 12238,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "discount_supermarket",
+        "toy_store",
+        "supermarket",
+        "grocery_store",
+        "food_store",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 18.447843,
+      "lng": -66.07576399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4381144639929604413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.walmartpr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.68
+    },
+    {
+      "googlePlaceId": "ChIJA-LvoftlA4wRn9cdIyITlMo",
+      "name": "Panadería España",
+      "address": "Centro Comercial, 1105 C. Marginal Villamar, Carolina, 00979, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 8237,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "breakfast_restaurant",
+        "sandwich_shop",
+        "brunch_restaurant",
+        "coffee_shop",
+        "cafe",
+        "catering_service",
+        "food_delivery",
+        "spanish_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 18.4441354,
+      "lng": -66.030819,
+      "googleMapsUri": "https://maps.google.com/?cid=14597313329553594271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.laespana.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.59
+    },
+    {
+      "googlePlaceId": "ChIJoeblu8ZuA4wRvAKr74ERtyA",
+      "name": "Restaurante Raíces",
+      "address": "315 C. del Recinto Sur, San Juan, 00901, Puerto Rico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.1,
+      "reviewCount": 9621,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4646127,
+      "lng": -66.1133372,
+      "googleMapsUri": "https://maps.google.com/?cid=2357372179721159356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.restauranteraices.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.58
+    },
+    {
+      "googlePlaceId": "ChIJ32DVsMBuA4wRwfPgG7iRtXc",
+      "name": "The Mezzanine",
+      "address": "156 2nd Floor, Sol St, San Juan, 00901, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 587,
+      "priceLevel": null,
+      "primaryType": "tapas_restaurant",
+      "types": [
+        "tapas_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.466758,
+      "lng": -66.1167074,
+      "googleMapsUri": "https://maps.google.com/?cid=8625960881225790401&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.themezzaninepr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.58
+    },
+    {
+      "googlePlaceId": "ChIJsTyOMQjysY4Rm9X0TCt2kSM",
+      "name": "Ocean World Adventure Park, Puerto Plata, Dominican Republic.",
+      "address": "Calle Principal #3, Cofresi, Beach Cofresi Beach, Puerto Plata 57000, Dominican Republic",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 8119,
+      "priceLevel": null,
+      "primaryType": "water_park",
+      "types": [
+        "water_park",
+        "tourist_attraction",
+        "aquarium",
+        "wedding_venue",
+        "amusement_park",
+        "swimming_pool",
+        "liquor_store",
+        "marina",
+        "event_venue",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "service",
+        "store",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.826211,
+      "lng": -70.730259,
+      "googleMapsUri": "https://maps.google.com/?cid=2562959591297308059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.shop.oceanworld.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.55
+    },
+    {
+      "googlePlaceId": "ChIJB4-A1rpoA4wRWWdCooliUVs",
+      "name": "Caribbean Cinemas - Fine Arts Popular",
+      "address": "PR-25, San Juan, 00918, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1928,
+      "priceLevel": null,
+      "primaryType": "movie_theater",
+      "types": [
+        "movie_theater",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4280602,
+      "lng": -66.0583666,
+      "googleMapsUri": "https://maps.google.com/?cid=6580148873837307737&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://caribbeancinemas.com/theater/fine-arts-popular/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.4
+    },
+    {
+      "googlePlaceId": "ChIJl4LnJkxpA4wRaAjKJlPgZS0",
+      "name": "Dave & Buster's",
+      "address": "525 Avenida F.D. Roosevelt Suite #601, San Juan, 00918, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 772,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.422074300000002,
+      "lng": -66.07423419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3271267352092215400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/san-juan",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.33
+    },
+    {
+      "googlePlaceId": "ChIJxdHPrTlvA4wRFRh3Pisk2w0",
+      "name": "Serafina San Juan Restaurant",
+      "address": "1077 Ashford Ave, San Juan, 00907, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.2,
+      "reviewCount": 3812,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 18.457206,
+      "lng": -66.0744572,
+      "googleMapsUri": "https://maps.google.com/?cid=998431510542882837&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://serafinasj.com/?utm_source=google-my-business&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.28
+    },
+    {
+      "googlePlaceId": "ChIJj6bq9WNpA4wRbgYbbJjPyio",
+      "name": "Viking Arena",
+      "address": "esquina Matadero, 598 C. A, San Juan, 00920, Puerto Rico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 1074,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "adventure_sports_center",
+        "lounge_bar",
+        "night_club",
+        "amusement_park",
+        "amusement_center",
+        "sports_complex",
+        "sports_activity_location",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4174383,
+      "lng": -66.0974143,
+      "googleMapsUri": "https://maps.google.com/?cid=3083505148444214894&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://vikingarenapr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "VR experiences",
+        "best parks",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.27
+    },
+    {
+      "googlePlaceId": "ChIJSYxU0BdvA4wRPNDzm97FnZM",
+      "name": "Anita Gelato (Old San Juan)",
+      "address": "65 C. de la Fortaleza, San Juan, 00901, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 3555,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.464602499999998,
+      "lng": -66.1179405,
+      "googleMapsUri": "https://maps.google.com/?cid=10636875454808838204&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anita-gelato.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.16
+    },
+    {
+      "googlePlaceId": "ChIJdR3iJL9uA4wRkwh6Yd-6pFA",
+      "name": "Museo de las Americas",
+      "address": "C. Beneficencia, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 806,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "history_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4677245,
+      "lng": -66.1201859,
+      "googleMapsUri": "https://maps.google.com/?cid=5810974887790643347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museolasamericas.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.07
+    },
+    {
+      "googlePlaceId": "ChIJtVbzNDtvA4wR9CaZ355SPEU",
+      "name": "VIP Adventures Puerto Rico",
+      "address": "864 Av. Ashford Suite 103, San Juan, 00907, Puerto Rico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2401,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "tour_agency",
+        "travel_agency",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 18.4605125,
+      "lng": -66.08151459999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4988953329529333492&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.adventurespuertorico.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.03
+    },
+    {
+      "googlePlaceId": "ChIJqwAz299vA4wRFzHdPDWDRo0",
+      "name": "The Cannon Club LLC",
+      "address": "215 C. de San Sebastián, San Juan, 00901, Puerto Rico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1115,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.467649800000004,
+      "lng": -66.1161663,
+      "googleMapsUri": "https://maps.google.com/?cid=10179968272395219223&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "romantic bars",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.98
+    },
+    {
+      "googlePlaceId": "ChIJy8YPJ9poA4wRAPx40VrIl3k",
+      "name": "Sam's Club",
+      "address": "PR-2, 2 Kennedy Ave Km 2, San Juan, 00920, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 3265,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "store",
+      "types": [
+        "electronics_store",
+        "liquor_store",
+        "wholesaler",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 18.4320398,
+      "lng": -66.08783760000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8761691892459568128&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.samsclub.com/club/4866-san-juan-pr",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.85
+    },
+    {
+      "googlePlaceId": "ChIJP7R2Z91bA4wRe1RANgRHf2s",
+      "name": "Sector Sixty6 - Caguas",
+      "address": "400 C. Betances, Caguas, 00725, Puerto Rico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 630,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.235858699999998,
+      "lng": -66.0410386,
+      "googleMapsUri": "https://maps.google.com/?cid=7745987967516169339&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sectorsixty6.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.7
+    },
+    {
+      "googlePlaceId": "ChIJDbZqA5RvA4wRgQRlaGWM024",
+      "name": "Patria Tours Puerto Rico",
+      "address": "Plaza Colón, Viejo San Juan, San Juan 00901, Puerto Rico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 488,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.466227999999997,
+      "lng": -66.112062,
+      "googleMapsUri": "https://maps.google.com/?cid=7985880931429057665&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.patria-tours.com/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=4236045274499409042",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.65
+    },
+    {
+      "googlePlaceId": "ChIJ28iJy8FoA4wR-m_zbcZYpQ8",
+      "name": "The Cheesecake Factory",
+      "address": "525 Avenida F.D. Roosevelt, San Juan, 00918, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 8363,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "dessert_restaurant",
+        "dessert_shop",
+        "confectionery",
+        "american_restaurant",
+        "bakery",
+        "meal_takeaway",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.422655199999998,
+      "lng": -66.07339739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1127404890997616634&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://locations.thecheesecakefactory.com/san-juan/san-juan-165.html?utm_source=Google&utm_medium=Maps&utm_campaign=Google+Places",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.54
+    },
+    {
+      "googlePlaceId": "ChIJu5bvA5XeAowR3z1SOSI8W00",
+      "name": "Cueva Ventana",
+      "address": "PR-10 Km. 57, Arecibo, 00612, Puerto Rico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 4022,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.3751081,
+      "lng": -66.6924919,
+      "googleMapsUri": "https://maps.google.com/?cid=5574115081489366495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cuevaventana.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.45
+    },
+    {
+      "googlePlaceId": "ChIJW_rHDpP7wokRvlaHQBUf_zc",
+      "name": "Sandbox VR",
+      "address": "305 NJ-17 #6007, Paramus, NJ 07652, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1756,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.9408579,
+      "lng": -74.0724097,
+      "googleMapsUri": "https://maps.google.com/?cid=4034977967284639422&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/paramus",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.05
+    },
+    {
+      "googlePlaceId": "ChIJc1LxccduA4wREM00tNOWrjQ",
+      "name": "Señor Paleta",
+      "address": "153 C. Tetuán, San Juan, 00901, Puerto Rico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 3481,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.4641904,
+      "lng": -66.1165032,
+      "googleMapsUri": "https://maps.google.com/?cid=3796137371925531920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://paletashop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83
+    },
+    {
+      "googlePlaceId": "ChIJM7YRy8BoA4wRHUyXhXNTI2c",
+      "name": "Best Buy",
+      "address": "230 Calle Federico Costas, San Juan, 00918, Puerto Rico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 13859,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "electronics_store",
+      "types": [
+        "electronics_store",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 18.4250591,
+      "lng": -66.07171199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7431875565719079965&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stores.bestbuy.com/pr/san-juan/230-calle-federico-costa-1118.html/?ref=NS&loc=ns100",
+      "openNow": true,
+      "matchedQueries": [
+        "indoor golf simulators"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 82.92
+    },
+    {
+      "googlePlaceId": "ChIJA9UdtIFoA4wRVBHm1djhR6g",
+      "name": "- Plaza del Mercado de Río Piedras",
+      "address": "1114 C. Vallejo, San Juan, 00925, Puerto Rico",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.2,
+      "reviewCount": 3975,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 18.3992273,
+      "lng": -66.0481873,
+      "googleMapsUri": "https://maps.google.com/?cid=12125908843136160084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sanjuan.pr/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.91
+    },
+    {
+      "googlePlaceId": "ChIJFxLoOMduA4wRA9MxPcyijKU",
+      "name": "The Poet's Passage",
+      "address": "203 C. de la Cruz, San Juan, 00901, Puerto Rico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 481,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "point_of_interest",
+        "store",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 18.4651642,
+      "lng": -66.1161578,
+      "googleMapsUri": "https://maps.google.com/?cid=11929088511081304835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://poetspassage.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.9
+    }
+  ]
+}

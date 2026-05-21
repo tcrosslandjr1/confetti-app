@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONFETTI — Boarding Pass V2</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 40%,#16213e 100%);font-family:'Inter',sans-serif;padding:40px 20px;}
+.bp{width:420px;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.4);animation:slideUp .6s ease-out;}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#6C3CE1,#8B5CF6 50%,#A78BFA);padding:22px 24px 18px;position:relative;overflow:hidden;}
+.hdr::after{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:rgba(255,255,255,.08);border-radius:50%;}
+.hdr-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.logo{font-family:'Space Mono',monospace;font-size:26px;font-weight:700;color:#fff;letter-spacing:4px;}
+.logo i{display:inline-block;width:9px;height:9px;background:#FCD34D;border-radius:50%;margin-left:3px;vertical-align:super;}
+.itin{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.65);letter-spacing:2px;text-align:right;}
+.itin b{display:block;font-size:13px;color:#FCD34D;letter-spacing:3px;margin-top:2px;}
+.occ{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:5px 12px;font-size:11px;font-weight:600;color:#fff;}
+.hdr-meta{display:flex;gap:18px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15);}
+.mi{display:flex;flex-direction:column;gap:1px;}
+.ml{font-family:'Space Mono',monospace;font-size:7px;color:rgba(255,255,255,.45);letter-spacing:2px;}
+.mv{font-family:'Space Mono',monospace;font-size:12px;color:#fff;font-weight:700;letter-spacing:1px;}
+
+/* WEATHER STRIP */
+.wx{display:flex;align-items:center;justify-content:space-between;padding:8px 24px;background:linear-gradient(90deg,#EFF6FF,#F0F9FF);border-bottom:1px solid #E0F2FE;}
+.wx-l{display:flex;align-items:center;gap:6px;}
+.wx-icon{font-size:18px;}
+.wx-t{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#1E40AF;}
+.wx-d{font-size:9px;color:#6B7280;}
+.wx-tip{font-size:8px;font-weight:600;color:#1E40AF;background:#DBEAFE;padding:3px 8px;border-radius:10px;}
+
+/* ROUTE */
+.route{padding:22px 24px 16px;display:flex;align-items:center;justify-content:space-between;}
+.stn{text-align:center;}
+.sc{font-family:'Space Mono',monospace;font-size:32px;font-weight:700;color:#1a1a2e;letter-spacing:3px;line-height:1;}
+.sn{font-size:10px;color:#8b8b9e;font-weight:500;margin-top:3px;letter-spacing:.5px;text-transform:uppercase;}
+.sl{font-size:8px;color:#a78bfa;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.rl{flex:1;display:flex;align-items:center;padding:0 10px;position:relative;}
+.rl .ln{width:100%;height:2px;background:linear-gradient(90deg,#6C3CE1,#e5e5ea,#6C3CE1);position:relative;}
+.rl .ld{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:26px;height:26px;background:#FCD34D;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(252,211,77,.4);display:flex;align-items:center;justify-content:center;font-size:11px;}
+.rl .pi{position:absolute;top:50%;right:15%;transform:translate(0,-50%);font-size:14px;color:#6C3CE1;}
+
+/* PROGRESS */
+.prog{padding:0 24px 4px;}
+.prog-track{display:flex;align-items:center;}
+.pd{width:22px;height:22px;border-radius:50%;border:2.5px solid #D1D5DB;background:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);flex-shrink:0;color:#9CA3AF;z-index:2;position:relative;}
+.pd:hover{transform:scale(1.15);}
+.pd.active{border-color:#6C3CE1;background:#6C3CE1;color:#fff;box-shadow:0 0 0 3px rgba(108,60,225,.15);}
+.pd.done{border-color:#16A34A;background:#16A34A;color:#fff;box-shadow:0 0 0 3px rgba(22,163,74,.1);}
+.pc{flex:1;height:3px;background:#E5E7EB;transition:background .4s;}
+.pc.done{background:#16A34A;}
+.prog-lbl{display:flex;justify-content:space-between;margin-top:4px;}
+.pl{font-size:7px;font-weight:600;color:#9CA3AF;letter-spacing:.5px;text-align:center;width:22px;text-transform:uppercase;}
+.pl.active{color:#6C3CE1;}.pl.done{color:#16A34A;}
+
+/* BUDGET + VIBES ROW */
+.info-strip{display:flex;align-items:center;justify-content:space-between;padding:8px 24px;gap:8px;}
+.vibes{display:flex;gap:5px;flex-wrap:wrap;flex:1;}
+.vp{font-size:9px;font-weight:600;padding:3px 9px;border-radius:16px;background:linear-gradient(135deg,#EDE9FE,#F3E8FF);color:#6C3CE1;}
+.budget{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:#D97706;background:#FFFBEB;border:1px solid #FDE68A;padding:5px 12px;border-radius:10px;white-space:nowrap;}
+.budget small{display:block;font-size:7px;font-weight:400;color:#B45309;letter-spacing:.5px;}
+
+/* TEAR */
+.tear{position:relative;height:28px;display:flex;align-items:center;}
+.tear::before{content:'';position:absolute;left:-14px;width:28px;height:28px;background:#0f0f1a;border-radius:50%;}
+.tear::after{content:'';position:absolute;right:-14px;width:28px;height:28px;background:#0f0f1a;border-radius:50%;}
+.tear hr{width:100%;border:none;border-top:2px dashed #e5e5ea;margin:0 18px;}
+
+/* TABS */
+.tabs{display:flex;padding:0 24px;gap:0;margin-top:4px;}
+.tab{flex:1;text-align:center;padding:10px 0 8px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9CA3AF;cursor:pointer;border-bottom:2.5px solid transparent;transition:all .2s;}
+.tab:hover{color:#6C3CE1;}
+.tab.active{color:#6C3CE1;border-bottom-color:#6C3CE1;}
+.tab-panels{min-height:280px;}
+.tab-panel{display:none;padding:16px 24px 20px;animation:fadeIn .25s ease;}
+.tab-panel.active{display:block;}
+
+/* ITINERARY TAB — compact stops */
+.cstop{display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;padding:10px 0;border-bottom:1px solid #F3F4F6;cursor:pointer;transition:background .15s;border-radius:8px;padding-left:4px;padding-right:4px;}
+.cstop:last-child{border-bottom:none;margin-bottom:0;}
+.cstop:hover{background:#F9FAFB;}
+.cm{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.cm.dep{background:#EDE9FE;}.cm.lay{background:#FEF3C7;}.cm.dst{background:#DCFCE7;}
+.cc{flex:1;min-width:0;}
+.ct{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1px;}
+.ct.dep{color:#6C3CE1;}.ct.lay{color:#D97706;}.ct.dst{color:#16A34A;}
+.cn{font-size:13px;font-weight:700;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cd{font-size:10px;color:#8b8b9e;margin-top:1px;}
+.cstop .cost{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:#D97706;white-space:nowrap;align-self:center;}
+.cstop .res{display:inline-flex;align-items:center;gap:3px;font-size:8px;font-weight:700;color:#065F46;background:#ECFDF5;border:1px solid #A7F3D0;padding:2px 6px;border-radius:4px;margin-top:3px;}
+.cstop.done-stop .cn{text-decoration:line-through;opacity:.5;}
+.cstop.done-stop .cm{opacity:.5;}
+
+.drive{display:flex;align-items:center;justify-content:center;gap:5px;padding:2px 0;margin:0 0 4px 44px;width:fit-content;}
+.drive span{font-family:'Space Mono',monospace;font-size:8px;font-weight:600;color:#9CA3AF;letter-spacing:.5px;}
+
+/* Nav row compact */
+.nav-r{display:flex;gap:6px;margin-top:6px;}
+.nb{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:7px;font-family:'Space Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.5px;text-decoration:none;transition:transform .15s;}
+.nb:active{transform:scale(.96);}
+.nb.ap{background:linear-gradient(135deg,#1a1a2e,#2d2d44);color:#fff;border:1px solid #3d3d5c;}
+.nb.gm{background:linear-gradient(135deg,#4285F4,#5B9BF5);color:#fff;border:1px solid #3B78E7;}
+
+/* DETAILS TAB */
+.detail-stop{margin-bottom:16px;}
+.detail-stop:last-child{margin-bottom:0;}
+.ds-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.ds-hdr .ds-icon{font-size:14px;}
+.ds-hdr .ds-name{font-size:12px;font-weight:700;color:#1a1a2e;}
+.ds-hdr .ds-num{font-family:'Space Mono',monospace;font-size:8px;color:#6B7280;margin-left:auto;}
+
+.ds-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.ds-card{padding:8px 10px;border-radius:8px;border:1px solid #E5E7EB;}
+.ds-card.menu{background:#FFFBEB;border-color:#FDE68A;}
+.ds-card.park{background:#EFF6FF;border-color:#BFDBFE;}
+.ds-card.backup{background:#FFF7ED;border-color:#FDBA74;}
+.ds-card.ev{background:#F0FDF4;border-color:#BBF7D0;}
+.ds-card.dress{background:#F9FAFB;border-color:#E5E7EB;grid-column:span 2;}
+.ds-card-title{font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
+.ds-card.menu .ds-card-title{color:#92400E;}
+.ds-card.park .ds-card-title{color:#1E40AF;}
+.ds-card.backup .ds-card-title{color:#C2410C;}
+.ds-card.ev .ds-card-title{color:#059669;}
+.ds-card.dress .ds-card-title{color:#6B7280;}
+.ds-card-body{font-size:9px;color:#374151;line-height:1.5;}
+.ds-card-body strong{font-weight:700;}
+.ds-sep{height:1px;background:#F3F4F6;margin:12px 0;}
+
+.diet-flags{display:flex;gap:3px;margin-top:4px;flex-wrap:wrap;}
+.df{font-size:7px;font-weight:600;padding:2px 5px;border-radius:3px;background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;}
+
+/* INFO TAB */
+.info-card{padding:12px 14px;border-radius:10px;border:1px solid #E5E7EB;margin-bottom:10px;}
+.info-card:last-child{margin-bottom:0;}
+.ic-title{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#6B7280;margin-bottom:6px;}
+.ic-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.ic-row:last-child{margin-bottom:0;}
+.ic-icon{font-size:14px;flex-shrink:0;}
+.ic-text{font-size:10px;color:#374151;line-height:1.4;}
+.ic-text strong{font-weight:700;color:#1a1a2e;}
+
+.contact-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:5px;font-size:9px;font-weight:600;text-decoration:none;border:1px solid #E5E7EB;background:#F9FAFB;color:#374151;margin-right:4px;margin-top:3px;}
+.contact-pill:hover{background:#F3F4F6;}
+
+/* STATS */
+.stats{padding:14px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.st{text-align:center;}
+.sv{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:#1a1a2e;line-height:1;}
+.slb{font-size:7px;color:#8b8b9e;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-top:3px;}
+
+/* REWARD */
+.reward{margin:0 24px;background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;transition:all .3s;}
+.rw-left{display:flex;align-items:center;gap:8px;}
+.rw-icon{font-size:20px;}
+.rw-txt{font-size:10px;font-weight:600;color:#92400E;line-height:1.3;}
+.rw-txt strong{display:block;font-size:12px;color:#78350F;}
+.rw-pts{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:#D97706;}
+.rw-pts.earned{color:#16A34A;}
+
+/* ACTIONS */
+.actions{display:flex;gap:6px;padding:12px 24px 6px;justify-content:center;}
+.abtn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:10px;font-size:10px;font-weight:700;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
+.abtn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.12);}
+.abtn.share{background:linear-gradient(135deg,#6C3CE1,#8B5CF6);color:#fff;}
+.abtn.cal{background:#fff;color:#1a1a2e;border:1.5px solid #E5E7EB;}
+
+/* BARCODE */
+.bc-sec{padding:14px 24px 20px;text-align:center;}
+.bc{display:flex;justify-content:center;gap:2px;margin-bottom:6px;height:40px;align-items:flex-end;}
+.bc .b{background:#1a1a2e;border-radius:1px;}
+.bc-txt{font-family:'Space Mono',monospace;font-size:9px;color:#8b8b9e;letter-spacing:3px;}
+
+/* TOAST */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:#1a1a2e;color:#fff;padding:10px 20px;border-radius:12px;font-size:12px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:100;transition:transform .4s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:6px;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* SHARE MODAL */
+.modal-ov{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;}
+.modal-ov.active{display:flex;}
+.share-m{background:#fff;border-radius:20px;padding:24px;width:320px;text-align:center;animation:slideUp .3s ease-out;}
+.share-m h3{font-size:16px;font-weight:800;color:#1a1a2e;margin-bottom:3px;}
+.share-m p{font-size:11px;color:#6B7280;margin-bottom:16px;}
+.so{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:10px;cursor:pointer;transition:all .2s;text-decoration:none;color:inherit;margin-bottom:8px;}
+.so:hover{border-color:#6C3CE1;background:#F5F3FF;}
+.so .so-i{font-size:18px;}
+.so .so-t{text-align:left;}.so .so-n{font-size:12px;font-weight:700;color:#1a1a2e;}.so .so-d{font-size:9px;color:#6B7280;}
+.modal-x{margin-top:12px;font-size:11px;font-weight:600;color:#6B7280;cursor:pointer;background:none;border:none;padding:6px 14px;}
+
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes burst{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+
+@media(max-width:460px){.bp{width:100%;}.sc{font-size:26px;}.stats{grid-template-columns:repeat(2,1fr);gap:10px;}.actions{flex-direction:column;}.abtn{justify-content:center;}}
+</style>
+</head>
+<body>
+
+<div class="bp">
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-top">
+      <div>
+        <div class="logo">CONFETTI<i></i></div>
+        <div class="occ">💐 Mother's Day Experience</div>
+      </div>
+      <div class="itin">ITINERARY<br><b>CNFT-MOM-0510</b></div>
+    </div>
+    <div class="hdr-meta">
+      <div class="mi"><span class="ml">DATE</span><span class="mv">MAY 10, 2026</span></div>
+      <div class="mi"><span class="ml">PASSENGERS</span><span class="mv">2</span></div>
+      <div class="mi"><span class="ml">DAY</span><span class="mv">SUNDAY</span></div>
+    </div>
+  </div>
+
+  <!-- WEATHER -->
+  <div class="wx">
+    <div class="wx-l">
+      <div class="wx-icon">⛅</div>
+      <div><div class="wx-t">74°F · Partly Cloudy</div><div class="wx-d">High 78° · 10% rain</div></div>
+    </div>
+    <div class="wx-tip">☀️ Patio-perfect</div>
+  </div>
+
+  <!-- ROUTE -->
+  <div class="route">
+    <div class="stn"><div class="sl">Departure</div><div class="sc">GTN</div><div class="sn">Georgetown</div></div>
+    <div class="rl"><div class="ln"><div class="ld">⚡</div><div class="pi">✈</div></div></div>
+    <div class="stn"><div class="sl">Destination</div><div class="sc">CPH</div><div class="sn">Capitol Hill</div></div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="prog">
+    <div class="prog-track">
+      <div class="pd" data-s="0" onclick="toggle(0)">1</div>
+      <div class="pc" data-c="0"></div>
+      <div class="pd" data-s="1" onclick="toggle(1)">2</div>
+      <div class="pc" data-c="1"></div>
+      <div class="pd" data-s="2" onclick="toggle(2)">3</div>
+    </div>
+    <div class="prog-lbl">
+      <div class="pl" data-l="0">Brunch</div><div style="flex:1"></div>
+      <div class="pl" data-l="1">Shop</div><div style="flex:1"></div>
+      <div class="pl" data-l="2">Dinner</div>
+    </div>
+  </div>
+
+  <!-- VIBES + BUDGET -->
+  <div class="info-strip">
+    <div class="vibes">
+      <span class="vp">🌸 Celebration</span>
+      <span class="vp">🍽 Foodie</span>
+      <span class="vp">💚 Eco</span>
+    </div>
+    <div class="budget">$220–340<small>est. for 2</small></div>
+  </div>
+
+  <div class="tear"><hr></div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(0)">Itinerary</div>
+    <div class="tab" onclick="showTab(1)">Details</div>
+    <div class="tab" onclick="showTab(2)">Info</div>
+  </div>
+
+  <div class="tab-panels">
+
+    <!-- TAB 0: ITINERARY -->
+    <div class="tab-panel active" id="tp0">
+
+      <div class="cstop" id="cs0">
+        <div class="cm dep">🥂</div>
+        <div class="cc">
+          <div class="ct dep">Departure · 10:30 AM</div>
+          <div class="cn">Brunch at Fiola Mare</div>
+          <div class="cd">Georgetown waterfront · Italian seafood</div>
+          <div class="res">✅ Confirmed · #FM-88214 · Party of 2</div>
+          <div class="nav-r">
+            <a href="maps://maps.apple.com/?daddr=3050+K+St+NW,+Washington,+DC+20007&dirflg=d" class="nb ap" target="_blank">🍎 Apple</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=3050+K+St+NW,+Washington,+DC+20007" class="nb gm" target="_blank">📍 Google</a>
+          </div>
+        </div>
+        <div class="cost">~$110</div>
+      </div>
+
+      <div class="drive"><span>🚗</span><span>~12 min → CityCenterDC</span></div>
+
+      <div class="cstop" id="cs1">
+        <div class="cm lay">⚡</div>
+        <div class="cc">
+          <div class="ct lay">Layover · 1:00 PM</div>
+          <div class="cn">EV Charge + Shopping</div>
+          <div class="cd">CityCenterDC · Boutiques while you charge</div>
+          <div class="res">⚡ Walk-in · EVgo DC Fast</div>
+          <div class="nav-r">
+            <a href="maps://maps.apple.com/?daddr=825+10th+St+NW,+Washington,+DC+20001&dirflg=d" class="nb ap" target="_blank">🍎 Apple</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=825+10th+St+NW,+Washington,+DC+20001" class="nb gm" target="_blank">📍 Google</a>
+          </div>
+        </div>
+        <div class="cost">~$12</div>
+      </div>
+
+      <div class="drive"><span>🚗</span><span>~15 min → Capitol Hill</span></div>
+
+      <div class="cstop" id="cs2">
+        <div class="cm dst">🌟</div>
+        <div class="cc">
+          <div class="ct dst">Destination · 6:30 PM</div>
+          <div class="cn">Dinner at Bistro du Jour</div>
+          <div class="cd">Capitol Hill · French bistro · Royal Sonesta</div>
+          <div class="res">✅ Confirmed · #BDJ-44091 · Party of 2</div>
+          <div class="nav-r">
+            <a href="maps://maps.apple.com/?daddr=20+Massachusetts+Ave+NW,+Washington,+DC+20001&dirflg=d" class="nb ap" target="_blank">🍎 Apple</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=20+Massachusetts+Ave+NW,+Washington,+DC+20001" class="nb gm" target="_blank">📍 Google</a>
+          </div>
+        </div>
+        <div class="cost">~$140</div>
+      </div>
+
+    </div>
+
+    <!-- TAB 1: DETAILS -->
+    <div class="tab-panel" id="tp1">
+
+      <!-- Fiola Mare -->
+      <div class="detail-stop">
+        <div class="ds-hdr"><span class="ds-icon">🥂</span><span class="ds-name">Fiola Mare</span><span class="ds-num">#FM-88214</span></div>
+        <div class="ds-grid">
+          <div class="ds-card menu">
+            <div class="ds-card-title">Concierge Picks</div>
+            <div class="ds-card-body">
+              ⭐ <strong>Lobster Ravioli</strong> — signature<br>
+              🥂 Bellini flight — for celebrating<br>
+              🍰 Tiramisu — share one
+            </div>
+            <div class="diet-flags"><span class="df">🐟 Seafood</span><span class="df">🌿 Veg options</span><span class="df">🚫🌾 GF avail</span></div>
+          </div>
+          <div class="ds-card park">
+            <div class="ds-card-title">Parking</div>
+            <div class="ds-card-body">
+              <strong>Valet · $20</strong><br>
+              Colonial Garage @ 3000 K St<br>
+              <strong style="color:#059669">SUN: Free street meters!</strong>
+            </div>
+          </div>
+          <div class="ds-card backup">
+            <div class="ds-card-title">Plan B</div>
+            <div class="ds-card-body"><strong>Tony & Joe's Seafood</strong><br>Same waterfront · walk-in<br>(202) 944-4545</div>
+          </div>
+          <div class="ds-card dress">
+            <div class="ds-card-title">Dress Code & Contact</div>
+            <div class="ds-card-body">👔 Smart casual · Waterfront patio reserved<br>
+              <a href="tel:+12026281005" class="contact-pill">📞 (202) 628-1005</a>
+              <a href="https://www.fiolamaredc.com" class="contact-pill" target="_blank">🌐 Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-sep"></div>
+
+      <!-- CityCenterDC -->
+      <div class="detail-stop">
+        <div class="ds-hdr"><span class="ds-icon">⚡</span><span class="ds-name">CityCenterDC</span><span class="ds-num">Walk-in</span></div>
+        <div class="ds-grid">
+          <div class="ds-card menu">
+            <div class="ds-card-title">While You Wait</div>
+            <div class="ds-card-body">
+              ☕ <strong>Blue Bottle Coffee</strong> — P1<br>
+              🛍 Hermès, Dior, Gucci row<br>
+              🍦 Dolcezza gelato — 2 blocks
+            </div>
+          </div>
+          <div class="ds-card ev">
+            <div class="ds-card-title">EV Charging</div>
+            <div class="ds-card-body">
+              <strong>EVgo · DC Fast · 200 kW</strong><br>
+              7 stalls · CCS/CHAdeMO<br>
+              P2 Aisle 9 · ~25 min to 80%
+            </div>
+          </div>
+          <div class="ds-card park">
+            <div class="ds-card-title">Parking</div>
+            <div class="ds-card-body"><strong>Self-park · ~$12 wknd</strong><br>Enter via 9th St · 5AM–2AM<br><strong style="color:#059669">SUN: Free meters nearby</strong></div>
+          </div>
+          <div class="ds-card backup">
+            <div class="ds-card-title">Alt Charger</div>
+            <div class="ds-card-body"><strong>ChargePoint</strong><br>Convention Center · 801 Mt Vernon<br>4 stalls · 3 min walk</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-sep"></div>
+
+      <!-- Bistro du Jour -->
+      <div class="detail-stop">
+        <div class="ds-hdr"><span class="ds-icon">🌟</span><span class="ds-name">Bistro du Jour</span><span class="ds-num">#BDJ-44091</span></div>
+        <div class="ds-grid">
+          <div class="ds-card menu">
+            <div class="ds-card-title">Concierge Picks</div>
+            <div class="ds-card-body">
+              ⭐ <strong>Steak Frites</strong> — classic<br>
+              🍷 French 75 — house special<br>
+              🍫 Chocolate Soufflé — order early
+            </div>
+            <div class="diet-flags"><span class="df">🇫🇷 French</span><span class="df">🌿 Veg</span><span class="df">🚫🥜 Nut-free</span></div>
+          </div>
+          <div class="ds-card park">
+            <div class="ds-card-title">Parking</div>
+            <div class="ds-card-body"><strong>Hotel valet · $65</strong> (day $30)<br>Capitol Crossing @ 250 Mass Ave<br><strong style="color:#059669">SUN: Free meters — skip valet!</strong></div>
+          </div>
+          <div class="ds-card backup">
+            <div class="ds-card-title">Plan B</div>
+            <div class="ds-card-body"><strong>Charlie Palmer Steak</strong><br>101 Constitution Ave NW<br>(202) 547-8100</div>
+          </div>
+          <div class="ds-card dress">
+            <div class="ds-card-title">Dress Code & Contact</div>
+            <div class="ds-card-body">👗 Elegant casual · Hotel dining room<br>
+              <a href="tel:+12028479629" class="contact-pill">📞 (202) 847-9629</a>
+              <a href="https://www.bistrodujourdc.com" class="contact-pill" target="_blank">🌐 Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: INFO -->
+    <div class="tab-panel" id="tp2">
+
+      <div class="info-card">
+        <div class="ic-title">Budget Breakdown</div>
+        <div class="ic-row"><span class="ic-icon">🥂</span><div class="ic-text"><strong>Fiola Mare</strong> · ~$85–130 for 2 (brunch + drinks)</div></div>
+        <div class="ic-row"><span class="ic-icon">⚡</span><div class="ic-text"><strong>CityCenterDC</strong> · ~$12 parking + EV (shopping optional)</div></div>
+        <div class="ic-row"><span class="ic-icon">🌟</span><div class="ic-text"><strong>Bistro du Jour</strong> · ~$120–160 for 2 (dinner + drinks)</div></div>
+        <div class="ic-row" style="padding-top:6px;border-top:1px solid #E5E7EB;margin-top:6px;"><span class="ic-icon">💰</span><div class="ic-text"><strong>Total: $220–340</strong> · excludes parking (free on Sunday!)</div></div>
+      </div>
+
+      <div class="info-card">
+        <div class="ic-title">Weather Forecast</div>
+        <div class="ic-row"><span class="ic-icon">⛅</span><div class="ic-text"><strong>74°F · Partly Cloudy</strong> · High 78° / Low 62°</div></div>
+        <div class="ic-row"><span class="ic-icon">💧</span><div class="ic-text">10% chance of rain — patio dining is a go</div></div>
+        <div class="ic-row"><span class="ic-icon">👕</span><div class="ic-text">Light layers for evening · Sunglasses for waterfront</div></div>
+      </div>
+
+      <div class="info-card">
+        <div class="ic-title">Sunday DC Tips</div>
+        <div class="ic-row"><span class="ic-icon">🅿️</span><div class="ic-text"><strong>Free street meter parking</strong> all day — meters not enforced</div></div>
+        <div class="ic-row"><span class="ic-icon">🚗</span><div class="ic-text">Light traffic expected — drive times may be shorter</div></div>
+        <div class="ic-row"><span class="ic-icon">💐</span><div class="ic-text">Mother's Day — restaurants busy, reservations secured</div></div>
+      </div>
+
+      <div class="info-card">
+        <div class="ic-title">Dietary Notes</div>
+        <div class="ic-row"><span class="ic-icon">🐟</span><div class="ic-text"><strong>Fiola Mare</strong> — Seafood-forward, vegetarian & GF options available</div></div>
+        <div class="ic-row"><span class="ic-icon">🇫🇷</span><div class="ic-text"><strong>Bistro du Jour</strong> — French cuisine, veg options, nut-free on request</div></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="tear"><hr></div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="st"><div class="sv" id="chk">0/3</div><div class="slb">Checked In</div></div>
+    <div class="st"><div class="sv">3</div><div class="slb">Hoods</div></div>
+    <div class="st"><div class="sv">8h</div><div class="slb">Duration</div></div>
+    <div class="st"><div class="sv">⚡</div><div class="slb">EV Ready</div></div>
+  </div>
+
+  <!-- REWARD -->
+  <div class="reward" id="rw">
+    <div class="rw-left"><div class="rw-icon">🎊</div><div class="rw-txt" id="rwTxt">Complete all stops<strong>+250 Confetti</strong></div></div>
+    <div class="rw-pts" id="rwPts">+250</div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button class="abtn share" onclick="openShare()">📤 Share Pass</button>
+    <button class="abtn cal" onclick="addCal()">📅 Add to Calendar</button>
+  </div>
+
+  <!-- BARCODE -->
+  <div class="bc-sec">
+    <div class="bc" id="bc"></div>
+    <div class="bc-txt">CNFT-MOM-0510-TYRONE</div>
+  </div>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="modal-ov" id="shareModal">
+  <div class="share-m">
+    <h3>Share This Pass</h3>
+    <p>Send the boarding pass to your +1</p>
+    <div class="so" onclick="shareVia('sms')"><span class="so-i">💬</span><div class="so-t"><div class="so-n">iMessage / SMS</div><div class="so-d">Text the boarding pass</div></div></div>
+    <div class="so" onclick="shareVia('email')"><span class="so-i">✉️</span><div class="so-t"><div class="so-n">Email</div><div class="so-d">Send formatted email</div></div></div>
+    <div class="so" onclick="shareVia('copy')"><span class="so-i">🔗</span><div class="so-t"><div class="so-n">Copy Link</div><div class="so-d">Copy to clipboard</div></div></div>
+    <div class="so" onclick="shareVia('native')" id="nsBtn" style="display:none"><span class="so-i">📱</span><div class="so-t"><div class="so-n">More</div><div class="so-d">Device share menu</div></div></div>
+    <button class="modal-x" onclick="closeShare()">Cancel</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span id="tI">🎉</span><span id="tT">Done</span></div>
+
+<script>
+// Barcode
+const bc=document.getElementById('bc');
+[3,1,2,1,4,1,1,3,2,1,1,2,3,1,4,1,2,1,1,3,1,2,4,1,1,2,1,3,2,1,1,4,3,1,2,1,1,2,3,1,1,4,2,1,3,1,1,2,4,1,1,3,2,1].forEach(w=>{const b=document.createElement('div');b.className='b';b.style.width=w+'px';b.style.height=(18+Math.random()*22)+'px';bc.appendChild(b);});
+
+// State
+const S=[false,false,false];
+const N=['Fiola Mare','CityCenterDC','Bistro du Jour'];
+
+function toggle(i){S[i]=!S[i];render();}
+
+function render(){
+  const dots=document.querySelectorAll('.pd');
+  const conns=document.querySelectorAll('.pc');
+  const lbls=document.querySelectorAll('.pl');
+  let c=0;
+  S.forEach((d,i)=>{
+    const dot=dots[i],lbl=lbls[i],cs=document.getElementById('cs'+i);
+    dot.classList.remove('done','active');lbl.classList.remove('done','active');
+    cs.classList.remove('done-stop');
+    if(d){dot.classList.add('done');dot.innerHTML='✓';lbl.classList.add('done');cs.classList.add('done-stop');c++;}
+    else{dot.innerHTML=i+1;}
+  });
+  conns[0].classList.toggle('done',S[0]);
+  conns[1].classList.toggle('done',S[1]);
+  const nx=S.indexOf(false);
+  if(nx>=0){dots[nx].classList.add('active');lbls[nx].classList.add('active');}
+  document.getElementById('chk').textContent=c+'/3';
+  const pts=document.getElementById('rwPts'),txt=document.getElementById('rwTxt'),rw=document.getElementById('rw');
+  if(c===3){pts.className='rw-pts earned';pts.textContent='🎉 250';txt.innerHTML='All stops complete!<strong>Confetti Earned!</strong>';rw.style.background='linear-gradient(135deg,#D1FAE5,#A7F3D0)';rw.style.animation='burst .5s ease';toast('🎊','All 3 stops done! +250 Confetti!');}
+  else{pts.className='rw-pts';pts.textContent='+250';txt.innerHTML='Complete all stops<strong>+250 Confetti</strong>';rw.style.background='';rw.style.animation='';}
+}
+
+function toast(icon,text){const t=document.getElementById('toast');document.getElementById('tI').textContent=icon;document.getElementById('tT').textContent=text;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+
+// Tabs
+function showTab(n){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===n));
+}
+
+// Share
+function openShare(){document.getElementById('shareModal').classList.add('active');if(navigator.share)document.getElementById('nsBtn').style.display='flex';}
+function closeShare(){document.getElementById('shareModal').classList.remove('active');}
+document.getElementById('shareModal').addEventListener('click',function(e){if(e.target===this)closeShare();});
+function shareVia(m){
+  const d={title:'CONFETTI — Mother\'s Day Pass',text:'🎊 Mother\'s Day: Fiola Mare → CityCenterDC → Bistro du Jour · May 10, 2026',url:location.href};
+  if(m==='sms')window.open('sms:?&body='+encodeURIComponent(d.text+'\n'+d.url));
+  else if(m==='email')window.open('mailto:?subject='+encodeURIComponent(d.title)+'&body='+encodeURIComponent(d.text+'\n'+d.url));
+  else if(m==='copy'){navigator.clipboard.writeText(d.url);toast('🔗','Link copied!');}
+  else if(m==='native')navigator.share(d).catch(()=>{});
+  closeShare();
+}
+
+// Calendar
+function addCal(){
+  const u='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('CONFETTI: Mother\'s Day')+'&dates=20260510T143000/20260511T003000&details='+encodeURIComponent('10:30 AM Fiola Mare (FM-88214)\n1:00 PM CityCenterDC\n6:30 PM Bistro du Jour (BDJ-44091)')+'&location='+encodeURIComponent('Washington, DC');
+  window.open(u,'_blank');toast('📅','Opening calendar...');
+}
+
+render();
+</script>
+</body>
+</html>

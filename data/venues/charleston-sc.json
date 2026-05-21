@@ -1,0 +1,3672 @@
+{
+  "location": "Charleston, SC",
+  "generatedAt": "2026-05-17T19:15:49.585Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJN8cOpA16_ogRZrof7IlhWI8",
+      "name": "Palmetto Carriage Works",
+      "address": "8 Guignard St, Charleston, SC 29401, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.9,
+      "reviewCount": 22689,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "stable",
+        "pet_boarding_service",
+        "tour_agency",
+        "travel_agency",
+        "pet_care",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7819613,
+      "lng": -79.9284272,
+      "googleMapsUri": "https://maps.google.com/?cid=10329112990374148710&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://palmettocarriage.com/?utm_campaign=gmb&utm_medium=organic&utm_source=gmb+listing",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.96
+    },
+    {
+      "googlePlaceId": "ChIJr6wGaRJ6_ogRlQHEPvOJOzA",
+      "name": "Hyman's Seafood",
+      "address": "215 Meeting St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 48095,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "deli",
+        "bar",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7816269,
+      "lng": -79.9318045,
+      "googleMapsUri": "https://maps.google.com/?cid=3475523215269560725&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hymanseafood.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "adult-after-dark"
+      ],
+      "popularityScore": 97.9
+    },
+    {
+      "googlePlaceId": "ChIJlxxFERJ6_ogRLUslCgNu_a4",
+      "name": "Charleston City Market",
+      "address": "188 Meeting St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 27901,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7808444,
+      "lng": -79.93055,
+      "googleMapsUri": "https://maps.google.com/?cid=12609355491041430317&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thecharlestoncitymarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "waterfront gardens",
+        "farmers markets",
+        "flea markets",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "street fairs",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "outdoor-nature",
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.73
+    },
+    {
+      "googlePlaceId": "ChIJ06i6Dmt6_ogRGLIqrt_VSgg",
+      "name": "Halls Chophouse",
+      "address": "434 King St, Charleston, SC 29403, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 6600,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.788513099999996,
+      "lng": -79.9378189,
+      "googleMapsUri": "https://maps.google.com/?cid=597525057256469016&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hallschophousecharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 95.35
+    },
+    {
+      "googlePlaceId": "ChIJY8eG9Qt6_ogR8_CLUdaHByk",
+      "name": "Fleet Landing Restaurant & Raw Bar",
+      "address": "186 Concord St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 11644,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "oyster_bar_restaurant",
+        "family_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7803876,
+      "lng": -79.9247659,
+      "googleMapsUri": "https://maps.google.com/?cid=2956481034952896755&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fleetlanding.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 95
+    },
+    {
+      "googlePlaceId": "ChIJyyV9oQ16_ogRCV1T2udtC6Y",
+      "name": "Old South Carriage Company",
+      "address": "14 Anson St, Charleston, SC 29401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 30126,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.781866,
+      "lng": -79.9288815,
+      "googleMapsUri": "https://maps.google.com/?cid=11964777677607623945&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.oldsouthcarriage.com/?utm_source=GMBlisting&utm_medium=organic&utm_content=listing",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 94.88
+    },
+    {
+      "googlePlaceId": "ChIJv26btQ56_ogRdZSojNpWDH0",
+      "name": "Waterfront Park",
+      "address": "Vendue Range, Concord St, Charleston, SC 29401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 11155,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.778966,
+      "lng": -79.9255465,
+      "googleMapsUri": "https://maps.google.com/?cid=9010672451124237429&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.46
+    },
+    {
+      "googlePlaceId": "ChIJuULLug16_ogRWizAlSuv07o",
+      "name": "Bulldog Tours",
+      "address": "18 Anson St, Charleston, SC 29401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 21593,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7821193,
+      "lng": -79.9290635,
+      "googleMapsUri": "https://maps.google.com/?cid=13462296312871398490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bulldogtours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 94.45
+    },
+    {
+      "googlePlaceId": "ChIJCZ61VpBw_ogR1mLynSsQ-yU",
+      "name": "Patriots Point Naval & Maritime Museum",
+      "address": "40 Patriots Point Rd, Mt Pleasant, SC 29464, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 7550,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7905312,
+      "lng": -79.9056076,
+      "googleMapsUri": "https://maps.google.com/?cid=2736798978077254358&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.patriotspoint.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 94.29
+    },
+    {
+      "googlePlaceId": "ChIJP1bPtg56_ogRBTWGeMkQ2bE",
+      "name": "Pineapple Fountain",
+      "address": "1 Vendue Range, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 6538,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.778087899999996,
+      "lng": -79.9251889,
+      "googleMapsUri": "https://maps.google.com/?cid=12815292672155989253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.82
+    },
+    {
+      "googlePlaceId": "ChIJs5MtKAx6_ogRInNicW1wtNg",
+      "name": "Magnolias",
+      "address": "185 E Bay St #200, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 5155,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7793212,
+      "lng": -79.9273719,
+      "googleMapsUri": "https://maps.google.com/?cid=15615229423356375842&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://magnoliascharleston.com/?utm_source=google&utm_medium=local",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.45
+    },
+    {
+      "googlePlaceId": "ChIJR-euCw96_ogRyVeKueS0Aa4",
+      "name": "Rainbow Row",
+      "address": "79-107 E Bay St, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 7084,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7753504,
+      "lng": -79.9273372,
+      "googleMapsUri": "https://maps.google.com/?cid=12538501732034566089&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rainbowrowcharlestonsc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.38
+    },
+    {
+      "googlePlaceId": "ChIJcfIHi2td_ogRVaZqRqLP9MA",
+      "name": "Cypress Gardens",
+      "address": "3030 Cypress Gardens Rd, Moncks Corner, SC 29461, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3584,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "garden",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0522661,
+      "lng": -79.95405629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13903966245472609877&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cypressgardens.info/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.37
+    },
+    {
+      "googlePlaceId": "ChIJ1fsI8P5t_ogRnFhghfKTv3k",
+      "name": "Boone Hall Plantation & Gardens",
+      "address": "1235 Long Point Rd, Mt Pleasant, SC 29464, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6875,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "wedding_venue",
+        "museum",
+        "event_venue",
+        "farm",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8582446,
+      "lng": -79.82311490000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8772893268970068124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://boonehallplantation.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "waterfront gardens",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.29
+    },
+    {
+      "googlePlaceId": "ChIJBX3NdbBi_ogRJ30r0dak2-8",
+      "name": "Magnolia Plantation and Gardens",
+      "address": "Charleston, SC 29414, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 9564,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "history_museum",
+        "historical_landmark",
+        "historical_place",
+        "wedding_venue",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.8786105,
+      "lng": -80.0883389,
+      "googleMapsUri": "https://maps.google.com/?cid=17283589237503655207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.magnoliaplantation.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "paint and sip",
+        "events this weekend",
+        "things to do this weekend",
+        "holiday markets",
+        "local events",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.26
+    },
+    {
+      "googlePlaceId": "ChIJof9jW3F6_ogROlZIJzgQ7Bw",
+      "name": "South Carolina Aquarium",
+      "address": "100 Aquarium Wharf, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8068,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7909936,
+      "lng": -79.92549919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2084058560928962106&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://scaquarium.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "events this weekend",
+        "things to do this weekend",
+        "holiday markets",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.7
+    },
+    {
+      "googlePlaceId": "ChIJdTgodTt7_ogRlcOHCKFg_3c",
+      "name": "Iron Rose",
+      "address": "115 Meeting St #174, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2478,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7777455,
+      "lng": -79.9314752,
+      "googleMapsUri": "https://maps.google.com/?cid=8646736054323757973&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ironroserestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "popular dessert spots",
+        "fine dining",
+        "private dining rooms",
+        "seasonal pop ups",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.17
+    },
+    {
+      "googlePlaceId": "ChIJZZpkTthk_ogRxxbbwiQ4uHc",
+      "name": "Riverfront Park",
+      "address": "1061 Everglades Ave, North Charleston, SC 29405, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3320,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8675754,
+      "lng": -79.966717,
+      "googleMapsUri": "https://maps.google.com/?cid=8626706816767301319&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.northcharleston.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "waterfront gardens",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.02
+    },
+    {
+      "googlePlaceId": "ChIJs43LHhd5_ogR-mQo-qQXMDQ",
+      "name": "James Island County Park",
+      "address": "871 Riverland Dr, Charleston, SC 29412, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3613,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7346633,
+      "lng": -79.9899259,
+      "googleMapsUri": "https://maps.google.com/?cid=3760531686193390842&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ccprc.com/68/James-Island-County-Park",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "mini golf"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 91.9
+    },
+    {
+      "googlePlaceId": "ChIJaR1t7w16_ogR_7yXeeUMh4c",
+      "name": "Black Fedora Comedy Mystery Theatre and Shoppe",
+      "address": "164 Church St, Charleston, SC 29401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 2521,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "comedy_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.78044310000001,
+      "lng": -79.9294218,
+      "googleMapsUri": "https://maps.google.com/?cid=9765788496703241471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charlestonmysteries.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 91.83
+    },
+    {
+      "googlePlaceId": "ChIJ0f93d2t6_ogRiiIAK-ymI-k",
+      "name": "Charleston Music Hall",
+      "address": "37 John St, Charleston, SC 29403, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2076,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "movie_theater",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.788439499999996,
+      "lng": -79.9369071,
+      "googleMapsUri": "https://maps.google.com/?cid=16799454568286003850&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charlestonmusichall.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "cultural centers",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.6
+    },
+    {
+      "googlePlaceId": "ChIJcWFgLgx6_ogR6YhVQqpTG1A",
+      "name": "High Cotton Charleston Restaurant",
+      "address": "199 E Bay St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2891,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.779840799999995,
+      "lng": -79.9272191,
+      "googleMapsUri": "https://maps.google.com/?cid=5772299338127870185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://highcottoncharleston.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.57
+    },
+    {
+      "googlePlaceId": "ChIJCWc4JAx6_ogRd-tOwrQKAho",
+      "name": "Slightly North of Broad Restaurant",
+      "address": "192 E Bay St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2789,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7797529,
+      "lng": -79.9269779,
+      "googleMapsUri": "https://maps.google.com/?cid=1874072166409890679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.snobcharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.46
+    },
+    {
+      "googlePlaceId": "ChIJK2wpF3J6_ogRS5NvDXwkK2w",
+      "name": "Charleston Gaillard Center",
+      "address": "95 Calhoun St, Charleston, SC 29401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1828,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.78685370000001,
+      "lng": -79.9307403,
+      "googleMapsUri": "https://maps.google.com/?cid=7794363695314735947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gaillardcenter.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.19
+    },
+    {
+      "googlePlaceId": "ChIJCZ61VpBw_ogRTygMXwtflTk",
+      "name": "USS Yorktown CV-10",
+      "address": "40 Patriots Point Rd, Mt Pleasant, SC 29464, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8462,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.790435699999996,
+      "lng": -79.90853229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4149327134135691343&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.patriotspoint.org/explore/uss-yorktown/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.16
+    },
+    {
+      "googlePlaceId": "ChIJb9kVsCrW_YgR0Vm0bQWYHKY",
+      "name": "Charleston Outdoor Adventures",
+      "address": "1871 Bowens Island Rd, Charleston, SC 29412, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 11213,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "wildlife_refuge",
+        "fishing_charter",
+        "tour_agency",
+        "travel_agency",
+        "park",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.6753859,
+      "lng": -79.96475099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11969609058726730193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.charlestonoutdooradventures.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 91.02
+    },
+    {
+      "googlePlaceId": "ChIJwbHv6dR2_ogRdJ5dNVYaYus",
+      "name": "Fort Sumter National Monument",
+      "address": "South Carolina 29412, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 11099,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.75234760000001,
+      "lng": -79.8746925,
+      "googleMapsUri": "https://maps.google.com/?cid=16961148104195546740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/fosu/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.94
+    },
+    {
+      "googlePlaceId": "ChIJYfnNmQ56_ogRvl4-qFjG3go",
+      "name": "The Rooftop at the Vendue",
+      "address": "19 Vendue Range, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4001,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "cocktail_bar",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.778626599999996,
+      "lng": -79.9265721,
+      "googleMapsUri": "https://maps.google.com/?cid=783281469291126462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rooftopcharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "fine dining",
+        "luxury lounges",
+        "bottle service",
+        "seasonal pop ups",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJi6YMfE5j_ogRROU5j7JaK0U",
+      "name": "North Charleston Coliseum & Performing Arts Center",
+      "address": "5001 Coliseum Dr, North Charleston, SC 29418, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3867,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8654952,
+      "lng": -80.02243399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4984177135569200452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.northcharlestoncoliseumpac.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.32
+    },
+    {
+      "googlePlaceId": "ChIJhdkXDl2hVogR22-a7c-XUpM",
+      "name": "Aura",
+      "address": "124 E Brooklyn Vlg Ave, Charlotte, NC 28202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 12488,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2227282,
+      "lng": -80.84796209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10615714190966026203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aurarooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife"
+      ],
+      "popularityScore": 90.27
+    },
+    {
+      "googlePlaceId": "ChIJryFyj1Wj-IgRuAteGx02lFE",
+      "name": "Riverbanks Zoo & Garden",
+      "address": "500 Wildlife Pkwy, Columbia, SC 29210, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 22744,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.008662699999995,
+      "lng": -81.0733959,
+      "googleMapsUri": "https://maps.google.com/?cid=5878382912266439608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.riverbanks.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.02
+    },
+    {
+      "googlePlaceId": "ChIJpwDOuVmI_ogRrDRGZWcBgig",
+      "name": "Middleton Place",
+      "address": "4300 Ashley River Rd, Charleston, SC 29414, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3072,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "wedding_venue",
+        "garden",
+        "historical_place",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.8999887,
+      "lng": -80.13724189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2918897052081861804&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.middletonplace.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.02
+    },
+    {
+      "googlePlaceId": "ChIJt8TD3lp6_ogRGCtkaeEtQAY",
+      "name": "Sip History - Charleston",
+      "address": "135 Calhoun St, Charleston, SC 29401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 5,
+      "reviewCount": 3018,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7861285,
+      "lng": -79.9349007,
+      "googleMapsUri": "https://maps.google.com/?cid=450410408896113432&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://alchemix.co/classes/charleston",
+      "openNow": null,
+      "matchedQueries": [
+        "best cocktail bars",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.01
+    },
+    {
+      "googlePlaceId": "ChIJK68tNx1w_ogRjLuUguqOO9Y",
+      "name": "Charleston Culinary Tours",
+      "address": "184 E Bay St STE 103, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1480,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.779498,
+      "lng": -79.926729,
+      "googleMapsUri": "https://maps.google.com/?cid=15437089285606783884&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://charlestonculinarytours.com/?utm_source=gmb+listing&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes",
+        "local-exploration"
+      ],
+      "popularityScore": 89.85
+    },
+    {
+      "googlePlaceId": "ChIJowph4w56_ogR0skqCcgIi-s",
+      "name": "Old Exchange and Provost Dungeon",
+      "address": "122 E Bay St, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1682,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7768533,
+      "lng": -79.9269411,
+      "googleMapsUri": "https://maps.google.com/?cid=16972669275916126674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://oldexchange.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.82
+    },
+    {
+      "googlePlaceId": "ChIJ-0jzB155_ogRePqvAwN3xco",
+      "name": "The Charleston Pour House",
+      "address": "1977 Maybank Hwy, Charleston, SC 29412, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1666,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "farmers_market",
+        "market",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.761936299999995,
+      "lng": -79.9870631,
+      "googleMapsUri": "https://maps.google.com/?cid=14611215420903914104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charlestonpourhouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "farmers markets",
+        "events this weekend",
+        "things to do this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.78
+    },
+    {
+      "googlePlaceId": "ChIJ3e6RdWx6_ogRGqno3ECeyZQ",
+      "name": "The Charleston Museum",
+      "address": "360 Meeting St, Charleston, SC 29403, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2273,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7896061,
+      "lng": -79.9356663,
+      "googleMapsUri": "https://maps.google.com/?cid=10721274389353507098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.charlestonmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.69
+    },
+    {
+      "googlePlaceId": "ChIJ3ap1imt6_ogRBtsHxN2qIMM",
+      "name": "Adventure Sightseeing",
+      "address": "375 Meeting St, Charleston, SC 29403, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 6809,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7893803,
+      "lng": -79.93681409999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14060425906104032006&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.adventuresightseeing.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJ9Z_HoQ56_ogRkCcnnuO7kWU",
+      "name": "The Griffon",
+      "address": "18 Vendue Range, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3088,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "pub",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.779021,
+      "lng": -79.92618399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7318837455739103120&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.griffoncharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "viral food spots",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.59
+    },
+    {
+      "googlePlaceId": "ChIJ5Ui2sg16_ogR59NUfe72gkg",
+      "name": "Church and Union Charleston",
+      "address": "32B N Market St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4325,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7812994,
+      "lng": -79.9277527,
+      "googleMapsUri": "https://maps.google.com/?cid=5225010021868557287&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.churchandunioncharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.58
+    },
+    {
+      "googlePlaceId": "ChIJq6o2Gm16_ogRetsN_-N-UqE",
+      "name": "International African American Museum",
+      "address": "14 Wharfside St, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1701,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7887692,
+      "lng": -79.9253296,
+      "googleMapsUri": "https://maps.google.com/?cid=11624493105898445690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://iaamuseum.org/?utm_source=gbp&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJq6pT-qBh_ogR2UScMW3eugc",
+      "name": "North Charleston Wannamaker County Park",
+      "address": "8888 University Blvd, North Charleston, SC 29406, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3874,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "dog_park",
+        "hiking_area",
+        "water_park",
+        "amusement_park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.9771948,
+      "lng": -80.0541909,
+      "googleMapsUri": "https://maps.google.com/?cid=557002064498803929&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ccprc.com/1737/North-Charleston-Wannamaker-County-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.27
+    },
+    {
+      "googlePlaceId": "ChIJbeP2cxZ6_ogRX1-9ELT111g",
+      "name": "Circa 1886 Restaurant",
+      "address": "149 Wentworth St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 978,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7798671,
+      "lng": -79.93990099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6401855549054213983&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://circa1886.com/?utm_source=google&utm_medium=organic&utm_campaign=business-listing",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.16
+    },
+    {
+      "googlePlaceId": "ChIJb6eoeE__W4gRSZP4fr18cj4",
+      "name": "Titanic Museum Attraction",
+      "address": "2134 Parkway, Pigeon Forge, TN 37863, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 24061,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.82055,
+      "lng": -83.5789351,
+      "googleMapsUri": "https://maps.google.com/?cid=4499796131017429833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://titanicattraction.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 89.1
+    },
+    {
+      "googlePlaceId": "ChIJzRP4ygR6_ogRLXHVWehCJ1I",
+      "name": "White Point Garden",
+      "address": "2 Murray Blvd, Charleston, SC 29401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3359,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.769936099999995,
+      "lng": -79.9303611,
+      "googleMapsUri": "https://maps.google.com/?cid=5919773800908812589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.06
+    },
+    {
+      "googlePlaceId": "ChIJzVr0vhF6_ogRpOuUEXBkl1c",
+      "name": "Husk",
+      "address": "76 Queen St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4332,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.777999099999995,
+      "lng": -79.93212299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6311623835277126564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://huskrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.94
+    },
+    {
+      "googlePlaceId": "ChIJp0YRcYlw_ogRZIR5ZgKLqGM",
+      "name": "Mount Pleasant Memorial Waterfront Park",
+      "address": "99 Harry M. Hallman Jr Blvd, Mt Pleasant, SC 29464, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3933,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.801913,
+      "lng": -79.9022591,
+      "googleMapsUri": "https://maps.google.com/?cid=7181142448267691108&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tompsc.com/facilities.aspx?RID=35&Page=detail",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.92
+    },
+    {
+      "googlePlaceId": "ChIJryQoZXBh_ogROM0QMO9Ja9o",
+      "name": "Flight Adventure Park Charleston",
+      "address": "8551 Rivers Ave, North Charleston, SC 29406, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 2791,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.961908199999996,
+      "lng": -80.0445572,
+      "googleMapsUri": "https://maps.google.com/?cid=15738754614428749112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://flightadventurepark.com/charleston/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.61
+    },
+    {
+      "googlePlaceId": "ChIJx0M0omx6_ogRHcmdljGg8ps",
+      "name": "Marion Square",
+      "address": "329 Meeting St, Charleston, SC 29403, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 2395,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7869083,
+      "lng": -79.93570830000002,
+      "googleMapsUri": "https://maps.google.com/?cid=11237220155083573533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJhzUgGWp6_ogRGKwEztiXyYg",
+      "name": "Prohibition",
+      "address": "547 King St, Charleston, SC 29403, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2819,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.79124,
+      "lng": -79.94024499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9856576216902183960&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://prohibitioncharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "game night venues",
+        "game bars",
+        "luxury lounges",
+        "bottle service",
+        "events this weekend",
+        "seasonal pop ups",
+        "adult nightlife",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.19
+    },
+    {
+      "googlePlaceId": "ChIJ5ZeRbn6JUocRYxcBneo7zcM",
+      "name": "Sandbox VR",
+      "address": "6191 S State St Space #N 033, Murray, UT 84107, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6555,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.635295299999996,
+      "lng": -111.8871671,
+      "googleMapsUri": "https://maps.google.com/?cid=14108999086464112483&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/murray",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJBUxFNWp6_ogRbCCh69ktiXo",
+      "name": "Uncork Charleston",
+      "address": "476 King St, Charleston, SC 29403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 687,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "wine_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7899652,
+      "lng": -79.9389803,
+      "googleMapsUri": "https://maps.google.com/?cid=8829638958420926572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.uncorkchs.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.01
+    },
+    {
+      "googlePlaceId": "ChIJlwvQif97_ogR2Nql1fv0E38",
+      "name": "Epic Game Show Experience",
+      "address": "85 S Market St, Charleston, SC 29401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 343,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7805215,
+      "lng": -79.9303102,
+      "googleMapsUri": "https://maps.google.com/?cid=9156931829832735448&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://charlestongameshow.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJV7LUTdaJ_ogR6i0H12tQvwU",
+      "name": "Stars and Strikes",
+      "address": "4570 Ladson Rd, Summerville, SC 29485, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 3445,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.956516799999996,
+      "lng": -80.1612976,
+      "googleMapsUri": "https://maps.google.com/?cid=414138114840669674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://starsandstrikes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJsXwr6xF6_ogRo8ggP5qWry8",
+      "name": "Gibbes Museum of Art",
+      "address": "135 Meeting St, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 885,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.778534199999996,
+      "lng": -79.931906,
+      "googleMapsUri": "https://maps.google.com/?cid=3436130629935220899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gibbesmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.73
+    },
+    {
+      "googlePlaceId": "ChIJGd1QdsBLtokRihAkR6N6TdE",
+      "name": "Sandbox VR",
+      "address": "1656 Silver Hill Dr, Tysons, VA 22102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5517,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.924360400000005,
+      "lng": -77.23272949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15081845568825462922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/mclean",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.62
+    },
+    {
+      "googlePlaceId": "ChIJqT4lWpw5AIkRbG6TpXH1tzo",
+      "name": "Brookgreen Gardens",
+      "address": "Murrells Inlet, SC 29576, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7155,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "zoo",
+        "garden",
+        "historical_landmark",
+        "art_museum",
+        "historical_place",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5305604,
+      "lng": -79.0812935,
+      "googleMapsUri": "https://maps.google.com/?cid=4231120243395882604&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brookgreen.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.36
+    },
+    {
+      "googlePlaceId": "ChIJtV2j77LX_YgRdJqYKht03Zs",
+      "name": "Folly Beach County Park",
+      "address": "1100 W Ashley Ave, Folly Beach, SC 29439, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4164,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.644218599999995,
+      "lng": -79.9627855,
+      "googleMapsUri": "https://maps.google.com/?cid=11231260705759468148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ccprc.com/61/Folly-Beach-County-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.36
+    },
+    {
+      "googlePlaceId": "ChIJybG6pehv_ogR_uiszT5X0_Y",
+      "name": "Credit One Stadium",
+      "address": "7596, 161 Seven Farms Drive, Charleston, SC 29492, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1666,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "live_music_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.86145930000001,
+      "lng": -79.9036275,
+      "googleMapsUri": "https://maps.google.com/?cid=17785655280666470654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://creditonestadium.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.18
+    },
+    {
+      "googlePlaceId": "ChIJfxg88O9w_ogR9LkIJqgFZZc",
+      "name": "Shem Creek Park",
+      "address": "Shrimp Boat Ln, Mt Pleasant, SC 29464, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2283,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7913882,
+      "lng": -79.8846385,
+      "googleMapsUri": "https://maps.google.com/?cid=10909131892125645300&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tompsc.com/Facilities/Facility/Details/Shem-Creek-Park-36",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.16
+    },
+    {
+      "googlePlaceId": "ChIJ7WRzhg56_ogRE0vqf9w1SmI",
+      "name": "Robert Lange Studios Art Gallery",
+      "address": "2 Queen St, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 5,
+      "reviewCount": 407,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "art_studio",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.778727499999995,
+      "lng": -79.92734279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7082532585148664595&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.robertlangestudios.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.02
+    },
+    {
+      "googlePlaceId": "ChIJUyaXxUlj_ogRYE5py2aZ8-U",
+      "name": "Chucktown Activities | Mini Golf, Axe Throwing and more",
+      "address": "3005 W Montague Ave #105, North Charleston, SC 29418, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 338,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.86780540000001,
+      "lng": -80.01258849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16569756120804576864&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://chucktownactivities.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJBRtBvxF6_ogRZ5vT2vtTJzY",
+      "name": "Poogan's Porch",
+      "address": "72 Queen St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 6413,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7781314,
+      "lng": -79.931969,
+      "googleMapsUri": "https://maps.google.com/?cid=3902179943313021799&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.poogansporch.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.51
+    },
+    {
+      "googlePlaceId": "ChIJG031dz16_ogRoJ3wYvPE_p0",
+      "name": "Colonial Lake Park",
+      "address": "46-54 Ashley Ave, Charleston, SC 29401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1079,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7778124,
+      "lng": -79.9421327,
+      "googleMapsUri": "https://maps.google.com/?cid=11384753457655225760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "pickleball courts"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJk8wpxlF6_ogRsQfHPDOotlc",
+      "name": "Hampton Park",
+      "address": "30 Mary Murray Dr, Charleston, SC 29403, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1812,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7996305,
+      "lng": -79.9561142,
+      "googleMapsUri": "https://maps.google.com/?cid=6320424065077544881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charleston-sc.gov/Facilities/Facility/Details/81",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.41
+    },
+    {
+      "googlePlaceId": "ChIJD61zNk5j_ogRb2WGyzql22M",
+      "name": "Charleston Area Convention Center",
+      "address": "5001 Coliseum Dr, North Charleston, SC 29418, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3121,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.865221999999996,
+      "lng": -80.02040699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7195526501595768175&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.northcharlestoncoliseumpac.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.37
+    },
+    {
+      "googlePlaceId": "ChIJ0-B1qhp6_ogRao-8V_k6O50",
+      "name": "Nathaniel Russell House Museum",
+      "address": "51 Meeting St, Charleston, SC 29401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1277,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "historical_landmark",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7739972,
+      "lng": -79.93102990000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11329714130173857642&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.historiccharleston.org/house-museums/nathaniel-russell-house/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJoUIu2UJ6_ogREsz4oOm_amw",
+      "name": "Recovery Room Tavern",
+      "address": "685 King St, Charleston, SC 29403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1123,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "pub",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.796558399999995,
+      "lng": -79.94461439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7812267513776491538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charlestonbarshirts.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "sports-recreation",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJQYLtFm56_ogRCxaDOMHMzug",
+      "name": "Bay Street Biergarten",
+      "address": "549 E Bay St, Charleston, SC 29403, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 2206,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pub",
+        "beer_garden",
+        "sports_bar",
+        "brunch_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7919883,
+      "lng": -79.9314771,
+      "googleMapsUri": "https://maps.google.com/?cid=16775570792250545675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.baystreetbiergarten.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "trivia nights",
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.3
+    },
+    {
+      "googlePlaceId": "ChIJC4n-xyN7_ogRFpS2Bz2a7Wg",
+      "name": "Little Palm",
+      "address": "237 Meeting St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 792,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7825717,
+      "lng": -79.93211579999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7560868936338019350&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.littlepalmchs.com/?utm_source=google-gbp&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "events tonight",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "game night venues",
+        "game bars",
+        "viral food spots",
+        "luxury lounges",
+        "seasonal pop ups",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.27
+    },
+    {
+      "googlePlaceId": "ChIJr-UR-Hx5_ogRk4bkjam-T8E",
+      "name": "McLeod Plantation Historic Site",
+      "address": "325 Country Club Dr, Charleston, SC 29412, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2045,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7630635,
+      "lng": -79.9730052,
+      "googleMapsUri": "https://maps.google.com/?cid=13929561807919548051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ccprc.com/1447/McLeod-Plantation-Historic-Site",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJz4MGBJ17_ogR29PCR1TB7Kg",
+      "name": "Charles Towne Landing State Historic Site",
+      "address": "1500 Old Towne Rd, Charleston, SC 29407, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 751,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8104054,
+      "lng": -79.9951397,
+      "googleMapsUri": "https://maps.google.com/?cid=12172316460600972251&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://southcarolinaparks.com/charles-towne-landing",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJxyKLuw16_ogRPnMyVsir2eo",
+      "name": "Henry's On The Market",
+      "address": "54 N Market St, Charleston, SC 29401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 2667,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7811838,
+      "lng": -79.9288357,
+      "googleMapsUri": "https://maps.google.com/?cid=16922745951749305150&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.henrysonthemarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "nightclubs",
+        "jazz clubs",
+        "sunset date spots",
+        "karaoke bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.81
+    },
+    {
+      "googlePlaceId": "ChIJ1S320cJy_ogR654h0VCNIQw",
+      "name": "Barrier Island Ecotours",
+      "address": "50 41st Ave C-6, Isle of Palms, SC 29451, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2238,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "fishing_charter",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.805231299999996,
+      "lng": -79.75965800000002,
+      "googleMapsUri": "https://maps.google.com/?cid=874135180932128491&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nature-tours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJdbUtM4p7_ogRnIf8Fbneg3Y",
+      "name": "Sorelle",
+      "address": "88 Broad St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 871,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "italian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7765724,
+      "lng": -79.9316521,
+      "googleMapsUri": "https://maps.google.com/?cid=8539914204943779740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sorellecharleston.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJjRBLatt7_ogR8G5Tq2QX43o",
+      "name": "Citrus Club",
+      "address": "334 Meeting St 8th floor, Charleston, SC 29403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 569,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7877197,
+      "lng": -79.93456259999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8854947013479067376&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thedewberrycharleston.com/drinks-dining",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJZetiIYl7_ogRUlkI3VmluGo",
+      "name": "Bourbon N' Bubbles",
+      "address": "570 King St, Charleston, SC 29403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1106,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7929554,
+      "lng": -79.9410913,
+      "googleMapsUri": "https://maps.google.com/?cid=7690078169114106194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bourbonnbubbles.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJyetLilFx_ogRcalVMpXH_W0",
+      "name": "The Obstinate Daughter",
+      "address": "2063 Middle St, Sullivan's Island, SC 29482, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2585,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7613507,
+      "lng": -79.83937279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7925710362850470257&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theobstinatedaughter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJAQCENAx6_ogRh4wVFjcOus0",
+      "name": "The Peacock",
+      "address": "213 E Bay St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 553,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7804262,
+      "lng": -79.9275121,
+      "googleMapsUri": "https://maps.google.com/?cid=14824176753199910023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thepeacock-chs.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "live music events",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJd4XQOA16_ogRZawxnGjbXUU",
+      "name": "Charleston Harbor Tours",
+      "address": "10 Wharfside St, Charleston, SC 29401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 4920,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.7883607,
+      "lng": -79.925221,
+      "googleMapsUri": "https://maps.google.com/?cid=4998392403794701413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://charlestonharbortours.com/?utm_source=GBP&utm_medium=organic&utm_campaign=office",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.05
+    },
+    {
+      "googlePlaceId": "ChIJ1yFOgQ16_ogRtzxTap1umOs",
+      "name": "Walks of Charleston",
+      "address": "45 Pinckney St, Charleston, SC 29401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1024,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.782041899999996,
+      "lng": -79.93015799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16976440417745845431&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://walksofcharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJs2L345Bw_ogRnQNtJ1QCypU",
+      "name": "USS Yorktown Ghost Tour",
+      "address": "40 Patriots Point Rd, Mt Pleasant, SC 29464, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1429,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.790543,
+      "lng": -79.905613,
+      "googleMapsUri": "https://maps.google.com/?cid=10793442017408779165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bulldogtours.com/tours/uss-yorktown-ghost-tour/2",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.99
+    },
+    {
+      "googlePlaceId": "ChIJDZ7DvBF6_ogRhOZ4IH9ehhE",
+      "name": "82 Queen",
+      "address": "82 Queen St, Charleston, SC 29401, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 3458,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "catering_service",
+        "food_delivery",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7779542,
+      "lng": -79.9324936,
+      "googleMapsUri": "https://maps.google.com/?cid=1262800645622654596&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.82queen.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.95
+    },
+    {
+      "googlePlaceId": "ChIJA-AxMahz_ogR_3u29LeD-5I",
+      "name": "Isle of Palms County Park",
+      "address": "1 14th Ave, Isle of Palms, SC 29451, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4627,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.786885999999996,
+      "lng": -79.785866,
+      "googleMapsUri": "https://maps.google.com/?cid=10591203774799707135&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ccprc.com/60/Isle-of-Palms-County-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.85
+    },
+    {
+      "googlePlaceId": "ChIJT4cWvWt6_ogR4AuCZ3qylCw",
+      "name": "Childrens Museum of the Lowcountry",
+      "address": "25 Ann St, Charleston, SC 29403, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 1002,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.789415999999996,
+      "lng": -79.9376529,
+      "googleMapsUri": "https://maps.google.com/?cid=3212388673014336480&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.explorecml.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.84
+    },
+    {
+      "googlePlaceId": "ChIJZ5NDYBJ6_ogRWD0_bczq9Z4",
+      "name": "FIG",
+      "address": "232 Meeting St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1645,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7823426,
+      "lng": -79.93157529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11454319391013813592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://eatatfig.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.74
+    },
+    {
+      "googlePlaceId": "ChIJRfLSxeRw_ogRCmr28dA1R9Q",
+      "name": "Saltwater Cowboys",
+      "address": "130 Mill St, Mt Pleasant, SC 29464, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.2,
+      "reviewCount": 5078,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "barbecue_restaurant",
+        "bar",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.791562299999995,
+      "lng": -79.8819305,
+      "googleMapsUri": "https://maps.google.com/?cid=15296253830916106762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.saltwater-cowboys.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 84.65
+    },
+    {
+      "googlePlaceId": "ChIJVU26UBN6_ogRK1vWk1Vy8Kg",
+      "name": "Burns Alley Tavern",
+      "address": "354B King St, Charleston, SC 29401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 674,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7851204,
+      "lng": -79.9351233,
+      "googleMapsUri": "https://maps.google.com/?cid=12173355504660536107&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://burnsalley.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "karaoke bars",
+        "game bars",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.65
+    },
+    {
+      "googlePlaceId": "ChIJpc9jRoN7_ogRBpzp0Om14FI",
+      "name": "Charleston Tour Company",
+      "address": "195 E Bay St, Charleston, SC 29401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 903,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7797147,
+      "lng": -79.9273302,
+      "googleMapsUri": "https://maps.google.com/?cid=5971973121730255878&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tourofcharleston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.6
+    },
+    {
+      "googlePlaceId": "ChIJJ0Wka7fX_YgRNcstjslNKgY",
+      "name": "Lighthouse Inlet Heritage Preserve",
+      "address": "W Ashley Ave, Folly Beach, SC 29439, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1760,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.686,
+      "lng": -79.8872263,
+      "googleMapsUri": "https://maps.google.com/?cid=444253041318546229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ccprc.com/3149/Lighthouse-Inlet-Heritage-Preserve",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.56
+    },
+    {
+      "googlePlaceId": "ChIJa7Scu9pj_ogRpLiYbNQ40u4",
+      "name": "Adrenaline Monkey Adventure Park",
+      "address": "4950 Centre Pointe Dr Suite 100, North Charleston, SC 29418, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 168,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8767638,
+      "lng": -80.02033209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17208879611142256804&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chs.adrenalinemonkeyfun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "interactive kids museums",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.55
+    },
+    {
+      "googlePlaceId": "ChIJB7F6NjG7-IgRgRAPQp-d4Qw",
+      "name": "South Carolina State Museum",
+      "address": "301 Gervais St, Columbia, SC 29201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4121,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9990559,
+      "lng": -81.0480824,
+      "googleMapsUri": "https://maps.google.com/?cid=928196305548677249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://scmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.47
+    },
+    {
+      "googlePlaceId": "ChIJ26Ant2t6_ogRXlJqw24pz_8",
+      "name": "Music Farm",
+      "address": "32 Ann St, Charleston, SC 29403, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1010,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.789988699999995,
+      "lng": -79.93815049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18432997355552395870&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://musicfarm.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.46
+    },
+    {
+      "googlePlaceId": "ChIJTXx6yUlt_ogRn15tjTRSSiQ",
+      "name": "Crush Yard - Restaurant, Bar, and Pickleball",
+      "address": "3365 S Morgans Point Rd, Mt Pleasant, SC 29466, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 357,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_bar",
+        "amusement_center",
+        "sports_complex",
+        "bar",
+        "event_venue",
+        "athletic_field",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.873352499999996,
+      "lng": -79.77216,
+      "googleMapsUri": "https://maps.google.com/?cid=2614992919306526367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://crushyard.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "pickleball courts",
+        "arcades",
+        "barcades",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.39
+    },
+    {
+      "googlePlaceId": "ChIJJQx0wVgp_IgRu247HwZemVc",
+      "name": "Charleston Tea Garden",
+      "address": "6617 Maybank Hwy, Wadmalaw Island, SC 29487, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 2292,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "tea_store",
+        "gift_shop",
+        "farm",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "manufacturer",
+        "service",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.6181669,
+      "lng": -80.1853589,
+      "googleMapsUri": "https://maps.google.com/?cid=6312179733123264187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charlestonteagarden.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.32
+    },
+    {
+      "googlePlaceId": "ChIJp1j0TRB6_ogRLcupo0MkjJ0",
+      "name": "Millers All Day",
+      "address": "120 King St, Charleston, SC 29401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3878,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7766583,
+      "lng": -79.93259719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11352488633621400365&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://millersallday.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.28
+    },
+    {
+      "googlePlaceId": "ChIJd_pxFiG7-IgRz3kZE1Gxcyc",
+      "name": "Soda City Market",
+      "address": "1300-1700 Main St, Columbia, SC 29201, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 2657,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0028149,
+      "lng": -81.03384609999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2842810751571818959&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sodacitysc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.15
+    },
+    {
+      "googlePlaceId": "ChIJBYuMSWp6_ogR1ANwk7LQGlI",
+      "name": "The Belmont",
+      "address": "511 King St, Charleston, SC 29403, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 397,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.790268,
+      "lng": -79.939527,
+      "googleMapsUri": "https://maps.google.com/?cid=5916270525900915668&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thebelmontcharleston.com/hours-contact",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.03
+    },
+    {
+      "googlePlaceId": "ChIJ2bKdUPZ6_ogRSgOtbHC9i4A",
+      "name": "The Tattooed Moose",
+      "address": "4845 Chateau Ave, North Charleston, SC 29405, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 4070,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "pub",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8824813,
+      "lng": -79.9771682,
+      "googleMapsUri": "https://maps.google.com/?cid=9262705349174821706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tattooedmoose.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.98
+    },
+    {
+      "googlePlaceId": "ChIJSd_Vwy0V24gRpMvksQIviBU",
+      "name": "Sandbox VR",
+      "address": "9902 Gulf Coast Main St #135, Fort Myers, FL 33913, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1249,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 26.4871764,
+      "lng": -81.789648,
+      "googleMapsUri": "https://maps.google.com/?cid=1551541760250137508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/fortmyers/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.9
+    }
+  ]
+}

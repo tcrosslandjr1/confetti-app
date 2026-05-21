@@ -1,0 +1,3611 @@
+{
+  "location": "Milwaukee, WI",
+  "generatedAt": "2026-05-17T19:29:35.012Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJJ8eD7M8DBYgRHtZa9v0j_f4",
+      "name": "Game Show Battle Rooms - Milwaukee (Brookfield)",
+      "address": "12565 W Feerick St suite b, Brookfield, WI 53005, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6443,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "sports_activity_location",
+        "bar",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0852905,
+      "lng": -88.0682351,
+      "googleMapsUri": "https://maps.google.com/?cid=18373881628408337950&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gameshowbattlerooms.com/milwaukee",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.35
+    },
+    {
+      "googlePlaceId": "ChIJmXpUERAFBYgRKjZdn7yoT_I",
+      "name": "Milwaukee County Zoo",
+      "address": "10001 W Bluemound Rd, Milwaukee, WI 53226, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 17439,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.032715599999996,
+      "lng": -88.03740789999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17460359808419706410&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://milwaukeezoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.28
+    },
+    {
+      "googlePlaceId": "ChIJ3-WRu6YZBYgRpOZGtp_oiwA",
+      "name": "Milwaukee Public Market",
+      "address": "400 N Water St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 12200,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0352526,
+      "lng": -87.90831550000001,
+      "googleMapsUri": "https://maps.google.com/?cid=39380794418325156&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://milwaukeepublicmarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "farmers markets",
+        "flea markets",
+        "kids activities",
+        "family friendly things to do",
+        "cooking classes",
+        "mixology classes",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "shopping-markets",
+        "family-kids",
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.19
+    },
+    {
+      "googlePlaceId": "ChIJxXFqjwAZBYgRnSJa_ZcX094",
+      "name": "Milwaukee Art Museum",
+      "address": "700 N Art Museum Dr, Milwaukee, WI 53202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8536,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "art_gallery",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.040072599999995,
+      "lng": -87.897058,
+      "googleMapsUri": "https://maps.google.com/?cid=16056203038063993501&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mam.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.09
+    },
+    {
+      "googlePlaceId": "ChIJB7JnkDsaBYgRxG5PmNA68aw",
+      "name": "Mitchell Park Domes Horticulture Conservatory",
+      "address": "524 S Layton Blvd, Milwaukee, WI 53215, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 7211,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.026436499999996,
+      "lng": -87.94594819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12461806311493824196&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mitchellparkdomes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "best museums",
+        "immersive experiences",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.43
+    },
+    {
+      "googlePlaceId": "ChIJ5Q1PzncZBYgR7fctbILQwVs",
+      "name": "Milwaukee Public Museum",
+      "address": "800 W Wells St, Milwaukee, WI 53233, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7064,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0405367,
+      "lng": -87.9208579,
+      "googleMapsUri": "https://maps.google.com/?cid=6611794986535876589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mpm.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.36
+    },
+    {
+      "googlePlaceId": "ChIJK8DByH-QB4gRUX-EZZUYP1Y",
+      "name": "Cave of the Mounds",
+      "address": "2975 Cave of the Mounds Rd, Blue Mounds, WI 53517, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5067,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0170287,
+      "lng": -89.8140528,
+      "googleMapsUri": "https://maps.google.com/?cid=6214713040726949713&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.caveofthemounds.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.25
+    },
+    {
+      "googlePlaceId": "ChIJcT3-inQZBYgRu3myuupgryA",
+      "name": "Fiserv Forum",
+      "address": "1111 N Vel R. Phillips Ave, Milwaukee, WI 53203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 10500,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0450802,
+      "lng": -87.9173862,
+      "googleMapsUri": "https://maps.google.com/?cid=2355207691408931259&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fiservforum.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.44
+    },
+    {
+      "googlePlaceId": "ChIJk7G6WSsaBYgRd2T0SHP7UFE",
+      "name": "Pabst Mansion",
+      "address": "2000 W Wisconsin Ave, Milwaukee, WI 53233, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2701,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0392649,
+      "lng": -87.93799410000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5859459587772802167&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pabstmansion.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.24
+    },
+    {
+      "googlePlaceId": "ChIJu2-JhjYFBYgRZ10arGamPVA",
+      "name": "Wisconsin State Fair Park",
+      "address": "640 S 84th St, West Allis, WI 53214, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 7579,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0212384,
+      "lng": -88.0142367,
+      "googleMapsUri": "https://maps.google.com/?cid=5781960456517868903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wistatefair.com/wsfp/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.99
+    },
+    {
+      "googlePlaceId": "ChIJ__Gx3ykYBYgRDRN9_flUsSA",
+      "name": "Discovery World",
+      "address": "500 N Harbor Dr, Milwaukee, WI 53202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4623,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "aquarium",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.036868899999995,
+      "lng": -87.89573519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2355757512767902477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.discoveryworld.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.84
+    },
+    {
+      "googlePlaceId": "ChIJZ_10J6QZBYgRjajwdJ3ukeg",
+      "name": "Café Benelux",
+      "address": "346 N Broadway, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5732,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "coffee_shop",
+        "cafe",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 43.034901,
+      "lng": -87.90708409999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16758438048461531277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cafebenelux.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "rooftop bars",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "viral-eats"
+      ],
+      "popularityScore": 92.46
+    },
+    {
+      "googlePlaceId": "ChIJHd8BYAopDogRBuMXc6oszA8",
+      "name": "Griffin Museum of Science and Industry",
+      "address": "5700 S DuSable Lake Shore Dr, Chicago, IL 60637, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 34856,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.7905726,
+      "lng": -87.5830659,
+      "googleMapsUri": "https://maps.google.com/?cid=1138333916404900614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.msichicago.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 92.45
+    },
+    {
+      "googlePlaceId": "ChIJwdZJpP09BYgRkB6TGOB5OJE",
+      "name": "Seven Bridges",
+      "address": "Seven Bridges Trail, South Milwaukee, WI 53172, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3042,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.9230738,
+      "lng": -87.8483755,
+      "googleMapsUri": "https://maps.google.com/?cid=10464247737587277456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Trails/NatureTrails",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 92.14
+    },
+    {
+      "googlePlaceId": "ChIJ7QvcgXgZBYgRVbCwBO0iigw",
+      "name": "Game Show MKE - A Bars & Recreation Experience",
+      "address": "within Amped MKE, 910 W Juneau Ave, Milwaukee, WI 53233, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 971,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0458638,
+      "lng": -87.92343439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=903573076622487637&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameshowmke.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.02
+    },
+    {
+      "googlePlaceId": "ChIJV0AwM30rDogR2sd-X0cgErU",
+      "name": "Field Museum",
+      "address": "1400 S Lake Shore Dr, Chicago, IL 60605, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 30302,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.866261,
+      "lng": -87.6169805,
+      "googleMapsUri": "https://maps.google.com/?cid=13047526561362659290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fieldmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.98
+    },
+    {
+      "googlePlaceId": "ChIJCd8LJacZBYgR27UOG--1MTc",
+      "name": "Swingin' Door Exchange",
+      "address": "219 E Michigan St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2568,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pub",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0373379,
+      "lng": -87.908205,
+      "googleMapsUri": "https://maps.google.com/?cid=3977159984500618715&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.swingindoorexchange.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.97
+    },
+    {
+      "googlePlaceId": "ChIJN2H196oZBYgRJtWxglmEk4A",
+      "name": "Harbor House",
+      "address": "550 N Harbor Dr, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3508,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.037703,
+      "lng": -87.8951795,
+      "googleMapsUri": "https://maps.google.com/?cid=9264894378410890534&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bartolottas.com/harbor-house?utm_campaign=Google-My-Business",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.92
+    },
+    {
+      "googlePlaceId": "ChIJ3QBGCQsZBYgRLZhBC8dEi-g",
+      "name": "Marcus Performing Arts Center",
+      "address": "929 N Water St, Milwaukee, WI 53202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2517,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "association_or_organization",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.042960099999995,
+      "lng": -87.9109444,
+      "googleMapsUri": "https://maps.google.com/?cid=16756562460240091181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marcuscenter.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.91
+    },
+    {
+      "googlePlaceId": "ChIJPZ9zGyMZBYgRmNoONk8FinQ",
+      "name": "Deer District",
+      "address": "1134 N Vel R. Phillips Ave, Milwaukee, WI 53203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2442,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0449706,
+      "lng": -87.9159473,
+      "googleMapsUri": "https://maps.google.com/?cid=8397530292953209496&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://deerdistrict.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "game night venues",
+        "game bars",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.81
+    },
+    {
+      "googlePlaceId": "ChIJleJbwq0ZBYgRkLuVt33EaeI",
+      "name": "Henry Maier Festival Park by Milwaukee World Festival, Inc.",
+      "address": "200 N Harbor Dr, Milwaukee, WI 53202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5182,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0308845,
+      "lng": -87.9007913,
+      "googleMapsUri": "https://maps.google.com/?cid=16314787169356331920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.milwaukeeworldfestival.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.72
+    },
+    {
+      "googlePlaceId": "ChIJkWA1FRcZBYgR7F7GEpN_rno",
+      "name": "Lakefront Brewery",
+      "address": "1872 N Commerce St, Milwaukee, WI 53212, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2987,
+      "priceLevel": null,
+      "primaryType": "brewery",
+      "types": [
+        "brewery",
+        "tourist_attraction",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "manufacturer",
+        "establishment"
+      ],
+      "lat": 43.0547262,
+      "lng": -87.90528750000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8840143388226772716&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lakefrontbrewery.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "best museums",
+        "waterfront gardens",
+        "family friendly things to do",
+        "sunset date spots",
+        "trivia nights",
+        "events this weekend",
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.38
+    },
+    {
+      "googlePlaceId": "ChIJOw46IGcZBYgRVUixdRMg5-E",
+      "name": "Up-Down MKE",
+      "address": "615 E Brady St, Milwaukee, WI 53202, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 2889,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "pizza_restaurant",
+        "video_arcade",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.052751099999995,
+      "lng": -87.9040954,
+      "googleMapsUri": "https://maps.google.com/?cid=16278014646104967253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.updownarcadebar.com/milwaukee/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.27
+    },
+    {
+      "googlePlaceId": "ChIJW9H6MW0OBYgRARvaCNXfZak",
+      "name": "Boerner Botanical Gardens",
+      "address": "9400 Boerner Dr, Hales Corners, WI 53130, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3424,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "wedding_venue",
+        "tourist_attraction",
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.9364012,
+      "lng": -88.0315373,
+      "googleMapsUri": "https://maps.google.com/?cid=12206408471127137025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Boerner-Botanical-Gardens",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "waterfront gardens",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.19
+    },
+    {
+      "googlePlaceId": "ChIJ_c0_Q6gZBYgR9i57Wcvfs6A",
+      "name": "Stella Van Buren",
+      "address": "550 N Van Buren St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1836,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.037247099999995,
+      "lng": -87.90195829999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11579845131372277494&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.stellavanburen.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.85
+    },
+    {
+      "googlePlaceId": "ChIJgxtwnTIaBYgRkkmk8pCJ6Oo",
+      "name": "The Rave / Eagles Club",
+      "address": "2401 W Wisconsin Ave, Milwaukee, WI 53233, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 6659,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0379175,
+      "lng": -87.9433123,
+      "googleMapsUri": "https://maps.google.com/?cid=16926930455111158162&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.therave.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.76
+    },
+    {
+      "googlePlaceId": "ChIJ_crPFu4ZBYgRZJeHNVmH1bI",
+      "name": "Bryant's Cocktail Lounge",
+      "address": "1579 S 9th St, Milwaukee, WI 53204, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1716,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "historical_landmark",
+        "night_club",
+        "historical_place",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0143397,
+      "lng": -87.92283959999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12886354726010460004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bryantscocktaillounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "mixology classes",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.63
+    },
+    {
+      "googlePlaceId": "ChIJ84sRsLAYBYgRgL2dj8k6_UQ",
+      "name": "Bartolotta's Lake Park Bistro",
+      "address": "3133 E Newberry Blvd, Milwaukee, WI 53211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1384,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "bistro",
+      "types": [
+        "bistro",
+        "french_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.068329,
+      "lng": -87.8692499,
+      "googleMapsUri": "https://maps.google.com/?cid=4971194201059212672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bartolottas.com/lake-park-bistro?utm_campaign=Google-My-Business",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.91
+    },
+    {
+      "googlePlaceId": "ChIJRYNSkNcZBYgRbD7bU9gn8dM",
+      "name": "Odd Duck",
+      "address": "939 S 2nd St, Milwaukee, WI 53204, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1349,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0213006,
+      "lng": -87.9129282,
+      "googleMapsUri": "https://maps.google.com/?cid=15272031621463359084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.oddduckrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.82
+    },
+    {
+      "googlePlaceId": "ChIJtUaPhKcZBYgRbNdkNUgg9Ps",
+      "name": "Mader's Restaurant",
+      "address": "1041 N Doctor M.L.K. Jr Dr, Milwaukee, WI 53203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3570,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "german_restaurant",
+      "types": [
+        "german_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0438238,
+      "lng": -87.9146164,
+      "googleMapsUri": "https://maps.google.com/?cid=18155171492342847340&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madersrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.78
+    },
+    {
+      "googlePlaceId": "ChIJRz3NJBb-BIgRNS0AuVJxy98",
+      "name": "The Garcade",
+      "address": "N85W15920 Appleton Ave, Menomonee Falls, WI 53051, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 1378,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.1728695,
+      "lng": -88.1078661,
+      "googleMapsUri": "https://maps.google.com/?cid=16126107490835246389&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegarcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.49
+    },
+    {
+      "googlePlaceId": "ChIJdanEKwgZBYgRBb5WrgONLuU",
+      "name": "Carnevor | Milwaukee’s Premier Steakhouse",
+      "address": "718 N Milwaukee St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1216,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0393505,
+      "lng": -87.90636239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16514291930563526149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.carnevor.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.47
+    },
+    {
+      "googlePlaceId": "ChIJi7E9QJIDBYgRmcUNIiABVO8",
+      "name": "Breakout Games",
+      "address": "4125 N 124th St suite f, Brookfield, WI 53005, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7099,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.091899999999995,
+      "lng": -88.0669597,
+      "googleMapsUri": "https://maps.google.com/?cid=17245410110630380953&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/milwaukee?utm_source=google&utm_medium=organic&utm_campaign=gmb-milwaukee",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.33
+    },
+    {
+      "googlePlaceId": "ChIJkx8YRgoZBYgRC5EHV8w7gIg",
+      "name": "The Pabst Theater",
+      "address": "144 E Wells St, Milwaukee, WI 53202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2836,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0411456,
+      "lng": -87.91041640000002,
+      "googleMapsUri": "https://maps.google.com/?cid=9835927334996644107&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pabsttheatergroup.com/venues/detail/the-pabst-theater",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 89.31
+    },
+    {
+      "googlePlaceId": "ChIJizcMFQoZBYgRkj4kpvkhYGc",
+      "name": "SafeHouse",
+      "address": "779 N Front St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 4186,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0405857,
+      "lng": -87.9103019,
+      "googleMapsUri": "https://maps.google.com/?cid=7448991139788766866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.safe-house.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "hidden speakeasies",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 89.21
+    },
+    {
+      "googlePlaceId": "ChIJxdZ61rkYBYgRkZv2BYXmnIo",
+      "name": "Lake Park",
+      "address": "2975 N Lake Park Rd, Milwaukee, WI 53211, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2685,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.068872,
+      "lng": -87.87051900000002,
+      "googleMapsUri": "https://maps.google.com/?cid=9988111532606004113&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Find-a-Park",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJJ5iWVAcZBYgR_3eMakCfl5c",
+      "name": "Betty Brinn Children's Museum",
+      "address": "929 E Wisconsin Ave, Milwaukee, WI 53202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 2105,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0388917,
+      "lng": -87.8998749,
+      "googleMapsUri": "https://maps.google.com/?cid=10923374520224741375&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bbcmkids.org/?utm_source=opo&utm_medium=referral&utm_campaign=mc_opo",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.11
+    },
+    {
+      "googlePlaceId": "ChIJeQCXinUZBYgRxWnIu9j_mpM",
+      "name": "Baird Center",
+      "address": "400 W Wisconsin Ave, Milwaukee, WI 53203, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 2021,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "banquet_hall",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.040099399999995,
+      "lng": -87.917473,
+      "googleMapsUri": "https://maps.google.com/?cid=10636094776317340101&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bairdcenter.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "cultural centers",
+        "interactive pop ups",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.97
+    },
+    {
+      "googlePlaceId": "ChIJ71JuoqYZBYgRRStD3vllXKo",
+      "name": "The Wicked Hop",
+      "address": "345 N Broadway, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2741,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "brunch_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0348282,
+      "lng": -87.9075775,
+      "googleMapsUri": "https://maps.google.com/?cid=12275798808155335493&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewickedhop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "rooftop bars",
+        "nightclubs",
+        "sunset date spots",
+        "trivia nights",
+        "viral food spots",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.89
+    },
+    {
+      "googlePlaceId": "ChIJCWY7_IAXBYgRTYd4EDsdhYE",
+      "name": "At Random",
+      "address": "2501 S Delaware Ave, Milwaukee, WI 53207, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1001,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.997859,
+      "lng": -87.89124749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9332897942311831373&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.atrandommke.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "seasonal pop ups",
+        "adult nightlife",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.82
+    },
+    {
+      "googlePlaceId": "ChIJp2dSFq0ZBYgRV3prJEY8crc",
+      "name": "Lakeshore State Park",
+      "address": "Lakeshore State Park, 500 N Harbor Dr, Milwaukee, WI 53202, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 716,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0336327,
+      "lng": -87.8955177,
+      "googleMapsUri": "https://maps.google.com/?cid=13218694128242227799&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dnr.wisconsin.gov/topic/parks/lakeshore",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 88.8
+    },
+    {
+      "googlePlaceId": "ChIJnbSzpL0ZBYgRuCPtNNox88o",
+      "name": "Morel",
+      "address": "430 S 2nd St, Milwaukee, WI 53204, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 707,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.026584799999995,
+      "lng": -87.9123908,
+      "googleMapsUri": "https://maps.google.com/?cid=14624087228262720440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://morelmke.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.76
+    },
+    {
+      "googlePlaceId": "ChIJHwaavZkZBYgRfzJff7Je0Nc",
+      "name": "Harley-Davidson Museum®",
+      "address": "400 W Canal St, Milwaukee, WI 53201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 11519,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "history_museum",
+        "gift_shop",
+        "event_venue",
+        "museum",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0316706,
+      "lng": -87.9165244,
+      "googleMapsUri": "https://maps.google.com/?cid=15551033634044457599&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.h-dmuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.74
+    },
+    {
+      "googlePlaceId": "ChIJdyIeV7gYBYgR5OLWGGOxpNQ",
+      "name": "North Point Lighthouse",
+      "address": "2650 N Wahl Ave, Milwaukee, WI 53211, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 899,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "history_museum",
+        "non_profit_organization",
+        "museum",
+        "historical_place",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0656179,
+      "lng": -87.87139020000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15322566871397884644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://northpointlighthouse.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.46
+    },
+    {
+      "googlePlaceId": "ChIJP3jd8HYZBYgR60Bl2riuFig",
+      "name": "3rd St. Market Hall",
+      "address": "275 W Wisconsin Ave Suite 100, Milwaukee, WI 53203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1688,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "market",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.038435,
+      "lng": -87.91452369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2888688319966036203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://3rdstmarkethall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "flea markets",
+        "viral food spots",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJx0skbBAZBYgRS_ZKhUBViNM",
+      "name": "Sanford",
+      "address": "1547 N Jackson St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 585,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.050467,
+      "lng": -87.90497889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15242526674437994059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sanfordrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJDy_TgKQZBYgRfCIjtPjh9yQ",
+      "name": "Escape the Room Milwaukee",
+      "address": "222 E Erie St #110, Milwaukee, WI 53202, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4587,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0316642,
+      "lng": -87.90862899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2663846162903278204&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/milwaukee/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJkZpowNwYBYgRoWFavienM4k",
+      "name": "The Estate",
+      "address": "2423 N Murray Ave, Milwaukee, WI 53211, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 495,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "live_music_venue",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.061912299999996,
+      "lng": -87.88587509999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9886429396147528097&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.estatemke.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "live music events",
+        "jazz clubs",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.57
+    },
+    {
+      "googlePlaceId": "ChIJx3C9gj8XBYgReiLBTJyRGc0",
+      "name": "X-Ray Arcade | Games, Music, and More",
+      "address": "5036 S Packard Ave, Cudahy, WI 53110, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 771,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "bar_and_grill",
+        "video_arcade",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.952839499999996,
+      "lng": -87.85976699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14779003752681644666&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://xrayarcade.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.55
+    },
+    {
+      "googlePlaceId": "ChIJzT1hJgcZBYgRh0HwHMYJTvQ",
+      "name": "Bacchus - A Bartolotta Restaurant",
+      "address": "925 E Wells St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 684,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "wine_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.041478399999995,
+      "lng": -87.89957,
+      "googleMapsUri": "https://maps.google.com/?cid=17604018739931529607&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bartolottas.com/bacchus?utm_campaign=Google-My-Business",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.55
+    },
+    {
+      "googlePlaceId": "ChIJgbwmUxIOBYgREAdsfKc8KCU",
+      "name": "Whitnall Park",
+      "address": "5879 S 92nd St, Franklin, WI 53132, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2787,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.926865799999995,
+      "lng": -88.0342635,
+      "googleMapsUri": "https://maps.google.com/?cid=2677456668516419344&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Find-a-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.5
+    },
+    {
+      "googlePlaceId": "ChIJrWZArBEZBYgROAVpuvTlpyQ",
+      "name": "Birch",
+      "address": "459 E Pleasant St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 937,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.050916699999995,
+      "lng": -87.9068667,
+      "googleMapsUri": "https://maps.google.com/?cid=2641332545738310968&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://birchonpleasant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.5
+    },
+    {
+      "googlePlaceId": "ChIJV64wufwYBYgR4i02GROPEfU",
+      "name": "Veterans Park",
+      "address": "1010 N Lincoln Memorial Dr, Milwaukee, WI 53202, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4501,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0442203,
+      "lng": -87.8885128,
+      "googleMapsUri": "https://maps.google.com/?cid=17659052926086557154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Find-a-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.35
+    },
+    {
+      "googlePlaceId": "ChIJa5H5_wkZBYgRUsC7EMJVvh0",
+      "name": "The Riverside Theater",
+      "address": "116 W Wisconsin Ave, Milwaukee, WI 53203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3684,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0389097,
+      "lng": -87.9109363,
+      "googleMapsUri": "https://maps.google.com/?cid=2143244764667691090&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pabsttheatergroup.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.33
+    },
+    {
+      "googlePlaceId": "ChIJV-2TJgY-BYgR7yEkP3TQgJY",
+      "name": "Grant Park",
+      "address": "100 Hawthorne Ave, South Milwaukee, WI 53172, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4419,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "hiking_area",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.919243,
+      "lng": -87.8466639,
+      "googleMapsUri": "https://maps.google.com/?cid=10844897100402270703&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Find-a-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJcSj4JggZBYgR8xXsKKD_M4g",
+      "name": "Blu",
+      "address": "424 E Wisconsin Ave 23rd Floor, Milwaukee, WI 53202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 841,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.039361,
+      "lng": -87.90568999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9814469076316853747&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thepfisterhotel.com/milwaukee-restaurants/blu-milwaukee",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "jazz clubs",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.14
+    },
+    {
+      "googlePlaceId": "ChIJ1aaEbJkZBYgRR2OM3fkVLe8",
+      "name": "Luka Live",
+      "address": "611 N Broadway, Milwaukee, WI 53202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 5,
+      "reviewCount": 590,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0376944,
+      "lng": -87.9081193,
+      "googleMapsUri": "https://maps.google.com/?cid=17234455511924761415&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lukalive.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "immersive experiences",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.11
+    },
+    {
+      "googlePlaceId": "ChIJH-9Eg0wFBYgRk-VIH82W4tQ",
+      "name": "Wisconsin State Fair Park Exposition Center",
+      "address": "8200 W Greenfield Ave, West Allis, WI 53214, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 4772,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.017940499999995,
+      "lng": -88.01433490000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15339989088514663827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wistatefair.com/wsfp/exposition-center/",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJvbIRs_dTBogRh2BzR9zDsYo",
+      "name": "Olbrich Botanical Gardens",
+      "address": "3330 Atwood Ave, Madison, WI 53704, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 4931,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "gift_shop",
+        "tourist_attraction",
+        "wedding_venue",
+        "event_venue",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.0926367,
+      "lng": -89.3346028,
+      "googleMapsUri": "https://maps.google.com/?cid=9993984398970806407&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.olbrich.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJS6jqiwgZBYgRyZt0uTbR8Ng",
+      "name": "Cathedral Square Park",
+      "address": "520 E Wells St, Milwaukee, WI 53202, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 2053,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.04174030000001,
+      "lng": -87.9049768,
+      "googleMapsUri": "https://maps.google.com/?cid=15632224339572857801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Find-a-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.87
+    },
+    {
+      "googlePlaceId": "ChIJuVXrXOsZBYgRA-bajDMIVHI",
+      "name": "Turner Hall Ballroom",
+      "address": "1040 N Vel R. Phillips Ave, Milwaukee, WI 53203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1203,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.043883699999995,
+      "lng": -87.91550219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8238218635866990083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pabsttheatergroup.com/venues/detail/turner-hall-ballroom",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJ3QBGCQsZBYgRE0g86fwmfnA",
+      "name": "Uihlein Hall",
+      "address": "929 N Water St, Milwaukee, WI 53202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 863,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.042906599999995,
+      "lng": -87.9113994,
+      "googleMapsUri": "https://maps.google.com/?cid=8105959247000127507&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://marcuscenter.org/venue-space/venues/uihlein-hall",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 86.83
+    },
+    {
+      "googlePlaceId": "ChIJv6xpOv5JDogRA47I7QulRH4",
+      "name": "Galloping Ghost Arcade",
+      "address": "9415 Ogden Ave, Brookfield, IL 60513, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 4131,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.816956499999996,
+      "lng": -87.8557028,
+      "googleMapsUri": "https://maps.google.com/?cid=9098578617847811587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gallopingghostarcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJA9_5DWEbBYgRc3tkVfxm6Hw",
+      "name": "Station No. 06",
+      "address": "6800 W Becher St, West Allis, WI 53219, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 456,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0065847,
+      "lng": -87.99840189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9000557089250376563&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stationno6.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.65
+    },
+    {
+      "googlePlaceId": "ChIJaYzQiI4XBYgRIbKxpO51byE",
+      "name": "South Shore Park",
+      "address": "2900 S Shore Dr, Milwaukee, WI 53207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2147,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.995591999999995,
+      "lng": -87.88246099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2409273993492279841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://county.milwaukee.gov/EN/Parks/Explore/Find-a-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.62
+    },
+    {
+      "googlePlaceId": "ChIJOS6aDEUZBYgRRci2AWi-Ym8",
+      "name": "Lupi & Iris",
+      "address": "777 N Van Buren St, Milwaukee, WI 53202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 715,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "italian_restaurant",
+        "french_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.040431299999995,
+      "lng": -87.9031235,
+      "googleMapsUri": "https://maps.google.com/?cid=8026186839842277445&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lupiandiris.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.6
+    },
+    {
+      "googlePlaceId": "ChIJf0lTeLwQBYgRGsEoC7rcTNY",
+      "name": "Leon's Frozen Custard",
+      "address": "3131 S 27th St, Milwaukee, WI 53215, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 5981,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "dessert_shop",
+        "ice_cream_shop",
+        "dessert_restaurant",
+        "confectionery",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.987794099999995,
+      "lng": -87.9487145,
+      "googleMapsUri": "https://maps.google.com/?cid=15441959913955836186&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://leonsfrozencustardmke.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJG3nDx3cZBYgRn9DYnT3awQA",
+      "name": "Streets of Old Milwaukee",
+      "address": "800 W Wells St, Milwaukee, WI 53233, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 254,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.040657599999996,
+      "lng": -87.9218831,
+      "googleMapsUri": "https://maps.google.com/?cid=54564628681248927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mpm.edu/exhibitions/permanent-exhibits/first-floor-exhibits/streets-old-milwaukee",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.44
+    },
+    {
+      "googlePlaceId": "ChIJJca7l3AZBYgRjVl03RBoD1I",
+      "name": "Best Place at the Historic Pabst Brewery",
+      "address": "917 W Juneau Ave, Milwaukee, WI 53233, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 703,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "banquet_hall",
+        "historical_landmark",
+        "gift_shop",
+        "bar",
+        "event_venue",
+        "historical_place",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 43.045511100000006,
+      "lng": -87.9233972,
+      "googleMapsUri": "https://maps.google.com/?cid=5913059257404905869&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bestplacemilwaukee.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJo18Co70ZBYgRBqVAjUR3KAg",
+      "name": "Shaker’s Cigar Bar",
+      "address": "422 S 2nd St, Milwaukee, WI 53204, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1982,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "tourist_attraction",
+        "meal_takeaway",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0267775,
+      "lng": -87.9123508,
+      "googleMapsUri": "https://maps.google.com/?cid=587850887683155206&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.shakerscigarbar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.11
+    },
+    {
+      "googlePlaceId": "ChIJqeeoTaQZBYgRE5K6wF2XenA",
+      "name": "The Outsider",
+      "address": "310 E Chicago St, Milwaukee, WI 53202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1182,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0329663,
+      "lng": -87.9067397,
+      "googleMapsUri": "https://maps.google.com/?cid=8104956908327834131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.outsiderrooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.08
+    },
+    {
+      "googlePlaceId": "ChIJp7gZo3QZBYgRJUcVU1HF5tg",
+      "name": "Oak Barrel Public House",
+      "address": "1033 N Doctor M.L.K. Jr Dr, Milwaukee, WI 53203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1845,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "hamburger_restaurant",
+        "pizza_restaurant",
+        "vegetarian_restaurant",
+        "brunch_restaurant",
+        "catering_service",
+        "breakfast_restaurant",
+        "family_restaurant",
+        "food_delivery",
+        "bar_and_grill",
+        "bar",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0437545,
+      "lng": -87.9148252,
+      "googleMapsUri": "https://maps.google.com/?cid=15629396509912811301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://oakbarrelmilwaukee.com/?utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJfciLTwkZBYgRFpVYbahwF9E",
+      "name": "Grohmann Museum",
+      "address": "1000 N Broadway, Milwaukee, WI 53202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 489,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "garden",
+        "gift_shop",
+        "museum",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0438283,
+      "lng": -87.9079591,
+      "googleMapsUri": "https://maps.google.com/?cid=15066634947082622230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://grohmannmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJUwUkOr0ZBYgR6hjkkB4peRw",
+      "name": "Black Sheep MKE",
+      "address": "216 S 2nd St, Milwaukee, WI 53204, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 806,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "wine_bar",
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.028949,
+      "lng": -87.912312,
+      "googleMapsUri": "https://maps.google.com/?cid=2051716316500596970&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://blacksheepmke.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.9
+    },
+    {
+      "googlePlaceId": "ChIJD2xw86ERBYgRmCXuRP2v_JQ",
+      "name": "Big Putts Mini Golf | Greenfield",
+      "address": "4251 S 27th St, Greenfield, WI 53221, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 566,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.9673874,
+      "lng": -87.9493167,
+      "googleMapsUri": "https://maps.google.com/?cid=10735649114062464408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bigputts.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJV-rH9XQZBYgR_61DEMOdCwA",
+      "name": "UW-Milwaukee Panther Arena",
+      "address": "400 W Kilbourn Ave, Milwaukee, WI 53203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3442,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.042227499999996,
+      "lng": -87.9168359,
+      "googleMapsUri": "https://maps.google.com/?cid=3269685860871679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://uwmilwaukeepantherarena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.75
+    },
+    {
+      "googlePlaceId": "ChIJMXh7w-kYBYgR9pAqIyExRdU",
+      "name": "Villa Terrace Museum & Gardens",
+      "address": "2220 N Terrace Ave, Milwaukee, WI 53202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 533,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0573543,
+      "lng": -87.8804633,
+      "googleMapsUri": "https://maps.google.com/?cid=15367743321865359606&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://villaterrace.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.62
+    },
+    {
+      "googlePlaceId": "ChIJYfWhT4MZBYgRVO5SGjZGuGI",
+      "name": "The Bridgewater Modern Grill",
+      "address": "2011 S 1st St, Milwaukee, WI 53207, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 732,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.007779,
+      "lng": -87.911627,
+      "googleMapsUri": "https://maps.google.com/?cid=7113512809615519316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bridgewatermke.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.58
+    },
+    {
+      "googlePlaceId": "ChIJi722Wvi9BYgRD7xAJBqgjp4",
+      "name": "Vintage Vault Arcade",
+      "address": "715 Main St suite 200, Mukwonago, WI 53149, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 281,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.857417399999996,
+      "lng": -88.33246659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11425245338823343119&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.vintagevaultarcadewi.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.28
+    },
+    {
+      "googlePlaceId": "ChIJ_yOiEb4ZBYgRwphkCwk7iRI",
+      "name": "The Tin Widow",
+      "address": "703 S 2nd St, Milwaukee, WI 53204, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.024073,
+      "lng": -87.91302999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1335663674523949250&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tinwidow.com/Miracle-On-2nd-St",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.26
+    },
+    {
+      "googlePlaceId": "ChIJeZ896b4ZBYgRktuvs1T9yTk",
+      "name": "La Merenda",
+      "address": "125 E National Ave, Milwaukee, WI 53204, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1517,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "tapas_restaurant",
+      "types": [
+        "tapas_restaurant",
+        "fusion_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.0230951,
+      "lng": -87.91040749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4164137870714461074&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lamerenda125.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJaaA1QdsQBYgRkAoWKcpkNjk",
+      "name": "JB's on 41",
+      "address": "4040 S 27th St, Milwaukee, WI 53221, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 1979,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "video_arcade",
+        "sports_bar",
+        "bar_and_grill",
+        "sports_complex",
+        "bar",
+        "sports_club",
+        "sports_activity_location",
+        "sporting_goods_store",
+        "association_or_organization",
+        "store",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.9711362,
+      "lng": -87.9476382,
+      "googleMapsUri": "https://maps.google.com/?cid=4122593328339749520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bowlero.com/location/jbs-41?utm_source=gbp&utm_medium=organic&utm_campaign=yext_listings",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJxb98LnQZBYgR_ibjaRrPyFc",
+      "name": "Miller High Life Theatre",
+      "address": "500 W Kilbourn Ave, Milwaukee, WI 53203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1573,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "historical_landmark",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.041820699999995,
+      "lng": -87.9177683,
+      "googleMapsUri": "https://maps.google.com/?cid=6325533388994455294&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://millerhighlifetheatre.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJl_q8KFMtDogR6vQjDcXQbXM",
+      "name": "HOLLOW LEG",
+      "address": "948 N Western Ave #2, Chicago, IL 60622, USA",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 5,
+      "reviewCount": 1420,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "cocktail_bar",
+        "event_venue",
+        "bar",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8989937,
+      "lng": -87.687299,
+      "googleMapsUri": "https://maps.google.com/?cid=8317533631570769130&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hollowleg.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJaaesVDkZBYgREU6II0LUvjo",
+      "name": "Amped - A Bars & Recreation Experience",
+      "address": "910 W Juneau Ave, Milwaukee, WI 53233, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 352,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "karaoke",
+        "night_club",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0458638,
+      "lng": -87.92343439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4233054080303910417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ampedmke.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "game night venues",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.93
+    },
+    {
+      "googlePlaceId": "ChIJtXxbv4AXBYgRgv3Wo69Ojf8",
+      "name": "Cactus Club",
+      "address": "2496 S Wentworth Ave, Milwaukee, WI 53207, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 674,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.9990394,
+      "lng": -87.8901712,
+      "googleMapsUri": "https://maps.google.com/?cid=18414460967662845314&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cactusclubmilwaukee.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 84.9
+    },
+    {
+      "googlePlaceId": "ChIJ5baHw94RBYgRCITxRCwyqns",
+      "name": "Southridge Mall",
+      "address": "5300 S 76th St, Greendale, WI 53129, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.1,
+      "reviewCount": 9657,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.948777,
+      "lng": -88.00409309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8910989978422576136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://southridgeshoppingmall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.81
+    },
+    {
+      "googlePlaceId": "ChIJhRGA6lHoBIgRiWUUYjsGaAo",
+      "name": "Lion's Den Gorge Nature Preserve",
+      "address": "511 High Bluff Dr, Grafton, WI 53024, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2531,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.3376502,
+      "lng": -87.8891443,
+      "googleMapsUri": "https://maps.google.com/?cid=749856190075528585&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.co.ozaukee.wi.us/662/Lions-D8en-Gorge-Nature-Preserve",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.77
+    },
+    {
+      "googlePlaceId": "ChIJBb8dd1oZBYgRGbJ7D7bUv-E",
+      "name": "Tied House Milwaukee",
+      "address": "124 N Water St, Milwaukee, WI 53202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 291,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.031954999999996,
+      "lng": -87.9092379,
+      "googleMapsUri": "https://maps.google.com/?cid=16266954257494422041&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tiedhousemke.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.7
+    },
+    {
+      "googlePlaceId": "ChIJY2IWXmEaBYgROVhfbPJaVCs",
+      "name": "Mad Rooster Cafe",
+      "address": "4401 W Greenfield Ave, Milwaukee, WI 53214, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4747,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "brunch_restaurant",
+        "general_contractor",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.0165438,
+      "lng": -87.9688982,
+      "googleMapsUri": "https://maps.google.com/?cid=3122220438921369657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madroostercafe.com/location/mad-rooster-cafe/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.68
+    },
+    {
+      "googlePlaceId": "ChIJFe0AfDXgBIgRHs4BHERonu4",
+      "name": "Schlitz Audubon Nature Center",
+      "address": "1111 E Brown Deer Rd, Bayside, WI 53217, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1405,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "wildlife_refuge",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.1751976,
+      "lng": -87.88517519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17194295069084077598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.schlitzaudubon.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.56
+    },
+    {
+      "googlePlaceId": "ChIJTyfdVwAJBYgR7SBI6suTsGQ",
+      "name": "Brunch Berry",
+      "address": "4900 S Moorland Rd, New Berlin, WI 53151, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2326,
+      "priceLevel": null,
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.95526530000001,
+      "lng": -88.10812399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7255461503712108781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://brunchberry.us/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.49
+    },
+    {
+      "googlePlaceId": "ChIJzdf77gMZBYgRr-qpG9hM-i0",
+      "name": "Lost Whale",
+      "address": "2151 S Kinnickinnic Ave #53207, Milwaukee, WI 53207, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 369,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0053987,
+      "lng": -87.9064906,
+      "googleMapsUri": "https://maps.google.com/?cid=3313044966945188527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lostwhalemke.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "interactive pop ups",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.39
+    },
+    {
+      "googlePlaceId": "ChIJcegc6lAZBYgRECjM8YTeyEE",
+      "name": "Bradley Symphony Center",
+      "address": "212 W Wisconsin Ave, Milwaukee, WI 53203, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 362,
+      "priceLevel": null,
+      "primaryType": "philharmonic_hall",
+      "types": [
+        "philharmonic_hall",
+        "historical_landmark",
+        "performing_arts_theater",
+        "historical_place",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0390162,
+      "lng": -87.91355209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4740283270381185040&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mso.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 84.38
+    },
+    {
+      "googlePlaceId": "ChIJ6cMCGdIaBYgRGziAOvIh-lI",
+      "name": "Blue's Egg + Bakery",
+      "address": "317 N 76th St, Milwaukee, WI 53213, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4314,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "bakery",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.034353800000005,
+      "lng": -88.00803429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5979128779535038491&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bluesegg.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.36
+    },
+    {
+      "googlePlaceId": "ChIJJQw4ydoZBYgRtx2GW9C3hw8",
+      "name": "Barnacle Bud's",
+      "address": "1955 S Hilbert St, Milwaukee, WI 53207, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 2259,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.0098886,
+      "lng": -87.9055906,
+      "googleMapsUri": "https://maps.google.com/?cid=1119065137941454263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barnaclebuds.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJWzj-2J8ZBYgR8DB7T5WAgtI",
+      "name": "The Capital Grille",
+      "address": "310 W Wisconsin Ave, Milwaukee, WI 53203, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 1809,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "steak_house",
+        "wine_bar",
+        "seafood_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.039046,
+      "lng": -87.91587899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15168827873709207792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thecapitalgrille.com/locations/wi/milwaukee/milwaukee/8027?cmpid=br:tcg_ag:ie_ch:loc_ca:TCGGMB_sn:gmb_gt:milwaukee-wi-8027_pl:locurl_rd:1023",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.3
+    },
+    {
+      "googlePlaceId": "ChIJfRgJ4tAYBYgRz822RkMPRjA",
+      "name": "The Miramar Theatre",
+      "address": "2844 N Oakland Ave, Milwaukee, WI 53211, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 781,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.0704676,
+      "lng": -87.8875704,
+      "googleMapsUri": "https://maps.google.com/?cid=3478484543813897679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.themiramartheatre.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.29
+    },
+    {
+      "googlePlaceId": "ChIJlRRF8yUZBYgRrwqIsTA_0tk",
+      "name": "Foundation",
+      "address": "2718 N Bremen St, Milwaukee, WI 53212, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 813,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.067975000000004,
+      "lng": -87.900151,
+      "googleMapsUri": "https://maps.google.com/?cid=15695677129709062831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.foundationbar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "romantic bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.23
+    },
+    {
+      "googlePlaceId": "ChIJVxEG1L8fBYgRjfOE09J5cSQ",
+      "name": "Kids Empire Bayshore",
+      "address": "5794 N Bayshore Dr, Glendale, WI 53217, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 1543,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.1227732,
+      "lng": -87.9141961,
+      "googleMapsUri": "https://maps.google.com/?cid=2626014004132508557&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kidsempire.com/park/Bayshore?utm_source=gmb&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.22
+    }
+  ]
+}

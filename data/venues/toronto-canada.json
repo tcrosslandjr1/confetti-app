@@ -1,0 +1,3552 @@
+{
+  "location": "Toronto, Canada",
+  "generatedAt": "2026-05-17T20:16:00.831Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJmzrzi9Y0K4gRgXUc3sTY7RU",
+      "name": "CN Tower",
+      "address": "290 Bremner Blvd, Toronto, ON M5V 3L9, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 86939,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "observation_deck",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6425662,
+      "lng": -79.3870568,
+      "googleMapsUri": "https://maps.google.com/?cid=1580157384328508801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cntower.ca/en-ca/home.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJWwS21dU0K4gRPSGMKRkar40",
+      "name": "Ripley's Aquarium of Canada",
+      "address": "288 Bremner Blvd, Toronto, ON M5V 3L9, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 68079,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6421785,
+      "lng": -79.3866022,
+      "googleMapsUri": "https://maps.google.com/?cid=10209407575645757757&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ripleys.com/attractions/ripleys-aquarium-of-canada",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.85
+    },
+    {
+      "googlePlaceId": "ChIJE-Xa87o0K4gRkvXFHuE0hMk",
+      "name": "Royal Ontario Museum",
+      "address": "100 Queens Park, Toronto, ON M5S 2C6, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 42568,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.667709699999996,
+      "lng": -79.3947771,
+      "googleMapsUri": "https://maps.google.com/?cid=14520789240037897618&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rom.on.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.5
+    },
+    {
+      "googlePlaceId": "ChIJCb81WSvL1IkREJRm1efQQlg",
+      "name": "Scotiabank Arena",
+      "address": "40 Bay St., Toronto, ON M5J 3A5, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 39846,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "concert_hall",
+        "auditorium",
+        "stadium",
+        "live_music_venue",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6434661,
+      "lng": -79.3790989,
+      "googleMapsUri": "https://maps.google.com/?cid=6359875317936854032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.scotiabankarena.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "skating rinks",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.2
+    },
+    {
+      "googlePlaceId": "ChIJBfc2I9M1K4gRZ-4AoyXIvAE",
+      "name": "High Park",
+      "address": "1873 Bloor St W, Toronto, ON M6R 2Z3, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 27346,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.646547899999995,
+      "lng": -79.4636903,
+      "googleMapsUri": "https://maps.google.com/?cid=125194953633623655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/explore-enjoy/parks-recreation/places-spaces/beaches-gardens-attractions/high-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.14
+    },
+    {
+      "googlePlaceId": "ChIJe3u5IUsvK4gR_PyyMgWDpoc",
+      "name": "Canada's Wonderland",
+      "address": "Vaughan, ON L6A 1S6, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 65377,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.8423619,
+      "lng": -79.54121549999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9774644099602906364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sixflags.com/canadaswonderland",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.52
+    },
+    {
+      "googlePlaceId": "ChIJvRlT7cU0K4gRr0bg7VV3J9o",
+      "name": "Art Gallery of Ontario",
+      "address": "317 Dundas St W, Toronto, ON M5T 1G4, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 18963,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.653606599999996,
+      "lng": -79.39251229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15719664235306829487&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ago.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.01
+    },
+    {
+      "googlePlaceId": "ChIJZ0jwFfA2K4gRqTyv02J5Io4",
+      "name": "The Distillery Historic District",
+      "address": "55 Mill St, Toronto, ON M5A 3C4, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 25967,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "shopping_mall",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6502455,
+      "lng": -79.3591331,
+      "googleMapsUri": "https://maps.google.com/?cid=10241881967959162025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thedistillerydistrict.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.88
+    },
+    {
+      "googlePlaceId": "ChIJs6Elz500K4gRT1jWAsHIfGE",
+      "name": "Casa Loma",
+      "address": "1 Austin Terrace, Toronto, ON M5R 1X8, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 33408,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "castle",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6780371,
+      "lng": -79.4094439,
+      "googleMapsUri": "https://maps.google.com/?cid=7024710250092976207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.casaloma.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.56
+    },
+    {
+      "googlePlaceId": "ChIJydISiio1K4gRlUBlxQfjf3Q",
+      "name": "Harbourfront Centre",
+      "address": "235 Queens Quay W, Toronto, ON M5J 2G8, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 22954,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.638833999999996,
+      "lng": -79.3818785,
+      "googleMapsUri": "https://maps.google.com/?cid=8394677852957917333&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.harbourfrontcentre.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "cultural centers",
+        "waterfront gardens",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.5
+    },
+    {
+      "googlePlaceId": "ChIJvUYHUcs0K4gRN8i7jHsUiYs",
+      "name": "CF Toronto Eaton Centre",
+      "address": "220 Yonge St, Toronto, ON M5B 2H1, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 56540,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6544382,
+      "lng": -79.3806994,
+      "googleMapsUri": "https://maps.google.com/?cid=10054590163955992631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://shops.cadillacfairview.com/property/cf-toronto-eaton-centre",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "cultural centers",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.43
+    },
+    {
+      "googlePlaceId": "ChIJzdqWrfHZ1IkR2LWLAmB6GZ4",
+      "name": "Toronto Zoo",
+      "address": "2000 Meadowvale Rd, Toronto, ON M1B 5K7, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 36507,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.817866699999996,
+      "lng": -79.18543729999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11392271285188539864&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.torontozoo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.73
+    },
+    {
+      "googlePlaceId": "ChIJmZwi-Q5D04kRwKEs08Xhoyc",
+      "name": "Niagara Falls Canada Tours - Niagara Falls Sightseeing Tours & Boat Cruise From Toronto",
+      "address": "192 Spadina Ave., Toronto, ON M5T 2C2, Canada",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 75562,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "chauffeur_service",
+        "marina",
+        "sports_club",
+        "travel_agency",
+        "transportation_service",
+        "association_or_organization",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.6500286,
+      "lng": -79.3951031,
+      "googleMapsUri": "https://maps.google.com/?cid=2856374828450750912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://niagarafallscanadatours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 94.42
+    },
+    {
+      "googlePlaceId": "ChIJWyfdtDHL1IkR_bal8ay1Cso",
+      "name": "St. Lawrence Market",
+      "address": "Toronto, ON M5E 1C3, Canada",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 42161,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6486879,
+      "lng": -79.3715454,
+      "googleMapsUri": "https://maps.google.com/?cid=14558648499821721341&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.stlawrencemarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.12
+    },
+    {
+      "googlePlaceId": "ChIJBxZ2UMw0K4gR1LmKMBvveP0",
+      "name": "Nathan Phillips Square",
+      "address": "100 Queen St W, Toronto, ON M5H 2N1, Canada",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 41254,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6527069,
+      "lng": -79.38341369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18264611188858599892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/data/parks/prd/facilities/complex/1089/index.html",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.06
+    },
+    {
+      "googlePlaceId": "ChIJGXyiWUDN1IkR50ZWv092iYU",
+      "name": "Edwards Gardens",
+      "address": "755 Lawrence Ave E, North York, ON M3C 1P2, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 9080,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "botanical_garden",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.733803900000005,
+      "lng": -79.357924,
+      "googleMapsUri": "https://maps.google.com/?cid=9622352163738371815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/data/parks/prd/facilities/complex/473/index.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.75
+    },
+    {
+      "googlePlaceId": "ChIJpdjRDtI0K4gRGA6k5K-TH8E",
+      "name": "Chop Steakhouse & Bar",
+      "address": "181 University Ave, Toronto, ON M5H 3S5, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 3935,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.649111399999995,
+      "lng": -79.3853304,
+      "googleMapsUri": "https://maps.google.com/?cid=13916003757262638616&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://chop.ca/locations/toronto-downtown",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.38
+    },
+    {
+      "googlePlaceId": "ChIJQTLRN501K4gRzG49hNxcwEU",
+      "name": "Activate Toronto (Stock Yards)",
+      "address": "30 Weston Rd c202, Old Toronto, ON M6N 0A7, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2607,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6730982,
+      "lng": -79.4688354,
+      "googleMapsUri": "https://maps.google.com/?cid=5026119286326652620&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/toronto-stockyards",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.21
+    },
+    {
+      "googlePlaceId": "ChIJjy6Dvx41K4gR-EnZ_CNE1_E",
+      "name": "Little Canada",
+      "address": "10 Dundas St E, Toronto, ON M5B 2G9, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 3664,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.656965799999995,
+      "lng": -79.3804789,
+      "googleMapsUri": "https://maps.google.com/?cid=17426472204490066424&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.little-canada.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.16
+    },
+    {
+      "googlePlaceId": "ChIJJ0fOv6TM1IkRka89i2s5JJA",
+      "name": "Evergreen Brick Works",
+      "address": "550 Bayview Ave, Toronto, ON M4W 3X8, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 9784,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6843314,
+      "lng": -79.3647127,
+      "googleMapsUri": "https://maps.google.com/?cid=10386489774683565969&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.evergreen.ca/evergreen-brick-works/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "skating rinks",
+        "farmers markets",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.88
+    },
+    {
+      "googlePlaceId": "ChIJVftfeNY0K4gRAmKY_fjhCUI",
+      "name": "Metro Toronto Convention Centre",
+      "address": "255 Front St W, Toronto, ON M5V 2W6, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 12626,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6437901,
+      "lng": -79.386673,
+      "googleMapsUri": "https://maps.google.com/?cid=4758582940816400898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mtccc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.56
+    },
+    {
+      "googlePlaceId": "ChIJ243-C381K4gRHMKWCGU86iM",
+      "name": "Black+Blue Toronto",
+      "address": "130 King St W, Toronto, ON M5X 2A2, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 5738,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "lounge_bar",
+        "wine_bar",
+        "fine_dining_restaurant",
+        "steak_house",
+        "sushi_restaurant",
+        "seafood_restaurant",
+        "night_club",
+        "event_venue",
+        "japanese_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.648099599999995,
+      "lng": -79.3831247,
+      "googleMapsUri": "https://maps.google.com/?cid=2587947340511232540&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://blackandbluesteakhouse.ca/toronto-home/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.34
+    },
+    {
+      "googlePlaceId": "ChIJ4cHb3800K4gRZRf9IDJF62o",
+      "name": "Four Seasons Centre for the Performing Arts",
+      "address": "145 Queen St W, Toronto, ON M5H 4G1, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3177,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.650573,
+      "lng": -79.385683,
+      "googleMapsUri": "https://maps.google.com/?cid=7704327669151504229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.coc.ca/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.62
+    },
+    {
+      "googlePlaceId": "ChIJCcTXb7I1K4gR5RXvaRHXFoQ",
+      "name": "Sandbox VR",
+      "address": "21 Wellesley St W #1, Toronto, ON M4Y 0G7, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2203,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.664527,
+      "lng": -79.3855384,
+      "googleMapsUri": "https://maps.google.com/?cid=9518031332285814245&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/toronto",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.59
+    },
+    {
+      "googlePlaceId": "ChIJwfinSl3L1IkRF18pZh6yvK0",
+      "name": "Riverdale Farm",
+      "address": "201 Winchester St, Toronto, ON M4X 1B8, Canada",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 6259,
+      "priceLevel": null,
+      "primaryType": "farm",
+      "types": [
+        "farm",
+        "tourist_attraction",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.6669731,
+      "lng": -79.3617311,
+      "googleMapsUri": "https://maps.google.com/?cid=12519076907815886615&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://riverdalefarmtoronto.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "kids activities",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.5
+    },
+    {
+      "googlePlaceId": "ChIJQ9zscLU0K4gRx3YDSMNESs8",
+      "name": "Levelup Virtual Reality (VR) Arcade | Events, Parties, & Team Building",
+      "address": "661 Yonge St Lower Level, Toronto, ON M4Y 1Z9, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1824,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "adventure_sports_center",
+        "tourist_attraction",
+        "amusement_center",
+        "sports_complex",
+        "sports_activity_location",
+        "bar",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "educational_institution",
+        "establishment"
+      ],
+      "lat": 43.6682856,
+      "lng": -79.3858029,
+      "googleMapsUri": "https://maps.google.com/?cid=14936826719645169351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.levelupreality.ca/toronto/?UTM_source=GMB_listing&UTM_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.01
+    },
+    {
+      "googlePlaceId": "ChIJqy_n4UvL1IkRJ91CoOzZV-E",
+      "name": "Allan Gardens",
+      "address": "160 Gerrard St E, Toronto, ON M5A 2E5, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7602,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "botanical_garden",
+        "dog_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6617429,
+      "lng": -79.3747382,
+      "googleMapsUri": "https://maps.google.com/?cid=16237686591831858471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/gardens-and-horticulture/conservatories/allan-gardens-conservatory/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91
+    },
+    {
+      "googlePlaceId": "ChIJm8KGNas7K4gRzisvdic-RXI",
+      "name": "Ontario Science Centre",
+      "address": "235 Queens Quay W, Toronto, ON M5J 2G8, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 15090,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6387887,
+      "lng": -79.3828891,
+      "googleMapsUri": "https://maps.google.com/?cid=8234055832924269518&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ontariosciencecentre.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 90.51
+    },
+    {
+      "googlePlaceId": "ChIJ73LbbhTL1IkRo0jIEIs3HaI",
+      "name": "JOEY King St",
+      "address": "20 King St W, Toronto, ON M5H 1C4, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 12519,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.649142399999995,
+      "lng": -79.378951,
+      "googleMapsUri": "https://maps.google.com/?cid=11681554078890477731&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://joeyrestaurants.com/location/joey-king-street",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 90.44
+    },
+    {
+      "googlePlaceId": "ChIJ9YPWScI0K4gRxRsnaXlORBE",
+      "name": "Kensington Market BIA",
+      "address": "160 Baldwin St, Toronto, ON M5T 3K7, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6155,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6550705,
+      "lng": -79.3999101,
+      "googleMapsUri": "https://maps.google.com/?cid=1244205680423279557&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://kensingtonmarket.to/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.35
+    },
+    {
+      "googlePlaceId": "ChIJ651BNmfL1IkRT25u-WV5_1Q",
+      "name": "Riverdale Park East",
+      "address": "550 Broadview Ave, Toronto, ON M4K 2N6, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5572,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6718289,
+      "lng": -79.3549845,
+      "googleMapsUri": "https://maps.google.com/?cid=6124747497130585679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/data/parks/prd/facilities/complex/343/index.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.1
+    },
+    {
+      "googlePlaceId": "ChIJsaFjsC3L1IkRou1YH7q_r0A",
+      "name": "Meridian Hall",
+      "address": "1 Front St E, Toronto, ON M5E 1B2, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8664,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6466723,
+      "lng": -79.3760205,
+      "googleMapsUri": "https://maps.google.com/?cid=4661154945462496674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tolive.com/Meridian-Hall",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.9
+    },
+    {
+      "googlePlaceId": "ChIJsx1_uCg1K4gRc8IuteM42qU",
+      "name": "Exhibition Place",
+      "address": "100 Princes' Blvd, Toronto, ON M6K 3C3, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 11587,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.635073899999995,
+      "lng": -79.4123625,
+      "googleMapsUri": "https://maps.google.com/?cid=11950927111829504627&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.explace.on.ca/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.7
+    },
+    {
+      "googlePlaceId": "ChIJ6VTP1EHN1IkRJ_ivXl_DSSM",
+      "name": "Toronto Botanical Garden",
+      "address": "777 Lawrence Ave E, North York, ON M3C 1P2, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5973,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.7341428,
+      "lng": -79.35819630000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2542778279005255719&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.torontobotanicalgarden.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.61
+    },
+    {
+      "googlePlaceId": "ChIJJZP2IzPL1IkRoIXM5dEE9ck",
+      "name": "Richmond Station",
+      "address": "1 Richmond St W, Toronto, ON M5H 3W4, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3701,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.651453599999996,
+      "lng": -79.3794917,
+      "googleMapsUri": "https://maps.google.com/?cid=14552543070467687840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://richmondstation.ca/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.49
+    },
+    {
+      "googlePlaceId": "ChIJ29zuWfs0K4gRu3X7rsgi-wM",
+      "name": "Trinity Bellwoods Park",
+      "address": "790 Queen St W, Toronto, ON M6J 1G3, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 8778,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.647282499999996,
+      "lng": -79.4137246,
+      "googleMapsUri": "https://maps.google.com/?cid=286861246592677307&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/explore-enjoy/parks-recreation/places-spaces/parks-and-recreation-facilities/location/?id=241&title=Trinity-Bellwoods-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "pickleball courts",
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 89.29
+    },
+    {
+      "googlePlaceId": "ChIJG7aLx3I1K4gRF9rPuUHvE-c",
+      "name": "Storm Crow Manor",
+      "address": "580 Church St, Toronto, ON M4Y 2E5, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 4708,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.6667978,
+      "lng": -79.381798,
+      "googleMapsUri": "https://maps.google.com/?cid=16650915312888175127&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stormcrow.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "board game cafes",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.13
+    },
+    {
+      "googlePlaceId": "ChIJX9wAB4c1K4gRUAJJo3lDk6c",
+      "name": "FreePlay Toronto Retro Arcade Bar",
+      "address": "300 College St, Toronto, ON M5T 1R9, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 2011,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.6578357,
+      "lng": -79.4016676,
+      "googleMapsUri": "https://maps.google.com/?cid=12075069215620006480&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.freeplaytoronto.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "trivia nights",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.11
+    },
+    {
+      "googlePlaceId": "ChIJzVkW-Nk0K4gRd4dHDvA6ekU",
+      "name": "KŌST",
+      "address": "80 Blue Jays Way 44th Floor, Toronto, ON M5V 2G3, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 5861,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "californian_restaurant",
+      "types": [
+        "californian_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6452114,
+      "lng": -79.3923811,
+      "googleMapsUri": "https://maps.google.com/?cid=5006378738481858423&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kosttoronto.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.1
+    },
+    {
+      "googlePlaceId": "ChIJAQAAwCrL1IkR1Egy40ui0d4",
+      "name": "Toronto Music Garden",
+      "address": "479 Queens Quay W, Toronto, ON M5V 3M8, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5230,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.636955,
+      "lng": -79.3942958,
+      "googleMapsUri": "https://maps.google.com/?cid=16055792593370499284&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/data/parks/prd/facilities/complex/1707/index.html",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.8
+    },
+    {
+      "googlePlaceId": "ChIJp77rrN00K4gRKdj2mzu8IBI",
+      "name": "BarChef",
+      "address": "472 Queen St W, Toronto, ON M5V 2B2, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2524,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "catering_service",
+        "food_delivery",
+        "bar",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.6480556,
+      "lng": -79.4001466,
+      "googleMapsUri": "https://maps.google.com/?cid=1306250856143181865&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barchef.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 88.71
+    },
+    {
+      "googlePlaceId": "ChIJe666YNA0K4gRgPfziT7HLp0",
+      "name": "Fox on John",
+      "address": "106 John St #3, Toronto, ON M5V 2E1, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 12211,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "british_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "gastropub",
+        "wine_bar",
+        "british_restaurant",
+        "catering_service",
+        "food_delivery",
+        "event_venue",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.647479999999995,
+      "lng": -79.3904136,
+      "googleMapsUri": "https://maps.google.com/?cid=11326209184299743104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.foxonjohn.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.56
+    },
+    {
+      "googlePlaceId": "ChIJQ3VroEY0K4gRu8_7pUQIEfg",
+      "name": "Sugo",
+      "address": "1281 Bloor St W, Toronto, ON M6H 1N7, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4628,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.658344799999995,
+      "lng": -79.4423589,
+      "googleMapsUri": "https://maps.google.com/?cid=17875077486945750971&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sugotoronto.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.42
+    },
+    {
+      "googlePlaceId": "ChIJXZ8VIpQ0K4gRkzHxtNGiAtM",
+      "name": "Tilt Arcade Bar",
+      "address": "1255 Queen St W, Toronto, ON M6K 1L4, Canada",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 3602,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6415942,
+      "lng": -79.43083709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15204894313523786131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tilttoronto.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.3
+    },
+    {
+      "googlePlaceId": "ChIJVVWlINo0K4gR5WNUfKru8Sc",
+      "name": "Escape Manor Toronto",
+      "address": "383 King St W, Toronto, ON M5V 2G5, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 3010,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.645674799999995,
+      "lng": -79.3933916,
+      "googleMapsUri": "https://maps.google.com/?cid=2878344052864213989&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.escapemanor.com/toronto",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJa7dwhhA1K4gRUV9cPcYC64g",
+      "name": "RBC Amphitheatre",
+      "address": "909 Lake Shore Blvd W, Toronto, ON M6K 3L3, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 14939,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "amphitheatre",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6291955,
+      "lng": -79.4150698,
+      "googleMapsUri": "https://maps.google.com/?cid=9865982459141447505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rbcamphitheatre.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.08
+    },
+    {
+      "googlePlaceId": "ChIJKSp50NI0K4gR6C6L3yYqpYY",
+      "name": "Canoe",
+      "address": "66 Wellington St W 54th floor, Toronto, ON M5K 1E9, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3801,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "wine_bar",
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6475793,
+      "lng": -79.38090369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9702207318687166184&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.canoerestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.77
+    },
+    {
+      "googlePlaceId": "ChIJUUpqttc0K4gRBRQL_vayEOI",
+      "name": "Rogers Centre",
+      "address": "1 Blue Jays Way, Toronto, ON M5V 1J3, Canada",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 38115,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "athletic_field",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.641804,
+      "lng": -79.3891419,
+      "googleMapsUri": "https://maps.google.com/?cid=16289716626092921861&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/bluejays/ballpark",
+      "openNow": false,
+      "matchedQueries": [
+        "local events"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJnS9xEpvL1IkR5PcUll0LTZk",
+      "name": "HISTORY",
+      "address": "1663 Queen St E, Toronto, ON M4L 1G5, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5239,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6668199,
+      "lng": -79.31351409999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11046497957587515364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://historytoronto.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJ_aJF8OM1K4gRGT3p-KKE-7E",
+      "name": "Trapped Escape Rooms & Lounge Toronto",
+      "address": "336 Queen St W, Toronto, ON M5V 2A2, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1100,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.649391099999995,
+      "lng": -79.39512839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12824990199363222809&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trapped.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJaxGTiorL1IkRYUygruXCK2c",
+      "name": "Toonie Tours Toronto | City Tours and Bike Rentals",
+      "address": "37 King St E, Toronto, ON M5C 1E9, Canada",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2751,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6492589,
+      "lng": -79.3761992,
+      "googleMapsUri": "https://maps.google.com/?cid=7434249901638175841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.toonietours.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.52
+    },
+    {
+      "googlePlaceId": "ChIJmyGRoQ41K4gRRrMMVYe4WLE",
+      "name": "Zero Latency Toronto",
+      "address": "875 St Clair Ave W, Toronto, ON M6C 1C4, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 576,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.679760699999996,
+      "lng": -79.4331617,
+      "googleMapsUri": "https://maps.google.com/?cid=12779166834050773830&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zerolatencytoronto.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJrY4E26DN1IkRzBaz81H3EVw",
+      "name": "Aga Khan Museum",
+      "address": "77 Wynford Dr, North York, ON M3C 1K1, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 6906,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.7252521,
+      "lng": -79.3322231,
+      "googleMapsUri": "https://maps.google.com/?cid=6634355657446463180&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.agakhanmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.46
+    },
+    {
+      "googlePlaceId": "ChIJcWtfVMrL1IkRw0WfE0j8I4Y",
+      "name": "Toronto Skyline Viewpoint",
+      "address": "Ferry Dock, Toronto, ON M5J, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1251,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6315728,
+      "lng": -79.3578677,
+      "googleMapsUri": "https://maps.google.com/?cid=9665846611764266435&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 87.25
+    },
+    {
+      "googlePlaceId": "ChIJE5ogNvacLIgRi6iKaHvgNcc",
+      "name": "Royal Botanical Gardens",
+      "address": "680 Plains Rd W, Burlington, ON L7T 4H4, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 7816,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "nature_preserve",
+        "wedding_venue",
+        "historical_landmark",
+        "park",
+        "event_venue",
+        "historical_place",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.2903892,
+      "lng": -79.8753717,
+      "googleMapsUri": "https://maps.google.com/?cid=14354626207952840843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rbg.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.19
+    },
+    {
+      "googlePlaceId": "ChIJ6U30VeDN1IkRlrn_L8qPD6I",
+      "name": "Daydream Adventures",
+      "address": "1803 Danforth Ave, Toronto, ON M4C 1J2, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1459,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6842939,
+      "lng": -79.3186518,
+      "googleMapsUri": "https://maps.google.com/?cid=11677710457346439574&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daydreamtoronto.com/?utm_source=gbp&utm_medium=organic&utm_campaign=danforth",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.07
+    },
+    {
+      "googlePlaceId": "ChIJQY_nP9I0K4gRj0Fo9reXGQ4",
+      "name": "Earls Kitchen + Bar",
+      "address": "150 King St W #100, Toronto, ON M5H 1J9, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 10612,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6480411,
+      "lng": -79.38439629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1016010007317594511&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://earls.ca/locations/financial--district/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.03
+    },
+    {
+      "googlePlaceId": "ChIJm0K_t23L1IkRp_R_fHkO3q4",
+      "name": "The Opera House",
+      "address": "735 Queen St E, Toronto, ON M4M 1H1, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3349,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6589105,
+      "lng": -79.3487593,
+      "googleMapsUri": "https://maps.google.com/?cid=12600524722371818663&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theoperahousetoronto.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.98
+    },
+    {
+      "googlePlaceId": "ChIJUVV44iI1K4gRr4vqoZfUrQE",
+      "name": "Trillium Park",
+      "address": "955 Lake Shore Blvd W, Toronto, ON M6K 3B9, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3284,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.630069999999996,
+      "lng": -79.4098602,
+      "googleMapsUri": "https://maps.google.com/?cid=120986512730524591&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ontarioplace.com/en/whats-on/trillium-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.97
+    },
+    {
+      "googlePlaceId": "ChIJ7T7MY1MEzkwReMFJh479D7Q",
+      "name": "Canadian Museum of Nature / Musée canadien de la nature",
+      "address": "240 McLeod St, Ottawa, ON K2P 2R1, Canada",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 14490,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4127661,
+      "lng": -75.6886373,
+      "googleMapsUri": "https://maps.google.com/?cid=12974867840074629496&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nature.ca/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJVVXhcts0K4gR9wRXqbtY0rY",
+      "name": "Aloette Restaurant",
+      "address": "163 Spadina Ave. 1st Floor, Toronto, ON M5V 2A5, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2019,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "brunch_restaurant",
+        "diner",
+        "bistro",
+        "french_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.648548,
+      "lng": -79.395963,
+      "googleMapsUri": "https://maps.google.com/?cid=13173689423035303159&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://aloetterestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJc4-p5NA0K4gRcLWKQiJY2PQ",
+      "name": "Princess of Wales Theatre",
+      "address": "300 King St W, Toronto, ON M5V 1J2, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 7695,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.64697830000001,
+      "lng": -79.3892259,
+      "googleMapsUri": "https://maps.google.com/?cid=17642948444392437104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mirvish.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.74
+    },
+    {
+      "googlePlaceId": "ChIJsRjTsS3L1IkRC177bW2To_4",
+      "name": "Hockey Hall of Fame",
+      "address": "30 Yonge St, Toronto, ON M5E 1X8, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7471,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.647272199999996,
+      "lng": -79.37769019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18348671405043441163&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hhof.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.65
+    },
+    {
+      "googlePlaceId": "ChIJO8pWMg4PzkwRP0X3kCcAp3c",
+      "name": "Canada Science and Technology Museum",
+      "address": "1867 St. Laurent Blvd, Ottawa, ON K1G 5A3, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8930,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.403509899999996,
+      "lng": -75.6189059,
+      "googleMapsUri": "https://maps.google.com/?cid=8621860181559952703&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ingeniumcanada.org/scitech",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.5
+    },
+    {
+      "googlePlaceId": "ChIJQz2McwA1K4gRzn01ddFL4T4",
+      "name": "GRETA Bar YYZ",
+      "address": "590 King St W, Toronto, ON M5V 2N2, Canada",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1182,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "video_arcade",
+        "night_club",
+        "diner",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6447161,
+      "lng": -79.39957439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4530986063098117582&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gretabar.com/toronto/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJh_F4_I_X1IkRXvfHJmZvbYI",
+      "name": "Rouge National Urban Park",
+      "address": "7277 14th Ave, Markham, ON L6B 1A8, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3839,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "hiking_area",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.8607333,
+      "lng": -79.211384,
+      "googleMapsUri": "https://maps.google.com/?cid=9398290481920079710&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.canada.ca/pn-np/on/rouge",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.35
+    },
+    {
+      "googlePlaceId": "ChIJh_CLcTI1K4gRYGzUbWLYsm0",
+      "name": "PREQUEL & CO. APOTHECARY",
+      "address": "1036 Queen St W, Toronto, ON M6J 1H7, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1169,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.644118,
+      "lng": -79.4203196,
+      "googleMapsUri": "https://maps.google.com/?cid=7904618213249674336&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barprequel.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJzUm3X2TL1IkRDkPiZYlOC7U",
+      "name": "Don Alfonso 1890",
+      "address": "1 Harbour Square 38th Floor, Toronto, ON M5J 1A6, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1656,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "mediterranean_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.640974,
+      "lng": -79.375602,
+      "googleMapsUri": "https://maps.google.com/?cid=13045607097635586830&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.donalfonsotoronto.com/?utm_source=google&utm_medium=organic&utm_campaign=local&utm_content=Toronto",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJmzR9dJU0K4gRj44f61gBfss",
+      "name": "RASA",
+      "address": "196 Robert St, Toronto, ON M5S 2K7, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1412,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6628186,
+      "lng": -79.4041051,
+      "googleMapsUri": "https://maps.google.com/?cid=14663158918178377359&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rasabar.ca/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.27
+    },
+    {
+      "googlePlaceId": "ChIJd6qMg9w0K4gRJLQ6fdW-WEU",
+      "name": "The Cameron House",
+      "address": "408 Queen St W, Toronto, ON M5V 2A7, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1258,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "historical_landmark",
+        "historical_place",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6486417,
+      "lng": -79.3975669,
+      "googleMapsUri": "https://maps.google.com/?cid=4996953610705876004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thecameron.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.17
+    },
+    {
+      "googlePlaceId": "ChIJdccXyZM0K4gRu9mnZpTFdtY",
+      "name": "Insomnia Restaurant and Lounge",
+      "address": "563 Bloor St W, Toronto, ON M5S 1Y6, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3942,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "lounge_bar",
+        "bar_and_grill",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.665107,
+      "lng": -79.410831,
+      "googleMapsUri": "https://maps.google.com/?cid=15453756412536543675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.insomniarestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "trivia nights",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.13
+    },
+    {
+      "googlePlaceId": "ChIJHfvjUSrL1IkRKR1Q--KUUi8",
+      "name": "Centreville Amusement Park",
+      "address": "9 Queens Quay W, Toronto, ON M5J 2H3, Canada",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 6374,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6202922,
+      "lng": -79.3735438,
+      "googleMapsUri": "https://maps.google.com/?cid=3409951570472738089&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://centreisland.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.11
+    },
+    {
+      "googlePlaceId": "ChIJiTDHQZ02K4gRmbXbmJwl7CU",
+      "name": "The Rec Room Roundhouse",
+      "address": "255 Bremner Blvd, Toronto, ON M5V 3L9, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4,
+      "reviewCount": 9080,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "amusement_center",
+        "event_venue",
+        "sports_club",
+        "bar",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.641241699999995,
+      "lng": -79.3867806,
+      "googleMapsUri": "https://maps.google.com/?cid=2732600428416710041&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.therecroom.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.05
+    },
+    {
+      "googlePlaceId": "ChIJ_21BPMh51kwR62D0aOu7bUM",
+      "name": "Algonquin Provincial Park",
+      "address": "Ontario 60, Ontario K0J 2M0, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7371,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.8371591,
+      "lng": -78.3791239,
+      "googleMapsUri": "https://maps.google.com/?cid=4858746192755187947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ontarioparks.ca/park/algonquin",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJQyDSePwEzkwRtxch6RS79GY",
+      "name": "National Gallery of Canada",
+      "address": "380 Sussex Dr, Ottawa, ON K1N 9N4, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 10450,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.429535,
+      "lng": -75.6989062,
+      "googleMapsUri": "https://maps.google.com/?cid=7418760184671049655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gallery.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.93
+    },
+    {
+      "googlePlaceId": "ChIJ1ZGZKNk0K4gRaouNzuptWV8",
+      "name": "PAI",
+      "address": "18 Duncan St, Toronto, ON M5H 3G8, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 14700,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "thai_restaurant",
+      "types": [
+        "thai_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.647852799999995,
+      "lng": -79.3887403,
+      "googleMapsUri": "https://maps.google.com/?cid=6870643561785559914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.paitoronto.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJN6qgzIzL1IkRzDx6-QzQsEU",
+      "name": "Woodbine Park",
+      "address": "1695 Queen St E, Toronto, ON M4L 1G7, Canada",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 3773,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.664043,
+      "lng": -79.3138484,
+      "googleMapsUri": "https://maps.google.com/?cid=5021742338661825740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toronto.ca/data/parks/prd/facilities/complex/431/index.html",
+      "openNow": true,
+      "matchedQueries": [
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.85
+    },
+    {
+      "googlePlaceId": "ChIJ8x7Zc3U2K4gRb_4xEoFDdto",
+      "name": "Sheldon Lookout",
+      "address": "Martin Goodman Trl, Etobicoke, ON M8V 3W9, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1392,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6309976,
+      "lng": -79.4714444,
+      "googleMapsUri": "https://maps.google.com/?cid=15741843769155255919&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.toronto.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.83
+    },
+    {
+      "googlePlaceId": "ChIJ3Ruu_zHL1IkRzgFxJbztyWQ",
+      "name": "The Reservoir Lounge",
+      "address": "52 Wellington St E, Toronto, ON M5E 1C7, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1403,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "restaurant",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.648584799999995,
+      "lng": -79.3745828,
+      "googleMapsUri": "https://maps.google.com/?cid=7262597266449433038&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://reservoirlounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "jazz clubs",
+        "luxury lounges",
+        "adult nightlife",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJ2Qy7RDPL1IkRohwFrAYwafs",
+      "name": "Elgin & Winter Garden Theatres",
+      "address": "189 Yonge St, Toronto, ON M5B 1M4, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3464,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "historical_landmark",
+        "live_music_venue",
+        "event_venue",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6530164,
+      "lng": -79.3793958,
+      "googleMapsUri": "https://maps.google.com/?cid=18116063781288484002&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.heritagetrust.on.ca/ewg",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.78
+    },
+    {
+      "googlePlaceId": "ChIJ_ysg-4FvK4gRmAN_OsDn43I",
+      "name": "Rattlesnake Point Conservation Area (Reservations Required)",
+      "address": "7200 Appleby Line, Milton, ON L9E 0M9, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5438,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "picnic_ground",
+        "campground",
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "lodging",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.471371,
+      "lng": -79.912705,
+      "googleMapsUri": "https://maps.google.com/?cid=8278715352838243224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.conservationhalton.ca/parks/rattlesnake-point/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJsxk7YljL1IkRqehKLUOWlUM",
+      "name": "Museum of Illusions Toronto",
+      "address": "132 Front St E, Toronto, ON M5A 1E2, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.1,
+      "reviewCount": 5581,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.650112299999996,
+      "lng": -79.3696318,
+      "googleMapsUri": "https://maps.google.com/?cid=4869963787337918633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museumofillusions.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "arcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "barcades",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "local-exploration"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJWYMdhdM0K4gRbMQqRvZfb3c",
+      "name": "Loose Moose / Antler Room",
+      "address": "146 Front St W, Toronto, ON M5J 1G2, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 7718,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "gastropub",
+        "hamburger_restaurant",
+        "chicken_wings_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6452275,
+      "lng": -79.38395600000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8606202924272108652&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theloosemoose.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.6
+    },
+    {
+      "googlePlaceId": "ChIJw_SXxiQ1K4gR6EX3oeNCYX0",
+      "name": "OHYO SPREE— Claw Machine Arcade",
+      "address": "340 Yonge St, Toronto, ON M5B 1R8, Canada",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 902,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6576539,
+      "lng": -79.381609,
+      "googleMapsUri": "https://maps.google.com/?cid=9034575872924272104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ohyofun.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJxboA1aYuK4gR8yim8S9ZwxI",
+      "name": "Santé Salt Cave & Healing Spa",
+      "address": "1200 Hwy 7 Unit 3, Vaughan, ON L4J 8M5, Canada",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 4456,
+      "priceLevel": null,
+      "primaryType": "wellness_center",
+      "types": [
+        "wellness_center",
+        "spa",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": 43.823738399999996,
+      "lng": -79.4734081,
+      "googleMapsUri": "https://maps.google.com/?cid=1352022375593814259&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.santehealingspas.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJfbK9F4k1K4gRylOd4lRUXc8",
+      "name": "Bar Poet",
+      "address": "1090 Queen St W, Toronto, ON M6J 1H7, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 3526,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6437202,
+      "lng": -79.42232659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14942191862241121226&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://barpoet.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.39
+    },
+    {
+      "googlePlaceId": "ChIJE65wodI0K4gRGHR5w5d4YPI",
+      "name": "Cactus Club Cafe",
+      "address": "77 Adelaide St W, Toronto, ON M5X 1C1, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 8263,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "hamburger_restaurant",
+        "family_restaurant",
+        "steak_house",
+        "american_restaurant",
+        "night_club",
+        "bar",
+        "meal_takeaway",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6495374,
+      "lng": -79.3817104,
+      "googleMapsUri": "https://maps.google.com/?cid=17465091948157695000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cactusclubcafe.com/locations/first-canadian-place/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJV_FafvMELU0Rtqm9omn5Shw",
+      "name": "Bruce Peninsula National Park",
+      "address": "Tobermory, ON N0H 2R0, Canada",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5478,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.2200376,
+      "lng": -81.5307717,
+      "googleMapsUri": "https://maps.google.com/?cid=2038716013435791798&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.canada.ca/pn-np/on/bruce?utm_source=gmb&utm_medium=bruce",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJW9guGM00K4gRQmC01u3UnEI",
+      "name": "Daphne",
+      "address": "67 Richmond St W, Toronto, ON M5H 3V5, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1476,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6509356,
+      "lng": -79.3818958,
+      "googleMapsUri": "https://maps.google.com/?cid=4799945420844589122&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://daphnetoronto.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJ_wU50co0K4gRingYcKzmofs",
+      "name": "Sankofa Square",
+      "address": "1 Dundas St E, Toronto, ON M5B 2R8, Canada",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 21423,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.656061199999996,
+      "lng": -79.380301,
+      "googleMapsUri": "https://maps.google.com/?cid=18132027203059742858&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sankofasquare.ca/",
+      "openNow": null,
+      "matchedQueries": [
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.84
+    },
+    {
+      "googlePlaceId": "ChIJLyzU2jTL1IkRAoztl13UKVA",
+      "name": "CAA Ed Mirvish Theatre",
+      "address": "244 Victoria St, Toronto, ON M5B 1V8, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 7133,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6552521,
+      "lng": -79.37940540000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5776381495525346306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mirvish.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.76
+    },
+    {
+      "googlePlaceId": "ChIJNWK1dA41K4gR9fVcg8jYq4Q",
+      "name": "Arcadia Earth Toronto",
+      "address": "486 Front St W building C, Toronto, ON M5V 0V2, Canada",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.2,
+      "reviewCount": 2875,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.64299390000001,
+      "lng": -79.39697629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9559972989732976117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://arcadiaearth.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 84.71
+    },
+    {
+      "googlePlaceId": "ChIJFYP27mrL1IkR_hRlTJeqCZA",
+      "name": "INBLACK Escape Room Toronto - Eaton",
+      "address": "239 Yonge St Basement Level, Toronto, ON M5B 1N8, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3423,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.654686999999996,
+      "lng": -79.3798559,
+      "googleMapsUri": "https://maps.google.com/?cid=10379014383050495230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.inblackescape.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.7
+    },
+    {
+      "googlePlaceId": "ChIJQ6MuVSDM1IkRyZ3Op6tV9mo",
+      "name": "Looking Glass Adventures",
+      "address": "2944 Danforth Ave Bsmt, Toronto, ON M4C 1M5, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1903,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6904691,
+      "lng": -79.2930111,
+      "googleMapsUri": "https://maps.google.com/?cid=7707442008034287049&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lookingglassadventures.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJQ1S8qcE0K4gRFe0lHDSN7KU",
+      "name": "El Mocambo",
+      "address": "464 Spadina Ave. #462, Toronto, ON M5T 2G8, Canada",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 763,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.6575911,
+      "lng": -79.4002005,
+      "googleMapsUri": "https://maps.google.com/?cid=11956086365711887637&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.elmocambo.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.63
+    },
+    {
+      "googlePlaceId": "ChIJKWfVjJ3U1IkRXr8qIP-Or0g",
+      "name": "Omventure Markham",
+      "address": "7501 Woodbine Ave #7, Markham, ON L3R 2W1, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 4768,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.8268996,
+      "lng": -79.3504763,
+      "googleMapsUri": "https://maps.google.com/?cid=5237562118062653278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.omventure.ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.62
+    },
+    {
+      "googlePlaceId": "ChIJycWyzDYzK4gR7Qo1s_nG714",
+      "name": "The Chef Upstairs",
+      "address": "516 Mt Pleasant Rd, Toronto, ON M4S 2M2, Canada",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1110,
+      "priceLevel": null,
+      "primaryType": "food",
+      "types": [
+        "wine_bar",
+        "catering_service",
+        "banquet_hall",
+        "food_delivery",
+        "bar",
+        "event_venue",
+        "educational_institution",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.701882999999995,
+      "lng": -79.38784299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6840905134754826989&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thechefupstairs.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes"
+      ],
+      "popularityScore": 84.48
+    },
+    {
+      "googlePlaceId": "ChIJCYVEMQ1BK4gR10UGDBDTg6o",
+      "name": "Activate Mississauga",
+      "address": "5980 McLaughlin Rd, Mississauga, ON L5R 3X9, Canada",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3049,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 43.615700100000005,
+      "lng": -79.68989359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12286896274271520215&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/mississauga",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJe1A28Ys1K4gRqgUyNDHkh2w",
+      "name": "LIBRARY BAR",
+      "address": "100 Front St W, Toronto, ON M5J 1E3, Canada",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 872,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 43.645945999999995,
+      "lng": -79.38151479999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7820470177932379562&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.librarybartoronto.com/?utm_source=google+Maps&utm_medium=seo+maps&utm_campaign=seo+maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJLYnwwbE1K4gRS1x7K1pJbbo",
+      "name": "Queen Tour Niagara Falls Tours",
+      "address": "56 Temperance St 7th Floor, Toronto, ON M5H 3V5, Canada",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1685,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 43.650616799999995,
+      "lng": -79.3817487,
+      "googleMapsUri": "https://maps.google.com/?cid=13433473915141446731&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tourstoniagarafalls.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.27
+    }
+  ]
+}

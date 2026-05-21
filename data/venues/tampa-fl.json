@@ -1,0 +1,3625 @@
+{
+  "location": "Tampa, FL",
+  "generatedAt": "2026-05-17T19:58:28.713Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJzXMD72bDwogRUmY0GaY63xI",
+      "name": "Bulla Gastrobar Tampa",
+      "address": "930 S Howard Ave, Tampa, FL 33606, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 18064,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "tapas_restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.934213099999997,
+      "lng": -82.4829034,
+      "googleMapsUri": "https://maps.google.com/?cid=1359870097551025746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bullagastrobar.com/locations/tampa",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 97.76
+    },
+    {
+      "googlePlaceId": "ChIJhRo4DU_GwogRUgjhMAj-pag",
+      "name": "Busch Gardens Tampa Bay",
+      "address": "10165 McKinley Dr, Tampa, FL 33612, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 97709,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.037066,
+      "lng": -82.4194607,
+      "googleMapsUri": "https://maps.google.com/?cid=12152398480662399058&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://buschgardens.com/tampa?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "seasonal pop ups",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.4
+    },
+    {
+      "googlePlaceId": "ChIJBQ5SjLHGwogRL4X19g4J5tI",
+      "name": "ZooTampa at Lowry Park",
+      "address": "1101 W Sligh Ave, Tampa, FL 33604, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 27915,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "amusement_park",
+        "amusement_center",
+        "veterinary_care",
+        "tourist_attraction",
+        "non_profit_organization",
+        "pet_care",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.0138361,
+      "lng": -82.4699672,
+      "googleMapsUri": "https://maps.google.com/?cid=15196843952485795119&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zootampa.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.78
+    },
+    {
+      "googlePlaceId": "ChIJYWj9iZ_PwogRQebjN7pJ_Nw",
+      "name": "Armature Works",
+      "address": "1910 N Ola Ave, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 15637,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.960934299999998,
+      "lng": -82.4642724,
+      "googleMapsUri": "https://maps.google.com/?cid=15923683446625658433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://armatureworks.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "events tonight",
+        "live music events",
+        "sunset date spots",
+        "viral food spots",
+        "events this weekend",
+        "things to do this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.02
+    },
+    {
+      "googlePlaceId": "ChIJlRUlG4nEwogRJOgu0Hf2n54",
+      "name": "Curtis Hixon Waterfront Park",
+      "address": "600 N Ashley Dr, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 10492,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.948916900000004,
+      "lng": -82.4616494,
+      "googleMapsUri": "https://maps.google.com/?cid=11430125373743884324&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tampagov.net/parks-and-recreation",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "cultural exhibits",
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.9
+    },
+    {
+      "googlePlaceId": "ChIJCXAq5_DEwogRjTPE2xlsZtE",
+      "name": "The Florida Aquarium",
+      "address": "701 Channelside Dr, Tampa, FL 33602, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 21183,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.943972,
+      "lng": -82.44487470000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15088866459868476301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.flaquarium.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.84
+    },
+    {
+      "googlePlaceId": "ChIJ_4R4dXj0wogRhGK2MtUmBjI",
+      "name": "Honeymoon Island State Park",
+      "address": "1 Causeway Blvd, Dunedin, FL 34698, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 24160,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.0640795,
+      "lng": -82.830401,
+      "googleMapsUri": "https://maps.google.com/?cid=3604611248877363844&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.floridastateparks.org/honeymoonisland",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.19
+    },
+    {
+      "googlePlaceId": "ChIJ3Vyq7WTEwogRA-WDC7Mze2E",
+      "name": "Ulele",
+      "address": "1810 N Highland Ave, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 11388,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9599384,
+      "lng": -82.4628003,
+      "googleMapsUri": "https://maps.google.com/?cid=7024264887899776259&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ulele.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.05
+    },
+    {
+      "googlePlaceId": "ChIJce6XFIjEwogRaNJA6ZKu31c",
+      "name": "Straz Center for the Performing Arts",
+      "address": "1010 N Macinnes Pl, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 7263,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.951660399999998,
+      "lng": -82.4640622,
+      "googleMapsUri": "https://maps.google.com/?cid=6331971547108004456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.strazcenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.78
+    },
+    {
+      "googlePlaceId": "ChIJSV2_Mo3EwogRc8CZwwOroSs",
+      "name": "Benchmark International Arena",
+      "address": "401 Channelside Dr, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 16369,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.942737299999997,
+      "lng": -82.4517771,
+      "googleMapsUri": "https://maps.google.com/?cid=3143982047536201843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.benchmarkintlarena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.66
+    },
+    {
+      "googlePlaceId": "ChIJCZgnUKHcwogRbPR7qCWl-UA",
+      "name": "Ballast Point Park",
+      "address": "5300 Interbay Blvd, Tampa, FL 33611, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6105,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "playground",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.888987399999998,
+      "lng": -82.4812381,
+      "googleMapsUri": "https://maps.google.com/?cid=4681954868787410028&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tampa.gov/parks-and-recreation/featured-parks/ballast-point",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.25
+    },
+    {
+      "googlePlaceId": "ChIJL_dfJozEwogRF_55TezQpYo",
+      "name": "Tampa Riverwalk",
+      "address": "Riverwalk, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5557,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9446677,
+      "lng": -82.4587775,
+      "googleMapsUri": "https://maps.google.com/?cid=9990621061722013207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thetampariverwalk.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "cultural exhibits",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.97
+    },
+    {
+      "googlePlaceId": "ChIJ-U84wHnEwogR9ry4KMSoZW8",
+      "name": "Julian B. Lane Riverfront Park",
+      "address": "1001 N Blvd, Tampa, FL 33607, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3724,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9538804,
+      "lng": -82.46648929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8027007471308029174&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tampagov.net/parks-and-recreation/riverfrontpark",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "pickleball courts",
+        "family friendly things to do",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.85
+    },
+    {
+      "googlePlaceId": "ChIJIZt3d7DFwogRQ5Lg2tPMXyk",
+      "name": "Dracula's Legacy Wine Bar & Bistro Tampa",
+      "address": "811 N Tampa St, Tampa, FL 33602, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 2487,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "wine_bar",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "bistro",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9509364,
+      "lng": -82.4600883,
+      "googleMapsUri": "https://maps.google.com/?cid=2981326688624874051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.draculaslegacywinebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.72
+    },
+    {
+      "googlePlaceId": "ChIJ11hsiYXEwogRjDBv39F04J8",
+      "name": "Oxford Exchange",
+      "address": "420 W Kennedy Blvd, Tampa, FL 33606, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6739,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "coworking_space",
+        "breakfast_restaurant",
+        "book_store",
+        "coffee_shop",
+        "gift_shop",
+        "cafe",
+        "wedding_venue",
+        "event_venue",
+        "tea_house",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 27.9449261,
+      "lng": -82.4646338,
+      "googleMapsUri": "https://maps.google.com/?cid=11520336291559321740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://oxfordexchange.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.45
+    },
+    {
+      "googlePlaceId": "ChIJlxkdxTbDwogRzOsasxEyLRs",
+      "name": "Zero Latency VR Tampa",
+      "address": "260 Westshore Plaza, Tampa, FL 33609, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1557,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 27.9467863,
+      "lng": -82.5282914,
+      "googleMapsUri": "https://maps.google.com/?cid=1958276464576752588&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zerolatencyvr.com/en/tampa",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.39
+    },
+    {
+      "googlePlaceId": "ChIJIUpfJ1TCwogRDsxgDUkhIJg",
+      "name": "Ocean Prime",
+      "address": "2205 N Westshore Blvd, Tampa, FL 33607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4542,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "sushi_restaurant",
+        "lounge_bar",
+        "american_restaurant",
+        "night_club",
+        "bar",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9611977,
+      "lng": -82.52312769999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10961798090660563982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ocean-prime.com/locations-menus/tampa",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.35
+    },
+    {
+      "googlePlaceId": "ChIJ548djmTEwogRBhsdJuP250o",
+      "name": "Water Works Park",
+      "address": "1701 N Highland Ave, Tampa, FL 33602, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4141,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.959139,
+      "lng": -82.462825,
+      "googleMapsUri": "https://maps.google.com/?cid=5397554133884279558&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tampagov.net/parks_search_webapp/ParkDetail.aspx?nbr=148",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.07
+    },
+    {
+      "googlePlaceId": "ChIJYVYFKETjwogRol57F48FMxc",
+      "name": "Sandbox VR",
+      "address": "2228 Central Ave, St. Petersburg, FL 33712, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3952,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.7709661,
+      "lng": -82.663685,
+      "googleMapsUri": "https://maps.google.com/?cid=1671685998817009314&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/stpetersburg/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.98
+    },
+    {
+      "googlePlaceId": "ChIJ4f4ZvODwwogR7yFoGHZje6E",
+      "name": "Empower Adventures Tampa Bay",
+      "address": "423 Lafayette Blvd, Oldsmar, FL 34677, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 5,
+      "reviewCount": 6880,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "childrens_camp",
+        "adventure_sports_center",
+        "park_and_ride",
+        "parking",
+        "sports_complex",
+        "sports_activity_location",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.027555,
+      "lng": -82.658737,
+      "googleMapsUri": "https://maps.google.com/?cid=11636003421108576751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zipontampabay.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.92
+    },
+    {
+      "googlePlaceId": "ChIJyaCQzpHhwogRBdPcZI6UOyc",
+      "name": "The Dalí Museum",
+      "address": "1 Dali Blvd, St. Petersburg, FL 33701, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 18980,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.7659086,
+      "lng": -82.6315789,
+      "googleMapsUri": "https://maps.google.com/?cid=2827016530403578629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thedali.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.71
+    },
+    {
+      "googlePlaceId": "ChIJeQ-y5zXPwogRFU7AXbruMCg",
+      "name": "Florida State Fairgrounds",
+      "address": "4800 US-301, Tampa, FL 33610, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 17270,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.990478999999997,
+      "lng": -82.35972629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2896077044603440661&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://floridastatefair.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.62
+    },
+    {
+      "googlePlaceId": "ChIJkTDP2OLFwogR9W0EjRYIL-0",
+      "name": "Naked Farmer",
+      "address": "1001 Water St, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2336,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9437958,
+      "lng": -82.44983239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17090888003842502133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eatnakedfarmer.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJ_1EOeJrFwogR3FwZdANqM_w",
+      "name": "Escapology Escape Rooms",
+      "address": "102 W Oak Ave, Tampa, FL 33602, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4594,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9611855,
+      "lng": -82.4613803,
+      "googleMapsUri": "https://maps.google.com/?cid=18172985484435348700&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/tampa-armature-works-fl",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 90.34
+    },
+    {
+      "googlePlaceId": "ChIJLR0ZStLpwogRN1yup67MZhU",
+      "name": "Rusty Pelican Tampa",
+      "address": "2425 N Rocky Point Dr, Tampa, FL 33607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6613,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.962368599999998,
+      "lng": -82.5695662,
+      "googleMapsUri": "https://maps.google.com/?cid=1542144972930571319&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.therustypelicantampa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.3
+    },
+    {
+      "googlePlaceId": "ChIJz8e7TVLEwogRBeybvscHnD4",
+      "name": "Columbia Restaurant",
+      "address": "2117 E 7th Ave, Tampa, FL 33605, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 21688,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "cuban_restaurant",
+        "meal_takeaway",
+        "gift_shop",
+        "event_venue",
+        "restaurant",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.959992399999997,
+      "lng": -82.4351423,
+      "googleMapsUri": "https://maps.google.com/?cid=4511489481196170245&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.columbiarestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.01
+    },
+    {
+      "googlePlaceId": "ChIJPbdEbvvCwogROTCC-gto3b0",
+      "name": "Seasons 52",
+      "address": "204 N Westshore Blvd, Tampa, FL 33609, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3991,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "wine_bar",
+        "vegan_restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "vegetarian_restaurant",
+        "american_restaurant",
+        "meal_takeaway",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.94636,
+      "lng": -82.52483,
+      "googleMapsUri": "https://maps.google.com/?cid=13681205643678199865&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seasons52.com/locations/fl/tampa/tampa/4511?cmpid=br:s52_ag:ie_ch:loc_ca:S52GMB_sn:gmb_gt:tampa-fl-4511_pl:locurl_rd:1010",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.86
+    },
+    {
+      "googlePlaceId": "ChIJAcQub43EwogROiznmr82T5A",
+      "name": "Tampa Convention Center",
+      "address": "333 S Franklin St, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 5542,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 27.9409541,
+      "lng": -82.45598869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10398590261187259450&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tampa.gov/tcc",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "interactive pop ups",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.76
+    },
+    {
+      "googlePlaceId": "ChIJD0N73GTFwogRuJTf5jAk5B8",
+      "name": "Sparkman Wharf",
+      "address": "615 Channelside Dr, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3780,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9433292,
+      "lng": -82.4476555,
+      "googleMapsUri": "https://maps.google.com/?cid=2298001502316238008&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sparkmanwharf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "live music events",
+        "waterfront gardens",
+        "bowling alleys",
+        "board game cafes",
+        "trivia nights",
+        "game bars",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "outdoor-nature",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.69
+    },
+    {
+      "googlePlaceId": "ChIJ-6lKAInEwogRVnf5NBtjZss",
+      "name": "Glazer Children's Museum",
+      "address": "110 W Gasparilla Plaza, Tampa, FL 33602, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4837,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.949576999999998,
+      "lng": -82.461494,
+      "googleMapsUri": "https://maps.google.com/?cid=14656511005827888982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.glazermuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.34
+    },
+    {
+      "googlePlaceId": "ChIJVbiFLlLEwogROaV2EPidQvI",
+      "name": "Madame Fortune Dessert + HiFi Parlour",
+      "address": "1930 E 7th Ave C, Tampa, FL 33605, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2288,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.960400699999997,
+      "lng": -82.4370356,
+      "googleMapsUri": "https://maps.google.com/?cid=17456688794395125049&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://madamefortunetpa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "hidden speakeasies",
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 89.26
+    },
+    {
+      "googlePlaceId": "ChIJJboiAY3EwogRJCLbox7T-70",
+      "name": "Tampa Bay History Center",
+      "address": "801 Water St, Tampa, FL 33602, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2084,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "cultural_center",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9423647,
+      "lng": -82.4498608,
+      "googleMapsUri": "https://maps.google.com/?cid=13689767620874281508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tampabayhistorycenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.98
+    },
+    {
+      "googlePlaceId": "ChIJzeUma4PHwogRP66QntGgtiU",
+      "name": "Adventures Excape Tampa - Escape Rooms",
+      "address": "2830 E Bearss Ave, Tampa, FL 33613, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4774,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 28.0813258,
+      "lng": -82.4274823,
+      "googleMapsUri": "https://maps.google.com/?cid=2717536247333563967&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://adventuresescapes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.95
+    },
+    {
+      "googlePlaceId": "ChIJh4m6DH7DwogRcwo9evYZIhg",
+      "name": "OLIVIA",
+      "address": "3601 W Swann Ave, Tampa, FL 33609, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2788,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9377927,
+      "lng": -82.502017,
+      "googleMapsUri": "https://maps.google.com/?cid=1738980952521902707&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oliviafl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.77
+    },
+    {
+      "googlePlaceId": "ChIJleFCpOE03YgR_W7zvLgzvVQ",
+      "name": "Dinosaur World",
+      "address": "5145 Harvey Tew Rd, Plant City, FL 33565, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7028,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.028052799999998,
+      "lng": -82.1922056,
+      "googleMapsUri": "https://maps.google.com/?cid=6106093538321329917&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dinosaurworld.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 88.73
+    },
+    {
+      "googlePlaceId": "ChIJp2gmKlrOwogR4sETZ5i2Foc",
+      "name": "Topgolf Tampa",
+      "address": "10690 Palm River Rd, Tampa, FL 33619, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 6245,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_coaching",
+        "sports_bar",
+        "american_restaurant",
+        "golf_course",
+        "event_venue",
+        "athletic_field",
+        "bar",
+        "sports_school",
+        "health",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9298601,
+      "lng": -82.3342504,
+      "googleMapsUri": "https://maps.google.com/?cid=9734168410288538082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://topgolf.com/us/tampa/",
+      "openNow": true,
+      "matchedQueries": [
+        "golf courses",
+        "mini golf",
+        "driving ranges",
+        "indoor golf simulators",
+        "arcades",
+        "game night venues",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.62
+    },
+    {
+      "googlePlaceId": "ChIJP9I8xtDpwogRCgan4OapFus",
+      "name": "Bahama Breeze",
+      "address": "3045 N Rocky Point Dr E, Tampa, FL 33607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 19284,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "caribbean_restaurant",
+      "types": [
+        "caribbean_restaurant",
+        "chicken_restaurant",
+        "latin_american_restaurant",
+        "bar_and_grill",
+        "cocktail_bar",
+        "meal_takeaway",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.969829999999998,
+      "lng": -82.56264,
+      "googleMapsUri": "https://maps.google.com/?cid=16939913857477314058&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bahamabreeze.com/locations/fl/tampa/tampa/3004?cmpid=br:bb_ag:ie_ch:loc_ca:BBGMB_sn:gmb_gt:tampa-fl-3004_pl:locurl_rd:1004",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.56
+    },
+    {
+      "googlePlaceId": "ChIJ91OSMGfFwogRD8L_rG6FEG8",
+      "name": "Heights Public Market",
+      "address": "1910 N Ola Ave, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2957,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9609924,
+      "lng": -82.46403839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8003043248232710671&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://armatureworks.com/heights-market/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "viral-eats"
+      ],
+      "popularityScore": 88.3
+    },
+    {
+      "googlePlaceId": "ChIJ98cKiInEwogRfyDonUPi2bc",
+      "name": "Tampa Theatre",
+      "address": "711 N Franklin St, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3229,
+      "priceLevel": null,
+      "primaryType": "movie_theater",
+      "types": [
+        "movie_theater",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9503523,
+      "lng": -82.4589293,
+      "googleMapsUri": "https://maps.google.com/?cid=13247868558926946431&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tampatheatre.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.16
+    },
+    {
+      "googlePlaceId": "ChIJWSwkNNXdwogRCJUtqnx7je0",
+      "name": "Salt Shack On The Bay",
+      "address": "5415 W Tyson Ave, Tampa, FL 33611, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 8208,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.8868649,
+      "lng": -82.5408932,
+      "googleMapsUri": "https://maps.google.com/?cid=17117473534066398472&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://salt-shack.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "sunset date spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 88.11
+    },
+    {
+      "googlePlaceId": "ChIJJ27hGBXBwogRu4Z4IRs7YBc",
+      "name": "1UP Entertainment + Social",
+      "address": "11778 N Dale Mabry Hwy, Tampa, FL 33618, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1029,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "video_arcade",
+        "amusement_center",
+        "sports_complex",
+        "sports_bar",
+        "bar",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 28.055518,
+      "lng": -82.5061735,
+      "googleMapsUri": "https://maps.google.com/?cid=1684411248348268219&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playat1up.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "indoor golf simulators",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "skating rinks",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.93
+    },
+    {
+      "googlePlaceId": "ChIJ7_yFpQu7wogR7x0sqwI70uA",
+      "name": "Main Event Wesley Chapel",
+      "address": "2839 Creek Grass Wy, Lutz, FL 33559, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 4300,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 28.1929212,
+      "lng": -82.388505,
+      "googleMapsUri": "https://maps.google.com/?cid=16200075692252863983&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mainevent.com/locations/florida/wesley-chapel",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJyzrZADLiwogRDSaWoWljzTE",
+      "name": "Imagine Museum: Contemporary glass art",
+      "address": "1901 Central Ave, St. Petersburg, FL 33713, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2754,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.7712671,
+      "lng": -82.6593797,
+      "googleMapsUri": "https://maps.google.com/?cid=3588633783417841165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.imaginemuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.68
+    },
+    {
+      "googlePlaceId": "ChIJlR-NjATIwogRoSE1MsVTpmA",
+      "name": "Lettuce Lake Park",
+      "address": "6920 E Fletcher Ave, Tampa, FL 33637, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6294,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.073871,
+      "lng": -82.3753763,
+      "googleMapsUri": "https://maps.google.com/?cid=6964345980191056289&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hillsboroughcounty.org/locations/lettuce-lake-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.6
+    },
+    {
+      "googlePlaceId": "ChIJmfFGVBPFwogRIYyNhvz3X9Y",
+      "name": "7th + Grove",
+      "address": "1930 E 7th Ave, Tampa, FL 33605, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5159,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "lounge_bar",
+        "cocktail_bar",
+        "catering_service",
+        "night_club",
+        "bar",
+        "american_restaurant",
+        "food_delivery",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 27.9604164,
+      "lng": -82.43687779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15447337910865333281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://7thandgrove.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.39
+    },
+    {
+      "googlePlaceId": "ChIJsxMgXXfFwogRCniVX75FxGU",
+      "name": "Rosenheim Restaurant",
+      "address": "2001 N 22nd St, Tampa, FL 33605, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 3103,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "middle_eastern_restaurant",
+      "types": [
+        "middle_eastern_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9618283,
+      "lng": -82.4345439,
+      "googleMapsUri": "https://maps.google.com/?cid=7333062777215744010&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rosenheimrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.39
+    },
+    {
+      "googlePlaceId": "ChIJiV8UhFDOwogRy63qc7NZ2S0",
+      "name": "Dave & Buster's Tampa - Brandon",
+      "address": "10209 Estuary Lakes Dr, Tampa, FL 33619, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 11938,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "video_arcade",
+        "amusement_center",
+        "sports_bar",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.935727699999997,
+      "lng": -82.3344177,
+      "googleMapsUri": "https://maps.google.com/?cid=3303770428931747275&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/tampa-brandon",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.3
+    },
+    {
+      "googlePlaceId": "ChIJ7QVjUK_FwogRaTLY8uxOico",
+      "name": "SpookEasy Lounge",
+      "address": "1909 N 15th St, Tampa, FL 33605, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1193,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tourist_attraction",
+        "lounge_bar",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "night_club",
+        "food_store",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 27.961415700000003,
+      "lng": -82.44272680000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14594282847064306281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://spookeasylounge.com/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=2383020484045406313",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "nightclubs",
+        "interactive pop ups",
+        "seasonal pop ups",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.28
+    },
+    {
+      "googlePlaceId": "ChIJPabiTxQ13YgR2wVYZ_44o8g",
+      "name": "Keel Farms",
+      "address": "5202 Thonotosassa Rd, Plant City, FL 33565, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.7,
+      "reviewCount": 6068,
+      "priceLevel": null,
+      "primaryType": "winery",
+      "types": [
+        "winery",
+        "tourist_attraction",
+        "event_venue",
+        "farm",
+        "manufacturer",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 28.0471351,
+      "lng": -82.1879321,
+      "googleMapsUri": "https://maps.google.com/?cid=14457461894096094683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.keelfarms.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "trivia nights",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJxYFS48fFwogRHog4kPPOB5c",
+      "name": "Tampa Riverwalk",
+      "address": "100 E Madison St, Tampa, FL 33602, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1926,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9475581,
+      "lng": -82.4615577,
+      "googleMapsUri": "https://maps.google.com/?cid=10882894570056091678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJPRapcZzhwogRZwBXnkjb7Jw",
+      "name": "St. Petersburg Saturday Morning Market",
+      "address": "230 1st St SE, St. Petersburg, FL 33701, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 3362,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.769581499999997,
+      "lng": -82.6333066,
+      "googleMapsUri": "https://maps.google.com/?cid=11307653869361102951&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.saturdaymorningmarket.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.19
+    },
+    {
+      "googlePlaceId": "ChIJrwZdPRk53YgRsOMStUtcui8",
+      "name": "Bonnet Springs Park",
+      "address": "400 Bonnet Spgs Blvd, Lakeland, FL 33815, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 2784,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "hiking_area",
+        "wedding_venue",
+        "playground",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 28.046470799999998,
+      "lng": -81.9666371,
+      "googleMapsUri": "https://maps.google.com/?cid=3439162745681011632&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bonnetspringspark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.06
+    },
+    {
+      "googlePlaceId": "ChIJL0bExYvEwogRWA4X9n0d7MA",
+      "name": "The Great Escape Room Tampa",
+      "address": "300 E Madison St #301, Tampa, FL 33602, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 8070,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9486861,
+      "lng": -82.45790699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13901518576622702168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegreatescaperoom.com/tampa",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.05
+    },
+    {
+      "googlePlaceId": "ChIJ21KSROTjwogRZk2G0ikbyXQ",
+      "name": "Unlimited Video Games Superstore and Arcade",
+      "address": "6901 US Hwy 19 N, Pinellas Park, FL 33781, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1247,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 27.834688999999997,
+      "lng": -82.68020039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8415287245158108518&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.unlimitedvideogames.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.77
+    },
+    {
+      "googlePlaceId": "ChIJeYP3lyfJwogRAUftqRD0500",
+      "name": "Eureka Springs Park",
+      "address": "6400 Eureka Springs Rd, Tampa, FL 33610, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1628,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.0065219,
+      "lng": -82.3438968,
+      "googleMapsUri": "https://maps.google.com/?cid=5613723812948166401&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hcflgov.net/en/locations/eureka-springs-conservation-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 86.73
+    },
+    {
+      "googlePlaceId": "ChIJM3CugoKA3YgRV1x2KktePi0",
+      "name": "Discovery Cove",
+      "address": "6000 Discovery Cove Way, Orlando, FL 32821, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 14493,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.4050951,
+      "lng": -81.4631122,
+      "googleMapsUri": "https://maps.google.com/?cid=3260146857190775895&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://discoverycove.com/orlando?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.64
+    },
+    {
+      "googlePlaceId": "ChIJNaDOUI_EwogRIUxGNqbJv-Q",
+      "name": "Henry B. Plant Museum",
+      "address": "401 W Kennedy Blvd, Tampa, FL 33606, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1366,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9463553,
+      "lng": -82.4640404,
+      "googleMapsUri": "https://maps.google.com/?cid=16483114876911635489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.plantmuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.59
+    },
+    {
+      "googlePlaceId": "ChIJo-8jH13EwogRuKIb6MNc2aA",
+      "name": "Centro Asturiano de Tampa",
+      "address": "1913 N Nebraska Ave, Tampa, FL 33602, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1897,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "banquet_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "historical_landmark",
+        "historical_place",
+        "wedding_venue",
+        "association_or_organization",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9620682,
+      "lng": -82.4511057,
+      "googleMapsUri": "https://maps.google.com/?cid=11590397112497185464&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.centroasturianotampa.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJ1WZIXhjFwogR1M-_3DXnG6Y",
+      "name": "Rocca",
+      "address": "323 W Palm Ave, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1342,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9624349,
+      "lng": -82.465183,
+      "googleMapsUri": "https://maps.google.com/?cid=11969414653190066132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://roccatampa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJ6y2dx9g_w4gRWoZIRhLk-JI",
+      "name": "The John and Mable Ringling Museum of Art",
+      "address": "5401 Bay Shore Rd, Sarasota, FL 34243, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 9594,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "garden",
+        "performing_arts_theater",
+        "history_museum",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.3815477,
+      "lng": -82.56057160000002,
+      "googleMapsUri": "https://maps.google.com/?cid=10590465290901423706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ringling.org/museum-art",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJEVArB1LGwogRM2k5RHvCuX4",
+      "name": "Adventure Island",
+      "address": "10001 McKinley Dr, Tampa, FL 33612, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.1,
+      "reviewCount": 13746,
+      "priceLevel": null,
+      "primaryType": "water_park",
+      "types": [
+        "water_park",
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.0417018,
+      "lng": -82.4130318,
+      "googleMapsUri": "https://maps.google.com/?cid=9131543554151770419&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://adventureisland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJbQoSj0_OwogRexghhLFGT8w",
+      "name": "Bass Pro Shops",
+      "address": "10501 Palm River Rd, Tampa, FL 33619, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 8959,
+      "priceLevel": null,
+      "primaryType": "sporting_goods_store",
+      "types": [
+        "sporting_goods_store",
+        "clothing_store",
+        "supplier",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9344175,
+      "lng": -82.33374239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14722063435137357947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stores.basspro.com/us/fl/tampa/10501-palm-river-rd.html?y_source=1_MzAxMTU1Ni03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJwTaQvXzxwogR3bHs7Q_MZ6A",
+      "name": "Dunedin Downtown Market",
+      "address": "420 Main St, Dunedin, FL 34698, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 2369,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.0117315,
+      "lng": -82.7890551,
+      "googleMapsUri": "https://maps.google.com/?cid=11558431337457955293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://farmersmarket.website/florida/168-dunedin-downtown-market",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.12
+    },
+    {
+      "googlePlaceId": "ChIJGQcm04vEwogR4ha20CDisDI",
+      "name": "CW's Gin Joint",
+      "address": "633 N Franklin St, Tampa, FL 33602, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1669,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9495214,
+      "lng": -82.458541,
+      "googleMapsUri": "https://maps.google.com/?cid=3652667928365897442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cwginjoint.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJKQXHdmfDwogRJFCLuT7eJ6I",
+      "name": "Bern's Steak House",
+      "address": "1208 S Howard Ave, Tampa, FL 33606, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.6,
+      "reviewCount": 9652,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 27.9316028,
+      "lng": -82.48285179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11684552119218294820&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bernssteakhouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.05
+    },
+    {
+      "googlePlaceId": "ChIJo-LUT6vDwogRUFEzrVQ_Ce8",
+      "name": "Eddie V's Prime Seafood",
+      "address": "4400 W Boy Scout Blvd, Tampa, FL 33607, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4001,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "oyster_bar_restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "cocktail_bar",
+        "lounge_bar",
+        "american_restaurant",
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9603129,
+      "lng": -82.51826249999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17224367882770796880&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eddiev.com/locations/fl/tampa/tampa/8512?cmpid=br:ev_ag:ie_ch:loc_ca:EVGMB_sn:gmb_gt:tampa-fl-8512_pl:locurl_rd:1011",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.97
+    },
+    {
+      "googlePlaceId": "ChIJyV2gRL7HwogRhSk2mi2gmpQ",
+      "name": "Yuengling Center",
+      "address": "12499 USF Bull Run Drive, Tampa, FL 33617, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4617,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "stadium",
+        "sports_complex",
+        "live_music_venue",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.059207599999997,
+      "lng": -82.4065387,
+      "googleMapsUri": "https://maps.google.com/?cid=10708047181747988869&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.yuenglingcenter.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.95
+    },
+    {
+      "googlePlaceId": "ChIJRdMLbYvDwogReC2WN2YpVEA",
+      "name": "Walk-On's Sports Bistreaux - Tampa (Midtown)",
+      "address": "1140 Gramercy Ln, Tampa, FL 33607, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 5579,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9535475,
+      "lng": -82.50247949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4635375435467074936&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://locate.walk-ons.com/fl/tampa/restaurants-441.html",
+      "openNow": true,
+      "matchedQueries": [
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.93
+    },
+    {
+      "googlePlaceId": "ChIJezXdDzL6wogRvqox_SAS_vg",
+      "name": "Florida Botanical Gardens",
+      "address": "12520 Ulmerton Rd, Largo, FL 33774, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7962,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.883080099999997,
+      "lng": -82.8086584,
+      "googleMapsUri": "https://maps.google.com/?cid=17941797898386778814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://flbgfoundation.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJS4AtxNfFwogReG60gXMaVEo",
+      "name": "The Pearl Tampa",
+      "address": "823 Water St C100, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1514,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9433114,
+      "lng": -82.4500879,
+      "googleMapsUri": "https://maps.google.com/?cid=5355934940250009208&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thepearlrestaurant.com/locations-menus/tampa/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.81
+    },
+    {
+      "googlePlaceId": "ChIJTwpX22TCwogRaTUt4Qe9TJU",
+      "name": "Oystercatchers",
+      "address": "2900 Bayport Dr, Tampa, FL 33607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2077,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9622766,
+      "lng": -82.54934740000002,
+      "googleMapsUri": "https://maps.google.com/?cid=10758181451421529449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oystercatchersrestaurant.com/?utm_source=google&utm_medium=lastmile&utm_campaign=tparw-r-oyst",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJJyJO7L_HwogRUgJ8nwE41Y8",
+      "name": "Melt N Dip",
+      "address": "11301 N 56th St ste 11, Temple Terrace, FL 33617, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 5036,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "ice_cream_shop",
+        "coffee_shop",
+        "cafe",
+        "dessert_shop",
+        "confectionery",
+        "restaurant",
+        "point_of_interest",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 28.051465000000004,
+      "lng": -82.392748,
+      "googleMapsUri": "https://maps.google.com/?cid=10364251697084891730&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://meltndip.com/location/11301-n-56th-st-ste-11-temple-terrace-fl-33617/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.62
+    },
+    {
+      "googlePlaceId": "ChIJdd5wB0zDwogRMowZSgASa9U",
+      "name": "Riveters Tampa",
+      "address": "2301 N Dale Mabry Hwy, Tampa, FL 33607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1416,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9618382,
+      "lng": -82.5050866,
+      "googleMapsUri": "https://maps.google.com/?cid=15378405145039178802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://riveterstampa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "game night venues",
+        "karaoke bars",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 85.6
+    },
+    {
+      "googlePlaceId": "ChIJd_fXS8rGwogRRHwBb6zSYpI",
+      "name": "Lowry Parcade",
+      "address": "1213 W Waters Ave, Tampa, FL 33604, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1568,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "liquor_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 28.025657799999998,
+      "lng": -82.47126709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10548224915293699140&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lowryparcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJXdpXH7frwogR8UQfIgUbht0",
+      "name": "Elev8 Fun",
+      "address": "7902 Citrus Park Town Center Mall, Tampa, FL 33625, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 1942,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.0677544,
+      "lng": -82.5752083,
+      "googleMapsUri": "https://maps.google.com/?cid=15962475638122562801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elev8fun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.47
+    },
+    {
+      "googlePlaceId": "ChIJs9YbCILjwogRLrEPeOStU7o",
+      "name": "FloridaRAMA",
+      "address": "2606 Fairfield Ave S Building 5, St. Petersburg, FL 33712, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 1841,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "wedding_venue",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 27.7635075,
+      "lng": -82.6687474,
+      "googleMapsUri": "https://maps.google.com/?cid=13426266110900023598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.floridarama.art/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.3
+    },
+    {
+      "googlePlaceId": "ChIJQ-bm2CHnwogRKAxXXtpKbKA",
+      "name": "Weedon Island Preserve",
+      "address": "1800 Weedon Dr NE, St. Petersburg, FL 33702, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3617,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "hiking_area",
+        "park",
+        "historical_landmark",
+        "historical_place",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.847588899999998,
+      "lng": -82.60866299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11559696645299309608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pinellas.gov/parks/weedon-island-preserve/",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.26
+    },
+    {
+      "googlePlaceId": "ChIJY-2GJXONwogRkXC6444uIwc",
+      "name": "Replay Museum",
+      "address": "119 E Tarpon Ave, Tarpon Springs, FL 34689, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 2149,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.146366600000004,
+      "lng": -82.7556219,
+      "googleMapsUri": "https://maps.google.com/?cid=514305973691248785&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://replaymuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.17
+    },
+    {
+      "googlePlaceId": "ChIJK6b43nXhwogRuJ7f4Z-pQ44",
+      "name": "Chihuly Collection",
+      "address": "720 Central Ave, St. Petersburg, FL 33701, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2771,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.771026,
+      "lng": -82.6440401,
+      "googleMapsUri": "https://maps.google.com/?cid=10251223680979803832&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.moreanartscenter.org/chihuly/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.1
+    },
+    {
+      "googlePlaceId": "ChIJ76SYUVDEwogRJec_Q3szUk0",
+      "name": "Crowbar",
+      "address": "1812 N 17th St, Ybor City, FL 33605, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1370,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.960778599999998,
+      "lng": -82.4405992,
+      "googleMapsUri": "https://maps.google.com/?cid=5571572293512980261&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://crowbarybor.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "ticketed events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 85.1
+    },
+    {
+      "googlePlaceId": "ChIJFdsuKwDFwogRNyTrKi7NGtE",
+      "name": "Oak & Ola",
+      "address": "1910 N Ola Ave, Tampa, FL 33602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1457,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9608352,
+      "lng": -82.4643177,
+      "googleMapsUri": "https://maps.google.com/?cid=15067581101493658679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.oakandola.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJP3St-uTTwogRYDZFgRQGuNI",
+      "name": "iSmash Tampa",
+      "address": "863 E Bloomingdale Ave, Brandon, FL 33511, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1552,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.8920075,
+      "lng": -82.27242509999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15183892828817536608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ismashusa.com/locations/fl-tampa/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.88
+    },
+    {
+      "googlePlaceId": "ChIJN_wfbqTGwogRozoYcFWbdCI",
+      "name": "Rooster & the Till",
+      "address": "6500 N Florida Ave, Tampa, FL 33604, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1325,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 28.0068378,
+      "lng": -82.45970919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2482780085843147427&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.roosterandthetill.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.75
+    },
+    {
+      "googlePlaceId": "ChIJod7nUo6wwogR3KTnXPJSJFI",
+      "name": "Tampa Premium Outlets",
+      "address": "2300 Grand Cypress Dr, Lutz, FL 33559, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 15865,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.190354199999998,
+      "lng": -82.3905997,
+      "googleMapsUri": "https://maps.google.com/?cid=5918947011165922524&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.premiumoutlets.com/outlet/tampa",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.71
+    },
+    {
+      "googlePlaceId": "ChIJc0608_7twogRHYblYH7BRwU",
+      "name": "Countryside Mall",
+      "address": "27001 US Hwy 19 N Suite 1039, Clearwater, FL 33761, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 15394,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.0171714,
+      "lng": -82.733329,
+      "googleMapsUri": "https://maps.google.com/?cid=380485442071791133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.countrysidemallfl.com/?utm_source=google-business-profile&utm_medium=organic&utm_campaign=business-listing&utm_id=53815",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.62
+    },
+    {
+      "googlePlaceId": "ChIJwYoIDIjEwogR2Qnt9YxA-1U",
+      "name": "Carol Morsani Hall",
+      "address": "Straz Center for the Performing Arts, 1010 N Macinnes Pl, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 996,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.951607,
+      "lng": -82.464191,
+      "googleMapsUri": "https://maps.google.com/?cid=6195616686543800793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.strazcenter.org/your-visit/theaters-and-seating-charts/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 84.58
+    },
+    {
+      "googlePlaceId": "ChIJVwY-iKzDwogRertNM1YPMjg",
+      "name": "Fleming’s Prime Steakhouse & Wine Bar",
+      "address": "4342 W Boy Scout Blvd, Tampa, FL 33607, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 4071,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "bar_and_grill",
+        "wine_bar",
+        "steak_house",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 27.961411899999998,
+      "lng": -82.5166157,
+      "googleMapsUri": "https://maps.google.com/?cid=4049315877861833594&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.flemingssteakhouse.com/Locations/FL/Tampa?y_source=1_MTU1MDMxNzUtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.52
+    },
+    {
+      "googlePlaceId": "ChIJTY7XE2PFwogRDgMOQRLEAhw",
+      "name": "M.Bird",
+      "address": "1903 Market St, Tampa, FL 33602, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2029,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.96099,
+      "lng": -82.46428619999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2018391165695296270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mbirdtampa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.5
+    },
+    {
+      "googlePlaceId": "ChIJ08ZCkIXEwogRjvTfGfUb6Pk",
+      "name": "Mise en Place",
+      "address": "1229 E 8th Ave, Tampa, FL 33605, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 929,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 27.9608211,
+      "lng": -82.4457506,
+      "googleMapsUri": "https://maps.google.com/?cid=18007673849555973262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.miseonline.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.32
+    },
+    {
+      "googlePlaceId": "ChIJ39Uq_ovEwogRuvigNnpmA-0",
+      "name": "The Tampa Club",
+      "address": "101 E Kennedy Blvd #4200, Tampa, FL 33602, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 449,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "coworking_space",
+        "fine_dining_restaurant",
+        "banquet_hall",
+        "event_venue",
+        "restaurant",
+        "service",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9468611,
+      "lng": -82.4591528,
+      "googleMapsUri": "https://maps.google.com/?cid=17078606887007615162&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thetampaclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.31
+    },
+    {
+      "googlePlaceId": "ChIJK9c_msi0wogR0wlFgcKCmvU",
+      "name": "Hillsborough River State Park",
+      "address": "15402 US-301, Thonotosassa, FL 33592, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 3049,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.142650699999997,
+      "lng": -82.227154,
+      "googleMapsUri": "https://maps.google.com/?cid=17697601457609837011&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.floridastateparks.org/park/Hillsborough-River",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.29
+    },
+    {
+      "googlePlaceId": "ChIJ36WSjPrDwogR2y-7lN_llyg",
+      "name": "Pin Chasers",
+      "address": "4847 N Armenia Ave, Tampa, FL 33603, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2661,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "video_arcade",
+        "american_restaurant",
+        "bar",
+        "sports_complex",
+        "restaurant",
+        "food",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9901321,
+      "lng": -82.4835128,
+      "googleMapsUri": "https://maps.google.com/?cid=2925059231436189659&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pinchasers.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.27
+    },
+    {
+      "googlePlaceId": "ChIJv2K6QMfDwogRDyQGmQQ2uCM",
+      "name": "Al Lopez Park",
+      "address": "4810 N Himes Ave, Tampa, FL 33614, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6437,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "dog_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.988768699999998,
+      "lng": -82.504127,
+      "googleMapsUri": "https://maps.google.com/?cid=2573866580417324047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tampagov.net/parks-and-recreation/programs/parks-and-facilities/greenways-and-trails/trail-maps/al-lopez",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.17
+    },
+    {
+      "googlePlaceId": "ChIJ336If1rEwogRx-8ntTOjVvk",
+      "name": "The Ritz Ybor",
+      "address": "1503 E 7th Ave, Tampa, FL 33605, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 2971,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.960119,
+      "lng": -82.442763,
+      "googleMapsUri": "https://maps.google.com/?cid=17966727205919125447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theritzybor.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.16
+    },
+    {
+      "googlePlaceId": "ChIJPTvxtmpAw4gReToYD5mTNwE",
+      "name": "Marie Selby Botanical Gardens Downtown Sarasota",
+      "address": "1534 Mound St, Sarasota, FL 34236, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6396,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.3275053,
+      "lng": -82.539718,
+      "googleMapsUri": "https://maps.google.com/?cid=87701003349539449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.selby.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.15
+    },
+    {
+      "googlePlaceId": "ChIJobFVhyTtwogRlBBZa-6-ME8",
+      "name": "John Chesnut Sr. Park",
+      "address": "2200 E Lake Rd S, Palm Harbor, FL 34685, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4342,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 28.088600699999997,
+      "lng": -82.7014568,
+      "googleMapsUri": "https://maps.google.com/?cid=5706270659090911380&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pinellascounty.org/park/04_chesnut.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.07
+    },
+    {
+      "googlePlaceId": "ChIJ67uD6ZzhwogRmfsFSLl5R8I",
+      "name": "Jannus Live",
+      "address": "200 1st Ave N STE 206, St. Petersburg, FL 33701, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4789,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.771925699999997,
+      "lng": -82.636271,
+      "googleMapsUri": "https://maps.google.com/?cid=13999291803388738457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jannuslive.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.91
+    },
+    {
+      "googlePlaceId": "ChIJV5IKfmXhwogRV3X8VCd713A",
+      "name": "Sunken Gardens",
+      "address": "1825 4th St N, St. Petersburg, FL 33704, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5624,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.7897718,
+      "lng": -82.6378269,
+      "googleMapsUri": "https://maps.google.com/?cid=8131103061100492119&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sunkengardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.75
+    },
+    {
+      "googlePlaceId": "ChIJQ_vEcojEwogRBILMQb7_H8Q",
+      "name": "Ferguson Hall",
+      "address": "Straz Center for the Performing Arts, 1010 N Macinnes Pl, Tampa, FL 33602, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 426,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9512508,
+      "lng": -82.4640967,
+      "googleMapsUri": "https://maps.google.com/?cid=14132295348324696580&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.strazcenter.org/your-visit/theaters-and-seating-charts/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 83.75
+    },
+    {
+      "googlePlaceId": "ChIJjW5vZYvCwogR1zvjffiggW0",
+      "name": "Cypress Point Park",
+      "address": "5620 W Cypress St, Tampa, FL 33607, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 6497,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 27.9505768,
+      "lng": -82.5439009,
+      "googleMapsUri": "https://maps.google.com/?cid=7890765011254197207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tampagov.net/parks-and-recreation/featured-parks/cypress-point-park",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.74
+    }
+  ]
+}

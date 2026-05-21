@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONFETTI — Boarding Pass</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
+    font-family: 'Inter', sans-serif;
+    padding: 40px 20px;
+  }
+
+  .boarding-pass {
+    width: 420px;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 25px 60px rgba(0,0,0,0.4),
+      0 0 0 1px rgba(255,255,255,0.05);
+    position: relative;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #6C3CE1 0%, #8B5CF6 50%, #A78BFA 100%);
+    padding: 24px 28px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .logo span {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: #FCD34D;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: super;
+    font-size: 0;
+  }
+
+  .flight-code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 2px;
+    text-align: right;
+  }
+
+  .flight-code strong {
+    display: block;
+    font-size: 14px;
+    color: #FCD34D;
+    letter-spacing: 3px;
+    margin-top: 2px;
+  }
+
+  .occasion-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .occasion-badge .emoji { font-size: 14px; }
+
+  .header-meta {
+    display: flex;
+    gap: 20px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+
+  .meta-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+
+  .meta-value {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .route-section {
+    padding: 28px 28px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .station { text-align: center; flex: 0 0 auto; }
+
+  .station-code {
+    font-family: 'Space Mono', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .station-name {
+    font-size: 11px;
+    color: #8b8b9e;
+    font-weight: 500;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .station-label {
+    font-size: 9px;
+    color: #a78bfa;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .route-line { flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 12px; position: relative; }
+
+  .route-line .line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #6C3CE1, #e5e5ea, #6C3CE1);
+    position: relative;
+  }
+
+  .route-line .layover-dot {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px; height: 28px;
+    background: #FCD34D;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(252, 211, 77, 0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+
+  .route-line .plane-icon {
+    position: absolute;
+    top: 50%; right: 15%;
+    transform: translate(0, -50%);
+    font-size: 16px;
+    color: #6C3CE1;
+  }
+
+  .tear-divider {
+    position: relative;
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  .tear-divider::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    width: 32px; height: 32px;
+    background: #0f0f1a;
+    border-radius: 50%;
+  }
+
+  .tear-divider::after {
+    content: '';
+    position: absolute;
+    right: -16px;
+    width: 32px; height: 32px;
+    background: #0f0f1a;
+    border-radius: 50%;
+  }
+
+  .tear-line { width: 100%; border: none; border-top: 2px dashed #e5e5ea; margin: 0 20px; }
+
+  .stops-section { padding: 8px 28px 24px; }
+
+  .stops-header {
+    font-size: 9px; font-weight: 700; color: #8b8b9e;
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  .stop { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; position: relative; }
+  .stop:last-child { margin-bottom: 0; }
+
+  .stop-marker {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0; position: relative;
+  }
+
+  .stop-marker.departure { background: #EDE9FE; }
+  .stop-marker.layover { background: #FEF3C7; }
+  .stop-marker.destination { background: #DCFCE7; }
+
+  .stop:not(:last-child) .stop-marker::after {
+    content: '';
+    position: absolute; top: 38px; left: 50%;
+    transform: translateX(-50%);
+    width: 2px; height: 24px; background: #e5e5ea;
+  }
+
+  .stop-content { flex: 1; padding-top: 2px; }
+
+  .stop-type { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+  .stop-type.departure { color: #6C3CE1; }
+  .stop-type.layover { color: #D97706; }
+  .stop-type.destination { color: #16A34A; }
+
+  .stop-name { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+  .stop-detail { font-size: 11px; color: #8b8b9e; line-height: 1.4; }
+
+  .stop-tags { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+
+  .tag { font-size: 9px; font-weight: 600; padding: 3px 8px; border-radius: 6px; letter-spacing: 0.5px; }
+
+  .ev-detail { display: flex; align-items: center; gap: 8px; margin-top: 6px; padding: 6px 10px; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; }
+  .ev-logo { font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; color: #fff; background: #00A94F; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.5px; }
+  .ev-detail-sub { font-size: 10px; color: #6B7280; margin-top: 4px; padding-left: 2px; }
+  .ev-spec { font-size: 10px; font-weight: 600; color: #16A34A; padding-left: 8px; border-left: 1px solid #BBF7D0; }
+  .ev-time { font-size: 10px; color: #6B7280; padding-left: 8px; border-left: 1px solid #BBF7D0; }
+
+  .parking-detail { display: flex; align-items: flex-start; gap: 8px; margin-top: 6px; padding: 8px 10px; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; }
+  .parking-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .parking-info { display: flex; flex-direction: column; gap: 2px; }
+  .parking-primary { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; color: #1E40AF; letter-spacing: 0.3px; }
+  .parking-secondary { font-size: 9px; color: #6B7280; line-height: 1.3; }
+
+  .parking-sunday { display: flex; align-items: center; gap: 8px; margin-top: 5px; padding: 5px 10px; background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border: 1px solid #A7F3D0; border-radius: 8px; }
+  .sunday-badge { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; color: #fff; background: #059669; padding: 2px 6px; border-radius: 4px; letter-spacing: 1px; flex-shrink: 0; }
+  .sunday-text { font-size: 9px; font-weight: 600; color: #065F46; line-height: 1.3; }
+
+  .tag.vibe { background: #F3E8FF; color: #7C3AED; }
+  .tag.ev { background: #ECFDF5; color: #059669; }
+  .tag.parking { background: #EFF6FF; color: #2563EB; }
+  .tag.time { background: #FEF3C7; color: #D97706; }
+
+  .nav-row { display: flex; gap: 8px; margin-top: 8px; }
+  .nav-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .nav-btn:active { transform: scale(0.96); }
+  .nav-btn.apple { background: linear-gradient(135deg, #1a1a2e, #2d2d44); color: #fff; border: 1px solid #3d3d5c; }
+  .nav-btn.google { background: linear-gradient(135deg, #4285F4, #5B9BF5); color: #fff; border: 1px solid #3B78E7; }
+  .nav-btn .nav-icon { font-size: 12px; }
+
+  .drive-time { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 6px 0 6px 50px; padding: 4px 12px; background: #F9FAFB; border: 1px dashed #D1D5DB; border-radius: 20px; width: fit-content; }
+  .drive-time-text { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 600; color: #6B7280; letter-spacing: 0.5px; }
+  .drive-time-icon { font-size: 11px; }
+
+  .tear-divider-2 { position: relative; height: 32px; display: flex; align-items: center; }
+  .tear-divider-2::before { content: ''; position: absolute; left: -16px; width: 32px; height: 32px; background: #0f0f1a; border-radius: 50%; }
+  .tear-divider-2::after { content: ''; position: absolute; right: -16px; width: 32px; height: 32px; background: #0f0f1a; border-radius: 50%; }
+
+  .stats-section { padding: 16px 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .stat { text-align: center; }
+  .stat-value { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: #1a1a2e; line-height: 1; }
+  .stat-label { font-size: 8px; color: #8b8b9e; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+
+  .confetti-section { margin: 0 28px; background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  .confetti-left { display: flex; align-items: center; gap: 10px; }
+  .confetti-icon { font-size: 24px; }
+  .confetti-text { font-size: 11px; font-weight: 600; color: #92400E; line-height: 1.3; }
+  .confetti-text strong { display: block; font-size: 13px; color: #78350F; }
+  .confetti-points { font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; color: #D97706; }
+
+  .barcode-section { padding: 20px 28px 28px; text-align: center; }
+  .barcode { display: flex; justify-content: center; gap: 2px; margin-bottom: 8px; height: 48px; align-items: flex-end; }
+  .barcode .bar { background: #1a1a2e; border-radius: 1px; }
+  .barcode-text { font-family: 'Space Mono', monospace; font-size: 10px; color: #8b8b9e; letter-spacing: 3px; }
+
+  .vibe-row { display: flex; gap: 8px; justify-content: center; padding: 0 28px 6px; flex-wrap: wrap; }
+  .vibe-pill { font-size: 10px; font-weight: 600; padding: 5px 12px; border-radius: 20px; background: linear-gradient(135deg, #EDE9FE, #F3E8FF); color: #6C3CE1; letter-spacing: 0.5px; }
+
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .boarding-pass { animation: slideUp 0.6s ease-out; }
+  @keyframes markerReveal { 0% { opacity: 0; transform: scale(0.3); } 60% { transform: scale(1.15); } 100% { opacity: 1; transform: scale(1); } }
+  @keyframes markerPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(108, 60, 225, 0.3); } 50% { box-shadow: 0 0 0 10px rgba(108, 60, 225, 0); } }
+  @keyframes layoverPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.3); } 50% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0); } }
+  @keyframes destinationPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.3); } 50% { box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); } }
+  @keyframes connectorGrow { from { height: 0; opacity: 0; } to { height: 24px; opacity: 1; } }
+  @keyframes contentSlide { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+
+  .stop-marker { opacity: 0; animation: markerReveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+  .stop:nth-child(1) .stop-marker { animation-delay: 0.8s; }
+  .stop:nth-child(1) .stop-marker.departure { animation: markerReveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards, markerPulse 2.5s ease-in-out 1.5s infinite; }
+  .stop:nth-child(2) .stop-marker { animation-delay: 1.4s; }
+  .stop:nth-child(2) .stop-marker.layover { animation: markerReveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s forwards, layoverPulse 2.5s ease-in-out 2.1s infinite; }
+  .stop:nth-child(3) .stop-marker { animation-delay: 2.0s; }
+  .stop:nth-child(3) .stop-marker.destination { animation: markerReveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 2.0s forwards, destinationPulse 2.5s ease-in-out 2.7s infinite; }
+
+  .stop:not(:last-child) .stop-marker::after { animation: connectorGrow 0.4s ease-out forwards; }
+  .stop:nth-child(1) .stop-marker::after { animation-delay: 1.2s; opacity: 0; }
+  .stop:nth-child(2) .stop-marker::after { animation-delay: 1.8s; opacity: 0; }
+
+  .stop-content { opacity: 0; animation: contentSlide 0.4s ease-out forwards; }
+  .stop:nth-child(1) .stop-content { animation-delay: 1.0s; }
+  .stop:nth-child(2) .stop-content { animation-delay: 1.6s; }
+  .stop:nth-child(3) .stop-content { animation-delay: 2.2s; }
+
+  @keyframes tagFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .stop-tags .tag { opacity: 0; animation: tagFade 0.3s ease-out forwards; }
+  .stop:nth-child(1) .stop-tags .tag:nth-child(1) { animation-delay: 1.2s; }
+  .stop:nth-child(1) .stop-tags .tag:nth-child(2) { animation-delay: 1.3s; }
+  .stop:nth-child(2) .stop-tags .tag:nth-child(1) { animation-delay: 1.8s; }
+  .stop:nth-child(2) .stop-tags .tag:nth-child(2) { animation-delay: 1.9s; }
+  .stop:nth-child(3) .stop-tags .tag:nth-child(1) { animation-delay: 2.4s; }
+  .stop:nth-child(3) .stop-tags .tag:nth-child(2) { animation-delay: 2.5s; }
+
+  .nav-row { opacity: 0; animation: tagFade 0.3s ease-out forwards; }
+  .stop:nth-child(1) .nav-row { animation-delay: 1.35s; }
+  .stop:nth-child(2) .nav-row { animation-delay: 1.95s; }
+  .stop:nth-child(3) .nav-row { animation-delay: 2.55s; }
+
+  .drive-time { opacity: 0; animation: tagFade 0.3s ease-out forwards; }
+  .stops-section > .drive-time:nth-of-type(1) { animation-delay: 1.5s; }
+  .stops-section > .drive-time:nth-of-type(2) { animation-delay: 2.1s; }
+
+  @media (max-width: 460px) {
+    .boarding-pass { width: 100%; }
+    .station-code { font-size: 28px; }
+    .stats-section { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="boarding-pass">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="logo">CONFETTI<span>.</span></div>
+        <div class="occasion-badge">
+          <span class="emoji">💐</span>
+          Mother's Day Experience
+        </div>
+      </div>
+      <div class="flight-code">
+        ITINERARY<br>
+        <strong>CNFT-MOM-0510</strong>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-item"><span class="meta-label">DATE</span><span class="meta-value">MAY 10, 2026</span></div>
+      <div class="meta-item"><span class="meta-label">PASSENGERS</span><span class="meta-value">1</span></div>
+      <div class="meta-item"><span class="meta-label">DAY</span><span class="meta-value">SUNDAY</span></div>
+    </div>
+  </div>
+
+  <div class="route-section">
+    <div class="station"><div class="station-label">Departure</div><div class="station-code">GTN</div><div class="station-name">Georgetown</div></div>
+    <div class="route-line"><div class="line"><div class="layover-dot">⚡</div><div class="plane-icon">✈</div></div></div>
+    <div class="station"><div class="station-label">Destination</div><div class="station-code">CPH</div><div class="station-name">Capitol Hill</div></div>
+  </div>
+
+  <div class="vibe-row">
+    <span class="vibe-pill">🌸 Celebration</span>
+    <span class="vibe-pill">🍽 Foodie</span>
+    <span class="vibe-pill">🛍 Shopping</span>
+    <span class="vibe-pill">💚 Eco</span>
+  </div>
+
+  <div class="tear-divider"><hr class="tear-line"></div>
+
+  <div class="stops-section">
+    <div class="stops-header">Flight Plan</div>
+
+    <div class="stop">
+      <div class="stop-marker departure">🥂</div>
+      <div class="stop-content">
+        <div class="stop-type departure">Departure — 10:30 AM</div>
+        <div class="stop-name">Brunch at Fiola Mare</div>
+        <div class="stop-detail">Georgetown waterfront · Italian seafood</div>
+        <div class="parking-detail"><span class="parking-icon">🅿</span><div class="parking-info"><span class="parking-primary">Valet at entrance · $20</span><span class="parking-secondary">31st St &amp; waterfront · or Colonial Garage @ 3000 K St NW</span></div></div>
+        <div class="parking-sunday"><span class="sunday-badge">SUN</span><span class="sunday-text">Free street meter parking · meters not enforced Sundays</span></div>
+        <div class="nav-row">
+          <a href="maps://maps.apple.com/?daddr=3050+K+St+NW,+Washington,+DC+20007&dirflg=d" class="nav-btn apple" target="_blank"><span class="nav-icon">🍎</span> Apple Maps</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=3050+K+St+NW,+Washington,+DC+20007" class="nav-btn google" target="_blank"><span class="nav-icon">📍</span> Google Maps</a>
+        </div>
+        <div class="stop-tags"><span class="tag vibe">Celebration</span></div>
+      </div>
+    </div>
+
+    <div class="drive-time"><span class="drive-time-icon">🚗</span><span class="drive-time-text">~12 MIN DRIVE → CITYCENTERDC</span></div>
+
+    <div class="stop">
+      <div class="stop-marker layover">⚡</div>
+      <div class="stop-content">
+        <div class="stop-type layover">Layover — 1:00 PM</div>
+        <div class="stop-name">EV Charge + Shopping</div>
+        <div class="stop-detail">CityCenterDC · Browse boutiques while you charge</div>
+        <div class="ev-detail"><span class="ev-logo">EVgo</span><span class="ev-spec">DC Fast · up to 200 kW</span><span class="ev-time">~25 min to 80%</span></div>
+        <div class="ev-detail-sub">7 stalls · CCS / CHAdeMO · P1 &amp; P2 levels</div>
+        <div class="parking-detail"><span class="parking-icon">🅿</span><div class="parking-info"><span class="parking-primary">Self-park garage · ~$12 weekend</span><span class="parking-secondary">Enter via 9th St · EV chargers on P2 Aisle 9 · Open 5 AM–2 AM</span></div></div>
+        <div class="parking-sunday"><span class="sunday-badge">SUN</span><span class="sunday-text">Free street meters nearby · garage recommended for EV charging</span></div>
+        <div class="nav-row">
+          <a href="maps://maps.apple.com/?daddr=825+10th+St+NW,+Washington,+DC+20001&dirflg=d" class="nav-btn apple" target="_blank"><span class="nav-icon">🍎</span> Apple Maps</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=825+10th+St+NW,+Washington,+DC+20001" class="nav-btn google" target="_blank"><span class="nav-icon">📍</span> Google Maps</a>
+        </div>
+        <div class="stop-tags"><span class="tag ev">⚡ DC Fast Charging</span><span class="tag time">~45 min total</span></div>
+      </div>
+    </div>
+
+    <div class="drive-time"><span class="drive-time-icon">🚗</span><span class="drive-time-text">~15 MIN DRIVE → CAPITOL HILL</span></div>
+
+    <div class="stop">
+      <div class="stop-marker destination">🌟</div>
+      <div class="stop-content">
+        <div class="stop-type destination">Destination — 6:30 PM</div>
+        <div class="stop-name">Dinner at Bistro du Jour</div>
+        <div class="stop-detail">Capitol Hill · French bistro · Royal Sonesta Hotel</div>
+        <div class="parking-detail"><span class="parking-icon">🅿</span><div class="parking-info"><span class="parking-primary">Hotel valet · $65 or day rate $30</span><span class="parking-secondary">20 Massachusetts Ave NW · Capitol Crossing Garage @ 250 Mass Ave</span></div></div>
+        <div class="parking-sunday"><span class="sunday-badge">SUN</span><span class="sunday-text">Free street meter parking all day · skip the valet, park free!</span></div>
+        <div class="nav-row">
+          <a href="maps://maps.apple.com/?daddr=20+Massachusetts+Ave+NW,+Washington,+DC+20001&dirflg=d" class="nav-btn apple" target="_blank"><span class="nav-icon">🍎</span> Apple Maps</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=20+Massachusetts+Ave+NW,+Washington,+DC+20001" class="nav-btn google" target="_blank"><span class="nav-icon">📍</span> Google Maps</a>
+        </div>
+        <div class="stop-tags"><span class="tag vibe">Romantic</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tear-divider-2"><hr class="tear-line"></div>
+
+  <div class="stats-section">
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">Stops</div></div>
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">Hoods</div></div>
+    <div class="stat"><div class="stat-value">8h</div><div class="stat-label">Duration</div></div>
+    <div class="stat"><div class="stat-value">⚡</div><div class="stat-label">EV Ready</div></div>
+  </div>
+
+  <div class="confetti-section">
+    <div class="confetti-left">
+      <div class="confetti-icon">🎊</div>
+      <div class="confetti-text">Complete this plan to earn<strong>Confetti Reward</strong></div>
+    </div>
+    <div class="confetti-points">+250</div>
+  </div>
+
+  <div class="barcode-section">
+    <div class="barcode" id="barcode"></div>
+    <div class="barcode-text">CNFT-MOM-0510-TYRONE</div>
+  </div>
+</div>
+
+<script>
+  const barcode = document.getElementById('barcode');
+  const pattern = [3,1,2,1,4,1,1,3,2,1,1,2,3,1,4,1,2,1,1,3,1,2,4,1,1,2,1,3,2,1,1,4,3,1,2,1,1,2,3,1,1,4,2,1,3,1,1,2,4,1,1,3,2,1];
+  pattern.forEach(w => {
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+    bar.style.width = w + 'px';
+    bar.style.height = (20 + Math.random() * 28) + 'px';
+    barcode.appendChild(bar);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3608 @@
+{
+  "location": "Phoenix, AZ",
+  "generatedAt": "2026-05-17T19:55:32.163Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJIZ4tCFMJK4cRF10FJZ3pXCE",
+      "name": "Desert Botanical Garden",
+      "address": "1201 N Galvin Pkwy, Phoenix, AZ 85008, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 22827,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "wedding_venue",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.461679499999995,
+      "lng": -111.944926,
+      "googleMapsUri": "https://maps.google.com/?cid=2404053162249248023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dbg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "immersive experiences",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.57
+    },
+    {
+      "googlePlaceId": "ChIJfTp55hhxK4cR-9G0f9JQwTM",
+      "name": "Musical Instrument Museum",
+      "address": "4725 E Mayo Blvd, Phoenix, AZ 85050, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 10083,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.6679904,
+      "lng": -111.97829689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3729350831455392251&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mim.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.09
+    },
+    {
+      "googlePlaceId": "ChIJZ4MLk0wJK4cRp2RC_VatisA",
+      "name": "Papago Park",
+      "address": "625 N Galvin Pkwy, Phoenix, AZ 85008, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 12901,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4536325,
+      "lng": -111.948685,
+      "googleMapsUri": "https://maps.google.com/?cid=13874092191196013735&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parks/trails/locations/papago-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.67
+    },
+    {
+      "googlePlaceId": "ChIJISkRs7AaK4cRvnm0jjWrkYw",
+      "name": "Dobbins Lookout",
+      "address": "10919 South Central Avenue, Phoenix, AZ 85042, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5590,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "scenic_spot",
+        "state_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.3454505,
+      "lng": -112.05857189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10129065283448764862&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parks/trails/locations/south-mountain",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 94.12
+    },
+    {
+      "googlePlaceId": "ChIJw1ieKScFK4cRwU5kmgoBHkg",
+      "name": "Game Show Battle Rooms - Phoenix (Chandler)",
+      "address": "6909 W Ray Rd Suite 29, Chandler, AZ 85226, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 13183,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "bar",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.3192367,
+      "lng": -111.96065569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5196592165083696833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gameshowbattlerooms.com/phoenix",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 94.03
+    },
+    {
+      "googlePlaceId": "ChIJdWuhyFEJK4cRLczqrQDbWAU",
+      "name": "Hole in the Rock",
+      "address": "625 N Galvin Pkwy, Phoenix, AZ 85008, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 7177,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "scenic_spot",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4564869,
+      "lng": -111.9452606,
+      "googleMapsUri": "https://maps.google.com/?cid=385298564104506413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parks/trails/locations/papago-park",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.81
+    },
+    {
+      "googlePlaceId": "ChIJZ3texLIOK4cRcBnqLv9ap2Q",
+      "name": "Phoenix Zoo",
+      "address": "455 N Galvin Pkwy, Phoenix, AZ 85008, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 24060,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4500374,
+      "lng": -111.9470063,
+      "googleMapsUri": "https://maps.google.com/?cid=7252865776953727344&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenixzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.69
+    },
+    {
+      "googlePlaceId": "ChIJFU2bda4SM4cRKSCRyb6pOB8",
+      "name": "Grand Canyon National Park",
+      "address": "Arizona, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 63277,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.2678855,
+      "lng": -112.35352530000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2249734650762174505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/grca/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 93.55
+    },
+    {
+      "googlePlaceId": "ChIJb8ZIz2wVK4cRWyS_4pQPIno",
+      "name": "Mortgage Matchup Center",
+      "address": "201 E Jefferson St, Phoenix, AZ 85004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 13923,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.445737,
+      "lng": -112.0712003,
+      "googleMapsUri": "https://maps.google.com/?cid=8800613753969124443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mortgagematchupcenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.31
+    },
+    {
+      "googlePlaceId": "ChIJv6MKWhYTK4cRqPu9jejTrg0",
+      "name": "Miel De Agave Phoenix",
+      "address": "705 N 1st St #110, Phoenix, AZ 85004, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7215,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "breakfast_restaurant",
+        "mexican_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4559431,
+      "lng": -112.0721014,
+      "googleMapsUri": "https://maps.google.com/?cid=985958364204628904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lamieldeagave.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.18
+    },
+    {
+      "googlePlaceId": "ChIJq1ARW0ISK4cRItccBOgJS9w",
+      "name": "Heard Museum",
+      "address": "2301 N Central Ave, Phoenix, AZ 85004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5589,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "gift_shop",
+        "art_gallery",
+        "tourist_attraction",
+        "event_venue",
+        "museum",
+        "book_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.472581399999996,
+      "lng": -112.0722331,
+      "googleMapsUri": "https://maps.google.com/?cid=15873792203703506722&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://heard.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.02
+    },
+    {
+      "googlePlaceId": "ChIJL04x7s8KK4cRJsuul6fyG_g",
+      "name": "Butterfly Wonderland",
+      "address": "9500 East Vía de Ventura F100, Scottsdale, AZ 85256, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 7416,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "wildlife_park",
+        "zoo",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.554511399999996,
+      "lng": -111.87619,
+      "googleMapsUri": "https://maps.google.com/?cid=17878149947395590950&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://butterflywonderland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.81
+    },
+    {
+      "googlePlaceId": "ChIJB0ksyFMSK4cRjPkPrPJmn8I",
+      "name": "Encanto Park",
+      "address": "2605 N 15th Ave, Phoenix, AZ 85007, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6968,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4742548,
+      "lng": -112.08917849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14024040957109860748&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parks/parks/alphabetical/e-parks/encanto-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.62
+    },
+    {
+      "googlePlaceId": "ChIJAT2hVh8SK4cRX58SaMxcFHc",
+      "name": "Symphony Hall",
+      "address": "75 N 2nd St, Phoenix, AZ 85004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3138,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.448977899999996,
+      "lng": -112.07064140000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8580585223036772191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenixconventioncenter.com/events#our-venues-area",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.29
+    },
+    {
+      "googlePlaceId": "ChIJdUwOBBwSK4cR54UxlSuXRRM",
+      "name": "Children’s Museum of Phoenix",
+      "address": "215 N 7th St, Phoenix, AZ 85034, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5843,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4504029,
+      "lng": -112.06458239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1388682273556104679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://childrensmuseumofphoenix.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.06
+    },
+    {
+      "googlePlaceId": "ChIJmcBGT0ASK4cR8QooSw1pSn4",
+      "name": "Phoenix Art Museum",
+      "address": "1625 N Central Ave, Phoenix, AZ 85004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4107,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "gift_shop",
+        "museum",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4670863,
+      "lng": -112.0727721,
+      "googleMapsUri": "https://maps.google.com/?cid=9100201502871915249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://phxart.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.04
+    },
+    {
+      "googlePlaceId": "ChIJc98X1bkKK4cRUD-FpDt5SzY",
+      "name": "OdySea Aquarium",
+      "address": "9500 East Vía de Ventura Suite A-100, Scottsdale, AZ 85256, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 18221,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5547243,
+      "lng": -111.8776558,
+      "googleMapsUri": "https://maps.google.com/?cid=3912353998371635024&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.odyseaaquarium.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.31
+    },
+    {
+      "googlePlaceId": "ChIJeaZWKf8NK4cRcHR-bopn3iI",
+      "name": "The Rush Fun Park",
+      "address": "3865 E Thomas Rd, Phoenix, AZ 85018, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 3223,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "indoor_playground",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4790087,
+      "lng": -111.99844569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2512559486376244336&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rushfunpark.com/phoenix",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "best parks",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.28
+    },
+    {
+      "googlePlaceId": "ChIJfybkSL8aK4cRdZqNLRVyfmQ",
+      "name": "South Mountain Park and Preserve",
+      "address": "10919 S Central Ave, Phoenix, AZ 85042, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 10093,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "nature_preserve",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.340336799999996,
+      "lng": -112.0609473,
+      "googleMapsUri": "https://maps.google.com/?cid=7241350686142470773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/administration/departments/parks/activities-facilities/trails/south-mountain-parkpreserve.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 91.24
+    },
+    {
+      "googlePlaceId": "ChIJU3PqYbcKK4cRo9n2b26O6yg",
+      "name": "Arizona Boardwalk",
+      "address": "9500 East Vía de Ventura, Scottsdale, AZ 85256, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 6037,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.555783,
+      "lng": -111.8768729,
+      "googleMapsUri": "https://maps.google.com/?cid=2948606986020116899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.azboardwalk.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.06
+    },
+    {
+      "googlePlaceId": "ChIJMVTHfzVAK4cRsGVBJT1Hpfo",
+      "name": "Westgate Entertainment District",
+      "address": "6770 N Sunrise Blvd, Glendale, AZ 85305, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 20214,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "shopping_mall",
+        "bar",
+        "movie_theater",
+        "sports_activity_location",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5338631,
+      "lng": -112.26066259999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18060920208582862256&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://westgateaz.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.99
+    },
+    {
+      "googlePlaceId": "ChIJU9Np9CQSK4cRxRyI6fZDM6o",
+      "name": "The Van Buren",
+      "address": "401 W Van Buren St, Phoenix, AZ 85003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 6449,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.451281099999996,
+      "lng": -112.07924430000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12264220938019019973&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thevanburenphx.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.87
+    },
+    {
+      "googlePlaceId": "ChIJ_____xgSK4cRmmfILbR6p8c",
+      "name": "Castles N' Coasters",
+      "address": "9445 N Metro Pkwy E, Phoenix, AZ 85051, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 9183,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "miniature_golf_course",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.572517399999995,
+      "lng": -112.11881539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14386602448939149210&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.castlesncoasters.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.19
+    },
+    {
+      "googlePlaceId": "ChIJN5CSNjkSK4cRZV7qrtVTlvE",
+      "name": "Japanese Friendship Garden of Phoenix",
+      "address": "1125 N 3rd Ave, Phoenix, AZ 85003, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 6001,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "cultural_center",
+        "gift_shop",
+        "tourist_attraction",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.4609597,
+      "lng": -112.0765703,
+      "googleMapsUri": "https://maps.google.com/?cid=17408193586874965605&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.japanesefriendshipgarden.org/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=1646036250481864746",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.94
+    },
+    {
+      "googlePlaceId": "ChIJD3rTNx8SK4cROMvfSf0VX_M",
+      "name": "Phoenix Convention Center",
+      "address": "100 North 3rd St, Phoenix, AZ 85004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 6663,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4498969,
+      "lng": -112.0705366,
+      "googleMapsUri": "https://maps.google.com/?cid=17536759651614313272&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.phoenixconventioncenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.87
+    },
+    {
+      "googlePlaceId": "ChIJoRXNPj4LK4cR8W4cznomFuI",
+      "name": "Museum of Illusions Scottsdale",
+      "address": "9500 East Vía de Ventura, Scottsdale, AZ 85256, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 4020,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "amusement_center",
+        "art_gallery",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5553068,
+      "lng": -111.8763932,
+      "googleMapsUri": "https://maps.google.com/?cid=16291251010945183473&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.moiscottsdale.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.82
+    },
+    {
+      "googlePlaceId": "ChIJpRaTg5QMK4cRqwGnyXOiQKI",
+      "name": "Echo Canyon Trailhead",
+      "address": "E McDonald Dr, Phoenix, AZ 85018, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 2804,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5213895,
+      "lng": -111.97356169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11691523250841911723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/administration/departments/parks/activities-facilities/trails/camelback-mountain/camelback-trails.html#echo-canyon-trailhead",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 89.78
+    },
+    {
+      "googlePlaceId": "ChIJ2UT2ryESK4cR1gSXHi3SKeg",
+      "name": "The Arrogant Butcher",
+      "address": "2 E Jefferson St #150, Phoenix, AZ 85004, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 5511,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "oyster_bar_restaurant",
+        "steak_house",
+        "hamburger_restaurant",
+        "seafood_restaurant",
+        "bar",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.4474,
+      "lng": -112.07283419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16729133382072992982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thearrogantbutcher.com/locations/phoenix-az/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.67
+    },
+    {
+      "googlePlaceId": "ChIJyxk3cSMSK4cRJmmi4bfRyZw",
+      "name": "Crescent Ballroom",
+      "address": "308 N 2nd Ave, Phoenix, AZ 85003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3956,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4517982,
+      "lng": -112.0768576,
+      "googleMapsUri": "https://maps.google.com/?cid=11297791727930337574&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.crescentphx.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.32
+    },
+    {
+      "googlePlaceId": "ChIJucUk5SMSK4cR9O6xnkxUxFA",
+      "name": "Orpheum Theatre Phoenix",
+      "address": "203 W Adams St, Phoenix, AZ 85003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2758,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.449156099999996,
+      "lng": -112.07665329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5819869306526232308&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://orpheumphx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.28
+    },
+    {
+      "googlePlaceId": "ChIJh6g1AroSK4cRnQXX3oghMR0",
+      "name": "Culinary Dropout",
+      "address": "5632 N 7th St, Phoenix, AZ 85014, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4629,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "hamburger_restaurant",
+        "brunch_restaurant",
+        "chicken_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.519588999999996,
+      "lng": -112.0654512,
+      "googleMapsUri": "https://maps.google.com/?cid=2103499372696634781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.culinarydropout.com/locations/phoenix-az/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJNXQtiO5tK4cRxv-BaBnoWoc",
+      "name": "Different Pointe of View",
+      "address": "11111 N 7th St, Phoenix, AZ 85020, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2610,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5917445,
+      "lng": -112.06330399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9753363138849406918&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tapatiocliffshilton.com/dining/different-pointe-of-view/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.41
+    },
+    {
+      "googlePlaceId": "ChIJ904CZbMTK4cRrS-evzuJGbE",
+      "name": "810 Entertainment - Phoenix",
+      "address": "50 W Jefferson St, Phoenix, AZ 85003, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1303,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "sports_complex",
+        "bar",
+        "sports_activity_location",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.44749,
+      "lng": -112.0747126,
+      "googleMapsUri": "https://maps.google.com/?cid=12761381908841901997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.810bowling.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.41
+    },
+    {
+      "googlePlaceId": "ChIJxUN1jMfe1YYRH9GexIelyhE",
+      "name": "Arizona-Sonora Desert Museum",
+      "address": "2021 N Kinney Rd, Tucson, AZ 85743, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 11912,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "art_museum",
+        "zoo",
+        "aquarium",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.242686299999995,
+      "lng": -111.1675621,
+      "googleMapsUri": "https://maps.google.com/?cid=1282019046478237983&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.desertmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.26
+    },
+    {
+      "googlePlaceId": "ChIJawGHJfEMK4cRyNHA2-dfoPw",
+      "name": "The Henry",
+      "address": "4455 E Camelback Rd, Phoenix, AZ 85018, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4840,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.5088363,
+      "lng": -111.9841332,
+      "googleMapsUri": "https://maps.google.com/?cid=18203655143260475848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehenryrestaurant.com/locations/the-henry-phoenix/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.21
+    },
+    {
+      "googlePlaceId": "ChIJ8UYsGO1yK4cRtoHqGj7Yqgo",
+      "name": "Phoenix Mountains Preserve",
+      "address": "2701 Piestewa Peak Dr, Phoenix, AZ 85016, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6188,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5620742,
+      "lng": -112.02090969999999,
+      "googleMapsUri": "https://maps.google.com/?cid=768664447671239094&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parks/trails/locations/piestewa-peak",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.94
+    },
+    {
+      "googlePlaceId": "ChIJ8V7j8_URK4cRXmKhO0s0OGY",
+      "name": "Chase Field",
+      "address": "401 E Jefferson St, Phoenix, AZ 85004, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 21158,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "athletic_field",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4453344,
+      "lng": -112.0667091,
+      "googleMapsUri": "https://maps.google.com/?cid=7365694688292069982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/dbacks/ballpark/information",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.88
+    },
+    {
+      "googlePlaceId": "ChIJ9bftNVcBK4cRWRsmU58l-4w",
+      "name": "Round1 Bowling & Arcade - Chandler",
+      "address": "3177 W Chandler Blvd Suite #100, Chandler, AZ 85226, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 1773,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "bowling_alley",
+        "ramen_restaurant",
+        "ice_cream_shop",
+        "sports_complex",
+        "karaoke",
+        "athletic_field",
+        "sports_activity_location",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "store",
+        "japanese_restaurant",
+        "restaurant",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.3010934,
+      "lng": -111.90006070000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10158754750689319769&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.round1usa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.88
+    },
+    {
+      "googlePlaceId": "ChIJey8vKxgSK4cR8xVbn8TAc8I",
+      "name": "The Vig",
+      "address": "606 N 4th Ave, Phoenix, AZ 85003, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3077,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.455031,
+      "lng": -112.07932699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14011754816399414771&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thevig.us/fillmore",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "date night restaurants",
+        "romantic bars",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJzRgr5FkPK4cRRgj95D5kVn4",
+      "name": "LEGOLAND Discovery Center Arizona",
+      "address": "5000 S Arizona Mills Cir STE 135, Tempe, AZ 85282, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 4213,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.3856183,
+      "lng": -111.9634524,
+      "googleMapsUri": "https://maps.google.com/?cid=9103573918068574278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.legolanddiscoverycenter.com/arizona/?utm_source=local-listing&utm_medium=organic&utm_campaign=tickets",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.72
+    },
+    {
+      "googlePlaceId": "ChIJkxpMR28NK4cRg84ZJeCWJ-U",
+      "name": "The Gladly",
+      "address": "2201 E Camelback Rd, Phoenix, AZ 85016, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 1803,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bar",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5090973,
+      "lng": -112.03390580000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16512332448216501891&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thegladly.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.69
+    },
+    {
+      "googlePlaceId": "ChIJGxCFckadL4cRvzW0SUXpz64",
+      "name": "Petrified Forest National Park",
+      "address": "Arizona, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 13782,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.9583248,
+      "lng": -109.7593953,
+      "googleMapsUri": "https://maps.google.com/?cid=12596543166577128895&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nps.gov/pefo/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.62
+    },
+    {
+      "googlePlaceId": "ChIJscW22MwFK4cRadW-OK3a5DQ",
+      "name": "Main Event Tempe",
+      "address": "8545 S Emerald Dr, Tempe, AZ 85284, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 6385,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.337249,
+      "lng": -111.96740059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3811411622178510185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mainevent.com/locations/arizona/tempe",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.54
+    },
+    {
+      "googlePlaceId": "ChIJtevbq6oJK4cRDKw4xznet7M",
+      "name": "Dave & Buster's Tempe",
+      "address": "2000 E Rio Salado Pkwy #1100, Tempe, AZ 85281, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 6720,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "bar_and_grill",
+        "amusement_center",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.433132,
+      "lng": -111.904287,
+      "googleMapsUri": "https://maps.google.com/?cid=12950063593264032780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/tempe",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.45
+    },
+    {
+      "googlePlaceId": "ChIJadD9riESK4cRjJc5tJ2FLIQ",
+      "name": "Bitter & Twisted Cocktail Parlour",
+      "address": "1 W Jefferson St, Phoenix, AZ 85003, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1863,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.4470247,
+      "lng": -112.0739397,
+      "googleMapsUri": "https://maps.google.com/?cid=9524134224361789324&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bitterandtwistedaz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "mixology classes",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.34
+    },
+    {
+      "googlePlaceId": "ChIJVTKhuslyK4cRf1hwuUl8H0E",
+      "name": "Piestewa Peak Park",
+      "address": "2701 Piestewa Peak Dr, Phoenix, AZ 85016, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2926,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5419011,
+      "lng": -112.01704679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4692605992828950655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parks/trails/locations/piestewa-peak",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.32
+    },
+    {
+      "googlePlaceId": "ChIJHfDUDkASK4cR0JkfsWECw14",
+      "name": "The Phoenix Theatre Company",
+      "address": "1825 N Central Ave, Phoenix, AZ 85004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1823,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4671593,
+      "lng": -112.0723482,
+      "googleMapsUri": "https://maps.google.com/?cid=6828304078630525392&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.phoenixtheatre.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.32
+    },
+    {
+      "googlePlaceId": "ChIJY3ZWFrpv1oYRKo6u5b-Wx5E",
+      "name": "Saguaro National Park",
+      "address": "Arizona, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 8705,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.183089900000006,
+      "lng": -110.61268229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10504530406801313322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/sagu/index.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.27
+    },
+    {
+      "googlePlaceId": "ChIJDXzPnO8TK4cRpVhmFZvLDmM",
+      "name": "Rough Rider",
+      "address": "1001 N Central Ave, Phoenix, AZ 85004, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 901,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "fine_dining_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4589438,
+      "lng": -112.07350009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7137866326368213157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.roughrideraz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "date night restaurants",
+        "romantic bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJIWcZsb2qLYcRSHMjutrcBYY",
+      "name": "Montezuma Castle National Monument",
+      "address": "Montezuma Castle Rd, Camp Verde, AZ, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 12031,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "castle",
+        "national_park",
+        "tourist_attraction",
+        "historical_place",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.6115755,
+      "lng": -111.8349854,
+      "googleMapsUri": "https://maps.google.com/?cid=9657367807949763400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/moca/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.19
+    },
+    {
+      "googlePlaceId": "ChIJLd4xpt0TK4cRqoZk9Xt6KYc",
+      "name": "Wren & Wolf",
+      "address": "2 N Central Ave #101, Phoenix, AZ 85004, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1748,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "cocktail_bar",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.448415,
+      "lng": -112.07490910000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9739450341981980330&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wrenandwolf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.14
+    },
+    {
+      "googlePlaceId": "ChIJG6d64JcLK4cRwFU5OGBuWgI",
+      "name": "Olive & Ivy",
+      "address": "7135 E Camelback Rd, Scottsdale, AZ 85251, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5979,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "mediterranean_restaurant",
+        "breakfast_restaurant",
+        "greek_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.5002328,
+      "lng": -111.9283985,
+      "googleMapsUri": "https://maps.google.com/?cid=169569295519012288&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oliveandivyrestaurant.com/locations/scottsdale-az/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.13
+    },
+    {
+      "googlePlaceId": "ChIJJzIaNyISK4cR5Gi5dTzyFF8",
+      "name": "Cornish Pasty Co",
+      "address": "7 W Monroe St, Phoenix, AZ 85003, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4689,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "british_restaurant",
+      "types": [
+        "gastropub",
+        "pub",
+        "british_restaurant",
+        "vegetarian_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.450257199999996,
+      "lng": -112.0741738,
+      "googleMapsUri": "https://maps.google.com/?cid=6851367274624411876&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cornishpastyco.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJK0HNwhStK4cR-w9YIUYV03M",
+      "name": "Escapology Phoenix - SanTan",
+      "address": "2162 E Williams Field Rd #109, Gilbert, AZ 85295, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3999,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.3094737,
+      "lng": -111.7435836,
+      "googleMapsUri": "https://maps.google.com/?cid=8346037925398974459&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapology.com/en/phoenix-santan-az",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJPbqQ7YoRK4cRJ39Z_C6ie5w",
+      "name": "The Duce",
+      "address": "525 S Central Ave, Phoenix, AZ 85004, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 3363,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4424659,
+      "lng": -112.07350500000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11275784414738087719&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theducephx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "TikTok restaurants",
+        "events this weekend",
+        "local events",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "viral-eats",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJeUHugoEJK4cRi5OJ9ZXBFMM",
+      "name": "Escapology Escape Rooms Tempe",
+      "address": "2000 E Rio Salado Pkwy Ste 1029 Ste 1029, Ste 1029 Ste 1029, Tempe, AZ 85281, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3922,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4323921,
+      "lng": -111.9051899,
+      "googleMapsUri": "https://maps.google.com/?cid=14057073186743882635&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/tempe-az",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.95
+    },
+    {
+      "googlePlaceId": "ChIJvWewBE4SK4cR0bM0ap2tWPM",
+      "name": "Enchanted Island Amusement Park",
+      "address": "1202 W Encanto Blvd, Phoenix, AZ 85007, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.3,
+      "reviewCount": 3208,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "picnic_ground",
+        "amusement_center",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.474739,
+      "lng": -112.088152,
+      "googleMapsUri": "https://maps.google.com/?cid=17534956040770335697&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.enchantedisland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.86
+    },
+    {
+      "googlePlaceId": "ChIJG5KcrQlGK4cRSpicSPxnM68",
+      "name": "Wildlife World Zoo, Aquarium & Safari Park",
+      "address": "16501 W Northern Ave, Litchfield Park, AZ 85340, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 12382,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.550356799999996,
+      "lng": -112.4114142,
+      "googleMapsUri": "https://maps.google.com/?cid=12624548513697273930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wildlifeworld.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJu3KAyuuuK4cR-evil59kI5w",
+      "name": "Riparian Preserve at Water Ranch",
+      "address": "2757 E Guadalupe Rd, Gilbert, AZ 85234, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7511,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.3643875,
+      "lng": -111.7346927,
+      "googleMapsUri": "https://maps.google.com/?cid=11250946930712439801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gilbertaz.gov/departments/parks-and-recreation/riparian-preserve-at-water-ranch",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJRa9tWD4LK4cRQx_YNIJsSqQ",
+      "name": "McCormick-Stillman Railroad Park",
+      "address": "7301 E Indian Bend Rd, Scottsdale, AZ 85250, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7253,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "playground",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5370541,
+      "lng": -111.9233062,
+      "googleMapsUri": "https://maps.google.com/?cid=11838393876984897347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.therailroadpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.69
+    },
+    {
+      "googlePlaceId": "ChIJG6NShHMMK4cR4yQ4NxpmVYQ",
+      "name": "Arizona Falls",
+      "address": "5802 E Indian School Rd, Phoenix, AZ 85018, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 2045,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4897341,
+      "lng": -111.9589146,
+      "googleMapsUri": "https://maps.google.com/?cid=9535640048808502499&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.srpnet.com/water/canals/azfalls.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJheNOM9srKocR0cMSE2cDLmY",
+      "name": "Boyce Thompson Arboretum",
+      "address": "37615 E Arboretum Way, Superior, AZ 85173, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 4863,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "garden_center",
+        "historical_landmark",
+        "hiking_area",
+        "gift_shop",
+        "historical_place",
+        "event_venue",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.2786857,
+      "lng": -111.1591108,
+      "googleMapsUri": "https://maps.google.com/?cid=7362826182033851345&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://btarboretum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJ20FrHGUNK4cRixDBDTYU_Hw",
+      "name": "36 Below",
+      "address": "3620 E Indian School Rd, Phoenix, AZ 85018, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1003,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.495466,
+      "lng": -112.003486,
+      "googleMapsUri": "https://maps.google.com/?cid=9006095577225695371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://36belowaz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "interactive pop ups",
+        "romantic bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJY5zYjmMVK4cRuemaCBhTDeg",
+      "name": "Talking Stick Resort Amphitheatre - Phoenix",
+      "address": "2121 N 83rd Ave, Phoenix, AZ 85035, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 8471,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "amphitheatre",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.471515499999995,
+      "lng": -112.2328524,
+      "googleMapsUri": "https://maps.google.com/?cid=16721112354185210297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.talkingstickresortamphitheatre.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJ1RryyeATK4cRQxcTRjRBjGg",
+      "name": "Sazerac PHX - Cocktails and Craft",
+      "address": "821 N 2nd St, Phoenix, AZ 85004, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 936,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4575141,
+      "lng": -112.0708847,
+      "googleMapsUri": "https://maps.google.com/?cid=7533467969453758275&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sazeracphoenix.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "karaoke bars",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.26
+    },
+    {
+      "googlePlaceId": "ChIJKcdNvX2YK4cRx-aGsadE-4A",
+      "name": "Fountain Park",
+      "address": "12925 N Saguaro Blvd, Fountain Hills, AZ 85268, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6267,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.6028939,
+      "lng": -111.71241739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9294097743037785799&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fountainhillsaz.gov/695/Fountain-Hills-Parks",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.23
+    },
+    {
+      "googlePlaceId": "ChIJi68yPiV1K4cR47FXCUZlFvw",
+      "name": "Game Show Battle Rooms - Phoenix (Scottsdale)",
+      "address": "15040 N Northsight Blvd Suite 102, Scottsdale, AZ 85260, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 3118,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "bar",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.6222251,
+      "lng": -111.89765000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=18164817498524332515&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameshowbattlerooms.com/scottsdale",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJcZ3MOiQSK4cRl6puyMO24Gg",
+      "name": "Arizona Financial Theatre",
+      "address": "400 W Washington St, Phoenix, AZ 85003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 8130,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "banquet_hall",
+        "wedding_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4484874,
+      "lng": -112.0791631,
+      "googleMapsUri": "https://maps.google.com/?cid=7557241126725266071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arizonafinancialtheatre.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJ31lrTC8TK4cRQTQGXQRCQ2c",
+      "name": "Little Rituals",
+      "address": "132 S Central Ave 4th Floor, Phoenix, AZ 85004, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 903,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4464073,
+      "lng": -112.0741383,
+      "googleMapsUri": "https://maps.google.com/?cid=7440863595854181441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://littleritualsbar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJ8Wnq1T1sK4cRc7lhSOUMCrs",
+      "name": "Pappadeaux Seafood Kitchen",
+      "address": "11051 N Black Cyn Hwy, Phoenix, AZ 85029, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 12190,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.587818999999996,
+      "lng": -112.1158724,
+      "googleMapsUri": "https://maps.google.com/?cid=13477599013761038707&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pappadeaux.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJd3gJ3TgPK4cRjsdnAeMpESI",
+      "name": "Top of the Rock Restaurant",
+      "address": "2000 W Westcourt Way, Tempe, AZ 85282, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.4,
+      "reviewCount": 1766,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bistro",
+        "bar",
+        "steak_house",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4036103,
+      "lng": -111.97148,
+      "googleMapsUri": "https://maps.google.com/?cid=2454789326851524494&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://modules.marriott.com/hotel-restaurants/phxtm-marriott-phoenix-resort-tempe-at-the-buttes/top-of-the-rock-restaurant/118030/home-page",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJJTuMFoGvK4cR9HSdXDopxnk",
+      "name": "Spirit of Arizona Tours",
+      "address": "2929 N 2nd St, Phoenix, AZ 85012, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 979,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4818627,
+      "lng": -112.0706041,
+      "googleMapsUri": "https://maps.google.com/?cid=8774746254616655092&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spiritofarizonatours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.06
+    },
+    {
+      "googlePlaceId": "ChIJ4wfeweETK4cRmYKoxUWlgLM",
+      "name": "The Farish House",
+      "address": "816 North 3rd St, Phoenix, AZ 85004, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 615,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "european_restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.45718960000001,
+      "lng": -112.0702162,
+      "googleMapsUri": "https://maps.google.com/?cid=12934519848895546009&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://farishhouse.com/?utm_source=google&utm_medium=local&utm_campaign=1",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.04
+    },
+    {
+      "googlePlaceId": "ChIJKwIgRsgLK4cReZp0mUMiTTE",
+      "name": "Wonderspaces Arizona",
+      "address": "7014 E Camelback Rd #584, Scottsdale, AZ 85251, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 1974,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5039503,
+      "lng": -111.9300178,
+      "googleMapsUri": "https://maps.google.com/?cid=3552533354797898361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://arizona.wonderspaces.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.02
+    },
+    {
+      "googlePlaceId": "ChIJ66HmleBwK4cRRUsiYa2S71k",
+      "name": "Dave & Buster's Phoenix - Scottsdale",
+      "address": "21001 N Tatum Blvd Suite 44-1400, Phoenix, AZ 85050, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 3907,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "video_arcade",
+        "sports_bar",
+        "amusement_center",
+        "sports_complex",
+        "event_venue",
+        "bar",
+        "sports_activity_location",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.676703599999996,
+      "lng": -111.9732133,
+      "googleMapsUri": "https://maps.google.com/?cid=6480559662166068037&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/phoenix-scottsdale",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.98
+    },
+    {
+      "googlePlaceId": "ChIJDbUDmasNK4cR12eeKc7Ulls",
+      "name": "UnderTow Arcadia at Century Grand",
+      "address": "3626 E Indian School Rd Suite 100, Phoenix, AZ 85018, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1683,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4954964,
+      "lng": -112.0029927,
+      "googleMapsUri": "https://maps.google.com/?cid=6599696285884639191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bartershake.com/undertow/?utm_source=gbp",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.97
+    },
+    {
+      "googlePlaceId": "ChIJV3g_03cOK4cRFG0sn-fWOMY",
+      "name": "Celebrity Theatre",
+      "address": "440 N 32nd St, Phoenix, AZ 85008, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 4398,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.454426399999996,
+      "lng": -112.0147786,
+      "googleMapsUri": "https://maps.google.com/?cid=14283402508501806356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.celebritytheatre.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJdy1SmBgSK4cRmM-XKS5BWo4",
+      "name": "Herberger Theater Center",
+      "address": "222 E Monroe St, Phoenix, AZ 85004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2033,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.451082400000004,
+      "lng": -112.0707482,
+      "googleMapsUri": "https://maps.google.com/?cid=10257582767811841944&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.herbergertheater.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 85.92
+    },
+    {
+      "googlePlaceId": "ChIJebrSrx4SK4cR24L-zM2DBz4",
+      "name": "Rosson House Museum at The Square PHX",
+      "address": "113 N 6th St, Phoenix, AZ 85004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 592,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "city_park",
+        "non_profit_organization",
+        "event_venue",
+        "park",
+        "museum",
+        "historical_landmark",
+        "historical_place",
+        "association_or_organization",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.4501981,
+      "lng": -112.06590430000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4469686075119272667&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thesquarephx.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "local events",
+        "neighborhood tours",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJuYlv9fAMK4cRvtmElkM20p4",
+      "name": "Steak 44",
+      "address": "5101 N 44th St, Phoenix, AZ 85018, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 4436,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "steak_house",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5114386,
+      "lng": -111.98601719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11444269267017849278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.steak44.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJCekaZ9cTK4cRqzkmlXRdpw0",
+      "name": "Highball",
+      "address": "1514 N 7th Ave, Phoenix, AZ 85007, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 402,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "wine_bar",
+        "snack_bar",
+        "night_club",
+        "bar",
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4653688,
+      "lng": -112.08289719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=983857798903642539&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://highballphx.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJMX_CX8kSK4cRiVXFL_a0O4Q",
+      "name": "Uptown Farmers' Market",
+      "address": "5757 N Central Ave, Phoenix, AZ 85012, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 1569,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.523187,
+      "lng": -112.07057630000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9528408406088832393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://uptownmarketaz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.75
+    },
+    {
+      "googlePlaceId": "ChIJO19qdo8MK4cR4CnFuI4-0X0",
+      "name": "Echo Canyon Recreation Area",
+      "address": "4925 E McDonald Dr, Phoenix, AZ 85018, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2958,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5213576,
+      "lng": -111.9733981,
+      "googleMapsUri": "https://maps.google.com/?cid=9066096307579726304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parks/trails/locations/camelback-mountain",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.6
+    },
+    {
+      "googlePlaceId": "ChIJ0Y2IpyESK4cR2EG7vNzfvX4",
+      "name": "Copper Blues Rock Pub & Kitchen",
+      "address": "50 W Jefferson St, Phoenix, AZ 85003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 2143,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4474377,
+      "lng": -112.07404659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9132701758529421784&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.copperblueslive.com/?utm_source=gmb&utm_medium=yext",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "karaoke bars",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.58
+    },
+    {
+      "googlePlaceId": "ChIJ0Y2IpyESK4cRX37QpFUagq0",
+      "name": "Stand Up Live",
+      "address": "50 W Jefferson St, Phoenix, AZ 85003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 3345,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4474374,
+      "lng": -112.07411139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12502584470673587807&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.standuplive.com/?utm_source=gmb&utm_medium=yext",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.49
+    },
+    {
+      "googlePlaceId": "ChIJb8kW2xcSK4cR0u060Y2BceY",
+      "name": "Cobra Arcade Bar",
+      "address": "801 N 2nd St #100, Phoenix, AZ 85004, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 3326,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "night_club",
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4568805,
+      "lng": -112.0709988,
+      "googleMapsUri": "https://maps.google.com/?cid=16605195747192401362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cobraarcadebar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.47
+    },
+    {
+      "googlePlaceId": "ChIJHV0cUO-oK4cRb7M08gTupq8",
+      "name": "Jake's Unlimited",
+      "address": "1830 E Baseline Rd, Mesa, AZ 85204, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4,
+      "reviewCount": 5853,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "buffet_restaurant",
+        "amusement_center",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.379900299999996,
+      "lng": -111.790972,
+      "googleMapsUri": "https://maps.google.com/?cid=12657065507782177647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jakesunlimited.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.46
+    },
+    {
+      "googlePlaceId": "ChIJ69ahrLYSK4cRIC8ExYOZKPY",
+      "name": "Puzzle Effect Escape Rooms - Phoenix",
+      "address": "4700 N Central Ave #102, Phoenix, AZ 85012, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1951,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5058487,
+      "lng": -112.07420889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17737595923623849760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://phoenix.puzzleeffect.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.39
+    },
+    {
+      "googlePlaceId": "ChIJM7fi5ZdtK4cRWvl7LO4dI2I",
+      "name": "North Mountain Park",
+      "address": "10608 N 7th St, Phoenix, AZ 85020, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2748,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5852154,
+      "lng": -112.0709411,
+      "googleMapsUri": "https://maps.google.com/?cid=7071528748687554906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phoenix.gov/parkssite/Pages/North-Mountain-Shaw-Butte-Trails.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.37
+    },
+    {
+      "googlePlaceId": "ChIJpaH-0FupK4cRr_FiDzzRjWI",
+      "name": "JP’s Comedy Club",
+      "address": "860 E Warner Rd, Gilbert, AZ 85296, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 3345,
+      "priceLevel": null,
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.3368868,
+      "lng": -111.77163039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7101562243319525807&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://jpscomedyclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJwVDn24cOK4cRMm8mCZCnoQ0",
+      "name": "Phoenix Park 'n Swap",
+      "address": "3801 E Washington St, Phoenix, AZ 85034, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.3,
+      "reviewCount": 5113,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4467976,
+      "lng": -111.9978331,
+      "googleMapsUri": "https://maps.google.com/?cid=982250430814121778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://phoenixparknswap.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJD2jWfVqTLIcRvplpD1rJnzw",
+      "name": "Sunset Point Rest Area",
+      "address": "Sunset Point, Black Canyon City, AZ 85324, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 9871,
+      "priceLevel": null,
+      "primaryType": "rest_stop",
+      "types": [
+        "rest_stop",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1859519,
+      "lng": -112.1342368,
+      "googleMapsUri": "https://maps.google.com/?cid=4368431552215488958&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJc_uVs-ULK4cRJwLhCW7rdR8",
+      "name": "Escapology Escape Rooms Scottsdale",
+      "address": "9039 E Talking Stick Wy, Scottsdale, AZ 85250, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2132,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5379346,
+      "lng": -111.88747500000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2266976845295583783&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/scottsdale-az",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJNVhRbFoPK4cRm67TchXOLhU",
+      "name": "Tilt Studio",
+      "address": "5000 S Arizona Mills Cir Suite #669, Tempe, AZ 85282, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 2444,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "sports_bar",
+        "amusement_center",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.3856787,
+      "lng": -111.96504309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1526383915241287323&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tiltstudio.com/tempe/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.9
+    },
+    {
+      "googlePlaceId": "ChIJFeKbZ6sNK4cREUWWRwRUxTg",
+      "name": "Beckett's Table",
+      "address": "3717 E Indian School Rd, Phoenix, AZ 85018, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1046,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4948014,
+      "lng": -112.00160679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4090768213893596433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.beckettstable.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJUVpuJl8VLIcRomU2zoVhhcw",
+      "name": "Tonto Natural Bridge State Park",
+      "address": "Nf-583A, Pine, AZ 85544, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 3992,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "hiking_area",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.3228732,
+      "lng": -111.4544372,
+      "googleMapsUri": "https://maps.google.com/?cid=14737292582958032290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://azstateparks.com/tonto",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJ_ZN1QX9vK4cR8G_xZUGUTjg",
+      "name": "Rainbow Ryders Hot Air Balloon Co.",
+      "address": "7934 N Glen Harbor Blvd, Glendale, AZ 85307, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2788,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.550278999999996,
+      "lng": -112.282682,
+      "googleMapsUri": "https://maps.google.com/?cid=4057343322911502320&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rainbowryders.com/locations/phoenix/?utm_source=gmb&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.77
+    },
+    {
+      "googlePlaceId": "ChIJ7ULGHj0SK4cRgVMiZur3Qz0",
+      "name": "The Grand",
+      "address": "718 N Central Ave, Phoenix, AZ 85004, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 1649,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "beer_garden",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.456012799999996,
+      "lng": -112.0741594,
+      "googleMapsUri": "https://maps.google.com/?cid=4414644645861151617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thegrandaz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.75
+    },
+    {
+      "googlePlaceId": "ChIJFQj0IEcNK4cROTC_Wd_Rre0",
+      "name": "Geordie's at Wrigley Mansion",
+      "address": "2501 E Telawa Trail, Phoenix, AZ 85016, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 1617,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "fine_dining_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.5234362,
+      "lng": -112.02692959999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17126575715173478457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wrigleymansion.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.74
+    },
+    {
+      "googlePlaceId": "ChIJXQRbIvmdLIcR3qwFQMPhAmE",
+      "name": "Anthem Community Park",
+      "address": "41703 N Gavilan Peak Pkwy, Anthem, AZ 85086, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3821,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8592454,
+      "lng": -112.13511380000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6990397800341417182&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anthemcouncil.com/345/ACC-Parks",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.66
+    }
+  ]
+}

@@ -1,0 +1,3563 @@
+{
+  "location": "Chicago, IL",
+  "generatedAt": "2026-05-17T18:59:31.267Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJA5xPiqYsDogRBBCptdwsGEQ",
+      "name": "Millennium Park",
+      "address": "Chicago, IL 60602, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 92025,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8825524,
+      "lng": -87.62255139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4906721120472338436&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicago.gov/city/en/depts/dca/supp_info/millennium_park.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJ2y7xkU0rDogR3KSIsJbbrNA",
+      "name": "Navy Pier",
+      "address": "600 E Grand Ave, Chicago, IL 60611, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 87343,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "cultural_center",
+        "amusement_center",
+        "ferris_wheel",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8918633,
+      "lng": -87.6050944,
+      "googleMapsUri": "https://maps.google.com/?cid=15036634696136565980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://navypier.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.44
+    },
+    {
+      "googlePlaceId": "ChIJlUbZ4qMsDogR3tCinMzzKUg",
+      "name": "The Art Institute of Chicago",
+      "address": "111 S Michigan Ave, Chicago, IL 60603, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 37893,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8796031,
+      "lng": -87.6223504,
+      "googleMapsUri": "https://maps.google.com/?cid=5199955304902742238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.artic.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 99.08
+    },
+    {
+      "googlePlaceId": "ChIJHd8BYAopDogRBuMXc6oszA8",
+      "name": "Griffin Museum of Science and Industry",
+      "address": "5700 S DuSable Lake Shore Dr, Chicago, IL 60637, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 34856,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.7905726,
+      "lng": -87.5830659,
+      "googleMapsUri": "https://maps.google.com/?cid=1138333916404900614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.msichicago.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 97.73
+    },
+    {
+      "googlePlaceId": "ChIJX-RTBqksDogRRh_Q4ynbf_8",
+      "name": "Chicago Riverwalk",
+      "address": "Chicago, IL 60601, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 22325,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8884689,
+      "lng": -87.6232295,
+      "googleMapsUri": "https://maps.google.com/?cid=18410674774676086598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicago.gov/city/en/sites/chicagoriverwalk/home.html",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.46
+    },
+    {
+      "googlePlaceId": "ChIJV0AwM30rDogR2sd-X0cgErU",
+      "name": "Field Museum",
+      "address": "1400 S Lake Shore Dr, Chicago, IL 60605, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 30302,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.866261,
+      "lng": -87.6169805,
+      "googleMapsUri": "https://maps.google.com/?cid=13047526561362659290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fieldmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.3
+    },
+    {
+      "googlePlaceId": "ChIJu_tp4r4sDogR_dRFCX8wCc8",
+      "name": "Skydeck Chicago",
+      "address": "233 S Wacker Dr, Chicago, IL 60606, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 36444,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.87887610000001,
+      "lng": -87.635915,
+      "googleMapsUri": "https://maps.google.com/?cid=14918508562816029949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theskydeck.com/?utm_source=google&utm_medium=organic&utm_campaign=googlemybusiness",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.76
+    },
+    {
+      "googlePlaceId": "ChIJ-XW3X2MrDogR3_tQ3-OdBTI",
+      "name": "Shedd Aquarium",
+      "address": "1200 S DuSable Lake Shore Dr, Chicago, IL 60605, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 32397,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.867572599999995,
+      "lng": -87.614038,
+      "googleMapsUri": "https://maps.google.com/?cid=3604460678809713631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sheddaquarium.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.3
+    },
+    {
+      "googlePlaceId": "ChIJaQUY87cyDogRqoNIaIN0IdI",
+      "name": "Garfield Park Conservatory",
+      "address": "300 N Central Park Ave, Chicago, IL 60624, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 10439,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8862729,
+      "lng": -87.7172554,
+      "googleMapsUri": "https://maps.google.com/?cid=15141511529935438762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://garfieldconservatory.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.14
+    },
+    {
+      "googlePlaceId": "ChIJHy_uxjQtDogREgbDgcjizn8",
+      "name": "Aba",
+      "address": "302 N Green St 3rd Floor, Chicago, IL 60607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 9688,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.887004999999995,
+      "lng": -87.64885009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9209547638817621522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.abarestaurants.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 94.91
+    },
+    {
+      "googlePlaceId": "ChIJhU2sZqAsDogRtIzPkFS5qj0",
+      "name": "Grant Park",
+      "address": "Chicago, IL, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 20827,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8739324,
+      "lng": -87.61988079999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4443567755212328116&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicagoparkdistrict.com/parks-facilities/grant-ulysses-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.4
+    },
+    {
+      "googlePlaceId": "ChIJ-VSaNEPBD4gRKyqG8-_zd5Y",
+      "name": "Chicago Botanic Garden",
+      "address": "1000 Lake Cook Rd, Glencoe, IL 60022, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 7967,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "museum",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.1464419,
+      "lng": -87.7897516,
+      "googleMapsUri": "https://maps.google.com/?cid=10842402839826147883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicagobotanic.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.31
+    },
+    {
+      "googlePlaceId": "ChIJgx-juU8tDogRv-IOxRKbcG4",
+      "name": "Kitchen + Kocktails By Kevin Kelley - Chicago",
+      "address": "339 N Dearborn St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 16736,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "soul_food_restaurant",
+      "types": [
+        "soul_food_restaurant",
+        "fine_dining_restaurant",
+        "catering_service",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "meal_takeaway",
+        "food_delivery",
+        "fast_food_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.8887528,
+      "lng": -87.6289128,
+      "googleMapsUri": "https://maps.google.com/?cid=7958031046481470143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://kitchenkocktailsusa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 93.98
+    },
+    {
+      "googlePlaceId": "ChIJNbKQElTTD4gRdOsDd3qTFHM",
+      "name": "360 CHICAGO",
+      "address": "875 N Michigan Ave 94th floor, Chicago, IL 60611, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 20584,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8990104,
+      "lng": -87.6232416,
+      "googleMapsUri": "https://maps.google.com/?cid=8292414968087964532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://360chicago.com/?utm_source=GMBlisting&utm_medium=organic&utm_content=listing",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.91
+    },
+    {
+      "googlePlaceId": "ChIJ-XdXNKUsDogRW-m5g5Siao8",
+      "name": "The Dearborn",
+      "address": "145 N Dearborn St, Chicago, IL 60602, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 9194,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "fish_and_chips_restaurant",
+        "irish_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8843373,
+      "lng": -87.6292766,
+      "googleMapsUri": "https://maps.google.com/?cid=10334251053703883099&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thedearborntavern.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.65
+    },
+    {
+      "googlePlaceId": "ChIJs8mbNsUsDogRUnpg-b_IK5E",
+      "name": "Girl & The Goat",
+      "address": "809 W Randolph St, Chicago, IL 60607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7766,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "american_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.884127899999996,
+      "lng": -87.6479354,
+      "googleMapsUri": "https://maps.google.com/?cid=10460675286346267218&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.girlandthegoat.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.13
+    },
+    {
+      "googlePlaceId": "ChIJlQ2TJmRRDogRNMMI075Bh_c",
+      "name": "The Morton Arboretum",
+      "address": "4100 IL-53, Lisle, IL 60532, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 14122,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8163451,
+      "lng": -88.0691623,
+      "googleMapsUri": "https://maps.google.com/?cid=17836297137064297268&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mortonarb.org/?utm_source=google&utm_medium=organic&utm_campaign=maps_main",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 92.81
+    },
+    {
+      "googlePlaceId": "ChIJk6QQWKUsDogR1vrLD_bdAEc",
+      "name": "The Chicago Theatre",
+      "address": "175 N State St, Chicago, IL 60601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 10687,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "historical_landmark",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "historical_place",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.885297,
+      "lng": -87.627753,
+      "googleMapsUri": "https://maps.google.com/?cid=5116333225589603030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.msg.com/the-chicago-theatre",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.61
+    },
+    {
+      "googlePlaceId": "ChIJafbdjLEsDogRbvlpF3IWJqM",
+      "name": "Gus' Sip & Dip",
+      "address": "51 W Hubbard St Suite 100, Chicago, IL 60654, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 2887,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8899298,
+      "lng": -87.6299476,
+      "googleMapsUri": "https://maps.google.com/?cid=11756108556572162414&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gussipanddip.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.3
+    },
+    {
+      "googlePlaceId": "ChIJiX4KgLEsDogR8gugSnSptzY",
+      "name": "Three Dots and a Dash",
+      "address": "435 N Clark St, Chicago, IL 60654, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 8405,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.89031190000001,
+      "lng": -87.63076679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3942806315719461874&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://threedotschicago.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.27
+    },
+    {
+      "googlePlaceId": "ChIJqfIkY60sDogRMP2otSWdKJA",
+      "name": "Quartino Ristorante",
+      "address": "626 N State St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 15156,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "wine_bar",
+        "pizza_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8935763,
+      "lng": -87.6284713,
+      "googleMapsUri": "https://maps.google.com/?cid=10387725325817150768&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://quartinoristorante.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 91.93
+    },
+    {
+      "googlePlaceId": "ChIJW23RRia0D4gRlL8HDSx0fLA",
+      "name": "Chicago Children's Museum",
+      "address": "700 E Grand Ave, Chicago, IL 60611, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6962,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.891408,
+      "lng": -87.60914400000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12717167180333432724&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.chicagochildrensmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.7
+    },
+    {
+      "googlePlaceId": "ChIJxYDpLhjTD4gRXbOM_K_279E",
+      "name": "Summer House Santa Monica",
+      "address": "1954 N Halsted St, Chicago, IL 60614, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7358,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "californian_restaurant",
+        "brunch_restaurant",
+        "pastry_shop",
+        "bakery",
+        "bar",
+        "breakfast_restaurant",
+        "event_venue",
+        "dessert_shop",
+        "american_restaurant",
+        "confectionery",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9175694,
+      "lng": -87.648662,
+      "googleMapsUri": "https://maps.google.com/?cid=15127580909077574493&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.summerhouserestaurants.com/?utm_source=google&utm_medium=social&utm_campaign=SHSMLP-GBiz",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "sunset date spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.21
+    },
+    {
+      "googlePlaceId": "ChIJyauRlLYsDogRE_Hnbxx7V8E",
+      "name": "Bavette's Bar & Boeuf",
+      "address": "218 W Kinzie St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3968,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8892908,
+      "lng": -87.63488869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13931739334360690963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bavettessteakhouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.07
+    },
+    {
+      "googlePlaceId": "ChIJV_s6ILEsDogRR_5H7mQn4nw",
+      "name": "River Roast",
+      "address": "315 N LaSalle St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5504,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8879525,
+      "lng": -87.6322647,
+      "googleMapsUri": "https://maps.google.com/?cid=8998798319887580743&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.riverroastchicago.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "sunset date spots",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.98
+    },
+    {
+      "googlePlaceId": "ChIJHzRIuaUsDogRP_AJdMSgzjI",
+      "name": "Chicago Cultural Center",
+      "address": "78 E Washington St, Chicago, IL 60602, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5942,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8837536,
+      "lng": -87.6249515,
+      "googleMapsUri": "https://maps.google.com/?cid=3661040312719634495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicago.gov/city/en/depts/dca/supp_info/chicago_culturalcenter.html",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.81
+    },
+    {
+      "googlePlaceId": "ChIJSTnTl4UtDogRqnrqx0RZyMA",
+      "name": "Museum of Illusions Chicago",
+      "address": "25 E Washington St, Chicago, IL 60602, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4850,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.883035799999995,
+      "lng": -87.6268441,
+      "googleMapsUri": "https://maps.google.com/?cid=13891451202570975914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moichicago.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.59
+    },
+    {
+      "googlePlaceId": "ChIJpbqJFnmvD4gRaVQ29Z5j4xw",
+      "name": "Mastermind Escape Games",
+      "address": "1015 E State Pkwy Suite 200, Schaumburg, IL 60173, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 16854,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.055586,
+      "lng": -88.05422399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2081616987145262185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mastermindescapegames.com/locations/escape-room-schaumburg-il/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.55
+    },
+    {
+      "googlePlaceId": "ChIJ8bLW37EsDogRcTtDZ9w13U8",
+      "name": "STK Steakhouse",
+      "address": "9 W Kinzie St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 16737,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "bar",
+        "event_venue",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.889026,
+      "lng": -87.628642,
+      "googleMapsUri": "https://maps.google.com/?cid=5754815119590898545&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/venues/chicago/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.48
+    },
+    {
+      "googlePlaceId": "ChIJq6qq6rgsDogRm-Z9dh43mt0",
+      "name": "The Museum Campus",
+      "address": "337 E Randolph St, Chicago, IL 60601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 26299,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "history_museum",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8662202,
+      "lng": -87.61562649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15968136032772023963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.chicagoparkdistrict.com/parks/grant-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 90.36
+    },
+    {
+      "googlePlaceId": "ChIJzwODHK0sDogRKGL7CQaALgg",
+      "name": "The Escape Game Chicago",
+      "address": "42 E Ontario St, Chicago, IL 60611, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 15554,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.893422199999996,
+      "lng": -87.6265373,
+      "googleMapsUri": "https://maps.google.com/?cid=589549364657742376&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/chicago/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=chicago",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.31
+    },
+    {
+      "googlePlaceId": "ChIJVXvUNKYsDogRQVDQyijJJbk",
+      "name": "Jay Pritzker Pavilion",
+      "address": "201 E Randolph St, Chicago, IL 60601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3468,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8831825,
+      "lng": -87.6219253,
+      "googleMapsUri": "https://maps.google.com/?cid=13341290648193486913&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jaypritzkerpavilion.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.26
+    },
+    {
+      "googlePlaceId": "ChIJO-RlfFgrDogR-AvIFTumeqs",
+      "name": "Maggie Daley Park",
+      "address": "337 E Randolph St, Chicago, IL 60601, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8530,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.882382299999996,
+      "lng": -87.6193686,
+      "googleMapsUri": "https://maps.google.com/?cid=12356371300343090168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://maggiedaleypark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "pickleball courts",
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 90.17
+    },
+    {
+      "googlePlaceId": "ChIJhwGoXwYtDogRY-WvVaAZF_c",
+      "name": "Medieval Torture Museum",
+      "address": "177 N State St, Chicago, IL 60601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 7212,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "history_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8853788,
+      "lng": -87.6276666,
+      "googleMapsUri": "https://maps.google.com/?cid=17804727828255597923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://medievaltorturemuseum.com/?city=Chicago&utm_source=google&utm_medium=google_chicago_bio",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.1
+    },
+    {
+      "googlePlaceId": "ChIJ9Sszh6YsDogRUUo6zu8_TQY",
+      "name": "Cloud Gate",
+      "address": "201 E Randolph St, Chicago, IL 60602, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 39089,
+      "priceLevel": null,
+      "primaryType": "sculpture",
+      "types": [
+        "sculpture",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8826572,
+      "lng": -87.6233039,
+      "googleMapsUri": "https://maps.google.com/?cid=454089436623948369&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicago.gov/city/en/depts/dca/supp_info/chicago_s_publicartcloudgateinmillenniumpark.html",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.83
+    },
+    {
+      "googlePlaceId": "ChIJ78NyRsUsDogR6AqyYoPrts4",
+      "name": "Au Cheval",
+      "address": "800 W Randolph St, Chicago, IL 60607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 12262,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "diner",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8846303,
+      "lng": -87.64758719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14895351767103572712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.auchevaldiner.com/chicago/home",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.53
+    },
+    {
+      "googlePlaceId": "ChIJIbdi2_8sDogRNs8JXduUSpo",
+      "name": "Thalia Hall",
+      "address": "1807 S Allport St, Chicago, IL 60608, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3692,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "historical_landmark",
+        "historical_place",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.857717,
+      "lng": -87.657459,
+      "googleMapsUri": "https://maps.google.com/?cid=11117862299997163318&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thaliahallchicago.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.35
+    },
+    {
+      "googlePlaceId": "ChIJO-S6va4sDogRPJQe4l7DSgk",
+      "name": "Wendella Tours & Cruises",
+      "address": "400 N Michigan Ave, Chicago, IL 60611, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 10038,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "ferry_service",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8892361,
+      "lng": -87.62446299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=669562306905936956&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wendellaboats.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJweP0T-8tDogRurGwYuicGNg",
+      "name": "Tours & Boats Architecture Tours",
+      "address": "900 S Wells St, Chicago, IL 60607, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 15173,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8708384,
+      "lng": -87.6346306,
+      "googleMapsUri": "https://maps.google.com/?cid=15571368233535582650&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://toursandboats.com/?utm_source=google&utm_medium=organic&utm_campaign=gbl",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.13
+    },
+    {
+      "googlePlaceId": "ChIJI7ugX_5YCYgRxChEqWX4nU0",
+      "name": "Starved Rock State Park",
+      "address": "Oglesby, IL 61348, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 17406,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.312774999999995,
+      "lng": -88.97010910000002,
+      "googleMapsUri": "https://maps.google.com/?cid=5592899427779225796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dnr.illinois.gov/parks/park.starvedrock.html",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.1
+    },
+    {
+      "googlePlaceId": "ChIJnS9uKcw0DogRQkH_mwrFnkA",
+      "name": "Chicago Gangsters and Ghosts Tours",
+      "address": "71 East W Wacker Dr, Chicago, IL 60601, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 4705,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "tourist_information_center",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.887378999999996,
+      "lng": -87.62565599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4656375714105213250&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gangstersandghosts.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.05
+    },
+    {
+      "googlePlaceId": "ChIJ-zu2tdosDogRx95ZkNcp7t0",
+      "name": "Little Goat Diner",
+      "address": "3325 N Southport Ave, Chicago, IL 60657, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 10151,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "diner",
+      "types": [
+        "diner",
+        "bakery",
+        "coffee_shop",
+        "cafe",
+        "breakfast_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.942343799999996,
+      "lng": -87.6635606,
+      "googleMapsUri": "https://maps.google.com/?cid=15991765332655726279&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://littlegoatchicago.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.95
+    },
+    {
+      "googlePlaceId": "ChIJjcKoMGgtDogRrjx8X_6VaJU",
+      "name": "Activate Games",
+      "address": "51 E Ohio St Space 106, Chicago, IL 60611, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 664,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.892334399999996,
+      "lng": -87.6261519,
+      "googleMapsUri": "https://maps.google.com/?cid=10766019828985380014&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/river-north?utm_source=google&utm_medium=organic&utm_campaign=gmb-rivernorth",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.9
+    },
+    {
+      "googlePlaceId": "ChIJeYbaOKQsDogRfJrgIMgDNvE",
+      "name": "Cindy's Rooftop",
+      "address": "12 S Michigan Ave, Chicago, IL 60603, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 5481,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.881763,
+      "lng": -87.6248395,
+      "googleMapsUri": "https://maps.google.com/?cid=17381083969962941052&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cindysrooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.76
+    },
+    {
+      "googlePlaceId": "ChIJB5o6CWvTD4gR25QC-QbMQAk",
+      "name": "Lincoln Park Zoo",
+      "address": "Chicago, IL 60614, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 38178,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.921703,
+      "lng": -87.6336403,
+      "googleMapsUri": "https://maps.google.com/?cid=666757075170399451&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lpzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.66
+    },
+    {
+      "googlePlaceId": "ChIJ05UHzLEsDogRSZiv23eq-Mg",
+      "name": "House of Blues Chicago",
+      "address": "329 N Dearborn St, Chicago, IL 60654, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8976,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "lounge_bar",
+        "banquet_hall",
+        "night_club",
+        "wedding_venue",
+        "event_venue",
+        "bar",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.888275,
+      "lng": -87.6288411,
+      "googleMapsUri": "https://maps.google.com/?cid=14481512033573378121&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://chicago.houseofblues.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJT7Wpyj4tDogRRAPwjAbwk5s",
+      "name": "United Center",
+      "address": "1901 W Madison St, Chicago, IL 60612, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 24164,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "live_music_venue",
+        "stadium",
+        "event_venue",
+        "athletic_field",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.880690799999996,
+      "lng": -87.6741759,
+      "googleMapsUri": "https://maps.google.com/?cid=11210567808380306244&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.unitedcenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJfzTVJRIzDogRBERwWoDFFaA",
+      "name": "TNT Rooftop Restaurant",
+      "address": "5405 W Madison St, Chicago, IL 60644, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1985,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "catering_service",
+        "bar_and_grill",
+        "brunch_restaurant",
+        "steak_house",
+        "vegetarian_restaurant",
+        "american_restaurant",
+        "food_delivery",
+        "bar",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.8801334,
+      "lng": -87.7604959,
+      "googleMapsUri": "https://maps.google.com/?cid=11535343175643186180&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tntrooftoprestaurant.com/?utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 88.3
+    },
+    {
+      "googlePlaceId": "ChIJBwsA3f4tDogRz-pSLpIoDbo",
+      "name": "Color Factory Chicago",
+      "address": "233 S Wacker Dr Lower Level 2, Chicago, IL 60606, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1566,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8789489,
+      "lng": -87.63590669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13406416274059356879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.colorfactory.co/locations/chicago",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "interactive kids museums",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.23
+    },
+    {
+      "googlePlaceId": "ChIJufo-n88sDogRT_JGk4egawU",
+      "name": "Carnivale Chicago",
+      "address": "702 W Fulton St, Chicago, IL 60661, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4351,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "latin_american_restaurant",
+      "types": [
+        "latin_american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8869731,
+      "lng": -87.6460081,
+      "googleMapsUri": "https://maps.google.com/?cid=390582296849609295&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.carnivalechicago.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.06
+    },
+    {
+      "googlePlaceId": "ChIJd-VJcsgsDogRP0yORZrIpVQ",
+      "name": "Gibsons Italia",
+      "address": "233 N Canal St, Chicago, IL 60606, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 4187,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "steak_house",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.886594699999996,
+      "lng": -87.63957479999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6099501835260677183&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gibsonsitalia.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJv6xpOv5JDogRA47I7QulRH4",
+      "name": "Galloping Ghost Arcade",
+      "address": "9415 Ogden Ave, Brookfield, IL 60513, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 4131,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.816956499999996,
+      "lng": -87.8557028,
+      "googleMapsUri": "https://maps.google.com/?cid=9098578617847811587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gallopingghostarcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.95
+    },
+    {
+      "googlePlaceId": "ChIJM07VSb_TD4gRGfVxaUzpovo",
+      "name": "Lincoln Park",
+      "address": "500-5700 N Lake Shore Dr, Chicago, IL 60614, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 20833,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.915211899999996,
+      "lng": -87.6312121,
+      "googleMapsUri": "https://maps.google.com/?cid=18060253970104972569&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicagoparkdistrict.com/parks-facilities/lincoln-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.9
+    },
+    {
+      "googlePlaceId": "ChIJEUAV9zMtDogRJbm6cdw59JE",
+      "name": "Alla Vita",
+      "address": "564 W Randolph St, Chicago, IL 60661, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 5020,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.884577,
+      "lng": -87.64252139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10517094648780601637&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.allavitachicago.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJu_tp4r4sDogRfYy4Xs5tDwE",
+      "name": "Willis Tower",
+      "address": "233 S Wacker Dr, Chicago, IL 60606, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.5,
+      "reviewCount": 23718,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "observation_deck",
+        "corporate_office",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.878876399999996,
+      "lng": -87.6359149,
+      "googleMapsUri": "https://maps.google.com/?cid=76400451808431229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.willistower.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.85
+    },
+    {
+      "googlePlaceId": "ChIJ0bBajbYsDogRhY8z-LYaZr4",
+      "name": "Gilt Bar",
+      "address": "230 W Kinzie St, Chicago, IL 60654, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1929,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.889286999999996,
+      "lng": -87.6353347,
+      "googleMapsUri": "https://maps.google.com/?cid=13719682687981293445&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://giltbarchicago.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.77
+    },
+    {
+      "googlePlaceId": "ChIJL-_gtOk1DogRlc9I1l-jYBs",
+      "name": "Brookfield Zoo Chicago",
+      "address": "8400 31st St, Brookfield, IL 60513, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 28499,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.833522599999995,
+      "lng": -87.8362185,
+      "googleMapsUri": "https://maps.google.com/?cid=1972756268800593813&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brookfieldzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.76
+    },
+    {
+      "googlePlaceId": "ChIJ85UdlT5Ra4gRanF4kshOULk",
+      "name": "The Children's Museum of Indianapolis",
+      "address": "3000 N Meridian St, Indianapolis, IN 46208, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 18420,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.8106132,
+      "lng": -86.1578917,
+      "googleMapsUri": "https://maps.google.com/?cid=13353259518511313258&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.childrensmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.52
+    },
+    {
+      "googlePlaceId": "ChIJgWNcm6DTD4gRtkt5A0-NDaU",
+      "name": "Sandbox VR",
+      "address": "2359 N Lincoln Ave, Chicago, IL 60614, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6129,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9250961,
+      "lng": -87.6480802,
+      "googleMapsUri": "https://maps.google.com/?cid=11893317561455561654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/chicago",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.45
+    },
+    {
+      "googlePlaceId": "ChIJfds8EEvTD4gR4NHirhe7O3c",
+      "name": "Headquarters Beercade",
+      "address": "213 W Institute Pl, Chicago, IL 60610, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 4058,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "bar_and_grill",
+        "video_arcade",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.89733210000001,
+      "lng": -87.6351358,
+      "googleMapsUri": "https://maps.google.com/?cid=8591666424532095456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hqrivernorth.com/?utm_source=GBP&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.44
+    },
+    {
+      "googlePlaceId": "ChIJ1yQeKg3TD4gRSeu7RhGjWo4",
+      "name": "The Salt Shed",
+      "address": "1357 N Elston Ave, Chicago, IL 60642, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3474,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9064774,
+      "lng": -87.65940049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10257690395886218057&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.saltshedchicago.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "jazz clubs",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.42
+    },
+    {
+      "googlePlaceId": "ChIJq_xITAjTD4gRx5emn7CaHEo",
+      "name": "Game Night Out - Chicago",
+      "address": "2828 N Clark St Unit 401, Chicago, IL 60657, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 5,
+      "reviewCount": 1147,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9334564,
+      "lng": -87.6459197,
+      "googleMapsUri": "https://maps.google.com/?cid=5340313341537982407&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gamenightout.com/chicago?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.33
+    },
+    {
+      "googlePlaceId": "ChIJ4Zq9gHLTD4gR2nsgOZj2p_w",
+      "name": "Lincoln Park Conservatory (Tickets Required)",
+      "address": "2391 N Stockton Dr, Chicago, IL 60614, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4084,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.9238673,
+      "lng": -87.6352526,
+      "googleMapsUri": "https://maps.google.com/?cid=18205791152322411482&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lincolnparkconservancy.org/conservatory-reservations/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJh479BaAsDogRWa7hmywCQCQ",
+      "name": "Clarence F. Buckingham Memorial Fountain",
+      "address": "301 S Columbus Dr, Chicago, IL 60605, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 16731,
+      "priceLevel": null,
+      "primaryType": "fountain",
+      "types": [
+        "fountain",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8757944,
+      "lng": -87.6189483,
+      "googleMapsUri": "https://maps.google.com/?cid=2612090174491962969&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chicagoparkdistrict.com/parks-facilities/clarence-f-buckingham-memorial-fountain",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJt7_lfv1NDogRC8QJdITq6Fo",
+      "name": "Sandbox VR",
+      "address": "560 Oakbrook Center, Oak Brook, IL 60523, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 11423,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8518793,
+      "lng": -87.9516766,
+      "googleMapsUri": "https://maps.google.com/?cid=6550743512613766155&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/chicago",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.16
+    },
+    {
+      "googlePlaceId": "ChIJ5ywykizSD4gRX8IVtWSf3OI",
+      "name": "The Green Mill",
+      "address": "4802 N Broadway, Chicago, IL 60640, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 4560,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9692028,
+      "lng": -87.6599222,
+      "googleMapsUri": "https://maps.google.com/?cid=16347116002331705951&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.greenmilljazz.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJSzNFPSYtDogRtAvfhyIu2g0",
+      "name": "Bottom Lounge",
+      "address": "1375 W Lake St, Chicago, IL 60607, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2410,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "cocktail_bar",
+        "concert_hall",
+        "auditorium",
+        "wedding_venue",
+        "event_venue",
+        "bar",
+        "american_restaurant",
+        "service",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8852602,
+      "lng": -87.6617255,
+      "googleMapsUri": "https://maps.google.com/?cid=998160993259293620&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bottomlounge.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.95
+    },
+    {
+      "googlePlaceId": "ChIJl8NTEawsDogRwXH-IVDyH2A",
+      "name": "The Purple Pig Restaurant",
+      "address": "444 N Michigan Ave Upper Level, Chicago, IL 60611, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 7339,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "greek_restaurant",
+        "wine_bar",
+        "spanish_restaurant",
+        "italian_restaurant",
+        "european_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.890795,
+      "lng": -87.6244234,
+      "googleMapsUri": "https://maps.google.com/?cid=6926521177900741057&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thepurplepigrestaurantgroup.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.86
+    },
+    {
+      "googlePlaceId": "ChIJVwfY0NDND4gRQDfjtVywgGg",
+      "name": "Balloon Museum | EmotionAir Chicago",
+      "address": "2828 N Pulaski Rd, Chicago, IL 60641, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7199,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9333457,
+      "lng": -87.7303902,
+      "googleMapsUri": "https://maps.google.com/?cid=7530212489198516032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://chicago.balloonmuseum.world/en/shop/biglietti?_gl=1*cbulwz*_gcl_au*MTM4MzQ0Njg3OS4xNzY2NDAwMTQy*_ga*MTkxMDI2MjYyNC4xNzY2NDAwMTM5*_ga_6F64JSNQDW*czE3NjgwNjA1NzckbzgkZzAkdDE3NjgwNjA1ODAkajU3JGwwJGgxOTE0NDYyMTY2",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJbz_TYaorDogRgAG-I7FKEM0",
+      "name": "Chicago River Boat Architecture Tours",
+      "address": "465 N McClurg Ct, Chicago, IL 60611, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 3286,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8906778,
+      "lng": -87.6164075,
+      "googleMapsUri": "https://maps.google.com/?cid=14776392502071918976&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.architecturetourchicago.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJ031CA7YsDogRxG9gOVVMzaM",
+      "name": "The Hampton Social - River North",
+      "address": "353 W Hubbard St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4946,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.889815000000006,
+      "lng": -87.6378737,
+      "googleMapsUri": "https://maps.google.com/?cid=11803174127326490564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehamptonsocial.com/chicago-river-north",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.75
+    },
+    {
+      "googlePlaceId": "ChIJIeKgoEJMDogRMIZ2-VqTkGE",
+      "name": "Escape the Room Chicago (Oak Brook)",
+      "address": "60 Oakbrook Center, Oak Brook, IL 60523, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6872,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.850838599999996,
+      "lng": -87.95309420000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7030281037266978352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/chicago/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.71
+    },
+    {
+      "googlePlaceId": "ChIJy-bfKmctDogRgkWuRiriCTw",
+      "name": "Storyville Chicago",
+      "address": "712 N Clark St, Chicago, IL 60654, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1918,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "cocktail_bar",
+        "bar",
+        "night_club",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.8952564,
+      "lng": -87.63154449999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4326237588268402050&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://storyvillechicago.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "TikTok restaurants",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.65
+    },
+    {
+      "googlePlaceId": "ChIJs6WpavmzQYgRsIRui9n8OiY",
+      "name": "Findlay Market",
+      "address": "1801 Race St, Cincinnati, OH 45202, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 13491,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.1153116,
+      "lng": -84.5190724,
+      "googleMapsUri": "https://maps.google.com/?cid=2754792133367858352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.findlaymarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.57
+    },
+    {
+      "googlePlaceId": "ChIJpU2OiKssDogRGptZ5UvrjP4",
+      "name": "The Great Escape Room Chicago",
+      "address": "160 E Grand Ave #400, Chicago, IL 60611, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6171,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.891877099999995,
+      "lng": -87.623072,
+      "googleMapsUri": "https://maps.google.com/?cid=18342294093576117018&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegreatescaperoom.com/chicago",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJ36q9du3SD4gRc_oBbj74Fm4",
+      "name": "WhirlyBall",
+      "address": "1825 W Webster Ave, Chicago, IL 60614, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2806,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_bar",
+        "amusement_center",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.9212227,
+      "lng": -87.6739273,
+      "googleMapsUri": "https://maps.google.com/?cid=7932800740676991603&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.whirlyball.com/chicago",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJn-BS92LND4gRdygyHsiJE2c",
+      "name": "Emporium Arcade Bar",
+      "address": "2363 N Milwaukee Ave, Chicago, IL 60647, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 2392,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9242618,
+      "lng": -87.6993418,
+      "googleMapsUri": "https://maps.google.com/?cid=7427431703057148023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://emporiumarcadebar.com/locations/chicago/logan-square/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJPUOMoprSD4gRf8R-f-It5HA",
+      "name": "Logan Arcade",
+      "address": "2410 W Fullerton Ave, Chicago, IL 60647, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 1326,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.925148300000004,
+      "lng": -87.6881745,
+      "googleMapsUri": "https://maps.google.com/?cid=8134677277762831487&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://loganarcade.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJsZEf8TktDogRSoFQbesA8jM",
+      "name": "The Oakville Grill & Cellar",
+      "address": "163 N Green St, Chicago, IL 60607, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 2851,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8847808,
+      "lng": -87.6484948,
+      "googleMapsUri": "https://maps.google.com/?cid=3743055251449610570&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theoakville.com/?utm_source=google&utm_medium=social&utm_campaign=OAK-GBiz",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJf6m9-bEsDogRcgm9nf2Dtho",
+      "name": "Howl at the Moon Chicago",
+      "address": "26 W Hubbard St, Chicago, IL 60654, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 3785,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "lounge_bar",
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.890257,
+      "lng": -87.629165,
+      "googleMapsUri": "https://maps.google.com/?cid=1924871016043841906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.howlatthemoon.com/chicago/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.13
+    },
+    {
+      "googlePlaceId": "ChIJj3c_ZFIrDogReYb4CRZb21g",
+      "name": "Shoreline Sightseeing",
+      "address": "401N N Michigan Ave, Chicago, IL 60611, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 4540,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "ferry_service",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "transportation_service",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.8891766,
+      "lng": -87.6224786,
+      "googleMapsUri": "https://maps.google.com/?cid=6402811445451982457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://shorelinesightseeing.com/?utm_source=g-local&utm_medium=organic&utm_campaign=401%20michigan_gbp",
+      "openNow": null,
+      "matchedQueries": [
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.09
+    },
+    {
+      "googlePlaceId": "ChIJx3dXo2vTD4gR2o_su-z0YPQ",
+      "name": "Peggy Notebaert Nature Museum",
+      "address": "2430 N Cannon Dr, Chicago, IL 60614, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2253,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.926565499999995,
+      "lng": -87.6348716,
+      "googleMapsUri": "https://maps.google.com/?cid=17609343840620941274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.naturemuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.09
+    },
+    {
+      "googlePlaceId": "ChIJuyI60yLTD4gROwTWENq1He0",
+      "name": "Alinea",
+      "address": "1723 N Halsted St, Chicago, IL 60614, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2979,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.913435,
+      "lng": -87.6480552,
+      "googleMapsUri": "https://maps.google.com/?cid=17086012509503489083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.alinearestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.85
+    },
+    {
+      "googlePlaceId": "ChIJy0ULzq4sDogRdY17hBdGy5A",
+      "name": "First Lady",
+      "address": "112 E Wacker Dr, Chicago, IL 60601, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 3866,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "tour_agency",
+      "types": [
+        "marina",
+        "tour_agency",
+        "travel_agency",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.888450999999996,
+      "lng": -87.6242395,
+      "googleMapsUri": "https://maps.google.com/?cid=10433510028554767733&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://firstlady.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJReajl7EsDogRe-JWhrT51uw",
+      "name": "Siena Tavern",
+      "address": "51 W Kinzie St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4760,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "italian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8890864,
+      "lng": -87.6298924,
+      "googleMapsUri": "https://maps.google.com/?cid=17066102391710343803&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sienatavern.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.53
+    },
+    {
+      "googlePlaceId": "ChIJBR_AFNAsDogROZa7OUuGHEw",
+      "name": "Duck Duck Goat",
+      "address": "857 W Fulton Market, Chicago, IL 60607, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 5377,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "chinese_restaurant",
+      "types": [
+        "chinese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8865639,
+      "lng": -87.6495891,
+      "googleMapsUri": "https://maps.google.com/?cid=5484406103879685689&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://duckduckgoatchicago.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJsTi-rKAtDogRx9MnUyQcC7Q",
+      "name": "National Museum of Mexican Art",
+      "address": "1852 W 19th St, Chicago, IL 60608, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3704,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.855979000000005,
+      "lng": -87.67280099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12973494093910365127&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nationalmuseumofmexicanart.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.46
+    },
+    {
+      "googlePlaceId": "ChIJM5IN8rIsDogRCKW5W5TRy9E",
+      "name": "TAO Chicago",
+      "address": "632 N Dearborn St, Chicago, IL 60654, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 3810,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "thai_restaurant",
+        "asian_restaurant",
+        "sushi_restaurant",
+        "chinese_restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "japanese_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8934147,
+      "lng": -87.6300087,
+      "googleMapsUri": "https://maps.google.com/?cid=15117407009323459848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://taogroup.com/venues/tao-asian-bistro-chicago/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.45
+    },
+    {
+      "googlePlaceId": "ChIJccSgNbIsDogRQKbVYlzN8zI",
+      "name": "Beatrix",
+      "address": "519 N Clark St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 9275,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "coffee_shop",
+        "cafe",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8914961,
+      "lng": -87.630838,
+      "googleMapsUri": "https://maps.google.com/?cid=3671503917915940416&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.beatrixrestaurants.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.42
+    },
+    {
+      "googlePlaceId": "ChIJYTTn_a4sDogRVVaRtalmGH4",
+      "name": "LH Rooftop",
+      "address": "85 E Wacker Dr 22nd Floor, Chicago, IL 60601, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 3649,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.8877738,
+      "lng": -87.6253083,
+      "googleMapsUri": "https://maps.google.com/?cid=9086125127301682773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://londonhousechicago.com/rooftop/?SEO_id=GMB--R-CHILHQQ&y_source=1_MjY1ODkzNDItNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.32
+    },
+    {
+      "googlePlaceId": "ChIJ6bHWZ5csDogRHtD5zKcSE7c",
+      "name": "Fox In A Box Escape Room Chicago",
+      "address": "47 W Polk St suite l5 basement, Chicago, IL 60605, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3004,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.8718392,
+      "lng": -87.62875009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13191908245406076958&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.foxinaboxchicago.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.27
+    },
+    {
+      "googlePlaceId": "ChIJUd32tB0tDogRd_CYY0z8Ao4",
+      "name": "MUSEUM OF ICE CREAM",
+      "address": "435 N Michigan Ave Suite G, Chicago, IL 60611, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.1,
+      "reviewCount": 5036,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "ice_cream_shop",
+        "tourist_attraction",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.8902752,
+      "lng": -87.62281349999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10233018708357869687&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museumoficecream.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive pop ups",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJ_4lzKxDPD4gRmJHfpRooGsA",
+      "name": "Ignite Arcade",
+      "address": "8125 Skokie Blvd, Skokie, IL 60077, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1312,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.0288034,
+      "lng": -87.7470972,
+      "googleMapsUri": "https://maps.google.com/?cid=13842420499593793944&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ignitegaming.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJI4ohRUhfCYgRQ7ZF7nTLoh4",
+      "name": "Matthiessen State Park",
+      "address": "2500 IL-178, Oglesby, IL 61348, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5697,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.295979599999995,
+      "lng": -89.0244476,
+      "googleMapsUri": "https://maps.google.com/?cid=2207550470439155267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dnr.illinois.gov/parks/park.matthiessen.html",
+      "openNow": null,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.03
+    },
+    {
+      "googlePlaceId": "ChIJR-BMErLSD4gRFUV3e3FwXEo",
+      "name": "The Empty Bottle",
+      "address": "1035 N Western Ave, Chicago, IL 60622, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1583,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9004139,
+      "lng": -87.6867377,
+      "googleMapsUri": "https://maps.google.com/?cid=5358281289369077013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.emptybottle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJ_WkBLrMsDogR0cFQJVbq0Kc",
+      "name": "AMBAR Restaurant, Chicago",
+      "address": "700 N Clark St, Chicago, IL 60654, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1896,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "brunch_restaurant",
+        "mediterranean_restaurant",
+        "cocktail_bar",
+        "european_restaurant",
+        "eastern_european_restaurant",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.894981,
+      "lng": -87.63158,
+      "googleMapsUri": "https://maps.google.com/?cid=12092422655203918289&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ambarrestaurant.com/ambarchicago?utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.91
+    },
+    {
+      "googlePlaceId": "ChIJtzAOo1otDogRF3FxbJ0GjD0",
+      "name": "WNDR Museum",
+      "address": "1130 W Monroe St, Chicago, IL 60607, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.1,
+      "reviewCount": 4509,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "lounge_bar",
+        "art_museum",
+        "night_club",
+        "gift_shop",
+        "museum",
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.8805359,
+      "lng": -87.65584869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4434927006252101911&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wndrmuseum.com/location/chicago/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.87
+    },
+    {
+      "googlePlaceId": "ChIJ8Yz5zgDTD4gRmYymn9iFpCs",
+      "name": "Replay Lincoln Park",
+      "address": "2833 N Sheffield Ave, Chicago, IL 60657, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 2152,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.9336737,
+      "lng": -87.65372099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3144785605249371289&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.replaylincolnpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJseVXOfHTD4gRZ3f6t3Gmkok",
+      "name": "Provare Chicago",
+      "address": "1523 W Chicago Ave, Chicago, IL 60642, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 5259,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "cocktail_bar",
+        "fusion_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8958899,
+      "lng": -87.6658611,
+      "googleMapsUri": "https://maps.google.com/?cid=9913168737144043367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.provarerestaurants.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.79
+    },
+    {
+      "googlePlaceId": "ChIJm_I8DbEsDogRgw0_Rgq8PLE",
+      "name": "Untitled Supper Club",
+      "address": "111 W Kinzie St, Chicago, IL 60654, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3022,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.8888206,
+      "lng": -87.6316528,
+      "googleMapsUri": "https://maps.google.com/?cid=12771289395630116227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://untitledsupperclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.79
+    }
+  ]
+}

@@ -1,0 +1,3500 @@
+{
+  "location": "Lisbon, Portugal",
+  "generatedAt": "2026-05-17T19:34:47.933Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJY0ulMHo0GQ0RROAoa18vUzA",
+      "name": "Praça do Comércio",
+      "address": "1100-148 Lisbon, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 130647,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7072828,
+      "lng": -9.136361299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3482179023753764932&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitlisboa.com/pt-pt/locais/praca-do-comercio-terreiro-do-paco",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.7
+    },
+    {
+      "googlePlaceId": "ChIJCVgOdYMxGQ0RMOFiOmcuP5g",
+      "name": "Oceanário de Lisboa",
+      "address": "Esplanada Dom Carlos I s/nº, 1990-005 Lisboa, Portugal",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 101070,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7635435,
+      "lng": -9.0937415,
+      "googleMapsUri": "https://maps.google.com/?cid=10970538238193885488&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oceanario.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "waterfront gardens",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 99.94
+    },
+    {
+      "googlePlaceId": "ChIJm8MOtHc0GQ0R1zPkmUFwwLQ",
+      "name": "Castelo de São Jorge",
+      "address": "R. de Santa Cruz do Castelo, 1100-129 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 100400,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.713909199999996,
+      "lng": -9.1334762,
+      "googleMapsUri": "https://maps.google.com/?cid=13024533549412529111&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://castelodesaojorge.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.72
+    },
+    {
+      "googlePlaceId": "ChIJx-Rwl4QzGQ0RaSfN7SE7IEE",
+      "name": "Miradouro de Santa Luzia",
+      "address": "Largo de Santa Luzia, 1100-487 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 41794,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7116956,
+      "lng": -9.1301972,
+      "googleMapsUri": "https://maps.google.com/?cid=4692815828629661545&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/miradouro-de-santa-luzia",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.31
+    },
+    {
+      "googlePlaceId": "ChIJV32DNI8zGQ0R9GqiWeuNH2E",
+      "name": "Miradouro da Senhora do Monte",
+      "address": "Largo Monte, 1170-107 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 28453,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7192091,
+      "lng": -9.1327772,
+      "googleMapsUri": "https://maps.google.com/?cid=6998468387917687540&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitlisboa.com/pt-pt/locais/miradouro-da-senhora-do-monte",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.27
+    },
+    {
+      "googlePlaceId": "ChIJZ1qc8r_aHg0RWDtny30aJ3c",
+      "name": "National Palace of Pena",
+      "address": "Estrada da Pena, 2710-609 Sintra, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 104687,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7875851,
+      "lng": -9.3906089,
+      "googleMapsUri": "https://maps.google.com/?cid=8585860342190914392&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parquesdesintra.pt/pt/parques-monumentos/parque-e-palacio-nacional-da-pena/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "best parks",
+        "scenic walks",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 96.74
+    },
+    {
+      "googlePlaceId": "ChIJ9QG0S3EzGQ0RwqIa7mEIsKk",
+      "name": "Eduardo VII Park",
+      "address": "1070-051 Lisbon, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 48145,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "city_park",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7283001,
+      "lng": -9.1526828,
+      "googleMapsUri": "https://maps.google.com/?cid=12227282205010469570&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/parque-eduardo-vii",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "skating rinks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.63
+    },
+    {
+      "googlePlaceId": "ChIJ5dveYa80GQ0RrEP1FKqq6zM",
+      "name": "LX Factory",
+      "address": "R. Rodrigues de Faria 103 Piso 3, 1300-501 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 64750,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.703460199999995,
+      "lng": -9.1787831,
+      "googleMapsUri": "https://maps.google.com/?cid=3741271562934109100&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lxfactory.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "farmers markets",
+        "flea markets",
+        "family friendly things to do",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.41
+    },
+    {
+      "googlePlaceId": "ChIJp6XWBcgzGQ0Rv-lJgPkzQHA",
+      "name": "Escape Rooms Game Over - Santa Clara",
+      "address": "Campo de Santa Clara 160A, 1100-475 Lisboa, Portugal",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9872,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7164936,
+      "lng": -9.1238073,
+      "googleMapsUri": "https://maps.google.com/?cid=8088522077449611711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lisbon.escapegameover.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "arcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 96.33
+    },
+    {
+      "googlePlaceId": "ChIJS5zCw0LLHg0R7euWjjRddYc",
+      "name": "Jerónimos Monastery",
+      "address": "Praça do Império 1400-206 Lisboa, 1400-206 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 60750,
+      "priceLevel": null,
+      "primaryType": "place_of_worship",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6978909,
+      "lng": -9.206703899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9760810247707356141&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museusemonumentos.pt/pt/museus-e-monumentos/mosteiro-dos-jeronimos-e-capela-de-sao-jeronimo",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.22
+    },
+    {
+      "googlePlaceId": "ChIJdWBeWYc0GQ0RktxySU7hjxM",
+      "name": "Time Out Market",
+      "address": "Mercado da Ribeira, Av. 24 de Julho, 1200-479 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 73627,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7070608,
+      "lng": -9.1456691,
+      "googleMapsUri": "https://maps.google.com/?cid=1409592934746217618&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timeout.pt/time-out-market-lisboa/pt",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "jazz clubs",
+        "farmers markets",
+        "flea markets",
+        "family friendly things to do",
+        "trivia nights",
+        "viral food spots",
+        "TikTok restaurants",
+        "popular dessert spots",
+        "food trucks",
+        "bottle service",
+        "events this weekend",
+        "things to do this weekend",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "shopping-markets",
+        "family-kids",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 95.7
+    },
+    {
+      "googlePlaceId": "ChIJH7p7P4A0GQ0Rlfd5LhVaEsg",
+      "name": "Game Over",
+      "address": "Rua de O Século 4B, 1200-435 Lisboa, Portugal",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 10741,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.71146280000001,
+      "lng": -9.1472003,
+      "googleMapsUri": "https://maps.google.com/?cid=14416684404186937237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lisbon.escapegameover.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "kids activities",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.48
+    },
+    {
+      "googlePlaceId": "ChIJYQgAN4AzGQ0RoeNtM3J56xs",
+      "name": "Miradouro de São Pedro de Alcântara",
+      "address": "R. de São Pedro de Alcântara, 1250-238 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 32484,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7153095,
+      "lng": -9.144176200000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2011835189947130785&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/miradouro-de-sao-pedro-de-alcantara",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.47
+    },
+    {
+      "googlePlaceId": "ChIJJRmh5w0zGQ0RovfaFjTXQk4",
+      "name": "Garden of the Calouste Gulbenkian Foundation",
+      "address": "Av. de Berna 45 A, 1067-001 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 24793,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7374065,
+      "lng": -9.154188,
+      "googleMapsUri": "https://maps.google.com/?cid=5639306302143002530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gulbenkian.pt/jardim/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.01
+    },
+    {
+      "googlePlaceId": "ChIJYzmNq4kzGQ0R8PmcMe8PyEY",
+      "name": "Miradouro da Graça",
+      "address": "Calçada da Graça, 1100-265 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 12644,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7164509,
+      "lng": -9.1315937,
+      "googleMapsUri": "https://maps.google.com/?cid=5100344098001058288&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cm-lisboa.pt/en/equipments/equipment/info/sophia-de-mello-breyner-andresen",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 93.76
+    },
+    {
+      "googlePlaceId": "ChIJK1EHgXEzGQ0Rd9aoMO-WTsY",
+      "name": "Estufa Fria",
+      "address": "Parque Eduardo VII, Parque Eduardo VII, 1070-051 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 12399,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.728707799999995,
+      "lng": -9.155125,
+      "googleMapsUri": "https://maps.google.com/?cid=14289524621750883959&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/estufa-fria-de-lisboa",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.7
+    },
+    {
+      "googlePlaceId": "ChIJe9TGZMLaHg0RI2WK1BbF4b8",
+      "name": "Quinta da Regaleira",
+      "address": "2710-567 Sintra, Portugal",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 65294,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "botanical_garden",
+        "garden",
+        "historical_place",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7963069,
+      "lng": -9.3960244,
+      "googleMapsUri": "https://maps.google.com/?cid=13826549032849925411&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.regaleira.pt/pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.64
+    },
+    {
+      "googlePlaceId": "ChIJjUNdI8DaHg0Rr7P8mKjYOpU",
+      "name": "Cape Roca",
+      "address": "Estrada do Cabo da Roca s/n, 2705-001 Colares, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 68007,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "hiking_area",
+        "tourist_attraction",
+        "historical_place",
+        "landmark",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.780428199999996,
+      "lng": -9.4989171,
+      "googleMapsUri": "https://maps.google.com/?cid=10753145278933283759&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitlisboa.com/pt-pt/locais/cabo-da-roca",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 93.36
+    },
+    {
+      "googlePlaceId": "ChIJr3cVMik1GQ0R82fAdlJ_ZbA",
+      "name": "Eating Europe Food Tours Lisbon",
+      "address": "CC do Tijolo 58, 1100-383 Lisboa, Portugal",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 5,
+      "reviewCount": 5944,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.7139229,
+      "lng": -9.1291333,
+      "googleMapsUri": "https://maps.google.com/?cid=12710705515479459827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.eatingeurope.com/lisbon/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "local-exploration"
+      ],
+      "popularityScore": 93.32
+    },
+    {
+      "googlePlaceId": "ChIJYzupcIUxGQ0RQi6E3FtfRhw",
+      "name": "MEO Arena",
+      "address": "Rossio dos Olivais, 1990-231 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 37619,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7685312,
+      "lng": -9.0940297,
+      "googleMapsUri": "https://maps.google.com/?cid=2037420729578040898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://arena.meo.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.3
+    },
+    {
+      "googlePlaceId": "ChIJPcfcnuc0GQ0Rgerp5o_yC2Q",
+      "name": "Sanctuary of Christ the King",
+      "address": "Av. do Cristo Rei, 2800-058 Almada, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 45744,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6786319,
+      "lng": -9.1713326,
+      "googleMapsUri": "https://maps.google.com/?cid=7209122328404945537&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cristorei.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.48
+    },
+    {
+      "googlePlaceId": "ChIJP8YuN380GQ0R7yzgkmX11zI",
+      "name": "Carmo Archaeological Museum",
+      "address": "Largo do Carmo, 1200-092 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 20783,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "history_museum",
+        "museum",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.712038299999996,
+      "lng": -9.140612899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3663666638493854959&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museuarqueologicodocarmo.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.29
+    },
+    {
+      "googlePlaceId": "ChIJzee3AoA0GQ0RZU7M0-t8p3c",
+      "name": "Jam Club",
+      "address": "Tv. dos Inglesinhos 49, 1200-223 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 2482,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "live_music_venue",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.7126972,
+      "lng": -9.1462224,
+      "googleMapsUri": "https://maps.google.com/?cid=8621997363936644709&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/jamclubrestaurantbar?igsh=N3VvcTVkMnBmODM2",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.13
+    },
+    {
+      "googlePlaceId": "ChIJrdyrGYkxGQ0RyGeLfnIBiRY",
+      "name": "Pavilhão do Conhecimento - Ciência Viva",
+      "address": "Largo José Mariano Gago nº1, 1990-073 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 8452,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7622587,
+      "lng": -9.095872,
+      "googleMapsUri": "https://maps.google.com/?cid=1623830731904739272&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pavconhecimento.pt/home/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 91.07
+    },
+    {
+      "googlePlaceId": "ChIJ3Qt2HU3LHg0RErFZs07tcZ0",
+      "name": "SUD Lisboa Terrazza",
+      "address": "Pavilhão Poente (ao lado do MAAT, Av. Brasília, 1300-598 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 10578,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "live_music_venue",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6963541,
+      "lng": -9.191757299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11345109858595221778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sudlisboa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "board game cafes",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.03
+    },
+    {
+      "googlePlaceId": "ChIJF9IfO8zMHg0Ruh60BZnTq3E",
+      "name": "Parque Florestal de Monsanto",
+      "address": "Lisbon, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 13129,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "tourist_attraction",
+        "national_park",
+        "playground",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7235491,
+      "lng": -9.1917632,
+      "googleMapsUri": "https://maps.google.com/?cid=8190873001482526394&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cm-lisboa.pt/viver/ambiente/parque-florestal-de-monsanto",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.87
+    },
+    {
+      "googlePlaceId": "ChIJW51RQkPLHg0RNpVMhpDspDY",
+      "name": "Centro Cultural de Belém",
+      "address": "Praça do Império, 1449-003 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 20503,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "performing_arts_theater",
+        "tourist_attraction",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6955029,
+      "lng": -9.208354199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3937532079701267766&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ccb.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 90.85
+    },
+    {
+      "googlePlaceId": "ChIJF6JfMH3MHg0RRFnImmxRRjQ",
+      "name": "Hi Lisbon Walking Tours",
+      "address": "Rua da Prata 58 3D, 1100-148 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 3474,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.7096367,
+      "lng": -9.136317499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3766787665237137732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hilisbonwalkingtours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.62
+    },
+    {
+      "googlePlaceId": "ChIJW3H9LkXLHg0RZZZttMb27_8",
+      "name": "Pastéis de Belém",
+      "address": "R. de Belém 84 92, 1300-085 Lisboa, Portugal",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 97952,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pastry_shop",
+      "types": [
+        "pastry_shop",
+        "cafe",
+        "bakery",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 38.6975105,
+      "lng": -9.203227600000002,
+      "googleMapsUri": "https://maps.google.com/?cid=18442230332396508773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pasteisdebelem.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 90.49
+    },
+    {
+      "googlePlaceId": "ChIJD76ZL4EzGQ0R6JkxHTZPRTM",
+      "name": "Coliseu dos Recreios",
+      "address": "R. das Portas de Santo Antão 96, 1150-269 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8358,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.716743799999996,
+      "lng": -9.140177699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3694446163163978216&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.coliseulisboa.com/agenda.aspx/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.33
+    },
+    {
+      "googlePlaceId": "ChIJcQzF3dUyGQ0RGojgiz9LlPA",
+      "name": "Estádio da Luz",
+      "address": "Av. Eusébio da Silva Ferreira, 1500-313 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 61419,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7526905,
+      "lng": -9.184692,
+      "googleMapsUri": "https://maps.google.com/?cid=17335563601957652506&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.slbenfica.pt/pt-pt/loja/bilhetes/estadio-e-museu",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 90.21
+    },
+    {
+      "googlePlaceId": "ChIJkfTl003LHg0RxFtZGUxQE8s",
+      "name": "MAAT - Museum of Art, Architecture and Technology",
+      "address": "Av. Brasília, 1300-598 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 25197,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6958561,
+      "lng": -9.193311999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14633127902029896644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.maat.pt/pt",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.91
+    },
+    {
+      "googlePlaceId": "ChIJqzZCU2MzGQ0RkegDvwGR1ys",
+      "name": "Jardim da Estrela",
+      "address": "Praça da Estrela, 1200-667 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 14546,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "garden",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.714765,
+      "lng": -9.159257499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3159153100309391505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://visitar.lisboa.pt/explorar/locais-de-interesse/jardim-guerra-junqueiro",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.83
+    },
+    {
+      "googlePlaceId": "ChIJScpeDUTLHg0RGeb5iw7wSH8",
+      "name": "Monument to the Discoveries",
+      "address": "Av. Brasília, 1400-038 Lisboa, Portugal",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 64308,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6935973,
+      "lng": -9.2057115,
+      "googleMapsUri": "https://maps.google.com/?cid=9171844586408633881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://padraodosdescobrimentos.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJB9ZkrH80GQ0RyJDwGTPzpAk",
+      "name": "Chill-Out Lisbon free tours",
+      "address": "front side of the statue near the main road, Praça Luís de Camões, 1200-243 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 2172,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.710537099999996,
+      "lng": -9.1433807,
+      "googleMapsUri": "https://maps.google.com/?cid=694947643325976776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lisbon-chillout-freetour.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 89.23
+    },
+    {
+      "googlePlaceId": "ChIJz3Vzb_fPHg0R_vVQ1CtkIrw",
+      "name": "Parque Natural de Sintra-Cascais",
+      "address": "Sintra, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 39585,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7767498,
+      "lng": -9.4202212,
+      "googleMapsUri": "https://maps.google.com/?cid=13556507967747061246&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.15
+    },
+    {
+      "googlePlaceId": "ChIJXV2qrX80GQ0RXr5cIDF9VgE",
+      "name": "Praça Luís de Camões",
+      "address": "Largo Luís de Camões, 1200-243 Lisboa, Portugal",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 29192,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7105849,
+      "lng": -9.143476399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=96402091984862814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cm-lisboa.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.05
+    },
+    {
+      "googlePlaceId": "ChIJFw1vs4czGQ0RUiC1E9qAR5M",
+      "name": "Terra Heal Massage Temple - Spa Lisbon",
+      "address": "R. do Telhal 4B, 1150-321 Lisboa, Portugal",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 3377,
+      "priceLevel": null,
+      "primaryType": "massage_spa",
+      "types": [
+        "massage_spa",
+        "beauty_salon",
+        "massage",
+        "spa",
+        "medical_clinic",
+        "health",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7191915,
+      "lng": -9.1426724,
+      "googleMapsUri": "https://maps.google.com/?cid=10612592721043726418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.terraheal.com/massage-lisbon-massage.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences",
+        "sound baths",
+        "yoga studios"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 89.04
+    },
+    {
+      "googlePlaceId": "ChIJbeoKfIIzGQ0R9xAksm9Xpo4",
+      "name": "JNcQUOI Avenida",
+      "address": "Av. da Liberdade 182 184, 1250-146 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3695,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.720279999999995,
+      "lng": -9.1449959,
+      "googleMapsUri": "https://maps.google.com/?cid=10278999336761430263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jncquoi.com/avenida/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.01
+    },
+    {
+      "googlePlaceId": "ChIJd6QCpSMzGQ0RXdLwrXreq0Q",
+      "name": "Jardim Zoológico",
+      "address": "Praça Marechal Humberto Delgado, 1549-004 Lisboa, Portugal",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 42867,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.743091400000004,
+      "lng": -9.1692039,
+      "googleMapsUri": "https://maps.google.com/?cid=4948293234082239069&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zoo.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.69
+    },
+    {
+      "googlePlaceId": "ChIJQXbNQG_NHg0RxFM7E7oba4s",
+      "name": "Zero Latency Lisboa",
+      "address": "CC UBBO, Av. José Garcês Praça Central, piso 0, 2650-504 Amadora, Portugal",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1090,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7759639,
+      "lng": -9.220409199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10046153879780545476&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.zerolatencyvr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.68
+    },
+    {
+      "googlePlaceId": "ChIJ4T6c9ng0GQ0RHIIYXeVCI2Y",
+      "name": "Puzzle Room Lisbon",
+      "address": "R. São Sebastião da Pedreira 100A, 1050-209 Lisboa, Portugal",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1958,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7303761,
+      "lng": -9.1494991,
+      "googleMapsUri": "https://maps.google.com/?cid=7359799768930353692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.puzzleroom.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "arcades",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 88.67
+    },
+    {
+      "googlePlaceId": "ChIJa1VVFQszGQ0RUruyluObH98",
+      "name": "El Corte Inglés",
+      "address": "El Corte Inglés Lisbon, Av. António Augusto de Aguiar 31 7th Floor, 1069-413 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 49928,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "cafeteria",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.733280799999996,
+      "lng": -9.153778299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16077740596524137298&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.elcorteingles.pt/?utm_campaign=google_my_business&utm_medium=organic&utm_source=google-my-business&utm_content=lisboa",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "arcades"
+      ],
+      "matchedCategories": [
+        "dining",
+        "sports-recreation"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJcVPiRjk1GQ0R4E4ckO3whcA",
+      "name": "A Nossa Casa",
+      "address": "R. da Atalaia 31, 1200-037 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2388,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7118452,
+      "lng": -9.1449444,
+      "googleMapsUri": "https://maps.google.com/?cid=13872759130300370656&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.41
+    },
+    {
+      "googlePlaceId": "ChIJAVcy4X4zGQ0RAU4hP9Ou6tQ",
+      "name": "Principe Real Garden",
+      "address": "Praça do Príncipe Real, 1250-184 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 12824,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7162998,
+      "lng": -9.148717099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15342267302911495681&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/jardim-franca-borges",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.35
+    },
+    {
+      "googlePlaceId": "ChIJy01zcVbLHg0Ri3fV_SDtc20",
+      "name": "Palácio Nacional da Ajuda",
+      "address": "Largo da Ajuda, 1349-021 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 10951,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "castle",
+        "art_museum",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7076247,
+      "lng": -9.1979777,
+      "googleMapsUri": "https://maps.google.com/?cid=7886908098409232267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.palacioajuda.gov.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 88.33
+    },
+    {
+      "googlePlaceId": "ChIJM4kK0H00GQ0RrqESgQSHg48",
+      "name": "Pensão Amor",
+      "address": "R. Nova do Carvalho 38, Cais do Sodre, 1200-019 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 6039,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.707270199999996,
+      "lng": -9.143673699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10341257622787891630&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pensaoamor.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "nightclubs",
+        "events tonight",
+        "jazz clubs",
+        "romantic bars",
+        "trivia nights",
+        "bottle service",
+        "things to do this weekend",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.27
+    },
+    {
+      "googlePlaceId": "ChIJZ_tNRmEzGQ0Rlfo4JxV474Q",
+      "name": "Free walking tour Lisbon",
+      "address": "Av. Alm. Reis 6, 1150-096 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 1535,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.720982899999996,
+      "lng": -9.135319899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9579006964688026261&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.guruwalk.com/lisbon?ref=500196c4cgrnyn29pnr4&ref_campaign=lisbon",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJsdo66gQzGQ0RTYg4HYS3GZA",
+      "name": "Inside Lisbon Tours",
+      "address": "R. Ivone Silva 6 7ºE, 1050-124 Lisboa, Portugal",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 3009,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.742470999999995,
+      "lng": -9.1502344,
+      "googleMapsUri": "https://maps.google.com/?cid=10383532193933199437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.insidelisbon.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.05
+    },
+    {
+      "googlePlaceId": "ChIJbUWt1v4zGQ0RfU8PHXLXM3Q",
+      "name": "Onda Cocktail Room",
+      "address": "R. Damasceno Monteiro 45, 1170-253 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 867,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7202256,
+      "lng": -9.1326808,
+      "googleMapsUri": "https://maps.google.com/?cid=8373273017325670269&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ondacocktailroom.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "bottle service",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 88
+    },
+    {
+      "googlePlaceId": "ChIJTxpP3681GQ0Rzs2cd7adrEQ",
+      "name": "Spot Lisboa",
+      "address": "R. do Norte 86, 1200-470 Lisboa, Portugal",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 2008,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.712549,
+      "lng": -9.1437238,
+      "googleMapsUri": "https://maps.google.com/?cid=4948503497589706190&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spotlisboa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "karaoke bars",
+        "trivia nights",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.9
+    },
+    {
+      "googlePlaceId": "ChIJiSdIyMszGQ0R613-zpqKj_E",
+      "name": "Discover Lisbon",
+      "address": "R. da Atalaia 204, 1200-089 Lisboa, Portugal",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2773,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.7144397,
+      "lng": -9.145312299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17406283482312629739&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.discoverlisbon.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.8
+    },
+    {
+      "googlePlaceId": "ChIJjUNdI8DaHg0RgBanweCmwHQ",
+      "name": "National Palace of Sintra",
+      "address": "Largo Rainha Dona Amélia, 2710-616 Sintra, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 56127,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7976627,
+      "lng": -9.3906554,
+      "googleMapsUri": "https://maps.google.com/?cid=8412907588179924608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parquesdesintra.pt/pt/parques-monumentos/palacio-nacional-sintra/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJ5fcMh3k0GQ0RsEli_Fck5sQ",
+      "name": "Rua Augusta Arch",
+      "address": "R. Augusta 2, 1100-053 Lisboa, Portugal",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 26567,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7084447,
+      "lng": -9.136824299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14188067636392380848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitlisboa.com/pt-pt/locais/arco-da-rua-augusta",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.72
+    },
+    {
+      "googlePlaceId": "ChIJ6QlNAc7LHg0RwdjZgh1jUyc",
+      "name": "Lisbon Earthquake 1755",
+      "address": "Rua do Cais da Alfândega Velha 39, 1300-598 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 8816,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.697036,
+      "lng": -9.1970676,
+      "googleMapsUri": "https://maps.google.com/?cid=2833717568946690241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lisbonquake.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.69
+    },
+    {
+      "googlePlaceId": "ChIJZ5pyChI1GQ0RVqpHzKBnq9o",
+      "name": "Breakfast Lovers Chiado",
+      "address": "R. Vítor Cordon 26, 1200-484 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 3944,
+      "priceLevel": null,
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "cafe",
+        "meal_takeaway",
+        "vegetarian_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7080494,
+      "lng": -9.141487,
+      "googleMapsUri": "https://maps.google.com/?cid=15756801661605489238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.apm.blue/breakfastloverschristmas",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.5
+    },
+    {
+      "googlePlaceId": "ChIJE70vI2_NHg0RcRSAZV3qWVM",
+      "name": "KidZania Lisboa",
+      "address": "C.C. UBBO, Av. Cruzeiro Seixas 7 Lj 1054, 2650-504 Amadora, Portugal",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 7560,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7759648,
+      "lng": -9.2210316,
+      "googleMapsUri": "https://maps.google.com/?cid=6006089264931017841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lisboa.kidzania.com/pt-pt",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 87.43
+    },
+    {
+      "googlePlaceId": "ChIJW51RQkPLHg0RudqetTf2TKQ",
+      "name": "Museum of Contemporary Art – MAC/CCB",
+      "address": "Praça do Império, 1449-003 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7849,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6958741,
+      "lng": -9.2090914,
+      "googleMapsUri": "https://maps.google.com/?cid=11839108239580912313&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ccb.pt/macccb",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.15
+    },
+    {
+      "googlePlaceId": "ChIJT2UiYkXLHg0RvagnSnJttwE",
+      "name": "National Coach Museum",
+      "address": "Av. da Índia 136, 1300-300 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 10569,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.6965545,
+      "lng": -9.197485,
+      "googleMapsUri": "https://maps.google.com/?cid=123687852413790397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://museudoscoches.gov.pt/pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.13
+    },
+    {
+      "googlePlaceId": "ChIJmUOQv5g0GQ0RQXio4tGUxDM",
+      "name": "Come Prima",
+      "address": "R. do Olival 258, 1200-744 Lisboa, Portugal",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 10258,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.704848999999996,
+      "lng": -9.166345699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3730270020541380673&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.comeprima.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.09
+    },
+    {
+      "googlePlaceId": "ChIJd6JP7XUzGQ0RJLjWqllXvCs",
+      "name": "Sagres Campo Pequeno",
+      "address": "Centro de Lazer do, Campo Pequeno, 1000-082 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 9698,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.742568899999995,
+      "lng": -9.1454728,
+      "googleMapsUri": "https://maps.google.com/?cid=3151489881882408996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sagrescampopequeno.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.07
+    },
+    {
+      "googlePlaceId": "ChIJNbReWH40GQ0RcUjkcqCogWI",
+      "name": "Palácio Chiado",
+      "address": "R. do Alecrim 70, 1200-018 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3988,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7096823,
+      "lng": -9.143029,
+      "googleMapsUri": "https://maps.google.com/?cid=7098139894788409457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.palaciochiado.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.03
+    },
+    {
+      "googlePlaceId": "ChIJHQqnQn4zGQ0RPPeQxWz5L2Q",
+      "name": "CINCO lounge",
+      "address": "R. Ruben A. Leitão 17A, 1200-392 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1290,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7141649,
+      "lng": -9.149725799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7219262973264590652&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cincolounge.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service",
+        "mixology classes",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.98
+    },
+    {
+      "googlePlaceId": "ChIJ-aZhRHU0GQ0RU45DdYW7dgg",
+      "name": "Taberna Sal Grosso",
+      "address": "Calçada do Forte 22, 1100-256 Lisboa, Portugal",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 3826,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "portuguese_restaurant",
+      "types": [
+        "portuguese_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7136987,
+      "lng": -9.1244447,
+      "googleMapsUri": "https://maps.google.com/?cid=609880981427686995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tabernasalgrosso.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJ3cMjwuA1GQ0R5ODzh6H8W2U",
+      "name": "Breakfast Lovers Misericórdia",
+      "address": "Calçada do Combro 45, 1200-114 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 9607,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.710913999999995,
+      "lng": -9.1469803,
+      "googleMapsUri": "https://maps.google.com/?cid=7303708991412232420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://linktr.ee/iloveyoubreakfastlovers",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.9
+    },
+    {
+      "googlePlaceId": "ChIJ-R6VlIUzGQ0RX8x1jtg9lh0",
+      "name": "Restaurant - Cervejaria Ramiro",
+      "address": "Av. Alm. Reis 1 H, 1150-007 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 20085,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.720257,
+      "lng": -9.1357429,
+      "googleMapsUri": "https://maps.google.com/?cid=2131959473918823519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cervejariaramiro.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJk9h9bkgzGQ0RkXqYtW0-jdc",
+      "name": "Another World - Lisboa VR-ARENA",
+      "address": "Av. Infante Dom Henrique 286, 1950-421 Lisboa, Portugal",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 530,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7509135,
+      "lng": -9.104175099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15532139330789735057&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://vr-arena.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJc-MGYN8zGQ0RoLVvfWLtQcc",
+      "name": "LAV - Lisboa ao Vivo",
+      "address": "Av. Mar. Gomes da Costa 29 B1, 1800-255 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3846,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7571856,
+      "lng": -9.110635499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14358018094300902816&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lisboaaovivo.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJNcwThXk0GQ0RHsf-GSiRodA",
+      "name": "Money Museum",
+      "address": "Largo de São Julião, 1100-150 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4672,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.708604400000006,
+      "lng": -9.138915599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15033456632560273182&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museudodinheiro.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJe384uXk0GQ0RihVBG5ZqqJ8",
+      "name": "Escape Hunt Lisbon",
+      "address": "R. dos Douradores 13, 1100-206 Lisboa, Portugal",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4578,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "amusement_center",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.710077000000005,
+      "lng": -9.136189,
+      "googleMapsUri": "https://maps.google.com/?cid=11504562441052820874&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapehunt.com/pt/lisbon/?utm_campaign&utm_source=GMB&utm_medium=search",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.44
+    },
+    {
+      "googlePlaceId": "ChIJDQfLUsfaHg0R4CODIv779yQ",
+      "name": "The Moorish Castle",
+      "address": "2710-405 Sintra, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 24654,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.792556,
+      "lng": -9.3893376,
+      "googleMapsUri": "https://maps.google.com/?cid=2663874773532222432&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parquesdesintra.pt/parques-jardins-e-monumentos/castelo-dos-mouros/",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.4
+    },
+    {
+      "googlePlaceId": "ChIJZWbjZawzGQ0R6XqxcT-rfzQ",
+      "name": "Hygge Kaffe",
+      "address": "R. Tomás Ribeiro 95B, 1050-227 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 11455,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "cafe",
+        "cake_shop",
+        "bakery",
+        "vegetarian_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "wholesaler",
+        "manufacturer",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.731541299999996,
+      "lng": -9.149072499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3782930500993252073&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hyggekaffe.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJg2MEG9YyGQ0R-Z_RfM0oIps",
+      "name": "Benfica Cosme Damião Museum",
+      "address": "Av. Eusébio da Silva Ferreira Porta 9, 1500-313 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3841,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.751421,
+      "lng": -9.184344,
+      "googleMapsUri": "https://maps.google.com/?cid=11178542088114511865&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.slbenfica.pt/loja/bilhetes/estadio-e-museu/visitas/visita?utm_medium=google&utm_source=google-my-business&utm_campaign=estadio-e-museu",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJWSuoNTgzGQ0RIB7UTt4BHcE",
+      "name": "Parque Recreativo do Alto da Serafina",
+      "address": "Estr. Serafina, 1500 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 7994,
+      "priceLevel": null,
+      "primaryType": "playground",
+      "types": [
+        "playground",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7333676,
+      "lng": -9.1777199,
+      "googleMapsUri": "https://maps.google.com/?cid=13915280477961592352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/parque-recreativo-do-alto-da-serafina",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 86.3
+    },
+    {
+      "googlePlaceId": "ChIJlwybZnY0GQ0RwvOJskKjhrs",
+      "name": "Miradouro das Portas do Sol",
+      "address": "Largo Portas do Sol, 1100-411 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5431,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7119253,
+      "lng": -9.1299568,
+      "googleMapsUri": "https://maps.google.com/?cid=13512667238830306242&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/miradouro-das-portas-do-sol",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.25
+    },
+    {
+      "googlePlaceId": "ChIJcxYntH80GQ0RX2Him1Z7r-g",
+      "name": "Manteigaria",
+      "address": "Rua do Loreto 2, 1200-108 Lisboa, Portugal",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 10478,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "pastry_shop",
+      "types": [
+        "pastry_shop",
+        "bakery",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 38.7108394,
+      "lng": -9.1440551,
+      "googleMapsUri": "https://maps.google.com/?cid=16766755549636354399&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://manteigaria.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.05
+    },
+    {
+      "googlePlaceId": "ChIJDaxL06czGQ0RKhrQksYaySg",
+      "name": "Han Table Barbecue - Anjos (Lisboa)",
+      "address": "R. Gomes Freire 11B, 1150-119 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 7078,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "korean_barbecue_restaurant",
+      "types": [
+        "korean_barbecue_restaurant",
+        "korean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7245433,
+      "lng": -9.1402965,
+      "googleMapsUri": "https://maps.google.com/?cid=2938909672004917802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hantablebarbecue.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.99
+    },
+    {
+      "googlePlaceId": "ChIJmfiNjSA1GQ0R0gCDK67caH8",
+      "name": "USAxe Club",
+      "address": "R. Rodrigues de Faria 103 H 0.02, 1300-472 Lisboa, Portugal",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 3434,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.702958599999995,
+      "lng": -9.1790708,
+      "googleMapsUri": "https://maps.google.com/?cid=9180830481007182034&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://usaxeclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.99
+    },
+    {
+      "googlePlaceId": "ChIJRWf1voMxGQ0RJIa21N-YPek",
+      "name": "Water Gardens",
+      "address": "Passeio de Ulisses, 1990-005 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 5605,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.761512599999996,
+      "lng": -9.0943351,
+      "googleMapsUri": "https://maps.google.com/?cid=16806757471530419748&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/jardins-da-agua-parque-das-nacoes",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 85.9
+    },
+    {
+      "googlePlaceId": "ChIJkcjst4czGQ0Riqo6n7Xkw2M",
+      "name": "ROOFTOP - TOPO MARTIM MONIZ",
+      "address": "Centro Comercial, Praça Martim Moniz Piso 6, 1100-341 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 3862,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7168213,
+      "lng": -9.1365407,
+      "googleMapsUri": "https://maps.google.com/?cid=7188840898925079178&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.topo-lisboa.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "game bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJVV-IIwQzGQ0RskObH-RRdwk",
+      "name": "Salta",
+      "address": "R. Rodrigo da Fonseca 82A, 1250-193 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1065,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "mexican_restaurant",
+        "japanese_restaurant",
+        "bar",
+        "asian_fusion_restaurant",
+        "fusion_restaurant",
+        "asian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7243184,
+      "lng": -9.1543168,
+      "googleMapsUri": "https://maps.google.com/?cid=682103908794581938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.salta.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.76
+    },
+    {
+      "googlePlaceId": "ChIJk9f4nu0yGQ0Rp4HzHgj9IkQ",
+      "name": "Parque da Quintas das Conchas e dos Lilases",
+      "address": "Alameda das Linhas de Torres, 1750-139 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 9237,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7695915,
+      "lng": -9.1550707,
+      "googleMapsUri": "https://maps.google.com/?cid=4909764755108102567&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/parque-da-quinta-das-conchas-e-dos-lilases",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJizRoen8zGQ0R6IZA7f5JXiI",
+      "name": "Lost In",
+      "address": "R. Dom Pedro V 56 D, 1250-094 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 3584,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "gastropub",
+        "garden",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.715889,
+      "lng": -9.1461353,
+      "googleMapsUri": "https://maps.google.com/?cid=2476498204351301352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lostinrestaurante.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "karaoke bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.62
+    },
+    {
+      "googlePlaceId": "ChIJW7Sh8rM1GQ0RyOHH7TYrFLs",
+      "name": "CORKIES Speakeasy",
+      "address": "R. da Bica de Duarte Belo 51A, 1200-056 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 380,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.710237899999996,
+      "lng": -9.1460782,
+      "googleMapsUri": "https://maps.google.com/?cid=13480447099544265160&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.instagram.com/CORKIES_SPEAKEASY",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.56
+    },
+    {
+      "googlePlaceId": "ChIJk80-CCo1GQ0RccqzCdmPrII",
+      "name": "Lisbon em Fado",
+      "address": "R. do Crucifixo 84 Baixa, Chiado, 1100-184 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1310,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "movie_theater",
+        "tourist_attraction",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "association_or_organization",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.7105386,
+      "lng": -9.138924000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9416059083258317425&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lisboaemfado.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.53
+    },
+    {
+      "googlePlaceId": "ChIJFbl4nnU1GQ0R-pHa1kZrnC0",
+      "name": "EcoMassage - Massage Lisbon",
+      "address": "R. Áurea 260, 1100-062 Lisboa, Portugal",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 3338,
+      "priceLevel": null,
+      "primaryType": "massage_spa",
+      "types": [
+        "massage_spa",
+        "massage",
+        "spa",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7123519,
+      "lng": -9.139107400000002,
+      "googleMapsUri": "https://maps.google.com/?cid=3286619780070150650&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ecomassage.com/book-an-appointment/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJaziQCZ00GQ0RXSiX09pRWoE",
+      "name": "Clube de Jornalistas",
+      "address": "R. das Trinas 129, 1200-857 Lisboa, Portugal",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 1321,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7100943,
+      "lng": -9.159328900000002,
+      "googleMapsUri": "https://maps.google.com/?cid=9320852379091282013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://restauranteclubedejornalistas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.3
+    },
+    {
+      "googlePlaceId": "ChIJm9xRPnc0GQ0RGWK34RwdbpI",
+      "name": "Lisbon Cathedral",
+      "address": "Largo da Sé 1, 1100-585 Lisboa, Portugal",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.4,
+      "reviewCount": 34549,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7098339,
+      "lng": -9.1329535,
+      "googleMapsUri": "https://maps.google.com/?cid=10551402986858832409&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sedelisboa.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJOTdgQPQzGQ0RCFZCcjBIdbc",
+      "name": "3D Fun Art Museum Lisboa",
+      "address": "R. Duque de Palmela, 1250-097 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1834,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7234828,
+      "lng": -9.1502003,
+      "googleMapsUri": "https://maps.google.com/?cid=13219551654128539144&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.3dfunartlisboa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJmdysW4czGQ0RmC6qP3hxocQ",
+      "name": "Praça Dom Pedro IV",
+      "address": "Praça Dom Pedro IV, 1100-193 Lisboa, Portugal",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 16287,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "plaza",
+        "sculpture",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.713803600000006,
+      "lng": -9.1393681,
+      "googleMapsUri": "https://maps.google.com/?cid=14168730663962422936&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/d-pedro-iv",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJz_ouvn41GQ0RUTj-Wj4_kIo",
+      "name": "Tipsy turtle lisboa",
+      "address": "Calçada do Cascão 10, 1100-123 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 326,
+      "priceLevel": null,
+      "primaryType": "wine_bar",
+      "types": [
+        "wine_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7138816,
+      "lng": -9.1250013,
+      "googleMapsUri": "https://maps.google.com/?cid=9984549910927521873&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tipsyturtlelisboa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "wine bars",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.1
+    },
+    {
+      "googlePlaceId": "ChIJFYIacX80GQ0RFmEZ-_0i4mU",
+      "name": "Páteo - Bairro do Avillez",
+      "address": "R. Nova da Trindade 18, 1200-303 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 7640,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.712264999999995,
+      "lng": -9.142377999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7341468816802144534&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bairrodoavillez.pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJeTUrmkTLHg0RiVALEnCrYE0",
+      "name": "Empire Square Garden",
+      "address": "Praça do Império, 1400-206 Lisboa, Portugal",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 5182,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.69599480000001,
+      "lng": -9.2059935,
+      "googleMapsUri": "https://maps.google.com/?cid=5575644836512092297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/jardim-da-praca-do-imperio",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJqZTC6IMzGQ0RWCDMH0P5lHs",
+      "name": "Jardim do Torel",
+      "address": "R. Júlio de Andrade, 1150-122 Lisboa, Portugal",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5180,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7191743,
+      "lng": -9.1411617,
+      "googleMapsUri": "https://maps.google.com/?cid=8905016429909909592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/jardim-do-torel-1",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJqQFcEHo0GQ0RvCnL-bpescs",
+      "name": "Can the Can Lisboa",
+      "address": "Praça do Comércio 82 83, 1100-148 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4161,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.707716,
+      "lng": -9.135389,
+      "googleMapsUri": "https://maps.google.com/?cid=14677616817724926396&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.canthecan.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJITj75340GQ0RXULVgWMFloA",
+      "name": "Belcanto",
+      "address": "R. Serpa Pinto 10A, 1200-445 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1734,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "portuguese_restaurant",
+      "types": [
+        "portuguese_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7100994,
+      "lng": -9.1414656,
+      "googleMapsUri": "https://maps.google.com/?cid=9265599208299512413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.belcanto.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJZ0MHGXo0GQ0RLMaWtihDkQE",
+      "name": "Lisbon Story Centre",
+      "address": "Praça do Comércio 78, 1100-148 Lisboa, Portugal",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 2885,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "cultural_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.707898899999996,
+      "lng": -9.135365199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=112945307802060332&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lisboastorycentre.pt/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJNcFDccMzGQ0RF7shtMnI4-Y",
+      "name": "JNcQUOI Asia",
+      "address": "Av. da Liberdade 144, 1250-146 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4037,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.719471999999996,
+      "lng": -9.1441149,
+      "googleMapsUri": "https://maps.google.com/?cid=16637362217072835351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jncquoi.com/asia/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.92
+    },
+    {
+      "googlePlaceId": "ChIJG0MVXXgzGQ0RnK8zEZSWlU4",
+      "name": "SEEN Sky Bar",
+      "address": "Av. da Liberdade 185, 1269-050 Lisboa, Portugal",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2782,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7209984,
+      "lng": -9.147139,
+      "googleMapsUri": "https://maps.google.com/?cid=5662597669176192924&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seenlx.com/seen-sky-bar/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "karaoke bars",
+        "paint and sip",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJhfycG9UzGQ0Rsmn3oNGd4oM",
+      "name": "Real Fado Concerts",
+      "address": "Praça do Príncipe Real 26, 1250-184 Lisboa, Portugal",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 490,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.716951699999996,
+      "lng": -9.148425099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9503331687379462578&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.realfadoconcerts.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.81
+    }
+  ]
+}

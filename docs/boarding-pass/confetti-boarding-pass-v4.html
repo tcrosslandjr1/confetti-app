@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Confetti — Boarding Pass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FBF5E5;
+  --dark: #140B06;
+  --coral: #FF5032;
+  --gold: #FDC010;
+  --purple: #513BB2;
+  --glass: rgba(251,245,229,0.04);
+  --glass-border: rgba(251,245,229,0.08);
+  --text-dim: rgba(251,245,229,0.5);
+  --text-dimmer: rgba(251,245,229,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--dark);
+  color: var(--cream);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ============ AMBIENT BACKGROUND ============ */
+.ambient {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  overflow: hidden;
+}
+.orb {
+  position: absolute; border-radius: 50%; filter: blur(120px);
+  animation: float 8s ease-in-out infinite;
+}
+.orb-1 {
+  width: 300px; height: 300px; background: rgba(255,80,50,0.12);
+  top: -8%; right: -10%; animation-delay: 0s;
+}
+.orb-2 {
+  width: 250px; height: 250px; background: rgba(81,59,178,0.10);
+  bottom: 10%; left: -8%; animation-delay: -3s;
+}
+.orb-3 {
+  width: 200px; height: 200px; background: rgba(253,192,16,0.08);
+  top: 50%; left: 40%; animation-delay: -5s;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -15px) scale(1.05); }
+  66% { transform: translate(-15px, 10px) scale(0.95); }
+}
+
+/* ============ PASS CONTAINER ============ */
+.pass {
+  position: relative; z-index: 1;
+  max-width: 400px; margin: 0 auto;
+  padding: 0 16px 100px;
+}
+
+/* ============ HEADER ============ */
+.pass-header {
+  padding: 20px 0 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px; font-weight: 800; color: var(--cream);
+  letter-spacing: -0.5px;
+}
+.logo-dot { color: var(--coral); }
+.pass-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dim);
+}
+.pass-badge .pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--coral);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* ============ ROUTE STRIP ============ */
+.route-strip {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin-bottom: 12px;
+}
+.route-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 20px;
+}
+.route-codes {
+  display: flex; align-items: center; gap: 12px; flex: 1;
+}
+.route-code {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px; font-weight: 800; letter-spacing: -1px;
+  line-height: 1;
+}
+.route-line {
+  flex: 1; display: flex; align-items: center; gap: 0;
+  padding: 0 4px;
+}
+.route-line .line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--coral), var(--gold));
+  opacity: 0.4;
+}
+.route-line .plane {
+  font-size: 14px; padding: 0 4px;
+  color: var(--coral);
+}
+.route-date-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--coral);
+  background: rgba(255,80,50,0.1);
+  padding: 4px 10px; border-radius: 999px;
+}
+.route-meta {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.route-meta-item {
+  text-align: center;
+  padding: 0 8px;
+}
+.route-meta-item:not(:last-child) {
+  border-right: 1px solid var(--glass-border);
+}
+.meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+  margin-bottom: 4px;
+}
+.meta-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px; font-weight: 700;
+}
+
+/* ============ TEAR LINE ============ */
+.tear {
+  display: flex; align-items: center; gap: 0;
+  margin: 4px -16px;
+  overflow: hidden;
+}
+.tear-notch {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--dark);
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px var(--glass-border);
+}
+.tear-dash {
+  flex: 1;
+  border-top: 1.5px dashed rgba(251,245,229,0.1);
+}
+
+/* ============ SECTION LABELS ============ */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 3px; color: var(--coral);
+  margin: 20px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--glass-border), transparent);
+}
+
+/* ============ FLIP CARDS (STOPS) ============ */
+.stop-card-wrapper {
+  perspective: 800px;
+  margin-bottom: 10px;
+}
+.stop-card {
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+.stop-card.flipped { transform: rotateY(180deg); }
+
+.stop-front, .stop-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  overflow: hidden;
+}
+.stop-back {
+  position: absolute; inset: 0;
+  transform: rotateY(180deg);
+  display: flex; flex-direction: column;
+}
+
+/* --- Front --- */
+.stop-front {
+  padding: 20px;
+}
+.stop-top-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 12px;
+}
+.stop-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+}
+.stop-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; font-weight: 600; color: var(--cream);
+}
+.stop-venue {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px; font-weight: 800; line-height: 1.15;
+  margin-bottom: 4px; letter-spacing: -0.5px;
+}
+.stop-hood {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.stop-vibe {
+  display: inline-block;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic; font-size: 13px;
+  color: var(--gold); opacity: 0.8;
+  margin-bottom: 16px;
+}
+.stop-actions {
+  display: flex; gap: 8px; align-items: center;
+  flex-wrap: wrap;
+}
+.stop-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 14px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass); color: var(--cream);
+  cursor: pointer; transition: all 0.3s;
+}
+.stop-btn:hover { border-color: rgba(251,245,229,0.2); }
+.stop-btn.primary {
+  background: var(--coral); border-color: var(--coral);
+  color: var(--dark);
+}
+.stop-btn.primary:hover { background: var(--gold); border-color: var(--gold); }
+.stop-btn.arrived {
+  background: rgba(80,200,120,0.15); border-color: rgba(80,200,120,0.3);
+  color: #50C878;
+}
+.stop-btn.flip-btn {
+  margin-left: auto;
+  color: var(--text-dim);
+}
+
+/* Crew ETA */
+.crew-eta {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--glass-border);
+}
+.crew-dots {
+  display: flex; gap: -4px;
+}
+.crew-dot {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; margin-left: -6px;
+  border: 2px solid var(--dark);
+  background: rgba(251,245,229,0.1);
+}
+.crew-dot:first-child { margin-left: 0; }
+.crew-eta-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 500; color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+/* --- Back --- */
+.stop-back {
+  padding: 20px;
+}
+.back-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+}
+.back-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--coral);
+}
+.back-close {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--glass-border); background: var(--glass);
+  color: var(--text-dim); font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.3s;
+}
+.back-close:hover { border-color: rgba(251,245,229,0.2); }
+
+.back-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; flex: 1;
+}
+.back-cell {
+  background: rgba(251,245,229,0.03);
+  border: 1px solid rgba(251,245,229,0.06);
+  border-radius: 14px; padding: 14px;
+}
+.back-cell-icon { font-size: 18px; margin-bottom: 6px; }
+.back-cell-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+  margin-bottom: 6px;
+}
+.back-cell-value {
+  font-size: 12px; font-weight: 500; line-height: 1.5;
+  color: rgba(251,245,229,0.8);
+}
+.back-cell-value a {
+  color: var(--coral); text-decoration: none;
+  font-weight: 600;
+}
+
+/* ============ NIGHT INTEL ============ */
+.intel-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-bottom: 10px;
+}
+.intel-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 14px;
+  text-align: center;
+}
+.intel-icon { font-size: 20px; margin-bottom: 6px; }
+.intel-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+  margin-bottom: 4px;
+}
+.intel-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px; font-weight: 700;
+}
+
+/* ============ CREW MANIFEST ============ */
+.crew-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px; padding: 18px 20px;
+  margin-bottom: 10px;
+}
+.crew-list { display: flex; flex-direction: column; gap: 10px; }
+.crew-member {
+  display: flex; align-items: center; gap: 12px;
+}
+.crew-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  background: rgba(251,245,229,0.06);
+  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+.crew-info { flex: 1; }
+.crew-name {
+  font-weight: 600; font-size: 13px; line-height: 1.3;
+}
+.crew-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 500; color: var(--text-dim);
+  letter-spacing: 1px;
+}
+.crew-status .ready { color: #50C878; }
+.crew-status .pending { color: var(--gold); }
+
+/* ============ QUICK ACTIONS ============ */
+.actions-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; margin-bottom: 10px;
+}
+.action-btn {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 16px 8px;
+  text-align: center; cursor: pointer;
+  transition: all 0.3s;
+}
+.action-btn:hover { border-color: rgba(251,245,229,0.15); transform: translateY(-2px); }
+.action-btn .icon { font-size: 22px; margin-bottom: 6px; }
+.action-btn .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-dim);
+}
+
+/* ============ WALLET FOOTER ============ */
+.wallet-footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(20,11,6,0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--glass-border);
+  padding: 12px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+.wallet-inner {
+  max-width: 400px; margin: 0 auto;
+  display: flex; gap: 8px;
+}
+.wallet-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 14px; border-radius: 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  border: none; cursor: pointer; transition: all 0.3s;
+}
+.wallet-btn.share {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  color: var(--cream);
+}
+.wallet-btn.share:hover { border-color: rgba(251,245,229,0.2); }
+.wallet-btn.go {
+  background: var(--coral); color: var(--dark);
+}
+.wallet-btn.go:hover { background: var(--gold); }
+
+/* ============ TOAST ============ */
+.toast {
+  position: fixed; bottom: 90px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(251,245,229,0.95); color: var(--dark);
+  padding: 12px 24px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-weight: 600; letter-spacing: 1px;
+  opacity: 0; pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 200;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.toast.show {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+
+/* ============ CONFETTI PARTICLES ============ */
+.confetti-canvas {
+  position: fixed; inset: 0; z-index: 300;
+  pointer-events: none;
+}
+
+/* ============ ANIMATIONS ============ */
+.fade-up {
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up-1 { animation-delay: 0.05s; }
+.fade-up-2 { animation-delay: 0.1s; }
+.fade-up-3 { animation-delay: 0.15s; }
+.fade-up-4 { animation-delay: 0.2s; }
+.fade-up-5 { animation-delay: 0.25s; }
+.fade-up-6 { animation-delay: 0.3s; }
+.fade-up-7 { animation-delay: 0.35s; }
+.fade-up-8 { animation-delay: 0.4s; }
+
+</style>
+</head>
+<body>
+
+<!-- Ambient Orbs -->
+<div class="ambient">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ====== BOARDING PASS ====== -->
+<div class="pass">
+
+  <!-- Header -->
+  <div class="pass-header fade-up fade-up-1">
+    <div class="logo">confetti<span class="logo-dot">.</span></div>
+    <div class="pass-badge"><span class="pulse"></span> Live</div>
+  </div>
+
+  <!-- Route Strip -->
+  <div class="route-strip fade-up fade-up-2">
+    <div class="route-top">
+      <div class="route-codes">
+        <div class="route-code">DCA</div>
+        <div class="route-line">
+          <div class="line"></div>
+          <div class="plane">✈</div>
+          <div class="line"></div>
+        </div>
+        <div class="route-code">NIT</div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <div>
+        <div class="meta-label">Washington, DC</div>
+      </div>
+      <div class="route-date-badge">Sat · May 17</div>
+      <div style="text-align:right;">
+        <div class="meta-label">Night Out</div>
+      </div>
+    </div>
+    <div class="route-meta">
+      <div class="route-meta-item">
+        <div class="meta-label">Depart</div>
+        <div class="meta-value">7:30p</div>
+      </div>
+      <div class="route-meta-item">
+        <div class="meta-label">Stops</div>
+        <div class="meta-value">3</div>
+      </div>
+      <div class="route-meta-item">
+        <div class="meta-label">Crew</div>
+        <div class="meta-value">4</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tear -->
+  <div class="tear fade-up fade-up-3">
+    <div class="tear-notch"></div>
+    <div class="tear-dash"></div>
+    <div class="tear-notch"></div>
+  </div>
+
+  <!-- ====== ITINERARY ====== -->
+  <div class="section-label fade-up fade-up-3">Itinerary</div>
+
+  <!-- Stop 1 -->
+  <div class="stop-card-wrapper fade-up fade-up-4">
+    <div class="stop-card" id="stop1">
+      <div class="stop-front">
+        <div class="stop-top-row">
+          <div class="stop-num">Stop 01</div>
+          <div class="stop-time">7:30 PM</div>
+        </div>
+        <div class="stop-venue">Dauphine's</div>
+        <div class="stop-hood">Adams Morgan</div>
+        <div class="stop-vibe">"southern charm, craft cocktails"</div>
+        <div class="stop-actions">
+          <button class="stop-btn primary" onclick="arrived(1)">📍 Navigate</button>
+          <button class="stop-btn" onclick="window.open('#')">📋 Menu</button>
+          <button class="stop-btn flip-btn" onclick="flip(1)">ℹ️ Info</button>
+        </div>
+        <div class="crew-eta">
+          <div class="crew-dots">
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+          </div>
+          <div class="crew-eta-text">3 confirmed · Maya arriving 7:25p</div>
+        </div>
+      </div>
+      <div class="stop-back">
+        <div class="back-header">
+          <div class="back-title">Dauphine's · Details</div>
+          <button class="back-close" onclick="flip(1)">✕</button>
+        </div>
+        <div class="back-grid">
+          <div class="back-cell">
+            <div class="back-cell-icon">🅿️</div>
+            <div class="back-cell-label">Parking</div>
+            <div class="back-cell-value">Street meters free after 6:30p · Garage on Belmont St ($12)</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🚇</div>
+            <div class="back-cell-label">Transit</div>
+            <div class="back-cell-value">Woodley Park Metro → 8 min walk south on 18th</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🍽️</div>
+            <div class="back-cell-label">Must Try</div>
+            <div class="back-cell-value">Shrimp & Grits, Bourbon Old Fashioned, Beignets</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">📝</div>
+            <div class="back-cell-label">Notes</div>
+            <div class="back-cell-value">Res under <strong>Tyrone · 4 ppl</strong> · Patio available · Smart casual</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stop 2 -->
+  <div class="stop-card-wrapper fade-up fade-up-5">
+    <div class="stop-card" id="stop2">
+      <div class="stop-front">
+        <div class="stop-top-row">
+          <div class="stop-num">Stop 02</div>
+          <div class="stop-time">9:15 PM</div>
+        </div>
+        <div class="stop-venue">The Gibson</div>
+        <div class="stop-hood">U Street Corridor</div>
+        <div class="stop-vibe">"speakeasy, intimate, bespoke drinks"</div>
+        <div class="stop-actions">
+          <button class="stop-btn primary" onclick="arrived(2)">📍 Navigate</button>
+          <button class="stop-btn" onclick="window.open('#')">🍸 Menu</button>
+          <button class="stop-btn flip-btn" onclick="flip(2)">ℹ️ Info</button>
+        </div>
+        <div class="crew-eta">
+          <div class="crew-dots">
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+          </div>
+          <div class="crew-eta-text">2 confirmed · Jordan pending</div>
+        </div>
+      </div>
+      <div class="stop-back">
+        <div class="back-header">
+          <div class="back-title">The Gibson · Details</div>
+          <button class="back-close" onclick="flip(2)">✕</button>
+        </div>
+        <div class="back-grid">
+          <div class="back-cell">
+            <div class="back-cell-icon">🅿️</div>
+            <div class="back-cell-label">Parking</div>
+            <div class="back-cell-value">Street on 14th St · ParkWhiz lot on U ($8 evening)</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🚇</div>
+            <div class="back-cell-label">Transit</div>
+            <div class="back-cell-value">U Street Metro (Green/Yellow) → 3 min walk</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🍸</div>
+            <div class="back-cell-label">Must Try</div>
+            <div class="back-cell-value">Ask bartender to make something custom · Dealer's Choice is legendary</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">📝</div>
+            <div class="back-cell-label">Notes</div>
+            <div class="back-cell-value">Ring doorbell to enter · No sign outside · Max 4 at bar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stop 3 -->
+  <div class="stop-card-wrapper fade-up fade-up-6">
+    <div class="stop-card" id="stop3">
+      <div class="stop-front">
+        <div class="stop-top-row">
+          <div class="stop-num">Stop 03</div>
+          <div class="stop-time">11:00 PM</div>
+        </div>
+        <div class="stop-venue">Flash</div>
+        <div class="stop-hood">Shaw</div>
+        <div class="stop-vibe">"rooftop, house music, late night"</div>
+        <div class="stop-actions">
+          <button class="stop-btn primary" onclick="arrived(3)">📍 Navigate</button>
+          <button class="stop-btn" onclick="window.open('#')">🎧 Lineup</button>
+          <button class="stop-btn flip-btn" onclick="flip(3)">ℹ️ Info</button>
+        </div>
+        <div class="crew-eta">
+          <div class="crew-dots">
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+          </div>
+          <div class="crew-eta-text">All 4 confirmed</div>
+        </div>
+      </div>
+      <div class="stop-back">
+        <div class="back-header">
+          <div class="back-title">Flash · Details</div>
+          <button class="back-close" onclick="flip(3)">✕</button>
+        </div>
+        <div class="back-grid">
+          <div class="back-cell">
+            <div class="back-cell-icon">🅿️</div>
+            <div class="back-cell-label">Parking</div>
+            <div class="back-cell-value">Garage on 9th & P ($15 flat) · Rideshare recommended</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🚇</div>
+            <div class="back-cell-label">Transit</div>
+            <div class="back-cell-value">Shaw-Howard Metro → 5 min walk on Florida Ave</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🎵</div>
+            <div class="back-cell-label">Tonight</div>
+            <div class="back-cell-value">DJ Manny (House) · Rooftop open til 2am · $15 cover after 11:30</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">📝</div>
+            <div class="back-cell-label">Notes</div>
+            <div class="back-cell-value">Guest list under <strong>Confetti +4</strong> · No cover before 11:30 · ID required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== NIGHT INTEL ====== -->
+  <div class="section-label fade-up fade-up-7">Night Intel</div>
+  <div class="intel-row fade-up fade-up-7">
+    <div class="intel-card">
+      <div class="intel-icon">💰</div>
+      <div class="intel-label">Budget</div>
+      <div class="intel-value">~$180</div>
+    </div>
+    <div class="intel-card">
+      <div class="intel-icon">🌡️</div>
+      <div class="intel-label">Weather</div>
+      <div class="intel-value">72°F</div>
+    </div>
+    <div class="intel-card">
+      <div class="intel-icon">👔</div>
+      <div class="intel-label">Dress</div>
+      <div class="intel-value" style="font-size:12px;">Smart Casual</div>
+    </div>
+  </div>
+
+  <!-- ====== CREW ====== -->
+  <div class="section-label fade-up fade-up-7">Crew</div>
+  <div class="crew-card fade-up fade-up-8">
+    <div class="crew-list">
+      <div class="crew-member">
+        <div class="crew-avatar">👑</div>
+        <div class="crew-info">
+          <div class="crew-name">Tyrone</div>
+          <div class="crew-status"><span class="ready">● Ready</span> · Captain</div>
+        </div>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar">💃</div>
+        <div class="crew-info">
+          <div class="crew-name">Maya</div>
+          <div class="crew-status"><span class="ready">● Ready</span> · ETA 7:25p</div>
+        </div>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar">🎯</div>
+        <div class="crew-info">
+          <div class="crew-name">Jordan</div>
+          <div class="crew-status"><span class="pending">● Pending</span> · Invited</div>
+        </div>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar">🎶</div>
+        <div class="crew-info">
+          <div class="crew-name">Alex</div>
+          <div class="crew-status"><span class="ready">● Ready</span> · ETA 7:35p</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== QUICK ACTIONS ====== -->
+  <div class="section-label fade-up fade-up-8">Quick Actions</div>
+  <div class="actions-grid fade-up fade-up-8">
+    <div class="action-btn" onclick="toast('Opening playlist...')">
+      <div class="icon">🎵</div>
+      <div class="label">Playlist</div>
+    </div>
+    <div class="action-btn" onclick="toast('Opening group chat...')">
+      <div class="icon">💬</div>
+      <div class="label">Group</div>
+    </div>
+    <div class="action-btn" onclick="toast('Opening camera...')">
+      <div class="icon">📸</div>
+      <div class="label">Photos</div>
+    </div>
+    <div class="action-btn" onclick="toast('Opening rideshare...')">
+      <div class="icon">🚗</div>
+      <div class="label">Ride</div>
+    </div>
+  </div>
+
+</div><!-- /pass -->
+
+<!-- Wallet Footer -->
+<div class="wallet-footer">
+  <div class="wallet-inner">
+    <button class="wallet-btn share" onclick="toast('Link copied!')">📤 Share</button>
+    <button class="wallet-btn go" onclick="toast('Let\'s go!'); fireConfetti()">🎉 Let's Go</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Confetti Canvas -->
+<canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+<script>
+// Flip card
+function flip(n) {
+  const card = document.getElementById('stop' + n);
+  card.classList.toggle('flipped');
+}
+
+// Arrived
+function arrived(n) {
+  const btn = event.target;
+  btn.classList.add('arrived');
+  btn.innerHTML = '✓ Arrived';
+  btn.onclick = null;
+  toast('Checked in at Stop ' + n + '!');
+  fireConfetti();
+}
+
+// Toast notification
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// Confetti
+function fireConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#FF5032','#FDC010','#513BB2','#FBF5E5','#50C878'];
+  const particles = [];
+
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: canvas.width / 2 + (Math.random() - 0.5) * 200,
+      y: canvas.height * 0.5,
+      vx: (Math.random() - 0.5) * 16,
+      vy: Math.random() * -18 - 4,
+      size: Math.random() * 6 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 12,
+      gravity: 0.4 + Math.random() * 0.2,
+      life: 1
+    });
+  }
+
+  let frame = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let alive = false;
+    particles.forEach(p => {
+      if (p.life <= 0) return;
+      alive = true;
+      p.vy += p.gravity;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vx *= 0.98;
+      p.rotation += p.rotSpeed;
+      p.life -= 0.012;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation * Math.PI / 180);
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      ctx.restore();
+    });
+    frame++;
+    if (alive && frame < 180) requestAnimationFrame(animate);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  animate();
+}
+</script>
+</body>
+</html>

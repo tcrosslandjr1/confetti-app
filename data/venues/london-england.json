@@ -1,0 +1,3448 @@
+{
+  "location": "London, England",
+  "generatedAt": "2026-05-17T20:04:40.436Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJB9OTMDIbdkgRp0JWbQGZsS8",
+      "name": "The British Museum",
+      "address": "Great Russell St, London WC1B 3DG, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 172803,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5194133,
+      "lng": -0.1269566,
+      "googleMapsUri": "https://maps.google.com/?cid=3436696222068785831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.britishmuseum.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 100.28
+    },
+    {
+      "googlePlaceId": "ChIJC9pWSLVBdkgRMA5Q9eG6egM",
+      "name": "Warner Bros. Studio Tour London",
+      "address": "Studio Tour Dr, Leavesden, Watford WD25 7LR, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 101546,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.690336099999996,
+      "lng": -0.4181589,
+      "googleMapsUri": "https://maps.google.com/?cid=250718208918556208&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wbstudiotour.co.uk/",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 99.85
+    },
+    {
+      "googlePlaceId": "ChIJhRoYKUkFdkgRDL20SU9sr9E",
+      "name": "Hyde Park",
+      "address": "London, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 141133,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "association_or_organization",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.5073638,
+      "lng": -0.1641135,
+      "googleMapsUri": "https://maps.google.com/?cid=15109414362646101260&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/visit/parks/hyde-park?utm_source=google&utm_medium=organic&utm_campaign=google-my-business&utm_content=hyde-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "skating rinks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 99.69
+    },
+    {
+      "googlePlaceId": "ChIJD2bPdVcDdkgRuUSgnOXnKDE",
+      "name": "Borough Market",
+      "address": "London SE1 9AH, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 127178,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "farmers_market",
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.505582600000004,
+      "lng": -0.09048080000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3542336080288171193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://boroughmarket.org.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "viral food spots",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.3
+    },
+    {
+      "googlePlaceId": "ChIJw1d-sUMFdkgRH2XN_U0Jt54",
+      "name": "Victoria and Albert Museum",
+      "address": "Cromwell Rd, London SW7 2RL, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 66812,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4966392,
+      "lng": -0.17218,
+      "googleMapsUri": "https://maps.google.com/?cid=11436620009305892127&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vam.ac.uk/south-kensington",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 97.15
+    },
+    {
+      "googlePlaceId": "ChIJgaI8bFIDdkgRhJJqLMxsFdU",
+      "name": "Sky Garden",
+      "address": "1, Sky Garden Walk, London EC3M 8AF, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 76236,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "garden",
+        "tourist_attraction",
+        "cafe",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5112422,
+      "lng": -0.08354929999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15354298128763884164&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://skygarden.london/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "waterfront gardens",
+        "family friendly things to do",
+        "date night restaurants",
+        "sunset date spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.83
+    },
+    {
+      "googlePlaceId": "ChIJSdtli0MDdkgRLW9aCBpCeJ4",
+      "name": "Tower Bridge",
+      "address": "Tower Bridge Rd, London SE1 2UP, UK",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 181167,
+      "priceLevel": null,
+      "primaryType": "bridge",
+      "types": [
+        "bridge",
+        "tourist_attraction",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5054564,
+      "lng": -0.07535649999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11418949534774619949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.towerbridge.org.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.51
+    },
+    {
+      "googlePlaceId": "ChIJ3TgfM0kDdkgRZ2TV4d1Jv6g",
+      "name": "Tower of London",
+      "address": "London EC3N 4AB, UK",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 118990,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.508112399999995,
+      "lng": -0.0759493,
+      "googleMapsUri": "https://maps.google.com/?cid=12159518736249087079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hrp.org.uk/tower-of-london/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.96
+    },
+    {
+      "googlePlaceId": "ChIJG-CxwNoEdkgRXx26gHZwVf8",
+      "name": "St James's Park",
+      "address": "London SW1A 2BJ, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 62498,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.502967,
+      "lng": -0.1339534,
+      "googleMapsUri": "https://maps.google.com/?cid=18398735506960162143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/visit/parks/st-jamess-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.61
+    },
+    {
+      "googlePlaceId": "ChIJPaOn4FAFdkgRfLe2KIKp7mI",
+      "name": "Kensington Gardens",
+      "address": "London, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 30171,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.506986999999995,
+      "lng": -0.179165,
+      "googleMapsUri": "https://maps.google.com/?cid=7128821636667979644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/visit/parks/kensington-gardens?utm_source=google&utm_medium=organic&utm_campaign=google-my-business&utm_content=kensington-gardens",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 95.27
+    },
+    {
+      "googlePlaceId": "ChIJOWBQvA4FdkgRQf5iYYFF1v4",
+      "name": "Battersea Park",
+      "address": "Battersea Park Rd, London SW11 4NJ, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 23156,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4791075,
+      "lng": -0.1564981,
+      "googleMapsUri": "https://maps.google.com/?cid=18362940952636751425&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wandsworth.gov.uk/batterseapark",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.51
+    },
+    {
+      "googlePlaceId": "ChIJ4Z9Tf_0EdkgRXVFCTtu_oJY",
+      "name": "Battersea Power Station",
+      "address": "Circus Rd W, Nine Elms, London SW11 8DD, UK",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 29522,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "food_court",
+        "ice_skating_rink",
+        "shopping_mall",
+        "tourist_attraction",
+        "cultural_landmark",
+        "indoor_playground",
+        "playground",
+        "sports_complex",
+        "bar",
+        "sports_activity_location",
+        "historical_place",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.482020299999995,
+      "lng": -0.1444907,
+      "googleMapsUri": "https://maps.google.com/?cid=10853886050594607453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://batterseapowerstation.co.uk/?utm_source=gbp&utm_medium=organic&utm_campaign=google_business_profile",
+      "openNow": false,
+      "matchedQueries": [
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.11
+    },
+    {
+      "googlePlaceId": "ChIJK4j9CagbdkgRluwkqYLufoE",
+      "name": "Circolo Popolare",
+      "address": "40-41 Rathbone Pl, London W1T 1HX, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 38535,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "mediterranean_restaurant",
+        "european_restaurant",
+        "family_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5171895,
+      "lng": -0.13386789999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9331157722909174934&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.circolopopolare.com/restaurants/circolopopolare-london?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "date night restaurants",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 93.82
+    },
+    {
+      "googlePlaceId": "ChIJeclqF84EdkgRtKAjTmWFr0I",
+      "name": "The National Gallery",
+      "address": "Trafalgar Square, London WC2N 5DN, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 61363,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.508928999999995,
+      "lng": -0.128299,
+      "googleMapsUri": "https://maps.google.com/?cid=4805205997576757428&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalgallery.org.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 93.66
+    },
+    {
+      "googlePlaceId": "ChIJQzRbYMUNdkgRfvuRYk-Rb9E",
+      "name": "Royal Botanic Gardens, Kew",
+      "address": "Richmond, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 53179,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "wedding_venue",
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.4787438,
+      "lng": -0.295573,
+      "googleMapsUri": "https://maps.google.com/?cid=15091440646483999614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kew.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 93.65
+    },
+    {
+      "googlePlaceId": "ChIJP9oAE0MFdkgR3iKGFKZO1SE",
+      "name": "Science Museum",
+      "address": "Exhibition Rd, South Kensington, London SW7 2DD, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 75195,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "gift_shop",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4972216,
+      "lng": -0.1767283,
+      "googleMapsUri": "https://maps.google.com/?cid=2437941248506864350&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sciencemuseum.org.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 93.54
+    },
+    {
+      "googlePlaceId": "ChIJc2nSALkEdkgRkuoJJBfzkUI",
+      "name": "London Eye",
+      "address": "Riverside Building, County Hall, Westminster Bridge Rd, London SE1 7PB, UK",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 200411,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5031864,
+      "lng": -0.11951919999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4796882358840715922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.londoneye.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.5
+    },
+    {
+      "googlePlaceId": "ChIJPy8Y5kIFdkgRxGSXw4Xjt3s",
+      "name": "Natural History Museum",
+      "address": "Cromwell Rd, South Kensington, London SW7 5BD, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 34999,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "research_institute",
+        "tourist_attraction",
+        "library",
+        "museum",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.496714999999995,
+      "lng": -0.17636720000000003,
+      "googleMapsUri": "https://maps.google.com/?cid=8914844151054820548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nhm.ac.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 93.1
+    },
+    {
+      "googlePlaceId": "ChIJoaTWHMsFdkgREy3QGecEo6c",
+      "name": "Ave Mario",
+      "address": "15 Henrietta St, London WC2E 8QG, UK",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 28174,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "mediterranean_restaurant",
+        "family_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5108639,
+      "lng": -0.12397300000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12079504016154832147&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigmammagroup.com/italian-restaurants/ave-mario?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 92.93
+    },
+    {
+      "googlePlaceId": "ChIJgZ24Us4adkgRpDNAwNPO_SY",
+      "name": "Madame Tussauds London",
+      "address": "Marylebone Rd, London NW1 5LR, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 84410,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5230052,
+      "lng": -0.1544133,
+      "googleMapsUri": "https://maps.google.com/?cid=2809629151407911844&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madametussauds.com/london/en/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.77
+    },
+    {
+      "googlePlaceId": "ChIJh7MHVRyo2EcR39q58wztHZg",
+      "name": "The O2",
+      "address": "Peninsula Square, London SE10 0DX, UK",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 81622,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "arena",
+        "shopping_mall",
+        "movie_theater",
+        "bowling_alley",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 51.503038,
+      "lng": 0.0031543,
+      "googleMapsUri": "https://maps.google.com/?cid=10961177707974089439&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theo2.co.uk/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.67
+    },
+    {
+      "googlePlaceId": "ChIJ0XqGIVsFdkgR2S_aNe6c_l4",
+      "name": "Royal Albert Hall",
+      "address": "Kensington Gore, South Kensington, London SW7 2AP, UK",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 46784,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "historical_landmark",
+        "live_music_venue",
+        "historical_place",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 51.5009088,
+      "lng": -0.177366,
+      "googleMapsUri": "https://maps.google.com/?cid=6845081030569373657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalalberthall.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.63
+    },
+    {
+      "googlePlaceId": "ChIJVX1-GtIEdkgR1n_gGjHQZpI",
+      "name": "Leicester Square",
+      "address": "Leicester Square, London WC2H 7LU, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 24623,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "cultural_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.510359,
+      "lng": -0.1300625,
+      "googleMapsUri": "https://maps.google.com/?cid=10549348086484860886&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://leicestersquare.london/",
+      "openNow": null,
+      "matchedQueries": [
+        "cultural centers",
+        "skating rinks",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.49
+    },
+    {
+      "googlePlaceId": "ChIJW0sjYeEFdkgRdwCty-McgJs",
+      "name": "Immersive Gamebox - Southbank, London",
+      "address": "Arch 3, 83 Scoresby St, London SE1 0XN, UK",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5118,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5042538,
+      "lng": -0.1034012,
+      "googleMapsUri": "https://maps.google.com/?cid=11204987637598060663&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/sbk-london-southbank/?utm_source=Googlemaps&utm_medium=maps&utm_campaign=SBK",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.39
+    },
+    {
+      "googlePlaceId": "ChIJ_dGXYaUOdkgRjQQ6Whq-jBM",
+      "name": "Richmond Park",
+      "address": "Richmond, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 30817,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.441185,
+      "lng": -0.274532,
+      "googleMapsUri": "https://maps.google.com/?cid=1408709803852301453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/visit/parks/richmond-park?utm_source=google&utm_medium=organic&utm_campaign=google-my-business&utm_content=richmond-park",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 91.68
+    },
+    {
+      "googlePlaceId": "ChIJ_ckOE7QcdkgR4Bug3A4RwXc",
+      "name": "Spitalfields Market",
+      "address": "65 Brushfield St, London E1 6AA, UK",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 34066,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "shopping_mall",
+        "flea_market",
+        "tourist_attraction",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5197441,
+      "lng": -0.07606879999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8629197116547275744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spitalfields.co.uk/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.67
+    },
+    {
+      "googlePlaceId": "ChIJ37LRnSoFdkgR0swwV5fK0EU",
+      "name": "See Your City",
+      "address": "3rd Floor, 207 Regent Street, London W1B 3HH, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 13828,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.5132459,
+      "lng": -0.1411087,
+      "googleMapsUri": "https://maps.google.com/?cid=5030743535124532434&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seeyour.city/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 91.58
+    },
+    {
+      "googlePlaceId": "ChIJ8W1157cEdkgRaKMYsrcpgH0",
+      "name": "Royal Festival Hall",
+      "address": "Southbank Centre, Belvedere Rd, London SE1 8XX, UK",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 12205,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "tourist_attraction",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 51.505806199999995,
+      "lng": -0.1166288,
+      "googleMapsUri": "https://maps.google.com/?cid=9043273920703669096&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.southbankcentre.co.uk/venues/royal-festival-hall",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.58
+    },
+    {
+      "googlePlaceId": "ChIJ4-WqJcUadkgRVJNtcAZcBVw",
+      "name": "Queen Mary's Rose Gardens",
+      "address": "Chester Rd, London NW1 4NR, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5617,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5275435,
+      "lng": -0.1517503,
+      "googleMapsUri": "https://maps.google.com/?cid=6630807209098711892&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/parks/the-regents-park/things-to-see-and-do/gardens-and-landscapes/queen-marys-gardens",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.55
+    },
+    {
+      "googlePlaceId": "ChIJUeZvHYUCdkgRekRqtN5kdVA",
+      "name": "Greenwich Market",
+      "address": "5B Greenwich Market, London SE10 9HZ, UK",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 29045,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "shopping_mall",
+        "food_court",
+        "tourist_attraction",
+        "home_goods_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 51.481577099999996,
+      "lng": -0.009037,
+      "googleMapsUri": "https://maps.google.com/?cid=5797651002981762170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.greenwichmarket.london/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.46
+    },
+    {
+      "googlePlaceId": "ChIJaeUYnoQCdkgR0Fxns5NICw4",
+      "name": "Greenwich Park",
+      "address": "London SE10 8QY, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 49909,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4769095,
+      "lng": 0.0014643,
+      "googleMapsUri": "https://maps.google.com/?cid=1011982340482096336&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/visit/parks/greenwich-park?utm_source=google&utm_medium=organic&utm_campaign=google-my-business&utm_content=greenwich-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 91.31
+    },
+    {
+      "googlePlaceId": "ChIJlRl2MakEdkgR55tr4CNv_B8",
+      "name": "Tate Modern",
+      "address": "Bankside, London SE1 9TG, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 82041,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "tourist_attraction",
+        "gift_shop",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.507595300000006,
+      "lng": -0.0993564,
+      "googleMapsUri": "https://maps.google.com/?cid=2304839309186538471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tate.org.uk/visit/tate-modern",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.19
+    },
+    {
+      "googlePlaceId": "ChIJHdd94hwbdkgRihDCyn0FD1Y",
+      "name": "Tattu London",
+      "address": "The Now Building Rooftop, Outernet, Denmark St, London WC2H 0LA, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7138,
+      "priceLevel": null,
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.515384999999995,
+      "lng": -0.1295445,
+      "googleMapsUri": "https://maps.google.com/?cid=6201181249743229066&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tattu.co.uk/locations/tattu-london/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.14
+    },
+    {
+      "googlePlaceId": "ChIJEYfH57cEdkgRzWXeq8neKtI",
+      "name": "Southbank Centre",
+      "address": "Southbank Centre, Belvedere Rd, London SE1 8XX, UK",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 14724,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "live_music_venue",
+        "non_profit_organization",
+        "tourist_attraction",
+        "art_gallery",
+        "cultural_center",
+        "library",
+        "performing_arts_theater",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 51.50602,
+      "lng": -0.1164148,
+      "googleMapsUri": "https://maps.google.com/?cid=15144161654739985869&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.southbankcentre.co.uk/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.01
+    },
+    {
+      "googlePlaceId": "ChIJpciweucPdkgRX65rI7oJ2IY",
+      "name": "Jacuzzi",
+      "address": "94 Kensington High St, London W8 4SG, UK",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 24985,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "mediterranean_restaurant",
+        "family_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5016858,
+      "lng": -0.19200640000000002,
+      "googleMapsUri": "https://maps.google.com/?cid=9716526891114671711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigmammagroup.com/italian-restaurants/jacuzzi?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 90.83
+    },
+    {
+      "googlePlaceId": "ChIJkTQvFOIFdkgR9tc7UdkqLxI",
+      "name": "SANDEMANs London, Free Walking Tour",
+      "address": "1 Strand, London WC2N 5PH, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 10450,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.5078098,
+      "lng": -0.1265883,
+      "googleMapsUri": "https://maps.google.com/?cid=1310313129447249910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.neweuropetours.eu/sandemans-tours/london/free-tour-of-london/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.78
+    },
+    {
+      "googlePlaceId": "ChIJSfFEEuQadkgRCO-FF_-eZUc",
+      "name": "Camden Market",
+      "address": "54-56 Camden Lock Pl, London NW1 8AF, UK",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 149153,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5414026,
+      "lng": -0.14650839999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5144692967789162248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.camdenmarket.com/?utm_source=google_my_business&utm_medium=direct&utm_campaign=camden-market",
+      "openNow": false,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.5
+    },
+    {
+      "googlePlaceId": "ChIJ03GSCloDdkgRe_s-p2vyvQA",
+      "name": "The Shard",
+      "address": "32 London Bridge St, London SE1 9SG, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 46500,
+      "priceLevel": null,
+      "primaryType": "landmark",
+      "types": [
+        "landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5045,
+      "lng": -0.0865,
+      "googleMapsUri": "https://maps.google.com/?cid=53465314779659131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.the-shard.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.41
+    },
+    {
+      "googlePlaceId": "ChIJH-tBOc4EdkgRJ8aJ8P1CUxo",
+      "name": "Trafalgar Square",
+      "address": "Trafalgar Sq, London WC2N 5DS, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 138258,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.508039,
+      "lng": -0.128069,
+      "googleMapsUri": "https://maps.google.com/?cid=1896933526482830887&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.london.gov.uk/who-we-are/city-halls-buildings-and-squares/trafalgar-square",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.29
+    },
+    {
+      "googlePlaceId": "ChIJse1x6SoRdkgR83yrIhNV5gc",
+      "name": "Royal Air Force Museum London",
+      "address": "Grahame Park Way, London NW9 5LL, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 19789,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.598079000000006,
+      "lng": -0.23832459999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=569235943583350003&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rafmuseum.org.uk/london/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 90.16
+    },
+    {
+      "googlePlaceId": "ChIJB76zsMMadkgRvhhquw8-mAg",
+      "name": "The Regent's Park",
+      "address": "London, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 48716,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.533313,
+      "lng": -0.1557646,
+      "googleMapsUri": "https://maps.google.com/?cid=619313186053167294&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/visit/parks/regents-park-primrose-hill?utm_source=google&utm_medium=organic&utm_campaign=google-my-business&utm_content=regents-park",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.15
+    },
+    {
+      "googlePlaceId": "ChIJtV5bzSAFdkgRpwLZFPWrJgo",
+      "name": "Buckingham Palace",
+      "address": "London SW1A 1AA, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.5,
+      "reviewCount": 191393,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.501363999999995,
+      "lng": -0.14189,
+      "googleMapsUri": "https://maps.google.com/?cid=731461058599387815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rct.uk/visit/buckingham-palace",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.12
+    },
+    {
+      "googlePlaceId": "ChIJq2ACRWsFdkgRJn_lSL81PM4",
+      "name": "F1® Arcade London",
+      "address": "1 New Change, London EC4M 9AF, UK",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 4881,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "sports_bar",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 51.5138927,
+      "lng": -0.09620379999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14860811966093819686&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://f1arcade.com/uk/london?utm_source=google&utm_medium=organic&utm_campaign=gbp-listing&utm_term=london",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.05
+    },
+    {
+      "googlePlaceId": "ChIJQR9pg8sEdkgRKeWNNYlDdPU",
+      "name": "Covent Garden",
+      "address": "41 The Piazza, London WC2E 8RF, UK",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 124676,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.512045,
+      "lng": -0.12282539999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17686835893178852649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.coventgarden.london/",
+      "openNow": false,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.99
+    },
+    {
+      "googlePlaceId": "ChIJ7w-V58oNdkgRhz8svCpc5ok",
+      "name": "Kensington Palace",
+      "address": "Kensington Gardens, London W8 4PX, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 31828,
+      "priceLevel": null,
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.504975699999996,
+      "lng": -0.187681,
+      "googleMapsUri": "https://maps.google.com/?cid=9936730966454976391&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hrp.org.uk/kensington-palace/#gs.mcgyig",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.97
+    },
+    {
+      "googlePlaceId": "ChIJ4bD-gc0PdkgRJSZMshhKBTA",
+      "name": "TOUR LONDRES - Free Tours Londres en Español",
+      "address": "Flat 3a, 12 Trinity Square, London EC3N 4AL, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 13884,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5098881,
+      "lng": -0.0784526,
+      "googleMapsUri": "https://maps.google.com/?cid=3460253358635099685&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tourlondres.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.85
+    },
+    {
+      "googlePlaceId": "ChIJvWjCxekEdkgRoCgQVJHZH_U",
+      "name": "Tate Britain",
+      "address": "Millbank, London SW1P 4RG, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 22765,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4910621,
+      "lng": -0.1277886,
+      "googleMapsUri": "https://maps.google.com/?cid=17663075481774205088&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tate.org.uk/visit/tate-britain",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 89.71
+    },
+    {
+      "googlePlaceId": "ChIJG1YB2m4RdkgRsetv9D40NGY",
+      "name": "Portobello Road Market",
+      "address": "London W11 1LJ, UK",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 28473,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5170002,
+      "lng": -0.205847,
+      "googleMapsUri": "https://maps.google.com/?cid=7364568735651195825&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitportobello.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "flea markets",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.66
+    },
+    {
+      "googlePlaceId": "ChIJ2yb0sesadkgRIQOyE6qMxLU",
+      "name": "Primrose Hill",
+      "address": "Primrose Hill Rd, London NW1 4NR, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 14986,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5395226,
+      "lng": -0.16064989999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13097748278403007265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/parks/the-regents-park/things-to-see-and-do/primrose-hill",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.62
+    },
+    {
+      "googlePlaceId": "ChIJD4dBYbgFdkgRv99UblXvkYw",
+      "name": "Seven Dials Market",
+      "address": "Earlham St, London WC2H 9LX, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 8758,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "wine_bar",
+        "cocktail_bar",
+        "market",
+        "bar",
+        "book_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 51.5139632,
+      "lng": -0.1260421,
+      "googleMapsUri": "https://maps.google.com/?cid=10129140187135270847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sevendialsmarket.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.53
+    },
+    {
+      "googlePlaceId": "ChIJIzJDyggadkgROFAV19Ti070",
+      "name": "Hampstead Heath",
+      "address": "London, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 20146,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.560829399999996,
+      "lng": -0.1629416,
+      "googleMapsUri": "https://maps.google.com/?cid=13678525897023770680&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cityoflondon.gov.uk/things-to-do/green-spaces/hampstead-heath",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.36
+    },
+    {
+      "googlePlaceId": "ChIJDUkDWC0FdkgRvr1r4roiH4E",
+      "name": "Selfridges",
+      "address": "400 Oxford St, London W1A 1AB, UK",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 46572,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "gift_shop",
+        "cafe",
+        "toy_store",
+        "shoe_store",
+        "clothing_store",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 51.5144233,
+      "lng": -0.152767,
+      "googleMapsUri": "https://maps.google.com/?cid=9304193541228707262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.selfridges.com/GB/en/features/info/stores/london/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.32
+    },
+    {
+      "googlePlaceId": "ChIJ2dGMjMMEdkgRqVqkuXQkj7c",
+      "name": "Big Ben",
+      "address": "London SW1A 0AA, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 98011,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.500729199999995,
+      "lng": -0.12462540000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13226830714359798441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parliament.uk/bigben",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.3
+    },
+    {
+      "googlePlaceId": "ChIJefT-hWIbdkgRAGGu1AuI0qg",
+      "name": "Carlotta",
+      "address": "77-78 Marylebone High St, London W1U 5JX, UK",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 14332,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "mediterranean_restaurant",
+        "fine_dining_restaurant",
+        "family_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5209688,
+      "lng": -0.1521323,
+      "googleMapsUri": "https://maps.google.com/?cid=12164935127875346688&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bigmammagroup.com/italian-restaurants/carlotta?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJm-i1NjsRdkgR5eH3xUZIL84",
+      "name": "Windsor Castle",
+      "address": "Windsor SL4 1NJ, UK",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 64553,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.483894,
+      "lng": -0.6044027,
+      "googleMapsUri": "https://maps.google.com/?cid=14857173164524823013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rct.uk/visit/windsor-castle",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.2
+    },
+    {
+      "googlePlaceId": "ChIJl5tV7FoDdkgR6UIgihrVM4c",
+      "name": "Aqua Shard",
+      "address": "Level 31, The Shard, 31 St Thomas St, London SE1 9RY, UK",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 16310,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "british_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "british_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5042311,
+      "lng": -0.0865624,
+      "googleMapsUri": "https://maps.google.com/?cid=9742364728895750889&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aquashard.co.uk/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.11
+    },
+    {
+      "googlePlaceId": "ChIJ-2mrB9UEdkgReKgh9HDC-7s",
+      "name": "Cahoots Underground",
+      "address": "13 Kingly Ct, Carnaby, London W1B 5PW, UK",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 5145,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.512482399999996,
+      "lng": -0.1385496,
+      "googleMapsUri": "https://maps.google.com/?cid=13545634094634870904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cahoots.co.uk/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.1
+    },
+    {
+      "googlePlaceId": "ChIJId2oNroFdkgReafXXIrGnkY",
+      "name": "Frameless Immersive Art Experience",
+      "address": "6 Marble Arch, London W1H 7AP, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4987,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5136755,
+      "lng": -0.1603609,
+      "googleMapsUri": "https://maps.google.com/?cid=5088722926540662649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.frameless.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 89.01
+    },
+    {
+      "googlePlaceId": "ChIJqZLwP-UbdkgR3fNcCBoNLjk",
+      "name": "Twist Museum",
+      "address": "248 Oxford St, London W1C 1DH, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4930,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.515274899999994,
+      "lng": -0.1431529,
+      "googleMapsUri": "https://maps.google.com/?cid=4120245114551202781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://twistmuseum.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 88.98
+    },
+    {
+      "googlePlaceId": "ChIJs_wmr0cWa0gRHr60qjwn1Mo",
+      "name": "National Maritime Museum",
+      "address": "Romney Rd, London SE10 9NF, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 14878,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "history_museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4810058,
+      "lng": -0.005226199999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14615349832239595038&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rmg.co.uk/national-maritime-museum",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.89
+    },
+    {
+      "googlePlaceId": "ChIJh7wHoqwEdkgR3l-vqQE1HTo",
+      "name": "St. Paul's Cathedral",
+      "address": "St. Paul's Churchyard, London EC4M 8AD, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 55846,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5138453,
+      "lng": -0.0983506,
+      "googleMapsUri": "https://maps.google.com/?cid=4187561509782511582&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.stpauls.co.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.79
+    },
+    {
+      "googlePlaceId": "ChIJtZpbttMEdkgRl7-te2KdeSg",
+      "name": "Evelyn's Table",
+      "address": "28 Rupert St, London W1D 6DJ, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1444,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.511125899999996,
+      "lng": -0.13261770000000003,
+      "googleMapsUri": "https://maps.google.com/?cid=2916535280006446999&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://theblueposts.co.uk/evelyns-table/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.76
+    },
+    {
+      "googlePlaceId": "ChIJzfquTR8FdkgR_iUQ6WO9ddo",
+      "name": "Golden Tours, Bulleid Way Departure Point",
+      "address": "Stop 1, Bulleid Way, London SW1W 9SR, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 33871,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.4932916,
+      "lng": -0.1457088,
+      "googleMapsUri": "https://maps.google.com/?cid=15741696309352998398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.goldentours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.45
+    },
+    {
+      "googlePlaceId": "ChIJ6ePadIEDdkgRRVH3nx0rILw",
+      "name": "Fairgame",
+      "address": "25 Fishermans Walk, Canary Wharf Estate, London E14 4DH, UK",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 5924,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.506230800000004,
+      "lng": -0.022280800000000003,
+      "googleMapsUri": "https://maps.google.com/?cid=13555882284623024453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wearefairgame.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.45
+    },
+    {
+      "googlePlaceId": "ChIJl8b8USsbdkgRwY4c6Yh7udU",
+      "name": "Scarlett Green",
+      "address": "4 Noel St, London W1F 8GB, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 10782,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "coffee_shop",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "bar",
+        "breakfast_restaurant",
+        "cafe",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5153079,
+      "lng": -0.1357991,
+      "googleMapsUri": "https://maps.google.com/?cid=15400476228726853313&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daisygreenfood.com/location-scarlett",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.42
+    },
+    {
+      "googlePlaceId": "ChIJkf4NDG8ddkgRXEINXuEbip8",
+      "name": "Queen Elizabeth Olympic Park",
+      "address": "London, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 32503,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "cultural_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5439614,
+      "lng": -0.015211599999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11496031653576131164&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.queenelizabetholympicpark.co.uk/?utm_source=goolge&utm_medium=local&utm_campaign=glocal",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.28
+    },
+    {
+      "googlePlaceId": "ChIJ6zivZswEdkgR8Vd0G2Df5KE",
+      "name": "The Top Secret Comedy Club",
+      "address": "170a Drury Ln, London WC2B 5PD, UK",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 19545,
+      "priceLevel": null,
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.515394300000004,
+      "lng": -0.1230887,
+      "googleMapsUri": "https://maps.google.com/?cid=11665694538666891249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thetopsecretcomedyclub.co.uk/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.98
+    },
+    {
+      "googlePlaceId": "ChIJIYBMe0gFdkgRvkjSUGze6lE",
+      "name": "Riviera",
+      "address": "23 St James's St, London SW1A 1HA, UK",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 4731,
+      "priceLevel": null,
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5066352,
+      "lng": -0.1391577,
+      "googleMapsUri": "https://maps.google.com/?cid=5902774818416249022&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.riviera-london.co.uk/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.81
+    },
+    {
+      "googlePlaceId": "ChIJ_zAq7TgFdkgRQg1OSw1j7hU",
+      "name": "Harrods",
+      "address": "87-135 Brompton Rd, London SW1X 7XL, UK",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 125017,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "womens_clothing_store",
+        "tourist_attraction",
+        "clothing_store",
+        "jewelry_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.499405499999995,
+      "lng": -0.1632344,
+      "googleMapsUri": "https://maps.google.com/?cid=1580309428002753858&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.harrods.com/en-gb?utm_campaign=gmb-listing-harrods-main&utm_medium=organic&utm_source=google",
+      "openNow": false,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 87.8
+    },
+    {
+      "googlePlaceId": "ChIJc2nSALkEdkgRviluWxwFsxA",
+      "name": "SEA LIFE London Aquarium",
+      "address": "Riverside Building, County Hall, Westminster Bridge Rd, London SE1 7PB, UK",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 28484,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.501557999999996,
+      "lng": -0.119506,
+      "googleMapsUri": "https://maps.google.com/?cid=1203311144789223870&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitsealife.com/london/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJa4btjyoFdkgRJAOdAdsAdbA",
+      "name": "sketch",
+      "address": "9 Conduit St, London W1S 2XG, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 10028,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "cake_shop",
+        "pastry_shop",
+        "cafe",
+        "bakery",
+        "dessert_shop",
+        "confectionery",
+        "cocktail_bar",
+        "bar",
+        "food_store",
+        "wholesaler",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "manufacturer",
+        "establishment"
+      ],
+      "lat": 51.512693,
+      "lng": -0.141529,
+      "googleMapsUri": "https://maps.google.com/?cid=12715070063575368484&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sketch.london/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJu5aG-k8bdkgRUe6Xg-ruWSw",
+      "name": "Boom Battle Bar Oxford Street",
+      "address": "70-88 Oxford St, London W1D 1BP, UK",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 7464,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "wine_bar",
+        "karaoke",
+        "night_club",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5163102,
+      "lng": -0.13393739999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3195848101593607761&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://boombattlebar.com/uk/london-oxford-street/?utm_source=GMB&utm_medium=search&utm_campaign=GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 87.62
+    },
+    {
+      "googlePlaceId": "ChIJn1DE_XsFdkgR6NyYk4IWd64",
+      "name": "HIDE",
+      "address": "85 Piccadilly, London W1J 7NB, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4494,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5061931,
+      "lng": -0.1444369,
+      "googleMapsUri": "https://maps.google.com/?cid=12571541634905857256&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hide.co.uk/?utm_source=gbp&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.61
+    },
+    {
+      "googlePlaceId": "ChIJq4eXqskbdkgRA71W0BW7-Ss",
+      "name": "Arcade Tottenham Court Road",
+      "address": "103-105 New Oxford St, London WC1A 1DB, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7909,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "hamburger_restaurant",
+        "lebanese_restaurant",
+        "mexican_restaurant",
+        "indian_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.516101199999994,
+      "lng": -0.12975499999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3168769515195907331&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arcade-london.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "dining",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.48
+    },
+    {
+      "googlePlaceId": "ChIJLzVDusQEdkgRelObBaL_jto",
+      "name": "Westminster Abbey",
+      "address": "Dean's Yard, London SW1P 3PA, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 51019,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4993695,
+      "lng": -0.1272993,
+      "googleMapsUri": "https://maps.google.com/?cid=15748806018305053562&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.westminster-abbey.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.43
+    },
+    {
+      "googlePlaceId": "ChIJ0-48HywBdkgRh7MH0Igd1f4",
+      "name": "Imperial War Museum",
+      "address": "Lambeth Rd, London SE1 6HZ, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 30499,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "history_museum",
+        "art_museum",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.4958366,
+      "lng": -0.10865839999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18362615529115988871&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.iwm.org.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.05
+    },
+    {
+      "googlePlaceId": "ChIJ-0sYC0UFdkgR22MCL9yb9sQ",
+      "name": "Happy London",
+      "address": "25-29 Coventry St, Piccadilly Circus, London W1D 7AG, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 9561,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5101534,
+      "lng": -0.1324234,
+      "googleMapsUri": "https://maps.google.com/?cid=14192702645688493019&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://happyrestaurants.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.93
+    },
+    {
+      "googlePlaceId": "ChIJTZ98odkPdkgRDGbnRTSQUuI",
+      "name": "Westfield London",
+      "address": "Ariel Way, London W12 7GF, UK",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 62521,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.507572499999995,
+      "lng": -0.22120540000000002,
+      "googleMapsUri": "https://maps.google.com/?cid=16308255754847479308&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.westfield.com/en/united-kingdom/london?utm_source=google&utm_medium=GM",
+      "openNow": null,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 86.91
+    },
+    {
+      "googlePlaceId": "ChIJsZcxnlbddUgRlcWCUHJDXCQ",
+      "name": "Surrey Hills National Landscape",
+      "address": "Box Hill Country Pk, Tadworth KT20 7BL, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 15625,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.2482146,
+      "lng": -0.31249289999999996,
+      "googleMapsUri": "https://maps.google.com/?cid=2620043241478866325&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.surreyhills.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJeclqF84EdkgRYkL4mtJ7rLM",
+      "name": "National Portrait Gallery",
+      "address": "St. Martin's Pl, London WC2H 0HE, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 15456,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5094236,
+      "lng": -0.1281216,
+      "googleMapsUri": "https://maps.google.com/?cid=12946859173256643170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.npg.org.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJczuZfc0adkgRc8X-u3ZiHcE",
+      "name": "The Wallace Collection",
+      "address": "Hertford House, Manchester Square, London W1U 3BN, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 10448,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.517323000000005,
+      "lng": -0.1530885,
+      "googleMapsUri": "https://maps.google.com/?cid=13915386685744399731&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wallacecollection.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.83
+    },
+    {
+      "googlePlaceId": "ChIJpxK6ByAFdkgRCmd6h3oZ8Ic",
+      "name": "Evan Evans Tours",
+      "address": "258 Vauxhall Bridge Rd, London SW1V 1BS, UK",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 8232,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.494577400000004,
+      "lng": -0.1409527,
+      "googleMapsUri": "https://maps.google.com/?cid=9795357203580479242&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://evanevanstours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJpcab75QFdkgR8v_Sa5byh1w",
+      "name": "Bantof",
+      "address": "31 Great Windmill St, London W1D 7LW, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1826,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bistro",
+        "wine_bar",
+        "cocktail_bar",
+        "event_venue",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.511597599999995,
+      "lng": -0.1347113,
+      "googleMapsUri": "https://maps.google.com/?cid=6667564501213315058&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bantof.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJZzLmQYoFdkgRf2kJmh4FwkA",
+      "name": "Fatt Pundit",
+      "address": "6 Maiden Ln, London WC2E 7NA, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 16993,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_fusion_restaurant",
+      "types": [
+        "asian_fusion_restaurant",
+        "vegan_restaurant",
+        "fusion_restaurant",
+        "halal_restaurant",
+        "wine_bar",
+        "bar_and_grill",
+        "cocktail_bar",
+        "asian_restaurant",
+        "vegetarian_restaurant",
+        "indian_restaurant",
+        "bar",
+        "chinese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.510749999999994,
+      "lng": -0.122639,
+      "googleMapsUri": "https://maps.google.com/?cid=4666297792900721023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fattpundit.co.uk/covent-garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJj-aPR-8PdkgR3Q6dwHqMD5w",
+      "name": "Kyoto Garden",
+      "address": "Holland Park, Holland Park Ave, London W11 4UA, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 13469,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.502992199999994,
+      "lng": -0.2046902,
+      "googleMapsUri": "https://maps.google.com/?cid=11245361253412835037&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rbkc.gov.uk/pressrelease/pressreleasePage.aspx?id=3791",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.46
+    },
+    {
+      "googlePlaceId": "ChIJV_iXMtcadkgRqBI84CY_crE",
+      "name": "London Zoo",
+      "address": "Outer Cir, London NW1 4RY, UK",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 35752,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.535287499999995,
+      "lng": -0.1534303,
+      "googleMapsUri": "https://maps.google.com/?cid=12786351728261599912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.londonzoo.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJSWvAzM4EdkgRaZcCMhRbk0Q",
+      "name": "Gordon's Wine Bar",
+      "address": "47 Villiers St, London WC2N 6NE, UK",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 6140,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "wine_bar",
+      "types": [
+        "wine_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.507943999999995,
+      "lng": -0.123314,
+      "googleMapsUri": "https://maps.google.com/?cid=4941393358452070249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gordonswinebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars",
+        "wine bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJ4bF21K8FdkgRDXc6FiSVAzE",
+      "name": "London Transport Museum",
+      "address": "London WC2E 7BB, UK",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 12876,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "gift_shop",
+        "cafe",
+        "association_or_organization",
+        "food",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5119031,
+      "lng": -0.1215852,
+      "googleMapsUri": "https://maps.google.com/?cid=3531830515012892429&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ltmuseum.co.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJR3srbrAcdkgR50VEq8Abpjk",
+      "name": "Mixology Events Cocktail Classes (Covent Garden)",
+      "address": "15 Maiden Lane London, Covent Garden, (Entrance via Bull Inn Court) Covent, London WC2E 7NG, UK",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 5,
+      "reviewCount": 7375,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.5104519,
+      "lng": -0.122999,
+      "googleMapsUri": "https://maps.google.com/?cid=4154038220616910311&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mixologyevents.co.uk/classes/cocktail-making-classes-london/",
+      "openNow": true,
+      "matchedQueries": [
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJjzKeFKcFdkgRD85JyyLyBcY",
+      "name": "The Crystal Maze LIVE Experience",
+      "address": "22 - 32 Shaftesbury Ave, London W1D 7EU, UK",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 3183,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5109186,
+      "lng": -0.133551,
+      "googleMapsUri": "https://maps.google.com/?cid=14269077225646706191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://the-crystal-maze.com/london/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJURt2jFIDdkgRsxERfqYhtSo",
+      "name": "Leadenhall Market",
+      "address": "Gracechurch St, London EC3V 1LT, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 22751,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.512766,
+      "lng": -0.0835289,
+      "googleMapsUri": "https://maps.google.com/?cid=3077402919340937651&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://leadenhallmarket.co.uk/",
+      "openNow": null,
+      "matchedQueries": [
+        "food halls",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJcXx0Uoms2EcR8Be43HHdy2U",
+      "name": "Lyceum Theatre",
+      "address": "21 Wellington St, London WC2E 7RQ, UK",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 21336,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "manufacturer",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5115402,
+      "lng": -0.12008070000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7335199899207079920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.atgtickets.com/venues/lyceum-theatre/whats-on/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJh6-3GrQcdkgRvNQCJqs-8qI",
+      "name": "Old Spitalfields Market",
+      "address": "16 Horner Square, London E1 6EW, UK",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 9877,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5196569,
+      "lng": -0.0755469,
+      "googleMapsUri": "https://maps.google.com/?cid=11741516083306353852&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://oldspitalfieldsmarket.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.97
+    },
+    {
+      "googlePlaceId": "ChIJSWN4ldUEdkgRGqo3OSnf1CY",
+      "name": "Fallow",
+      "address": "52 Haymarket, London SW1Y 4RP, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 11273,
+      "priceLevel": null,
+      "primaryType": "british_restaurant",
+      "types": [
+        "british_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.509409999999995,
+      "lng": -0.1327837,
+      "googleMapsUri": "https://maps.google.com/?cid=2798106636650523162&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fallowrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.95
+    },
+    {
+      "googlePlaceId": "ChIJ52skVqJQ30cRbJdCdZVqOWo",
+      "name": "Hever Castle & Gardens",
+      "address": "Hever Rd, Hever, Edenbridge TN8 7NG, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 13576,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "garden",
+        "wedding_venue",
+        "event_venue",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.186883699999996,
+      "lng": 0.1138679,
+      "googleMapsUri": "https://maps.google.com/?cid=7654266231842838380&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hevercastle.co.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.83
+    },
+    {
+      "googlePlaceId": "ChIJL-HmB88EdkgRfH-wI_8ELLQ",
+      "name": "Ekstedt at The Yard",
+      "address": "3-5 Great Scotland Yard, London SW1A 2HN, UK",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 741,
+      "priceLevel": null,
+      "primaryType": "scandinavian_restaurant",
+      "types": [
+        "scandinavian_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5064253,
+      "lng": -0.1261457,
+      "googleMapsUri": "https://maps.google.com/?cid=12982757319664238460&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ekstedtattheyard.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.75
+    },
+    {
+      "googlePlaceId": "ChIJi_vxlrIcdkgRIz_Ec6MJUBA",
+      "name": "SUSHISAMBA London",
+      "address": "Heron Tower, London EC2N 4AY, UK",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 13283,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "sushi_restaurant",
+        "peruvian_restaurant",
+        "lounge_bar",
+        "night_club",
+        "japanese_restaurant",
+        "brazilian_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 51.5162529,
+      "lng": -0.0809449,
+      "googleMapsUri": "https://maps.google.com/?cid=1175450100370259747&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sushisamba.com/locations/london-heron-tower?utm_source=gbp&utm_medium=organic&utm_campaign=london_heron_tower_gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "viral-eats"
+      ],
+      "popularityScore": 85.72
+    },
+    {
+      "googlePlaceId": "ChIJ2Sv_gSgFdkgRo_HVykixWts",
+      "name": "The Green Park",
+      "address": "Green Park, London SW1A 1AA, UK",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 27674,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "association_or_organization",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 51.5039416,
+      "lng": -0.1434016,
+      "googleMapsUri": "https://maps.google.com/?cid=15806140768408957347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalparks.org.uk/visit/parks/green-park?utm_source=google&utm_medium=organic&utm_campaign=google-my-business&utm_content=green-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJ9z81uwcddkgRDbXF2STPJ-0",
+      "name": "Immersive Gamebox - Shoreditch, London",
+      "address": "115-117 Principal Pl, Worship St, London EC2A 2BA, UK",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1442,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5218089,
+      "lng": -0.0803947,
+      "googleMapsUri": "https://maps.google.com/?cid=17088855068260021517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/psl-london-shoreditch/?utm_source=Googlemaps&utm_medium=maps&utm_campaign=PSL",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJZ5rPfcwEdkgRCld_oTBUf_k",
+      "name": "Jubilee Market",
+      "address": "1 Tavistock St, London WC2E 8BD, UK",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 9814,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 51.5116328,
+      "lng": -0.12182889999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17978180805330949898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jubileemarket.co.uk/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.5
+    }
+  ]
+}

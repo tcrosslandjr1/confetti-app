@@ -1,0 +1,3492 @@
+{
+  "location": "Dubai, UAE",
+  "generatedAt": "2026-05-17T20:12:59.638Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJS-JnijRDXz4R4rfO4QLlRf8",
+      "name": "Burj Khalifa",
+      "address": "1 Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 170386,
+      "priceLevel": null,
+      "primaryType": "landmark",
+      "types": [
+        "landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.197197,
+      "lng": 55.274376399999994,
+      "googleMapsUri": "https://maps.google.com/?cid=18394360053605775330&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.burjkhalifa.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "scenic walks",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.7
+    },
+    {
+      "googlePlaceId": "ChIJP_HMuyloXz4RyC5haEhlfT4",
+      "name": "The Dubai Fountain",
+      "address": "Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 138480,
+      "priceLevel": null,
+      "primaryType": "fountain",
+      "types": [
+        "fountain",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.195155399999997,
+      "lng": 55.2751579,
+      "googleMapsUri": "https://maps.google.com/?cid=4502866564103614152&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.burjkhalifa.ae/experiences/experiences-nearby/#dubai-fountain",
+      "openNow": null,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.45
+    },
+    {
+      "googlePlaceId": "ChIJ2en7dCpoXz4Rniz_tpr3Xk4",
+      "name": "Burj Park",
+      "address": "Burj Khalifa - Burj Khalifa Blvd - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 61846,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.194384300000003,
+      "lng": 55.273550799999995,
+      "googleMapsUri": "https://maps.google.com/?cid=5647223226636381342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.burjparkbyemaar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.86
+    },
+    {
+      "googlePlaceId": "ChIJX1IwkDRsXz4RmwA1KiMqKG0",
+      "name": "Dubai Miracle Garden",
+      "address": "Street 3 - Al Barsha South Third - Al Barsha South - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 94671,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.060006899999998,
+      "lng": 55.244464699999995,
+      "googleMapsUri": "https://maps.google.com/?cid=7865583079722909851&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dubaimiraclegarden.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.89
+    },
+    {
+      "googlePlaceId": "ChIJ-bSTmNlyXz4R1b_IG3oYylM",
+      "name": "Expo City Dubai",
+      "address": "Al Wasl Avenue - Madinat Al Mataar - Dubai South - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 46205,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 24.9609027,
+      "lng": 55.150698299999995,
+      "googleMapsUri": "https://maps.google.com/?cid=6037665163174789077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.expocitydubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "things to do this weekend",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.91
+    },
+    {
+      "googlePlaceId": "ChIJRcbZaklDXz4RKd2od-FVCyM",
+      "name": "Dubai Aquarium & Underwater Zoo",
+      "address": "Dubai - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 78972,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1975134,
+      "lng": 55.2785005,
+      "googleMapsUri": "https://maps.google.com/?cid=2525206442934852905&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thedubaiaquarium.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.27
+    },
+    {
+      "googlePlaceId": "ChIJFf7go49vXz4RJ6Q_Tvue2Uc",
+      "name": "Global Village",
+      "address": "38C5+F57 - Wadi Al Safa 4 - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 142492,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "shopping_mall",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0716887,
+      "lng": 55.3084347,
+      "googleMapsUri": "https://maps.google.com/?cid=5177344048825869351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.globalvillage.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.83
+    },
+    {
+      "googlePlaceId": "ChIJP1M4VDppXz4RI5Rn_qqRhG4",
+      "name": "ARTE MUSEUM DUBAI",
+      "address": "The Dubai Mall - Level 2 Financial Ctr St - opposite Galeries Lafayette - Road - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 13080,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1975373,
+      "lng": 55.2789742,
+      "googleMapsUri": "https://maps.google.com/?cid=7963650204696548387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dubai.artemuseum.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.44
+    },
+    {
+      "googlePlaceId": "ChIJxZJBUlhbXz4Rjjx_NKAl8h0",
+      "name": "Waterfront Market",
+      "address": "Deira Enrichment Project - Al Khaleej St - Corniche Deira - Deira - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 41993,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "department_store",
+        "hypermarket",
+        "supermarket",
+        "grocery_store",
+        "food_court",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.291484999999998,
+      "lng": 55.3234788,
+      "googleMapsUri": "https://maps.google.com/?cid=2157828541469637774&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://waterfrontmarket.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.43
+    },
+    {
+      "googlePlaceId": "ChIJ9-MKzS9tXz4RtK_l0uXBuIc",
+      "name": "Topgolf Dubai",
+      "address": "35M6+2G - Topgolf - تلال الإمارات ٢ - دبي - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 11888,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "sports_bar",
+        "tourist_attraction",
+        "amusement_center",
+        "bar",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.081933,
+      "lng": 55.161212299999995,
+      "googleMapsUri": "https://maps.google.com/?cid=9779779783664971700&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://topgolfdubai.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "golf courses",
+        "mini golf",
+        "driving ranges",
+        "indoor golf simulators",
+        "game night venues",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 94.06
+    },
+    {
+      "googlePlaceId": "ChIJqU_DoUtDXz4RxC8gnP8G_Ss",
+      "name": "The Museum of the Future",
+      "address": "67CP+H4Q - Sheikh Zayed Rd - Trade Center Second - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 53421,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.219203399999998,
+      "lng": 55.2819328,
+      "googleMapsUri": "https://maps.google.com/?cid=3169697407644479428&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museumofthefuture.ae/ar",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.03
+    },
+    {
+      "googlePlaceId": "ChIJpUWZXTdDXz4R_lcmpwt-qFQ",
+      "name": "Al Fahidi Historical Neighbourhood",
+      "address": "Dubai - Al Souq Al Kabeer - Al Fahidi - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 16786,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2642363,
+      "lng": 55.300264299999995,
+      "googleMapsUri": "https://maps.google.com/?cid=6100264283787384830&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dubaiculture.gov.ae/ar/attractions/heritage-sites/al-fahidi-historical-neighbourhood",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.87
+    },
+    {
+      "googlePlaceId": "ChIJ0S3qW85dXz4Rj-hyqYEpY4g",
+      "name": "AYA Universe",
+      "address": "Wafi City - Oud Metha - Dubai - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 19859,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "indoor_playground",
+        "art_museum",
+        "amusement_park",
+        "playground",
+        "amusement_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2295792,
+      "lng": 55.3182495,
+      "googleMapsUri": "https://maps.google.com/?cid=9827744448722954383&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aya-universe.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.7
+    },
+    {
+      "googlePlaceId": "ChIJxbnI61YVXz4R1MeLbGsC69s",
+      "name": "illusion City - illusion museum Dubai",
+      "address": "EC011 - The Wharf mall - مرسى دبي - جزيرة بلوواترز - دبي - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 5,
+      "reviewCount": 6143,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0792027,
+      "lng": 55.1226912,
+      "googleMapsUri": "https://maps.google.com/?cid=15846762374239078356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://illusioncity.ae/?utm_source=google&utm_medium=localcards&utm_campaign=555821_dxb",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 92.6
+    },
+    {
+      "googlePlaceId": "ChIJkUgpK8RpXz4RwtyHX-sWdps",
+      "name": "The Banc Dubai - Restaurant & Bar",
+      "address": "Renaissance Hotel - 188 Marasi Dr - Business Bay - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 3338,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "bar_and_grill",
+        "cocktail_bar",
+        "lounge_bar",
+        "hookah_bar",
+        "bar",
+        "night_club",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.182564799999998,
+      "lng": 55.274151599999996,
+      "googleMapsUri": "https://maps.google.com/?cid=11202166323306552514&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thebanc.ae/?utm_source=google_profile&utm_campaign=localo&utm_medium=mainlink",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.57
+    },
+    {
+      "googlePlaceId": "ChIJkdkorypoXz4RY_9KOq__Vcg",
+      "name": "Dubai Opera",
+      "address": "Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 9615,
+      "priceLevel": null,
+      "primaryType": "opera_house",
+      "types": [
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.195617,
+      "lng": 55.271879,
+      "googleMapsUri": "https://maps.google.com/?cid=14435725308668346211&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dubaiopera.com/ar-AE/home",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events",
+        "local landmarks",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "local-exploration",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.35
+    },
+    {
+      "googlePlaceId": "ChIJu9dt-VFrXz4Rt9P7BryQvd4",
+      "name": "Dinner In The Sky",
+      "address": "Al Sufoh - 34RM+FW - Al Seyahi St - next to zero gravity - Skydive - Dubai Marina - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4287,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.089668999999997,
+      "lng": 55.136932699999996,
+      "googleMapsUri": "https://maps.google.com/?cid=16050143784263734199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dinnerinthesky.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.2
+    },
+    {
+      "googlePlaceId": "ChIJQZ3ZINtCXz4RmFeoAa81MPk",
+      "name": "Dubai Frame",
+      "address": "Zabeel Park Jogging Track - Al Kifaf - Dubai - United Arab Emirates",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 72750,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.235452199999997,
+      "lng": 55.300340899999995,
+      "googleMapsUri": "https://maps.google.com/?cid=17955910740089526168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dubaiframe.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.13
+    },
+    {
+      "googlePlaceId": "ChIJX_MK-EhDXz4RBT4hKxncY6k",
+      "name": "O Dubai - Lounge & Club",
+      "address": "Centre 1 - Plot 49 شارع الشيخ زايد - المركز التجاري الأولي - دبي - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 5613,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2235674,
+      "lng": 55.2821873,
+      "googleMapsUri": "https://maps.google.com/?cid=12205841415760068101&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.oloungedubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "events tonight",
+        "romantic bars",
+        "wine bars",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.88
+    },
+    {
+      "googlePlaceId": "ChIJabSSyQ5pXz4RjyeVQStymMs",
+      "name": "Hurricane’s Grill Dubai Mall",
+      "address": "The Dubai Mall - Lower Ground - Shop 205 - شارع المركز المالي - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 21088,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1970728,
+      "lng": 55.276017499999995,
+      "googleMapsUri": "https://maps.google.com/?cid=14670601316268844943&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hurricanesgrill.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 91.83
+    },
+    {
+      "googlePlaceId": "ChIJs4NBKX9lXz4RwvniHGkNvxA",
+      "name": "IMG Worlds of Adventure",
+      "address": "Wadi Al Safa 4 - City of Arabia - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.3,
+      "reviewCount": 33002,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0823984,
+      "lng": 55.319675000000004,
+      "googleMapsUri": "https://maps.google.com/?cid=1206697970265946562&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.imgworlds.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "barcades",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.53
+    },
+    {
+      "googlePlaceId": "ChIJAX1FCXBpXz4R09JvDPH1r_Y",
+      "name": "Loco Bear Dubai - The Ultimate Entertainment Hub",
+      "address": "Al Qouz Ind.second - Al Quoz - Dubai - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 4519,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "bowling_alley",
+        "video_arcade",
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "sports_complex",
+        "sports_activity_location",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.140705900000004,
+      "lng": 55.259537400000006,
+      "googleMapsUri": "https://maps.google.com/?cid=17775696669899215571&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://locobear.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.25
+    },
+    {
+      "googlePlaceId": "ChIJD5UHfYJCXz4RnIU14kEZeY4",
+      "name": "Social House",
+      "address": "level LG - Unit LG - 100 - B - Financial Ctr St - Burj Khalifa - Dubai Mall - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 16764,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1961549,
+      "lng": 55.2775404,
+      "googleMapsUri": "https://maps.google.com/?cid=10266264596326483356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://weareanother.me/brands/social-house",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 91.16
+    },
+    {
+      "googlePlaceId": "ChIJx3SlGJ9pXz4RbyEYiIKTnOM",
+      "name": "House of Hype",
+      "address": "Closest Parking: P3 Fountain Views Parking Entrance B - Level One, Dubai Mall - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 3769,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "indoor_playground",
+        "amusement_park",
+        "playground",
+        "amusement_center",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 25.1940394,
+      "lng": 55.281458199999996,
+      "googleMapsUri": "https://maps.google.com/?cid=16401146131814818159&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.house-of-hype.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.73
+    },
+    {
+      "googlePlaceId": "ChIJBWO8EulCXz4RK2pM9KVtSB4",
+      "name": "Dubai World Trade Centre",
+      "address": "Sheikh Zayed Rd - Trade Center Second - Dubai - United Arab Emirates",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 39810,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.223345899999998,
+      "lng": 55.2869344,
+      "googleMapsUri": "https://maps.google.com/?cid=2182114578996685355&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dwtc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.63
+    },
+    {
+      "googlePlaceId": "ChIJydxhFctrXz4RJzAWespntrE",
+      "name": "AURA SKYPOOL Dubai",
+      "address": "Palm Jumeirah, The Palm Tower - 50th Floor - The Palm Jumeirah - Dubai - United Arab Emirates",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 12980,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1138194,
+      "lng": 55.139538599999995,
+      "googleMapsUri": "https://maps.google.com/?cid=12805536709803913255&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.auraskypool.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.42
+    },
+    {
+      "googlePlaceId": "ChIJRcbZaklDXz4RXfL8v3kej7c",
+      "name": "Aquaventure World",
+      "address": "Atlantis The Palm - Crescent Rd - The Palm Jumeirah - Dubai - United Arab Emirates",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 38426,
+      "priceLevel": null,
+      "primaryType": "water_park",
+      "types": [
+        "water_park",
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1324245,
+      "lng": 55.1183099,
+      "googleMapsUri": "https://maps.google.com/?cid=13226824138871337565&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquaventureworld.com/?utm_source=googleplaces&utm_medium=location&utm_campaign=mwp&utm_content=listing",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.27
+    },
+    {
+      "googlePlaceId": "ChIJr4pVnIJrXz4RSmo_ep7wzUA",
+      "name": "GAME OVER Escape Rooms at Palm Jumeirah Mall",
+      "address": "Palm Jumeirah Mall Level 2 - نخلة جميرا - دبي - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 8437,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.113491999999997,
+      "lng": 55.1397493,
+      "googleMapsUri": "https://maps.google.com/?cid=4669652952099547722&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dubai.escapegameover.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.27
+    },
+    {
+      "googlePlaceId": "ChIJ4S0WnetpXz4R1PyfOTyV03E",
+      "name": "OliOli® - A Must-Visit Children’s Play Museum",
+      "address": "62 4 A St - القوز الأولى - القوز - دبي - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6704,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.170606799999998,
+      "lng": 55.243257199999995,
+      "googleMapsUri": "https://maps.google.com/?cid=8202063432269167828&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.olioli.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.8
+    },
+    {
+      "googlePlaceId": "ChIJ9aSXmGVCXz4RQJArGtVv0dg",
+      "name": "The Green Planet Dubai",
+      "address": "6746+F58 - Al Wasl - Dubai - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 11904,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2063658,
+      "lng": 55.2606317,
+      "googleMapsUri": "https://maps.google.com/?cid=15623391543382741056&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thegreenplanetdubai.com/?utm_source=google&utm_medium=paidsearch&utm_campaign=always-on&utm_content=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.67
+    },
+    {
+      "googlePlaceId": "ChIJf2jFdoxCXz4RN9goPAKvuN8",
+      "name": "Level 43 Sky Lounge",
+      "address": "Four Points by Sheraton، Union Tower - Sheikh Zayed Rd - Trade Center First - Dubai - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 5520,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.214062499999997,
+      "lng": 55.2760317,
+      "googleMapsUri": "https://maps.google.com/?cid=16120827290306795575&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.level43skylounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "luxury lounges",
+        "mixology classes",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.64
+    },
+    {
+      "googlePlaceId": "ChIJldZ3cbBpXz4R9iVWx0dJqEw",
+      "name": "Time Out Market Dubai",
+      "address": "Downtown - Level 3, Souk Al Bahar - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 6824,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1946394,
+      "lng": 55.2765141,
+      "googleMapsUri": "https://maps.google.com/?cid=5523745515605730806&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timeoutmarket.com/dubai/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "viral food spots",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJ91SSJcBpXz4Rz-BiHWoLqCk",
+      "name": "Hafiz Mustafa 1864 The Dubai Mall",
+      "address": "The Dubai Mall, LG Floor 093 - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 29735,
+      "priceLevel": null,
+      "primaryType": "dessert_shop",
+      "types": [
+        "dessert_shop",
+        "cafe",
+        "confectionery",
+        "cake_shop",
+        "bakery",
+        "food_store",
+        "food",
+        "wholesaler",
+        "manufacturer",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1968164,
+      "lng": 55.276984399999996,
+      "googleMapsUri": "https://maps.google.com/?cid=3001661702029893839&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hm1864.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 89.58
+    },
+    {
+      "googlePlaceId": "ChIJfQZqMTJDXz4RAzXhbWHDkYE",
+      "name": "CÉ LA VI",
+      "address": "Tower 2 - Level 54, Address Sky View Hotel - بوليفارد الشيخ محمد بن راشد - برج خليفة - دبي - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7842,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "asian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.202026,
+      "lng": 55.270675499999996,
+      "googleMapsUri": "https://maps.google.com/?cid=9336458325738468611&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dxb.celavi.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.56
+    },
+    {
+      "googlePlaceId": "ChIJpYU_qNhCXz4RYxTZjWQ-9i0",
+      "name": "Brain Game Dubai - Escape Rooms | Café",
+      "address": "Jumeirah Terrace Building, Jumeirah 1 (opposite Big Flag Rooftop level Dubai - جميرا - جميرا ١ - دبي - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 2391,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "food_store",
+        "association_or_organization",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.239221099999998,
+      "lng": 55.2704811,
+      "googleMapsUri": "https://maps.google.com/?cid=3311903177575044195&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.braingame.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "game night venues",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.41
+    },
+    {
+      "googlePlaceId": "ChIJSx7v1sRDXz4RJ_Bpmul_eeE",
+      "name": "Museum of Candy",
+      "address": "Ground Floor - Umm Hurair Rd - Oud Metha - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 8927,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.242801999999998,
+      "lng": 55.3102358,
+      "googleMapsUri": "https://maps.google.com/?cid=16247157772010516519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://themuseumofcandy.com/?utm_source=google&utm_medium=localcards&utm_campaign=255665_dxb",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.33
+    },
+    {
+      "googlePlaceId": "ChIJh0i7kbYVXz4RZB1g5TwQUg0",
+      "name": "Paradiso | Voted The World's Best Bar | FIVE LUXE JBR",
+      "address": "FIVE Luxe - 9th Floor - The Walk - Marsa Dubai - Jumeirah Beach Residence - Dubai - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1456,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0812892,
+      "lng": 55.136423099999995,
+      "googleMapsUri": "https://maps.google.com/?cid=959847524315700580&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paradisodubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 89.06
+    },
+    {
+      "googlePlaceId": "ChIJl_QEkvxCXz4RaDvjU4uu13w",
+      "name": "Zabeel Park",
+      "address": "Zabeel Area - Metro Station - near Al Jafiliya - Al Kifaf - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 41803,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.234905299999998,
+      "lng": 55.297449,
+      "googleMapsUri": "https://maps.google.com/?cid=8995850694126943080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "shopping-markets"
+      ],
+      "popularityScore": 89.02
+    },
+    {
+      "googlePlaceId": "ChIJ0bvpCMVrXz4Rz0J-L0R_DPU",
+      "name": "Horror Rooms by NoWayOut Dubai",
+      "address": "46G4+R85 area Office 1&6, Indigo Sky building - Umm Al Sheif - Dubai - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9003,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1268964,
+      "lng": 55.206004,
+      "googleMapsUri": "https://maps.google.com/?cid=17657628169844179663&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://horrorrooms.ae/?utm_source=gmaps&utm_medium&utm_campaign=hr&gmaps_hr&htrafficsource=gmaps",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.96
+    },
+    {
+      "googlePlaceId": "ChIJsbIjMUJpXz4RkAP6aHA8Y3E",
+      "name": "Amaya Best Shisha In Dubai",
+      "address": "The Waterfalls Side, Dubai Mall - 1st Floor - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4293,
+      "priceLevel": null,
+      "primaryType": "hookah_bar",
+      "types": [
+        "hookah_bar",
+        "breakfast_restaurant",
+        "lounge_bar",
+        "asian_restaurant",
+        "turkish_restaurant",
+        "bar",
+        "night_club",
+        "middle_eastern_restaurant",
+        "dessert_restaurant",
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1950626,
+      "lng": 55.2790888,
+      "googleMapsUri": "https://maps.google.com/?cid=8170440602475430800&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://amayaintl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.96
+    },
+    {
+      "googlePlaceId": "ChIJ9_JsC31dXz4Rghy8jX22o3k",
+      "name": "Glitch Arabia",
+      "address": "Al Muraqqabat - Deira - Dubai - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2394,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "bowling_alley",
+        "playground",
+        "adventure_sports_center",
+        "amusement_park",
+        "amusement_center",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 25.2673114,
+      "lng": 55.3175209,
+      "googleMapsUri": "https://maps.google.com/?cid=8765049950158199938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://glitcharabia.com/en?utm_source=google&utm_medium=local&utm_campaign=google_business_profile",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.76
+    },
+    {
+      "googlePlaceId": "ChIJwyGLXcFCXz4RthyG7eNRSRk",
+      "name": "Dubai Garden Glow - Dinosaur Park & Fantasy Park",
+      "address": "Zabeel Park, Gate No- 3 - next to Dubai Frame Area - A - Al Kifaf - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.2,
+      "reviewCount": 17300,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2367313,
+      "lng": 55.2987341,
+      "googleMapsUri": "https://maps.google.com/?cid=1822077563632491702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dubaigardenglow.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.55
+    },
+    {
+      "googlePlaceId": "ChIJjxN4B_tDXz4RLrBrwzc9Qew",
+      "name": "Bombay Borough",
+      "address": "Gate Village, Building 3 - towards DIFC Parking - Zaa'beel Second - DIFC - Dubai - United Arab Emirates",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 9369,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2139289,
+      "lng": 55.2823472,
+      "googleMapsUri": "https://maps.google.com/?cid=17023955376148295726&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bombayborough.com/dubai.html",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJn4T9KChoXz4RIc8qqHnWY2I",
+      "name": "Parker's",
+      "address": "Dubai Mall - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7380,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1958332,
+      "lng": 55.277654,
+      "googleMapsUri": "https://maps.google.com/?cid=7089746056412057377&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://byparkers.com/parkers-international/social-media-uae/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.33
+    },
+    {
+      "googlePlaceId": "ChIJww96BO0VXz4RTtgKyMGmYIs",
+      "name": "Girl & the Goose - Restaurante Centroamericano",
+      "address": "Anantara Downtown Hotel - Business Bay - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 1381,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.186139999999998,
+      "lng": 55.2637638,
+      "googleMapsUri": "https://maps.google.com/?cid=10043210520251258958&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://girlandthegoose.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.26
+    },
+    {
+      "googlePlaceId": "ChIJ____jHddXz4R1SKdGJZim_Q",
+      "name": "Dubai Festival City Mall",
+      "address": "Crescent Rd - الخيران - مدينة مهرجان دبي - دبي - United Arab Emirates",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 56856,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.222090400000003,
+      "lng": 55.352794700000004,
+      "googleMapsUri": "https://maps.google.com/?cid=17625789963442135765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dubaifestivalcitymall.com/home/?utm_source=gmb&utm_medium=organic&utm_campaign=GMB",
+      "openNow": false,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.16
+    },
+    {
+      "googlePlaceId": "ChIJ8WcAYyRnXj4R-T11AvsfGUI",
+      "name": "Louvre Abu Dhabi",
+      "address": "Saadiyat - جزيرة السعديات - السعديات شمال 1 - أبو ظبي - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 38804,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 24.5336954,
+      "lng": 54.398136799999996,
+      "googleMapsUri": "https://maps.google.com/?cid=4762873243859500537&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.louvreabudhabi.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.15
+    },
+    {
+      "googlePlaceId": "ChIJofSLZTddXz4R_ErYuyL-l80",
+      "name": "Eve Penthouse & Lounge",
+      "address": "Hyatt Regency Dubai Creek Heights - 5668 20th St - Bur Dubai - Dubai Healthcare City - Dubai - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2225,
+      "priceLevel": null,
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.234347699999997,
+      "lng": 55.3236858,
+      "googleMapsUri": "https://maps.google.com/?cid=14814588924392393468&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hyattrestaurants.com/en/dubai/restaurant-bar/eve-penthouse-lounge-dubai",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.1
+    },
+    {
+      "googlePlaceId": "ChIJo-27MZBCXz4R1CqrXPyjkJc",
+      "name": "Carnival by Trèsind Restaurant & Bar | DIFC, Dubai",
+      "address": "The Buildings by Daman - 312 Al Sa'ada Street - Zaa'beel Second - DIFC - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3134,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "lounge_bar",
+        "night_club",
+        "indian_restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2116863,
+      "lng": 55.28187,
+      "googleMapsUri": "https://maps.google.com/?cid=10921409400655260372&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.carnivalbytresind.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJ20QsyRkTXz4RuqFyobQ9_PE",
+      "name": "ZETA Seventy Seven",
+      "address": "Al Mamsha St - Marsa Dubai - Dubai Marina - Dubai - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2102,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "swimming_pool",
+        "bar",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.072682699999998,
+      "lng": 55.1266445,
+      "googleMapsUri": "https://maps.google.com/?cid=17436879703283769786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.addresshotels.com/en/restaurant/address-beach-resort/zeta-seventy-seven/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 87.93
+    },
+    {
+      "googlePlaceId": "ChIJabgg9lZrXz4RG3hNr_vISsg",
+      "name": "TODA - Theatre of Digital Art",
+      "address": "Souk - Madinat Jumeirah - Al Sufouh 1 - Dubai - United Arab Emirates",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3003,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "tourist_attraction",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "service",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1335648,
+      "lng": 55.1853401,
+      "googleMapsUri": "https://maps.google.com/?cid=14432568939165612059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.toda.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "jazz clubs",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.87
+    },
+    {
+      "googlePlaceId": "ChIJq0XkVihoXz4RJTiiCC3K99c",
+      "name": "Bosporus Turkish Cuisine - The Dubai Mall",
+      "address": "The Dubai Mall Waterfront Entrance - 115 B - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 16369,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "turkish_restaurant",
+      "types": [
+        "turkish_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.195439999999998,
+      "lng": 55.2790578,
+      "googleMapsUri": "https://maps.google.com/?cid=15562129332169226277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thebosporus.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.84
+    },
+    {
+      "googlePlaceId": "ChIJ_fQfFNtDXz4RTK9YhGxyztM",
+      "name": "Coca-Cola Arena",
+      "address": "Al Wasl - سٹی واک - Dubai - United Arab Emirates",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 6746,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2043102,
+      "lng": 55.2653822,
+      "googleMapsUri": "https://maps.google.com/?cid=15262261997607628620&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.coca-cola-arena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.62
+    },
+    {
+      "googlePlaceId": "ChIJ4b1KJ_NpXz4R8Tz4PpcRNo0",
+      "name": "Wild Paint House",
+      "address": "Unit 1 - 23 Street 14B - Al Qouz Ind.first - Al Quoz - Dubai - United Arab Emirates",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 3323,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "art_gallery",
+        "educational_institution",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.134351499999998,
+      "lng": 55.226813299999996,
+      "googleMapsUri": "https://maps.google.com/?cid=10175339749384404209&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wildpainthouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 87.56
+    },
+    {
+      "googlePlaceId": "ChIJ5QdVuKhDXz4RVQDVHF7ZnU0",
+      "name": "The Guild",
+      "address": "Icd Brookfield Place - Zaa'beel Second - DIFC - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1792,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "coffee_shop",
+        "cafe",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2118394,
+      "lng": 55.2803258,
+      "googleMapsUri": "https://maps.google.com/?cid=5592865310497898581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theguilddubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJpwKJI2lFXj4RuTP78zIkP1o",
+      "name": "Warner Bros. World™ Yas Island, Abu Dhabi",
+      "address": "Yas Island - YS4 - Abu Dhabi - United Arab Emirates",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 24240,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "park_and_ride",
+        "gift_shop",
+        "amusement_center",
+        "tourist_attraction",
+        "toy_store",
+        "parking",
+        "transportation_service",
+        "child_care_agency",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 24.4909273,
+      "lng": 54.5992359,
+      "googleMapsUri": "https://maps.google.com/?cid=6502956188206576569&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wbworldabudhabi.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.43
+    },
+    {
+      "googlePlaceId": "ChIJX47nvlBrXz4RVW5QiQ0Xvjw",
+      "name": "Dubai Marina Walk",
+      "address": "Dubai Marina Walk - 34JR+64M - مرسى دبي - دبي مارينا - دبي - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 28359,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.085563999999998,
+      "lng": 55.147801099999995,
+      "googleMapsUri": "https://maps.google.com/?cid=4376961234756464213&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.emaar.com/en/our-communities/dubai-marina?utm_source=google&utm_campaign=local_search&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJRR72AlgTXz4R-maJQCnOFoQ",
+      "name": "JBR Beach Dubai",
+      "address": "Dubai - Marsa Dubai - Dubai Marina - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 27372,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0775333,
+      "lng": 55.1309365,
+      "googleMapsUri": "https://maps.google.com/?cid=9518021539065849594&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thebeach.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.14
+    },
+    {
+      "googlePlaceId": "ChIJRZZYxzldXz4RXWWMUmOeDeg",
+      "name": "Dubai Dolphinarium",
+      "address": "Riyadh Street, Inside the Creek Park Gate 1 - Dubai Dolphinarium Building - Dubai Dolphinarium Building - Street - أم هرير الثانية - دبي - United Arab Emirates",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 18734,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.234646299999998,
+      "lng": 55.3267789,
+      "googleMapsUri": "https://maps.google.com/?cid=16721195140920403293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dubaidolphinarium.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.09
+    },
+    {
+      "googlePlaceId": "ChIJfa_dsitrXz4RDt4cB_UZnVg",
+      "name": "CouCou Dubai | Rooftop Restaurant in Palm Jumeirah",
+      "address": "The Palm Tower - Level 52 St. Regis - The Palm Jumeirah - Dubai - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2180,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1141403,
+      "lng": 55.1394246,
+      "googleMapsUri": "https://maps.google.com/?cid=6385288386858245646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://coucou-dubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "luxury lounges",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJj33zStZDXz4RTk3sgFfUfEg",
+      "name": "Walks of Dubai DMC & Experiences",
+      "address": "Bank Street Building - Dubai - United Arab Emirates",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 4413,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 25.2577923,
+      "lng": 55.297913699999995,
+      "googleMapsUri": "https://maps.google.com/?cid=5223283140133145934&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://walksofdubai.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJw2INojldXz4R6jPSTwdMgBA",
+      "name": "Creek Park",
+      "address": "Umm Hurair Second - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 15654,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2353776,
+      "lng": 55.3270689,
+      "googleMapsUri": "https://maps.google.com/?cid=1189033895913468906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dm.gov.ae/en/Discover/PublicParks/Pages/Creek-Park.aspx",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJtcrHqmRDXz4R5LhkoE7ibHU",
+      "name": "High Note Pool & Sky Lounge",
+      "address": "Rooftop Level, Aloft Al Mina Hotel - الرفاعة - دبي - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1422,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "swimming_pool",
+        "live_music_venue",
+        "event_venue",
+        "night_club",
+        "bar",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2484292,
+      "lng": 55.2837623,
+      "googleMapsUri": "https://maps.google.com/?cid=8461386627248601316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/highnotedxb",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJC7lrkBNrXz4RLUjRIy8PBSA",
+      "name": "The View Palm Jumeirah",
+      "address": "Palm Jumeirah Rd - The Palm Tower - 52nd Floor - نخلة جميرا - دبي - United Arab Emirates",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 22354,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1141712,
+      "lng": 55.139423799999996,
+      "googleMapsUri": "https://maps.google.com/?cid=2307267079236044845&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theviewpalm.ae/en?utm_source=google&utm_campaign=always-on&utm_content=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJv8NPy4JDXz4Rq0g_w3p4eEg",
+      "name": "Al Shindagha Museum",
+      "address": "288 - الشندغة - Al Fahidi - دبي - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4627,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2664029,
+      "lng": 55.289430200000005,
+      "googleMapsUri": "https://maps.google.com/?cid=5222056236593137835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://alshindagha.dubaiculture.gov.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 86.52
+    },
+    {
+      "googlePlaceId": "ChIJf7FzoeppXz4RG-jlwrJM8DQ",
+      "name": "FRNDS Restaurant",
+      "address": "Dubai Dubai Mall - Ground Floor - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1271,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cafe",
+        "french_restaurant",
+        "bar",
+        "japanese_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.195727500000004,
+      "lng": 55.2827555,
+      "googleMapsUri": "https://maps.google.com/?cid=3814633215040546843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://frndsdubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.47
+    },
+    {
+      "googlePlaceId": "ChIJNTGXc_ZgXz4RNI-53wUH6kM",
+      "name": "Mushrif National Park",
+      "address": "6FF2+GRG - Al Khawaneej St - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 22318,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2238108,
+      "lng": 55.4520753,
+      "googleMapsUri": "https://maps.google.com/?cid=4893731666901176116&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJx31p2KxDXz4ROEqrRLJ6XnU",
+      "name": "FLAVORS GRILL DUBAI - MINA RASHID MARINA",
+      "address": "B01, Marina Views - Port Rashid Flavors Grill - Nabeel's Rooftop - مدينة دبي الملاحية - ميناء راشد - دبي - United Arab Emirates",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 9526,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.259369399999997,
+      "lng": 55.279535599999996,
+      "googleMapsUri": "https://maps.google.com/?cid=8457332056323213880&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.flavorslc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.27
+    },
+    {
+      "googlePlaceId": "ChIJg2AR-yloXz4RWGYm3QlojaY",
+      "name": "Somewhere",
+      "address": "Unit FF - 305 Level 1 New Extension, The Dubai Mall - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 13850,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1971565,
+      "lng": 55.2759703,
+      "googleMapsUri": "https://maps.google.com/?cid=12001362973586515544&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://letustakeyousomewhere.com/social-media-uae",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.26
+    },
+    {
+      "googlePlaceId": "ChIJN5PnefxpXz4RJE8OXJacR4g",
+      "name": "Krasota Dubai Restaurant",
+      "address": "The Address Downtown - G Floor Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1661,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "seafood_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "french_restaurant",
+        "bar",
+        "fine_dining_restaurant",
+        "european_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1937462,
+      "lng": 55.2790508,
+      "googleMapsUri": "https://maps.google.com/?cid=9819989682108124964&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bit.ly/krasota_reservation",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJe0zOea1dXz4RR3MDctHcqDY",
+      "name": "Game Space DXB",
+      "address": "مطار دبي الدولي، Concourse B - Near Gate B27 Terminal 3 - Dubai Int'l Airport - Dubai - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 908,
+      "priceLevel": null,
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 25.248685299999998,
+      "lng": 55.3615364,
+      "googleMapsUri": "https://maps.google.com/?cid=3938640666254603079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.viator.com/tours/Dubai/Video-Gaming-Pass/d828-396583P1",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.19
+    },
+    {
+      "googlePlaceId": "ChIJ____775rXz4Rbvg2X19nuxI",
+      "name": "Ski Dubai",
+      "address": "Sheikh Zayed Rd - Al Barsha First - Al Barsha - Dubai - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 41717,
+      "priceLevel": null,
+      "primaryType": "ski_resort",
+      "types": [
+        "ski_resort",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.117204,
+      "lng": 55.1983112,
+      "googleMapsUri": "https://maps.google.com/?cid=1349786172644587630&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.skidxb.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJ7S8tVt9hXz4RqJoZ8a14E2E",
+      "name": "Dubai Safari Park",
+      "address": "5CCW+H5 - Al Warqa - Al Warqa'a Fifth - Dubai - United Arab Emirates",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 13389,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1718302,
+      "lng": 55.445567999999994,
+      "googleMapsUri": "https://maps.google.com/?cid=6995067334706174632&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dubaisafari.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.11
+    },
+    {
+      "googlePlaceId": "ChIJ1bms-08TXz4RwltWaODk57U",
+      "name": "DREAM Dinner Show Dubai",
+      "address": "Address Beach Resort - Ground Floor - The Walk - Marsa Dubai - Jumeirah Beach Residence - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2032,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0725406,
+      "lng": 55.1262379,
+      "googleMapsUri": "https://maps.google.com/?cid=13107696892959415234&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dreamdxb.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.08
+    },
+    {
+      "googlePlaceId": "ChIJ1ZaxSmRDXz4RsHWNt57cIKE",
+      "name": "DOORS",
+      "address": "The Dubai Mall Fashion Avenue Expansion Level 4 - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 8648,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "mediterranean_restaurant",
+        "breakfast_restaurant",
+        "hookah_bar",
+        "turkish_restaurant",
+        "steak_house",
+        "cafe",
+        "fusion_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.196863999999998,
+      "lng": 55.2760202,
+      "googleMapsUri": "https://maps.google.com/?cid=11610522413603583408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.doorsdubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.99
+    },
+    {
+      "googlePlaceId": "ChIJ2ew3SBFgXz4RikhSDCpyOvE",
+      "name": "Last Exit Al Khawaneej by Dubai Retail",
+      "address": "Al Khawaneej - Al Khawaneej 1 - Dubai - United Arab Emirates",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 20476,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "shopping_mall",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.234294499999997,
+      "lng": 55.47513970000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17382331236710762634&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lastexit.ae/en/locations/al-khawaneej",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJ37P4zNBpXz4Rt-71GhjBVk4",
+      "name": "Rang - Dubai Mall",
+      "address": "Dubai Mall - 2nd Floor - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 11856,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "indian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.196615299999998,
+      "lng": 55.27809990000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5644911492231196343&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rangdubaimall.shop/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.81
+    },
+    {
+      "googlePlaceId": "ChIJQxeJuURDXz4Rv_xWIjU7cpQ",
+      "name": "Dubai Mall Fashion Avenue",
+      "address": "57XG+PG - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 17274,
+      "priceLevel": null,
+      "primaryType": "point_of_interest",
+      "types": [
+        "point_of_interest",
+        "shopping_mall",
+        "establishment"
+      ],
+      "lat": 25.199285,
+      "lng": 55.276343399999995,
+      "googleMapsUri": "https://maps.google.com/?cid=10696677164353780927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thedubaimall.com/en/fashion-avenue",
+      "openNow": null,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJJRh7xZlDXz4RjV7zQr-X7dI",
+      "name": "BohoX",
+      "address": "55 Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3702,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "pizza_restaurant",
+        "cafe",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1915591,
+      "lng": 55.2762679,
+      "googleMapsUri": "https://maps.google.com/?cid=15198971165163085453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://boho-x.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJVQeagHFrXz4RNCxZC6O8gUw",
+      "name": "Boom Battle Bar Dubai",
+      "address": "DoubleTree by Hilton Dubai - Jumeirah Beach - The Walk - مرسى دبي - دبي مارينا - دبي - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1385,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0727203,
+      "lng": 55.128637999999995,
+      "googleMapsUri": "https://maps.google.com/?cid=5512894827334282292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://boombattlebar.com/ae/dubai/?utm_campaign=23-b2c-gmb&utm_source=search&utm_medium=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJoWckSg1bXz4RgkjvDT93hfw",
+      "name": "Al Mamzar Beach Park",
+      "address": "Al Mamzar Beach St - Al Mamzar - Dubai - United Arab Emirates",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 34289,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.3183741,
+      "lng": 55.347665299999996,
+      "googleMapsUri": "https://maps.google.com/?cid=18196080982160787586&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.al-mamzar-beach-park.de/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJP4pu3CloXz4RCCE2HYKmp5E",
+      "name": "GIA",
+      "address": "Unit GF - 320 New Fashion Avenue - Dubai Mall - شارع المركز المالي - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.8,
+      "reviewCount": 9987,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.197142099999997,
+      "lng": 55.275974299999994,
+      "googleMapsUri": "https://maps.google.com/?cid=10495540534376276232&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.instagram.com/gia.dubai",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.31
+    },
+    {
+      "googlePlaceId": "ChIJqU3mQsFpXz4RLzOKv9UNtcw",
+      "name": "Mondoux",
+      "address": "21 Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3260,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cake_shop",
+        "coffee_shop",
+        "bistro",
+        "cafe",
+        "bakery",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "wholesaler",
+        "store",
+        "manufacturer",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1943068,
+      "lng": 55.2816026,
+      "googleMapsUri": "https://maps.google.com/?cid=14750711366214628143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mondoux.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.31
+    },
+    {
+      "googlePlaceId": "ChIJB_4WeyhoXz4RkBLYAU3zHOs",
+      "name": "PlayDXB",
+      "address": "Financial Center Rd - The Dubai Mall - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 4419,
+      "priceLevel": null,
+      "primaryType": "service",
+      "types": [
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 25.1975373,
+      "lng": 55.2789742,
+      "googleMapsUri": "https://maps.google.com/?cid=16941683410329932432&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://entertainment.emaar.com/attraction/play-dxb",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJzV2cQRFDXz4R5HQtQDn5g08",
+      "name": "Estrellas Rooftop Lounge - Best Rooftop Lounge Dubai",
+      "address": "The Canvas Hotel Dubai — MGallery Hotel Collection - Al Raffa - Dubai - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 2304,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "hookah_bar",
+        "cocktail_bar",
+        "night_club",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2552476,
+      "lng": 55.285163100000005,
+      "googleMapsUri": "https://maps.google.com/?cid=5729697175230575844&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://estrellasrooftoplounge.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.9
+    },
+    {
+      "googlePlaceId": "ChIJ7R2V4bVdXz4RZcaVmuVeiKU",
+      "name": "Tiger Strikes, Megaplex Dubai",
+      "address": "Megaplex Dubai Grand Hyatt - Umm Hurair Second - Dubai - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 1936,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "bar",
+        "sports_club",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2263716,
+      "lng": 55.326353499999996,
+      "googleMapsUri": "https://maps.google.com/?cid=11927887953324787301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dubaigolf.com/tigerstrikes",
+      "openNow": false,
+      "matchedQueries": [
+        "bowling alleys",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.89
+    },
+    {
+      "googlePlaceId": "ChIJhTMFgo5rXz4R0ehgq7ZOkxo",
+      "name": "Xstrike",
+      "address": "6A St - Al Qouz Ind.first - Al Quoz - Dubai - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 3257,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.146238699999998,
+      "lng": 55.2252757,
+      "googleMapsUri": "https://maps.google.com/?cid=1914960813028862161&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.xstrike.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.85
+    },
+    {
+      "googlePlaceId": "ChIJKc4P3H9pXz4RTyLpHxr6Dyg",
+      "name": "Alserkal Avenue",
+      "address": "17th St - Al Qouz Ind.first - Al Quoz - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7921,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "art_gallery",
+        "cultural_center",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1431157,
+      "lng": 55.224612699999994,
+      "googleMapsUri": "https://maps.google.com/?cid=2886800876279243343&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://alserkal.online/",
+      "openNow": false,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.83
+    },
+    {
+      "googlePlaceId": "ChIJORSp9gBCXz4RtnTCn-ul3mo",
+      "name": "Souk Madinat Jumeirah",
+      "address": "King Salman Bin Abdulaziz Al Saud St - Al Sufouh 1 - Dubai - United Arab Emirates",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 25754,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "market",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1331644,
+      "lng": 55.186223399999996,
+      "googleMapsUri": "https://maps.google.com/?cid=7700774844266345654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jumeirah.com/en/collection/madinat-jumeirah",
+      "openNow": false,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.76
+    },
+    {
+      "googlePlaceId": "ChIJzVupta1DXz4RET1hQD2RC_c",
+      "name": "NoWayOut Escape Rooms City Walk",
+      "address": "City Walk Mall - Shop B12-00-01 - Al Madina St - Al Wasl - Dubai - United Arab Emirates",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5599,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2067475,
+      "lng": 55.2617025,
+      "googleMapsUri": "https://maps.google.com/?cid=17801481644371164433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nowayout.ae/?utm_source=gmaps&utm_medium=gmaps_cw",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.73
+    },
+    {
+      "googlePlaceId": "ChIJHYONX-cVXz4RfYACXb5DVs8",
+      "name": "Brass Monkey - Bluewaters",
+      "address": "Marsa Dubai - Bluewaters Island - Dubai - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 3536,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "bowling_alley",
+        "bar",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.081123599999998,
+      "lng": 55.1226608,
+      "googleMapsUri": "https://maps.google.com/?cid=14940203298731491453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://brassmonkeysocial.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJPWr28uEVXz4RJtT-uKWF4Gc",
+      "name": "Madame Tussauds Dubai",
+      "address": "Bluewater's Island, The Wharf - Marsa Dubai - Bluewaters Island - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2976,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0790231,
+      "lng": 55.1228419,
+      "googleMapsUri": "https://maps.google.com/?cid=7485129527509570598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madametussauds.com/dubai/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.59
+    },
+    {
+      "googlePlaceId": "ChIJmyNDYgxpXz4R7wq0e59l1lA",
+      "name": "Hushh",
+      "address": "Fountain Views - Parking - Parking: Fountain Views - بوليفارد الشيخ محمد بن راشد - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 521,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "bowling_alley",
+        "bar",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1936501,
+      "lng": 55.281424699999995,
+      "googleMapsUri": "https://maps.google.com/?cid=5824954903699917551&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hushhdxb.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.58
+    },
+    {
+      "googlePlaceId": "ChIJI-yHhigVXz4RB1vuzZAfM_g",
+      "name": "The Pods",
+      "address": "Bluewaters Island - near Bluewaters Marine Station - Marsa Dubai - Bluewaters Island - Dubai - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7659,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "asian_restaurant",
+        "fine_dining_restaurant",
+        "indian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.0763864,
+      "lng": 55.124460799999994,
+      "googleMapsUri": "https://maps.google.com/?cid=17884673252009073415&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thepods.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.54
+    },
+    {
+      "googlePlaceId": "ChIJQV0NtXJDXz4R7Eobg75gJZI",
+      "name": "Table Otto - Dubai Mall",
+      "address": "Fashion Avenue, Dubai Mall - برج خليفة - وسط مدينة دبي - دبي - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1356,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1978673,
+      "lng": 55.2756363,
+      "googleMapsUri": "https://maps.google.com/?cid=10530929675035429612&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/tableotto.ae/?hl=en",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.51
+    },
+    {
+      "googlePlaceId": "ChIJBXKDF8ZrXz4RyN9Kpa-MHwk",
+      "name": "La Perle",
+      "address": "Al Habtoor City - 260 Sheikh Zayed Rd - Business Bay - Dubai - United Arab Emirates",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5246,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "manufacturer",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1841959,
+      "lng": 55.2543284,
+      "googleMapsUri": "https://maps.google.com/?cid=657398756639694792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.laperle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.49
+    },
+    {
+      "googlePlaceId": "ChIJK3jjjUpuXz4RWtO6YE7tWi8",
+      "name": "Arabian Ranches Golf Club",
+      "address": "Arabian Ranches, Emirates Road, 36700 - Wadi Al Safa 6 - Arabian Ranches - Dubai - United Arab Emirates",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 7461,
+      "priceLevel": null,
+      "primaryType": "sports_club",
+      "types": [
+        "wedding_venue",
+        "sports_bar",
+        "bar",
+        "event_venue",
+        "sports_club",
+        "association_or_organization",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 25.051528299999998,
+      "lng": 55.2686857,
+      "googleMapsUri": "https://maps.google.com/?cid=3412300588572660570&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arabianranchesgolfclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "golf courses"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.46
+    },
+    {
+      "googlePlaceId": "ChIJG0J_Fz1dXz4RhiGxEt7escs",
+      "name": "Club One Dubai",
+      "address": "Downtown - Marasi Dr - Business Bay - Dubai - United Arab Emirates",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 424,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "lounge_bar",
+        "bar",
+        "sports_club",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.1836503,
+      "lng": 55.2566177,
+      "googleMapsUri": "https://maps.google.com/?cid=14677757705954861446&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dxbnights.ae/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.38
+    },
+    {
+      "googlePlaceId": "ChIJK9E1RwBdXz4R-Thr8LGpGe8",
+      "name": "Legendarium Fantastic Museum",
+      "address": "Crescent Dr - opposite Lutetia Clinic and beside Letoile Shop - Al Kheeran - Dubai Festival City - Dubai - United Arab Emirates",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 616,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "amusement_park",
+        "cafe",
+        "art_museum",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.223194400000004,
+      "lng": 55.3531568,
+      "googleMapsUri": "https://maps.google.com/?cid=17228988431190407417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://legendarium.ae/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 84.37
+    },
+    {
+      "googlePlaceId": "ChIJfdswoU5rXz4RgTS3R4IqsYk",
+      "name": "February 30",
+      "address": "West beach Palm - نخلة جميرا - Jumeirah - دبي - United Arab Emirates",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5015,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.107418799999998,
+      "lng": 55.14254,
+      "googleMapsUri": "https://maps.google.com/?cid=9921758193111217281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://february30dubai.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.36
+    }
+  ]
+}

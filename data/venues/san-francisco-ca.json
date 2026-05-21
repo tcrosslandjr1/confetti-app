@@ -1,0 +1,3512 @@
+{
+  "location": "San Francisco, CA",
+  "generatedAt": "2026-05-17T19:11:25.941Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJHSGzi_yAhYARnrPmDWAx9ro",
+      "name": "PIER 39",
+      "address": "The Embarcadero, San Francisco, CA 94133, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 136600,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "historical_landmark",
+        "shopping_mall",
+        "fishing_pier",
+        "historical_place",
+        "marina",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.808673000000006,
+      "lng": -122.409821,
+      "googleMapsUri": "https://maps.google.com/?cid=13472009623945261982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pier39.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJY_dFYHKHhYARMKc772iLvnE",
+      "name": "Golden Gate Park",
+      "address": "San Francisco, CA, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 44342,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7689203,
+      "lng": -122.482977,
+      "googleMapsUri": "https://maps.google.com/?cid=8196141654667405104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sfrecpark.org/770/Golden-Gate-Park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.47
+    },
+    {
+      "googlePlaceId": "ChIJmRyMs_mAhYARpViaf6JEWNE",
+      "name": "Alcatraz Island",
+      "address": "San Francisco, CA 94133, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 44435,
+      "priceLevel": null,
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8269775,
+      "lng": -122.42295550000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15084882416593688741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/alca/index.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 97.38
+    },
+    {
+      "googlePlaceId": "ChIJrWJnvbSRhYAR-a__aHZY_3o",
+      "name": "Muir Woods National Monument",
+      "address": "Mill Valley, CA 94941, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 20246,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8970199,
+      "lng": -122.58111769999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8862899857279397881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/muwo/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 96.15
+    },
+    {
+      "googlePlaceId": "ChIJWTGPjmaAhYARxz6l1hOj92w",
+      "name": "Ferry Building",
+      "address": "1 Ferry Building, San Francisco, CA 94105, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 37765,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "ferry_service",
+        "market",
+        "grocery_store",
+        "transportation_service",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7954425,
+      "lng": -122.3936136,
+      "googleMapsUri": "https://maps.google.com/?cid=7851923780944608967&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ferrybuildingmarketplace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "cultural centers",
+        "farmers markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "shopping-markets",
+        "local-exploration"
+      ],
+      "popularityScore": 95.79
+    },
+    {
+      "googlePlaceId": "ChIJgUYUENWGhYAR9awaWIrbYOk",
+      "name": "Palace of Fine Arts",
+      "address": "3301 Lyon St, San Francisco, CA 94123, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 26043,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "wedding_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8029308,
+      "lng": -122.44842310000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16816682395831545077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://palaceoffinearts.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.14
+    },
+    {
+      "googlePlaceId": "ChIJgYC4rzeBhYARXLMKkmlB8T0",
+      "name": "Sandbox VR",
+      "address": "767 B Market St, San Francisco, CA 94103, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 8113,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7862194,
+      "lng": -122.40464800000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4463420627378418524&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sanfrancisco",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 94.54
+    },
+    {
+      "googlePlaceId": "ChIJW5D3LYmAhYARb92CmHj1bOM",
+      "name": "Union Square",
+      "address": "San Francisco, CA 94108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 37253,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "plaza",
+        "tourist_attraction",
+        "park",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7879358,
+      "lng": -122.40751389999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16387743042397986159&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://visitunionsquaresf.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "interactive pop ups",
+        "skating rinks",
+        "family friendly things to do",
+        "seasonal pop ups",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.55
+    },
+    {
+      "googlePlaceId": "ChIJW5w2V2iHhYARQoOl_ZsQlOg",
+      "name": "San Francisco Botanical Garden",
+      "address": "1199 9th Ave, San Francisco, CA 94122, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 7953,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "museum",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.767709599999996,
+      "lng": -122.4693109,
+      "googleMapsUri": "https://maps.google.com/?cid=16759038375513916226&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gggp.org/san-francisco-botanical-garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.38
+    },
+    {
+      "googlePlaceId": "ChIJ53I1Yn2AhYAR_Vl1vNygfMg",
+      "name": "San Francisco Museum of Modern Art",
+      "address": "151 3rd St, San Francisco, CA 94103, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 16403,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7857182,
+      "lng": -122.40105080000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14446598574612765181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sfmoma.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "paint and sip",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.33
+    },
+    {
+      "googlePlaceId": "ChIJIbjkBuOAhYAR3OzY8Djb7Kc",
+      "name": "Fisherman's Wharf",
+      "address": "505 Beach St, San Francisco, CA 94133, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 12480,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8084354,
+      "lng": -122.41575089999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12100287336443079900&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fishermanswharf.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.52
+    },
+    {
+      "googlePlaceId": "ChIJk2vl5NSGhYARwPGvs_ubIws",
+      "name": "Exploratorium",
+      "address": "Pier 15 Embarcadero at, Green St, San Francisco, CA 94111, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 8480,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "event_venue",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8016649,
+      "lng": -122.397348,
+      "googleMapsUri": "https://maps.google.com/?cid=802656663955829184&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.exploratorium.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.47
+    },
+    {
+      "googlePlaceId": "ChIJw____96GhYARCVVwg5cT7c0",
+      "name": "Golden Gate Bridge",
+      "address": "Golden Gate Brg, San Francisco, CA, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 85475,
+      "priceLevel": null,
+      "primaryType": "bridge",
+      "types": [
+        "bridge",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.819910899999996,
+      "lng": -122.4785598,
+      "googleMapsUri": "https://maps.google.com/?cid=14838537888721818889&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.goldengate.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 92.16
+    },
+    {
+      "googlePlaceId": "ChIJud4Rs7KHhYARZX7u45tQsjA",
+      "name": "Lands End Lookout",
+      "address": "680 Point Lobos Ave, San Francisco, CA 94121, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8412,
+      "priceLevel": null,
+      "primaryType": "visitor_center",
+      "types": [
+        "visitor_center",
+        "scenic_spot",
+        "tourist_attraction",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "park",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 37.779723,
+      "lng": -122.51158869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3508955690149248613&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://store.parksconservancy.org/collections/lands-end",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 92.05
+    },
+    {
+      "googlePlaceId": "ChIJA8tw-pZU2YARxPYVsDwL8-0",
+      "name": "Balboa Park",
+      "address": "San Diego, CA, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 78682,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.734147899999996,
+      "lng": -117.14455299999997,
+      "googleMapsUri": "https://maps.google.com/?cid=17146060561609782980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://balboapark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.92
+    },
+    {
+      "googlePlaceId": "ChIJI7NivpmAhYARSuRPlbbn_2w",
+      "name": "de Young Museum",
+      "address": "50 Hagiwara Tea Garden Dr, San Francisco, CA 94118, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 9550,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.771468999999996,
+      "lng": -122.46867549999997,
+      "googleMapsUri": "https://maps.google.com/?cid=7854251046532539466&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.famsf.org/visit/de-young",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.73
+    },
+    {
+      "googlePlaceId": "ChIJxdYX1GGOhYARiIigVMJ9TOY",
+      "name": "Golden Gate National Recreation Area",
+      "address": "California, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 16930,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "national_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8451837,
+      "lng": -122.53007769999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16594777000550369416&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/goga/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.27
+    },
+    {
+      "googlePlaceId": "ChIJkdwMnEmBhYARepGRyrh8myI",
+      "name": "Great Big Game Show Fisherman's Wharf",
+      "address": "145 Jefferson St Suite 500, San Francisco, CA 94133, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1808,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.808067699999995,
+      "lng": -122.41464990000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2493723951794065786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://greatbiggameshow.com/san-francisco?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=san-francisco",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.2
+    },
+    {
+      "googlePlaceId": "ChIJIUT7rEOHhYARucp3wM-HhBs",
+      "name": "California Academy of Sciences",
+      "address": "55 Music Concourse Dr, San Francisco, CA 94118, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5987,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "aquarium",
+        "research_institute",
+        "planetarium",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7698646,
+      "lng": -122.4660947,
+      "googleMapsUri": "https://maps.google.com/?cid=1982859062306917049&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.calacademy.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.34
+    },
+    {
+      "googlePlaceId": "ChIJg67caeqAhYAR2UQjKb1a8j4",
+      "name": "House of Prime Rib",
+      "address": "1906 Van Ness Ave, San Francisco, CA 94109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7241,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "british_restaurant",
+      "types": [
+        "steak_house",
+        "american_restaurant",
+        "french_restaurant",
+        "british_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7934329,
+      "lng": -122.42273200000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4535787543201006809&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://houseofprimerib.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.26
+    },
+    {
+      "googlePlaceId": "ChIJzQPIbdiAhYARnDRdcGf_4xI",
+      "name": "Fort Mason Center for Arts & Culture",
+      "address": "2 Marina Blvd, San Francisco, CA 94123, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5549,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "auditorium",
+        "convention_center",
+        "cultural_center",
+        "wedding_venue",
+        "event_venue",
+        "association_or_organization",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8067224,
+      "lng": -122.43134739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1361212332127892636&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fortmason.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "interactive pop ups",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.12
+    },
+    {
+      "googlePlaceId": "ChIJ1RXyM62hj4ARp0jUvcR7yzw",
+      "name": "Filoli Historic House & World-Class Garden",
+      "address": "86 Cañada Rd, Woodside, CA 94062, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6515,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "garden",
+        "wedding_venue",
+        "gift_shop",
+        "historical_landmark",
+        "historical_place",
+        "farm",
+        "event_venue",
+        "museum",
+        "store",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.4697361,
+      "lng": -122.31062469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4380731147476551847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://filoli.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.94
+    },
+    {
+      "googlePlaceId": "ChIJbzYnQte8woARJaqqFVpKeNo",
+      "name": "The Getty",
+      "address": "1200 Getty Center Dr, Los Angeles, CA 90049, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 36432,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0773438,
+      "lng": -118.4732648,
+      "googleMapsUri": "https://maps.google.com/?cid=15742414248244587045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.getty.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 89.64
+    },
+    {
+      "googlePlaceId": "ChIJp3CqeRd-j4ARYI0i8e_kGKY",
+      "name": "Mission Dolores Park",
+      "address": "Dolores St &, 19th St, San Francisco, CA 94114, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 16307,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7602015,
+      "lng": -122.4267959,
+      "googleMapsUri": "https://maps.google.com/?cid=11968567728930983264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sfrecpark.org/destination/mission-dolores-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.41
+    },
+    {
+      "googlePlaceId": "ChIJszBPbLWHhYARfrlLxEb3GuA",
+      "name": "Sutro Baths",
+      "address": "1004 Point Lobos Ave, San Francisco, CA 94121, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2922,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "hiking_area",
+        "tourist_attraction",
+        "historical_place",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7804444,
+      "lng": -122.51365,
+      "googleMapsUri": "https://maps.google.com/?cid=16148491297203403134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/goga/planyourvisit/cliff-house-sutro-baths.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sound baths",
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "wellness-relaxation",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 89.32
+    },
+    {
+      "googlePlaceId": "ChIJl99Fqt19j4ARdMNsntPJPdw",
+      "name": "Immersive Gamebox - Stonestown Galleria, San Francisco",
+      "address": "3251 20th Ave Suite 101, San Francisco, CA 94132, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 937,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7269892,
+      "lng": -122.4777488,
+      "googleMapsUri": "https://maps.google.com/?cid=15870062572656706420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/stc-stonestown-san-francisco-ca/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.26
+    },
+    {
+      "googlePlaceId": "ChIJUcfd3c9_j4ARKnu9Law6OLU",
+      "name": "SPARK Social SF",
+      "address": "601 Mission Bay Blvd North, San Francisco, CA 94158, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3932,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "beer_garden",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.770787899999995,
+      "lng": -122.3913817,
+      "googleMapsUri": "https://maps.google.com/?cid=13058251630736931626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sparksocialsf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "mini golf",
+        "trivia nights",
+        "viral food spots",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "sports-recreation",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 89.1
+    },
+    {
+      "googlePlaceId": "ChIJabri1qyHhYARLE0Vd4zY_7k",
+      "name": "Legion of Honor",
+      "address": "100 34th Ave, San Francisco, CA 94121, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 5063,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.784466099999996,
+      "lng": -122.50084190000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13402669113882791212&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.famsf.org/visit/legion-of-honor",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 89.05
+    },
+    {
+      "googlePlaceId": "ChIJu3EzmfGAhYARY45tSNDXCqw",
+      "name": "Club Fugazi Experiences",
+      "address": "678 Green St, San Francisco, CA 94133, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 1074,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.799633899999996,
+      "lng": -122.4102746,
+      "googleMapsUri": "https://maps.google.com/?cid=12396958213859020387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.clubfugazisf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "immersive experiences",
+        "interactive pop ups",
+        "seasonal pop ups",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.56
+    },
+    {
+      "googlePlaceId": "ChIJZYKHDZiAhYARXV0sNJgKAi8",
+      "name": "Smuggler's Cove",
+      "address": "650 Gough St, San Francisco, CA 94102, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 3263,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7794028,
+      "lng": -122.42337219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3387281518562663773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.smugglerscovesf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.55
+    },
+    {
+      "googlePlaceId": "ChIJAQAAQIyAhYARRN3yIQG4hd4",
+      "name": "Coit Tower",
+      "address": "1 Telegraph Hill Blvd, San Francisco, CA 94133, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 15716,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.802394899999996,
+      "lng": -122.40582219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16034424363326561604&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sfrecpark.org/Facilities/Facility/Details/Coit-Tower-290",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJ_T25cNd_j4ARehGmHe0pT84",
+      "name": "Oracle Park",
+      "address": "24 Willie Mays Plaza, San Francisco, CA 94107, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 31677,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7783654,
+      "lng": -122.38991619999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14866146993354707322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/giants/ballpark",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJ4-RmgarmjYARY5silxlKqLU",
+      "name": "Monterey Bay Aquarium",
+      "address": "886 Cannery Row, Monterey, CA 93940, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 45481,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.6182622,
+      "lng": -121.90195419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13089793790722612067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.montereybayaquarium.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.09
+    },
+    {
+      "googlePlaceId": "ChIJo4CyJiSEhYAR8hPieLXdyYs",
+      "name": "Bay Area Discovery Museum",
+      "address": "Art Studios, 557 McReynolds Rd, Sausalito, CA 94965, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3088,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.83564,
+      "lng": -122.47680899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10072825813077726194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bayareadiscoverymuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.98
+    },
+    {
+      "googlePlaceId": "ChIJkQQVTZqAhYARHxPt2iJkm1Q",
+      "name": "Asian Art Museum",
+      "address": "200 Larkin St, San Francisco, CA 94102, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4270,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7802772,
+      "lng": -122.41616049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6096576621440733983&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://asianart.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.84
+    },
+    {
+      "googlePlaceId": "ChIJE-5gllSBhYARsYVQC_gftuI",
+      "name": "The Escape Game San Francisco (Downtown)",
+      "address": "150 Kearny St, San Francisco, CA 94108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9410,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7895363,
+      "lng": -122.40365670000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16336279848535229873&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/sanfrancisco/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=sf-downtown",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJq7iF28bJj4ARdWUD6DQUr3I",
+      "name": "California's Great America",
+      "address": "4701 Great America Pkwy, Santa Clara, CA 95054, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 16039,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.399065900000004,
+      "lng": -121.97691609999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8263846058711541109&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sixflags.com/cagreatamerica/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 87.81
+    },
+    {
+      "googlePlaceId": "ChIJO2EGsrmAhYARdDfDm-uVTQQ",
+      "name": "The Fillmore",
+      "address": "1805 Geary Blvd, San Francisco, CA 94115, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2858,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 37.783926,
+      "lng": -122.433072,
+      "googleMapsUri": "https://maps.google.com/?cid=310068788521547636&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.livenation.com/venue/KovZpZAE6eeA/the-fillmore-events",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.76
+    },
+    {
+      "googlePlaceId": "ChIJm3QYeLh_hYAR4i7N6Kc88Pc",
+      "name": "Sandbox VR",
+      "address": "5614 Bay St Suite 232, Emeryville, CA 94608, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9078,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.833402299999996,
+      "lng": -122.2915722,
+      "googleMapsUri": "https://maps.google.com/?cid=17865846413641723618&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/emeryville",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.73
+    },
+    {
+      "googlePlaceId": "ChIJPwvLyD5-j4AR2fM8C0bbVC8",
+      "name": "Foreign Cinema",
+      "address": "2534 Mission St, San Francisco, CA 94110, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3339,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "californian_restaurant",
+      "types": [
+        "californian_restaurant",
+        "mediterranean_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7564917,
+      "lng": -122.41911940000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3410591911709045721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.foreigncinema.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.52
+    },
+    {
+      "googlePlaceId": "ChIJh_24QJ-AhYAR_xbUNVN2Xns",
+      "name": "Rich Table",
+      "address": "199 Gough St, San Francisco, CA 94102, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1564,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "californian_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7748657,
+      "lng": -122.4228497,
+      "googleMapsUri": "https://maps.google.com/?cid=8889672814233392895&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://richtablesf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJjaIC83F9j4AR1z3B225I_XU",
+      "name": "San Francisco Zoo",
+      "address": "Sloat Blvd &, Upper Great Hwy, San Francisco, CA 94132, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 14101,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7329394,
+      "lng": -122.50283479999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8502031312515841495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sfzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.43
+    },
+    {
+      "googlePlaceId": "ChIJTTrbupiAhYARMJChTbbaB_Y",
+      "name": "San Francisco Symphony",
+      "address": "201 Van Ness Ave, San Francisco, CA 94102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3089,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7776372,
+      "lng": -122.42069180000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17728378934688583728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sfsymphony.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.34
+    },
+    {
+      "googlePlaceId": "ChIJgXkuGnCAhYARbVYisXVfO68",
+      "name": "Waterbar Restaurant",
+      "address": "399 The Embarcadero, San Francisco, CA 94105, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4412,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "brunch_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7904926,
+      "lng": -122.3890417,
+      "googleMapsUri": "https://maps.google.com/?cid=12626790939350947437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.waterbarsf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJpX9B9TZm0FQRjl87lWYyzzY",
+      "name": "Redwood National and State Parks",
+      "address": "California, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 11134,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.401715599999996,
+      "lng": -124.04171099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3949430814398963598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/redw/index.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJk35bizx-j4AREil6UPp7Jn4",
+      "name": "Lazy Bear",
+      "address": "3416 19th St, San Francisco, CA 94110, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1177,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7604119,
+      "lng": -122.4197156,
+      "googleMapsUri": "https://maps.google.com/?cid=9090089212916148498&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lazybearsf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.63
+    },
+    {
+      "googlePlaceId": "ChIJF-zbSmSAhYARvOafjdCRszQ",
+      "name": "Boulevard",
+      "address": "1 Mission St, San Francisco, CA 94105, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1695,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "californian_restaurant",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.793269699999996,
+      "lng": -122.39286789999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3797539235718751932&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boulevardrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.61
+    },
+    {
+      "googlePlaceId": "ChIJJzFT5Mx9j4ARXWoiEQkbnoM",
+      "name": "Activate San Francisco",
+      "address": "3251 20th Ave unit 353, San Francisco, CA 94132, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 545,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7287435,
+      "lng": -122.47695390000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9484047591044967005&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/san-francisco-stonestown",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJVbMlhdyGhYARADaqASKRFVs",
+      "name": "Crissy Field",
+      "address": "San Francisco, CA 94129, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6048,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8040257,
+      "lng": -122.46501649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6563311607205213696&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/prsf/learn/historyculture/crissy-field.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.47
+    },
+    {
+      "googlePlaceId": "ChIJkVSnJpKAhYARCSaDnRo5brE",
+      "name": "Liholiho Yacht Club",
+      "address": "871 Sutter St, San Francisco, CA 94109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1945,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "cocktail_bar",
+        "californian_restaurant",
+        "seafood_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7882263,
+      "lng": -122.41460509999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12785219178625967625&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lycsf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.37
+    },
+    {
+      "googlePlaceId": "ChIJ_fRRLeqGhYAROWsCl5027X8",
+      "name": "Fort Point National Historic Site",
+      "address": "201 Marine Dr, San Francisco, CA 94129, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 3993,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "nature_preserve",
+        "tourist_attraction",
+        "national_park",
+        "park",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.810611699999995,
+      "lng": -122.47708999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9218084062768556857&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nps.gov/fopo/planyourvisit/hours.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJZZ_cOYaAhYARnyfbDrAkvJ8",
+      "name": "The View Lounge",
+      "address": "780 Mission St, San Francisco, CA 94103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3188,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "californian_restaurant",
+        "american_restaurant",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7852269,
+      "lng": -122.40448149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11510115086234232735&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theviewlounge-sf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJuX92JKWAhYARxVmeb8DQIYQ",
+      "name": "The Painted Ladies",
+      "address": "San Francisco, CA 94117, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 27736,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7762528,
+      "lng": -122.43275559999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9521120612162886085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJ4TfdhS2OhYARxk5VAC-pl-k",
+      "name": "Muir Beach Overlook",
+      "address": "Parking lot, Muir Beach Overlook, Muir Beach, CA 94965, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3627,
+      "priceLevel": null,
+      "primaryType": "landmark",
+      "types": [
+        "landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.861807299999995,
+      "lng": -122.58650939999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16832108151654665926&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/goga/planyourvisit/muirbeach.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.06
+    },
+    {
+      "googlePlaceId": "ChIJeSJHoI-AhYARzRXXNKquDMg",
+      "name": "Cityscape",
+      "address": "333 O'Farrell St, San Francisco, CA 94102, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 2033,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7854423,
+      "lng": -122.41098780000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14415088553360299469&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cityscapeskybar.com/?SEO_id=GMB--R-SFOFHHH-1&y_source=1_MTk1OTQ3MzYtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.05
+    },
+    {
+      "googlePlaceId": "ChIJFS16LmCHhYAR9-5CGavbV2k",
+      "name": "Grandview Park",
+      "address": "Moraga &, 14th Ave, San Francisco, CA 94122, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1040,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.756422199999996,
+      "lng": -122.4717361,
+      "googleMapsUri": "https://maps.google.com/?cid=7590777224865967863&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sfrecpark.org/Facilities/Facility/Details/Grandview-Park-Trail-400",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJI-nwbESfj4AR46lo6mwYTaM",
+      "name": "Sandbox VR",
+      "address": "60 E 31st Ave #2044, San Mateo, CA 94403, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6955,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5378476,
+      "lng": -122.30044740000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11767088257457236451&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sanmateo",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJmezhSnHzj4ARuavQpVXNuL4",
+      "name": "Sandbox VR",
+      "address": "6000 Bollinger Canyon Rd #2401, San Ramon, CA 94583, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6884,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.763520299999996,
+      "lng": -121.95882850000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13742960030658898873&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sanramon",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.81
+    },
+    {
+      "googlePlaceId": "ChIJ8zXoo7mAhYARtoa-WE3d5NE",
+      "name": "The Progress",
+      "address": "1525 Fillmore St, San Francisco, CA 94115, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 1294,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "californian_restaurant",
+      "types": [
+        "californian_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.7836666,
+      "lng": -122.43297069999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15124456772888069814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theprogress-sf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.81
+    },
+    {
+      "googlePlaceId": "ChIJpwXLP-OAhYARhYDDosvOll8",
+      "name": "Big Bus Tours San Francisco",
+      "address": "99 Jefferson St, San Francisco, CA 94133, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.5,
+      "reviewCount": 9227,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8082944,
+      "lng": -122.41395740000002,
+      "googleMapsUri": "https://maps.google.com/?cid=6887920054114156677&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigbustours.com/en/san-francisco/san-francisco-bus-tours?utm_source=GMB-san-francisco&utm_medium=GMB&utm_campaign=san-francisco-GMB-website",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.77
+    },
+    {
+      "googlePlaceId": "ChIJvXl2weCAhYARjSxnhzrBfNc",
+      "name": "Ghirardelli Chocolate Experience",
+      "address": "900 North Point St F301, San Francisco, CA 94109, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 29453,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "chocolate_shop",
+      "types": [
+        "chocolate_shop",
+        "ice_cream_shop",
+        "dessert_shop",
+        "candy_store",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.805932899999995,
+      "lng": -122.42325890000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15527498072390577293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ghirardelli.com/stores/sf-experience",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.71
+    },
+    {
+      "googlePlaceId": "ChIJoYiOqfGAhYAR8J-KiogVyCQ",
+      "name": "Washington Square",
+      "address": "Filbert St & Stockton Street, San Francisco, CA 94133, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 5342,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "playground",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8007752,
+      "lng": -122.41024639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2650392056891613168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sfrecpark.org/Facilities/Facility/Details/Washington-Square-388",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJb8Bo3rOAhYARkr08bCLctI8",
+      "name": "Dylan's Tours",
+      "address": "782 Columbus Ave, San Francisco, CA 94133, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1998,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8018505,
+      "lng": -122.41222400000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10355143483634531730&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dylanstours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJVbc0nryRhYARrctM6NuBQMw",
+      "name": "Mount Tamalpais State Park",
+      "address": "3801 Panoramic Hwy, Mill Valley, CA 94941, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3104,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8890472,
+      "lng": -122.6107881,
+      "googleMapsUri": "https://maps.google.com/?cid=14717906363741948845&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parks.ca.gov/?page_id=471",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 85.6
+    },
+    {
+      "googlePlaceId": "ChIJaZ68K5CAhYARBLiNrwnNReA",
+      "name": "Bourbon & Branch",
+      "address": "501 Jones St, San Francisco, CA 94102, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1731,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7860052,
+      "lng": -122.4132059,
+      "googleMapsUri": "https://maps.google.com/?cid=16160548279372593156&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bourbonandbranch.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJAVKgxI6AhYARWdTRnqRIQN4",
+      "name": "Free SF Tour",
+      "address": "399 Post St, San Francisco, CA 94102, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1289,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.788306899999995,
+      "lng": -122.40838090000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16014880146805871705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.freesftour.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.45
+    },
+    {
+      "googlePlaceId": "ChIJaSBxxa-AhYARBotIvZ6iIbE",
+      "name": "Emporium Arcade Bar",
+      "address": "616 Divisadero St, San Francisco, CA 94117, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 2391,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "video_arcade",
+        "night_club",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7753364,
+      "lng": -122.4376563,
+      "googleMapsUri": "https://maps.google.com/?cid=12763661621608876806&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://emporiumarcadebar.com/locations/san-francisco/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.43
+    },
+    {
+      "googlePlaceId": "ChIJX1oMlvKAhYARNZquwetszd8",
+      "name": "Cable Car Museum",
+      "address": "1201 Mason St, San Francisco, CA 94108, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6919,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7946366,
+      "lng": -122.41150739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16126665600506174005&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cablecarmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.37
+    },
+    {
+      "googlePlaceId": "ChIJ7f_sCPyxj4ARLSLcYNWYO8U",
+      "name": "Art and Craft Workshops",
+      "address": "360 Ritch St ste 205, San Francisco, CA 94107, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 1353,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "event_venue",
+        "store",
+        "service",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.778825000000005,
+      "lng": -122.3940289,
+      "googleMapsUri": "https://maps.google.com/?cid=14212121091318227501&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.craftforteam.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJ5abCmkWHhYARH3zgiLVc_Ew",
+      "name": "Conservatory of Flowers",
+      "address": "100 John F Kennedy Dr, San Francisco, CA 94118, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4065,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "historical_landmark",
+        "historical_place",
+        "wedding_venue",
+        "event_venue",
+        "museum",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.772618699999995,
+      "lng": -122.46025579999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5547410775768857631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gggp.org/conservatory-of-flowers/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.3
+    },
+    {
+      "googlePlaceId": "ChIJ_075ezGHhYARMb6UkSpmbbE",
+      "name": "Spruce",
+      "address": "3640 Sacramento St, San Francisco, CA 94118, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1734,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7876049,
+      "lng": -122.45278510000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12784987250191810097&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sprucesf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJezfMa4iAhYARh5hM01QRydg",
+      "name": "Local Edition",
+      "address": "691 Market St, San Francisco, CA 94105, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 2576,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7876173,
+      "lng": -122.40314719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15621035838531213447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://localeditionsf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "jazz clubs",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85
+    },
+    {
+      "googlePlaceId": "ChIJr6OmefyAhYAR-h8_vW9p5GQ",
+      "name": "Aquarium of the Bay",
+      "address": "PIER 39 The Embarcadero &, Beach St, San Francisco, CA 94133, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.1,
+      "reviewCount": 6262,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8086487,
+      "lng": -122.40932989999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7270051627120140282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aquariumofthebay.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 84.98
+    },
+    {
+      "googlePlaceId": "ChIJCwFn4TKBhYARyCxx3-ErYkY",
+      "name": "The Escape Game San Francisco (Fisherman's Wharf)",
+      "address": "145 Jefferson St Suite 500, San Francisco, CA 94133, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3425,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8082242,
+      "lng": -122.4147134,
+      "googleMapsUri": "https://maps.google.com/?cid=5071664379488971976&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/sanfrancisco/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=sf-wharf",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.84
+    },
+    {
+      "googlePlaceId": "ChIJ26vXqYWAhYAR-pHMSmLA0nA",
+      "name": "The Warfield",
+      "address": "982 Market St, San Francisco, CA 94102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3683,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7826737,
+      "lng": -122.41042800000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8129771805751415290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewarfieldtheatre.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.81
+    },
+    {
+      "googlePlaceId": "ChIJDZ0ZOPWAhYARkZFd-uCioMs",
+      "name": "Bix",
+      "address": "56 Gold St, San Francisco, CA 94133, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1298,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "live_music_venue",
+        "bar",
+        "night_club",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7968712,
+      "lng": -122.40292980000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14672906673129886097&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bixrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "date night restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.72
+    },
+    {
+      "googlePlaceId": "ChIJifNcCjDW3IARLB8cjHhR31U",
+      "name": "Anaheim Packing District",
+      "address": "440 S Anaheim Blvd, Anaheim, CA 92805, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 14434,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8315543,
+      "lng": -117.91199069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6187753991218929452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anaheimpackingdistrict.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.7
+    },
+    {
+      "googlePlaceId": "ChIJBYGM7JGAhYARewX82XkeUWo",
+      "name": "Japan Center Malls",
+      "address": "1737 Post St, San Francisco, CA 94115, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6854,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.785277799999996,
+      "lng": -122.4294444,
+      "googleMapsUri": "https://maps.google.com/?cid=7660937949830972795&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sfjapantown.org/japan-center-malls/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "bowling alleys"
+      ],
+      "matchedCategories": [
+        "dining",
+        "sports-recreation"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJ62Hmao1_j4ARBTjiPqAqBCE",
+      "name": "Wela Thai Massage and Spa",
+      "address": "2343 Market St, San Francisco, CA 94114, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 3030,
+      "priceLevel": null,
+      "primaryType": "massage_spa",
+      "types": [
+        "massage_spa",
+        "spa",
+        "massage",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7633353,
+      "lng": -122.4339375,
+      "googleMapsUri": "https://maps.google.com/?cid=2379073370896611333&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://welathaimassageandspa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 84.48
+    },
+    {
+      "googlePlaceId": "ChIJS8LWkJd9j4ARPY4FVf61XJw",
+      "name": "Stern Grove Festival",
+      "address": "Wawona St, San Francisco, CA 94132, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 640,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7359493,
+      "lng": -122.47956320000002,
+      "googleMapsUri": "https://maps.google.com/?cid=11267080471726886461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sterngrove.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.43
+    },
+    {
+      "googlePlaceId": "ChIJK6R3jFYVkFQRLA8uS-80dDA",
+      "name": "Sandbox VR",
+      "address": "526 Westlake Ave N, Seattle, WA 98109, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4241,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 47.623787799999995,
+      "lng": -122.33819380000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3491473813482114860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/seattle",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.37
+    },
+    {
+      "googlePlaceId": "ChIJuXgHLqCAhYARx2FmzkO1ero",
+      "name": "San Francisco Love Tours",
+      "address": "1329 Columbus Ave Ste A, San Francisco, CA 94133, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1296,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8072717,
+      "lng": -122.42065259999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13437251741043548615&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sanfranciscolovetours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.37
+    },
+    {
+      "googlePlaceId": "ChIJK3q_Ge-GhYARwneFylVaGio",
+      "name": "Golden Gate Overlook",
+      "address": "Langdon Ct, San Francisco, CA 94129, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2040,
+      "priceLevel": null,
+      "primaryType": "landmark",
+      "types": [
+        "hiking_area",
+        "landmark",
+        "scenic_spot",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.8039661,
+      "lng": -122.47667759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3033836623503914946&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.presidio.gov/places/golden-gate-overlook",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.36
+    },
+    {
+      "googlePlaceId": "ChIJ5f7ZKtiGhYAR9WaYFS6bH1U",
+      "name": "The Walt Disney Family Museum",
+      "address": "104 Montgomery St, San Francisco, CA 94129, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4127,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.801378299999996,
+      "lng": -122.45864309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6133791839735015157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.waltdisney.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.24
+    },
+    {
+      "googlePlaceId": "ChIJjVaeHpOBhYARteGpqv2vmuc",
+      "name": "San Francisco City Guides - Free Walking Tours",
+      "address": "100 Larkin St, San Francisco, CA 94102, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2230,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.779074099999995,
+      "lng": -122.4162666,
+      "googleMapsUri": "https://maps.google.com/?cid=16688844873199641013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sfcityguides.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.22
+    },
+    {
+      "googlePlaceId": "ChIJhVvouY-AhYARt6oYQBabsr8",
+      "name": "Japanese Tea Garden",
+      "address": "75 Hagiwara Tea Garden Dr, San Francisco, CA 94118, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 16579,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7700913,
+      "lng": -122.47043590000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13813273526965676727&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gggp.org/japanese-tea-garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.01
+    },
+    {
+      "googlePlaceId": "ChIJX_Uihcmfj4ARELjhLJu7GKo",
+      "name": "Red Door Escape Room",
+      "address": "90 Hillsdale Mall, San Mateo, CA 94403, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3520,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5385001,
+      "lng": -122.30192799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12256752661036120080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://reddoorescape.com/escape-rooms/san-mateo",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.82
+    },
+    {
+      "googlePlaceId": "ChIJS53IPGGAhYARbUmMvoOAZ88",
+      "name": "SFJAZZ",
+      "address": "201 Franklin St, San Francisco, CA 94102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1563,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7764351,
+      "lng": -122.421631,
+      "googleMapsUri": "https://maps.google.com/?cid=14945055191778216301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sfjazz.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.82
+    },
+    {
+      "googlePlaceId": "ChIJZ2skEjx-j4ARYGXhoxMdpSk",
+      "name": "Mission Yoga",
+      "address": "2415 Mission St, San Francisco, CA 94110, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 1325,
+      "priceLevel": null,
+      "primaryType": "yoga_studio",
+      "types": [
+        "yoga_studio",
+        "fitness_center",
+        "sports_school",
+        "gym",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": 37.758426,
+      "lng": -122.4188988,
+      "googleMapsUri": "https://maps.google.com/?cid=3000836696903345504&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://newmissionyoga.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sound baths",
+        "yoga studios"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 83.78
+    },
+    {
+      "googlePlaceId": "ChIJ0Xb_IqR_j4ARoBy8BX7TMCE",
+      "name": "The Midway",
+      "address": "900 Marin St, San Francisco, CA 94124, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2241,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "art_gallery",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.749277400000004,
+      "lng": -122.38569439999998,
+      "googleMapsUri": "https://maps.google.com/?cid=2391643940349287584&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://themidwaysf.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.74
+    },
+    {
+      "googlePlaceId": "ChIJjSoPpte3j4AR6Y9SnGuefZs",
+      "name": "OMESCAPE | Sunnyvale",
+      "address": "1135 E Arques Ave, Sunnyvale, CA 94085, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2303,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.3810948,
+      "lng": -121.99951809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11204285632989007849&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.omescape.us/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.67
+    },
+    {
+      "googlePlaceId": "ChIJC9y2SGOAhYARSaejL5ecgmg",
+      "name": "Salesforce Park",
+      "address": "425 Mission St, San Francisco, CA 94105, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4799,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.789739499999996,
+      "lng": -122.39616559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7530753700070139721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://salesforcetransitcenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.64
+    },
+    {
+      "googlePlaceId": "ChIJoQWHY1GHhYAREOAUiL2KQ8U",
+      "name": "Free Gold Watch",
+      "address": "1767 Waller St, San Francisco, CA 94117, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 466,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "supplier",
+        "manufacturer",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7682,
+      "lng": -122.45270000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14214357395547938832&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://freegoldwatch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.49
+    },
+    {
+      "googlePlaceId": "ChIJQ7kGpLmAhYARKeCe2pDobWk",
+      "name": "State Bird Provisions",
+      "address": "1529 Fillmore St, San Francisco, CA 94115, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2436,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "asian_fusion_restaurant",
+        "asian_restaurant",
+        "californian_restaurant",
+        "fusion_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7836806,
+      "lng": -122.43300279999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7596983855284674601&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.statebirdsf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.33
+    },
+    {
+      "googlePlaceId": "ChIJi2fwgI6AhYARglQgXX2A3WU",
+      "name": "Pacific Cocktail Haven",
+      "address": "550 Sutter St, San Francisco, CA 94108, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1012,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.789429399999996,
+      "lng": -122.4095652,
+      "googleMapsUri": "https://maps.google.com/?cid=7340164243605443714&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pacificcocktailsf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "luxury lounges",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.33
+    },
+    {
+      "googlePlaceId": "ChIJzdMHHj1-j4ARCU4ZzZw5lBg",
+      "name": "The Chapel",
+      "address": "777 Valencia St, San Francisco, CA 94110, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 624,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7604864,
+      "lng": -122.42129790000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1771103899082116617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thechapelsf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.25
+    },
+    {
+      "googlePlaceId": "ChIJqZE4DTF-j4ARUYdqdEEgh8k",
+      "name": "The Morris",
+      "address": "2501 Mariposa St, San Francisco, CA 94110, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 660,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bistro",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7629795,
+      "lng": -122.40847959999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14521610988977555281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.themorris-sf.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.17
+    },
+    {
+      "googlePlaceId": "ChIJ76ERUo6AhYARr8LiSU5hciU",
+      "name": "Orpheum Theatre",
+      "address": "1192 Market St, San Francisco, CA 94102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5907,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7791786,
+      "lng": -122.41453759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2698326115623289519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://broadwaysf.com/Online/default.asp",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.15
+    },
+    {
+      "googlePlaceId": "ChIJazyNlAR9j4ARzE6pzUtJWyw",
+      "name": "Fort Funston",
+      "address": "Fort Funston Rd, San Francisco, CA 94132, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4004,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7195436,
+      "lng": -122.50280520000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3196228950471298764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/goga/planyourvisit/fortfunston.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.1
+    },
+    {
+      "googlePlaceId": "ChIJn3Nz-5GAhYAR4g8euEazEYg",
+      "name": "Lapisara Eatery",
+      "address": "698 Post St, San Francisco, CA 94109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1911,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "thai_restaurant",
+        "breakfast_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7878492,
+      "lng": -122.4132306,
+      "googleMapsUri": "https://maps.google.com/?cid=9804814980080340962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lapisaraeatery.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 83.06
+    }
+  ]
+}

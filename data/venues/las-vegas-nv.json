@@ -1,0 +1,3549 @@
+{
+  "location": "Las Vegas, NV",
+  "generatedAt": "2026-05-17T19:14:31.098Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJe64G4Z_DyIARNFDM0lNK7xk",
+      "name": "Fremont Street Experience",
+      "address": "Fremont St, Las Vegas, NV 89101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 147194,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "casino",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1707275,
+      "lng": -115.14382289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1868794094261391412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://vegasexperience.com/?utm_source=google&utm_medium=organic&utm_campaign=GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJSYKEyTrEyIARJZPSoDxr_MY",
+      "name": "Bellagio Conservatory & Botanical Gardens",
+      "address": "Bellagio Hotel & Casino, 3600 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 40811,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1119912,
+      "lng": -115.1765648,
+      "googleMapsUri": "https://maps.google.com/?cid=14338453221781181221&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bellagio.com/en/entertainment/conservatory-botanical-garden.html?ecid=GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.03
+    },
+    {
+      "googlePlaceId": "ChIJNYWglQe9yIARTLL8Kh3YznQ",
+      "name": "Red Rock Canyon National Conservation Area",
+      "address": "Mountain Springs, NV 89161, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 25779,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "national_park",
+      "types": [
+        "tourist_attraction",
+        "national_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1944273,
+      "lng": -115.43829669999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8416902373388890700&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.blm.gov/programs/national-conservation-lands/nevada/red-rock-canyon",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.68
+    },
+    {
+      "googlePlaceId": "ChIJ3WIuWzfEyIAR3Cng9xOjScI",
+      "name": "Mon Ami Gabi",
+      "address": "3655 S Las Vegas Blvd South, Las Vegas, NV 89109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 30981,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "bistro",
+        "steak_house",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1128631,
+      "lng": -115.1724846,
+      "googleMapsUri": "https://maps.google.com/?cid=13999900222816266716&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.monamigabi.com/las-vegas/?utm_source=google&utm_medium=social&utm_campaign=MAGLV-GBiz",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "popular dessert spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 96.12
+    },
+    {
+      "googlePlaceId": "ChIJZ539SI7DyIARv_VItgKR3s0",
+      "name": "Comedy on Deck Grand Canyon and Hoover Dam Tours",
+      "address": "155 W Imperial Ave suite 125, Las Vegas, NV 89102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 5,
+      "reviewCount": 13337,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.155498,
+      "lng": -115.1575062,
+      "googleMapsUri": "https://maps.google.com/?cid=14834453663439189439&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://comedybustours.com/?ref=googlebusinessprofile",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "local-exploration"
+      ],
+      "popularityScore": 95.44
+    },
+    {
+      "googlePlaceId": "ChIJWTuJqAXDyIARUM2D3FBO_q0",
+      "name": "Escape IT",
+      "address": "273 S M.L.K. Blvd, Las Vegas, NV 89106, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 19044,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "video_arcade",
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1712856,
+      "lng": -115.160067,
+      "googleMapsUri": "https://maps.google.com/?cid=12537544521850015056&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapeit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 94.74
+    },
+    {
+      "googlePlaceId": "ChIJQaJhzbXFyIARXs1ehmfA1U4",
+      "name": "Sandbox VR",
+      "address": "3377 Las Vegas Blvd S #2235, Las Vegas, NV 89109, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7637,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.122834999999995,
+      "lng": -115.16887009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5680658055866273118&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/lasvegas",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 94.2
+    },
+    {
+      "googlePlaceId": "ChIJ9asMyitryYARdbB8r1pzXUw",
+      "name": "Valley of Fire State Park",
+      "address": "Moapa Valley, NV 89040, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 18330,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.4756593,
+      "lng": -114.5383925,
+      "googleMapsUri": "https://maps.google.com/?cid=5502681153045049461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.nv.gov/parks/valley-of-fire",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 94.17
+    },
+    {
+      "googlePlaceId": "ChIJswuaqjrEyIAR1vBx3GxKR-I",
+      "name": "Fountains of Bellagio",
+      "address": "3600 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 59605,
+      "priceLevel": null,
+      "primaryType": "fountain",
+      "types": [
+        "fountain",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.112718699999995,
+      "lng": -115.17391090000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16305082807333548246&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bellagio.mgmresorts.com/en/entertainment/fountains-of-bellagio.html",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.14
+    },
+    {
+      "googlePlaceId": "ChIJQ4t9gYLFyIAR71bgg5iKwUI",
+      "name": "Sphere",
+      "address": "255 Sands Ave, Las Vegas, NV 89169, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 32527,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amphitheatre",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.121217,
+      "lng": -115.16204040000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4810278264660580079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thesphere.com/shows/wizard-of-oz-experience?utm_source=google&utm_medium=organic&utm_campaign=gmb_profile",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "skating rinks",
+        "game night venues",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.06
+    },
+    {
+      "googlePlaceId": "ChIJS8MzWanFyIARR82v03WHp6s",
+      "name": "Museum of Illusions - Las Vegas",
+      "address": "3716 S Las Vegas Blvd Suite 102, Las Vegas, NV 89109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8962,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1088439,
+      "lng": -115.17409509999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12369003841728793927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moilasvegas.com/?utm_souce=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.57
+    },
+    {
+      "googlePlaceId": "ChIJleDKRDzEyIAR9z-vovLIyXc",
+      "name": "Caesars Palace",
+      "address": "3570 S Las Vegas Blvd, Paradise, NV 89109, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 136902,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "resort_hotel",
+        "tourist_attraction",
+        "hotel",
+        "casino",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1172612,
+      "lng": -115.17614099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8631651105269301239&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.caesars.com/caesars-palace?utm_campaign=google&utm_source=google&utm_medium=local&utm_term=CLV&utm_content=hotel&y_source=1_NDM2Njg2Ny03MTUtbG9jYXRpb24ud2Vic2l0ZQ==",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.29
+    },
+    {
+      "googlePlaceId": "ChIJo2QZEG3EyIARuHyQ4XC29RY",
+      "name": "Peppermill Restaurant and Fireside Lounge",
+      "address": "2985 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 19936,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1336884,
+      "lng": -115.16328329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1654429034065460408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://peppermilllasvegas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "game bars",
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.62
+    },
+    {
+      "googlePlaceId": "ChIJvUdRyzDEyIARhA3R2cXH8oI",
+      "name": "Bellagio Hotel & Casino",
+      "address": "3600 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.7,
+      "reviewCount": 142439,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "resort_hotel",
+        "casino",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1129455,
+      "lng": -115.17650669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9435823821871451524&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bellagio.mgmresorts.com/en.html?ecid=GMB_BE_HO",
+      "openNow": null,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 92.35
+    },
+    {
+      "googlePlaceId": "ChIJaZu0kJHDyIARG3vaUNbfFOM",
+      "name": "The Smith Center for the Performing Arts",
+      "address": "361 Symphony Park Avenue, Las Vegas, NV 89106, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 5399,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "non_profit_organization",
+        "wedding_venue",
+        "event_venue",
+        "association_or_organization",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1691101,
+      "lng": -115.1520173,
+      "googleMapsUri": "https://maps.google.com/?cid=16362949457716345627&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thesmithcenter.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "jazz clubs",
+        "cultural centers",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.08
+    },
+    {
+      "googlePlaceId": "ChIJK5YcPnjFyIARHLvwxraO2po",
+      "name": "Arte Museum Las Vegas",
+      "address": "3716 S Las Vegas Blvd 2nd Floor, Suite 208, Las Vegas, NV 89158, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7370,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.108801299999996,
+      "lng": -115.1742047,
+      "googleMapsUri": "https://maps.google.com/?cid=11158387942436682524&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lasvegas.artemuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 91.89
+    },
+    {
+      "googlePlaceId": "ChIJnXhqVRvEyIARt2Kc1x_sako",
+      "name": "AREA15",
+      "address": "3215 S Rancho Dr, Las Vegas, NV 89102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 22487,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "convention_center",
+        "art_gallery",
+        "amusement_center",
+        "shopping_mall",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1317582,
+      "lng": -115.18154849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5362357927843488439&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.area15.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "mini golf",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "barcades",
+        "game bars",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.87
+    },
+    {
+      "googlePlaceId": "ChIJ97niNPHEyIARVBa7j3x2i-M",
+      "name": "One World Interactive Aquarium",
+      "address": "3528 S Maryland Pkwy Suite#340, Las Vegas, NV 89169, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 11924,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "zoo",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1241882,
+      "lng": -115.1351839,
+      "googleMapsUri": "https://maps.google.com/?cid=16396329145731847764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aquariumvegas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 91.81
+    },
+    {
+      "googlePlaceId": "ChIJNcqHOKjFyIAR6vNB2672wQ4",
+      "name": "Meow Wolf Las Vegas' Omega Mart",
+      "address": "3215 Rancho Dr #100, Las Vegas, NV 89102, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 18576,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "gift_shop",
+        "museum",
+        "amusement_center",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.1324617,
+      "lng": -115.1818523,
+      "googleMapsUri": "https://maps.google.com/?cid=1063402217899422698&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://meowwolf.com/visit/las-vegas?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "mini golf",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.31
+    },
+    {
+      "googlePlaceId": "ChIJq9KzHmPByIARQmNwjHv5ENs",
+      "name": "Springs Preserve",
+      "address": "333 S Valley View Blvd, Las Vegas, NV 89107, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5699,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "art_gallery",
+        "historical_landmark",
+        "historical_place",
+        "museum",
+        "park",
+        "botanical_garden",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1693608,
+      "lng": -115.1906908,
+      "googleMapsUri": "https://maps.google.com/?cid=15785391002966057794&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.springspreserve.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.14
+    },
+    {
+      "googlePlaceId": "ChIJNcVs1VXByIARaX7ykQPgpuQ",
+      "name": "Herbs and Rye",
+      "address": "3713 W Sahara Ave, Las Vegas, NV 89102, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 5581,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "steak_house",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1440401,
+      "lng": -115.19178769999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16476102592719650409&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.herbsandrye.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "wine bars",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 91.08
+    },
+    {
+      "googlePlaceId": "ChIJYUKC-8_FyIAR3MoBTj-dDTQ",
+      "name": "Shark Reef Aquarium at Mandalay Bay",
+      "address": "3950 S Las Vegas Blvd, Las Vegas, NV 89119, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 15720,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0887734,
+      "lng": -115.17647060000002,
+      "googleMapsUri": "https://maps.google.com/?cid=3750826959886731996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mandalaybay.mgmresorts.com/en/entertainment/shark-reef-aquarium.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.82
+    },
+    {
+      "googlePlaceId": "ChIJ6dSwgwrDyIARnTLnwBzbNVU",
+      "name": "The Mob Museum",
+      "address": "300 Stewart Ave, Las Vegas, NV 89101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 19758,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "history_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1728198,
+      "lng": -115.1412395,
+      "googleMapsUri": "https://maps.google.com/?cid=6140054583531483805&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://themobmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.44
+    },
+    {
+      "googlePlaceId": "ChIJvUdRyzDEyIARI1pF9okesXg",
+      "name": "Eiffel Tower Restaurant",
+      "address": "3655 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6336,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "brunch_restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1124662,
+      "lng": -115.17219159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8696765933320231459&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.eiffeltowerrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.35
+    },
+    {
+      "googlePlaceId": "ChIJcZcZBAzDyIARl--REmYqXNk",
+      "name": "The Neon Museum Las Vegas",
+      "address": "770 Las Vegas Blvd N, Las Vegas, NV 89101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 13230,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "history_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1769882,
+      "lng": -115.13533739999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15662440221974327191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.neonmuseum.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.31
+    },
+    {
+      "googlePlaceId": "ChIJT5eZ9sbFyIARxB-x02L-9rA",
+      "name": "Infinity Museum",
+      "address": "3528 S Maryland Pkwy Ste 177, Las Vegas, NV 89169, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 1884,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1259982,
+      "lng": -115.1359919,
+      "googleMapsUri": "https://maps.google.com/?cid=12751659095357988804&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.infinitymuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 90.08
+    },
+    {
+      "googlePlaceId": "ChIJgfGIIzPEyIARZ3fvsbx2ce0",
+      "name": "T-Mobile Arena",
+      "address": "The Park Vegas, 3780 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 21583,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.102812,
+      "lng": -115.178195,
+      "googleMapsUri": "https://maps.google.com/?cid=17109587012168415079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.t-mobilearena.com/?icid=GMB_Entertainment_TMobile",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.05
+    },
+    {
+      "googlePlaceId": "ChIJmSto3AzEyIARnc4Q_yFFanc",
+      "name": "The Adventuredome Indoor Theme Park",
+      "address": "2880 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 11700,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.138019299999996,
+      "lng": -115.16665890000002,
+      "googleMapsUri": "https://maps.google.com/?cid=8604766050360282781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.circuscircus.com/the-adventuredome",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.95
+    },
+    {
+      "googlePlaceId": "ChIJ5yKvQGbEyIARRrDnL_5KOqk",
+      "name": "Las Vegas Convention Center",
+      "address": "3150 Paradise Rd, Las Vegas, NV 89109, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 14031,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1286087,
+      "lng": -115.15154259999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12194141396644900934&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lvcva.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "cultural centers",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.84
+    },
+    {
+      "googlePlaceId": "ChIJwU7s0qXByIARaxTWlQm_wNY",
+      "name": "Ninja Kidz Action Park - Las Vegas",
+      "address": "2640 S Decatur Blvd, Las Vegas, NV 89102, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 5025,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.141883500000006,
+      "lng": -115.20716429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15474578367534470251&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ninjakidzparks.com/location-home/ninjakidz-1000-lasvegas",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "learning-classes"
+      ],
+      "popularityScore": 89.72
+    },
+    {
+      "googlePlaceId": "ChIJAYyDOszCyIAR0-Iy0RtsicI",
+      "name": "Broadacres Marketplace",
+      "address": "2930 Las Vegas Blvd N, North Las Vegas, NV 89030, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 10542,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.2113334,
+      "lng": -115.10108720000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14017854181897069267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://broadacresm.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "flea markets",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.65
+    },
+    {
+      "googlePlaceId": "ChIJ8xDwpaLDyIAReADNnK5sWZE",
+      "name": "Discovery Children's Museum",
+      "address": "360 Promenade Pl, Las Vegas, NV 89106, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4953,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1687965,
+      "lng": -115.15272169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10473521905637589112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.discoverykidslv.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.22
+    },
+    {
+      "googlePlaceId": "ChIJwWKyCjzEyIARSGs0dqKp_Ts",
+      "name": "Hash House A Go Go at The LINQ",
+      "address": "3535 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 33549,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1182388,
+      "lng": -115.17119489999997,
+      "googleMapsUri": "https://maps.google.com/?cid=4322797732578487112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://linq.hashhouseagogo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 89.2
+    },
+    {
+      "googlePlaceId": "ChIJheDMS3TDyIARIcCpZZIdnjM",
+      "name": "Downtown Container Park",
+      "address": "707 E Fremont St, Las Vegas, NV 89101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 11304,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.167560099999996,
+      "lng": -115.13848370000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3719442856862662689&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://downtowncontainerpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.2
+    },
+    {
+      "googlePlaceId": "ChIJMf3EsfPPyIARX28g7uzv_VM",
+      "name": "Sunset Park",
+      "address": "2601 E Sunset Rd, Las Vegas, NV 89120, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 12639,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.065649,
+      "lng": -115.11159499999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6052257275142238047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.clarkcountynv.gov/government/departments/parks___recreation/services/area_reservations/sunset_park_webpage.php",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.13
+    },
+    {
+      "googlePlaceId": "ChIJVVXlX4rDyIARRszIZ-rr1wE",
+      "name": "SAW Escape Room",
+      "address": "2121 S Industrial Rd Suite 101, Las Vegas, NV 89102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 22101,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1472798,
+      "lng": -115.16246259999998,
+      "googleMapsUri": "https://maps.google.com/?cid=132834106026806342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sawescaperoom.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.07
+    },
+    {
+      "googlePlaceId": "ChIJBzRrfkfIyIARqdFL6VvIQKc",
+      "name": "Exploration Peak Park",
+      "address": "9275 S Buffalo Dr, Las Vegas, NV 89178, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3170,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.014114899999996,
+      "lng": -115.26093050000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12051852899925086633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.clarkcountynv.gov/parks/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.01
+    },
+    {
+      "googlePlaceId": "ChIJV1EuXj7EyIARzPNHkMZVXhs",
+      "name": "Yardbird",
+      "address": "3355 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5435,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "soul_food_restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1225277,
+      "lng": -115.16907049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1972107998147376076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.runchickenrun.com/?utm_source=google&utm_medium=Yext",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 88.8
+    },
+    {
+      "googlePlaceId": "ChIJPelpi67DyIARi9TMDDExRVY",
+      "name": "BrewDog Las Vegas",
+      "address": "3767 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 12672,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brewpub",
+      "types": [
+        "brewpub",
+        "sports_bar",
+        "pub",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.1046674,
+      "lng": -115.17236559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6216428947392746635&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://drink.brewdog.com/usa/las-vegas",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.49
+    },
+    {
+      "googlePlaceId": "ChIJC49X3jDEyIARzluW1U3js8M",
+      "name": "Miracle Mile Shops",
+      "address": "3663 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 23901,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1093404,
+      "lng": -115.17257280000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14101864781662542798&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miraclemileshopslv.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "boutiques",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.15
+    },
+    {
+      "googlePlaceId": "ChIJY7hFmwrDyIARjhIM4XlbK4M",
+      "name": "The Underground Speakeasy and Distillery",
+      "address": "300 Stewart Ave, Las Vegas, NV 89101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1390,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1728228,
+      "lng": -115.1412524,
+      "googleMapsUri": "https://maps.google.com/?cid=9451748821991953038&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://themobmuseum.org/exhibit/the-speakeasy/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "romantic bars",
+        "wine bars",
+        "private dining rooms",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.09
+    },
+    {
+      "googlePlaceId": "ChIJ44w1UIXDyIAR4Gj6uVkFoPY",
+      "name": "Esther's Kitchen",
+      "address": "1131 S Main St, Las Vegas, NV 89104, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4877,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1576619,
+      "lng": -115.15338249999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17771210012534401248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.estherslv.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.08
+    },
+    {
+      "googlePlaceId": "ChIJwexL9ovByIARn_h140FCkVU",
+      "name": "Spy Ninjas HQ",
+      "address": "7980 W Sahara Ave, Las Vegas, NV 89117, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 2016,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "video_arcade",
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "tourist_attraction",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1444038,
+      "lng": -115.265269,
+      "googleMapsUri": "https://maps.google.com/?cid=6165782215603386527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spyninjashq.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.08
+    },
+    {
+      "googlePlaceId": "ChIJV1rlcgfDyIAR0lHAxrlktBw",
+      "name": "Peppermint Hippo",
+      "address": "1531 S Las Vegas Blvd, Las Vegas, NV 89104, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1936,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1521729,
+      "lng": -115.15125900000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2068388877936120274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thepepperminthippo.com/locations/las-vegas-nv",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJS1oU-frFyIARxjNQVbF5TRY",
+      "name": "Play Playground",
+      "address": "3900 S Las Vegas Blvd, Las Vegas, NV 89119, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 2648,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "lounge_bar",
+        "night_club",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.095541,
+      "lng": -115.17621229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1607074444588626886&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.playplayground.com/las-vegas",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "kids activities",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.78
+    },
+    {
+      "googlePlaceId": "ChIJsWPJZy3FyIARnH8DE5JfS4U",
+      "name": "The Escape Game Las Vegas (The Forum Shops)",
+      "address": "3500 Las Vegas Blvd S Ste M-9, Las Vegas, NV 89109, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9677,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.119225300000004,
+      "lng": -115.17820060000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9604875711286575004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/lasvegas/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=lasvegas-forum",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJl8rr6pbDyIARIKXeAEgzMeU",
+      "name": "Las Vegas North Premium Outlets",
+      "address": "875 S Grand Central Pkwy, Las Vegas, NV 89106, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 29645,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1636508,
+      "lng": -115.15774919999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16515037692889572640&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.premiumoutlets.com/outlet/las-vegas-north",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.69
+    },
+    {
+      "googlePlaceId": "ChIJS9bYtFbEyIARY0FdGsdGouY",
+      "name": "Atomic Museum",
+      "address": "755 E Flamingo Rd, Las Vegas, NV 89119, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4243,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1141247,
+      "lng": -115.14837430000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16618923395905306979&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.atomicmuseum.vegas/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.67
+    },
+    {
+      "googlePlaceId": "ChIJEbZyKojDyIARhuyL6Pr0OJs",
+      "name": "Top of the World",
+      "address": "2000 Las Vegas Blvd S, Las Vegas, NV 89104, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 7351,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1474451,
+      "lng": -115.15568859999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11184959033055112326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thestrat.com/restaurants/top-of-the-world?utm_source=gmb&utm_medium=yext",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJB7kon5_DyIARNo0i6cyK5Hs",
+      "name": "Downtown Las Vegas Events Center",
+      "address": "200 S 3rd St, Las Vegas, NV 89101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2398,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "live_music_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1688636,
+      "lng": -115.1449119,
+      "googleMapsUri": "https://maps.google.com/?cid=8927412974044482870&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dlvec.com/?utm_source=gmb&utm_medium=organic&utm_campaign=home",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJ1SWy9UnAyIARVL0c-Vf9kgA",
+      "name": "Las Vegas Mini Grand Prix Family Fun Center",
+      "address": "1401 N Rainbow Blvd, Las Vegas, NV 89108, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 5008,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "go_karting_venue",
+      "types": [
+        "go_karting_venue",
+        "video_arcade",
+        "amusement_center",
+        "meal_takeaway",
+        "tourist_attraction",
+        "roller_coaster",
+        "race_course",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.18756,
+      "lng": -115.243241,
+      "googleMapsUri": "https://maps.google.com/?cid=41373900883148116&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lvmgp.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.46
+    },
+    {
+      "googlePlaceId": "ChIJpUyXONHFyIAR-6c_f3Q8qWY",
+      "name": "Sandbox VR",
+      "address": "3663 Las Vegas Blvd S SUITE 185, Las Vegas, NV 89109, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4724,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.110362699999996,
+      "lng": -115.1691527,
+      "googleMapsUri": "https://maps.google.com/?cid=7397510333981501435&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/lasvegas",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.39
+    },
+    {
+      "googlePlaceId": "ChIJXYTSB2zByIAR0RsNeTd271U",
+      "name": "Mr. Las Vegas Tours",
+      "address": "3715 W Twain Ave, Las Vegas, NV 89103, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3490,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "tourist_attraction",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1222386,
+      "lng": -115.18930969999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6192297993283902417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mrlasvegastours.com/?utm_source=mybusiness",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.14
+    },
+    {
+      "googlePlaceId": "ChIJTRVNuua8yIARq4DZL-IS22c",
+      "name": "Red Rock Canyon Overlook",
+      "address": "3205 NV-159, Las Vegas, NV 89161, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2896,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1171083,
+      "lng": -115.4447558,
+      "googleMapsUri": "https://maps.google.com/?cid=7483595968480903339&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.redrockcanyonlv.org/visitor-information/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87
+    },
+    {
+      "googlePlaceId": "ChIJ2wPc1cLFyIARD-x79avgr_w",
+      "name": "John Wick Experience",
+      "address": "3222 W Desert Inn Rd, Las Vegas, NV 89102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5710,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.131020299999996,
+      "lng": -115.18244109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18208018847644773391&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://johnwickexperience.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJYUKC-8_FyIARI5zujBtRmD4",
+      "name": "House of Blues Las Vegas",
+      "address": "3950 S Las Vegas Blvd, Las Vegas, NV 89119, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6683,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "lounge_bar",
+        "concert_hall",
+        "auditorium",
+        "banquet_hall",
+        "night_club",
+        "bar",
+        "wedding_venue",
+        "event_venue",
+        "restaurant",
+        "store",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.093044,
+      "lng": -115.17556400000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4510444205581966371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://locations.houseofblues.com/restaurant-and-bar/nv/las-vegas/3950-s-las-vegas-blvd.?y_source=1_MTU2MzYxNTYtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJuwTmHznEyIARt0z2kIFS-S4",
+      "name": "High Roller",
+      "address": "3545 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 31295,
+      "priceLevel": null,
+      "primaryType": "ferris_wheel",
+      "types": [
+        "ferris_wheel",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1176309,
+      "lng": -115.1682936,
+      "googleMapsUri": "https://maps.google.com/?cid=3384827311381957815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.caesars.com/linq/things-to-do/attractions/high-roller?utm_campaign=google&utm_source=google&utm_medium=local&utm_term=HighRoller&utm_content=attractions&y_source=1_NDM2Njg1NS03MTUtbG9jYXRpb24ud2Vic2l0ZQ==",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJqUsbqbrGyIARJWjniHcOLPs",
+      "name": "Sparrow + Wolf",
+      "address": "4480 Spring Mountain Rd #100, Las Vegas, NV 89102, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1758,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1265479,
+      "lng": -115.20126809999998,
+      "googleMapsUri": "https://maps.google.com/?cid=18098856909055944741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sparrowandwolflv.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJ16DrcNXDyIARaXq5xlOHep4",
+      "name": "The Punk Rock Museum",
+      "address": "1422 Western Ave, Las Vegas, NV 89102, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1383,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "cultural_center",
+        "tourist_attraction",
+        "body_art_service",
+        "history_museum",
+        "bar",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 36.1542822,
+      "lng": -115.16063699999998,
+      "googleMapsUri": "https://maps.google.com/?cid=11419588599037393513&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thepunkrockmuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.57
+    },
+    {
+      "googlePlaceId": "ChIJk9zX0e3ayIAR9pkyYZP4wy4",
+      "name": "Mystic Falls Park",
+      "address": "5111 Boulder Hwy, Las Vegas, NV 89122, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1727,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.112998399999995,
+      "lng": -115.0625156,
+      "googleMapsUri": "https://maps.google.com/?cid=3369810258077850102&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://samstownlv.boydgaming.com/things-to-do/mystic-falls-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJbfCaHrfDyIARS1x8FHg-I00",
+      "name": "Escape Blair Witch",
+      "address": "2121 S Industrial Rd Suite 102, Las Vegas, NV 89102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6263,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1471485,
+      "lng": -115.1622097,
+      "googleMapsUri": "https://maps.google.com/?cid=5558355050566016075&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapeblairwitch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.46
+    },
+    {
+      "googlePlaceId": "ChIJvTNJMgbFyIARM0PoeSXCH18",
+      "name": "The Las Vegas Strip",
+      "address": "S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 8935,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1152985,
+      "lng": -115.17317550000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6854410624096027443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lasvegasnevada.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "seasonal pop ups",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJAwgFg7rGyIAR5VynvIovlt0",
+      "name": "Game Nest Arcade",
+      "address": "4525 W Spring Mountain Rd #112, Las Vegas, NV 89103, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 1269,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1253094,
+      "lng": -115.20177740000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15967001801805749477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gamenestlv.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJHUm2PB7FyIARr9zHGPeYGUk",
+      "name": "Las Vegas En Tu Idioma Tours Al Gran Cañon",
+      "address": "3960 Howard Hughes Pkwy #500, Las Vegas, NV 89169, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 4552,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1167461,
+      "lng": -115.15690939999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5267409426226601135&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lasvegasentuidioma.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJe3-NyjDEyIARsF-_OiCMu7o",
+      "name": "Alexxa's",
+      "address": "3655 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 9519,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1120228,
+      "lng": -115.1725027,
+      "googleMapsUri": "https://maps.google.com/?cid=13455502381751951280&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://alexxaslasvegas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJ1SgjHNvRyIARjSaBFf5UETQ",
+      "name": "MaxTour Grand Canyon and Hoover Dam Tours",
+      "address": "1515 E Tropicana Ave #645, Las Vegas, NV 89119, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 5515,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1002138,
+      "lng": -115.13189480000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3751873414835545741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.maxtour.co/?utm_%20source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.09
+    },
+    {
+      "googlePlaceId": "ChIJSfBqxTzEyIARuYjvD1pecJ8",
+      "name": "The Forum Shops at Caesars Palace",
+      "address": "3500 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 24472,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.119001,
+      "lng": -115.17612569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11488786390329559225&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/the-forum-shops-at-caesars",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJ2368TTnFyIAROCLdd-THHKE",
+      "name": "Casa Di Amore",
+      "address": "2850 E Tropicana Ave, Las Vegas, NV 89121, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 3024,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.1003426,
+      "lng": -115.1116617,
+      "googleMapsUri": "https://maps.google.com/?cid=11609373723531747896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.casadiamore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.02
+    },
+    {
+      "googlePlaceId": "ChIJyQS1yBHFyIARSB8oK6dMcAo",
+      "name": "Number One Escape Room Las Vegas",
+      "address": "1775 E Tropicana Ave #100, Las Vegas, NV 89119, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7810,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1006441,
+      "lng": -115.12844519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=752185418638171976&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://numberoneescaperoom.com/?utm_source=google&utm_medium=gmb&utm_campaign=google_my_business",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJPyboc06-yIAR_JCJkTTID9M",
+      "name": "Red Rock Casino Resort and Spa",
+      "address": "11011 W Charleston Blvd, Las Vegas, NV 89135, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.5,
+      "reviewCount": 33359,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1555791,
+      "lng": -115.33200969999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15208594594759020796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.redrockresort.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJIaI3VPfQyIARG24byke0WI4",
+      "name": "Sunset Station Hotel and Casino",
+      "address": "1301 W Sunset Rd, Henderson, NV 89014, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 21553,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0618593,
+      "lng": -115.04001840000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10257146371762777627&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sunsetstation.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJ5VWO1j3EyIARpwnzZZDNpkk",
+      "name": "Madame Tussauds Las Vegas",
+      "address": "3377 S Las Vegas Blvd Ste. 2001, Las Vegas, NV 89109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 10190,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.12123,
+      "lng": -115.1714421,
+      "googleMapsUri": "https://maps.google.com/?cid=5307155230972119463&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madametussauds.com/las-vegas/?utm_source=local-listing&utm_medium=organic&utm_campaign=tickets",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJb7Qe8RTEyIARFNolAv2sfos",
+      "name": "Sinatra",
+      "address": "3131 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 2598,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.1299628,
+      "lng": -115.1653235,
+      "googleMapsUri": "https://maps.google.com/?cid=10051661621000264212&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wynnlasvegas.com/dining/fine-dining/sinatra",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.58
+    },
+    {
+      "googlePlaceId": "ChIJmwzbBjHEyIART_LyOV1x08g",
+      "name": "The Chandelier",
+      "address": "3708 Las Vegas Blvd S Levels 1, 1.5 and 2; Boulevard Tower, Las Vegas, NV 89109, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 2918,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1097319,
+      "lng": -115.1739317,
+      "googleMapsUri": "https://maps.google.com/?cid=14471034672889655887&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cosmopolitanlasvegas.com/lounges-bars/the-chandelier?utm_source=yelp&utm_medium=organic&utm_campaign=yelp",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.47
+    },
+    {
+      "googlePlaceId": "ChIJ45abwo-_yIARiZWkML2XQjk",
+      "name": "Suncoast Hotel and Casino",
+      "address": "9090 Alta Dr, Las Vegas, NV 89145, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 10911,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "bowling_alley",
+        "resort_hotel",
+        "tourist_attraction",
+        "hotel",
+        "sports_complex",
+        "sports_activity_location",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.168995699999996,
+      "lng": -115.2908908,
+      "googleMapsUri": "https://maps.google.com/?cid=4126027047445501321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://suncoast.boydgaming.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "skating rinks",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.4
+    },
+    {
+      "googlePlaceId": "ChIJhcbtRLbIyIARP3h6XQ2iNjY",
+      "name": "One Day Tours",
+      "address": "4262 Blue Diamond Rd #102-200, Las Vegas, NV 89139, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1892,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0380243,
+      "lng": -115.1968077,
+      "googleMapsUri": "https://maps.google.com/?cid=3906487905077065791&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://onedaytours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJxU0e84_DyIARELiEw8h1n-w",
+      "name": "Velveteen Rabbit",
+      "address": "1218 S Main St, Las Vegas, NV 89104, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1134,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1567,
+      "lng": -115.1539,
+      "googleMapsUri": "https://maps.google.com/?cid=17050476219382151184&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://velveteenrabbitlv.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "trivia nights",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.29
+    },
+    {
+      "googlePlaceId": "ChIJEYSZ3w7DyIARfTw1yvRJL9A",
+      "name": "Las Vegas Science & Natural History Museum",
+      "address": "900 Las Vegas Blvd N, Las Vegas, NV 89101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 1590,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "research_institute",
+        "point_of_interest",
+        "educational_institution",
+        "establishment"
+      ],
+      "lat": 36.1798749,
+      "lng": -115.13382059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15001290199507745917&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lvnhm.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJSyeHuxbEyIARxRITVkNdwkk",
+      "name": "Fashion Show Las Vegas",
+      "address": "3200 Las Vegas Blvd S Ste. 600, Las Vegas, NV 89109, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 25488,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.127477600000006,
+      "lng": -115.17119699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5314913054038889157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fslv.com/en.html",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJ4wBOpXXEyIARHU27TN5fdfg",
+      "name": "Golden Steer Steakhouse Las Vegas",
+      "address": "308 W Sahara Ave, Las Vegas, NV 89102, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5760,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1441637,
+      "lng": -115.1611962,
+      "googleMapsUri": "https://maps.google.com/?cid=17903321302055996701&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.goldensteer.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJmeuOVTC5woARRgUknn4XqXE",
+      "name": "The Original Farmers Market",
+      "address": "6333 W 3rd St, Los Angeles, CA 90036, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 16821,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "ice_cream_shop",
+        "market",
+        "grocery_store",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 34.072011499999995,
+      "lng": -118.36036990000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8190103229936436550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.farmersmarketla.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJAQAAty_EyIARvRDAx1YiR64",
+      "name": "Grand Garden Arena",
+      "address": "MGM Grand, 3799 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4112,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1047672,
+      "lng": -115.16860049999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12558043842059702461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mgmgrand.mgmresorts.com/en/entertainment/grand-garden-arena.html?ecid=GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.73
+    },
+    {
+      "googlePlaceId": "ChIJqZA5porDyIARU5ejXqKUask",
+      "name": "the INDUSTRIAL event space",
+      "address": "2330 S Industrial Rd, Las Vegas, NV 89102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 624,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1457829,
+      "lng": -115.1643076,
+      "googleMapsUri": "https://maps.google.com/?cid=14513576174248236883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theindustrialvegas.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "interactive pop ups",
+        "events this weekend",
+        "seasonal pop ups",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJgRb_uMXFyIARVIlgvMw0cE4",
+      "name": "1923 Prohibition Bar",
+      "address": "3930 S Las Vegas Blvd #101, Las Vegas, NV 89119, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 856,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0936585,
+      "lng": -115.1760932,
+      "googleMapsUri": "https://maps.google.com/?cid=5652075586288388436&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.1923lv.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "burlesque shows",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.46
+    },
+    {
+      "googlePlaceId": "ChIJAzL8vkrEyIARz2cIE8qxYis",
+      "name": "Topgolf Las Vegas",
+      "address": "4627 Koval Ln, Las Vegas, NV 89109, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 6216,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_bar",
+        "sports_coaching",
+        "sports_school",
+        "event_venue",
+        "health",
+        "bar",
+        "american_restaurant",
+        "golf_course",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.105996,
+      "lng": -115.1647223,
+      "googleMapsUri": "https://maps.google.com/?cid=3126256572809373647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://topgolf.com/us/las-vegas/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "driving ranges",
+        "indoor golf simulators"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.44
+    },
+    {
+      "googlePlaceId": "ChIJ-cH66DbEyIARLqL5vQGLsE8",
+      "name": "V Theater",
+      "address": "3663 S Las Vegas Blvd Suite 360, Las Vegas, NV 89109, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 1792,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "comedy_club",
+        "association_or_organization",
+        "manufacturer",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1106342,
+      "lng": -115.16893080000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5742242364495864366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vtheater.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "interactive pop ups",
+        "seasonal pop ups",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.44
+    },
+    {
+      "googlePlaceId": "ChIJ9QG3333FyIARdDvDeFyVK9A",
+      "name": "Fontainebleau Las Vegas",
+      "address": "2777 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 9725,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1373971,
+      "lng": -115.15943539999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15000247208283159412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fontainebleaulasvegas.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "skating rinks",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.41
+    },
+    {
+      "googlePlaceId": "ChIJq_Ec3lXByIARZ-DQhcoYYaA",
+      "name": "Capo's Restaurant and Speakeasy",
+      "address": "5675 W Sahara Ave, Las Vegas, NV 89146, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 4556,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "steak_house",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.1438638,
+      "lng": -115.21911739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11556545376916922471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.caposrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.38
+    },
+    {
+      "googlePlaceId": "ChIJuSKvT2jGyIAR7KC0Zk2JIuQ",
+      "name": "Grand Canyon Destinations",
+      "address": "4815 W Russell Rd Sute 14N, Las Vegas, NV 89118, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 6479,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.0857938,
+      "lng": -115.206479,
+      "googleMapsUri": "https://maps.google.com/?cid=16438852555384332524&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.grandcanyondestinations.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.36
+    },
+    {
+      "googlePlaceId": "ChIJGyKr_qbGyIARaoi6bTTfX1A",
+      "name": "The Golden Tiki",
+      "address": "3939 Spring Mountain Rd, Las Vegas, NV 89102, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 4370,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1260718,
+      "lng": -115.1922452,
+      "googleMapsUri": "https://maps.google.com/?cid=5791593062093981802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thegoldentiki.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.26
+    },
+    {
+      "googlePlaceId": "ChIJLTmkflrFyIARsjxPmn3ldPs",
+      "name": "BOA Steakhouse Las Vegas",
+      "address": "3327 S Las Vegas Blvd Unit 2900 Floor 2, Las Vegas, NV 89109, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 1424,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.124615899999995,
+      "lng": -115.1680312,
+      "googleMapsUri": "https://maps.google.com/?cid=18119359528440904882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boasteak.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.26
+    },
+    {
+      "googlePlaceId": "ChIJF9DCqBzByIARhkh7ELLcG-g",
+      "name": "Massage Well",
+      "address": "5300 W Sahara Ave UNIT 203, Las Vegas, NV 89146, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 4293,
+      "priceLevel": null,
+      "primaryType": "massage",
+      "types": [
+        "spa",
+        "massage",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1452664,
+      "lng": -115.21376640000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16725204298509273222&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.massagewellvegas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 84.25
+    },
+    {
+      "googlePlaceId": "ChIJX-jseeTsyIAR6QrEO_B-sqw",
+      "name": "Floyd Lamb Park",
+      "address": "9200 Tule Springs Rd, Las Vegas, NV 89131, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4735,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.3215465,
+      "lng": -115.2685145,
+      "googleMapsUri": "https://maps.google.com/?cid=12444148290638056169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lasvegasnevada.gov/Residents/Parks-Facilities/Floyd-Lamb-Park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.09
+    },
+    {
+      "googlePlaceId": "ChIJQ_iaEOeUyIARk23ebKYEkUw",
+      "name": "Lone Mountain Park",
+      "address": "4445 N Jensen St, Las Vegas, NV 89129, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1793,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.2416315,
+      "lng": -115.3101825,
+      "googleMapsUri": "https://maps.google.com/?cid=5517196131343166867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parkslocator.clarkcountynv.gov/Search/ParkDetail?parkId=28",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.09
+    },
+    {
+      "googlePlaceId": "ChIJA3ys0BTEyIAR-DWLpgh7c6w",
+      "name": "Mizumi",
+      "address": "3131 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 1812,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "seafood_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.1268688,
+      "lng": -115.1673791,
+      "googleMapsUri": "https://maps.google.com/?cid=12426411073929426424&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wynnlasvegas.com/dining/fine-dining/mizumi",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.07
+    },
+    {
+      "googlePlaceId": "ChIJbTC5UezFyIARwi44IJff2hA",
+      "name": "Fantasy Claw Arcade",
+      "address": "3200 S Las Vegas Blvd, Las Vegas, NV 89109, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 856,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.127474899999996,
+      "lng": -115.17377479999998,
+      "googleMapsUri": "https://maps.google.com/?cid=1214528889703378626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fantasyclawarcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.06
+    },
+    {
+      "googlePlaceId": "ChIJJfedNHXEyIARv0elN5K6x4E",
+      "name": "Annie Bananie Las Vegas Tours",
+      "address": "2961 S Industrial Rd #155, Las Vegas, NV 89109, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1210,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "tourist_attraction",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 36.1374807,
+      "lng": -115.16997009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9351648288419694527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anniebananie.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.03
+    },
+    {
+      "googlePlaceId": "ChIJg16ASXTDyIAR6Zpo6o3DCiA",
+      "name": "Oak & Ivy",
+      "address": "707 E Fremont St, Las Vegas, NV 89101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 844,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1673797,
+      "lng": -115.13836009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2308872773271329513&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://oakandivy.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.02
+    },
+    {
+      "googlePlaceId": "ChIJL55XYnPayIARdHnniV4kWS0",
+      "name": "Clark County Wetlands Park",
+      "address": "7050 Wetlands Park Ln, Las Vegas, NV 89122, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4528,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.101116399999995,
+      "lng": -115.02310150000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3267682993093179764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.clarkcountynv.gov/government/departments/parks___recreation/wetlands_park/index.php",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.96
+    },
+    {
+      "googlePlaceId": "ChIJlzf-gIDFyIAREOZDIIjh74c",
+      "name": "F1 Arcade Las Vegas",
+      "address": "3500 Las Vegas Blvd S, Las Vegas, NV 89109, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 557,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1186721,
+      "lng": -115.17356400000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9795295689327240720&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://f1arcade.com/us/vegas?utm_source=google&utm_medium=organic&utm_campaign=gbp-listing&utm_term=vegas",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.9
+    }
+  ]
+}

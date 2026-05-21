@@ -1,0 +1,3649 @@
+{
+  "location": "Boston, MA",
+  "generatedAt": "2026-05-17T19:23:17.539Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJbz8lP_Z544kRBFV6ZMsNgKI",
+      "name": "Fenway Park",
+      "address": "4 Jersey St, Boston, MA 02215, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 45008,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "sports_complex",
+        "event_venue",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3466764,
+      "lng": -71.0972178,
+      "googleMapsUri": "https://maps.google.com/?cid=11709374198378550532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/redsox/ballpark",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 101.54
+    },
+    {
+      "googlePlaceId": "ChIJKyNuvJ1w44kRBE-pe_yDhj8",
+      "name": "Boston Common",
+      "address": "139 Tremont St, Boston, MA 02111, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 38414,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3550897,
+      "lng": -71.0657256,
+      "googleMapsUri": "https://maps.google.com/?cid=4577491191698378500&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boston.gov/parks/boston-common/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.93
+    },
+    {
+      "googlePlaceId": "ChIJaeUD4cd744kRazL4bmbMAgk",
+      "name": "STK Steakhouse",
+      "address": "222 Berkeley St, Boston, MA 02116, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 20109,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "cocktail_bar",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "american_restaurant",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.350665,
+      "lng": -71.07327099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=649306036615262827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/en-us/location/boston/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 98.93
+    },
+    {
+      "googlePlaceId": "ChIJS3rn5w1644kRZNWVxNY_Ay8",
+      "name": "Museum of Fine Arts, Boston",
+      "address": "465 Huntington Ave, Boston, MA 02115, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 19581,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.339380999999996,
+      "lng": -71.094048,
+      "googleMapsUri": "https://maps.google.com/?cid=3387621536366450020&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mfa.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.84
+    },
+    {
+      "googlePlaceId": "ChIJu2Argp5w44kRAecWXgt_18s",
+      "name": "Public Garden",
+      "address": "Boston, MA 02116, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 18575,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "botanical_garden",
+        "garden",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3540639,
+      "lng": -71.0700921,
+      "googleMapsUri": "https://maps.google.com/?cid=14688348396492089089&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boston.gov/parks/public-garden",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.67
+    },
+    {
+      "googlePlaceId": "ChIJL0xO0Xd644kRjW-nC9ipHNc",
+      "name": "Trapology Boston",
+      "address": "177 Tremont St 2nd Floor, Boston, MA 02111, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9136,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3530231,
+      "lng": -71.0642354,
+      "googleMapsUri": "https://maps.google.com/?cid=15500450762875957133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trapologyboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 98.57
+    },
+    {
+      "googlePlaceId": "ChIJpyiwa4Zw44kRBQSGWKv4wgA",
+      "name": "Faneuil Hall Marketplace",
+      "address": "Boston, MA 02109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 48742,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "shopping_mall",
+        "tourist_attraction",
+        "food_court",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.360189,
+      "lng": -71.0551145,
+      "googleMapsUri": "https://maps.google.com/?cid=54879560290141189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://faneuilhallmarketplace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "best museums",
+        "farmers markets",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.5
+    },
+    {
+      "googlePlaceId": "ChIJLxyMQZZw44kRxTZwZ5PGulc",
+      "name": "Museum of Science",
+      "address": "1 Science Pk, Boston, MA 02114, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 23037,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.367714,
+      "lng": -71.0709771,
+      "googleMapsUri": "https://maps.google.com/?cid=6321583363365811909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mos.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.27
+    },
+    {
+      "googlePlaceId": "ChIJywUtFo5w44kRqJfXXv410zI",
+      "name": "TD Garden",
+      "address": "100 Legends Way, Boston, MA 02114, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 24966,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "concert_hall",
+        "auditorium",
+        "stadium",
+        "live_music_venue",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.366198,
+      "lng": -71.062146,
+      "googleMapsUri": "https://maps.google.com/?cid=3662330288611497896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tdgarden.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.93
+    },
+    {
+      "googlePlaceId": "ChIJSYXWkop544kRvTojD82gxdo",
+      "name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, MA 02115, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 10825,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.338144199999995,
+      "lng": -71.0990577,
+      "googleMapsUri": "https://maps.google.com/?cid=15764182873262996157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gardnermuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.82
+    },
+    {
+      "googlePlaceId": "ChIJhdC_YH1w44kRSX0V1oo9pt0",
+      "name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 27964,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3592478,
+      "lng": -71.0491475,
+      "googleMapsUri": "https://maps.google.com/?cid=15971520795022556489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.neaq.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.6
+    },
+    {
+      "googlePlaceId": "ChIJv9lnBgp644kRes_e1eIVHvA",
+      "name": "Charles River Esplanade",
+      "address": "Storrow Dr, Boston, MA 02116, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4789,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3555785,
+      "lng": -71.0788785,
+      "googleMapsUri": "https://maps.google.com/?cid=17302290882398965626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://esplanade.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.28
+    },
+    {
+      "googlePlaceId": "ChIJ4bwEPIBw44kRs7STmn977tE",
+      "name": "Boston Tea Party Ships & Museum",
+      "address": "306 Congress St, Boston, MA 02210, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 9420,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "amusement_center",
+        "history_museum",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3521821,
+      "lng": -71.0512911,
+      "googleMapsUri": "https://maps.google.com/?cid=15127163986368509107&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bostonteapartyship.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.27
+    },
+    {
+      "googlePlaceId": "ChIJH5ZbaI9w44kR2DZHaiooMtk",
+      "name": "Boston Public Market",
+      "address": "100 Hanover St, Boston, MA 02108, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6711,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "tourist_attraction",
+        "market",
+        "grocery_store",
+        "event_venue",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3616719,
+      "lng": -71.0575375,
+      "googleMapsUri": "https://maps.google.com/?cid=15650615817702684376&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bostonpublicmarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "events this weekend",
+        "festivals this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.17
+    },
+    {
+      "googlePlaceId": "ChIJKz7ENohw44kR-Aq6LJoK9Sg",
+      "name": "Boston Sail Loft",
+      "address": "80 Atlantic Ave, Boston, MA 02110, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6283,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "bar_and_grill",
+        "cafe",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3624738,
+      "lng": -71.050544,
+      "googleMapsUri": "https://maps.google.com/?cid=2951276788102859512&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thebostonsailloft.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.96
+    },
+    {
+      "googlePlaceId": "ChIJ3wdaBoBw44kRw03LAexT5_c",
+      "name": "Boston Children's Museum",
+      "address": "308 Congress St, Boston, MA 02210, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6569,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3519736,
+      "lng": -71.04968389999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17863338720095849923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bostonchildrensmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.7
+    },
+    {
+      "googlePlaceId": "ChIJj_zwcYhw44kRnACtdwYYGDI",
+      "name": "Christopher Columbus Waterfront Park",
+      "address": "100 Atlantic Ave, Boston, MA 02110, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4039,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3609921,
+      "lng": -71.0516339,
+      "googleMapsUri": "https://maps.google.com/?cid=3609661517394149532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.foccp.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.63
+    },
+    {
+      "googlePlaceId": "ChIJo2Ia1XR544kRUuuBswzYsNk",
+      "name": "WNDR Museum",
+      "address": "500 Washington St, Boston, MA 02111, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4934,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "gift_shop",
+        "lounge_bar",
+        "night_club",
+        "art_museum",
+        "cafe",
+        "museum",
+        "bar",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3544714,
+      "lng": -71.0612376,
+      "googleMapsUri": "https://maps.google.com/?cid=15686275051194280786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wndrmuseum.com/location/boston/?utm_medium=organic&utm_source=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.17
+    },
+    {
+      "googlePlaceId": "ChIJCV1qVRd644kRkF8_glHk7wo",
+      "name": "Symphony Hall",
+      "address": "301 Massachusetts Ave, Boston, MA 02115, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3490,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "historical_landmark",
+        "auditorium",
+        "tourist_attraction",
+        "live_music_venue",
+        "event_venue",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3428314,
+      "lng": -71.0856818,
+      "googleMapsUri": "https://maps.google.com/?cid=788099498541801360&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bso.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.75
+    },
+    {
+      "googlePlaceId": "ChIJm1PrHPJw44kRDcBCdZT3MUM",
+      "name": "Boston National Historical Park - Charlestown Navy Yard",
+      "address": "Building 5, Charlestown Navy Yard, Boston, MA 02109, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 11186,
+      "priceLevel": null,
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.373120799999995,
+      "lng": -71.0565019,
+      "googleMapsUri": "https://maps.google.com/?cid=4841923291394523149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nps.gov/bost/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.93
+    },
+    {
+      "googlePlaceId": "ChIJ7-GJrK9644kRInm_7z6TAFc",
+      "name": "Castle Island",
+      "address": "2010 William J Day Blvd, Boston, MA 02127, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6264,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3378699,
+      "lng": -71.0125206,
+      "googleMapsUri": "https://maps.google.com/?cid=6269172579819288866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mass.gov/locations/castle-island-pleasure-bay-m-street-beach-and-carson-beach",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.8
+    },
+    {
+      "googlePlaceId": "ChIJN_nJgYtEQogRK1AWjFes3Vk",
+      "name": "Breakout Games",
+      "address": "21 Apex Dr Suite 3C, Marlborough, MA 01752, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 10128,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3381974,
+      "lng": -71.5848634,
+      "googleMapsUri": "https://maps.google.com/?cid=6475521331241046059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/boston?utm_source=google&utm_medium=organic&utm_campaign=gmb-boston-marlborough",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.66
+    },
+    {
+      "googlePlaceId": "ChIJ9QxEfIF644kRgUnWUoUaYSw",
+      "name": "Thomas M. Menino Convention & Exhibition Center",
+      "address": "415 Summer St, Boston, MA 02210, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 6682,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3450499,
+      "lng": -71.04719829999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3197866370332510593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.signatureboston.com/bcec/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.56
+    },
+    {
+      "googlePlaceId": "ChIJVbrdD4lw44kRdZLKJo0e02o",
+      "name": "Mamma Maria",
+      "address": "3 N Square #1, Boston, MA 02113, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2117,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3640428,
+      "lng": -71.0533421,
+      "googleMapsUri": "https://maps.google.com/?cid=7697529779696341621&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mammamaria.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.53
+    },
+    {
+      "googlePlaceId": "ChIJCTK0bYlw44kRZYlFMM9e3jg",
+      "name": "Carmelina's",
+      "address": "307 Hanover St, Boston, MA 02113, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2783,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.36393270000001,
+      "lng": -71.0541827,
+      "googleMapsUri": "https://maps.google.com/?cid=4097816954914834789&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://carmelinasboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.32
+    },
+    {
+      "googlePlaceId": "ChIJKUeTG1R744kRovJ5-2K27v4",
+      "name": "View Boston",
+      "address": "800 Boylston St Floor 52, Boston, MA 02199, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1940,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "scenic_spot",
+        "tourist_attraction",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.347167899999995,
+      "lng": -71.0825119,
+      "googleMapsUri": "https://maps.google.com/?cid=18369820466332955298&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.viewboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "ticketed events",
+        "cultural exhibits",
+        "immersive experiences",
+        "sunset hikes",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.25
+    },
+    {
+      "googlePlaceId": "ChIJ4etQ1sj044kReA0Y8miTegI",
+      "name": "Apex Entertainment Marlborough",
+      "address": "21 Apex Dr, Marlborough, MA 01752, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 5162,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "bowling_alley",
+        "go_karting_venue",
+        "video_arcade",
+        "race_course",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "service",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3384089,
+      "lng": -71.5850275,
+      "googleMapsUri": "https://maps.google.com/?cid=178617214182100344&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.apexentertainment.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.12
+    },
+    {
+      "googlePlaceId": "ChIJWceaK4Nw44kR3HDuPVX0acU",
+      "name": "Yvonne's",
+      "address": "2 Winter Pl, Boston, MA 02108, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3621,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3554543,
+      "lng": -71.06134519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14225169544974856412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.yvonnesboston.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "hidden speakeasies",
+        "date night restaurants",
+        "romantic bars",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.07
+    },
+    {
+      "googlePlaceId": "ChIJ2XHkQoZw44kRuMIaSkTas9E",
+      "name": "Apex Rooftop Bar and Lounge",
+      "address": "150 State St, Boston, MA 02109, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1266,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3594298,
+      "lng": -71.05407430000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15110661161594045112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.apexrooftopbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "karaoke bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.97
+    },
+    {
+      "googlePlaceId": "ChIJe9YuL0F344kRe7q8SEaMPWE",
+      "name": "The Harvard Museum of Natural History",
+      "address": "26 Oxford St, Cambridge, MA 02138, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 5541,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.378462899999995,
+      "lng": -71.1155576,
+      "googleMapsUri": "https://maps.google.com/?cid=7006910828754287227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hmnh.harvard.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.75
+    },
+    {
+      "googlePlaceId": "ChIJvyGDeBZ144kRFfpq2daFaLQ",
+      "name": "Breakout Games",
+      "address": "100 Tradecenter Dr Suite 680, Woburn, MA 01801, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7429,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.501207400000006,
+      "lng": -71.1624575,
+      "googleMapsUri": "https://maps.google.com/?cid=12999787482222098965&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/boston?utm_source=google&utm_medium=organic&utm_campaign=gmb-boston-woburn",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.65
+    },
+    {
+      "googlePlaceId": "ChIJ6cjUOp1w44kRY5lmdqX8BRs",
+      "name": "Escape the Room Boston",
+      "address": "33 West St 3rd floor, Boston, MA 02111, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 9948,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.3549043,
+      "lng": -71.06244339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1947240201493846371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/boston?utm_source=GMBlisting&utm_medium=organic&utm_campaign=gbp_boston&utm_content=website_button",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.5
+    },
+    {
+      "googlePlaceId": "ChIJtT5ZHIlw44kRzCtDBAjPP3A",
+      "name": "The Paul Revere House",
+      "address": "19 N Square, Boston, MA 02113, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4825,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "history_museum",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.363738999999995,
+      "lng": -71.05369999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8088411089118899148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paulreverehouse.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.25
+    },
+    {
+      "googlePlaceId": "ChIJaxH09Dh544kRyBRUrinxRfQ",
+      "name": "Arnold Arboretum of Harvard University",
+      "address": "125 Arborway, Boston, MA 02130, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4635,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "botanical_garden",
+      "types": [
+        "park",
+        "botanical_garden",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.307353500000005,
+      "lng": -71.1208071,
+      "googleMapsUri": "https://maps.google.com/?cid=17601739879968150728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://arboretum.harvard.edu/",
+      "openNow": null,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJ_TW-TRtx44kRL5pVpK2GdAw",
+      "name": "Marcelino’s Seaport",
+      "address": "2 Northern Ave, Boston, MA 02210, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1627,
+      "priceLevel": null,
+      "primaryType": "tapas_restaurant",
+      "types": [
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3543021,
+      "lng": -71.04800279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=897490306098108975&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marcelinosboutiquebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.03
+    },
+    {
+      "googlePlaceId": "ChIJl5ToVo9944kRm47QQcV1BfU",
+      "name": "Space Zero",
+      "address": "250 Granite St, Braintree, MA 02184, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3118,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.2216768,
+      "lng": -71.0218211,
+      "googleMapsUri": "https://maps.google.com/?cid=17655647404249091739&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spacezero.us/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 88.99
+    },
+    {
+      "googlePlaceId": "ChIJme0fDdx744kRkewtCrKcph0",
+      "name": "Franklin Park Zoo",
+      "address": "1 Franklin Park Rd, Boston, MA 02121, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 9390,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.305120599999995,
+      "lng": -71.08976950000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2136567361722772625&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zoonewengland.org/franklin-park-zoo/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.81
+    },
+    {
+      "googlePlaceId": "ChIJWfpfeG1644kRLK4b9lMWmCI",
+      "name": "Beehive Restaurant",
+      "address": "541 Tremont St, Boston, MA 02116, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3412,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.344389899999996,
+      "lng": -71.071473,
+      "googleMapsUri": "https://maps.google.com/?cid=2492766943616675372&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://beehiveboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "live music events",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.78
+    },
+    {
+      "googlePlaceId": "ChIJOU-Kd_Rw44kRpQxHRXAFwqU",
+      "name": "USS Constitution Museum",
+      "address": "Building 22, Charlestown Navy Yard, Charlestown, MA 02129, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 8349,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3739796,
+      "lng": -71.0554239,
+      "googleMapsUri": "https://maps.google.com/?cid=11944115141496736933&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ussconstitutionmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.48
+    },
+    {
+      "googlePlaceId": "ChIJYRBDUJ1644kR1FnQXnv0Cyk",
+      "name": "Leader Bank Pavilion",
+      "address": "290 Northern Ave, Boston, MA 02210, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3430,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "amphitheatre",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3485465,
+      "lng": -71.0359433,
+      "googleMapsUri": "https://maps.google.com/?cid=2957726391007730132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.livenation.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJN_AW9wt644kRqBK2oztOokI",
+      "name": "Buttermilk & Bourbon - Back Bay",
+      "address": "160 Commonwealth Ave, Boston, MA 02116, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2914,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "tapas_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3514157,
+      "lng": -71.07834849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4801486170787025576&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.buttermilkbourbon.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 88.27
+    },
+    {
+      "googlePlaceId": "ChIJFUwomelm44kRPevD8nNKy8I",
+      "name": "World's End",
+      "address": "Martins Ln, Hingham, MA 02043, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1594,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "summer_camp_organizer",
+        "historical_landmark",
+        "historical_place",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.258440799999995,
+      "lng": -70.8739882,
+      "googleMapsUri": "https://maps.google.com/?cid=14036394525484903229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thetrustees.org/place/worlds-end-hingham/",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.11
+    },
+    {
+      "googlePlaceId": "ChIJB-Dz2kB444kRQWwMrPmE2dI",
+      "name": "Citizens Opera House",
+      "address": "539 Washington St, Boston, MA 02111, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 4951,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "opera_house",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3539873,
+      "lng": -71.0623039,
+      "googleMapsUri": "https://maps.google.com/?cid=15193321025779297345&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.citizensoperahouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJtSsNQLd544kRu-YMno6zDcI",
+      "name": "Time Out Market Boston",
+      "address": "401 Park Dr, Boston, MA 02215, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2574,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.344685,
+      "lng": -71.10273099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13983029843173631675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timeoutmarket.com/boston/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "viral food spots",
+        "TikTok restaurants",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJuW6ZQAx_44kRa1IallmGUos",
+      "name": "The Escape Game Dedham",
+      "address": "224 Legacy Pl, Dedham, MA 02026, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4109,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.2311078,
+      "lng": -71.1769437,
+      "googleMapsUri": "https://maps.google.com/?cid=10039234238690775659&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/dedham/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=dedham",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.73
+    },
+    {
+      "googlePlaceId": "ChIJ1-iQV49w44kR8DwttZ2f-Xo",
+      "name": "Haymarket",
+      "address": "100 Hanover St, Boston, MA 02108, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4708,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "tourist_attraction",
+        "market",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3618916,
+      "lng": -71.0571751,
+      "googleMapsUri": "https://maps.google.com/?cid=8861289241526484208&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.haymarketboston.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 87.67
+    },
+    {
+      "googlePlaceId": "ChIJ__qTvoZ644kRRr8AlGL7d1U",
+      "name": "the Lawn on D",
+      "address": "420 D St, Boston, MA 02210, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2340,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "athletic_field",
+        "bar",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.344145999999995,
+      "lng": -71.04528979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6158667416260886342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lawnond.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "waterfront gardens",
+        "pickleball courts",
+        "kids activities",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.56
+    },
+    {
+      "googlePlaceId": "ChIJO1vI31dx44kRke9QeaDwHkU",
+      "name": "Wicked Craft Co.",
+      "address": "54 Salem St, Boston, MA 02113, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1568,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3632644,
+      "lng": -71.05627299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4980682809939128209&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wickedcraftco.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "game bars",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.36
+    },
+    {
+      "googlePlaceId": "ChIJ6QwfVH1w44kRKLxCXvk2XsY",
+      "name": "Chart House",
+      "address": "60 Long Wharf, Boston, MA 02110, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 3055,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "banquet_hall",
+        "fine_dining_restaurant",
+        "steak_house",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3601688,
+      "lng": -71.0495078,
+      "googleMapsUri": "https://maps.google.com/?cid=14293922711976721448&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chart-house.com/location/chart-house-boston-ma/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.32
+    },
+    {
+      "googlePlaceId": "ChIJLwYOQ0lx44kRCRT7HB0zn8Q",
+      "name": "Museum of Illusions Boston",
+      "address": "200 State St, Boston, MA 02109, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1100,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "amusement_center",
+        "tourist_attraction",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.359930399999996,
+      "lng": -71.05347499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14168099152864154633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moiboston.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.31
+    },
+    {
+      "googlePlaceId": "ChIJ5Zo57Jl344kR1eEMlk4QtuY",
+      "name": "Red Fox Escapes",
+      "address": "The Baron Building, 614 Massachusetts Ave, Cambridge, MA 02139, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3410,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3649658,
+      "lng": -71.1034246,
+      "googleMapsUri": "https://maps.google.com/?cid=16624493004195684821&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://redfoxescapes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.13
+    },
+    {
+      "googlePlaceId": "ChIJEb5_VTBx44kRwkSBAbxDeX0",
+      "name": "F1 Arcade Boston",
+      "address": "87 Pier 4 Blvd., Boston, MA 02210, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1423,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar_and_grill",
+        "video_arcade",
+        "brunch_restaurant",
+        "amusement_center",
+        "sports_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3507605,
+      "lng": -71.04433399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9041332201681142978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://f1arcade.com/us/boston?utm_source=google&utm_medium=organic&utm_campaign=gbp-listing&utm_term=primary",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "immersive experiences",
+        "VR experiences",
+        "indoor golf simulators",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.04
+    },
+    {
+      "googlePlaceId": "ChIJuWNqVDx944kRQLB31NpXDxI",
+      "name": "Dave & Buster's Braintree",
+      "address": "250 Granite St, Braintree, MA 02184, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 3700,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "amusement_center",
+        "sports_bar",
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.218875,
+      "lng": -71.0237192,
+      "googleMapsUri": "https://maps.google.com/?cid=1301355414712463424&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/braintree",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJg2jTvd9744kR1g5elowqJeU",
+      "name": "Franklin Park",
+      "address": "1 Franklin Park Rd, Boston, MA 02121, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 6014,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.302842,
+      "lng": -71.0877077,
+      "googleMapsUri": "https://maps.google.com/?cid=16511650392130326230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boston.gov/parks/franklin-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 86.72
+    },
+    {
+      "googlePlaceId": "ChIJxTCEOnlw44kROtPtIpMFsXo",
+      "name": "Institute of Contemporary Art",
+      "address": "25 Harbor Shore Dr, Boston, MA 02210, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 4427,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3528151,
+      "lng": -71.0432778,
+      "googleMapsUri": "https://maps.google.com/?cid=8840853673009337146&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.icaboston.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.62
+    },
+    {
+      "googlePlaceId": "ChIJxWMZfX5w44kR-KcuxAhVhtE",
+      "name": "Fan Pier Park",
+      "address": "1 Courthouse Wy, Boston, MA 02210, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1180,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.354875299999996,
+      "lng": -71.0462482,
+      "googleMapsUri": "https://maps.google.com/?cid=15097848296945657848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fanpierboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 86.49
+    },
+    {
+      "googlePlaceId": "ChIJ-3vNbw1644kRQUMVs5yqVL4",
+      "name": "The Salty Pig",
+      "address": "130 Dartmouth St, Boston, MA 02116, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2007,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.346982499999996,
+      "lng": -71.07608239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13714774355246138177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thesaltypig.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.41
+    },
+    {
+      "googlePlaceId": "ChIJzdiyTA5644kRz3wEWcxaKGc",
+      "name": "Prudential Center Boston",
+      "address": "800 Boylston St, Boston, MA 02199, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 14801,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "observation_deck",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.348009,
+      "lng": -71.082672,
+      "googleMapsUri": "https://maps.google.com/?cid=7433291018688298191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.prudentialcenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.39
+    },
+    {
+      "googlePlaceId": "ChIJR4mL53Z644kRzcCBVgqF-ug",
+      "name": "Boch Center - Wang Theatre",
+      "address": "270 Tremont St, Boston, MA 02116, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3410,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3503707,
+      "lng": -71.06480359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16787876840424456397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bochcenter.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.23
+    },
+    {
+      "googlePlaceId": "ChIJfaCRDB1644kRpDob9MvIYkM",
+      "name": "Citizens House of Blues Boston",
+      "address": "15 Lansdowne St, Boston, MA 02215, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 5410,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "fine_dining_restaurant",
+        "lounge_bar",
+        "wedding_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.3473999,
+      "lng": -71.0956987,
+      "googleMapsUri": "https://maps.google.com/?cid=4855664126558157476&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://boston.houseofblues.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.17
+    },
+    {
+      "googlePlaceId": "ChIJwZiTEoZw44kRsnyIrv0SWSU",
+      "name": "Quincy Market",
+      "address": "206 S Market St, Boston, MA 02109, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 13719,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3602047,
+      "lng": -71.0547788,
+      "googleMapsUri": "https://maps.google.com/?cid=2691203133094788274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.quincy-market.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJd519yuN944kRyopqDZjZb_c",
+      "name": "Blue Hills Reservation",
+      "address": "695 Hillside St, Milton, MA 02186, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4034,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "picnic_ground",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.2147195,
+      "lng": -71.0880794,
+      "googleMapsUri": "https://maps.google.com/?cid=17829708696866425546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mass.gov/locations/blue-hills-reservation",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.12
+    },
+    {
+      "googlePlaceId": "ChIJJ6Im5Jhw44kRap5Y5x2_XJw",
+      "name": "Hatch Memorial Shell",
+      "address": "47 David G Mugar Way, Boston, MA 02108, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 862,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3572889,
+      "lng": -71.07369890000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11267090502930439786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hatchshell.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.12
+    },
+    {
+      "googlePlaceId": "ChIJX531iwt644kRaJ9LqHM3rRk",
+      "name": "Saltie Girl",
+      "address": "279 Dartmouth St, Boston, MA 02116, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4043,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.351156599999996,
+      "lng": -71.07756789999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1850195991803436904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.saltiegirl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.08
+    },
+    {
+      "googlePlaceId": "ChIJQ0UT8E2J44kRd9cc_TAJVRA",
+      "name": "Immersive Gamebox - Natick Mall",
+      "address": "1245 Worcester St #1010, Natick, MA 01760, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1947,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3008357,
+      "lng": -71.3823792,
+      "googleMapsUri": "https://maps.google.com/?cid=1176856983636858743&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/nma-natick-mall-massachusetts/?utm_source=Googlemaps&utm_medium=maps&utm_campaign=NMA",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJ9wbWg8V544kRtv2_C_dKne8",
+      "name": "Brighton Music Hall",
+      "address": "158 Brighton Ave, Allston, MA 02134, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1592,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3527158,
+      "lng": -71.1325832,
+      "googleMapsUri": "https://maps.google.com/?cid=17266038971322858934&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://crossroadspresents.com/pages/brighton-music-hall",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJ8_xs2Ddx44kR4lquMfD6Xk8",
+      "name": "SAVR",
+      "address": "150 Seaport Blvd, Boston, MA 02210, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 644,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3507536,
+      "lng": -71.042766,
+      "googleMapsUri": "https://maps.google.com/?cid=5719284486339713762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://savrtm.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.58
+    },
+    {
+      "googlePlaceId": "ChIJ8y_0dDxx44kRpBboihgQUBI",
+      "name": "Next Door Speakeasy",
+      "address": "103 Porter St, Boston, MA 02128, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 632,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3730049,
+      "lng": -71.0361664,
+      "googleMapsUri": "https://maps.google.com/?cid=1319572388415280804&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nextdooreastie.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.52
+    },
+    {
+      "googlePlaceId": "ChIJ1RRsiI5z44kRUfMgHDQYOBE",
+      "name": "Middlesex Fells Reservation",
+      "address": "4 Woodland Rd, Stoneham, MA 02180, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5479,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "wildlife_refuge",
+        "hiking_area",
+        "fishing_pond",
+        "tourist_attraction",
+        "sports_activity_location",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.4553935,
+      "lng": -71.0911043,
+      "googleMapsUri": "https://maps.google.com/?cid=1240768309429859153&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mass.gov/locations/middlesex-fells-reservation",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.36
+    },
+    {
+      "googlePlaceId": "ChIJEbj5w5J744kRV0MbtKFC7KU",
+      "name": "MGM Music Hall at Fenway",
+      "address": "2 Lansdowne St, Boston, MA 02215, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 3224,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.347072499999996,
+      "lng": -71.0947767,
+      "googleMapsUri": "https://maps.google.com/?cid=11956004373040677719&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://crossroadspresents.com/pages/mgm-fenway-music-hall",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJgVOgb-lx44kRmcClp8gxvnQ",
+      "name": "Urban Wild Boston",
+      "address": "100 Hood Park Dr, Boston, MA 02129, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 586,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bowling_alley",
+        "beer_garden",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "sports_complex",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3794259,
+      "lng": -71.07361449999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8412215891850543257&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.urbanwildboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.27
+    },
+    {
+      "googlePlaceId": "ChIJT3RSzIhw44kRRNDw7opO8ic",
+      "name": "Improv Asylum",
+      "address": "216 Hanover St, Boston, MA 02113, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1135,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "performing_arts_theater",
+        "educational_institution",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.362980199999996,
+      "lng": -71.0555571,
+      "googleMapsUri": "https://maps.google.com/?cid=2878449470464380996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.improvasylum.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.26
+    },
+    {
+      "googlePlaceId": "ChIJ-87F5TEm44kRRDnp3AJwfu0",
+      "name": "Halibut Point State Park",
+      "address": "Gott Ave, Rockport, MA 01966, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2137,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.6896175,
+      "lng": -70.6336345,
+      "googleMapsUri": "https://maps.google.com/?cid=17113238791652981060&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mass.gov/locations/halibut-point-state-park",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJ_5cHC_Jw44kRmALscjIXr6w",
+      "name": "Bunker Hill Monument",
+      "address": "Monument Sq, Charlestown, MA 02129, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 7100,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "historical_landmark",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3763541,
+      "lng": -71.0607764,
+      "googleMapsUri": "https://maps.google.com/?cid=12443189800891843224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/bost/learn/historyculture/bhm.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.1
+    },
+    {
+      "googlePlaceId": "ChIJeR-mSG5644kRMrk3t46-lK4",
+      "name": "SoWa Open Market",
+      "address": "500 Harrison Ave, Boston, MA 02118, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 1231,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "beer_garden",
+        "flea_market",
+        "market",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3422389,
+      "lng": -71.0651584,
+      "googleMapsUri": "https://maps.google.com/?cid=12579889179321153842&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sowaboston.com/sowa-open-market",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "festivals this weekend",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJbaeXiER344kRR_f4e89EQuM",
+      "name": "Harvard Art Museums",
+      "address": "32 Quincy St, Cambridge, MA 02138, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3554,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "gift_shop",
+        "cafe",
+        "museum",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3740898,
+      "lng": -71.11435820000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16375726853001377607&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://harvardartmuseums.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.06
+    },
+    {
+      "googlePlaceId": "ChIJS3HCSgNx44kRR5e2TK-zI2E",
+      "name": "Flight Club Boston",
+      "address": "60 Seaport Blvd Suite 215, Boston, MA 02210, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 769,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "brunch_restaurant",
+        "british_restaurant",
+        "event_venue",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3530082,
+      "lng": -71.04695889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6999635811351566151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.flightclubdartsusa.com/boston",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "jazz clubs",
+        "game night venues",
+        "game bars",
+        "bottle service",
+        "adult nightlife",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.05
+    },
+    {
+      "googlePlaceId": "ChIJU_ibQgx644kRc6zBW_5d1Lk",
+      "name": "Boston Public Library",
+      "address": "700 Boylston St, Boston, MA 02116, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3439,
+      "priceLevel": null,
+      "primaryType": "library",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "library",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.349238299999996,
+      "lng": -71.0786756,
+      "googleMapsUri": "https://maps.google.com/?cid=13390430939121822835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bpl.org/locations/central",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.95
+    },
+    {
+      "googlePlaceId": "ChIJ0YJmk4Rw44kRAkiaYENWp3Y",
+      "name": "Boston Harbor City Cruises",
+      "address": "1 Long Wharf, Boston, MA 02210, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 3377,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.359719299999995,
+      "lng": -71.0506473,
+      "googleMapsUri": "https://maps.google.com/?cid=8549897264969697282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cityexperiences.com/boston/city-cruises/?utm_source=google&utm_medium=organic&utm_campaign=google-listing-boston-harbor-city-cruises",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 84.85
+    },
+    {
+      "googlePlaceId": "ChIJdf0UqX9w44kRX6coI6Z8XpM",
+      "name": "Kings Dining & Entertainment",
+      "address": "60 Seaport Blvd, Boston, MA 02210, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 1416,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pizza_restaurant",
+        "bowling_alley",
+        "american_restaurant",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3530189,
+      "lng": -71.0471523,
+      "googleMapsUri": "https://maps.google.com/?cid=10619062024382490463&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.playatkings.com/location/boston-seaport/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.83
+    },
+    {
+      "googlePlaceId": "ChIJUbblK4lw44kRYtXQ4el7kuc",
+      "name": "North End Boston Food Tour",
+      "address": "Tony Demarco Statue, 191 Hanover St, Boston, MA 02113, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 957,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.3626899,
+      "lng": -71.0553458,
+      "googleMapsUri": "https://maps.google.com/?cid=16686535813807265122&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://northendbostontour.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.76
+    },
+    {
+      "googlePlaceId": "ChIJh-tZaIRw44kR140lhfNrc_g",
+      "name": "Old State House",
+      "address": "206 Washington St, Boston, MA 02109, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2292,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "historical_landmark",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3587352,
+      "lng": -71.05745399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17902771637382909399&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.revolutionaryspaces.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 84.69
+    },
+    {
+      "googlePlaceId": "ChIJwWdFQDnj44kRoH87s2TJYag",
+      "name": "Wachusett Mountain State Reservation",
+      "address": "345 Mountain Rd, Princeton, MA 01541, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4244,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.4916067,
+      "lng": -71.8797161,
+      "googleMapsUri": "https://maps.google.com/?cid=12133200305453760416&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mass.gov/locations/wachusett-mountain-state-reservation",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.54
+    },
+    {
+      "googlePlaceId": "ChIJwwu0mox744kRLdzofeaGYMM",
+      "name": "Activate Games",
+      "address": "20 District Ave Units 220 & 230, Dorchester, MA 02125, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 163,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.325126499999996,
+      "lng": -71.062382,
+      "googleMapsUri": "https://maps.google.com/?cid=14078400759673183277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/boston-south-bay?utm_source=google&utm_medium=organic&utm_campaign=gmb-southbay",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.44
+    },
+    {
+      "googlePlaceId": "ChIJeVsq5g7344kRprrCoM4QpOE",
+      "name": "New England Botanic Garden at Tower Hill",
+      "address": "11 French Dr, Boylston, MA 01505, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4078,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.360568,
+      "lng": -71.72748849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16259139034360756902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nebg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.41
+    },
+    {
+      "googlePlaceId": "ChIJT1fcF2Fx44kRPvbLoC40mjA",
+      "name": "Boda Borg Boston",
+      "address": "90 Pleasant St, Malden, MA 02148, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 2358,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.426932,
+      "lng": -71.0695629,
+      "googleMapsUri": "https://maps.google.com/?cid=3502169035104843326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bodaborg.com/boston/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.38
+    },
+    {
+      "googlePlaceId": "ChIJ195d42px44kRa4jQoglFumY",
+      "name": "VERSUS",
+      "address": "42 Province St, Boston, MA 02108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 866,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3569387,
+      "lng": -71.0599056,
+      "googleMapsUri": "https://maps.google.com/?cid=7402304845225429099&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.versusboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJoevtps5y44kRxJ-QaxHLHsk",
+      "name": "Breakheart Reservation",
+      "address": "177 Forest St, Saugus, MA 01906, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2284,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.483550099999995,
+      "lng": -71.0315251,
+      "googleMapsUri": "https://maps.google.com/?cid=14492243926604357572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mass.gov/locations/breakheart-reservation",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.28
+    },
+    {
+      "googlePlaceId": "ChIJH1IS_rPK1g0RhIeEJO5eeSg",
+      "name": "Boston Hidden Gems",
+      "address": "150 Salem St, Boston, MA 02113, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 475,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.3656698,
+      "lng": -71.0553907,
+      "googleMapsUri": "https://maps.google.com/?cid=2916466610606999428&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bostonhiddengems.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.24
+    },
+    {
+      "googlePlaceId": "ChIJX9gQ4hx644kRT6GRnKaqK6Y",
+      "name": "Lucky Strike Fenway",
+      "address": "145 Ipswich St, Boston, MA 02215, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 2553,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3474633,
+      "lng": -71.0945813,
+      "googleMapsUri": "https://maps.google.com/?cid=11973851666862678351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.luckystrikeent.com/location/lucky-strike-fenway?utm_source=gbp&utm_medium=organic&utm_campaign=yext_listings",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.14
+    },
+    {
+      "googlePlaceId": "ChIJYXLO0UZ344kRR4-tRPELoyM",
+      "name": "Wusong Road Tiki Bar",
+      "address": "112 Mt Auburn St, Cambridge, MA 02138, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 2668,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.372901500000005,
+      "lng": -71.1221587,
+      "googleMapsUri": "https://maps.google.com/?cid=2567909343398563655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wusongroad.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.13
+    },
+    {
+      "googlePlaceId": "ChIJnSbGM_Z544kRulxrWhlDlMk",
+      "name": "Game On!",
+      "address": "82 Lansdowne St, Boston, MA 02215, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 1772,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3470782,
+      "lng": -71.098337,
+      "googleMapsUri": "https://maps.google.com/?cid=14525308474346921146&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gameonboston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.05
+    },
+    {
+      "googlePlaceId": "ChIJn5yKXp5w44kRp143VKR6cjw",
+      "name": "Ostra",
+      "address": "1 Charles St S, Boston, MA 02116, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1318,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3511397,
+      "lng": -71.0671978,
+      "googleMapsUri": "https://maps.google.com/?cid=4355678635826831015&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ostraboston.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84
+    },
+    {
+      "googlePlaceId": "ChIJ0VP3TA5644kRIDNe5oe_Evc",
+      "name": "Eataly",
+      "address": "800 Boylston St, Boston, MA 02199, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 4844,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "grocery_store",
+      "types": [
+        "gift_shop",
+        "cafe",
+        "liquor_store",
+        "market",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3476432,
+      "lng": -71.0825231,
+      "googleMapsUri": "https://maps.google.com/?cid=17803502867355415328&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eataly.com/us_en/stores/boston",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes"
+      ],
+      "popularityScore": 83.81
+    },
+    {
+      "googlePlaceId": "ChIJJVsCqH5w44kRukahINlE3aw",
+      "name": "Mastro's Ocean Club",
+      "address": "25 Fan Pier Boulevard, Boston, MA 02210, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.5,
+      "reviewCount": 1376,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3547413,
+      "lng": -71.044462,
+      "googleMapsUri": "https://maps.google.com/?cid=12456187843722692282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mastrosrestaurants.com/Locations/MA/Boston/",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.69
+    },
+    {
+      "googlePlaceId": "ChIJMU1-F4B644kRh4FgssOldKQ",
+      "name": "Lucky's Lounge",
+      "address": "355 Congress St, Boston, MA 02210, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 1394,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3502162,
+      "lng": -71.0484495,
+      "googleMapsUri": "https://maps.google.com/?cid=11850278779448492423&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://luckyslounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "nightclubs",
+        "comedy shows",
+        "jazz clubs",
+        "karaoke bars",
+        "trivia nights",
+        "luxury lounges",
+        "bottle service",
+        "adult nightlife",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.68
+    },
+    {
+      "googlePlaceId": "ChIJt7mOpbem44kROF6UniH8BxQ",
+      "name": "Escapology Escape Rooms Tewksbury",
+      "address": "345 Main St, Tewksbury, MA 01876, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1626,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.6230701,
+      "lng": -71.2658874,
+      "googleMapsUri": "https://maps.google.com/?cid=1443399426920177208&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/tewksbury-ma/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.63
+    },
+    {
+      "googlePlaceId": "ChIJSQ-HS4lw44kRA0iC6zNgsbU",
+      "name": "Bova's Bakery",
+      "address": "134 Salem St, Boston, MA 02113, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 4473,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 42.36521,
+      "lng": -71.0556268,
+      "googleMapsUri": "https://maps.google.com/?cid=13092351367853524995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bovabakeryboston.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.61
+    },
+    {
+      "googlePlaceId": "ChIJz8HYG4Rx44kRSy7D-SO5AEQ",
+      "name": "Cafe Bonjour",
+      "address": "55 Temple Pl, Boston, MA 02111, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3130,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3549569,
+      "lng": -71.0617285,
+      "googleMapsUri": "https://maps.google.com/?cid=4900119958744411723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cafebonjourboston.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.55
+    },
+    {
+      "googlePlaceId": "ChIJxaE1OCZ644kRVUl5tYIcXLQ",
+      "name": "Islamic Society of Boston Cultural Center (ISBCC Roxbury)",
+      "address": "100 Malcolm X Blvd, Roxbury, MA 02120, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 1545,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "mosque",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.330768899999995,
+      "lng": -71.0933299,
+      "googleMapsUri": "https://maps.google.com/?cid=12996293972400359765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://isbcc.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.46
+    }
+  ]
+}

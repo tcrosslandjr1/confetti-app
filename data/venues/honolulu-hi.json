@@ -1,0 +1,3552 @@
+{
+  "location": "Honolulu, HI",
+  "generatedAt": "2026-05-17T19:07:51.365Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJM2ZQCUNvAHwRLGCcDaeSxbg",
+      "name": "Pearl Harbor National Memorial",
+      "address": "1 Arizona Memorial Pl, Honolulu, HI 96818, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 26827,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3675985,
+      "lng": -157.93885799999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13314209119576285228&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/perl/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJ121jRGltAHwRKyrPWKEUBtM",
+      "name": "The Escape Game Honolulu",
+      "address": "1450 Ala Moana Blvd Space 2404, Honolulu, HI 96814, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 10949,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2916111,
+      "lng": -157.84277369999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15205863875075320363&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/honolulu/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=honolulu",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "arcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 100.92
+    },
+    {
+      "googlePlaceId": "ChIJjZMRvnVyAHwRigVpeU7ptcs",
+      "name": "Polynesian Cultural Center",
+      "address": "55-370 Kamehameha Hwy, Laie, HI 96762, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 23951,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.6403636,
+      "lng": -157.92106669999998,
+      "googleMapsUri": "https://maps.google.com/?cid=14678895083737646474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.polynesia.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 100.31
+    },
+    {
+      "googlePlaceId": "ChIJa22w1QFEAHwReP7oYVzQSv0",
+      "name": "Kualoa Ranch",
+      "address": "Kaneohe, HI 96744, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 21083,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "amusement_center",
+        "amusement_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.5186627,
+      "lng": -157.8533464,
+      "googleMapsUri": "https://maps.google.com/?cid=18251629535070584440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kualoa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.87
+    },
+    {
+      "googlePlaceId": "ChIJpeekwXByAHwRmkqRkpULgRM",
+      "name": "Tikis Grill & Bar",
+      "address": "2570 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 12187,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "lounge_bar",
+        "bar_and_grill",
+        "seafood_restaurant",
+        "hawaiian_restaurant",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.272156199999998,
+      "lng": -157.8228507,
+      "googleMapsUri": "https://maps.google.com/?cid=1405417295753333402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tikisgrill.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "live music events",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 96.89
+    },
+    {
+      "googlePlaceId": "ChIJy0PC1XVyAHwR8cngoeHh_v8",
+      "name": "Duke's Waikiki",
+      "address": "2335 Kalākaua Ave #116, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 18764,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "steak_house",
+        "hawaiian_restaurant",
+        "bar_and_grill",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2769032,
+      "lng": -157.8278887,
+      "googleMapsUri": "https://maps.google.com/?cid=18446429482955885041&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dukeswaikiki.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "game bars",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 96.17
+    },
+    {
+      "googlePlaceId": "ChIJbUDuMQtrAHwRKO8OUbujx38",
+      "name": "Hoʻomaluhia Botanical Garden",
+      "address": "45-680 Luluku Rd, Kaneohe, HI 96744, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7145,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.387168199999998,
+      "lng": -157.8038244,
+      "googleMapsUri": "https://maps.google.com/?cid=9207507988096413480&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.honolulu.gov/dpr/honolulu-botanical-gardens/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.16
+    },
+    {
+      "googlePlaceId": "ChIJe6Yf05ptAHwRWZbj_q_-sIw",
+      "name": "Great Big Game Show Honolulu",
+      "address": "1450 Ala Moana Blvd, Honolulu, HI 96814, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 5,
+      "reviewCount": 2673,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2916264,
+      "lng": -157.8429938,
+      "googleMapsUri": "https://maps.google.com/?cid=10137882793060046425&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://greatbiggameshow.com/honolulu?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=honolulu",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.09
+    },
+    {
+      "googlePlaceId": "ChIJkbi5Fr9zAHwR8TSU5SJeDVQ",
+      "name": "The Magical Mystery Show",
+      "address": "2500 Kūhiō Ave., Honolulu, HI 96815, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 5,
+      "reviewCount": 2494,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.275444999999998,
+      "lng": -157.8220021,
+      "googleMapsUri": "https://maps.google.com/?cid=6056600577856779505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hotel-magic.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "ticketed events",
+        "immersive experiences",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "adult-after-dark"
+      ],
+      "popularityScore": 95.85
+    },
+    {
+      "googlePlaceId": "ChIJCfv5TKNvAHwRf0hwa3kXUhc",
+      "name": "USS Arizona Memorial",
+      "address": "1 Arizona Memorial Pl, Honolulu, HI 96818, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 4724,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "monument",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3647161,
+      "lng": -157.94990199999998,
+      "googleMapsUri": "https://maps.google.com/?cid=1680431421223618687&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/perl/uss-arizona-memorial-programs.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.19
+    },
+    {
+      "googlePlaceId": "ChIJ2XtQVPxtAHwRXWl1M0s9rQs",
+      "name": "Ala Moana Regional Park",
+      "address": "1201 Ala Moana Blvd, Honolulu, HI 96814, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 7121,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.289968599999998,
+      "lng": -157.847657,
+      "googleMapsUri": "https://maps.google.com/?cid=841396098583325021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.honolulu.gov/parks/default/park-locations/182-site-dpr-cat/30221-ala-moana-regional-park.html",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "best parks",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.05
+    },
+    {
+      "googlePlaceId": "ChIJq0y-NHVuAHwRF-EDUxSGsmg",
+      "name": "Iolani Palace",
+      "address": "364 S King St, Honolulu, HI 96813, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5931,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3067572,
+      "lng": -157.85876969999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7544239747649233175&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.iolanipalace.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.42
+    },
+    {
+      "googlePlaceId": "ChIJB5xRCUNvAHwRFUs-rKfSZQs",
+      "name": "Pearl Harbor Historic Sites Visitor Center",
+      "address": "1 Arizona Memorial Pl, Honolulu, HI 96818, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 18216,
+      "priceLevel": null,
+      "primaryType": "visitor_center",
+      "types": [
+        "visitor_center",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "museum",
+        "historical_landmark",
+        "historical_place",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3675592,
+      "lng": -157.93885029999998,
+      "googleMapsUri": "https://maps.google.com/?cid=821294124656118549&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pearlharborhistoricsites.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 94.37
+    },
+    {
+      "googlePlaceId": "ChIJHagMfYhuAHwRycuWMqDnRrE",
+      "name": "Bishop Museum",
+      "address": "1525 Bernice St, Honolulu, HI 96817, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5492,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.332919500000003,
+      "lng": -157.87061269999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12774152068312517577&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bishopmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.16
+    },
+    {
+      "googlePlaceId": "ChIJmSAXAYlyAHwRUuIwMlELnkI",
+      "name": "Diamond Head State Monument",
+      "address": "Honolulu, HI 96815, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 16963,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2637984,
+      "lng": -157.8040943,
+      "googleMapsUri": "https://maps.google.com/?cid=4800286696185848402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dlnr.hawaii.gov/dsp/parks/oahu/diamond-head-state-monument/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 94.13
+    },
+    {
+      "googlePlaceId": "ChIJU29iq_BtAHwRaPcdRx0xfyI",
+      "name": "Ala Moana Center",
+      "address": "1450 Ala Moana Blvd, Honolulu, HI 96814, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 26467,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2911038,
+      "lng": -157.8434622,
+      "googleMapsUri": "https://maps.google.com/?cid=2485759521148761960&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.alamoanacenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.45
+    },
+    {
+      "googlePlaceId": "ChIJf_LBaKpvAHwRDWA_v6A2Xo4",
+      "name": "E Noa Tours and Waikiki Trolley | Corporate Office",
+      "address": "3015 Koapaka St, Honolulu, HI 96819, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 5947,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3344544,
+      "lng": -157.9084015,
+      "googleMapsUri": "https://maps.google.com/?cid=10258697065227837453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.enoa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 92.98
+    },
+    {
+      "googlePlaceId": "ChIJ58iifI5lAHwRpFC2DVC0_mg",
+      "name": "Pearl Harbor Aviation Museum",
+      "address": "319 Lexington Blvd, Honolulu, HI 96818, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6471,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3597342,
+      "lng": -157.961841,
+      "googleMapsUri": "https://maps.google.com/?cid=7565682679949447332&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pearlharboraviationmuseum.org/?utm_source=google&utm_medium=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.97
+    },
+    {
+      "googlePlaceId": "ChIJ0zgno3ByAHwRTctl9GVdzCE",
+      "name": "Lulu's Waikiki",
+      "address": "2586 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6436,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "hamburger_restaurant",
+        "breakfast_restaurant",
+        "diner",
+        "hawaiian_restaurant",
+        "bar_and_grill",
+        "night_club",
+        "bar",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2719238,
+      "lng": -157.8226832,
+      "googleMapsUri": "https://maps.google.com/?cid=2435424190973987661&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.luluswaikiki.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "rooftop bars",
+        "game night venues",
+        "game bars",
+        "viral food spots",
+        "adult nightlife",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "social-group-activities",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.5
+    },
+    {
+      "googlePlaceId": "ChIJWSGZdHZyAHwR7Vg-A4X04kA",
+      "name": "International Market Place",
+      "address": "2330 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 9916,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2782454,
+      "lng": -157.8262949,
+      "googleMapsUri": "https://maps.google.com/?cid=4675568215286241517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/international-market-place",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.23
+    },
+    {
+      "googlePlaceId": "ChIJu1g9pNRzAHwRPjyi711cTHI",
+      "name": "Go Tours Hawaii",
+      "address": "2500 Kalākaua Ave E, Honolulu, HI 96815, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 4641,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.273737900000004,
+      "lng": -157.82367879999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8236059377075895358&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gotourshawaii.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 92.13
+    },
+    {
+      "googlePlaceId": "ChIJE1rrp_FsAHwRkAM09pXHffY",
+      "name": "Mānoa Falls Trail",
+      "address": "Na Ala Hele, Honolulu, HI 96822, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5229,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3323379,
+      "lng": -157.8005278,
+      "googleMapsUri": "https://maps.google.com/?cid=17761571952313762704&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://noahlangphotography.com/blog/manoa-falls-trail-oahu-hawaii",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 91.84
+    },
+    {
+      "googlePlaceId": "ChIJBXPhXBMSAHwR5kcexhRrMio",
+      "name": "Koko Head District Park",
+      "address": "423 Kaumakani St, Honolulu, HI 96825, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8023,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2774105,
+      "lng": -157.69421309999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3040610435395897318&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.honolulu.gov/parks/default/park-locations.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 91.81
+    },
+    {
+      "googlePlaceId": "ChIJcWKjRfBtAHwRwzbimoW4e88",
+      "name": "Foodland Farms Ala Moana",
+      "address": "1450 Ala Moana Blvd, Honolulu, HI 96814, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6139,
+      "priceLevel": null,
+      "primaryType": "grocery_store",
+      "types": [
+        "grocery_store",
+        "supermarket",
+        "bar",
+        "restaurant",
+        "bakery",
+        "food_store",
+        "food",
+        "market",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.2924425,
+      "lng": -157.8467292,
+      "googleMapsUri": "https://maps.google.com/?cid=14950746271955171011&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://shop.foodland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.69
+    },
+    {
+      "googlePlaceId": "ChIJQUXJrkdvAHwRdse3-yIn1_0",
+      "name": "Aloha Stadium Swap Meet",
+      "address": "99-500 Salt Lake Blvd, Aiea, HI 96701, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 9125,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "stadium",
+        "market",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3696199,
+      "lng": -157.9291115,
+      "googleMapsUri": "https://maps.google.com/?cid=18291131442794055542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.alohastadiumswapmeet.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.55
+    },
+    {
+      "googlePlaceId": "ChIJ79m4E7BtAHwRbHBZciGrBsI",
+      "name": "Tantalus Lookout - Puu Ualakaa State Park",
+      "address": "Nutridge St, Honolulu, HI 96822, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3463,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3134333,
+      "lng": -157.82284719999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13981050253359018092&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dlnr.hawaii.gov/dsp/parks/oahu/puu-ualakaa-state-wayside/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 91.52
+    },
+    {
+      "googlePlaceId": "ChIJgS0W7YplAHwRgpewKEElecc",
+      "name": "USS Missouri (BB-63) - Battleship Museum",
+      "address": "63 Cowpens St, Honolulu, HI 96818, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 14322,
+      "priceLevel": null,
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "tourist_attraction",
+        "historical_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3621169,
+      "lng": -157.9534244,
+      "googleMapsUri": "https://maps.google.com/?cid=14373560647515412354&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ussmissouri.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.4
+    },
+    {
+      "googlePlaceId": "ChIJyz56owpyAHwRSXdRyQxdB2M",
+      "name": "Fort DeRussy Beach Park",
+      "address": "2055 Kālia Rd, Honolulu, HI 96815, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5772,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2796438,
+      "lng": -157.8342508,
+      "googleMapsUri": "https://maps.google.com/?cid=7135774444090390345&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.08
+    },
+    {
+      "googlePlaceId": "ChIJq2YK2wxzAHwRjqwRHpz1zv0",
+      "name": "DECK. at Queen Kapiʻolani Hotel",
+      "address": "150 Kapahulu Ave, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4225,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "wedding_venue",
+        "breakfast_restaurant",
+        "bar_and_grill",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.271852,
+      "lng": -157.82106349999998,
+      "googleMapsUri": "https://maps.google.com/?cid=18288825187666341006&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.deckwaikiki.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.06
+    },
+    {
+      "googlePlaceId": "ChIJARKuKLESAHwRjyPh6YdhAjs",
+      "name": "Living Ocean Tours",
+      "address": "1125 Ala Moana Blvd Slip B-01, Honolulu, HI 96814, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 6604,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.2923811,
+      "lng": -157.8554143,
+      "googleMapsUri": "https://maps.google.com/?cid=4252068234563494799&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.livingoceantours.com/?ref=gmbprofile",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.94
+    },
+    {
+      "googlePlaceId": "ChIJzViqFQtuAHwR9h0RbG0bnW0",
+      "name": "Hawaii Turtle Tours",
+      "address": "1441 Kapiolani Blvd #1115, Honolulu, HI 96814, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3131,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.2928686,
+      "lng": -157.84308959999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7898499478256164342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hawaiiturtletours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.78
+    },
+    {
+      "googlePlaceId": "ChIJaUwVomdFAHwR-g-j4WSqgBU",
+      "name": "HawaiiTours.com",
+      "address": "2270 Kalākaua Ave Suite #1201, Honolulu, HI 96815, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 4279,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.278602799999998,
+      "lng": -157.8281119,
+      "googleMapsUri": "https://maps.google.com/?cid=1549425622074462202&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hawaiitours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.75
+    },
+    {
+      "googlePlaceId": "ChIJB2nvwHduAHwRape2OHZ-iOU",
+      "name": "Foster Botanical Garden",
+      "address": "50 N Vineyard Blvd, Honolulu, HI 96817, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2003,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3168139,
+      "lng": -157.8590314,
+      "googleMapsUri": "https://maps.google.com/?cid=16539608677740877674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.honolulu.gov/dpr/honolulu-botanical-gardens/foster-botanical-garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.7
+    },
+    {
+      "googlePlaceId": "ChIJl5CVZ2lzAHwRSeqzXSHM6Yc",
+      "name": "Surf Bar Waikiki",
+      "address": "Inside Waikiki Resort Hotel, 2460 Koa Ave, Honolulu, HI 96815, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1182,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.275087799999998,
+      "lng": -157.8234055,
+      "googleMapsUri": "https://maps.google.com/?cid=9793583308371913289&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.surfbarwaikiki.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.69
+    },
+    {
+      "googlePlaceId": "ChIJc2DzKWMRAHwRNT918YaIOm0",
+      "name": "Ka Moana Luau",
+      "address": "1 Aloha Tower Dr, Honolulu, HI 96813, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4131,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3065617,
+      "lng": -157.86559459999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7870753411941351221&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://moanaluau.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.58
+    },
+    {
+      "googlePlaceId": "ChIJJVGzGXVyAHwRNEf8WeLIEw8",
+      "name": "House Without A Key",
+      "address": "2199 Kālia Rd #1936, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2634,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 21.2774973,
+      "lng": -157.8319393,
+      "googleMapsUri": "https://maps.google.com/?cid=1086432809624291124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.halekulani.com/dining/house-without-a-key/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.54
+    },
+    {
+      "googlePlaceId": "ChIJ7yQyd4ptAHwRoFeQTYBKw1k",
+      "name": "Dolphins and You",
+      "address": "307 Lewers St # 401, Honolulu, HI 96815, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 2940,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "tourist_attraction",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.280344,
+      "lng": -157.829242,
+      "googleMapsUri": "https://maps.google.com/?cid=6468095404751738784&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dolphinsandyou.com/?utm_source=google&utm_medium=local&utm_campaign=gmb_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.31
+    },
+    {
+      "googlePlaceId": "ChIJO5od3QhuAHwRO8VzXmIKuQk",
+      "name": "Moku Kitchen",
+      "address": "660 Ala Moana Blvd, Honolulu, HI 96813, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3287,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "cocktail_bar",
+        "gastropub",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.298195200000002,
+      "lng": -157.8617229,
+      "googleMapsUri": "https://maps.google.com/?cid=700602634640540987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mokukitchen.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 90.2
+    },
+    {
+      "googlePlaceId": "ChIJi6wj74hyAHwRvDEkl8At044",
+      "name": "Diamond Head Crater Trailhead",
+      "address": "Kapahulu, Honolulu, HI 96815, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8153,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.263535599999997,
+      "lng": -157.80603499999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10291619878664417724&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://noahlangphotography.com/blog/diamond-head-trail-waikiki-oahu-hawaii",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.11
+    },
+    {
+      "googlePlaceId": "ChIJ6-4fbXRuAHwRG9PCm-ycjo8",
+      "name": "Fête",
+      "address": "2 N Hotel St, Honolulu, HI 96817, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1617,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.311219599999998,
+      "lng": -157.8620124,
+      "googleMapsUri": "https://maps.google.com/?cid=10344377934156059419&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fetehawaii.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.96
+    },
+    {
+      "googlePlaceId": "ChIJ7ZN1G5BZAHwRLhxnMY530xE",
+      "name": "Toa Luau",
+      "address": "59-864 Kamehameha Hwy, Haleiwa, HI 96712, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4723,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.636296899999998,
+      "lng": -158.0544088,
+      "googleMapsUri": "https://maps.google.com/?cid=1284501771328625710&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toaluau.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.79
+    },
+    {
+      "googlePlaceId": "ChIJPYkbGwptAHwRYnmlwMh7wj8",
+      "name": "Break'N Anger",
+      "address": "1006 Kawaiaha‘o St, Honolulu, HI 96814, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 568,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "amusement_center",
+        "sports_complex",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2965896,
+      "lng": -157.8522765,
+      "googleMapsUri": "https://maps.google.com/?cid=4594370672027072866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.breaknanger.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "arcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "paint and sip",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.67
+    },
+    {
+      "googlePlaceId": "ChIJ6zg-CHERAHwRcQlmby01EyY",
+      "name": "Makapu‘u Point Lighthouse Trail",
+      "address": "Makapuʻu Point Lighthouse Trail, Waimanalo, HI 96795, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5063,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.308778,
+      "lng": -157.6504453,
+      "googleMapsUri": "https://maps.google.com/?cid=2743595067257522545&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dlnr.hawaii.gov/dsp/hiking/oahu/makapuu-point-lighthouse-trail/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.58
+    },
+    {
+      "googlePlaceId": "ChIJxQGT1FxuAHwRjpLx3snU-jU",
+      "name": "Pearl Harbor Tours",
+      "address": "891 Valkenburgh St, Honolulu, HI 96818, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3443,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.3674775,
+      "lng": -157.93855739999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3889655191681733262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pearlharbortours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.35
+    },
+    {
+      "googlePlaceId": "ChIJ5YxlH6htAHwRmplHXMnbVQU",
+      "name": "Daniels Hawaii Visitor Center",
+      "address": "1831 Ala Moana Blvd #205, Honolulu, HI 96815, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1939,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "cultural_center",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.2842818,
+      "lng": -157.8369894,
+      "googleMapsUri": "https://maps.google.com/?cid=384455001093151130&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://danielshawaii.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.13
+    },
+    {
+      "googlePlaceId": "ChIJD631x3pyAHwR4CaPouCW35Q",
+      "name": "Kapiʻolani Regional Park",
+      "address": "3840 Paki Ave, Honolulu, HI 96815, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5441,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2667349,
+      "lng": -157.81875359999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10727458728963942112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.honolulu.gov/parks/default/park-locations.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJ_6JQCUNvAHwR0H1cltH9_OQ",
+      "name": "Pacific Fleet Submarine Museum",
+      "address": "11 Arizona Memorial Dr, Honolulu, HI 96818, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1704,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3687502,
+      "lng": -157.9395017,
+      "googleMapsUri": "https://maps.google.com/?cid=16500342211391290832&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bowfin.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.09
+    },
+    {
+      "googlePlaceId": "ChIJZdI0IQBmAHwRDpj15_sGy7k",
+      "name": "Leonard's Bakery",
+      "address": "933 Kapahulu Ave, Honolulu, HI 96816, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 13156,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2848746,
+      "lng": -157.81334379999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13387801996287121422&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.leonardshawaii.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 88.9
+    },
+    {
+      "googlePlaceId": "ChIJszHAoDDRVHkRyKWLlYnVHK0",
+      "name": "Maui Ocean Center, The Aquarium of Hawaii",
+      "address": "192 Maalaea Rd, Wailuku, HI 96793, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 10712,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.7926322,
+      "lng": -156.51216159999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12474079854805624264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mauioceancenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.85
+    },
+    {
+      "googlePlaceId": "ChIJiUG5Ef1tAHwRR3VgdadF-K4",
+      "name": "Hawaii Glass Bottom Boats",
+      "address": "1025 Ala Moana Blvd, Honolulu, HI 96814, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 4918,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.293682999999998,
+      "lng": -157.8555128,
+      "googleMapsUri": "https://maps.google.com/?cid=12607903742354814279&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hawaiiglassbottomboats.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.83
+    },
+    {
+      "googlePlaceId": "ChIJ5W-jcHVyAHwRaGm6iJsz26Y",
+      "name": "Taormina Sicilian Cuisine",
+      "address": "227 Lewers St, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3231,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2794304,
+      "lng": -157.83054339999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12023260373302536552&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://taorminarestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJ9d_gA-RtAHwRiaWw84UHBAk",
+      "name": "Neal S. Blaisdell Center",
+      "address": "Neal S. Blaisdell Arena, 777 Ward Ave, Honolulu, HI 96814, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 2667,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "convention_center",
+        "community_center",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "live_music_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.3002278,
+      "lng": -157.8512359,
+      "googleMapsUri": "https://maps.google.com/?cid=649652518148679049&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://blaisdellcenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.38
+    },
+    {
+      "googlePlaceId": "ChIJ5UdG3QZuAHwRuXq2Dnpvfp4",
+      "name": "53 By The Sea",
+      "address": "53 Ahui St, Honolulu, HI 96813, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1386,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.291388899999998,
+      "lng": -157.8605556,
+      "googleMapsUri": "https://maps.google.com/?cid=11420688275081689785&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://53bythesea.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.33
+    },
+    {
+      "googlePlaceId": "ChIJgToh7BMSAHwR4TjhdYGqs_s",
+      "name": "Lānaʻi Lookout",
+      "address": "8102 Kalanianaʻole Hwy, Honolulu, HI 96825, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3455,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.276476499999998,
+      "lng": -157.6856114,
+      "googleMapsUri": "https://maps.google.com/?cid=18137027597356316897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.27
+    },
+    {
+      "googlePlaceId": "ChIJPxw6wEVjAHwR2VnNCCt53X8",
+      "name": "Coral Crater Adventure Park",
+      "address": "91-1780 Midway St, Kapolei, HI 96707, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 4141,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "adventure_sports_center",
+        "race_course",
+        "tourist_attraction",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3253731,
+      "lng": -158.0647246,
+      "googleMapsUri": "https://maps.google.com/?cid=9213653638408133081&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://coralcrater.com/?utm_source=GMBlisting&utm_medium=organic&utm_content=listing",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.24
+    },
+    {
+      "googlePlaceId": "ChIJgYjFgnVyAHwRs-vBrKi7aLo",
+      "name": "Rock-A-Hula",
+      "address": "2201 Kalākaua Ave Building B, Level 4, Honolulu, HI 96815, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1417,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2786606,
+      "lng": -157.8289211,
+      "googleMapsUri": "https://maps.google.com/?cid=13432192221759794099&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rockahulahawaii.com/?utm_source=gbp&utm_medium=main-link",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.01
+    },
+    {
+      "googlePlaceId": "ChIJJVGzGXVyAHwRQEkrJEPtCGE",
+      "name": "Orchids",
+      "address": "2199 Kālia Rd, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1245,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 21.277545999999997,
+      "lng": -157.832282,
+      "googleMapsUri": "https://maps.google.com/?cid=6992099294118103360&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.halekulani.com/dining/orchids/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJfVia1HVyAHwRFFUnzuQLaWc",
+      "name": "Blue Note Hawaii",
+      "address": "2335 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1676,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "comedy_club",
+        "night_club",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2772447,
+      "lng": -157.8270851,
+      "googleMapsUri": "https://maps.google.com/?cid=7451500135800329492&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bluenotehawaii.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.88
+    },
+    {
+      "googlePlaceId": "ChIJU4JNGWsSAHwR5ti0SpnIbw0",
+      "name": "Koko Crater Railway Trailhead",
+      "address": "7604 Koko Head Park Rd #7602, Honolulu, HI 96825, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 2209,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2808697,
+      "lng": -157.6919389,
+      "googleMapsUri": "https://maps.google.com/?cid=968213005616863462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://noahlangphotography.com/blog/koko-head-crater-stairs-trail-oahu-hawaii",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJrRngH3ZyAHwRiIlE2K7Fhe4",
+      "name": "Marugame Udon",
+      "address": "2310 Kūhiō Ave., Honolulu, HI 96815, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 12925,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.279652799999997,
+      "lng": -157.8258444,
+      "googleMapsUri": "https://maps.google.com/?cid=17187360907672717704&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marugameudon.com/?olonwp=JjBtp_vMLk25gkYh_bnoiQ",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJ1962m2FyAHwRTeAttI0KO40",
+      "name": "Diamond Head State Monument",
+      "address": "755Q+V8, Honolulu, HI 96815, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2839,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "scenic_spot",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2596875,
+      "lng": -157.8116875,
+      "googleMapsUri": "https://maps.google.com/?cid=10176739386703339597&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://noahlangphotography.com/blog/diamond-head-trail-waikiki-oahu-hawaii",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.59
+    },
+    {
+      "googlePlaceId": "ChIJ8YGubdZzAHwRa6a4G5Ob5Xo",
+      "name": "Queens Waikiki Luau",
+      "address": "2330 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3900,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2783472,
+      "lng": -157.8265997,
+      "googleMapsUri": "https://maps.google.com/?cid=8855655298421532267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://queenswaikikiluau.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.58
+    },
+    {
+      "googlePlaceId": "ChIJRZadjXNuAHwRQ0l2_ic2glc",
+      "name": "Senia",
+      "address": "75 N King St, Honolulu, HI 96817, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 803,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3113523,
+      "lng": -157.86362309999998,
+      "googleMapsUri": "https://maps.google.com/?cid=6305661973672905027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.restaurantsenia.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.56
+    },
+    {
+      "googlePlaceId": "ChIJpaNeQXRuAHwRADBgNKmUD6Q",
+      "name": "Hawaii Theatre",
+      "address": "1130 Bethel St, Honolulu, HI 96813, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 795,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3109675,
+      "lng": -157.8611511,
+      "googleMapsUri": "https://maps.google.com/?cid=11821831001319944192&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hawaiitheatre.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.53
+    },
+    {
+      "googlePlaceId": "ChIJq6qqquVtAHwRF7xw7XAphb8",
+      "name": "Hawaii Convention Center",
+      "address": "1801 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2324,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.2896943,
+      "lng": -157.83589189999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13800482198143417367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hawaiiconvention.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.51
+    },
+    {
+      "googlePlaceId": "ChIJVVWFMXVyAHwRu6deAcHT9_k",
+      "name": "Monkeypod Kitchen - Waikiki",
+      "address": "2169 Kālia Rd unit 111, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 1999,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.277753999999998,
+      "lng": -157.8331897,
+      "googleMapsUri": "https://maps.google.com/?cid=18012098060596717499&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.monkeypodkitchen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 87.39
+    },
+    {
+      "googlePlaceId": "ChIJCw2rhA1mAHwRRrHVXiFD5Bo",
+      "name": "Walmart",
+      "address": "700 Ke’eaumoku St, Honolulu, HI 96814, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 15543,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "hardware_store",
+        "building_materials_store",
+        "furniture_store",
+        "home_improvement_store",
+        "electronics_store",
+        "toy_store",
+        "home_goods_store",
+        "clothing_store",
+        "sporting_goods_store",
+        "point_of_interest",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 21.294640299999998,
+      "lng": -157.84244569999998,
+      "googleMapsUri": "https://maps.google.com/?cid=1937747550280200518&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.walmart.com/store/3478-honolulu-hi?veh=seo_loc",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJafbdjLEsDogRbvlpF3IWJqM",
+      "name": "Gus' Sip & Dip",
+      "address": "51 W Hubbard St Suite 100, Chicago, IL 60654, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 2887,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8899298,
+      "lng": -87.6299476,
+      "googleMapsUri": "https://maps.google.com/?cid=11756108556572162414&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gussipanddip.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife"
+      ],
+      "popularityScore": 87
+    },
+    {
+      "googlePlaceId": "ChIJM79rmXByAHwROmF-D8j-HuY",
+      "name": "Honolulu Zoo",
+      "address": "151 Kapahulu Ave, Honolulu, HI 96815, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.2,
+      "reviewCount": 10211,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2710896,
+      "lng": -157.82147849999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16581971013231599930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.honoluluzoo.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.88
+    },
+    {
+      "googlePlaceId": "ChIJWxGygpBZAHwRK62pOEws8dk",
+      "name": "Waimea Valley",
+      "address": "59-864 Kamehameha Hwy, Haleiwa, HI 96712, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 7267,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "cultural_landmark",
+        "snack_bar",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "meal_takeaway",
+        "botanical_garden",
+        "non_profit_organization",
+        "park",
+        "association_or_organization",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.635275,
+      "lng": -158.05293279999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15704382081497410859&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.waimeavalley.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.87
+    },
+    {
+      "googlePlaceId": "ChIJO-M9EOFtAHwROqrh57tCfsY",
+      "name": "Waffle and Berry",
+      "address": "2250 Kalakaua Avenue, Royal Hawaiian Ave Lower Level #104, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 2716,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "coffee_stand",
+        "coffee_shop",
+        "acai_shop",
+        "brazilian_restaurant",
+        "market",
+        "dessert_shop",
+        "cafe",
+        "restaurant",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.279821899999998,
+      "lng": -157.8286182,
+      "googleMapsUri": "https://maps.google.com/?cid=14302942841391917626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://waffleandberry.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJy0PC1XVyAHwRiEVSNmZ9_Qs",
+      "name": "Hula Grill Waikiki",
+      "address": "2335 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 5189,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "hawaiian_restaurant",
+      "types": [
+        "hawaiian_restaurant",
+        "japanese_restaurant",
+        "american_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2771844,
+      "lng": -157.8275909,
+      "googleMapsUri": "https://maps.google.com/?cid=863984581476500872&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hulagrillwaikiki.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.76
+    },
+    {
+      "googlePlaceId": "ChIJiS0BpXVyAHwRF0LyWnKf2O8",
+      "name": "RumFire",
+      "address": "2255 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 2294,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 21.2771047,
+      "lng": -157.8302186,
+      "googleMapsUri": "https://maps.google.com/?cid=17282738883535192599&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rumfirewaikiki.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.76
+    },
+    {
+      "googlePlaceId": "ChIJz1yMlXVyAHwRDwE8MW0CvmE",
+      "name": "Royal Hawaiian Center",
+      "address": "2201 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 12560,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "food_court",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2793141,
+      "lng": -157.8297269,
+      "googleMapsUri": "https://maps.google.com/?cid=7043069535254741263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalhawaiiancenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJSUEC7fkUAHwRzvCxvTn8pH8",
+      "name": "Lanikai Pillbox Trail",
+      "address": "265 Kaelepulu Dr, Kailua, HI 96734, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3489,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3901479,
+      "lng": -157.7194376,
+      "googleMapsUri": "https://maps.google.com/?cid=9197753663923286222&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://noahlangphotography.com/blog/lanikai-pillbox-trail-kaiwa-ridge-oahu-hawaii",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJ0aAfHXZyAHwR2Er_IvPY3p4",
+      "name": "HIDEOUT",
+      "address": "2299 Kūhiō Ave. 1st Floor, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1128,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2794293,
+      "lng": -157.82636309999998,
+      "googleMapsUri": "https://maps.google.com/?cid=11447825841598188248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hideoutwaikiki.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJN3WWP_5tAHwReNd2XSOJ7Do",
+      "name": "Best Oahu Tours by AYC",
+      "address": "307 Lewers St #410, Honolulu, HI 96815, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1497,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.2803501,
+      "lng": -157.82936239999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4245919333688465272&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://andyoucreations.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.5
+    },
+    {
+      "googlePlaceId": "ChIJ169Y-W9yAHwR0hctkStyPSg",
+      "name": "Barefoot Beach Cafe @ Queen's Surf Beach",
+      "address": "2699 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4662,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "hamburger_restaurant",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "wedding_venue",
+        "seafood_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "american_restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2679099,
+      "lng": -157.82246999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=2899599266541279186&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://barefootbeachcafe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.39
+    },
+    {
+      "googlePlaceId": "ChIJ6etS3q9tAHwRSXnaRkyd12Y",
+      "name": "Round Top Forest Reserve",
+      "address": "Nutridge St, Honolulu, HI 96822, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1168,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3145474,
+      "lng": -157.821583,
+      "googleMapsUri": "https://maps.google.com/?cid=7410564662793238857&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dlnr.hawaii.gov/forestry/frs/reserves/oahu/",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.3
+    },
+    {
+      "googlePlaceId": "ChIJf_g4jXNuAHwRxwKtprB4Ojw",
+      "name": "The Pig and The Lady",
+      "address": "3650 Waialae Ave, Honolulu, HI 96816, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2572,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "vietnamese_restaurant",
+      "types": [
+        "vietnamese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.282478899999997,
+      "lng": -157.79793479999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4339913891030827719&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thepigandthelady.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJY0Z_YG9yAHwRBqwdAqTNOxw",
+      "name": "Hau Tree",
+      "address": "Lobby floor of the Kaimana Beach Hotel, 2863 Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 1863,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.263361099999997,
+      "lng": -157.821257,
+      "googleMapsUri": "https://maps.google.com/?cid=2034445760981740550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kaimana.com/dine/hau-tree/?utm_source=google-gbp&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.05
+    },
+    {
+      "googlePlaceId": "ChIJVY-6LwFEAHwRn0TK93UixTE",
+      "name": "Kualoa Regional Park",
+      "address": "49-479 Kamehameha Hwy, Kaneohe, HI 96744, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3954,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.5124513,
+      "lng": -157.8370674,
+      "googleMapsUri": "https://maps.google.com/?cid=3586310568334214303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.honolulu.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJT6d7o5ZzAHwR-9FNGAmcwu4",
+      "name": "Pit Stop Hawaii Food Truck",
+      "address": "2411 Kūhiō Ave., Honolulu, HI 96815, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 1658,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "taco_restaurant",
+      "types": [
+        "taco_restaurant",
+        "sandwich_shop",
+        "hamburger_restaurant",
+        "hot_dog_stand",
+        "vegetarian_restaurant",
+        "american_restaurant",
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.277136799999997,
+      "lng": -157.8241433,
+      "googleMapsUri": "https://maps.google.com/?cid=17204485089385107963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pitstophawaii.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.75
+    },
+    {
+      "googlePlaceId": "ChIJA9wzZQZuAHwRObyotfJ1on4",
+      "name": "Children's Discovery Center",
+      "address": "111 Ohe St, Honolulu, HI 96813, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 731,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.293642,
+      "lng": -157.862042,
+      "googleMapsUri": "https://maps.google.com/?cid=9124985480296315961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.discoverycenterhawaii.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJRQewc-dtAHwRh3LGErzuzSw",
+      "name": "Honolulu Museum of Art (HoMA)",
+      "address": "900 S Beretania St., Honolulu, HI 96814, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1876,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "gift_shop",
+        "tourist_attraction",
+        "non_profit_organization",
+        "museum",
+        "educational_institution",
+        "cafe",
+        "restaurant",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.3037991,
+      "lng": -157.84870139999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3228498999430771335&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://honolulumuseum.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.72
+    },
+    {
+      "googlePlaceId": "ChIJN3PQHu5sAHwRhceyEdb1WkY",
+      "name": "Honolulu Watershed Forest Reserve",
+      "address": "Honolulu, HI 96822, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2234,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "hiking_area",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3380022,
+      "lng": -157.79876199999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5069634630327650181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dlnr.hawaii.gov/forestry/frs/reserves/oahu/",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJ24htwwxuAHwRFbFFvL5ysyc",
+      "name": "Star of Honolulu",
+      "address": "Aloha Tower Marketplace, Pier 8, 1 Aloha Tower Dr, Honolulu, HI 96813, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 3689,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.3063768,
+      "lng": -157.8651078,
+      "googleMapsUri": "https://maps.google.com/?cid=2860756351838433557&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://starofhonolulu.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJ4Rrh63ZyAHwRh0DJZ7ULG4w",
+      "name": "Duke Paoa Kahanamoku Statue",
+      "address": "Kalākaua Ave, Honolulu, HI 96815, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 4885,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "sculpture",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.275519499999998,
+      "lng": -157.8253238,
+      "googleMapsUri": "https://maps.google.com/?cid=10095675863439327367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.publicartinpublicplaces.info/duke-paoa-kahanamoku-1990-by-jan-gordon-fisher",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJa4_hVnptAHwRLfH0AYGlELQ",
+      "name": "Merriman's Honolulu",
+      "address": "1108 Auahi St #170, Honolulu, HI 96814, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 998,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2936873,
+      "lng": -157.8527345,
+      "googleMapsUri": "https://maps.google.com/?cid=12975052499956592941&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.merrimanshawaii.com/honolulu/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.46
+    },
+    {
+      "googlePlaceId": "ChIJ4XS4tXwRAHwRAdy1mvCU710",
+      "name": "Sea Life Park Hawaii",
+      "address": "41-202 Kalanianaʻole Hwy, Waimanalo, HI 96795, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.1,
+      "reviewCount": 5562,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "amusement_park",
+        "amusement_center",
+        "wildlife_park",
+        "zoo",
+        "tourist_attraction",
+        "park",
+        "gift_shop",
+        "event_venue",
+        "restaurant",
+        "educational_institution",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.31374,
+      "lng": -157.663567,
+      "googleMapsUri": "https://maps.google.com/?cid=6768792526069816321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sealifeparkhawaii.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.45
+    },
+    {
+      "googlePlaceId": "ChIJG42YWPNtAHwR7-tJR3kNA0w",
+      "name": "Suzie Wong's Hideaway",
+      "address": "1913 Dudoit Ln, Honolulu, HI 96815, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 808,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.286357,
+      "lng": -157.8341523,
+      "googleMapsUri": "https://maps.google.com/?cid=5477236386350885871&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://suziewongshideaway.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.43
+    },
+    {
+      "googlePlaceId": "ChIJQ9anT39uAHwR3nYOPjeqsF8",
+      "name": "Liliha Bakery",
+      "address": "515 N Kuakini St, Honolulu, HI 96817, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 4684,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "breakfast_restaurant",
+        "diner",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.324009699999998,
+      "lng": -157.8579347,
+      "googleMapsUri": "https://maps.google.com/?cid=6895198183745287902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lilihabakery.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.36
+    },
+    {
+      "googlePlaceId": "ChIJ94neqVhtAHwRc70SKcZ54aE",
+      "name": "Ki Club",
+      "address": "1731 Kalākaua Ave, Honolulu, HI 96826, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 364,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "lounge_bar",
+        "asian_fusion_restaurant",
+        "asian_restaurant",
+        "fusion_restaurant",
+        "sports_club",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 21.2911257,
+      "lng": -157.836186,
+      "googleMapsUri": "https://maps.google.com/?cid=11664738401865874803&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kiclubhawaii.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.3
+    },
+    {
+      "googlePlaceId": "ChIJpxs4gfFtAHwR-liVD5J-6kk",
+      "name": "The Signature Prime Steak & Seafood",
+      "address": "410 Atkinson Dr Hotel, 36th Floor, Honolulu, HI 96814, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.4,
+      "reviewCount": 2001,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.290455899999998,
+      "lng": -157.8399747,
+      "googleMapsUri": "https://maps.google.com/?cid=5326208675110803706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.signatureprimesteak.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJ6-894XX0AHwRmyHx49CTWNY",
+      "name": "Kaʻena Point Trail",
+      "address": "Farrington Hwy, Waialua, HI 96791, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1970,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.5789504,
+      "lng": -158.2375985,
+      "googleMapsUri": "https://maps.google.com/?cid=15445257447453827483&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dlnr.hawaii.gov/dsp/hiking/oahu/kaena-point-trail/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJq6qqquVtAHwRQm6srUn4qUQ",
+      "name": "Blaisdell Concert Hall",
+      "address": "777 Ward Ave, Honolulu, HI 96814, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 771,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "arena",
+        "community_center",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.301042499999998,
+      "lng": -157.84989919999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4947758660973260354&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://blaisdellcenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.22
+    },
+    {
+      "googlePlaceId": "ChIJ06Xa8E9uAHwR287O0INHQ48",
+      "name": "La Mariana Sailing Club",
+      "address": "50 Sand Island Access Rd, Honolulu, HI 96819, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.4,
+      "reviewCount": 1977,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "hawaiian_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.3218483,
+      "lng": -157.89315259999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10323173402332810971&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://la-mariana-sailing.club/",
+      "openNow": false,
+      "matchedQueries": [
+        "romantic bars",
+        "sunset date spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJm_JNC4NtAHwRfQA4P8KcNR0",
+      "name": "Sweet E's Café",
+      "address": "1006 Kapahulu Ave, Honolulu, HI 96816, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3231,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.286154999999997,
+      "lng": -157.8135931,
+      "googleMapsUri": "https://maps.google.com/?cid=2104760758963798141&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sweetescafe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.19
+    },
+    {
+      "googlePlaceId": "ChIJM31WL3tyAHwR1IXgkTJbuns",
+      "name": "Tom Moffatt Waikiki Shell",
+      "address": "2805 Monsarrat Ave, Honolulu, HI 96815, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 622,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "performing_arts_theater",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.268475000000002,
+      "lng": -157.81808999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8915538685087221204&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://blaisdellcenter.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.19
+    },
+    {
+      "googlePlaceId": "ChIJy9nTBiQTAHwRNsRAYmCAcZY",
+      "name": "Kapono's at The Lounge / The Velvet Monkey Speakeasy",
+      "address": "377 Keahole St Suite D3, Honolulu, HI 96825, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 210,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2842991,
+      "lng": -157.70820419999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10840586929511121974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://kaponosatthelounge.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.17
+    }
+  ]
+}

@@ -1,0 +1,3632 @@
+{
+  "location": "Austin, TX",
+  "generatedAt": "2026-05-17T19:34:47.910Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJxcCceAi1RIYR9AqXT8eWDyc",
+      "name": "Corner Restaurant",
+      "address": "110 E 2nd St, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 17969,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2645703,
+      "lng": -97.7438317,
+      "googleMapsUri": "https://maps.google.com/?cid=2814634074907806452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cornerrestaurantaustin.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 100.59
+    },
+    {
+      "googlePlaceId": "ChIJQyfp5wm1RIYRd7IXfFuFzTg",
+      "name": "Caroline",
+      "address": "621 N Congress Ave Suite 101, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 14479,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "coffee_shop",
+        "cafe",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2688157,
+      "lng": -97.7422982,
+      "googleMapsUri": "https://maps.google.com/?cid=4093074264320094839&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.carolinerestaurant.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 99.85
+    },
+    {
+      "googlePlaceId": "ChIJQyfp5wm1RIYRuYHlan7PCQs",
+      "name": "Upstairs at Caroline",
+      "address": "109 E 7th St, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 6740,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.268663,
+      "lng": -97.7420586,
+      "googleMapsUri": "https://maps.google.com/?cid=795394951073857977&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.carolinerestaurant.com/upstairs-at-caroline?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 98.31
+    },
+    {
+      "googlePlaceId": "ChIJFaJVsLS1RIYRcUZU0nlHQJ8",
+      "name": "Zanzibar",
+      "address": "304 E Cesar Chavez St, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 8419,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.262830899999994,
+      "lng": -97.7415705,
+      "googleMapsUri": "https://maps.google.com/?cid=11475250439085377137&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zanzibaratx.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 97.98
+    },
+    {
+      "googlePlaceId": "ChIJIxradQi1RIYRjCgHBG2nRF8",
+      "name": "Edge Rooftop",
+      "address": "110 E 2nd St, Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 5305,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.264396599999998,
+      "lng": -97.7438583,
+      "googleMapsUri": "https://maps.google.com/?cid=6864795818680330380&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.edgerooftop.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "private dining rooms",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 97.49
+    },
+    {
+      "googlePlaceId": "ChIJ22j54Ia1RIYRunKXejw_UJs",
+      "name": "Zilker Metropolitan Park",
+      "address": "Austin, TX 78746, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6119,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2669764,
+      "lng": -97.7729703,
+      "googleMapsUri": "https://maps.google.com/?cid=11191514603003015866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.austintexas.gov/department/zilker-metropolitan-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.88
+    },
+    {
+      "googlePlaceId": "ChIJB5Ku76K1RIYRwGbv_w3DySk",
+      "name": "Corinne Austin",
+      "address": "304 E Cesar Chavez St, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 5924,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.262701099999997,
+      "lng": -97.74157629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3011152290769757888&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.corinneatx.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 96.77
+    },
+    {
+      "googlePlaceId": "ChIJDfhk1ja1RIYR3NIISvjn88k",
+      "name": "Aba Austin",
+      "address": "1011 S Congress Ave Bldg 2 Suite 180, Austin, TX 78704, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7546,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.253315399999995,
+      "lng": -97.74802439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14552229874544202460&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.abarestaurants.com/austin/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 96.5
+    },
+    {
+      "googlePlaceId": "ChIJbQSzILQyW4YRKhwBdSuX6pY",
+      "name": "Pinballz Lake Creek",
+      "address": "13729 Research Blvd, Austin, TX 78750, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 6293,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "go_karting_venue",
+        "amusement_center",
+        "race_course",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.459981499999998,
+      "lng": -97.7902277,
+      "googleMapsUri": "https://maps.google.com/?cid=10874670463141878826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pinballz.com/lake-creek",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.88
+    },
+    {
+      "googlePlaceId": "ChIJi7M4Nb6zRIYRk8YBYI8Jg_s",
+      "name": "McKinney Falls State Park",
+      "address": "5808 McKinney Falls Pkwy, Austin, TX 78744, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 8042,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.1836487,
+      "lng": -97.72219439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18123339836864710291&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tpwd.texas.gov/state-parks/mckinney-falls",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.62
+    },
+    {
+      "googlePlaceId": "ChIJkaOfUnMTW4YRVgKt2Z38bTQ",
+      "name": "Pedernales Falls State Park",
+      "address": "2585 Park Rd 6026, Johnson City, TX 78636, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 5159,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.3080689,
+      "lng": -98.25773029999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3777953417325773398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tpwd.texas.gov/state-parks/pedernales-falls",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.19
+    },
+    {
+      "googlePlaceId": "ChIJSfh_QgW1RIYRMGJ2BEpGG1c",
+      "name": "Auditorium Shores at Town Lake Metropolitan Park",
+      "address": "900 W Riverside Dr, Austin, TX 78704, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4800,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.261474000000003,
+      "lng": -97.7522068,
+      "googleMapsUri": "https://maps.google.com/?cid=6276687789387309616&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://austinparks.org/auditorium-shores/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "cultural centers",
+        "best parks",
+        "waterfront gardens",
+        "things to do this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.94
+    },
+    {
+      "googlePlaceId": "ChIJecsZp8jKRIYR_WvZ0OYk9q0",
+      "name": "Covert Park at Mount Bonnell",
+      "address": "3800 Mt Bonnell Rd, Austin, TX 78731, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 7131,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.321672200000002,
+      "lng": -97.7732083,
+      "googleMapsUri": "https://maps.google.com/?cid=12535247186597342205&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.austintexas.gov/page/park-directory/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 94.81
+    },
+    {
+      "googlePlaceId": "ChIJS_nmZorNRIYRTRKUiSZApUU",
+      "name": "Sandbox VR",
+      "address": "3100 Esperanza Crossing Suite 100, Austin, TX 78758, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 14953,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.3998629,
+      "lng": -97.72312749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5018487894035403341&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/austin",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 94.56
+    },
+    {
+      "googlePlaceId": "ChIJqc0qKTq1RIYRrUZKed7fnys",
+      "name": "Zilker Botanical Garden",
+      "address": "2220 Barton Springs Rd, Austin, TX 78746, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5904,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2697617,
+      "lng": -97.77217929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3143477211538540205&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zilkergarden.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.56
+    },
+    {
+      "googlePlaceId": "ChIJRz4gnqi1RIYRBsmXj82av1Y",
+      "name": "The Escape Game Austin",
+      "address": "405 Red River St, Austin, TX 78701, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 17693,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 30.2647627,
+      "lng": -97.7375647,
+      "googleMapsUri": "https://maps.google.com/?cid=6250885015481600262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/austin/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=austin",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 94.49
+    },
+    {
+      "googlePlaceId": "ChIJI349t7vKRIYRAB0f414STOk",
+      "name": "Mayfield Park and Nature Preserve",
+      "address": "3505 W 35th St, Austin, TX 78703, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3875,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "nature_preserve",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.312462699999998,
+      "lng": -97.77060379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16810831707813911808&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.austintexas.gov/department/mayfield-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.2
+    },
+    {
+      "googlePlaceId": "ChIJi8__nx-1RIYR56djED9FLLE",
+      "name": "Odd Duck",
+      "address": "1201 S Lamar Blvd, Austin, TX 78704, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3690,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.254672000000003,
+      "lng": -97.762051,
+      "googleMapsUri": "https://maps.google.com/?cid=12766655180848736231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://oddduckaustin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 94.03
+    },
+    {
+      "googlePlaceId": "ChIJ0ZHePHK1RIYR2vIKkhQevxQ",
+      "name": "Ember Kitchen",
+      "address": "800 W Cesar Chavez St Ste PP110, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2558,
+      "priceLevel": null,
+      "primaryType": "latin_american_restaurant",
+      "types": [
+        "latin_american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.266876,
+      "lng": -97.7528456,
+      "googleMapsUri": "https://maps.google.com/?cid=1494946675008664282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.emberatx.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.87
+    },
+    {
+      "googlePlaceId": "ChIJp5kA1l8xW4YR9Ux-LKGGnP0",
+      "name": "The Oasis On Lake Travis",
+      "address": "6550 Comanche Trail, Austin, TX 78732, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.2,
+      "reviewCount": 25486,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "tex_mex_restaurant",
+      "types": [
+        "tex_mex_restaurant",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 30.405661,
+      "lng": -97.8740631,
+      "googleMapsUri": "https://maps.google.com/?cid=18274629414756961525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.oasis-austin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "sunset date spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 93.45
+    },
+    {
+      "googlePlaceId": "ChIJ6xuoSw-1RIYRl2bhcYygHEk",
+      "name": "Austin City Limits Live (ACL Live & 3TEN ACL Live)",
+      "address": "310 W Willie Nelson Blvd, Austin, TX 78701, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4579,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.265262699999997,
+      "lng": -97.7469912,
+      "googleMapsUri": "https://maps.google.com/?cid=5268262189183100567&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://acllive.com/?utm_campaign=acl&utm_medium=organicsearch&utm_source=googlemybusiness&utm_audience=tofu_googlemybusiness&utm_content=brandstory_google_my_business_website_link",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.28
+    },
+    {
+      "googlePlaceId": "ChIJzxUS9Z61RIYRopUORuC6AdM",
+      "name": "Bullock Texas State History Museum",
+      "address": "1800 Congress Ave., Austin, TX 78701, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7277,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.280337000000003,
+      "lng": -97.73906869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15204639289390306722&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thestoryoftexas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 93.13
+    },
+    {
+      "googlePlaceId": "ChIJ_Q1JhPFNW4YRLrWy_hd4ILs",
+      "name": "Zero Latency VR - South Austin",
+      "address": "9900 I-35 Ste M500 Suite 2, Austin, TX 78748, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1075,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.154643699999998,
+      "lng": -97.79435219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13483909328799970606&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zerolatencysouthaustin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.08
+    },
+    {
+      "googlePlaceId": "ChIJgarVmgi1RIYRpz5iYeJkXlA",
+      "name": "Thinkery",
+      "address": "1830 Simond Ave, Austin, TX 78723, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5550,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.297417,
+      "lng": -97.704971,
+      "googleMapsUri": "https://maps.google.com/?cid=5791177094304251559&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thinkeryaustin.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.84
+    },
+    {
+      "googlePlaceId": "ChIJ54TrhBXsW4YRhOQOg6nVWPc",
+      "name": "Enchanted Rock State Natural Area",
+      "address": "16710 Ranch Rd 965, Fredericksburg, TX 78624, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8036,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.4951229,
+      "lng": -98.81999929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17823230449343718532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tpwd.texas.gov/state-parks/enchanted-rock",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.82
+    },
+    {
+      "googlePlaceId": "ChIJBTs97HHMRIYRIAQ_ZGynxHc",
+      "name": "The Domain",
+      "address": "11410 Century Oaks Terrace, Austin, TX 78758, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 14520,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.4020649,
+      "lng": -97.7258829,
+      "googleMapsUri": "https://maps.google.com/?cid=8630206869928870944&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/the-domain",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.66
+    },
+    {
+      "googlePlaceId": "ChIJWfpBiwi1RIYRvg4iIbIE2go",
+      "name": "Red Ash",
+      "address": "Colorado Tower, 303 Colorado St #200, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2414,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2657022,
+      "lng": -97.74494089999999,
+      "googleMapsUri": "https://maps.google.com/?cid=781942648408772286&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://redashgrill.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.57
+    },
+    {
+      "googlePlaceId": "ChIJZSqCDhu1RIYRx1iRoCvCOsA",
+      "name": "Terry Black's Barbecue",
+      "address": "1003 Barton Springs Rd, Austin, TX 78704, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 24905,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "barbecue_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.259712099999998,
+      "lng": -97.7548241,
+      "googleMapsUri": "https://maps.google.com/?cid=13851597096564644039&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://terryblacksbbq.com/austin",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 92.37
+    },
+    {
+      "googlePlaceId": "ChIJxwaVFJXLRIYRo1w0KNrxi98",
+      "name": "The Original Pinballz Arcade",
+      "address": "8940 Research Blvd, Austin, TX 78758, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 3063,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.369958999999998,
+      "lng": -97.72153480000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16108234411500395683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pinballz.com/original",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.29
+    },
+    {
+      "googlePlaceId": "ChIJQyqk37W1RIYRnCG26gFyqjc",
+      "name": "Otopia Rooftop Lounge",
+      "address": "1901 San Antonio St Unit 1100, Austin, TX 78705, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1082,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.282409899999994,
+      "lng": -97.74288109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4011143770685186460&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.otopiarooftop.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92
+    },
+    {
+      "googlePlaceId": "ChIJXZDih5JSW4YRHLPkoaDt2c4",
+      "name": "Pinballz Kingdom",
+      "address": "15201 S I-35 Frontage Rd, Buda, TX 78610, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 4933,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.0867274,
+      "lng": -97.8186661,
+      "googleMapsUri": "https://maps.google.com/?cid=14905205715926037276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pinballz.com/kingdom",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.79
+    },
+    {
+      "googlePlaceId": "ChIJSVyqJ6S1RIYRdx8PPPRl9Is",
+      "name": "Stubb's Bar-B-Q",
+      "address": "801 Red River St, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 6853,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "barbecue_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.268493199999998,
+      "lng": -97.7362565,
+      "googleMapsUri": "https://maps.google.com/?cid=10084797565243432823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stubbsaustin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "live music events",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.77
+    },
+    {
+      "googlePlaceId": "ChIJa59yaAi1RIYRyTOii08uLtQ",
+      "name": "Elephant Room",
+      "address": "Swift Building, 315 Congress Ave., Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2567,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.265672700000003,
+      "lng": -97.7434921,
+      "googleMapsUri": "https://maps.google.com/?cid=15289208704149369801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.elephantroom.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.68
+    },
+    {
+      "googlePlaceId": "ChIJ1aFZAqS1RIYRu5WiNjw8b0A",
+      "name": "Mohawk Austin",
+      "address": "912 Red River St, Austin, TX 78701, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2386,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.270053,
+      "lng": -97.7361188,
+      "googleMapsUri": "https://maps.google.com/?cid=4642995970154599867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mohawkaustin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.43
+    },
+    {
+      "googlePlaceId": "ChIJOzfaZJ61RIYRbcc8dXvgz74",
+      "name": "Blanton Museum of Art",
+      "address": "200 E Martin Luther King Jr Blvd, Austin, TX 78712, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3591,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.280810900000002,
+      "lng": -97.7376838,
+      "googleMapsUri": "https://maps.google.com/?cid=13749455008237930349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://blantonmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.34
+    },
+    {
+      "googlePlaceId": "ChIJx-dV4FqET4YRIeaczoVvOgc",
+      "name": "Lady Bird Johnson Wildflower Center",
+      "address": "4801 La Crosse Ave, Austin, TX 78739, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2753,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "research_institute",
+        "tourist_attraction",
+        "garden",
+        "gift_shop",
+        "nature_preserve",
+        "park",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 30.1854889,
+      "lng": -97.8732649,
+      "googleMapsUri": "https://maps.google.com/?cid=520851327402436129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wildflower.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.27
+    },
+    {
+      "googlePlaceId": "ChIJIeohJQm1RIYRG-NyRBlsnuw",
+      "name": "The Roosevelt Room",
+      "address": "307 W 5th St, Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2275,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2677886,
+      "lng": -97.74627729999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17050184095049638683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.therooseveltroomatx.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service",
+        "mixology classes",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.27
+    },
+    {
+      "googlePlaceId": "ChIJn8iXZa61RIYRf5Bc4f5jtZs",
+      "name": "Texas Toy Museum and Arcade",
+      "address": "312 Congress Ave., Austin, TX 78701, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1627,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "video_arcade",
+        "bar",
+        "toy_store",
+        "museum",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.265822500000002,
+      "lng": -97.7440044,
+      "googleMapsUri": "https://maps.google.com/?cid=11219983993017241727&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://austintoymuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "game night venues",
+        "board game cafes",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.21
+    },
+    {
+      "googlePlaceId": "ChIJpxaV65mPXIYRn0Rz-dje-xY",
+      "name": "Natural Bridge Caverns",
+      "address": "26495 Natural Bridge Caverns Rd, San Antonio, TX 78266, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 17428,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "historical_landmark",
+        "tourist_attraction",
+        "park",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.692409500000004,
+      "lng": -98.3427276,
+      "googleMapsUri": "https://maps.google.com/?cid=1656162311468172447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://naturalbridgecaverns.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 91.14
+    },
+    {
+      "googlePlaceId": "ChIJOQu7_gS1RIYRYGuPvTd6HdQ",
+      "name": "The Long Center for the Performing Arts",
+      "address": "701 W Riverside Dr, Austin, TX 78704, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1490,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.260251999999998,
+      "lng": -97.7510921,
+      "googleMapsUri": "https://maps.google.com/?cid=15284507090187414368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thelongcenter.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "cultural centers",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.91
+    },
+    {
+      "googlePlaceId": "ChIJJUbJuv20RIYRpFyFb-IiSZo",
+      "name": "The Continental Club",
+      "address": "1315 S Congress Ave, Austin, TX 78704, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2280,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.250505999999998,
+      "lng": -97.7490768,
+      "googleMapsUri": "https://maps.google.com/?cid=11117455511069744292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://continentalclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 90.87
+    },
+    {
+      "googlePlaceId": "ChIJc-eLz84yW4YR0_Ternhe_MU",
+      "name": "Austin Aquarium",
+      "address": "13530 US-183 #101, Austin, TX 78750, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.1,
+      "reviewCount": 9074,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.449901899999997,
+      "lng": -97.792278,
+      "googleMapsUri": "https://maps.google.com/?cid=14266381592025822419&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.austinaquarium.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.54
+    },
+    {
+      "googlePlaceId": "ChIJJWETU6VlXIYROLwy-oVoshw",
+      "name": "Sandbox VR",
+      "address": "5822 Worth Pkwy Suite 102, San Antonio, TX 78257, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5454,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.611236599999998,
+      "lng": -98.5988201,
+      "googleMapsUri": "https://maps.google.com/?cid=2067830103554047032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sanantonio",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJzTkDkai1RIYR9PpN5L6zHD0",
+      "name": "Moonshine Grill",
+      "address": "303 Red River St, Austin, TX 78701, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 7322,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "event_venue",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2637562,
+      "lng": -97.7380259,
+      "googleMapsUri": "https://maps.google.com/?cid=4403592168116976372&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.moonshinegrill.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.3
+    },
+    {
+      "googlePlaceId": "ChIJAR7m4ZS1RIYRHB6RITAk13A",
+      "name": "Sour Duck Market",
+      "address": "1814 E Martin Luther King Jr Blvd, Austin, TX 78702, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2352,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.279880600000002,
+      "lng": -97.7215815,
+      "googleMapsUri": "https://maps.google.com/?cid=8131007441380908572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sourduckmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "farmers markets",
+        "TikTok restaurants",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.28
+    },
+    {
+      "googlePlaceId": "ChIJVf7pl6e1RIYREEeVcaNdILo",
+      "name": "Azul Rooftop",
+      "address": "310 E 5th St., Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1225,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.266620099999997,
+      "lng": -97.7403752,
+      "googleMapsUri": "https://maps.google.com/?cid=13411822646875997968&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.azulrooftopatx.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.23
+    },
+    {
+      "googlePlaceId": "ChIJCfovQivNRIYRkNWw-puG0Q0",
+      "name": "Museum of Illusions Austin",
+      "address": "11010 Domain Dr #100, Austin, TX 78758, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 2267,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "amusement_center",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.3963817,
+      "lng": -97.7270988,
+      "googleMapsUri": "https://maps.google.com/?cid=995724997109536144&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moiaustin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.15
+    },
+    {
+      "googlePlaceId": "ChIJfQz_nL21RIYR0jchRACL6P8",
+      "name": "Quince Lakehouse",
+      "address": "3825 Lake Austin Blvd #201, Austin, TX 78703, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2465,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.295252899999998,
+      "lng": -97.7842024,
+      "googleMapsUri": "https://maps.google.com/?cid=18440141507527784402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://quincesma.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.04
+    },
+    {
+      "googlePlaceId": "ChIJCeFHVCTLRIYR3dEU_-HqoYE",
+      "name": "Another Broken Egg Cafe",
+      "address": "6406 N Interstate 35 Frontage Rd Suite 1600, Austin, TX 78752, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 6616,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.326317799999995,
+      "lng": -97.7077827,
+      "googleMapsUri": "https://maps.google.com/?cid=9341005358511215069&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anotherbrokenegg.com/locations/austin-tx-frontage-road/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 90
+    },
+    {
+      "googlePlaceId": "ChIJabb0sdZKW4YR7Rlal52tALI",
+      "name": "Barton Creek Greenbelt",
+      "address": "3755 S Capital of Texas Hwy B, Austin, TX 78704, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4492,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.247166999999994,
+      "lng": -97.8126892,
+      "googleMapsUri": "https://maps.google.com/?cid=12826442631111907821&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://austinparks.org/barton-creek-greenbelt/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.96
+    },
+    {
+      "googlePlaceId": "ChIJA-5lkIeIToYR5BLrU4XVoVU",
+      "name": "Traders Village Grand Prairie",
+      "address": "2602 Mayfield Rd, Grand Prairie, TX 75052, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 22392,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "roller_coaster",
+        "amusement_park",
+        "live_music_venue",
+        "market",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.6953405,
+      "lng": -97.05120269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6170447733089571556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://tradersvillage.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.8
+    },
+    {
+      "googlePlaceId": "ChIJFyXMCz21RIYRFA1vxCkln0I",
+      "name": "Moody Center",
+      "address": "2001 Robert Dedman Dr, Austin, TX 78712, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 4308,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.280969900000002,
+      "lng": -97.7306618,
+      "googleMapsUri": "https://maps.google.com/?cid=4800596589119737108&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moodycenteratx.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.77
+    },
+    {
+      "googlePlaceId": "ChIJVxphGWDJRIYRBziBqUilJjc",
+      "name": "GameOn! ATX",
+      "address": "1515 Dungan Ln #200, Austin, TX 78754, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1051,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.351598499999998,
+      "lng": -97.67448189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3974045452701087751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gameon.fun/atx",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "interactive pop ups",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.75
+    },
+    {
+      "googlePlaceId": "ChIJyYi-ZpBzToYR6uyuZhTEO4Q",
+      "name": "Sandbox VR",
+      "address": "2956 Crockett St, Fort Worth, TX 76107, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6116,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7503324,
+      "lng": -97.3597437,
+      "googleMapsUri": "https://maps.google.com/?cid=9528425028533546218&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/fortworth",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.73
+    },
+    {
+      "googlePlaceId": "ChIJp8VCnTywRIYRTXXSFFlLgSE",
+      "name": "Germania Insurance Amphitheater",
+      "address": "9201 Circuit of the Americas Blvd, Del Valle, TX 78617, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 5145,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.134542299999996,
+      "lng": -97.6381398,
+      "googleMapsUri": "https://maps.google.com/?cid=2414293721220805965&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://germaniaamp.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.73
+    },
+    {
+      "googlePlaceId": "ChIJK8DpSYLLRIYRbvH0uG9e5uU",
+      "name": "Dave & Buster's Austin",
+      "address": "9333 Research Blvd Service Rd Suite A600, Austin, TX 78759, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 5068,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "video_arcade",
+        "amusement_center",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 30.383442599999995,
+      "lng": -97.7374507,
+      "googleMapsUri": "https://maps.google.com/?cid=16566032113266389358&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/austin",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.63
+    },
+    {
+      "googlePlaceId": "ChIJjQrDOBu1RIYRmzNTfmMEHCQ",
+      "name": "Palmer Events Center",
+      "address": "900 Barton Springs Rd, Austin, TX 78704, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1401,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "cultural_center",
+        "convention_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2604625,
+      "lng": -97.75315049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2601959510080959387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.palmereventscenter.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJIV3Rfou1RIYRcy-TDV8jXzw",
+      "name": "Cidercade Austin",
+      "address": "600 E Riverside Dr, Austin, TX 78704, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 2576,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2524716,
+      "lng": -97.7410337,
+      "googleMapsUri": "https://maps.google.com/?cid=4350234656219803507&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cidercade.com/austin/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.49
+    },
+    {
+      "googlePlaceId": "ChIJe0EXdam1RIYR2BNXxxVItLg",
+      "name": "Geraldine's",
+      "address": "605 Davis St, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1805,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.260057399999994,
+      "lng": -97.7392578,
+      "googleMapsUri": "https://maps.google.com/?cid=13309342057162544088&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.geraldinesaustin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "rooftop bars",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.37
+    },
+    {
+      "googlePlaceId": "ChIJ0ZMd7djLRIYRArt8XJpkmHA",
+      "name": "Another Broken Egg Cafe",
+      "address": "8012 Mesa Dr, Austin, TX 78731, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7497,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.370569999999997,
+      "lng": -97.75845000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8113345342847367938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anotherbrokenegg.com/locations/austin-tx-mesa-drive/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 89.33
+    },
+    {
+      "googlePlaceId": "ChIJY47Vz1ecP4YR4hJNhlhX9AI",
+      "name": "Moody Gardens Attractions Theme Park",
+      "address": "1 Hope Blvd, Galveston, TX 77554, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 19370,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "aquarium",
+        "garden",
+        "zoo",
+        "botanical_garden",
+        "movie_theater",
+        "tourist_attraction",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.274746,
+      "lng": -94.85169189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=212891120115192546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moodygardens.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.3
+    },
+    {
+      "googlePlaceId": "ChIJ1eAeVnLMRIYR_VB5FIj_LuE",
+      "name": "Culinary Dropout",
+      "address": "11721 Rock Rose Ave #100, Austin, TX 78758, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6166,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "chicken_restaurant",
+        "hamburger_restaurant",
+        "brunch_restaurant",
+        "live_music_venue",
+        "food_store",
+        "bar",
+        "store",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.403472500000003,
+      "lng": -97.72151230000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16226187467386605821&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.culinarydropout.com/locations/austin-tx/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.26
+    },
+    {
+      "googlePlaceId": "ChIJVycNKfm1RIYRTy7RJBzfPtc",
+      "name": "Dean's Italian Steakhouse",
+      "address": "110 E 2nd St, Austin, TX 78701, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.9,
+      "reviewCount": 3212,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "italian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2641454,
+      "lng": -97.7430761,
+      "googleMapsUri": "https://maps.google.com/?cid=15510079478680333903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.deanssteakhouseaustin.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.26
+    },
+    {
+      "googlePlaceId": "ChIJQy10k8WiXIYRSV22pcq-7pM",
+      "name": "Gristmill River Restaurant & Bar",
+      "address": "1287 Gruene Rd, New Braunfels, TX 78130, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 13655,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.738203000000002,
+      "lng": -98.10516299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10659667145605406025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gristmillrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.2
+    },
+    {
+      "googlePlaceId": "ChIJnefbVy3NRIYRXi9HAdhViE0",
+      "name": "Main Event Austin",
+      "address": "13301 N Hwy 183, Austin, TX 78750, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 6044,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 30.445156899999994,
+      "lng": -97.78475809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5586809723975839582&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mainevent.com/locations/texas/austin",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.14
+    },
+    {
+      "googlePlaceId": "ChIJc2CA8EfORIYRKyViYLRknmc",
+      "name": "Austin’s",
+      "address": "16231 N Interstate Hwy 35, Pflugerville, TX 78660, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 5990,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "go_karting_venue",
+        "bowling_alley",
+        "miniature_golf_course",
+        "bar_and_grill",
+        "buffet_restaurant",
+        "video_arcade",
+        "amusement_center",
+        "race_course",
+        "sports_complex",
+        "sports_activity_location",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 30.4630677,
+      "lng": -97.6662977,
+      "googleMapsUri": "https://maps.google.com/?cid=7466515958100796715&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://austinspark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "best parks",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.11
+    },
+    {
+      "googlePlaceId": "ChIJid3yLt-0RIYR_JPyeaoX0Uc",
+      "name": "Barley Swine",
+      "address": "6555 Burnet Rd #400, Austin, TX 78757, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1404,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 30.3413146,
+      "lng": -97.73828669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5174943467783230460&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barleyswine.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.95
+    },
+    {
+      "googlePlaceId": "ChIJy3FovG-1RIYRSwDtdD_AfC0",
+      "name": "Nido",
+      "address": "Rooftop, 1211 W Riverside Dr, Austin, TX 78704, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1493,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.264083799999995,
+      "lng": -97.75673669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3277706007596040267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thelorenhotels.com/cuisine/restaurant#nido",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.71
+    },
+    {
+      "googlePlaceId": "ChIJMzerc0vQRIYR6D7yk0gLdJg",
+      "name": "Play for All Abilities Park",
+      "address": "151 N A W Grimes Blvd, Round Rock, TX 78664, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 4474,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "tourist_attraction",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.514653,
+      "lng": -97.652492,
+      "googleMapsUri": "https://maps.google.com/?cid=10985417797411159784&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://play4all.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.65
+    },
+    {
+      "googlePlaceId": "ChIJpduvU6a1RIYRIqQm9JA8wJA",
+      "name": "Museum of the Weird",
+      "address": "412 E 6th St, Austin, TX 78701, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.2,
+      "reviewCount": 3793,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.267167399999998,
+      "lng": -97.73867,
+      "googleMapsUri": "https://maps.google.com/?cid=10430403330259199010&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museumoftheweird.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.63
+    },
+    {
+      "googlePlaceId": "ChIJeZjGkNo0W4YR1VcHyhRTSC0",
+      "name": "Pennybacker Bridge Overlook",
+      "address": "N Capital of Texas Hwy, Austin, TX 78730, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1937,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.351112299999997,
+      "lng": -97.79659389999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3262949278783854549&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.360bridgeaustin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.56
+    },
+    {
+      "googlePlaceId": "ChIJ2VVCTgi1RIYRdZUyhqoZk_s",
+      "name": "Speakeasy",
+      "address": "412 N Congress Ave D, Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1952,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "bowling_alley",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "sports_complex",
+        "bar",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.266815599999994,
+      "lng": -97.74351899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18127861145282975093&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.speakeasyaustin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs",
+        "immersive experiences",
+        "interactive pop ups",
+        "bowling alleys",
+        "romantic bars",
+        "game night venues",
+        "karaoke bars",
+        "trivia nights",
+        "bottle service",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "local events",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "immersive-experiences",
+        "sports-recreation",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.54
+    },
+    {
+      "googlePlaceId": "ChIJ-9CdjMG1RIYR-URHjwOeggk",
+      "name": "Here Nor There",
+      "address": "612 Brazos St, Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 747,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2684109,
+      "lng": -97.74137840000002,
+      "googleMapsUri": "https://maps.google.com/?cid=685283831439639801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hntaustin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.53
+    },
+    {
+      "googlePlaceId": "ChIJsVecnpEjTIYRagExOpgtBzs",
+      "name": "Activate Games",
+      "address": "5013 W Plano Pkwy, Plano, TX 75093, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4145,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "adventure_sports_center",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.0174653,
+      "lng": -96.79667130000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4253418504909291882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/plano?utm_source=google&utm_medium=organic&utm_campaign=gmb-plano",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.39
+    },
+    {
+      "googlePlaceId": "ChIJq6rqw3PMRIYRXahNpj8DwcE",
+      "name": "Corinne at The Domain",
+      "address": "11301 Domain Dr, Austin, TX 78758, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1617,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.399258000000003,
+      "lng": -97.7246006,
+      "googleMapsUri": "https://maps.google.com/?cid=13961443891733178461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.corinneatxdomain.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.39
+    },
+    {
+      "googlePlaceId": "ChIJ5xPYSFr8WoYRtdTjFEcCV1w",
+      "name": "Longhorn Cavern State Park",
+      "address": "6211 Park Road 4 S, Burnet, TX 78611, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 5547,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.6838595,
+      "lng": -98.3523472,
+      "googleMapsUri": "https://maps.google.com/?cid=6653789478779606197&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.visitlonghorncavern.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.29
+    },
+    {
+      "googlePlaceId": "ChIJJ_YywdfLRIYRgBy09j0xHSI",
+      "name": "ClawZania Austin",
+      "address": "2525 W Anderson Ln. Suite 288, Austin, TX 78757, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 1550,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.3554985,
+      "lng": -97.7336818,
+      "googleMapsUri": "https://maps.google.com/?cid=2458175113815923840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.clawzania.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.24
+    },
+    {
+      "googlePlaceId": "ChIJqQ7aNPa1RIYREETlax1ArpU",
+      "name": "The Guest House Austin",
+      "address": "110 San Antonio St Ste R140, Austin, TX 78701, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2410,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2656426,
+      "lng": -97.74932559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10785628652707333136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.welcometgh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.22
+    },
+    {
+      "googlePlaceId": "ChIJDW0qen3KRIYRYZSjgidMmiA",
+      "name": "Central Market",
+      "address": "4001 N Lamar Blvd, Austin, TX 78756, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 3828,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "grocery_store",
+      "types": [
+        "health_food_store",
+        "grocery_store",
+        "food_store",
+        "health",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 30.307609799999998,
+      "lng": -97.73987609999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2349273888206328929&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.centralmarket.com/locations/austin-north-lamar?utm_source=google&utm_medium=organic&utm_campaign=cm_stores",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.06
+    },
+    {
+      "googlePlaceId": "ChIJyQ3taqa1RIYRVf1cqrsTR64",
+      "name": "Esther's Follies",
+      "address": "525 E 6th St, Austin, TX 78701, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1967,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2662879,
+      "lng": -97.7375062,
+      "googleMapsUri": "https://maps.google.com/?cid=12558027782683950421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.esthersfollies.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJZZ3WGwm1RIYRH7c0XjpoXZQ",
+      "name": "Antone's Nightclub",
+      "address": "305 E 5th St., Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1819,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.266045700000003,
+      "lng": -97.7403947,
+      "googleMapsUri": "https://maps.google.com/?cid=10690815690345330463&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.antonesnightclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 87.9
+    },
+    {
+      "googlePlaceId": "ChIJlZRUkae1RIYRm5oaF2g0dSM",
+      "name": "Eddie V's Prime Seafood",
+      "address": "301 E 5th St., Austin, TX 78701, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 2632,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "oyster_bar_restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "cocktail_bar",
+        "lounge_bar",
+        "american_restaurant",
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2662488,
+      "lng": -97.7406292,
+      "googleMapsUri": "https://maps.google.com/?cid=2555005985271487131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eddiev.com/locations/tx/austin/austin-5th-street/8501?cmpid=br:ev_ag:ie_ch:loc_ca:EVGMB_sn:gmb_gt:austin-tx-8501_pl:locurl_rd:1001",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.87
+    },
+    {
+      "googlePlaceId": "ChIJvwAtsdS1RIYRmwSjKuYBE-E",
+      "name": "Red Rose Cabaret",
+      "address": "3615 S Congress Ave, Austin, TX 78704, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.8,
+      "reviewCount": 1120,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.227279399999997,
+      "lng": -97.7609822,
+      "googleMapsUri": "https://maps.google.com/?cid=16218308771160720539&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://redroseaustin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bottle service",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.77
+    },
+    {
+      "googlePlaceId": "ChIJ_VMrBpC1RIYRlUDoUsJCIRs",
+      "name": "Bass Concert Hall",
+      "address": "2350 Robert Dedman Dr, Austin, TX 78712, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3227,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.286392199999998,
+      "lng": -97.7311995,
+      "googleMapsUri": "https://maps.google.com/?cid=1954917115637547157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://texasperformingarts.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.72
+    },
+    {
+      "googlePlaceId": "ChIJO9jSWbVfXIYRSRByBA4h70o",
+      "name": "Hopscotch San Antonio",
+      "address": "711 Navarro St Ste 100, San Antonio, TX 78205, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 6358,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "lounge_bar",
+        "night_club",
+        "gift_shop",
+        "art_gallery",
+        "bar",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 29.428150499999997,
+      "lng": -98.49004219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5399570822328356937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.letshopscotch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.66
+    },
+    {
+      "googlePlaceId": "ChIJ7XFDZae1RIYRmiqyJTfcQyk",
+      "name": "ATXcursions",
+      "address": "1516 Tinnin Ford Rd Unit B, Austin, TX 78741, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2432,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 30.241388500000003,
+      "lng": -97.7269108,
+      "googleMapsUri": "https://maps.google.com/?cid=2973462308408404634&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://atxcursions.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.65
+    },
+    {
+      "googlePlaceId": "ChIJKYtScPm1RIYR3XNM9fOKrMY",
+      "name": "Mueller Lake Park",
+      "address": "4550 Mueller Blvd, Austin, TX 78723, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6151,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2967706,
+      "lng": -97.70585229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14315970095901078493&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.muelleraustinonline.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.55
+    },
+    {
+      "googlePlaceId": "ChIJC7LFfX-1RIYRChAPNFanTEE",
+      "name": "29th Street Ballroom",
+      "address": "2906 Fruth St, Austin, TX 78705, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2564,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "comedy_club",
+        "wedding_venue",
+        "coffee_shop",
+        "art_gallery",
+        "performing_arts_theater",
+        "cafe",
+        "live_music_venue",
+        "bar",
+        "food_store",
+        "store",
+        "service",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2953157,
+      "lng": -97.74205219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4705319699377754122&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.29thstreetballroom.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "comedy shows",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.33
+    },
+    {
+      "googlePlaceId": "ChIJRSBCeKe1RIYRpUXX3Z5EU18",
+      "name": "Austin Duck Adventures",
+      "address": "103 E 5th St., Austin, TX 78701, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 1341,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2666777,
+      "lng": -97.74239039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6868909305787532709&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://austinducks.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJ7QF_tCLKRIYRf8wxv8ogKPI",
+      "name": "Blue Genie Art Bazaar",
+      "address": "6100 Airport Blvd Ste C, Austin, TX 78752, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 1332,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "gift_shop",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.326337599999995,
+      "lng": -97.716838,
+      "googleMapsUri": "https://maps.google.com/?cid=17449232811410181247&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bluegenieartbazaar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.27
+    },
+    {
+      "googlePlaceId": "ChIJ7XFDZae1RIYROB6oLNdB2Bk",
+      "name": "Firehouse Lounge",
+      "address": "605 Brazos St, Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1515,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2681729,
+      "lng": -97.7410806,
+      "googleMapsUri": "https://maps.google.com/?cid=1862310838340689464&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.firehousehostel.com/lounge",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJQfPL0SPLRIYR1R9YR-toyVU",
+      "name": "Austin Detours",
+      "address": "103 E 5th St., Austin, TX 78701, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1307,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 30.2667139,
+      "lng": -97.7424145,
+      "googleMapsUri": "https://maps.google.com/?cid=6181587323266277333&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://austindetours.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb-austin",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJlWBjs7-1RIYRsJt0C41E558",
+      "name": "Hestia",
+      "address": "607 W 3rd St #105, Austin, TX 78701, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 979,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "steak_house",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2667619,
+      "lng": -97.7500735,
+      "googleMapsUri": "https://maps.google.com/?cid=11522253544223972272&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hestiaaustin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJAToytr7NRIYRDs74SM-RTEI",
+      "name": "Activate Games",
+      "address": "3220 Feathergrass Ct, Austin, TX 78758, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 368,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "adventure_sports_center",
+        "store",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.3950012,
+      "lng": -97.72750579999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4777353624201776654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/domain?utm_source=google&utm_medium=organic&utm_campaign=gmb-domain",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.19
+    },
+    {
+      "googlePlaceId": "ChIJU0VrMYG1RIYRAl6KPBPnz4g",
+      "name": "Arcade UFO",
+      "address": "9029 Research Blvd #100, Austin, TX 78758, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 503,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.373191,
+      "lng": -97.72430899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9858352179143400962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.arcadeufo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.17
+    },
+    {
+      "googlePlaceId": "ChIJvSqruJq1RIYRFmf-PjEvpC8",
+      "name": "Texas Science & Natural History Museum",
+      "address": "2400 Trinity St, Austin, TX 78712, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 935,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.287032500000002,
+      "lng": -97.7323526,
+      "googleMapsUri": "https://maps.google.com/?cid=3432920704519923478&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sciencemuseum.utexas.edu/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJDSphtbG1RIYRJLIJxPWk2Ss",
+      "name": "Historic Scoot Inn",
+      "address": "1308 E 4th St, Austin, TX 78702, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1046,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.262105400000003,
+      "lng": -97.729413,
+      "googleMapsUri": "https://maps.google.com/?cid=3159737989040026148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.scootinnaustin.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.09
+    },
+    {
+      "googlePlaceId": "ChIJWdi3AAm1RIYRVOzVjpc3hOQ",
+      "name": "Garage",
+      "address": "503 Colorado St, Austin, TX 78701, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 931,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "pizza_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.267967199999998,
+      "lng": -97.7440893,
+      "googleMapsUri": "https://maps.google.com/?cid=16466347261649349716&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.garagetx.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.09
+    },
+    {
+      "googlePlaceId": "ChIJ9zvsEeHRRIYRWof6jj3oCgc",
+      "name": "Escapology Escape Rooms",
+      "address": "2000 S I-35 Frontage Rd E2, Round Rock, TX 78681, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2747,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.4893674,
+      "lng": -97.6802836,
+      "googleMapsUri": "https://maps.google.com/?cid=507473259122034522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.escapology.com/en/austin-tx",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.97
+    },
+    {
+      "googlePlaceId": "ChIJnbPFCGXKRIYR7k1OTzWPyvs",
+      "name": "Cafe Monet Art and Clay Studio",
+      "address": "4477 S Lamar Blvd #560, Austin, TX 78745, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 1052,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "gift_shop",
+        "art_studio",
+        "educational_institution",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 30.2306155,
+      "lng": -97.79906969999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18143471507942034926&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cafemonet.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 86.91
+    }
+  ]
+}

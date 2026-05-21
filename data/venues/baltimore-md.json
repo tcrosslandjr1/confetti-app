@@ -1,0 +1,3522 @@
+{
+  "location": "Baltimore, MD",
+  "generatedAt": "2026-05-17T19:21:11.800Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJXVZn5GIDyIkRjn58fGGo8Mc",
+      "name": "National Aquarium",
+      "address": "501 E Pratt St, Baltimore, MD 21202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 33427,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2853928,
+      "lng": -76.6083984,
+      "googleMapsUri": "https://maps.google.com/?cid=14407200344612044430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aqua.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.86
+    },
+    {
+      "googlePlaceId": "ChIJz2yfIJgDyIkREhJ4NEghTeo",
+      "name": "Fort McHenry National Monument and Historic Shrine",
+      "address": "2400 E Fort Ave, Baltimore, MD 21230, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 6816,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "hiking_area",
+        "tourist_attraction",
+        "picnic_ground",
+        "monument",
+        "sports_activity_location",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2641007,
+      "lng": -76.58064139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16883187172083503634&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/fomc/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.98
+    },
+    {
+      "googlePlaceId": "ChIJx7K17Ji3t4kRr3VvqMTw7cc",
+      "name": "Smithsonian National Museum of Natural History",
+      "address": "10th St. & Constitution Ave. NW, Washington, DC 20560, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 57646,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8912662,
+      "lng": -77.0260654,
+      "googleMapsUri": "https://maps.google.com/?cid=14406435510458217903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://naturalhistory.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 93.55
+    },
+    {
+      "googlePlaceId": "ChIJhbKKRJgEyIkRQKX60MnK3dU",
+      "name": "The Walters Art Museum",
+      "address": "600 N Charles St, Baltimore, MD 21201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3835,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "non_profit_organization",
+        "tourist_attraction",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.296425,
+      "lng": -76.61649849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15410696468075029824&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thewalters.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.15
+    },
+    {
+      "googlePlaceId": "ChIJcyBkMutGtokRqMoMaOdxXrE",
+      "name": "Steven F. Udvar-Hazy Center",
+      "address": "Steven F. Udvar-Hazy Center, 14390 Air and Space Museum Pkwy, Chantilly, VA 20151, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 29857,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9109189,
+      "lng": -77.44420749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12780778031221099176&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://airandspace.si.edu/visit/udvar-hazy-center",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 92.55
+    },
+    {
+      "googlePlaceId": "ChIJjxPm4BUOyIkRtSGjgVVMYVM",
+      "name": "Breakout Games",
+      "address": "1840 York Rd Suite J, Timonium, MD 21093, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7468,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.4322691,
+      "lng": -76.6234082,
+      "googleMapsUri": "https://maps.google.com/?cid=6008167308019835317&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/baltimore?utm_source=google&utm_medium=organic&utm_campaign=gmb-timonium",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.48
+    },
+    {
+      "googlePlaceId": "ChIJBe3AvXgDyIkRyWDeiBX0ocg",
+      "name": "Ampersea",
+      "address": "1417 Thames St, Baltimore, MD 21231, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3211,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2795396,
+      "lng": -76.596125,
+      "googleMapsUri": "https://maps.google.com/?cid=14457104652163768521&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ampersea.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.48
+    },
+    {
+      "googlePlaceId": "ChIJJSgkzWQDyIkRt-l143HvRh4",
+      "name": "American Visionary Art Museum",
+      "address": "800 Key Hwy, Baltimore, MD 21230, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3187,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "wedding_venue",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.280420500000005,
+      "lng": -76.6068947,
+      "googleMapsUri": "https://maps.google.com/?cid=2181694341934082487&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.avam.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.46
+    },
+    {
+      "googlePlaceId": "ChIJHWi0zzEbyIkRVxIG6AR2xEk",
+      "name": "The Maryland Zoo in Baltimore",
+      "address": "1 Safari Pl, Baltimore, MD 21217, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 8399,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "non_profit_organization",
+        "tourist_attraction",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3227068,
+      "lng": -76.6498096,
+      "googleMapsUri": "https://maps.google.com/?cid=5315503223648686679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marylandzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.25
+    },
+    {
+      "googlePlaceId": "ChIJ9-70uWQDyIkRURmNrp-2GFc",
+      "name": "Rusty Scupper Restaurant & Bar",
+      "address": "402 Key Hwy, Baltimore, MD 21230, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5725,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2821265,
+      "lng": -76.6073151,
+      "googleMapsUri": "https://maps.google.com/?cid=6275966877685324113&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rusty-scupper.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.13
+    },
+    {
+      "googlePlaceId": "ChIJa4Jg9NwEyIkR30vcjuVJBww",
+      "name": "R. House",
+      "address": "301 W 29th St, Baltimore, MD 21211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4992,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "coworking_space",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3217366,
+      "lng": -76.6223048,
+      "googleMapsUri": "https://maps.google.com/?cid=866742703585250271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://r.housebaltimore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "trivia nights",
+        "viral food spots",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "social-group-activities",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.69
+    },
+    {
+      "googlePlaceId": "ChIJ-aQxk5Dgt4kRp0lYFq_ozEo",
+      "name": "Breakout Games",
+      "address": "9017 Mendenhall Ct # G, Columbia, MD 21045, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 10310,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.1871714,
+      "lng": -76.8272358,
+      "googleMapsUri": "https://maps.google.com/?cid=5389938692747446695&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/baltimore?utm_source=google&utm_medium=organic&utm_campaign=gmb-columbia",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.25
+    },
+    {
+      "googlePlaceId": "ChIJN9LNsGIDyIkRs-JVpH2g-as",
+      "name": "Power Plant Live!",
+      "address": "34 Market Pl, Baltimore, MD 21202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 5706,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2891146,
+      "lng": -76.6073893,
+      "googleMapsUri": "https://maps.google.com/?cid=12392112311175078579&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://powerplantlive.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "game night venues",
+        "karaoke bars",
+        "bottle service",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.02
+    },
+    {
+      "googlePlaceId": "ChIJUzDqiaAEyIkRaRSawQJ_8Ls",
+      "name": "Hippodrome Theatre at the France-Merrick Performing Arts Center",
+      "address": "12 N Eutaw St, Baltimore, MD 21201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4165,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.289868999999996,
+      "lng": -76.62166049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13542463729317844073&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.baltimorehippodrome.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.71
+    },
+    {
+      "googlePlaceId": "ChIJYTEkFN4EyIkRIYUo1e89jY4",
+      "name": "Baltimore Museum of Art",
+      "address": "10 Art Museum Dr, Baltimore, MD 21218, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2954,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.326166799999996,
+      "lng": -76.6193437,
+      "googleMapsUri": "https://maps.google.com/?cid=10271934425384650017&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://artbma.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.71
+    },
+    {
+      "googlePlaceId": "ChIJtwn1AjYJyIkRbfkkKKjJhyc",
+      "name": "Activate Baltimore",
+      "address": "8165A Honeygo Blvd, Nottingham, MD 21236, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 915,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.371916899999995,
+      "lng": -76.4626517,
+      "googleMapsUri": "https://maps.google.com/?cid=2848467013400328557&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/baltimorewhitemarsh",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.68
+    },
+    {
+      "googlePlaceId": "ChIJjaWwMZ0EyIkRla6c_o2Sfg4",
+      "name": "Port Discovery Children's Museum",
+      "address": "35 Market Pl, Baltimore, MD 21202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 3397,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "non_profit_organization",
+        "tourist_attraction",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.289069399999995,
+      "lng": -76.60628890000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1044433302156258965&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.portdiscovery.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJm9IPln4DyIkRUVRpxN04pic",
+      "name": "Charleston",
+      "address": "1000 Lancaster St, Baltimore, MD 21202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1079,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.282598899999996,
+      "lng": -76.60004789999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2857033538747323473&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://charlestonrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.1
+    },
+    {
+      "googlePlaceId": "ChIJF74URcEayIkRcEc5R0g16-M",
+      "name": "Cylburn Arboretum",
+      "address": "4915 Greenspring Ave, Baltimore, MD 21209, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1516,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "tourist_attraction",
+        "botanical_garden",
+        "park",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3504576,
+      "lng": -76.6593592,
+      "googleMapsUri": "https://maps.google.com/?cid=16423279050685499248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cylburn.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.09
+    },
+    {
+      "googlePlaceId": "ChIJ8bWOH3EDyIkR8zD0hvkEH7Y",
+      "name": "Baltimore Museum of Industry",
+      "address": "1415 Key Hwy, Baltimore, MD 21230, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1488,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "non_profit_organization",
+        "tourist_attraction",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2739569,
+      "lng": -76.6016162,
+      "googleMapsUri": "https://maps.google.com/?cid=13123213308938432755&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thebmi.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.03
+    },
+    {
+      "googlePlaceId": "ChIJZ8PgCC0byIkRfcYmHm7Wor0",
+      "name": "Druid Hill Park",
+      "address": "900 Druid Park Lake Dr, Baltimore, MD 21217, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 4207,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3200311,
+      "lng": -76.6452029,
+      "googleMapsUri": "https://maps.google.com/?cid=13664719987836110461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.64
+    },
+    {
+      "googlePlaceId": "ChIJqSGk9WADyIkRDVkLuWmZKdM",
+      "name": "The Baltimore Convention Center",
+      "address": "1 W Pratt St, Baltimore, MD 21201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 5340,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.285850499999995,
+      "lng": -76.61837369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15215861495403075853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bccenter.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.3
+    },
+    {
+      "googlePlaceId": "ChIJZ-exMnkDyIkRzwPEZ-IjHH8",
+      "name": "Constellation - America's Energy Choice",
+      "address": "1310 Point St, Baltimore, MD 21231, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7609,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.280932,
+      "lng": -76.59857699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9159235197475226575&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.constellation.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJ3ZJeyMIEyIkRHwG8Tgil-gA",
+      "name": "Ottobar",
+      "address": "2549 N Howard St, Baltimore, MD 21218, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1612,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.318881,
+      "lng": -76.61958179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=70550199276929311&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theottobar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJmSW0EH8DyIkRWu4smJXw3Oo",
+      "name": "Keystone Korner Baltimore",
+      "address": "1350 Lancaster St, Baltimore, MD 21231, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1572,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2824928,
+      "lng": -76.5978263,
+      "googleMapsUri": "https://maps.google.com/?cid=16923666025045356122&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.keystonekornerbaltimore.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.1
+    },
+    {
+      "googlePlaceId": "ChIJl4L1Wp0EyIkRouz88rh7aSI",
+      "name": "Baltimore Soundstage",
+      "address": "124 Market Pl, Baltimore, MD 21202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 3043,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2876463,
+      "lng": -76.60706859999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2479649104125029538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.baltimoresoundstage.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "interactive pop ups",
+        "events this weekend",
+        "seasonal pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.01
+    },
+    {
+      "googlePlaceId": "ChIJ5Tc2NAsEyIkRjA3QYHaVBMs",
+      "name": "Creative Alliance",
+      "address": "3134 Eastern Ave, Baltimore, MD 21224, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 715,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "non_profit_organization",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.286739,
+      "lng": -76.5717909,
+      "googleMapsUri": "https://maps.google.com/?cid=14628981825269140876&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.creativealliance.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "art galleries",
+        "cultural exhibits",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.79
+    },
+    {
+      "googlePlaceId": "ChIJPaRjcSobyIkRA-2FCs13fBo",
+      "name": "Tavern at Woodberry Kitchen",
+      "address": "2010 Clipper Park Rd Suite 126, Baltimore, MD 21211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1962,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3320685,
+      "lng": -76.6453523,
+      "googleMapsUri": "https://maps.google.com/?cid=1908532064626797827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.woodberrykitchen.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJZ9mi1ykFyIkRuQq4uteZJzM",
+      "name": "The Food Market",
+      "address": "1017 W 36th St, Baltimore, MD 21211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2083,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3308889,
+      "lng": -76.6332417,
+      "googleMapsUri": "https://maps.google.com/?cid=3686083971855682233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.the-food-market.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.5
+    },
+    {
+      "googlePlaceId": "ChIJbw6sK5wEyIkR5EoCp380H40",
+      "name": "B&O Railroad Museum",
+      "address": "901 W Pratt St, Baltimore, MD 21223, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3369,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.285468099999996,
+      "lng": -76.6326119,
+      "googleMapsUri": "https://maps.google.com/?cid=10168904206493305572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.borail.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 87.28
+    },
+    {
+      "googlePlaceId": "ChIJGd1QdsBLtokRihAkR6N6TdE",
+      "name": "Sandbox VR",
+      "address": "1656 Silver Hill Dr, Tysons, VA 22102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5517,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.924360400000005,
+      "lng": -77.23272949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15081845568825462922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/mclean",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.16
+    },
+    {
+      "googlePlaceId": "ChIJr0GE3SsFyIkRpqlpJ4C0PWI",
+      "name": "Wicked Sisters",
+      "address": "3845 Falls Rd, Baltimore, MD 21211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2192,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.335015299999995,
+      "lng": -76.6360079,
+      "googleMapsUri": "https://maps.google.com/?cid=7079012651806337446&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wickedsistershampden.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJI0_vjLYdyIkR3thPDKvoteA",
+      "name": "Wonderfly Arena - Arbutus",
+      "address": "4811 Benson Ave, Arbutus, MD 21227, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 549,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "adventure_sports_center",
+        "amusement_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2551006,
+      "lng": -76.68581429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16192103856624097502&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wonderflyarena.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.95
+    },
+    {
+      "googlePlaceId": "ChIJBUF9P3wDyIkR8lewC0KV52Q",
+      "name": "The Bygone",
+      "address": "400 International Drive 29th floor, Baltimore, MD 21202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2112,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2827209,
+      "lng": -76.6025148,
+      "googleMapsUri": "https://maps.google.com/?cid=7270944234309441522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thebygonerestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJf5xHAwcDyIkRpjw6W4WL29A",
+      "name": "Ammoora",
+      "address": "751 Key Hwy, Baltimore, MD 21230, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1044,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "lebanese_restaurant",
+        "middle_eastern_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2808776,
+      "lng": -76.6067643,
+      "googleMapsUri": "https://maps.google.com/?cid=15049775984666098854&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ammoora.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJqz3h35gEyIkRgqBLjb4n524",
+      "name": "Sotto Sopra",
+      "address": "405 N Charles St, Baltimore, MD 21201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1029,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2944126,
+      "lng": -76.6153053,
+      "googleMapsUri": "https://maps.google.com/?cid=7991399763160047746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sottosoprainc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.75
+    },
+    {
+      "googlePlaceId": "ChIJnfF-v-MEyIkRyOV2udsdmeI",
+      "name": "Peabody Heights Brewery",
+      "address": "401 E 30th St, Baltimore, MD 21218, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 818,
+      "priceLevel": null,
+      "primaryType": "brewery",
+      "types": [
+        "brewery",
+        "video_arcade",
+        "event_venue",
+        "bar",
+        "service",
+        "manufacturer",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3243423,
+      "lng": -76.6104348,
+      "googleMapsUri": "https://maps.google.com/?cid=16328114753555064264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://peabodyheightsbrewery.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.72
+    },
+    {
+      "googlePlaceId": "ChIJwzRnSEMDyIkR1G4kSgN1Inw",
+      "name": "M&T Bank Stadium",
+      "address": "1101 Russell St, Baltimore, MD 21230, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 9301,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "event_venue",
+        "sports_club",
+        "sports_complex",
+        "association_or_organization",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.277866599999996,
+      "lng": -76.6229437,
+      "googleMapsUri": "https://maps.google.com/?cid=8944840466900479700&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.baltimoreravens.com/gameday/mt-bank-stadium.html",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.63
+    },
+    {
+      "googlePlaceId": "ChIJ8TRrlPYDyIkRsmnwGwWfJE4",
+      "name": "Gunther & Co.",
+      "address": "3650 Toone St, Baltimore, MD 21224, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1328,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.278623499999995,
+      "lng": -76.56592479999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5630800278412356018&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://eatatgunther.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.46
+    },
+    {
+      "googlePlaceId": "ChIJH5gDDKPPt4kRhDJv5rGS4z0",
+      "name": "Brookside Gardens",
+      "address": "1800 Glenallan Ave, Wheaton, MD 20902, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 6099,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.059552,
+      "lng": -77.0392758,
+      "googleMapsUri": "https://maps.google.com/?cid=4459569348799836804&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brooksidegardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJ_QmH87cFyIkR0JRSJut3D1E",
+      "name": "Jerk At Nite Baltimore",
+      "address": "21 N Eutaw St, Baltimore, MD 21201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 898,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "latin_american_restaurant",
+        "bar_and_grill",
+        "lounge_bar",
+        "caribbean_restaurant",
+        "night_club",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2902839,
+      "lng": -76.620738,
+      "googleMapsUri": "https://maps.google.com/?cid=5841019093566788816&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jerkatnite.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJT9ROz5gXyIkRzJSuPwSsfsY",
+      "name": "Hyper Kidz Baltimore",
+      "address": "11460 Cronridge Dr Suite 118, Owings Mills, MD 21117, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 4228,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.4408709,
+      "lng": -76.7766619,
+      "googleMapsUri": "https://maps.google.com/?cid=14303058600823526604&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://baltimore.hyperkidzplay.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJjYHGdHwfyIkRP-DiqjTMRrs",
+      "name": "Patapsco Valley State Park - Hollofield Area",
+      "address": "8020 Baltimore National Pike, Ellicott City, MD 21043, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6752,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2952288,
+      "lng": -76.7869876,
+      "googleMapsUri": "https://maps.google.com/?cid=13494697860039630911&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dnr.maryland.gov/publiclands/Pages/central/patapsco.aspx",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.25
+    },
+    {
+      "googlePlaceId": "ChIJ49gjP3wDyIkR6A4h0AMFb_I",
+      "name": "Loch Bar - Baltimore",
+      "address": "240 International Drive, Baltimore, MD 21202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1640,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "oyster_bar_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2823354,
+      "lng": -76.6022886,
+      "googleMapsUri": "https://maps.google.com/?cid=17469186993528311528&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lochbar.com/baltimore/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.04
+    },
+    {
+      "googlePlaceId": "ChIJr2ltJz0IyIkRGQ5TWpCKWLw",
+      "name": "All In Adventures Escape Rooms",
+      "address": "8200 Perry Hall Blvd, White Marsh, MD 21236, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3785,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3761497,
+      "lng": -76.468524,
+      "googleMapsUri": "https://maps.google.com/?cid=13571749829676305945&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://allinadventures.com/locations/white-marsh-md",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJ-xoX3ikFyIkRcvkkhWjqV7E",
+      "name": "The Bluebird Cocktail Room",
+      "address": "3602 Hickory Ave, Baltimore, MD 21211, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1106,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.3313184,
+      "lng": -76.63401019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12778940202318362994&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thebluebirdbaltimore.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJ4e09ID0IyIkRGoCtLnuKjWM",
+      "name": "Dave & Buster's Baltimore - White Marsh",
+      "address": "8200 Perry Hall Blvd, Baltimore, MD 21236, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 4303,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "bar_and_grill",
+        "amusement_center",
+        "video_arcade",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3750424,
+      "lng": -76.4674277,
+      "googleMapsUri": "https://maps.google.com/?cid=7173542043139801114&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/baltimore-white-marsh",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJF4gmsrEFyIkR9g7TettXVro",
+      "name": "No Land Beyond",
+      "address": "108 W North Ave, Baltimore, MD 21201, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 377,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "live_music_venue",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.311352,
+      "lng": -76.6183798,
+      "googleMapsUri": "https://maps.google.com/?cid=13427015939221819126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nolandbaltimore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.75
+    },
+    {
+      "googlePlaceId": "ChIJ20bAk1D2t4kR3UEmAQNb6rY",
+      "name": "Rams Head Live!",
+      "address": "20 Market Pl, Baltimore, MD 21202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1680,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2894444,
+      "lng": -76.6072222,
+      "googleMapsUri": "https://maps.google.com/?cid=13180447327915491805&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ramsheadlive.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.71
+    },
+    {
+      "googlePlaceId": "ChIJbw6sK5wEyIkRZpgcY2W-6QU",
+      "name": "Baltimore Farmers' Market",
+      "address": "E Saratoga St & Holliday St, Baltimore, MD 21202, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 2510,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2927031,
+      "lng": -76.6110992,
+      "googleMapsUri": "https://maps.google.com/?cid=426080982427015270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://farmersmarketbaltimore.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.69
+    },
+    {
+      "googlePlaceId": "ChIJv9hPlw0DyIkR-waa3ezw1eM",
+      "name": "Sagamore Spirit Distillery",
+      "address": "301 E Cromwell St, Baltimore, MD 21230, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 633,
+      "priceLevel": null,
+      "primaryType": "manufacturer",
+      "types": [
+        "gift_shop",
+        "tourist_attraction",
+        "store",
+        "manufacturer",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.263630000000006,
+      "lng": -76.6063108,
+      "googleMapsUri": "https://maps.google.com/?cid=16417292916769818363&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sagamorespirit.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "mixology classes",
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "learning-classes",
+        "local-exploration"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJo-RuYZYEyIkRdXu3r1Qni28",
+      "name": "The Owl Bar",
+      "address": "1 E Chase St, Baltimore, MD 21202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1412,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.3021234,
+      "lng": -76.6153327,
+      "googleMapsUri": "https://maps.google.com/?cid=8037561204651555701&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theowlbar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars",
+        "trivia nights",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.56
+    },
+    {
+      "googlePlaceId": "ChIJrzovrmYDyIkR890eAQG1Xpo",
+      "name": "Maryland Science Center",
+      "address": "601 Light St, Baltimore, MD 21230, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 988,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "planetarium",
+        "tourist_attraction",
+        "summer_camp_organizer",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.28141490000001,
+      "lng": -76.61191699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11123527145570098675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mdsci.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.52
+    },
+    {
+      "googlePlaceId": "ChIJ7yv5XmIDyIkRN5WrjyPTtNE",
+      "name": "Top of the World Observation Level",
+      "address": "401 E Pratt St 27th floor, Baltimore, MD 21202, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 692,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.286073699999996,
+      "lng": -76.6096582,
+      "googleMapsUri": "https://maps.google.com/?cid=15110934799422559543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.viewbaltimore.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJgS3GnWgDyIkR3bX26JPsEOY",
+      "name": "Illusions Bar & Theater",
+      "address": "1025 S Charles St, Baltimore, MD 21230, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1153,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "comedy_club",
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2775927,
+      "lng": -76.6142002,
+      "googleMapsUri": "https://maps.google.com/?cid=16578010348363625949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.illusionsmagicbar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "events tonight"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJ7Y9_SpC3t4kRNidcpxFnLy0",
+      "name": "International Spy Museum",
+      "address": "700 L'Enfant Plaza SW, Washington, DC 20024, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 17523,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.884141899999996,
+      "lng": -77.0255748,
+      "googleMapsUri": "https://maps.google.com/?cid=3255934381132097334&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spymuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.35
+    },
+    {
+      "googlePlaceId": "ChIJkf8-UtwEyIkRwnyiqBqpi8Q",
+      "name": "The PaperMoon Diner",
+      "address": "227 W 29th St, Baltimore, MD 21211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3584,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "diner",
+      "types": [
+        "diner",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.322435,
+      "lng": -76.62122889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14162599385160121538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://papermoondiner24.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.28
+    },
+    {
+      "googlePlaceId": "ChIJ93PnsoEDyIkRtnZr4kihKzY",
+      "name": "Max's Taphouse",
+      "address": "737 S Broadway, Baltimore, MD 21231, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.6,
+      "reviewCount": 2661,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "bar_and_grill",
+        "brewpub",
+        "sports_bar",
+        "pub",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2826448,
+      "lng": -76.5930146,
+      "googleMapsUri": "https://maps.google.com/?cid=3903390836455077558&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://maxs.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "karaoke bars",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.03
+    },
+    {
+      "googlePlaceId": "ChIJz09xa34DyIkRTfvmM_ehEZc",
+      "name": "The Elk Room",
+      "address": "1010 Fleet St, Baltimore, MD 21202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 819,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2846488,
+      "lng": -76.5999526,
+      "googleMapsUri": "https://maps.google.com/?cid=10885659857430969165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theelkroom.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "jazz clubs",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.92
+    },
+    {
+      "googlePlaceId": "ChIJG1GZyzobyIkRhZNO9ctUqkc",
+      "name": "The Living Room",
+      "address": "1636 Reisterstown Rd, Pikesville, MD 21208, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 1754,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.379548299999996,
+      "lng": -76.7287649,
+      "googleMapsUri": "https://maps.google.com/?cid=5164033157704356741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thelvrm.com/?utm_medium=organic&utm_source=gbp&utm_campaign=md+dispensary",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.55
+    },
+    {
+      "googlePlaceId": "ChIJB7xK6IEDyIkRt0RB5-NIhec",
+      "name": "The Horse You Came In On Saloon",
+      "address": "1626 Thames St, Baltimore, MD 21231, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 2014,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "tourist_attraction",
+        "pub",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2814991,
+      "lng": -76.5941621,
+      "googleMapsUri": "https://maps.google.com/?cid=16682820538338460855&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thehorsebaltimore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.49
+    },
+    {
+      "googlePlaceId": "ChIJH1_8E7QDyIkRJW-rVW_OpJ8",
+      "name": "Monarque",
+      "address": "1010 Fleet St, Baltimore, MD 21202, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 686,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "steak_house",
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2847785,
+      "lng": -76.5999755,
+      "googleMapsUri": "https://maps.google.com/?cid=11503546325785079589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://monarquebaltimore.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.36
+    },
+    {
+      "googlePlaceId": "ChIJxdLybmMFyIkRL_KLW_MRZf4",
+      "name": "Belvedere Square Market",
+      "address": "529 E Belvedere Ave, Baltimore, MD 21212, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3117,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3637312,
+      "lng": -76.6087919,
+      "googleMapsUri": "https://maps.google.com/?cid=18331077595192095279&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.belvederesquare.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 84.19
+    },
+    {
+      "googlePlaceId": "ChIJ1X8iaX4DyIkRhNmMemWyY6Q",
+      "name": "Tagliata",
+      "address": "1012 Fleet St, Baltimore, MD 21202, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 1804,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2843976,
+      "lng": -76.59969199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11845507593832028548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tagliatarestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.19
+    },
+    {
+      "googlePlaceId": "ChIJ_ZJNrTsDyIkRCpsnfbfbcO0",
+      "name": "The Ruxton Steakhouse",
+      "address": "720 Aliceanna St, Baltimore, MD 21202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 613,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.283377099999996,
+      "lng": -76.6023062,
+      "googleMapsUri": "https://maps.google.com/?cid=17109416565505760010&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://theruxtonsteakhouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84
+    },
+    {
+      "googlePlaceId": "ChIJvyrNChcDyIkR5YqQ8hnjl-U",
+      "name": "Five Iron Golf",
+      "address": "415 S Central Ave, Baltimore, MD 21202, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 548,
+      "priceLevel": null,
+      "primaryType": "indoor_golf_course",
+      "types": [
+        "indoor_golf_course",
+        "sports_bar",
+        "golf_course",
+        "athletic_field",
+        "sports_activity_location",
+        "sports_school",
+        "event_venue",
+        "bar",
+        "sports_coaching",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2855914,
+      "lng": -76.5989151,
+      "googleMapsUri": "https://maps.google.com/?cid=16543941456752052965&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fiveirongolf.com/locations/baltimore-harbor-east/?utm_source=local&utm_medium=organic&utm_campaign=md&utm_content=baltimore-harbor-east",
+      "openNow": true,
+      "matchedQueries": [
+        "golf courses",
+        "mini golf",
+        "driving ranges",
+        "indoor golf simulators"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJ78C_wxYDyIkR9C2_N9WP1Z4",
+      "name": "Nick's Fish House",
+      "address": "2600 Insulator Dr, Baltimore, MD 21230, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7865,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.260646699999995,
+      "lng": -76.6135817,
+      "googleMapsUri": "https://maps.google.com/?cid=11445212173958065652&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nicksfishhouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.89
+    },
+    {
+      "googlePlaceId": "ChIJw3bmv-Tix4kRlcuj4Zs-PLA",
+      "name": "Richardson Farms",
+      "address": "5900 Ebenezer Rd, White Marsh, MD 21162, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 3891,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "grocery_store",
+        "market",
+        "deli",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3763885,
+      "lng": -76.4174728,
+      "googleMapsUri": "https://maps.google.com/?cid=12699093888504417173&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://richardsonfarms.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 83.84
+    },
+    {
+      "googlePlaceId": "ChIJU1wCINYEyIkRY3B2FgjoqT4",
+      "name": "Golden West Cafe",
+      "address": "1105 W 36th St, Baltimore, MD 21211, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2796,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "southwestern_us_restaurant",
+      "types": [
+        "southwestern_us_restaurant",
+        "breakfast_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.3309339,
+      "lng": -76.6341173,
+      "googleMapsUri": "https://maps.google.com/?cid=4515395222849876067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.goldenwestcafe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 83.84
+    },
+    {
+      "googlePlaceId": "ChIJR8YzzHAEyIkRFVzfBdwjULc",
+      "name": "Patterson Park",
+      "address": "2601 E Baltimore St, Baltimore, MD 21224, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 4925,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2896838,
+      "lng": -76.57987829999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13209097134975966229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.75
+    },
+    {
+      "googlePlaceId": "ChIJm-TP7XgDyIkRihTUteUEO08",
+      "name": "Copper Shark",
+      "address": "921 E Fort Ave, Baltimore, MD 21230, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 389,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.271041499999995,
+      "lng": -76.6006199,
+      "googleMapsUri": "https://maps.google.com/?cid=5709162337266832522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thecoppershark.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.65
+    },
+    {
+      "googlePlaceId": "ChIJ20bAk1D2t4kRScYfblDwzI0",
+      "name": "Pier Six Pavilion",
+      "address": "731 Eastern Ave, Baltimore, MD 21202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 1745,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2840191,
+      "lng": -76.6044701,
+      "googleMapsUri": "https://maps.google.com/?cid=10217805882832438857&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.livenation.com/venue/KovZpZAa1enA/pier-six-pavilion-events?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.63
+    },
+    {
+      "googlePlaceId": "ChIJQRzowDMbyIkRBVGP87U8PZk",
+      "name": "Rawlings Conservatory",
+      "address": "3100 Swann Dr, Baltimore, MD 21217, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 921,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3183029,
+      "lng": -76.6460969,
+      "googleMapsUri": "https://maps.google.com/?cid=11042048613555327237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rawlingsconservatory.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.6
+    },
+    {
+      "googlePlaceId": "ChIJ_8ASxMMEyIkR45b19i0qmUo",
+      "name": "W.C. HARLAN",
+      "address": "400 W 23rd St, Baltimore, MD 21211, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 753,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3152824,
+      "lng": -76.6220817,
+      "googleMapsUri": "https://maps.google.com/?cid=5375374007148582627&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://facebook.com/wcharlan",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.6
+    },
+    {
+      "googlePlaceId": "ChIJ3UdzoYIEyIkRcHIoPoU8BUQ",
+      "name": "Miss Shirley's Cafe, Inner Harbor",
+      "address": "750 E Pratt St, Baltimore, MD 21202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7022,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "brunch_restaurant",
+        "catering_service",
+        "breakfast_restaurant",
+        "cafe",
+        "food_delivery",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.2870261,
+      "lng": -76.6052726,
+      "googleMapsUri": "https://maps.google.com/?cid=4901390312433807984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.missshirleys.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.53
+    },
+    {
+      "googlePlaceId": "ChIJf9oOQYADyIkR9GVLqalarGY",
+      "name": "Broadway Market",
+      "address": "1640 Aliceanna St, Baltimore, MD 21231, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 736,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.284193099999996,
+      "lng": -76.5934041,
+      "googleMapsUri": "https://maps.google.com/?cid=7398387972599145972&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.broadwaymarketbaltimore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "farmers markets",
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "shopping-markets"
+      ],
+      "popularityScore": 83.48
+    },
+    {
+      "googlePlaceId": "ChIJ-48vE5gEyIkR5fWbbQbh4PM",
+      "name": "Topside",
+      "address": "101 W Monument St, Baltimore, MD 21201, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 729,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "brunch_restaurant",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.297291099999995,
+      "lng": -76.6172284,
+      "googleMapsUri": "https://maps.google.com/?cid=17573293163724666341&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hotelrevivalbaltimore.com/eat-drink/topside",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.45
+    },
+    {
+      "googlePlaceId": "ChIJqZdTE5wFyIkRsqs2HlVNrtU",
+      "name": "Fadensonnen",
+      "address": "3 W 23rd St, Baltimore, MD 21218, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 401,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "wine_bar",
+      "types": [
+        "wine_bar",
+        "beer_garden",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.3150835,
+      "lng": -76.61758999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15397329204000762802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fadensonnen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.35
+    },
+    {
+      "googlePlaceId": "ChIJh_DeHWUDyIkRYT2EuepVN6c",
+      "name": "Federal Hill Park",
+      "address": "300 Warren Ave, Baltimore, MD 21230, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3113,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2797209,
+      "lng": -76.60846219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12049193794676211041&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.federalhillonline.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.13
+    },
+    {
+      "googlePlaceId": "ChIJdTW8GoEDyIkRZE4uAxQXwVw",
+      "name": "The Point In Fells",
+      "address": "1738 Thames St, Baltimore, MD 21231, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 1612,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "cocktail_bar",
+        "brunch_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.282065300000006,
+      "lng": -76.591363,
+      "googleMapsUri": "https://maps.google.com/?cid=6683648696714677860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thepointinfells.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "sunset date spots",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 83.13
+    },
+    {
+      "googlePlaceId": "ChIJz3beI_Lit4kR2xP1PV6uyHA",
+      "name": "Urban Pirates",
+      "address": "912 S Ann St, Baltimore, MD 21231, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 530,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "tourist_attraction",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.281253199999995,
+      "lng": -76.59093899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8126937247379690459&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.urbanpirates.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 83.13
+    },
+    {
+      "googlePlaceId": "ChIJYQovBaAEyIkRJsIPpkohhCs",
+      "name": "CFG Bank Arena",
+      "address": "CFG Bank Arena, 201 W Baltimore St, Baltimore, MD 21201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.1,
+      "reviewCount": 8764,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2885729,
+      "lng": -76.6187071,
+      "googleMapsUri": "https://maps.google.com/?cid=3135667845054054950&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cfgbankarena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.09
+    },
+    {
+      "googlePlaceId": "ChIJVVVVVaIEyIkRvWrxoe_Cydo",
+      "name": "Baltimore Symphony Orchestra",
+      "address": "1212 Cathedral St, Baltimore, MD 21201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2129,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.303868099999995,
+      "lng": -76.61902049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15765346305057057469&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bsomusic.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.02
+    },
+    {
+      "googlePlaceId": "ChIJvTsr0OYFyIkREWnEaAJBU88",
+      "name": "The Coral Wig",
+      "address": "In the alley, 2 E Read St #6, Baltimore, MD 21202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 159,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2997593,
+      "lng": -76.6152671,
+      "googleMapsUri": "https://maps.google.com/?cid=14939355867521509649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thecoralwig.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83
+    },
+    {
+      "googlePlaceId": "ChIJnZ8C9Azix4kR6zhOEDSZaI8",
+      "name": "Angel Park",
+      "address": "9650 Honeygo Blvd, Perry Hall, MD 21128, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2047,
+      "priceLevel": null,
+      "primaryType": "playground",
+      "types": [
+        "playground",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.4143305,
+      "lng": -76.44984649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10333677793892514027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.angel-park.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.89
+    },
+    {
+      "googlePlaceId": "ChIJT48GC4EDyIkRcjTHo2pLlI8",
+      "name": "Rec Pier Chop House",
+      "address": "The Sagamore Pendry Hotel, 1715 Thames St, Baltimore, MD 21231, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 823,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2816489,
+      "lng": -76.5920763,
+      "googleMapsUri": "https://maps.google.com/?cid=10345977165363229810&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.recpierchophouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.74
+    },
+    {
+      "googlePlaceId": "ChIJP0HUFf39t4kRJFenU754E9w",
+      "name": "Totsville Indoor Playground & Sandbox",
+      "address": "7497 Baltimore Annapolis Blvd, Glen Burnie, MD 21061, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 1936,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.1634872,
+      "lng": -76.6232368,
+      "googleMapsUri": "https://maps.google.com/?cid=15858151471744243492&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://totsvilleplayground.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 82.72
+    },
+    {
+      "googlePlaceId": "ChIJN9CCMsAEyIkReCsIYnjMdHM",
+      "name": "Motor House",
+      "address": "120 W North Ave, Baltimore, MD 21201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 448,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.311224599999996,
+      "lng": -76.6188099,
+      "googleMapsUri": "https://maps.google.com/?cid=8319499229072993144&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://motorhousebaltimore.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.6
+    },
+    {
+      "googlePlaceId": "ChIJbYLkPSwDyIkRdBYYSOlWBJ0",
+      "name": "Titanic: An Immersive Voyage - Baltimore",
+      "address": "601 E Pratt St, Baltimore, MD 21202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 388,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2863591,
+      "lng": -76.6072429,
+      "googleMapsUri": "https://maps.google.com/?cid=11314263723798435444&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://expo-titanic.com/baltimore/?utm_source=google&utm_medium=localcards&utm_campaign=569503_bwi",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.59
+    },
+    {
+      "googlePlaceId": "ChIJIVfGYrvft4kRPot6bd5L8XQ",
+      "name": "Toby's Dinner Theatre",
+      "address": "5900 Symphony Woods Rd, Columbia, MD 21044, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2614,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "association_or_organization",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.208977999999995,
+      "lng": -76.85848539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8426599796478479166&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tobysdinnertheatre.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 82.57
+    },
+    {
+      "googlePlaceId": "ChIJdbB3OVkDyIkRJzRKD7xcpYY",
+      "name": "Babe Ruth Birthplace and Museum",
+      "address": "216 Emory St, Baltimore, MD 21230, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 744,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2855834,
+      "lng": -76.6248275,
+      "googleMapsUri": "https://maps.google.com/?cid=9702262935019729959&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://baberuthmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 82.47
+    },
+    {
+      "googlePlaceId": "ChIJB8tLroEDyIkRftB6ihtI6Z0",
+      "name": "RYE of BALTIMORE",
+      "address": "1639 Thames St, Baltimore, MD 21231, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 658,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.2814674,
+      "lng": -76.5935198,
+      "googleMapsUri": "https://maps.google.com/?cid=11378705216652890238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ryebaltimore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 82.47
+    },
+    {
+      "googlePlaceId": "ChIJv5rh1WIDyIkRw8BWpRoGfSQ",
+      "name": "Marine Mammal Pavilion",
+      "address": "Beluga Blvd, Baltimore, MD 21202, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 269,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2845363,
+      "lng": -76.6069807,
+      "googleMapsUri": "https://maps.google.com/?cid=2629264468967080131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aqua.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 82.47
+    },
+    {
+      "googlePlaceId": "ChIJRx53WJcEyIkRittRJ2XoKM4",
+      "name": "Baltimore Center Stage",
+      "address": "700 N Calvert St, Baltimore, MD 21202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1013,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2980713,
+      "lng": -76.61312699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14855378892030598026&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.centerstage.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 82.4
+    },
+    {
+      "googlePlaceId": "ChIJyWflHdwGyIkRbfEXdPfFQAo",
+      "name": "Ultrazone Baltimore",
+      "address": "7835 Eastpoint Mall #11, Baltimore, MD 21224, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 517,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2929714,
+      "lng": -76.5084427,
+      "googleMapsUri": "https://maps.google.com/?cid=738808005484081517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ultrazonebaltimore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 82.36
+    },
+    {
+      "googlePlaceId": "ChIJF5X3iLMTyIkRon6yf4eUbdg",
+      "name": "Oregon Ridge Nature Center",
+      "address": "13555 Beaver Dam Rd, Cockeysville, MD 21030, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1364,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "hiking_area",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.4915042,
+      "lng": -76.6813513,
+      "googleMapsUri": "https://maps.google.com/?cid=15595284394337795746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.baltimorecountymd.gov/departments/recreation/programs/oregon-ridge-lodge/nature-center",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.25
+    },
+    {
+      "googlePlaceId": "ChIJla7AFSgFyIkRBs6xqWVVb-8",
+      "name": "The Wine Source",
+      "address": "3601 Elm Ave, Baltimore, MD 21211, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 1658,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "liquor_store",
+      "types": [
+        "liquor_store",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.3317933,
+      "lng": -76.6309337,
+      "googleMapsUri": "https://maps.google.com/?cid=17253102592606719494&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewinesource.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 82.22
+    },
+    {
+      "googlePlaceId": "ChIJ0aoYV6I7xokR7lylgOUcZQ4",
+      "name": "Dutch Wonderland® Family Amusement Park",
+      "address": "2249 Lincoln Hwy E, Lancaster, PA 17602, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 6459,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "cultural_center",
+        "tourist_attraction",
+        "amusement_center",
+        "park",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": 40.0275415,
+      "lng": -76.2183249,
+      "googleMapsUri": "https://maps.google.com/?cid=1037267061210176750&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dutchwonderland.com/?utm_id=GMBtraffic&utm_medium=OrganicGMB&utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 82.16
+    },
+    {
+      "googlePlaceId": "ChIJt1oMu3cEyIkRckYcpa0aKPA",
+      "name": "BMORE LICKS",
+      "address": "2437 Eastern Ave, Baltimore, MD 21224, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 2252,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.285845699999996,
+      "lng": -76.5816037,
+      "googleMapsUri": "https://maps.google.com/?cid=17305110901272888946&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bmorelicks.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 82.1
+    },
+    {
+      "googlePlaceId": "ChIJRUHhc_YEyIkR-oT9HfR-xZ8",
+      "name": "The National Great Blacks In Wax Museum",
+      "address": "1601-03 E North Ave, Baltimore, MD 21213, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 1317,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.311766899999995,
+      "lng": -76.59682040000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11512747609382814970&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.greatblacksinwax.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 82.09
+    }
+  ]
+}

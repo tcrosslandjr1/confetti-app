@@ -1,0 +1,3375 @@
+{
+  "location": "New York City, NY",
+  "generatedAt": "2026-05-17T18:53:18.669Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ4zGFAZpYwokRGUGph3Mf37k",
+      "name": "Central Park",
+      "address": "New York, NY, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 299537,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7825547,
+      "lng": -73.9655834,
+      "googleMapsUri": "https://maps.google.com/?cid=13393458397880860953&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.centralparknyc.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJ9U1mz_5YwokRosza1aAk0jM",
+      "name": "Rockefeller Center",
+      "address": "45 Rockefeller Plaza, New York, NY 10111, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 200995,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7587402,
+      "lng": -73.9786736,
+      "googleMapsUri": "https://maps.google.com/?cid=3734087314244816034&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rockefellercenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "skating rinks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 99.59
+    },
+    {
+      "googlePlaceId": "ChIJvbGg56pZwokRp_E3JbivnLQ",
+      "name": "Bryant Park",
+      "address": "New York, NY 10018, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 106926,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7535367,
+      "lng": -73.9829529,
+      "googleMapsUri": "https://maps.google.com/?cid=13014470228627157415&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bryantpark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "skating rinks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.84
+    },
+    {
+      "googlePlaceId": "ChIJe7vKMf9YwokRIMYfDz7iF9o",
+      "name": "Top of The Rock",
+      "address": "30 Rockefeller Plaza, New York, NY 10112, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 82324,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7593495,
+      "lng": -73.9794087,
+      "googleMapsUri": "https://maps.google.com/?cid=15715278180902225440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.12
+    },
+    {
+      "googlePlaceId": "ChIJb8Jg9pZYwokR-qHGtvSkLzs",
+      "name": "The Metropolitan Museum of Art",
+      "address": "1000 5th Ave, New York, NY 10028, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 92841,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7794366,
+      "lng": -73.963244,
+      "googleMapsUri": "https://maps.google.com/?cid=4264808743088595450&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.metmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.05
+    },
+    {
+      "googlePlaceId": "ChIJ5bQPhMdZwokRkTwKhVxhP1g",
+      "name": "The High Line",
+      "address": "New York, NY 10011, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 67317,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.747992499999995,
+      "lng": -74.0047649,
+      "googleMapsUri": "https://maps.google.com/?cid=6358908248867355793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehighline.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.06
+    },
+    {
+      "googlePlaceId": "ChIJw2lMFL9ZwokRosAtly52YX4",
+      "name": "Chelsea Market",
+      "address": "75 9th Ave, New York, NY 10011, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 51752,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7424396,
+      "lng": -74.0061439,
+      "googleMapsUri": "https://maps.google.com/?cid=9106689863996784802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chelseamarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.73
+    },
+    {
+      "googlePlaceId": "ChIJTWE_0BtawokRVJNGH5RS448",
+      "name": "One World Observatory",
+      "address": "117 West St, New York, NY 10007, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 25569,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "cocktail_bar",
+        "scenic_spot",
+        "tourist_attraction",
+        "event_venue",
+        "bar",
+        "cafe",
+        "historical_landmark",
+        "historical_place",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.713006199999995,
+      "lng": -74.013173,
+      "googleMapsUri": "https://maps.google.com/?cid=10368221563270370132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oneworldobservatory.com/?utm_source=googlebusiness&utm_medium=organic&utm_campaign=places",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.87
+    },
+    {
+      "googlePlaceId": "ChIJKxDbe_lYwokRVf__s8CPn-o",
+      "name": "The Museum of Modern Art",
+      "address": "11 W 53rd St, New York, NY 10019, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 59390,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7614327,
+      "lng": -73.97762159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16906389583988522837&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moma.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.61
+    },
+    {
+      "googlePlaceId": "ChIJaXQRs6lZwokRY6EFpJnhNNE",
+      "name": "Empire State Building",
+      "address": "20 W 34th St., New York, NY 10001, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 127025,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "observation_deck",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7484405,
+      "lng": -73.98566439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15074921902713971043&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.esbnyc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.32
+    },
+    {
+      "googlePlaceId": "ChIJd7I1IO5ZwokRbv7YUlgChl4",
+      "name": "SUMMIT One Vanderbilt",
+      "address": "45 E 42nd St, New York, NY 10017, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 34204,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7527746,
+      "lng": -73.9787253,
+      "googleMapsUri": "https://maps.google.com/?cid=6811134064814784110&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://summitov.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 92.93
+    },
+    {
+      "googlePlaceId": "ChIJL-CJmTFZwokRsPcqje_bn7w",
+      "name": "Little Island",
+      "address": "Little Island, Pier 55 at Hudson River Park, Hudson River Greenway, New York, NY 10014, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 17364,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7420024,
+      "lng": -74.010299,
+      "googleMapsUri": "https://maps.google.com/?cid=13591824022339516336&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://littleisland.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 92.8
+    },
+    {
+      "googlePlaceId": "ChIJeQK8JjNawokRHe4x0TextbU",
+      "name": "Beat The Bomb Brooklyn",
+      "address": "255 Water St, Brooklyn, NY 11201, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 15896,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "indoor_playground",
+        "video_arcade",
+        "playground",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7030771,
+      "lng": -73.9838659,
+      "googleMapsUri": "https://maps.google.com/?cid=13093566344940613149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.beatthebomb.com/locations/brooklyn",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.6
+    },
+    {
+      "googlePlaceId": "ChIJRcvoOxpawokR7R4dQMXMMPQ",
+      "name": "9/11 Memorial & Museum",
+      "address": "180 Greenwich St, New York, NY 10007, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 93663,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7115776,
+      "lng": -74.0133362,
+      "googleMapsUri": "https://maps.google.com/?cid=17595788891692801773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.911memorial.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 92.07
+    },
+    {
+      "googlePlaceId": "ChIJmQJIxlVYwokRLgeuocVOGVU",
+      "name": "Times Square",
+      "address": "Manhattan, NY 10036, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 242923,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7579747,
+      "lng": -73.9855426,
+      "googleMapsUri": "https://maps.google.com/?cid=6132018978369701678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timessquarenyc.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 91.87
+    },
+    {
+      "googlePlaceId": "ChIJR1pTRTxawokRyzoX5XQ_alI",
+      "name": "Pier 17",
+      "address": "89 South St, New York, NY 10038, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 12182,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.705573,
+      "lng": -74.00145669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5938628829933681355&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rooftopatpier17.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "interactive pop ups",
+        "events this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.81
+    },
+    {
+      "googlePlaceId": "ChIJAYNgfoVZwokRhOhogiV11mM",
+      "name": "Immersive Gamebox - Lower East Side",
+      "address": "81 Essex St, New York, NY 10002, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4062,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.71814,
+      "lng": -73.9885917,
+      "googleMapsUri": "https://maps.google.com/?cid=7194066258733099140&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://immersivegamebox.com/locations/ny-lower-east-side-manhattan/?venue=skills.tiger.pretty",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.96
+    },
+    {
+      "googlePlaceId": "ChIJraKL-BJawokREpxDmF5GcL4",
+      "name": "The Battery",
+      "address": "New York, NY 10004, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 79819,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.702931199999995,
+      "lng": -74.0153603,
+      "googleMapsUri": "https://maps.google.com/?cid=13722545436693339154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thebattery.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.93
+    },
+    {
+      "googlePlaceId": "ChIJIRiJaRRawokR2KyQ984qa-o",
+      "name": "The Dead Rabbit",
+      "address": "30 Water St, New York, NY 10004, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 8365,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "gastropub",
+        "brunch_restaurant",
+        "irish_pub",
+        "pub",
+        "live_music_venue",
+        "cocktail_bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7032685,
+      "lng": -74.0110218,
+      "googleMapsUri": "https://maps.google.com/?cid=16891641895788260568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thedeadrabbit.com/?utm_source=google_business_profile&utm_medium=gbp_view_website&utm_campaign=google_business_profile",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "events tonight",
+        "date night restaurants",
+        "game night venues",
+        "game bars",
+        "mixology classes",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.77
+    },
+    {
+      "googlePlaceId": "ChIJK3vOQyNawokRXEa9errdJiU",
+      "name": "Brooklyn Bridge",
+      "address": "New York, NY 10038, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 92049,
+      "priceLevel": null,
+      "primaryType": "bridge",
+      "types": [
+        "bridge",
+        "landmark",
+        "tourist_attraction",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7060855,
+      "lng": -73.9968643,
+      "googleMapsUri": "https://maps.google.com/?cid=2677070821511218780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.28
+    },
+    {
+      "googlePlaceId": "ChIJI1Okj_VfwokRokOWV69lL7o",
+      "name": "Gaming City",
+      "address": "36-10 31st St, Astoria, NY 11106, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2861,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7562813,
+      "lng": -73.9302658,
+      "googleMapsUri": "https://maps.google.com/?cid=13416053618723144610&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gamingcityusa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.99
+    },
+    {
+      "googlePlaceId": "ChIJPTacEpBQwokRKwIlDXelxkA",
+      "name": "Statue of Liberty",
+      "address": "New York, NY 10004, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 112303,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "monument",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.6892494,
+      "lng": -74.04450039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4667599994556318251&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/stli/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.73
+    },
+    {
+      "googlePlaceId": "ChIJN6W-X_VYwokRTqwcBnTw1Uk",
+      "name": "Lincoln Center for the Performing Arts",
+      "address": "Lincoln Center Plaza, New York, NY 10023, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 21676,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7724641,
+      "lng": -73.9834889,
+      "googleMapsUri": "https://maps.google.com/?cid=5320422915917524046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lincolncenter.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 89.51
+    },
+    {
+      "googlePlaceId": "ChIJ_1oyZaZZwokR1c-HIVJ3xzo",
+      "name": "230 Fifth Rooftop Bar",
+      "address": "1150 Broadway, New York, NY 10001, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 25105,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7441081,
+      "lng": -73.9888201,
+      "googleMapsUri": "https://maps.google.com/?cid=4235485169198813141&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.230-fifth.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.42
+    },
+    {
+      "googlePlaceId": "ChIJCXoPsPRYwokRsV1MYnKBfaI",
+      "name": "American Museum of Natural History",
+      "address": "200 Central Prk W, New York, NY 10024, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 24587,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "research_institute",
+        "historical_landmark",
+        "tourist_attraction",
+        "museum",
+        "planetarium",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7813241,
+      "lng": -73.9739882,
+      "googleMapsUri": "https://maps.google.com/?cid=11708656934508584369&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.amnh.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.41
+    },
+    {
+      "googlePlaceId": "ChIJyWM9D7FZwokRm7KE7sXxt1Q",
+      "name": "Tidal Force VR",
+      "address": "166 5th Ave 2 Floor, New York, NY 10010, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1482,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.740721099999995,
+      "lng": -73.9906199,
+      "googleMapsUri": "https://maps.google.com/?cid=6104613652336521883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tidalforcevr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.27
+    },
+    {
+      "googlePlaceId": "ChIJ6XBmhaZZwokRlmXoc8vxrsE",
+      "name": "Museum of Illusions - New York",
+      "address": "77 8th Ave, New York, NY 10014, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 13571,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.739687499999995,
+      "lng": -74.002907,
+      "googleMapsUri": "https://maps.google.com/?cid=13956358151393011094&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://newyork.museumofillusions.us/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive pop ups",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 88.81
+    },
+    {
+      "googlePlaceId": "ChIJ58OtM8pZwokRbd6DT6gcVys",
+      "name": "La Grande Boucherie",
+      "address": "145 W 53rd St, New York, NY 10019, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 10226,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.7626274,
+      "lng": -73.98084109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3122996375818853997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boucherieus.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.48
+    },
+    {
+      "googlePlaceId": "ChIJ3aqq5Q1ZwokRb9hLO7Gyxgw",
+      "name": "Edge NYC",
+      "address": "30 Hudson Yards, New York, NY 10001, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 32107,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "observation_deck",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.753393599999995,
+      "lng": -74.00105500000001,
+      "googleMapsUri": "https://maps.google.com/?cid=920619648117626991&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.edgenyc.com/get-tickets/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJ9aMCWaxbwokRZHJGmTBxFtQ",
+      "name": "Time Out Market New York",
+      "address": "55 Water St, Brooklyn, NY 11201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7877,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "banquet_hall",
+        "market",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7034205,
+      "lng": -73.9921457,
+      "googleMapsUri": "https://maps.google.com/?cid=15282526839072256612&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timeoutmarket.com/newyork/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "viral food spots",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJjaFpo0ZawokRBcOFUZ13CaE",
+      "name": "Brooklyn Bridge Park",
+      "address": "Brooklyn, NY 11201, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 42987,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7022422,
+      "lng": -73.9958601,
+      "googleMapsUri": "https://maps.google.com/?cid=11603937432458085125&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brooklynbridgepark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.16
+    },
+    {
+      "googlePlaceId": "ChIJC1UQPABZwokRtfrQRhle8Fo",
+      "name": "Arte Museum New York",
+      "address": "61 Chelsea Piers, New York, NY 10011, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2961,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7472656,
+      "lng": -74.008927,
+      "googleMapsUri": "https://maps.google.com/?cid=6552840920479365813&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://newyork.artemuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJG2aZ1wT2wokRzz-VKP0lkJg",
+      "name": "New York Hall of Science",
+      "address": "47-01 111th St, Corona, NY 11368, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 6211,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7472583,
+      "lng": -73.8516925,
+      "googleMapsUri": "https://maps.google.com/?cid=10993328459649204175&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nysci.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJlx_J861ZwokRnBboWMNuVno",
+      "name": "The FRIENDS™ Experience: The One in New York City",
+      "address": "The Friends Experience, 130 E 23rd St, New York, NY 10010, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 5272,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "cafe",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.7394044,
+      "lng": -73.98516699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8815355105913607836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.friendstheexperience.com/new-york/?utm_source=google&utm_medium=localcards&utm_campaign=110671_nyc",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "immersive experiences",
+        "interactive pop ups",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJnxlg1U5YwokR8T90UrZiIwI",
+      "name": "Intrepid Museum",
+      "address": "Pier 86, W 46th St, New York, NY 10036, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 46242,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.764880100000006,
+      "lng": -74.0008306,
+      "googleMapsUri": "https://maps.google.com/?cid=154075347467649009&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://intrepidmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJy7cGfBlawokR5l2e93hsoEA",
+      "name": "One World Trade Center",
+      "address": "285 Fulton St, New York, NY 10007, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 31027,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7127431,
+      "lng": -74.0133795,
+      "googleMapsUri": "https://maps.google.com/?cid=4656841281507319270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wtc.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJh70nPBz2wokR7EWPEdNPP9s",
+      "name": "Conservatory Garden",
+      "address": "1233 5th Ave, New York, NY 10029, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2878,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.793692799999995,
+      "lng": -73.9524588,
+      "googleMapsUri": "https://maps.google.com/?cid=15798433785790285292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.centralparknyc.org/things-to-see-and-do/attractions/conservatory-garden.html",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.16
+    },
+    {
+      "googlePlaceId": "ChIJPS8b1vhYwokRldqq2YHmxJI",
+      "name": "Radio City Music Hall",
+      "address": "1260 6th Ave, New York, NY 10020, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 27437,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "tourist_attraction",
+        "performing_arts_theater",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.759975999999995,
+      "lng": -73.9799772,
+      "googleMapsUri": "https://maps.google.com/?cid=10575831270349789845&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.msg.com/radio-city-music-hall",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJFe-bxtFZwokRC2C8_1R3r2g",
+      "name": "Vintage Green Rooftop",
+      "address": "303 Lexington Ave 16th Floor, New York, NY 10016, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 3056,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "american_restaurant",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.7484439,
+      "lng": -73.9780391,
+      "googleMapsUri": "https://maps.google.com/?cid=7543379107820363787&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://vintagegreen.nyc/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJEemrT6pZwokRBdHb4BXiHJQ",
+      "name": "Refinery Rooftop",
+      "address": "63 W 38th St, New York, NY 10018, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 4361,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "wine_bar",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.7526164,
+      "lng": -73.9852828,
+      "googleMapsUri": "https://maps.google.com/?cid=10672653800555925765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://refineryrooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "learning-classes"
+      ],
+      "popularityScore": 86.76
+    },
+    {
+      "googlePlaceId": "ChIJD8YUwhFawokRFu9nJOnNJbU",
+      "name": "Rockefeller Park",
+      "address": "75 Battery Place, New York, NY 10280, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3697,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.716257999999996,
+      "lng": -74.0167609,
+      "googleMapsUri": "https://maps.google.com/?cid=13053065496225115926&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bpca.ny.gov/place/rockefeller-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.75
+    },
+    {
+      "googlePlaceId": "ChIJhRwB-yFawokR5Phil-QQ3zM",
+      "name": "Madison Square Garden",
+      "address": "New York, NY 10001, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 34408,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "tourist_attraction",
+        "stadium",
+        "sports_complex",
+        "sports_club",
+        "association_or_organization",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7505045,
+      "lng": -73.9934387,
+      "googleMapsUri": "https://maps.google.com/?cid=3737724789719234788&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.msg.com/madison-square-garden",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.44
+    },
+    {
+      "googlePlaceId": "ChIJwwwGE_tZwokRmpfoXySK-x0",
+      "name": "The Escape Game NYC (Midtown Manhattan)",
+      "address": "295 Madison Ave, New York, NY 10017, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9393,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7519892,
+      "lng": -73.9797604,
+      "googleMapsUri": "https://maps.google.com/?cid=2160472335086819226&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/newyorkcity/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=newyorkcity",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJQwRohxBbwokRmHrfAMb3ixc",
+      "name": "Prospect Park",
+      "address": "Brooklyn, NY, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 28428,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.6602037,
+      "lng": -73.9689558,
+      "googleMapsUri": "https://maps.google.com/?cid=1696722114425354904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.prospectpark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJmamBZtVZwokR6phs86DKbP0",
+      "name": "Color Factory NYC",
+      "address": "251 Spring St, New York, NY 10013, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 4704,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "amusement_park",
+        "museum",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.725773,
+      "lng": -74.0053337,
+      "googleMapsUri": "https://maps.google.com/?cid=18261193381708077290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.colorfactory.co/locations/new-york-city",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJ4aMgQarT04kR7RksIwWa2RY",
+      "name": "Letchworth State Park",
+      "address": "New York, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 12633,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.6428243,
+      "lng": -77.9796755,
+      "googleMapsUri": "https://maps.google.com/?cid=1646516485636233709&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.ny.gov/visit/state-parks/letchworth-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJi9JqUYP0wokRLhCVlxy0bgU",
+      "name": "Bronx Zoo",
+      "address": "2300 Southern Blvd, Bronx, NY 10460, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 39168,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.85014150000001,
+      "lng": -73.87672169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=391448252523024430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bronxzoo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.7
+    },
+    {
+      "googlePlaceId": "ChIJmTomSKRZwokRi6FZRDvc3oE",
+      "name": "Escape the Room NYC",
+      "address": "24 W 25th St floor 8, New York, NY 10010, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 10938,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.743339,
+      "lng": -73.990338,
+      "googleMapsUri": "https://maps.google.com/?cid=9358159222830375307&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/new-york/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.46
+    },
+    {
+      "googlePlaceId": "ChIJCar0f49ZwokR6ozLV-dHNTE",
+      "name": "Katz's Delicatessen",
+      "address": "205 E Houston St, New York, NY 10002, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 52776,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "deli",
+      "types": [
+        "deli",
+        "sandwich_shop",
+        "food_store",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 40.722232999999996,
+      "lng": -73.98742899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3545819340560108778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://katzsdelicatessen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.43
+    },
+    {
+      "googlePlaceId": "ChIJjX494pBZwokRGH620d9eYfo",
+      "name": "Washington Square Park",
+      "address": "New York, NY 10012, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 32739,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7308838,
+      "lng": -73.997332,
+      "googleMapsUri": "https://maps.google.com/?cid=18041805897612033560&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nycgovparks.org/parks/washington-square-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJjQjGfpJZwokRRMofQubPDec",
+      "name": "Lost in Paradise Rooftop",
+      "address": "11-01 43rd Ave, Long Island City, NY 11101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 6721,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.752076699999996,
+      "lng": -73.94732119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16649191985317399108&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lostinparadiserooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJYWF63VVYwokRmySNl6CiXZw",
+      "name": "Big Bus Tours New York",
+      "address": "723 7th Ave, New York, NY 10019, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 20629,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7598492,
+      "lng": -73.9838705,
+      "googleMapsUri": "https://maps.google.com/?cid=11267340653371925659&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigbustours.com/en/new-york/new-york-bus-tours?utm_source=GMB-new-york&utm_medium=GMB&utm_campaign=new-york-GMB-website",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJvSQIgqFZwokRFYQbJdzceSs",
+      "name": "Gramercy Tavern",
+      "address": "42 E 20th St, New York, NY 10003, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4868,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.7384555,
+      "lng": -73.98850639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3132777853886366741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gramercytavern.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.92
+    },
+    {
+      "googlePlaceId": "ChIJMW-gxPtYwokRzDlnsRgq9rA",
+      "name": "The Modern",
+      "address": "9 W 53rd St, New York, NY 10019, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2738,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.761081,
+      "lng": -73.976753,
+      "googleMapsUri": "https://maps.google.com/?cid=12751425680490052044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.themodernnyc.com/the-modern/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.82
+    },
+    {
+      "googlePlaceId": "ChIJmZ5emqJYwokRuDz79o0coAQ",
+      "name": "Solomon R. Guggenheim Museum",
+      "address": "1071 5th Ave, New York, NY 10128, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 26291,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7829796,
+      "lng": -73.9589706,
+      "googleMapsUri": "https://maps.google.com/?cid=333297768485043384&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.guggenheim.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJZUczMVZYwokR2GRTDrcGv10",
+      "name": "Gershwin Theatre",
+      "address": "222 W 51st St, New York, NY 10019, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 12105,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.762547,
+      "lng": -73.9849697,
+      "googleMapsUri": "https://maps.google.com/?cid=6755125349368161496&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://broadwaydirect.com/venue/gershwin-theatre/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJrVAECUhfwokRsoEFM0dN67Q",
+      "name": "Elsewhere",
+      "address": "599 Johnson Ave #1, Brooklyn, NY 11237, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 3017,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.709474,
+      "lng": -73.923322,
+      "googleMapsUri": "https://maps.google.com/?cid=13036598514548048306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.elsewhere.club/",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJm9ZmFPtYwokR4GjMlk_y7Fg",
+      "name": "Monkey Bar",
+      "address": "60 E 54th St, New York, NY 10022, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1822,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.759898199999995,
+      "lng": -73.9732046,
+      "googleMapsUri": "https://maps.google.com/?cid=6407762793487689952&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nycmonkeybar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJm8LniavPwokR8YUrl6yQAz8",
+      "name": "Bear Mountain State Park",
+      "address": "3006 Seven Lakes Drive, Tomkins Cove, NY 10986, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 15928,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.2930083,
+      "lng": -74.00010879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4540631920264578545&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.ny.gov/parks/bearmountain/details.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.31
+    },
+    {
+      "googlePlaceId": "ChIJYwp16KhZwokROVDwDJsxrEY",
+      "name": "Space Karaoke Bar & Lounge | Koreatown NYC",
+      "address": "34 W 32nd St Floor 11, New York, NY 10001, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 3327,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "lounge_bar",
+        "karaoke",
+        "night_club",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7477373,
+      "lng": -73.9873485,
+      "googleMapsUri": "https://maps.google.com/?cid=5092499820655956025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spacekaraoke.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "karaoke bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.31
+    },
+    {
+      "googlePlaceId": "ChIJwYu_aA5bwokR2lxjW-QvQlc",
+      "name": "Brooklyn Botanic Garden",
+      "address": "Brooklyn, NY 11238, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 15185,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "wedding_venue",
+        "garden",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 40.668579799999996,
+      "lng": -73.9644696,
+      "googleMapsUri": "https://maps.google.com/?cid=6287640687594921178&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bbg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.17
+    },
+    {
+      "googlePlaceId": "ChIJbfTV15NZwokRSeNM676BEZI",
+      "name": "Blue Note",
+      "address": "131 W 3rd St, New York, NY 10012, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 5577,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.730908299999996,
+      "lng": -74.0006557,
+      "googleMapsUri": "https://maps.google.com/?cid=10525336461133013833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bluenotejazz.com/nyc/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.14
+    },
+    {
+      "googlePlaceId": "ChIJy8jTDBtawokRB9wNyxemSw8",
+      "name": "Brookfield Place",
+      "address": "230 Vesey St, New York, NY 10281, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 22222,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.712782499999996,
+      "lng": -74.01525649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1102157154943360007&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bfplny.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.13
+    },
+    {
+      "googlePlaceId": "ChIJ6QjrLbhbwokRpPEAYkOJhb8",
+      "name": "The Rooftop at Pier 17",
+      "address": "89 South St Pier 17, New York, NY 10038, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 504,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7054623,
+      "lng": -74.0016428,
+      "googleMapsUri": "https://maps.google.com/?cid=13800587555646796196&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rooftopatpier17.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "sunset date spots",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.08
+    },
+    {
+      "googlePlaceId": "ChIJ7ek7qdRbwokRt3sVsitU9r4",
+      "name": "Watermark",
+      "address": "78 South St Pier 15, New York, NY 10038, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 3650,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.704516999999996,
+      "lng": -74.003123,
+      "googleMapsUri": "https://maps.google.com/?cid=13760278258125208503&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://watermarkny.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "seasonal pop ups",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.07
+    },
+    {
+      "googlePlaceId": "ChIJDUZjDelbwokROipLkMCh4vw",
+      "name": "The Escape Game Brooklyn",
+      "address": "445 Gold St C-014b, Brooklyn, NY 11201, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4444,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.6909393,
+      "lng": -73.9830628,
+      "googleMapsUri": "https://maps.google.com/?cid=18222304890721086010&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/brooklyn/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=brooklyn",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.06
+    },
+    {
+      "googlePlaceId": "ChIJp32RvaZZwokRfH0Zgzl9mXk",
+      "name": "Madison Square Park",
+      "address": "11 Madison Ave, New York, NY 10010, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 21427,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.742195099999996,
+      "lng": -73.98799919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8762172235992104316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.madisonsquarepark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.03
+    },
+    {
+      "googlePlaceId": "ChIJdTjUE-dZwokRKLMbPjzr1b8",
+      "name": "MUSEUM OF ICE CREAM",
+      "address": "558 Broadway, New York, NY 10012, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.2,
+      "reviewCount": 9917,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "ice_cream_shop",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7236214,
+      "lng": -73.99756359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13823213275256173352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museumoficecream.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "interactive pop ups",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 83.99
+    },
+    {
+      "googlePlaceId": "ChIJYdQQqUxawokRgEb3GR9Qqhw",
+      "name": "Dekalb Market Hall",
+      "address": "445 Albee Square W, Brooklyn, NY 11201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6517,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "food_court",
+        "fast_food_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.690761699999996,
+      "lng": -73.98305739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2065551473612637824&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dekalbmarkethall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 83.98
+    },
+    {
+      "googlePlaceId": "ChIJmyM5dF1ZwokRD9lUmRAzQOI",
+      "name": "Dear Irving on Hudson Rooftop Bar",
+      "address": "310 W 40th St, New York, NY 10018, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1563,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.756162599999996,
+      "lng": -73.991717,
+      "googleMapsUri": "https://maps.google.com/?cid=16303086797466163471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dearirving.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.91
+    },
+    {
+      "googlePlaceId": "ChIJrVOWpEhZwokRUMxNZvMBv8k",
+      "name": "Tours of NYC",
+      "address": "119 Baxter St, New York, NY 10013, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1745,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.717927499999995,
+      "lng": -73.9988773,
+      "googleMapsUri": "https://maps.google.com/?cid=14537340267080305744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tourofnyc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.87
+    },
+    {
+      "googlePlaceId": "ChIJDe9Pg5FZwokR2UmfIwzvAys",
+      "name": "Paint 'N Pour",
+      "address": "53 Delancey St, New York, NY 10002, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 6089,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7193177,
+      "lng": -73.99151719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3099583803977320921&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.paintnpournyc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 83.84
+    },
+    {
+      "googlePlaceId": "ChIJK6bycAH0wokRrSnflfrnkZE",
+      "name": "The Met Cloisters",
+      "address": "99 Margaret Corbin Dr, New York, NY 10040, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8793,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.8648628,
+      "lng": -73.9317274,
+      "googleMapsUri": "https://maps.google.com/?cid=10489420070564866477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.metmuseum.org/plan-your-visit/met-cloisters",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.76
+    },
+    {
+      "googlePlaceId": "ChIJyRUHuHzzwokRPxVBNKhcP9c",
+      "name": "New York Botanical Garden",
+      "address": "2900 Southern Blvd, Bronx, NY 10458, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 12862,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "wedding_venue",
+        "garden",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "educational_institution",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.862287099999996,
+      "lng": -73.8773946,
+      "googleMapsUri": "https://maps.google.com/?cid=15510217519188219199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nybg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.71
+    },
+    {
+      "googlePlaceId": "ChIJMwfMCt36wokRQz4NTa4ZcRE",
+      "name": "Humdingers",
+      "address": "64 E Midland Ave, Paramus, NJ 07652, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 4604,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "ice_cream_shop",
+        "video_arcade",
+        "sports_complex",
+        "dessert_shop",
+        "confectionery",
+        "sports_activity_location",
+        "restaurant",
+        "point_of_interest",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.9458112,
+      "lng": -74.0680259,
+      "googleMapsUri": "https://maps.google.com/?cid=1256814007420796483&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.humdingersnj.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 83.71
+    },
+    {
+      "googlePlaceId": "ChIJN3MJ6pRYwokRiXg91flSP8Y",
+      "name": "Whitney Museum of American Art",
+      "address": "99 Gansevoort St, New York, NY 10014, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 14828,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7395877,
+      "lng": -74.0088629,
+      "googleMapsUri": "https://maps.google.com/?cid=14285227776020412553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://whitney.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.66
+    },
+    {
+      "googlePlaceId": "ChIJnzkPKwBZwokRmUk0EzQbaNE",
+      "name": "Le Parisien Bakery",
+      "address": "235 W 46th St, New York, NY 10036, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 8082,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "wine_bar",
+        "coffee_shop",
+        "cafe",
+        "french_restaurant",
+        "food_store",
+        "store",
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.759469599999996,
+      "lng": -73.9868936,
+      "googleMapsUri": "https://maps.google.com/?cid=15089340461979290009&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.leparisienbakery.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.52
+    },
+    {
+      "googlePlaceId": "ChIJCRZAjFhZwokRv6cEvR8K8Ik",
+      "name": "Barcade",
+      "address": "388 Union Ave, Brooklyn, NY 11211, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2331,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.712072,
+      "lng": -73.95106299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9939455509038147519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barcade.com/brooklyn/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.52
+    },
+    {
+      "googlePlaceId": "ChIJmzPYgJFZwokRg4zUwTlZwtI",
+      "name": "Comedy Cellar",
+      "address": "117 MacDougal St, New York, NY 10012, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 7899,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "tourist_attraction",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.730200200000006,
+      "lng": -74.0005639,
+      "googleMapsUri": "https://maps.google.com/?cid=15186798998046674051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://comedycellar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.46
+    },
+    {
+      "googlePlaceId": "ChIJuwazLZ9ZwokRoDhp6p5_XCo",
+      "name": "Union Square Park",
+      "address": "201 Park Ave S, New York, NY 10003, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 17366,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.735823499999995,
+      "lng": -73.9905215,
+      "googleMapsUri": "https://maps.google.com/?cid=3052454967964678304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.unionsquarenyc.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.45
+    },
+    {
+      "googlePlaceId": "ChIJS7-89FNYwokRqHU42APYyVI",
+      "name": "New Amsterdam Theatre",
+      "address": "214 W 42nd St, New York, NY 10036, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 11248,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.756091399999995,
+      "lng": -73.987788,
+      "googleMapsUri": "https://maps.google.com/?cid=5965536692453012904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aladdinthemusical.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.34
+    },
+    {
+      "googlePlaceId": "ChIJZ14Ker9dwokR5LCKJrNnX6U",
+      "name": "Wonderville",
+      "address": "1186 Broadway, Brooklyn, NY 11221, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 644,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.6923719,
+      "lng": -73.9274634,
+      "googleMapsUri": "https://maps.google.com/?cid=11916357158189052132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://wonderville.nyc/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.26
+    },
+    {
+      "googlePlaceId": "ChIJB4cC_1RYwokRu6mRBD_lqO8",
+      "name": "Minskoff Theatre",
+      "address": "200 W 45th St, New York, NY 10036, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 7321,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.757907599999996,
+      "lng": -73.9860774,
+      "googleMapsUri": "https://maps.google.com/?cid=17269304829974522299&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://broadwaydirect.com/venue/minskoff-theatre/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.25
+    },
+    {
+      "googlePlaceId": "ChIJHXg8BINZwokRpUSDvY8f-3I",
+      "name": "Madame George",
+      "address": "45 W 45th St, New York, NY 10036, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 541,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.756338299999996,
+      "lng": -73.98114269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8285250641698440357&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madamegeorgenyc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.17
+    },
+    {
+      "googlePlaceId": "ChIJDSXLz_lYwokRqONmt9wNV9s",
+      "name": "New York City Center",
+      "address": "131 W 55th St, New York, NY 10019, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3182,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "sports_club",
+        "event_venue",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 40.763944599999995,
+      "lng": -73.97944009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15805116658900984744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nycitycenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 83.09
+    },
+    {
+      "googlePlaceId": "ChIJyTmcRApbwokR-oXJRqpVI8Y",
+      "name": "Brooklyn Museum",
+      "address": "200 Eastern Pkwy, Brooklyn, NY 11238, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 10188,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.6712062,
+      "lng": -73.9636306,
+      "googleMapsUri": "https://maps.google.com/?cid=14277349433515017722&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brooklynmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.07
+    },
+    {
+      "googlePlaceId": "ChIJ4X3tnJVZwokReFn6I2QB3SM",
+      "name": "Wildflower Spa",
+      "address": "41 W 33rd St #200, New York, NY 10001, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 4572,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "hair_care",
+        "massage_spa",
+        "massage",
+        "beauty_salon",
+        "medical_clinic",
+        "service",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7488071,
+      "lng": -73.9869958,
+      "googleMapsUri": "https://maps.google.com/?cid=2584223290792499576&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wildflowerspas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 83.04
+    },
+    {
+      "googlePlaceId": "ChIJV7QQ6kdZwokRax4615zpSGU",
+      "name": "Le Bernardin",
+      "address": "155 W 51st St, New York, NY 10019, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4575,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.7614218,
+      "lng": -73.9817558,
+      "googleMapsUri": "https://maps.google.com/?cid=7298340055988969067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.le-bernardin.com/home",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.99
+    },
+    {
+      "googlePlaceId": "ChIJyw5j84lZwokRnUI_UknPSNA",
+      "name": "Le Coucou",
+      "address": "138 Lafayette St, New York, NY 10013, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2101,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "breakfast_restaurant",
+        "fine_dining_restaurant",
+        "family_restaurant",
+        "french_restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.7191167,
+      "lng": -74.0001861,
+      "googleMapsUri": "https://maps.google.com/?cid=15008473672031617693&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lecoucou.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.98
+    },
+    {
+      "googlePlaceId": "ChIJTfOhQKNZwokRDK5539BnMH0",
+      "name": "BrainXcape Escape Room NYC",
+      "address": "160 Broadway 3rd floor, New York, NY 10038, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4405,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7093746,
+      "lng": -74.0099791,
+      "googleMapsUri": "https://maps.google.com/?cid=9020824200423255564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brainxcape.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.94
+    },
+    {
+      "googlePlaceId": "ChIJX7hLk0FZwokRFhRcjtylakg",
+      "name": "Domino Park",
+      "address": "15 River St, Brooklyn, NY 11249, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6520,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7148803,
+      "lng": -73.967851,
+      "googleMapsUri": "https://maps.google.com/?cid=5218165484961928214&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dominopark.com/ice-skating?utm_source=Skate&utm_medium=GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.93
+    },
+    {
+      "googlePlaceId": "ChIJ3453OAdZwokRja92OOKCugM",
+      "name": "The Morgan Library & Museum",
+      "address": "225 Madison Ave, New York, NY 10016, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4995,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "library",
+        "art_museum",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 40.7492258,
+      "lng": -73.9813971,
+      "googleMapsUri": "https://maps.google.com/?cid=268671035903487885&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.themorgan.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 82.84
+    },
+    {
+      "googlePlaceId": "ChIJfe6ZYKFZwokR_mHm7GNoAxc",
+      "name": "La Pecora Bianca SoHo",
+      "address": "54 Prince St, New York, NY 10012, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 6229,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.723459999999996,
+      "lng": -73.9963118,
+      "googleMapsUri": "https://maps.google.com/?cid=1658283866188046846&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lapecorabianca.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 82.8
+    },
+    {
+      "googlePlaceId": "ChIJ2ydNwTZfwokR2izwyl57aFo",
+      "name": "The Great Escape Room Queens",
+      "address": "62-33 Woodhaven Blvd, Rego Park, NY 11374, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2756,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "amusement_park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.726088999999995,
+      "lng": -73.8698692,
+      "googleMapsUri": "https://maps.google.com/?cid=6514592508053302490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegreatescaperoom.com/queens",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.74
+    },
+    {
+      "googlePlaceId": "ChIJz0V3b1RYwokRB0ugvJ-VuOI",
+      "name": "Winter Garden Theatre",
+      "address": "1634 Broadway, New York, NY 10019, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 5746,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7617111,
+      "lng": -73.983725,
+      "googleMapsUri": "https://maps.google.com/?cid=16336972161583434503&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://shubert.nyc/theatres/winter-garden/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 82.58
+    },
+    {
+      "googlePlaceId": "ChIJv8mWqY9YwokRIzh7-8yBA14",
+      "name": "Theodore Roosevelt Park",
+      "address": "200 Central Prk W, New York, NY 10024, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 12613,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7824902,
+      "lng": -73.9742272,
+      "googleMapsUri": "https://maps.google.com/?cid=6774400981887825955&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://friendsofrooseveltpark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.56
+    },
+    {
+      "googlePlaceId": "ChIJhWqFh1RYwokR-DHQDzkMAag",
+      "name": "Majestic Theatre",
+      "address": "245 W 44th St, New York, NY 10036, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 8504,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7583598,
+      "lng": -73.98807910000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12105970712566575608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://shubert.nyc/theatres/majestic/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 82.56
+    },
+    {
+      "googlePlaceId": "ChIJTZoUA1hYwokRKneaNqQpIf8",
+      "name": "SPYSCAPE & SPYGAMES",
+      "address": "928 8th Ave, New York, NY 10019, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 5734,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "book_store",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 40.765180099999995,
+      "lng": -73.9835135,
+      "googleMapsUri": "https://maps.google.com/?cid=18384020939170543402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spyscape.com/?utm_source=google&utm_medium=organic&utm_campaign=GMB+Site",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 82.52
+    },
+    {
+      "googlePlaceId": "ChIJw7GUS-5ZwokRmhit4hpZT74",
+      "name": "Museum of Broadway",
+      "address": "145 W 45th St, New York, NY 10036, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1739,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "gift_shop",
+        "performing_arts_theater",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 40.7576446,
+      "lng": -73.9843382,
+      "googleMapsUri": "https://maps.google.com/?cid=13713277362373466266&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.themuseumofbroadway.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.51
+    },
+    {
+      "googlePlaceId": "ChIJ6ZswEMdZwokRlqHuqwaG_vE",
+      "name": "Classic Harbor Line",
+      "address": "62 Chelsea Piers Pier 62, New York, NY 10011, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3596,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.7482684,
+      "lng": -74.0090657,
+      "googleMapsUri": "https://maps.google.com/?cid=17437522170437607830&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sail-nyc.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp-listing&utm_content=chelsea-piers",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 82.38
+    }
+  ]
+}

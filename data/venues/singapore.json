@@ -1,0 +1,3340 @@
+{
+  "location": "Singapore",
+  "generatedAt": "2026-05-17T19:47:44.998Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJMxZ-kwQZ2jERdsqftXeWCWI",
+      "name": "Gardens by the Bay",
+      "address": "18 Marina Gardens Dr, Singapore 018953",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 157653,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "botanical_garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2815683,
+      "lng": 103.8636132,
+      "googleMapsUri": "https://maps.google.com/?cid=7064342931399756406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gardensbythebay.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.7
+    },
+    {
+      "googlePlaceId": "ChIJQ6MVplUZ2jERn1LmNH0DlDA",
+      "name": "Universal Studios Singapore",
+      "address": "8 Sentosa Gateway, Singapore 098269",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 111391,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2540421,
+      "lng": 103.82380839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3500426646667023007&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rwsentosa.com/en/play/universal-studios-singapore",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.58
+    },
+    {
+      "googlePlaceId": "ChIJA5LATO4Z2jER111V-v6abAI",
+      "name": "Marina Bay Sands Singapore",
+      "address": "10 Bayfront Ave, Singapore 018956",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 63675,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "tourist_attraction",
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2837574999999999,
+      "lng": 103.8591065,
+      "googleMapsUri": "https://maps.google.com/?cid=174684905472875991&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marinabaysands.com/?utm_source=google&utm_medium=GMB&utm_campaign=hotel_info_main",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "best museums",
+        "family friendly things to do",
+        "food trucks",
+        "luxury lounges",
+        "local landmarks",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "arts-culture",
+        "family-kids",
+        "viral-eats",
+        "luxury-special-occasion",
+        "local-exploration",
+        "adult-after-dark"
+      ],
+      "popularityScore": 98.05
+    },
+    {
+      "googlePlaceId": "ChIJT4lHCgMZ2jERloDE6WmkdMk",
+      "name": "Supertree Grove",
+      "address": "18 Marina Gardens Dr, Singapore 018953",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 53777,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2819616999999999,
+      "lng": 103.86390569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14516408273722441878&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gardensbythebay.com.sg/en/attractions/supertree-grove-observatory-ocbc-skyway/supertree-grove.html",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.55
+    },
+    {
+      "googlePlaceId": "ChIJvWDbfRwa2jERgNnTOpAU3-o",
+      "name": "Singapore Botanic Gardens",
+      "address": "1 Cluny Rd, Singapore 259569",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 46501,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3138397,
+      "lng": 103.8159136,
+      "googleMapsUri": "https://maps.google.com/?cid=16924268534376421760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nparks.gov.sg/sbg",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.13
+    },
+    {
+      "googlePlaceId": "ChIJd0VihwEZ2jERKeREhO6G1Qg",
+      "name": "Cloud Forest",
+      "address": "18 Marina Gardens Dr, Singapore 018953",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 31287,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2838676999999998,
+      "lng": 103.8660024,
+      "googleMapsUri": "https://maps.google.com/?cid=636563281322239017&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gardensbythebay.com.sg/en/things-to-do/attractions/cloud-forest.html",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.07
+    },
+    {
+      "googlePlaceId": "ChIJBTYg1g4Z2jERp_MBbu5erWY",
+      "name": "Merlion Park",
+      "address": "1 Fullerton Rd, Singapore 049213",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 75657,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2867449,
+      "lng": 103.85438719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7398674140980442023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bit.ly/river_cruise_singapore",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 95.7
+    },
+    {
+      "googlePlaceId": "ChIJPYrvewEZ2jERK-pztVWcDig",
+      "name": "Flower Dome",
+      "address": "18 Marina Gardens Dr, Singapore 018953",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 26336,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2846292,
+      "lng": 103.86469749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2886416303121492523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gardensbythebay.com.sg/en/things-to-do/attractions/flower-dome.html",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.47
+    },
+    {
+      "googlePlaceId": "ChIJw3l-FL4X2jERw2pScvHQCbg",
+      "name": "Jewel Changi Airport",
+      "address": "Singapore",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 96683,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3602094,
+      "lng": 103.9897598,
+      "googleMapsUri": "https://maps.google.com/?cid=13261360313192835779&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jewelchangiairport.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.37
+    },
+    {
+      "googlePlaceId": "ChIJLVQTqQUZ2jERNSyXbiCto4E",
+      "name": "Sands Expo & Convention Centre",
+      "address": "10 Bayfront Ave, Singapore 018956",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 69189,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.282088,
+      "lng": 103.85877149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9341500406902500405&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marinabaysands.com/expo-and-convention.html/?utm_source=google&utm_medium=gmb&utm_campaign=sands_convention_info_main",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.94
+    },
+    {
+      "googlePlaceId": "ChIJSeUa7KcZ2jERNVg2CvmlVbk",
+      "name": "Esplanade - Theatres on the Bay, Singapore",
+      "address": "1 Esplanade Dr, Singapore 038981",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 20193,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.2897934,
+      "lng": 103.8558166,
+      "googleMapsUri": "https://maps.google.com/?cid=13354762759073847349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.esplanade.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "cultural exhibits",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.59
+    },
+    {
+      "googlePlaceId": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+      "name": "CQ @ Clarke Quay",
+      "address": "3 River Valley Rd, Singapore 179024",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 45837,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2906024,
+      "lng": 103.84647419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=148155674777145090&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.capitaland.com/sg/malls/clarkequay/en.html",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "local landmarks",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "local-exploration",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.14
+    },
+    {
+      "googlePlaceId": "ChIJFQzeR6cZ2jERgM6--iWeY-U",
+      "name": "National Gallery Singapore",
+      "address": "Singapore 178957",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 16808,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2902217,
+      "lng": 103.85151669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16529228943337639552&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalgallery.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.05
+    },
+    {
+      "googlePlaceId": "ChIJOeEf9S2vewIRM0B9a06CKwg",
+      "name": "SkyPark Observation Deck",
+      "address": "10 Bayfront Avenue, Hotel, Tower 3 Level 56, Marina Bay Sands, Singapore 018956",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 13726,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2852044,
+      "lng": 103.8610313,
+      "googleMapsUri": "https://maps.google.com/?cid=588707449624412211&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marinabaysands.com/attractions/sands-skypark.html/?utm_source=google&utm_medium=GMB&utm_campaign=skypark_info_main",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.46
+    },
+    {
+      "googlePlaceId": "ChIJq7P-2n4P2jERoflGFhUAEfQ",
+      "name": "Singapore Discovery Centre",
+      "address": "510 Upper Jurong Rd, Singapore 638365",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 9030,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3326904,
+      "lng": 103.67894319999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17586838110426560929&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sdc.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.34
+    },
+    {
+      "googlePlaceId": "ChIJVSYjJKIZ2jERpRFinATD52s",
+      "name": "Fort Canning Park",
+      "address": "Singapore",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 11875,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2943875999999999,
+      "lng": 103.8458033,
+      "googleMapsUri": "https://maps.google.com/?cid=7775397706249408933&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nparks.gov.sg/visit/parks/park-detail/fort-canning-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.04
+    },
+    {
+      "googlePlaceId": "ChIJD1u-EaMZ2jERaLhNfFkR45I",
+      "name": "National Museum of Singapore",
+      "address": "93 Stamford Rd, Singapore 178897",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 16377,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.296613,
+      "lng": 103.84850910000002,
+      "googleMapsUri": "https://maps.google.com/?cid=10584322625286027368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nhb.gov.sg/nationalmuseum/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.88
+    },
+    {
+      "googlePlaceId": "ChIJG3a-rdUR2jERbfcqzesQgO8",
+      "name": "Timezone Orchard Xchange",
+      "address": "437 Orchard Rd, B1-01 to 04/ 07 to 18/ 25 to 44, Singapore 238878",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 5501,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3033599,
+      "lng": 103.8322884,
+      "googleMapsUri": "https://maps.google.com/?cid=17257812377029244781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/orchard-xchange?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_3855668123984798489",
+      "openNow": false,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.59
+    },
+    {
+      "googlePlaceId": "ChIJnWdQKQQZ2jERScXuKeFHyIE",
+      "name": "ArtScience Museum",
+      "address": "6 Bayfront Ave, Singapore 018974",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 18259,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2862738,
+      "lng": 103.8592663,
+      "googleMapsUri": "https://maps.google.com/?cid=9351803658631562569&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marinabaysands.com/museum.html",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 91.1
+    },
+    {
+      "googlePlaceId": "ChIJUxHNgkoP2jERF4MJFCx1iZA",
+      "name": "Timezone Jurong Point",
+      "address": "1 Jurong West Central 2, #02-45, Singapore 648886",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 4386,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3403399,
+      "lng": 103.70656149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10414984445446161175&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/jurong-point?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_2121592018302333911",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.93
+    },
+    {
+      "googlePlaceId": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+      "name": "Singapore Flyer",
+      "address": "30 Raffles Ave., Singapore 039803",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 24237,
+      "priceLevel": null,
+      "primaryType": "ferris_wheel",
+      "types": [
+        "ferris_wheel",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2892987999999999,
+      "lng": 103.86313679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9202232323147137646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.singaporeflyer.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.87
+    },
+    {
+      "googlePlaceId": "ChIJAybKOeIb2jERoUnFWK9Bn30",
+      "name": "Timezone SC VivoCity - Bowling, Arcades and Parties",
+      "address": "1 HarbourFront Walk, #02-43 VivoCity, Singapore 098585",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 10153,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2634117999999999,
+      "lng": 103.8233019,
+      "googleMapsUri": "https://maps.google.com/?cid=9052025997402392993&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/vivocity?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_3497392094167810441",
+      "openNow": false,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.53
+    },
+    {
+      "googlePlaceId": "ChIJj-3Cq_0b2jERJv2MBkSVsPQ",
+      "name": "Singapore Oceanarium",
+      "address": "24 Sentosa Gateway, Sentosa Island, Singapore 098137",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 33016,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2583209,
+      "lng": 103.82051469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17631756660555709734&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.singaporeoceanarium.com/en.html",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.28
+    },
+    {
+      "googlePlaceId": "ChIJY618FAQQ2jERzo1f5IAj4Bg",
+      "name": "Science Centre Singapore",
+      "address": "15 Science Centre Rd, Singapore 609081",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 10709,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "academic_department",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3331686999999999,
+      "lng": 103.73564429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1792471688187710926&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.science.edu.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 90.24
+    },
+    {
+      "googlePlaceId": "ChIJN_ApgQsZ2jERt0GKXxIitmE",
+      "name": "Le Noir @ MBS",
+      "address": "2 Bayfront Ave, #01 - 84, Singapore 018972",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 2976,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2845342,
+      "lng": 103.8589185,
+      "googleMapsUri": "https://maps.google.com/?cid=7040852529748001207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lenoir.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "live music events",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.19
+    },
+    {
+      "googlePlaceId": "ChIJLR75v_0b2jERJrR28stYwMU",
+      "name": "Resorts World Sentosa",
+      "address": "8 Sentosa Gateway, Singapore 098269",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 91791,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "tourist_attraction",
+        "casino",
+        "aquarium",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.255179,
+      "lng": 103.8218107,
+      "googleMapsUri": "https://maps.google.com/?cid=14249486853969720358&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rwsentosa.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.77
+    },
+    {
+      "googlePlaceId": "ChIJAQAAuHEY2jER5kMiboeEoHk",
+      "name": "Timezone Parkway Parade - Arcade Games & Birthday Party Venue",
+      "address": "80 Marine Parade Road, #03-27, Parkway Parade, Singapore 449269",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 5082,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3014702,
+      "lng": 103.9051552,
+      "googleMapsUri": "https://maps.google.com/?cid=8764150592066175974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/parkway-parade?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_16885767409808444730",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.61
+    },
+    {
+      "googlePlaceId": "ChIJ_6SSVDUb2jERZzS4PfvOSp0",
+      "name": "MUSEUM OF ICE CREAM SINGAPORE",
+      "address": "100 Loewen Rd, Singapore 248837",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7011,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.30273,
+      "lng": 103.812423,
+      "googleMapsUri": "https://maps.google.com/?cid=11334098990698869863&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museumoficecream.com/singapore",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 89.4
+    },
+    {
+      "googlePlaceId": "ChIJ8a3kreU92jERrOwDhdzXTUA",
+      "name": "Free Singapore Tour",
+      "address": "65 Airport Blvd., Terminal 3, Singapore 819663",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 7761,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.3543683,
+      "lng": 103.98517489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4633596933758512300&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fst.changiairport.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.34
+    },
+    {
+      "googlePlaceId": "ChIJlfxHUqMZ2jER8aq0BLxkGdE",
+      "name": "The Magic Bar",
+      "address": "2 Havelock Road #01-11 Havelock 2, at, Level 1 Floor 1 Outside of Building, Singapore 059763",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 5,
+      "reviewCount": 925,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2871749,
+      "lng": 103.8451817,
+      "googleMapsUri": "https://maps.google.com/?cid=15067184787040283377&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.themagicbar.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "interactive pop ups",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.98
+    },
+    {
+      "googlePlaceId": "ChIJ8yvdOK8Z2jERx1TP2rKMPtY",
+      "name": "Suntec Singapore Convention & Exhibition Centre",
+      "address": "1 Raffles Blvd, Singapore 039593",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 10021,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.2936739,
+      "lng": 103.8572447,
+      "googleMapsUri": "https://maps.google.com/?cid=15437931272475727047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.suntecsingapore.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.94
+    },
+    {
+      "googlePlaceId": "ChIJseQsTQ0Z2jERqpBTWF0Zf84",
+      "name": "Maxwell Food Centre",
+      "address": "1 Kadayanallur St, Singapore 069184",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 23251,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "tourist_attraction",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2803361,
+      "lng": 103.844767,
+      "googleMapsUri": "https://maps.google.com/?cid=14879639582559932586&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nea.gov.sg/our-services/hawker-management/overview",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.55
+    },
+    {
+      "googlePlaceId": "ChIJmTXpQAQZ2jERZmXslyMqczQ",
+      "name": "CÉ LA VI Singapore",
+      "address": "1 Bayfront Avenue, Hotel, Tower 3 Marina Bay Sands, Singapore 018971",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 10097,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2846705,
+      "lng": 103.860986,
+      "googleMapsUri": "https://maps.google.com/?cid=3779410844655052134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.celavi.com/en/singapore/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.26
+    },
+    {
+      "googlePlaceId": "ChIJ5Y6l4Q0Z2jERYL0KDIjT6v0",
+      "name": "Lau Pa Sat",
+      "address": "18 Raffles Quay, Singapore 048582",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 38098,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "tourist_attraction",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2805121,
+      "lng": 103.8503809,
+      "googleMapsUri": "https://maps.google.com/?cid=18296669017417104736&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://laupasat.sg/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "local-exploration"
+      ],
+      "popularityScore": 88.25
+    },
+    {
+      "googlePlaceId": "ChIJZ562iL0Z2jERx2utP2PaA_M",
+      "name": "Timezone Plaza Singapura - Dance, Racing, Arcade Games",
+      "address": "68 Orchard Rd, #07-02 03 Plaza, Singapore 238839",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 4611,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3003304999999998,
+      "lng": 103.8451367,
+      "googleMapsUri": "https://maps.google.com/?cid=17511079895951567815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/plaza-singapura?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_11957059868871821403",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.22
+    },
+    {
+      "googlePlaceId": "ChIJr9wqENkT2jERkRs7pMj6FLQ",
+      "name": "Singapore Zoo",
+      "address": "80 Mandai Lake Rd, Singapore 729826",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 51799,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.4043485,
+      "lng": 103.79302299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12976272166016981905&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mandai.com/en/singapore-zoo.html",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.1
+    },
+    {
+      "googlePlaceId": "ChIJl1H8LpMZ2jERONwYW1WAy8o",
+      "name": "Bike Around Tour Singapore",
+      "address": "20 Republic Ave, Singapore 038970",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 3351,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.2999351,
+      "lng": 103.8635334,
+      "googleMapsUri": "https://maps.google.com/?cid=14612914520022637624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bikearoundtour.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJU-ISgAAZ2jERhuLGkZgICg0",
+      "name": "Timezone Marina Square - Arcade Games, Claw Games",
+      "address": "6 Raffles Blvd, #02-213 Marina Square, Singapore 039594",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 2801,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2912061,
+      "lng": 103.8576768,
+      "googleMapsUri": "https://maps.google.com/?cid=939572923633951366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/marina-square-mall?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_17046604215779632792",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJUVukECoX2jERljPE4j6MVYA",
+      "name": "Good Bites",
+      "address": "5 Bishan St 14, #03-01, Singapore 579783",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 22185,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "western_restaurant",
+        "dessert_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3555789,
+      "lng": 103.8513296,
+      "googleMapsUri": "https://maps.google.com/?cid=9247451611595551638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.goodbites.com.sg/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJxZfX_9gT2jERknwK8es7IHU",
+      "name": "River Wonders",
+      "address": "80 Mandai Lake Rd, Singapore 729826",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 12265,
+      "priceLevel": null,
+      "primaryType": "wildlife_park",
+      "types": [
+        "wildlife_park",
+        "tourist_attraction",
+        "zoo",
+        "aquarium",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.4038498,
+      "lng": 103.79066759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8439811586239659154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mandai.com/en/river-wonders.html",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.78
+    },
+    {
+      "googlePlaceId": "ChIJ29omWQgZ2jEROEz2yZFzQp8",
+      "name": "Merlion",
+      "address": "Singapore",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 51842,
+      "priceLevel": null,
+      "primaryType": "fountain",
+      "types": [
+        "fountain",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2867891999999999,
+      "lng": 103.85450139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11475861870489259064&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJkyCpkWcT2jER1Nsl0ZvOI4Q",
+      "name": "Bird Paradise",
+      "address": "20 Mandai Lake Rd, Mandai Wildlife WEST, Singapore 729825",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9426,
+      "priceLevel": null,
+      "primaryType": "wildlife_park",
+      "types": [
+        "wildlife_park",
+        "tourist_attraction",
+        "zoo",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.4071539,
+      "lng": 103.7812684,
+      "googleMapsUri": "https://maps.google.com/?cid=9521681205815532500&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mandai.com/en/bird-paradise.html?cmp=www%7Cbpd%7Cawa%7Cgen%7Cgg_biz%7Cgg%7C%7Cgoogle_business_profile%7C&utm_campaign=gen&utm_medium=gg_biz&utm_source=gg&",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.46
+    },
+    {
+      "googlePlaceId": "ChIJ84e5vlgZ2jERxJQeoaRAQaQ",
+      "name": "VUE",
+      "address": "OUE Bayfront, 50 Collyer Quay Rooftop Level 19, Singapore 049321",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1683,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2830712,
+      "lng": 103.85301199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11835812371528324292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://vue.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.43
+    },
+    {
+      "googlePlaceId": "ChIJ-_BYrB8X2jER1axfzKTsvsI",
+      "name": "Aramsa - The Garden Spa",
+      "address": "1384 Ang Mo Kio Ave 1, Bishan Park 2, Singapore 569932",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 7216,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "yoga_studio",
+        "fitness_center",
+        "massage_spa",
+        "gym",
+        "massage",
+        "sports_complex",
+        "spa",
+        "beauty_salon",
+        "sports_school",
+        "health",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.3621474999999998,
+      "lng": 103.8475534,
+      "googleMapsUri": "https://maps.google.com/?cid=14032913681480658133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aramsaspas.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 87.38
+    },
+    {
+      "googlePlaceId": "ChIJgTU9QHMZ2jERhUGs_BvKlKs",
+      "name": "Let's Go Tour Singapore",
+      "address": "Block 462 Crawford Ln, #01-57, Singapore 190462",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2595,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "transportation_service",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.3045213999999998,
+      "lng": 103.8608823,
+      "googleMapsUri": "https://maps.google.com/?cid=12363729098590929285&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.letsgotoursingapore.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJgU5qayg92jERoeC9afgWF68",
+      "name": "Singapore EXPO",
+      "address": "1 Expo Dr, Singapore 486150",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 11641,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.3335251,
+      "lng": 103.959537,
+      "googleMapsUri": "https://maps.google.com/?cid=12616578137283485857&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.singaporeexpo.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.18
+    },
+    {
+      "googlePlaceId": "ChIJP4UOilsX2jERc7ORRlyaxAk",
+      "name": "Lion Heartlanders Pte Ltd",
+      "address": "71 Ayer Rajah Cres., #04-01, Singapore 139951",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 6728,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2967925999999999,
+      "lng": 103.786762,
+      "googleMapsUri": "https://maps.google.com/?cid=703857162888262515&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lionheartlanders.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.18
+    },
+    {
+      "googlePlaceId": "ChIJpxs67_sb2jER1pJkEAHxc0Q",
+      "name": "Mega Adventure - Singapore",
+      "address": "10A Siloso Bch Walk, Singapore 099008",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 5726,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "adventure_sports_center",
+        "amusement_center",
+        "amusement_park",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2559413,
+      "lng": 103.8122967,
+      "googleMapsUri": "https://maps.google.com/?cid=4932551003773113046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sg.megaadventure.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJEz01O20Z2jERao-eejDkACs",
+      "name": "Kitchen Showdown Singapore",
+      "address": "37A Boat Quay, #02-01, Singapore 049826",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 3891,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2863651999999999,
+      "lng": 103.8496828,
+      "googleMapsUri": "https://maps.google.com/?cid=3098727440497676138&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kitchenshowdown.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes"
+      ],
+      "popularityScore": 87.08
+    },
+    {
+      "googlePlaceId": "ChIJzf487wkZ2jERP3nJhCFBdrE",
+      "name": "Victoria Concert Hall",
+      "address": "11 Empress Pl, #01-02, Singapore 179558",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2500,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.288621,
+      "lng": 103.851462,
+      "googleMapsUri": "https://maps.google.com/?cid=12787479804182624575&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://artshouselimited.sg/vtvch",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.08
+    },
+    {
+      "googlePlaceId": "ChIJ____n8gZ2jER1AbJTP09Ww0",
+      "name": "Timezone City Square Mall - Arcade Games, Kids Games, Prizes",
+      "address": "180 Kitchener Road, Mall, #04-24 / 29 City Square, Singapore 208539",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 3736,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3110500999999999,
+      "lng": 103.856703,
+      "googleMapsUri": "https://maps.google.com/?cid=962431103497995988&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/city-square-mall?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_6516249943354075719",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJoZOhmQkZ2jERehLfvKlsoCA",
+      "name": "Asian Civilisations Museum",
+      "address": "1 Empress Pl, Singapore 179555",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6263,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2875002000000002,
+      "lng": 103.85138529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2350998481761407610&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nhb.gov.sg/acm/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.92
+    },
+    {
+      "googlePlaceId": "ChIJ14zRY7oZ2jERTosyd3JOVZc",
+      "name": "Xcape Singapore - Real Escape Rooms",
+      "address": "161 Rochor Rd, Bugis Street, Singapore 188436",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 11132,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3009188,
+      "lng": 103.85540979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10904708326280563534&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.xcape.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.9
+    },
+    {
+      "googlePlaceId": "ChIJd61nJQAZ2jER3_BviaGEHcQ",
+      "name": "INMERS PLAY-Floor is Lava",
+      "address": "180 Kitchener Rd, #05 - 04 City Square Mall, Singapore 208539",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1354,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3117526,
+      "lng": 103.8569861,
+      "googleMapsUri": "https://maps.google.com/?cid=14131597035088900319&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.inmersplay.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJrQCh-wUZ2jERNxR95JnCDss",
+      "name": "Floor Is Lava - Triggered Games",
+      "address": "8 Grange Rd, #02-08/09 Cineleisure, Singapore 239695",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2365,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3015269999999999,
+      "lng": 103.8363441,
+      "googleMapsUri": "https://maps.google.com/?cid=14631846205592507447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://triggeredgames.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.72
+    },
+    {
+      "googlePlaceId": "ChIJsRrnPwQZ2jERmUK_SYyLwTs",
+      "name": "LAVO Italian Restaurant And Rooftop Bar",
+      "address": "10 Bayfront Avenue, Marina Bay Sands, Hotel, Level 57 Tower 1, Singapore 018956",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 5904,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2824615,
+      "lng": 103.8600908,
+      "googleMapsUri": "https://maps.google.com/?cid=4305876153391858329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://taogroup.com/venues/lavo-italian-restaurant-singapore/?utm_source=google&utm_medium=gmb&utm_campaign=lavo_info_main",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.69
+    },
+    {
+      "googlePlaceId": "ChIJ0QX_Brki2jER-pZKNdqk_a8",
+      "name": "East Coast Park",
+      "address": "Singapore",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 31924,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3007841999999998,
+      "lng": 103.9121866,
+      "googleMapsUri": "https://maps.google.com/?cid=12681473382849091322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nparks.gov.sg/visit/parks/park-detail/east-coast-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.68
+    },
+    {
+      "googlePlaceId": "ChIJMyaMZAAT2jERij4WhgTCnWA",
+      "name": "Rainforest Wild Adventure WEST",
+      "address": "20 Mandai Lake Rd, Mandai Wildlife WEST, Singapore 729825",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 6880,
+      "priceLevel": null,
+      "primaryType": "wildlife_park",
+      "types": [
+        "wildlife_park",
+        "tourist_attraction",
+        "zoo",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.4092358000000003,
+      "lng": 103.7809305,
+      "googleMapsUri": "https://maps.google.com/?cid=6961933923669917322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mandai.com/en/rainforest-wild-adventure.html",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJycr4ZrAZ2jERk1LS3rkqgho",
+      "name": "ATLAS",
+      "address": "600 N Bridge Rd, Parkview Square, Singapore 188778",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 4702,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3001137999999999,
+      "lng": 103.8577754,
+      "googleMapsUri": "https://maps.google.com/?cid=1910136169754153619&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.atlasbar.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJLZ9DYnIZ2jERQ51Am7WzJLM",
+      "name": "Burnt Ends",
+      "address": "7 Dempsey Rd, #01-02, Singapore 249671",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2566,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "barbecue_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.304606,
+      "lng": 103.8089925,
+      "googleMapsUri": "https://maps.google.com/?cid=12908640024525839683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://burntends.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.46
+    },
+    {
+      "googlePlaceId": "ChIJZdJB9AkZ2jERBPmjHz9bOg4",
+      "name": "The Arts House at the Old Parliament",
+      "address": "1 Old Parliament Ln, Former Parliament House and Annex Building, Singapore 179429",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1739,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2886111,
+      "lng": 103.85111110000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1025232191852116228&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.artshousegroup.sg/tah",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.42
+    },
+    {
+      "googlePlaceId": "ChIJi6BFl-oZ2jERVQP5UqiCifU",
+      "name": "HighHouse",
+      "address": "1 Raffles Pl, L61-62, Singapore 048616",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1148,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2848009,
+      "lng": 103.8511838,
+      "googleMapsUri": "https://maps.google.com/?cid=17692816270559871829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.highhouse.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms",
+        "bottle service",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJyTQGlrkZ2jERMHEyMQuMOjU",
+      "name": "Quaich Bar Wanderlust",
+      "address": "80 Middle Road, a, Luxury Collection Hotel, Frasers House, Singapore 188966",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 541,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.298314,
+      "lng": 103.8550497,
+      "googleMapsUri": "https://maps.google.com/?cid=3835532012357316912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://quaichbar.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJ6wlwq5EZ2jERXPjWKLpPwjE",
+      "name": "Trapped Escape Room Singapore",
+      "address": "176 Orchard Rd, #03-26, Singapore 238843",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 9017,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3019805,
+      "lng": 103.83969499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3585515914308024412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.trapped.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJO9cemPUQ2jERvlh8KtwhtAc",
+      "name": "Bukit Timah Nature Reserve",
+      "address": "Hindhede Dr, Singapore 589318",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 8407,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3483882999999999,
+      "lng": 103.77670099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=555105883562727614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nparks.gov.sg/visit/parks/park-detail/bukit-timah-nature-reserve",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJq_pn0w0Z2jERJ9ThzorUL6A",
+      "name": "Artemis Grill & Sky Bar",
+      "address": "138 Market St, #40-01 CapitaGreen, Singapore 048946",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1655,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "european_restaurant",
+      "types": [
+        "european_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2820532,
+      "lng": 103.8501211,
+      "googleMapsUri": "https://maps.google.com/?cid=11542678062615352359&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://artemisgrill.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJ88DU6lIV2jERZxGYeFZIn60",
+      "name": "Adventure HQ",
+      "address": "2 Yishun Walk, Singapore 767944",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 8922,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.4142408,
+      "lng": 103.8311947,
+      "googleMapsUri": "https://maps.google.com/?cid=12510797826086146407&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hometeamns.sg/khatib/adventurehq/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.25
+    },
+    {
+      "googlePlaceId": "ChIJJdxqFKIX2jERvBM3WaIWUHk",
+      "name": "Galangal",
+      "address": "3 Bishan St 14, Singapore 579780",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 8646,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "thai_restaurant",
+      "types": [
+        "thai_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 1.3548774,
+      "lng": 103.850022,
+      "googleMapsUri": "https://maps.google.com/?cid=8741511763263427516&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.galangal.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJSblAU-AZ2jERPsErG9J6AZE",
+      "name": "Tribe Tours",
+      "address": "51 Goldhill Plaza, #07-10/11, Singapore 308900",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2614,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.3181319999999999,
+      "lng": 103.842873,
+      "googleMapsUri": "https://maps.google.com/?cid=10448767653293834558&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tribe-tours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.16
+    },
+    {
+      "googlePlaceId": "ChIJe7W4_DwZ2jERB7As61nT7HM",
+      "name": "Motion Art Space",
+      "address": "36A Arab St, Level 2, Singapore 199735",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1418,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3006879999999998,
+      "lng": 103.85980099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8353283792016551943&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://motionartspace.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJPdzVjAYZ2jERP1LN4MtGjZI",
+      "name": "Sands Theatre",
+      "address": "10 Bayfront Ave, B1-69/70 The Shoppes, Marina bay sands, Singapore 018971",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2084,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2854511,
+      "lng": 103.8597625,
+      "googleMapsUri": "https://maps.google.com/?cid=10560174542717538879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marinabaysands.com/entertainment/shows.html/?utm_source=google&utm_medium=gmb&utm_campaign=sands_theatre_info_main",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "events this weekend",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.85
+    },
+    {
+      "googlePlaceId": "ChIJeQ0_rw8Q2jERkhDbM_2KjQs",
+      "name": "Timezone Westgate - Bowling, Party Venue, Virtual Reality",
+      "address": "3 Gateway Dr, #B1-45 Westgate, Singapore 608532",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 7628,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3342813999999998,
+      "lng": 103.742663,
+      "googleMapsUri": "https://maps.google.com/?cid=832474326234763410&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/westgate?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_11400232180665703751",
+      "openNow": false,
+      "matchedQueries": [
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJJ2dCl6gT2jERC9Vad2W9Qsg",
+      "name": "Timezone Causeway Point - Arcade Games, Prizes, Claw Games",
+      "address": "1 Woodlands Sq, #07 - 02 Causeway Point, Singapore 738099",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 3511,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.4360933,
+      "lng": 103.78594710000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14430304399540278539&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timezonegames.com/en-sg/locations/causeway-point?utm_source=google&utm_medium=organic&utm_campaign=gmb-location&utm_term=plcid_3791124542360165511",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJl_sOMpIZ2jERKgmuCf4FCs0",
+      "name": "Paragon",
+      "address": "290 Orchard Rd, Singapore 238859",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 14133,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3039633,
+      "lng": 103.8360565,
+      "googleMapsUri": "https://maps.google.com/?cid=14774628116184566058&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paragon.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.35
+    },
+    {
+      "googlePlaceId": "ChIJo7SpNMYZ2jER15JNmTE6Ne0",
+      "name": "Mustafa Centre",
+      "address": "145 Syed Alwi Rd, Singapore 207704",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 13380,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "grocery_store",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3099676,
+      "lng": 103.85542509999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17092631945454392023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mustafa.com.sg/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.19
+    },
+    {
+      "googlePlaceId": "ChIJSxaj9WgZ2jERRzKy45IsYl8",
+      "name": "Kimchi Dining | Korean Restaurant Singapore",
+      "address": "181 Orchard Rd, #06-10 Orchard Central Singapore 238896",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4294,
+      "priceLevel": null,
+      "primaryType": "korean_restaurant",
+      "types": [
+        "korean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3007562,
+      "lng": 103.8397289,
+      "googleMapsUri": "https://maps.google.com/?cid=6873104990717751879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://initia.sg/pages/kimchi-dining",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJnwEqK_ob2jERigIup3c7c5I",
+      "name": "Arbora @ Mount Faber Peak",
+      "address": "109 Mount Faber Rd, Mount Faber Peak, Singapore 099203",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 8864,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cafe",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2712866,
+      "lng": 103.8192883,
+      "googleMapsUri": "https://maps.google.com/?cid=10552843736951161482&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mountfaberdining.com/pages/arbora",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJoeScxg0Z2jERUhOkAfrx-mw",
+      "name": "Monster Day Tours",
+      "address": "71 Ayer Rajah Cres., #04-01, Singapore 139951",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 2644,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 1.2965571,
+      "lng": 103.78705300000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7852854956345529170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.monsterdaytours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.1
+    },
+    {
+      "googlePlaceId": "ChIJ8aeYp7EZ2jER1_QRLriAt_E",
+      "name": "NOX - Dine in the Dark",
+      "address": "83 Club St, Singapore 069451",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1987,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "european_restaurant",
+      "types": [
+        "european_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.281828,
+      "lng": 103.8458368,
+      "googleMapsUri": "https://maps.google.com/?cid=17417531612413949143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.noxdineinthedark.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.06
+    },
+    {
+      "googlePlaceId": "ChIJqeySWeoZ2jERg9tRyvxx6yE",
+      "name": "Offbeat Singapore",
+      "address": "403A Jln Besar, #02-01, Singapore 209010",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1749,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3086364,
+      "lng": 103.85723019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2444172553318685571&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.offbeat.sg/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.99
+    },
+    {
+      "googlePlaceId": "ChIJW0vXIG0Z2jERg_ae8DP3ak4",
+      "name": "Food Playground",
+      "address": "24A Sago St, Singapore 059020",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 4.9,
+      "reviewCount": 5380,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2818874,
+      "lng": 103.8441675,
+      "googleMapsUri": "https://maps.google.com/?cid=5650600484942050947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.foodplayground.com.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 84.77
+    },
+    {
+      "googlePlaceId": "ChIJFzUYYm8Z2jERs4gjq8fcHCA",
+      "name": "KOMA Singapore",
+      "address": "10 Bayfront Ave, B1-67 The Shoppes, Marina Bay Sands, Singapore 018956",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 2910,
+      "priceLevel": null,
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2856950999999999,
+      "lng": 103.85965739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2313967058689427635&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://taogroup.com/venues/koma-singapore/?utm_source=google&utm_medium=gmb&utm_campaign=koma_info_main",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.63
+    },
+    {
+      "googlePlaceId": "ChIJLfTZeaEZ2jERk5pZ0EwrYPE",
+      "name": "Wonderland Upside Down",
+      "address": "462 Serangoon Rd, #02-00, Singapore 218141",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 807,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.313408,
+      "lng": 103.85683259999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17392949369817897619&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wonderlandupsidedown.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "chef table experiences",
+        "immersive experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.63
+    },
+    {
+      "googlePlaceId": "ChIJX9f4G_8b2jERZvjHhM9tQqg",
+      "name": "Madame Tussauds Singapore",
+      "address": "40 Imbiah Rd, Sentosa, Singapore 099700",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 10952,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2540373,
+      "lng": 103.8176215,
+      "googleMapsUri": "https://maps.google.com/?cid=12124373884888152166&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madametussauds.com/singapore/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.6
+    },
+    {
+      "googlePlaceId": "ChIJ6fc465YZ2jERFcdhA9sG4rI",
+      "name": "Cash Studio Karaoke Cuppage",
+      "address": "5 Koek Road, 20 Cuppage Rd, B2 09 to, Singapore 228796",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 5050,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "bar",
+        "karaoke",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.30189,
+      "lng": 103.840736,
+      "googleMapsUri": "https://maps.google.com/?cid=12889872621212124949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cashstudio.com.sg/",
+      "openNow": true,
+      "matchedQueries": [
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 84.59
+    },
+    {
+      "googlePlaceId": "ChIJlcijSfYa2jERGZ3CD7lpz_E",
+      "name": "Lee Kong Chian Natural History Museum, Singapore",
+      "address": "2 Conservatory Dr, #01-03, Singapore 117377",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2663,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3014156,
+      "lng": 103.7736549,
+      "googleMapsUri": "https://maps.google.com/?cid=17424261726874017049&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lkcnhm.nus.edu.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.42
+    },
+    {
+      "googlePlaceId": "ChIJh-KXsYsZ2jERvp0vI8ZeAOw",
+      "name": "Manhattan",
+      "address": "1 Cuscaden Rd, Level 2, Singapore 249715",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1084,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3047647,
+      "lng": 103.8251569,
+      "googleMapsUri": "https://maps.google.com/?cid=17005696398037851582&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.conradsingaporeorchard.com/manhattan",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.39
+    },
+    {
+      "googlePlaceId": "ChIJ_a11DoMZ2jERSrW_45F2ePw",
+      "name": "Kiztopia @ Marina Square",
+      "address": "Marina Square, #01-09, Singapore 039594",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 6623,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2911689,
+      "lng": 103.8560349,
+      "googleMapsUri": "https://maps.google.com/?cid=18192421063726445898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kiztopia.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.28
+    },
+    {
+      "googlePlaceId": "ChIJw8LXzd0Z2jERA9S-WLJ2TrM",
+      "name": "Five Iron Golf Singapore - Top Rated Indoor Virtual Golf Simulator Experience in Singapore",
+      "address": "139 Cecil St, #13-01, Singapore 069539",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 732,
+      "priceLevel": null,
+      "primaryType": "indoor_golf_course",
+      "types": [
+        "indoor_golf_course",
+        "golf_course",
+        "athletic_field",
+        "bar",
+        "cafe",
+        "restaurant",
+        "food",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2795102,
+      "lng": 103.8484079,
+      "googleMapsUri": "https://maps.google.com/?cid=12920394889337689091&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fiveirongolf.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "golf courses",
+        "mini golf",
+        "driving ranges",
+        "indoor golf simulators"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.19
+    },
+    {
+      "googlePlaceId": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+      "name": "Marina Barrage",
+      "address": "8 Marina Gardens Dr, #01-03 Marina Barrage, Singapore 018951",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 8722,
+      "priceLevel": null,
+      "primaryType": "picnic_ground",
+      "types": [
+        "picnic_ground",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2805168,
+      "lng": 103.8714399,
+      "googleMapsUri": "https://maps.google.com/?cid=15953679466781066449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pub.gov.sg/marinabarrage/aboutmarinabarrage",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.99
+    },
+    {
+      "googlePlaceId": "ChIJUx8eOEE92jERmp8crTVcq-8",
+      "name": "Cosford Container Park",
+      "address": "30 Cosford Rd, Singapore 499550",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 5903,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3652545,
+      "lng": 103.98123179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17269998581689655194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cosfordcontainerpark.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJ3xSV5_ob2jERCnZyINDAtN4",
+      "name": "Hell's Museum",
+      "address": "262 Pasir Panjang Rd, Singapore 118628",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1062,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2841013,
+      "lng": 103.7816422,
+      "googleMapsUri": "https://maps.google.com/?cid=16047663372358022666&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hawparvilla.sg/hells-museum/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 83.93
+    },
+    {
+      "googlePlaceId": "ChIJ0bwmznIZ2jEREOCMNggtIBk",
+      "name": "Buddha Tooth Relic Temple",
+      "address": "288 S Bridge Rd, Singapore 058840",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 12129,
+      "priceLevel": null,
+      "primaryType": "buddhist_temple",
+      "types": [
+        "buddhist_temple",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2815155,
+      "lng": 103.84423969999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1810496563501129744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.buddhatoothrelictemple.org.sg/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.85
+    },
+    {
+      "googlePlaceId": "ChIJE3Yeudcb2jERpBKkZjmrp1o",
+      "name": "Inmers Escape Room",
+      "address": "Singapore, W Coast Hwy, 27号#02-10 邮政编码: 117867",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1478,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2832382000000002,
+      "lng": 103.780574,
+      "googleMapsUri": "https://maps.google.com/?cid=6532378047547708068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.inmersplay.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.85
+    },
+    {
+      "googlePlaceId": "ChIJd-uP3wgZ2jERdzQ3r5GlJFE",
+      "name": "Lantern",
+      "address": "80 Collyer Quay, Singapore 049326",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2206,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2832538999999998,
+      "lng": 103.8537966,
+      "googleMapsUri": "https://maps.google.com/?cid=5846980261362218103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fullertonhotels.com/fullerton-bay-hotel-singapore/dining/restaurants-and-bars/lantern",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.82
+    },
+    {
+      "googlePlaceId": "ChIJWQLwKP0P2jER-AOMrDbkIW8",
+      "name": "Jurong Lake Gardens",
+      "address": "Yuan Ching Rd, Singapore",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6439,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "skateboard_park",
+        "tourist_attraction",
+        "park",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3348491999999998,
+      "lng": 103.72645569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8007932535915676664&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nparks.gov.sg/juronglakegardens",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.75
+    },
+    {
+      "googlePlaceId": "ChIJ9xUuiNcT2jER49FS2OpE8W8",
+      "name": "Night Safari",
+      "address": "80 Mandai Lake Rd, Singapore 729826",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.3,
+      "reviewCount": 34929,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.4021872,
+      "lng": 103.7880606,
+      "googleMapsUri": "https://maps.google.com/?cid=8066304183039611363&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mandai.com/en/night-safari.html",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.64
+    },
+    {
+      "googlePlaceId": "ChIJ83SVew0Z2jERsfl0iOB4Pco",
+      "name": "My Awesome Cafe",
+      "address": "202 Telok Ayer St, Singapore 068639",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7691,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bistro",
+        "brunch_restaurant",
+        "cafe",
+        "wine_bar",
+        "wedding_venue",
+        "liquor_store",
+        "event_venue",
+        "bar",
+        "service",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 1.2801094000000002,
+      "lng": 103.8472056,
+      "googleMapsUri": "https://maps.google.com/?cid=14572936874998167985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.myawesomecafe.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.62
+    },
+    {
+      "googlePlaceId": "ChIJo3EXjvAZ2jERRdFfHa-rqT8",
+      "name": "Cappadocia Turkish & Mediterranean Restaurant",
+      "address": "67 Bussorah St, Singapore 199481",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7678,
+      "priceLevel": null,
+      "primaryType": "turkish_restaurant",
+      "types": [
+        "turkish_restaurant",
+        "halal_restaurant",
+        "mediterranean_restaurant",
+        "middle_eastern_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.3009496000000003,
+      "lng": 103.85994679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4587386464054006085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cappasg.net/?utm_source=google_profile&utm_campaign=localo&utm_medium=mainlink",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.61
+    },
+    {
+      "googlePlaceId": "ChIJTa5Gxd8b2jERJkyx1H654CU",
+      "name": "Dusk @ Mount Faber Peak",
+      "address": "Mount Faber Rd, Level 2 Mount Faber Peak Singapore, Singapore 099203",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 4157,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 1.2711347,
+      "lng": 103.81963540000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2729385328571927590&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mountfaberdining.com/pages/dusk",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.57
+    }
+  ]
+}

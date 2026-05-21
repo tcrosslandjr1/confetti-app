@@ -1,0 +1,3484 @@
+{
+  "location": "Washington, DC",
+  "generatedAt": "2026-05-17T18:50:03.430Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJMT3_Wpu3t4kRQScGokyrCDo",
+      "name": "National Mall",
+      "address": "Washington, DC, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 139583,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "national_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8875144,
+      "lng": -77.0363934,
+      "googleMapsUri": "https://maps.google.com/?cid=4181780599637681985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/nama/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJx7K17Ji3t4kRr3VvqMTw7cc",
+      "name": "Smithsonian National Museum of Natural History",
+      "address": "10th St. & Constitution Ave. NW, Washington, DC 20560, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 57645,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8912662,
+      "lng": -77.0260654,
+      "googleMapsUri": "https://maps.google.com/?cid=14406435510458217903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://naturalhistory.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 99.19
+    },
+    {
+      "googlePlaceId": "ChIJISQme4O3t4kRG-iM3TfJ5_g",
+      "name": "Smithsonian's National Air and Space Museum",
+      "address": "650 Jefferson Dr SW, Washington, DC 20004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 47991,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8882063,
+      "lng": -77.0198164,
+      "googleMapsUri": "https://maps.google.com/?cid=17935525282803673115&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://airandspace.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.45
+    },
+    {
+      "googlePlaceId": "ChIJ3_DHHda3t4kR5BsMSyCsaJ4",
+      "name": "Smithsonian National Zoological Park",
+      "address": "3001 Connecticut Ave NW, Washington, DC 20008, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 45882,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9296156,
+      "lng": -77.0497844,
+      "googleMapsUri": "https://maps.google.com/?cid=11414562510268537828&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nationalzoo.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.31
+    },
+    {
+      "googlePlaceId": "ChIJX8KKlVy5t4kR24fw5XyyFM0",
+      "name": "Beat The Bomb DC",
+      "address": "2005 Hecht Ave NE, Washington, DC 20002, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 11206,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "indoor_playground",
+        "playground",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.915287,
+      "lng": -76.983217,
+      "googleMapsUri": "https://maps.google.com/?cid=14777632526812874715&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.beatthebomb.com/locations/dc",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "paint and sip",
+        "TikTok restaurants",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.45
+    },
+    {
+      "googlePlaceId": "ChIJmzvklCS3t4kRqkZCKiv1OfY",
+      "name": "Kitchen + Kocktails By Kevin Kelley - DC",
+      "address": "1300 I St NW, Washington, DC 20005, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 14364,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "soul_food_restaurant",
+      "types": [
+        "soul_food_restaurant",
+        "brunch_restaurant",
+        "catering_service",
+        "fast_food_restaurant",
+        "live_music_venue",
+        "fine_dining_restaurant",
+        "food_delivery",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "meal_takeaway",
+        "american_restaurant",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.9010342,
+      "lng": -77.0311992,
+      "googleMapsUri": "https://maps.google.com/?cid=17742481772744165034&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://kitchenkocktailsusa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 95.08
+    },
+    {
+      "googlePlaceId": "ChIJHU6C1IC3t4kRIH_SA_6ydp0",
+      "name": "United States Botanic Garden",
+      "address": "100 Maryland Ave SW, Washington, DC 20001, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 18443,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.888145099999996,
+      "lng": -77.0128833,
+      "googleMapsUri": "https://maps.google.com/?cid=11346453115262107424&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.usbg.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.72
+    },
+    {
+      "googlePlaceId": "ChIJSYxSO5u3t4kRm4eyKw_Y7Kg",
+      "name": "National Gallery of Art",
+      "address": "Constitution Ave. NW, Washington, DC 20565, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 20239,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "art_gallery",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.891298,
+      "lng": -77.019965,
+      "googleMapsUri": "https://maps.google.com/?cid=12172341452544837531&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nga.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.59
+    },
+    {
+      "googlePlaceId": "ChIJOQirI623t4kRnVgHeeTpCrc",
+      "name": "John F. Kennedy Center for the Performing Arts",
+      "address": "2700 F St NW, Washington, DC 20566, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 11448,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "opera_house",
+        "tourist_attraction",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "cultural_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.895848199999996,
+      "lng": -77.05568269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13189611626200258717&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kennedy-center.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.41
+    },
+    {
+      "googlePlaceId": "ChIJdwXbxXC3t4kRewlbeJ5WE30",
+      "name": "The Wharf DC",
+      "address": "101 District Square SW, Washington, DC 20024, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 15358,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "historical_landmark",
+        "historical_place",
+        "marina",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8788371,
+      "lng": -77.0267602,
+      "googleMapsUri": "https://maps.google.com/?cid=9012642517922548091&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wharfdc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "waterfront gardens",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.18
+    },
+    {
+      "googlePlaceId": "ChIJgRwXf723t4kRdfqt36VafUU",
+      "name": "Old Ebbitt Grill",
+      "address": "675 15th St NW, Washington, DC 20005, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 19894,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "steak_house",
+        "seafood_restaurant",
+        "breakfast_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.8979475,
+      "lng": -77.0332478,
+      "googleMapsUri": "https://maps.google.com/?cid=5007258029174684277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ebbitt.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.84
+    },
+    {
+      "googlePlaceId": "ChIJk58zcbq3t4kR9VDFZdcB5uE",
+      "name": "Founding Farmers DC",
+      "address": "1924 Pennsylvania Ave NW #3607, Washington, DC 20006, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 22704,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.900280599999995,
+      "lng": -77.0444736,
+      "googleMapsUri": "https://maps.google.com/?cid=16277699927814263029&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wearefoundingfarmers.com/location/dc/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "farmers markets",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.13
+    },
+    {
+      "googlePlaceId": "ChIJO30Asmy3t4kRu9yJfEsM0RA",
+      "name": "Great Big Game Show DC",
+      "address": "3345 M St NW, Washington, DC 20007, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3334,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9052599,
+      "lng": -77.06750799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1211763293090864315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://greatbiggameshow.com/dc?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=dc",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 92.97
+    },
+    {
+      "googlePlaceId": "ChIJx7K17Ji3t4kR6h3neQYXsjI",
+      "name": "Smithsonian National Museum of American History",
+      "address": "1300 Constitution Ave. NW, Washington, DC 20560, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 27560,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.89127930000001,
+      "lng": -77.03005089999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3653007564333325802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://americanhistory.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.66
+    },
+    {
+      "googlePlaceId": "ChIJF4Mpspi3t4kRBi9jWNebAZg",
+      "name": "National Museum of African American History and Culture",
+      "address": "1400 Constitution Ave. NW, Washington, DC 20560, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 30553,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8910644,
+      "lng": -77.032614,
+      "googleMapsUri": "https://maps.google.com/?cid=10953207117944925958&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nmaahc.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 92.56
+    },
+    {
+      "googlePlaceId": "ChIJ8Rr7HU-2t4kRSWaer7WwQag",
+      "name": "Georgetown Waterfront Park",
+      "address": "3303 Water St NW, Washington, DC 20007, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 7494,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.902887799999995,
+      "lng": -77.0653205,
+      "googleMapsUri": "https://maps.google.com/?cid=12124165966240048713&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/places/georgetown-waterfront-park.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.06
+    },
+    {
+      "googlePlaceId": "ChIJc81J0H-4t4kRi9BdLXOOfwk",
+      "name": "U.S. National Arboretum",
+      "address": "3501 New York Ave NE, Washington, DC 20002, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6256,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "botanical_garden",
+      "types": [
+        "tourist_attraction",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.91213,
+      "lng": -76.9657782,
+      "googleMapsUri": "https://maps.google.com/?cid=684422293717110923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.usna.usda.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.53
+    },
+    {
+      "googlePlaceId": "ChIJ7Y9_SpC3t4kRNidcpxFnLy0",
+      "name": "International Spy Museum",
+      "address": "700 L'Enfant Plaza SW, Washington, DC 20024, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 17523,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.884141899999996,
+      "lng": -77.0255748,
+      "googleMapsUri": "https://maps.google.com/?cid=3255934381132097334&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spymuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.27
+    },
+    {
+      "googlePlaceId": "ChIJTzlOd6C3t4kR5pkF4ORwiyY",
+      "name": "La Grande Boucherie DC",
+      "address": "699 14th St NW, Washington, DC 20005, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 5624,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.8981096,
+      "lng": -77.0315979,
+      "googleMapsUri": "https://maps.google.com/?cid=2777437723517360614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boucherieus.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.21
+    },
+    {
+      "googlePlaceId": "ChIJgYIki-m3t4kRZImvuN_pp9Q",
+      "name": "Le Diplomate",
+      "address": "1601 14th St NW, Washington, DC 20009, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 7959,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "bistro",
+        "cafe",
+        "french_restaurant",
+        "european_restaurant",
+        "meal_takeaway",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.911364999999996,
+      "lng": -77.0316635,
+      "googleMapsUri": "https://maps.google.com/?cid=15323473404236892516&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lediplomatedc.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.14
+    },
+    {
+      "googlePlaceId": "ChIJh2KQ4HG3t4kRti5cycnRSRA",
+      "name": "Lincoln Memorial",
+      "address": "2 Lincoln Memorial Cir NW, Washington, DC 20002, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 54092,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "park",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8892686,
+      "lng": -77.050176,
+      "googleMapsUri": "https://maps.google.com/?cid=1173699842503618230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/linc/index.htm/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.75
+    },
+    {
+      "googlePlaceId": "ChIJmyW5tMj9wokR-tt4fTtU6GQ",
+      "name": "Great Falls Park",
+      "address": "9200 Old Dominion Dr, McLean, VA 22102, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 13775,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9951903,
+      "lng": -77.25540579999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7271154212874542074&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/grfa",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.21
+    },
+    {
+      "googlePlaceId": "ChIJcyBkMutGtokRqMoMaOdxXrE",
+      "name": "Steven F. Udvar-Hazy Center",
+      "address": "Steven F. Udvar-Hazy Center, 14390 Air and Space Museum Pkwy, Chantilly, VA 20151, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 29856,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9109189,
+      "lng": -77.44420749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12780778031221099176&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://airandspace.si.edu/visit/udvar-hazy-center",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 90.09
+    },
+    {
+      "googlePlaceId": "ChIJDc1TJ5q3t4kRQX8x6Pj4IlA",
+      "name": "Pisco y Nazca Ceviche Gastrobar",
+      "address": "1823 L St NW, Washington, DC 20036, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 25453,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "peruvian_restaurant",
+      "types": [
+        "peruvian_restaurant",
+        "brunch_restaurant",
+        "seafood_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.9039822,
+      "lng": -77.0426401,
+      "googleMapsUri": "https://maps.google.com/?cid=5774451420173532993&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://piscoynazca.com/washington-dc",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 89.62
+    },
+    {
+      "googlePlaceId": "ChIJj2jfgLy3t4kRYSELN0_MkHk",
+      "name": "Renwick Gallery of the Smithsonian American Art Museum",
+      "address": "1661 Pennsylvania Ave NW #1, Washington, DC 20006, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5313,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "historical_landmark",
+        "gift_shop",
+        "historical_place",
+        "tourist_attraction",
+        "museum",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8991117,
+      "lng": -77.03907600000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8759725915833573729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://americanart.si.edu/visit/renwick",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.54
+    },
+    {
+      "googlePlaceId": "ChIJx7jHlBC4t4kR2AHuwQcWDqc",
+      "name": "Union Market",
+      "address": "1309 5th St NE, Washington, DC 20002, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6583,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.908524299999996,
+      "lng": -76.9976488,
+      "googleMapsUri": "https://maps.google.com/?cid=12037583076582097368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://unionmarketdc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "farmers markets",
+        "flea markets",
+        "food trucks",
+        "cooking classes",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "shopping-markets",
+        "viral-eats",
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.48
+    },
+    {
+      "googlePlaceId": "ChIJ64m9ioC3t4kRkqNX0msvbDM",
+      "name": "The Anthem",
+      "address": "901 Wharf St SW, Washington, DC 20024, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 7337,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8800133,
+      "lng": -77.0259284,
+      "googleMapsUri": "https://maps.google.com/?cid=3705388733556040594&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theanthemdc.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.4
+    },
+    {
+      "googlePlaceId": "ChIJfy4MvqG3t4kRuL_QjoJGc-k",
+      "name": "Washington Monument",
+      "address": "2 15th St NW, Washington, DC 20024, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 24178,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8894838,
+      "lng": -77.0352791,
+      "googleMapsUri": "https://maps.google.com/?cid=16821866559714672568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/wamo/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.02
+    },
+    {
+      "googlePlaceId": "ChIJN7EVN-23t4kRUFP6R-EddzI",
+      "name": "Walter E. Washington Convention Center",
+      "address": "801 Allen Y. Lew Place NW, Washington, DC 20001, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 9221,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9048838,
+      "lng": -77.02299339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3636408077537399632&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://eventsdc.com/venue/walter-e-washington-convention-center",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.97
+    },
+    {
+      "googlePlaceId": "ChIJz3M3Se23t4kRk5q7sY9-ZUU",
+      "name": "Unconventional Diner",
+      "address": "1207 9th St NW, Washington, DC 20001, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7575,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9060506,
+      "lng": -77.02374449999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5000542116892088979&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://unconventionaldiner.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.84
+    },
+    {
+      "googlePlaceId": "ChIJ16WIqnK1t4kRXy-zyjNPVvE",
+      "name": "Immersive Gamebox - Ballston Quarter, Arlington",
+      "address": "4238 Wilson Blvd Unit 2233, Arlington, VA 22203, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5750,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8792344,
+      "lng": -77.1106898,
+      "googleMapsUri": "https://maps.google.com/?cid=17390174095000416095&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/ava-arlington-virginia/?utm_source=Googlemaps&utm_medium=maps&utm_campaign=AVA",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.48
+    },
+    {
+      "googlePlaceId": "ChIJNygYeZW3t4kRjuhKv0fwis0",
+      "name": "Stan's DC Restaurant",
+      "address": "1029 Vermont Ave NW, Washington, DC 20005, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3235,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.9035376,
+      "lng": -77.0328725,
+      "googleMapsUri": "https://maps.google.com/?cid=14810914515503999118&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://stansdc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.48
+    },
+    {
+      "googlePlaceId": "ChIJldJnhJG3t4kRnJ3McC1qVyo",
+      "name": "National Portrait Gallery",
+      "address": "8th St NW & G St NW, Washington, DC 20001, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 13442,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.897826699999996,
+      "lng": -77.02301899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3051024015965330844&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://npg.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.39
+    },
+    {
+      "googlePlaceId": "ChIJEfb5qZG3t4kR8jQmH09MKRE",
+      "name": "SUCCOTASH",
+      "address": "915 F St NW, Washington, DC 20004, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 4494,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "steak_house",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8975696,
+      "lng": -77.02475489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1236603475398636786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.succotashrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "viral food spots",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.35
+    },
+    {
+      "googlePlaceId": "ChIJGVtmDVi5t4kRkqb3plZG_sI",
+      "name": "Bubble Planet: An Immersive Experience - Washington DC",
+      "address": "524 Rhode Island Ave NE, Washington, DC 20002, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 2924,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.921979,
+      "lng": -76.99871530000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14050745225424905874&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bubble-planet.com/washington-dc/?utm_source=google&utm_medium=localcards&utm_campaign=365798_iad",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "interactive kids museums",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJh0bOZCe2t4kR0D-OlXJdB5o",
+      "name": "Washington National Cathedral",
+      "address": "3101 Wisconsin Ave NW, Washington, DC 20016, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 7118,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "wedding_venue",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "event_venue",
+        "church",
+        "place_of_worship",
+        "service",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 38.9305946,
+      "lng": -77.0707808,
+      "googleMapsUri": "https://maps.google.com/?cid=11098942553394659280&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cathedral.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.01
+    },
+    {
+      "googlePlaceId": "ChIJUZM20My5t4kRnhgopk_e4YA",
+      "name": "Rose's Luxury",
+      "address": "717 8th St SE, Washington, DC 20003, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1888,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8806472,
+      "lng": -76.995211,
+      "googleMapsUri": "https://maps.google.com/?cid=9286948340286101662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rosesluxury.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJY-tjeNe5t4kRi21OlcX5-mA",
+      "name": "Nationals Park",
+      "address": "1500 South Capitol St SE, Washington, DC 20003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 14322,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.873010199999996,
+      "lng": -77.0074329,
+      "googleMapsUri": "https://maps.google.com/?cid=6988172398827564427&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/nationals/ballpark",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "best parks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.87
+    },
+    {
+      "googlePlaceId": "ChIJ2ZUs0N23t4kRn0bZrd5RhWY",
+      "name": "Meridian Hill Park",
+      "address": "16th St NW &, W St NW, Washington, DC 20009, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 3332,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9210639,
+      "lng": -77.0358109,
+      "googleMapsUri": "https://maps.google.com/?cid=7387400780612454047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/places/meridian-hill-park.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJZaAQK6C3t4kRsx10rk51z3M",
+      "name": "United States Holocaust Memorial Museum",
+      "address": "100 Raoul Wallenberg Pl SW, Washington, DC 20024, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 17247,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8867076,
+      "lng": -77.0326074,
+      "googleMapsUri": "https://maps.google.com/?cid=8345017615335562675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ushmm.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.37
+    },
+    {
+      "googlePlaceId": "ChIJUZu6nfiwt4kRpcjDUQIwhcg",
+      "name": "Escape Room Live Alexandria",
+      "address": "814 King St 2nd floor, Alexandria, VA 22314, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7855,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.805168699999996,
+      "lng": -77.0487291,
+      "googleMapsUri": "https://maps.google.com/?cid=14449007766007957669&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escaperoomlive.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=escaperoomlive",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.25
+    },
+    {
+      "googlePlaceId": "ChIJMSwrjea3t4kReK-Q6Xxa1TA",
+      "name": "OLIO E PIÙ",
+      "address": "699 14th St NW, Washington, DC 20005, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2646,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.8981096,
+      "lng": -77.0315979,
+      "googleMapsUri": "https://maps.google.com/?cid=3518818176400928632&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.olioepiu.com/location/dc/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJXVZn5GIDyIkRjn58fGGo8Mc",
+      "name": "National Aquarium",
+      "address": "501 E Pratt St, Baltimore, MD 21202, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 33427,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2853928,
+      "lng": -76.6083984,
+      "googleMapsUri": "https://maps.google.com/?cid=14407200344612044430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aqua.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.13
+    },
+    {
+      "googlePlaceId": "ChIJc1s06I63t4kRRV9ykdE7I0g",
+      "name": "National Building Museum",
+      "address": "401 F St NW, Washington, DC 20001, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 4292,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "cultural_center",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8977516,
+      "lng": -77.0176188,
+      "googleMapsUri": "https://maps.google.com/?cid=5198064166190079813&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nbm.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "sound baths",
+        "kids activities",
+        "interactive kids museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "wellness-relaxation",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 87.11
+    },
+    {
+      "googlePlaceId": "ChIJ9VCFM7S3t4kRcI5PZzRqoCw",
+      "name": "Gypsy Kitchen DC",
+      "address": "1825 14th St NW, Washington, DC 20009, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1888,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.9148801,
+      "lng": -77.03155490000002,
+      "googleMapsUri": "https://maps.google.com/?cid=3215686907246644848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gypsykitchendc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJQ1kiavDIt4kRLWJc0bdnEmA",
+      "name": "Rock Creek Park",
+      "address": "Washington, DC, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4469,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.967472799999996,
+      "lng": -77.0451865,
+      "googleMapsUri": "https://maps.google.com/?cid=6922709616411042349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/rocr/index.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.88
+    },
+    {
+      "googlePlaceId": "ChIJIxuaQUi3t4kRNtCuuPNFtHU",
+      "name": "The Escape Game DC (Penn Quarter)",
+      "address": "950 F St NW #106, Washington, DC 20004, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6762,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8971878,
+      "lng": -77.0250377,
+      "googleMapsUri": "https://maps.google.com/?cid=8481480911323320374&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/dc/book-now/penn-quarter/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=dc-penn-quarter",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJFWr6bpe3t4kRblUlYvDqX0o",
+      "name": "Warner Theatre",
+      "address": "513 13th St NW, Washington, DC 20004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4077,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8964782,
+      "lng": -77.0291601,
+      "googleMapsUri": "https://maps.google.com/?cid=5359260399753844078&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.warnertheatredc.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.56
+    },
+    {
+      "googlePlaceId": "ChIJoX3lMSe4t4kRIijaqecXwLA",
+      "name": "Smithsonian National Postal Museum",
+      "address": "2 Massachusetts Ave NE, Washington, DC 20002, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3469,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8982326,
+      "lng": -77.0081764,
+      "googleMapsUri": "https://maps.google.com/?cid=12736206029958293538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://postalmuseum.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJUQb_Dwi3t4kRHsEaPW7Z2tw",
+      "name": "Martin Luther King, Jr. Memorial",
+      "address": "1964 Independence Ave SW, Washington, DC 20004, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 8783,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8862795,
+      "lng": -77.0442553,
+      "googleMapsUri": "https://maps.google.com/?cid=15914271300761862430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/mlkm/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJldJnhJG3t4kRHEGl8KSqTcY",
+      "name": "Smithsonian American Art Museum",
+      "address": "G Street Northwest &, 8th St NW, Washington, DC 20004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3746,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8978934,
+      "lng": -77.02306879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14289264818105172252&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://americanart.si.edu/visit/saam",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJu2icngu3t4kRcpjATtc3QQQ",
+      "name": "Thomas Jefferson Memorial",
+      "address": "16 E Basin Dr SW, Washington, DC 20242, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 12142,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8814158,
+      "lng": -77.0364657,
+      "googleMapsUri": "https://maps.google.com/?cid=306587647516645490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/thje/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJ-82JrXi3t4kRSAkfWH-6ToU",
+      "name": "L'Ardente",
+      "address": "200 Massachusetts Ave NW, Washington, DC 20001, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2179,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.8990468,
+      "lng": -77.0141386,
+      "googleMapsUri": "https://maps.google.com/?cid=9605820111329888584&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lardente.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.21
+    },
+    {
+      "googlePlaceId": "ChIJly0CUJGut4kRAZvIao_V76Y",
+      "name": "George Washington's Mount Vernon",
+      "address": "3200 Mount Vernon Memorial Hwy, Mt Vernon, VA 22121, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 16565,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "cultural_center",
+        "tourist_attraction",
+        "historical_place",
+        "history_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.707982,
+      "lng": -77.0861753,
+      "googleMapsUri": "https://maps.google.com/?cid=12029067941678455553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mountvernon.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJ1QprV5i3t4kRjdMRBGyyJ2Q",
+      "name": "Sandbox VR",
+      "address": "824 9th St NW Suite 606B, Washington, DC 20001, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 304,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.900081199999995,
+      "lng": -77.0242153,
+      "googleMapsUri": "https://maps.google.com/?cid=7216933104878998413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/washingtondc",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.9
+    },
+    {
+      "googlePlaceId": "ChIJoQ53QHy3t4kRxzrXq-GXvfU",
+      "name": "VR Zone DC VR Arcade",
+      "address": "2300 Wisconsin Ave NW suite g-101, Washington, DC 20007, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 436,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9201303,
+      "lng": -77.0718575,
+      "googleMapsUri": "https://maps.google.com/?cid=17707476305397103303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://vrzonedc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJleBwwpW3t4kR1nj3n70j6Xg",
+      "name": "The Park at 14th",
+      "address": "920 14th St NW, Washington, DC 20005, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 2772,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "night_club",
+        "american_restaurant",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9019243,
+      "lng": -77.0322264,
+      "googleMapsUri": "https://maps.google.com/?cid=8712534251464521942&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://park14.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "best parks",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "outdoor-nature",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJ3_mSkpG3t4kRDEWpol01OrI",
+      "name": "Zaytinya",
+      "address": "701 9th St NW, Washington, DC 20001, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 9838,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.898855999999995,
+      "lng": -77.0236458,
+      "googleMapsUri": "https://maps.google.com/?cid=12842635963677623564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zaytinya.com/location/washington-dc/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJKbZ-nLi3t4kROnEjIdE5cBs",
+      "name": "Decades DC",
+      "address": "1219 Connecticut Ave NW, Washington, DC 20036, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 2615,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "sports_club",
+        "association_or_organization",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.9064858,
+      "lng": -77.04129,
+      "googleMapsUri": "https://maps.google.com/?cid=1977143806782566714&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.decadesdc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "game night venues",
+        "bottle service",
+        "events this weekend",
+        "festivals this weekend",
+        "local events",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJ7T86AoG3t4kRFhw7NtLl7m4",
+      "name": "Bonds Escape Room - Arlington",
+      "address": "2800 Clarendon Blvd suite 910, Arlington, VA 22201, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4451,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8871962,
+      "lng": -77.0918258,
+      "googleMapsUri": "https://maps.google.com/?cid=7993579079644945430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bondsescaperoom.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJ2_UkZAa5t4kRjMm4cKrNnSc",
+      "name": "STK Steakhouse",
+      "address": "901 Massachusetts Ave NW, Washington, DC 20001, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 4467,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "seafood_restaurant",
+        "event_venue",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.903739699999996,
+      "lng": -77.02487599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2854663870742055308&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/en-us/location/washington/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.53
+    },
+    {
+      "googlePlaceId": "ChIJfedfvMy3t4kREcBWWp7LZqk",
+      "name": "Escape the Room DC (Midtown / Golden Triangle)",
+      "address": "1720 I St NW, Washington, DC 20006, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4369,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.901018,
+      "lng": -77.04033059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12206667721015214097&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/dc/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.52
+    },
+    {
+      "googlePlaceId": "ChIJ4y5_68e3t4kRDvhGX-rzxoU",
+      "name": "ala",
+      "address": "1320 19th St NW, Washington, DC 20036, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2856,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "middle_eastern_restaurant",
+      "types": [
+        "middle_eastern_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.9080769,
+      "lng": -77.0437182,
+      "googleMapsUri": "https://maps.google.com/?cid=9639660240379508750&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ala-dc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.26
+    },
+    {
+      "googlePlaceId": "ChIJ2elcfofHt4kRw16U7AxsuSo",
+      "name": "Echostage",
+      "address": "2135 Queens Chapel Rd NE, Washington, DC 20018, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 3257,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9198004,
+      "lng": -76.9726045,
+      "googleMapsUri": "https://maps.google.com/?cid=3078610623048998595&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.echostage.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJpQc0TwC5t4kRSTZfizUqIxQ",
+      "name": "F1 Arcade Washington, D.C.",
+      "address": "420 Penn St NE, Washington, DC 20002, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 1527,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "snack_bar",
+        "bar_and_grill",
+        "sports_bar",
+        "amusement_center",
+        "video_arcade",
+        "meal_takeaway",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9107257,
+      "lng": -76.9975225,
+      "googleMapsUri": "https://maps.google.com/?cid=1451049914403337801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://f1arcade.com/us/washington-dc?utm_source=google&utm_medium=organic&utm_campaign=gbp-listing&utm_term=washington-dc",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJGd1QdsBLtokRihAkR6N6TdE",
+      "name": "Sandbox VR",
+      "address": "1656 Silver Hill Dr, Tysons, VA 22102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5517,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.924360400000005,
+      "lng": -77.23272949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15081845568825462922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/mclean",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJY8iLSTK4t4kRODLIp7hlw1Q",
+      "name": "Eastern Market",
+      "address": "225 7th St SE, Washington, DC 20003, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 4316,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.886448099999996,
+      "lng": -76.996479,
+      "googleMapsUri": "https://maps.google.com/?cid=6107837363407827512&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.easternmarket-dc.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "local-exploration"
+      ],
+      "popularityScore": 84.98
+    },
+    {
+      "googlePlaceId": "ChIJxeko4uS3t4kRuCl8NRL9YTE",
+      "name": "9:30 Club",
+      "address": "815 V St NW, Washington, DC 20001, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4843,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.917947999999996,
+      "lng": -77.0237227,
+      "googleMapsUri": "https://maps.google.com/?cid=3558403435247970744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.930.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.92
+    },
+    {
+      "googlePlaceId": "ChIJB-4akBq3t4kRsyL6nV0gfMs",
+      "name": "Planet Word",
+      "address": "925 13th Street Northwest Entrance on, K St NW, Washington, DC 20005, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 2391,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.902113199999995,
+      "lng": -77.0293244,
+      "googleMapsUri": "https://maps.google.com/?cid=14662630073265955507&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://planetwordmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 84.79
+    },
+    {
+      "googlePlaceId": "ChIJc3LnRJK3t4kRr1AbBNst5EQ",
+      "name": "USA Guided Tours",
+      "address": "701 Pennsylvania Ave NW, Washington, DC 20004, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1507,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.8942061,
+      "lng": -77.02361140000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4964143107959115951&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://usaguidedtours.com/dc/tour/?utm_source=google&utm_medium=organic&utm_campaign=gbp-listing",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.77
+    },
+    {
+      "googlePlaceId": "ChIJC02_gzPIt4kRricOEUNB4rI",
+      "name": "Hillwood Estate, Museum & Gardens",
+      "address": "4155 Linnean Ave NW, Washington, DC 20008, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2353,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9436362,
+      "lng": -77.0526363,
+      "googleMapsUri": "https://maps.google.com/?cid=12889936839792535470&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hillwoodmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.74
+    },
+    {
+      "googlePlaceId": "ChIJkaPy4o-3t4kRIf_Ini1irPA",
+      "name": "Escape the Room DC (Penn Quarter)",
+      "address": "409 7th St NW, Washington, DC 20004, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4624,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.895139199999996,
+      "lng": -77.0217771,
+      "googleMapsUri": "https://maps.google.com/?cid=17342344213173960481&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/dc?utm_source=GMBlisting&utm_medium=organic&utm_campaign=gbp_dc&utm_content=website_button",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.58
+    },
+    {
+      "googlePlaceId": "ChIJ02lboyO5t4kRN6FT18-a1oM",
+      "name": "No Kids Allowed DC Weed Dispensary",
+      "address": "637 Pennsylvania Ave. SE STE B, Washington, DC 20003, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3156,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "gift_shop",
+        "wellness_center",
+        "health",
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8847811,
+      "lng": -76.99710209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9499950681446129975&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nokidsallowed.club/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.56
+    },
+    {
+      "googlePlaceId": "ChIJF-dY_IO3t4kRGBj1JD-V4Q0",
+      "name": "National Museum of the American Indian",
+      "address": "4th St SW, Washington, DC 20560, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 11078,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8883484,
+      "lng": -77.01650339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1000244690688481304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://americanindian.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.51
+    },
+    {
+      "googlePlaceId": "ChIJcfBIqUi2t4kRDm9kV7cD4gE",
+      "name": "The Escape Game DC (Georgetown)",
+      "address": "3345 M St NW, Washington, DC 20007, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4450,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9052588,
+      "lng": -77.0674868,
+      "googleMapsUri": "https://maps.google.com/?cid=135675024754634510&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/dc/book-now/georgetown/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=dc-georgetown",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.47
+    },
+    {
+      "googlePlaceId": "ChIJ5Qt16JC3t4kRTkO47LYw_iI",
+      "name": "Ford's Theatre",
+      "address": "511 10th St NW, Washington, DC 20004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 8364,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8966765,
+      "lng": -77.0255908,
+      "googleMapsUri": "https://maps.google.com/?cid=2521506403587736398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fords.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.13
+    },
+    {
+      "googlePlaceId": "ChIJrTuAH-23t4kRUu2vghXPScI",
+      "name": "The Dabney",
+      "address": "122 Blagden Alley NW, Washington, DC 20001, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1332,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9063446,
+      "lng": -77.0245248,
+      "googleMapsUri": "https://maps.google.com/?cid=13999948607951727954&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thedabney.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.11
+    },
+    {
+      "googlePlaceId": "ChIJjSN0Kpy3t4kRYfYpsKGZ8IM",
+      "name": "National Museum of Asian Art",
+      "address": "1050 Independence Ave SW, Washington, DC 20004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2406,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8881665,
+      "lng": -77.027384,
+      "googleMapsUri": "https://maps.google.com/?cid=9507267733103441505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://asia.si.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.95
+    },
+    {
+      "googlePlaceId": "ChIJc2hfT463t4kREfcRHtsEzHU",
+      "name": "Capital One Arena",
+      "address": "601 F St NW, Washington, DC 20004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 16241,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8981675,
+      "lng": -77.02085679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8488164736835385105&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.capitalonearena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.89
+    },
+    {
+      "googlePlaceId": "ChIJq6rqB5C3t4kRTu71Io6LD_E",
+      "name": "DC Nation Tours And Travel",
+      "address": "1401 H St NW, Washington, DC 20005, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 681,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 38.9006434,
+      "lng": -77.0321573,
+      "googleMapsUri": "https://maps.google.com/?cid=17370255730379451982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dcnationtours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.53
+    },
+    {
+      "googlePlaceId": "ChIJ2Y3ieEu2t4kRl4uhk0VaZv8",
+      "name": "DC by Foot",
+      "address": "1300 Pennsylvania Ave NW #190-503, Washington, DC 20004, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 982,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8951018,
+      "lng": -77.0303047,
+      "googleMapsUri": "https://maps.google.com/?cid=18403496182172191639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dcbyfoot.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.51
+    },
+    {
+      "googlePlaceId": "ChIJ47HTmlS3t4kRFB7QhLF70s4",
+      "name": "Drunk Shakespeare DC",
+      "address": "1100 13th St NW Suite 105, Washington, DC 20005, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1461,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "manufacturer",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.903881299999995,
+      "lng": -77.0300256,
+      "googleMapsUri": "https://maps.google.com/?cid=14903110119290052116&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.drunkshakespeare.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.33
+    },
+    {
+      "googlePlaceId": "ChIJCcN4tB5KtokRBfPD4ikaIBc",
+      "name": "Meadowlark Botanical Gardens",
+      "address": "9750 Meadowlark Gardens Ct, Vienna, VA 22182, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 4326,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.938031699999996,
+      "lng": -77.2819304,
+      "googleMapsUri": "https://maps.google.com/?cid=1666360629327557381&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.novaparks.com/parks/meadowlark-botanical-gardens",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.29
+    },
+    {
+      "googlePlaceId": "ChIJDcAfqHawt4kRAWyr2VKHjTI",
+      "name": "National Children's Museum",
+      "address": "Woodrow Wilson Plaza, 1300 Pennsylvania Ave NW, Washington, DC 20004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 1613,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8942921,
+      "lng": -77.02979169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3642716463521557505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nationalchildrensmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 83.12
+    },
+    {
+      "googlePlaceId": "ChIJI8GUTo23t4kRy5JKCm9Dv0Q",
+      "name": "Rumi's Kitchen - DC",
+      "address": "640 L St NW, Washington, DC 20001, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2821,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "persian_restaurant",
+      "types": [
+        "persian_restaurant",
+        "middle_eastern_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.903933599999995,
+      "lng": -77.0209499,
+      "googleMapsUri": "https://maps.google.com/?cid=4953752259323925195&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rumiskitchen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.07
+    },
+    {
+      "googlePlaceId": "ChIJAUn6M_LpuokR2LjUM1zXmlo",
+      "name": "Virginia Aquarium & Marine Science Center",
+      "address": "717 General Booth Blvd, Virginia Beach, VA 23451, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 16473,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "wedding_venue",
+        "event_venue",
+        "museum",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.82120510000001,
+      "lng": -75.9836042,
+      "googleMapsUri": "https://maps.google.com/?cid=6528767400833497304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.virginiaaquarium.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 82.84
+    },
+    {
+      "googlePlaceId": "ChIJ3dToFUSxt4kR57-9R7TkIVk",
+      "name": "Escapology Escape Room National Harbor",
+      "address": "230 American Way, Oxon Hill, MD 20745, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2515,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.7839542,
+      "lng": -77.01423439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6422666006555901927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/national-harbor-md",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.78
+    },
+    {
+      "googlePlaceId": "ChIJk8VnxnS3t4kRbyjCpY3U-Kc",
+      "name": "Constitution Gardens",
+      "address": "Constitution Ave. NW, Washington, DC 20024, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1991,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8909409,
+      "lng": -77.0445292,
+      "googleMapsUri": "https://maps.google.com/?cid=12103657703394650223&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nps.gov/coga/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.74
+    },
+    {
+      "googlePlaceId": "ChIJK7e4Ldu3t4kRUg8DvM7SaSQ",
+      "name": "Jack Rose Dining Saloon",
+      "address": "2007 18th St NW, Washington, DC 20009, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2417,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9173987,
+      "lng": -77.0413058,
+      "googleMapsUri": "https://maps.google.com/?cid=2623860043279437650&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://jackrosediningsaloon.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 82.62
+    },
+    {
+      "googlePlaceId": "ChIJ7_urgUS3t4kRazOIOoFZKxw",
+      "name": "Urban Roast",
+      "address": "916 G St NW # C-2, Washington, DC 20001, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.1,
+      "reviewCount": 2842,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8980051,
+      "lng": -77.02491599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2029814468628198251&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.urbanroastdc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.6
+    },
+    {
+      "googlePlaceId": "ChIJG2beGfottokR8gt-HpLvBa8",
+      "name": "Red Door Escape Room",
+      "address": "125 Boardwalk Pl, Gaithersburg, MD 20878, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1617,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.1170453,
+      "lng": -77.19894160000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12611749742376782834&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://reddoorescape.com/escape-rooms/gaithersburg/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.58
+    },
+    {
+      "googlePlaceId": "ChIJmY1j8jG3t4kR2tXurbEOXJY",
+      "name": "Puttery",
+      "address": "800 F St NW, Washington, DC 20004, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 1507,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "lounge_bar",
+        "cocktail_bar",
+        "indoor_golf_course",
+        "golf_course",
+        "athletic_field",
+        "bar",
+        "sports_activity_location",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.8969149,
+      "lng": -77.0234315,
+      "googleMapsUri": "https://maps.google.com/?cid=10834550959836681690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.puttery.com/locations/dc",
+      "openNow": true,
+      "matchedQueries": [
+        "golf courses",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 82.52
+    },
+    {
+      "googlePlaceId": "ChIJO9kwceDJt4kR5BVvNCruUFo",
+      "name": "Acqua Bistecca",
+      "address": "14 Ridge Square NW, Washington, DC 20016, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 1090,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "italian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.940611,
+      "lng": -77.077898,
+      "googleMapsUri": "https://maps.google.com/?cid=6507963326586099172&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.acquabistecca.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 82.47
+    },
+    {
+      "googlePlaceId": "ChIJdy-K1WLHt4kR0ikN6JhcEkc",
+      "name": "Costco Wholesale",
+      "address": "2441 Market St NE, Washington, DC 20018, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 9655,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "warehouse_store",
+      "types": [
+        "warehouse_store",
+        "department_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.920667099999996,
+      "lng": -76.9502629,
+      "googleMapsUri": "https://maps.google.com/?cid=5121257538071636434&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.costco.com/warehouse-locations/washington-DC-1120.html?utm_term=KW&utm_campaign=Homepage&utm_medium=GMB&utm_source=Google&utm_content=Link",
+      "openNow": true,
+      "matchedQueries": [
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.36
+    },
+    {
+      "googlePlaceId": "ChIJm6jzW8-3t4kRnFvbsLxfz-Q",
+      "name": "Board Room",
+      "address": "1737 Connecticut Ave NW, Washington, DC 20009, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 1425,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.913669,
+      "lng": -77.045323,
+      "googleMapsUri": "https://maps.google.com/?cid=16487502024852331420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://boardroomdc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 82.36
+    },
+    {
+      "googlePlaceId": "ChIJuRQJIue3t4kR4aTvgqKSRg0",
+      "name": "Maydan",
+      "address": "1346 Florida Ave NW, Washington, DC 20009, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2191,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "middle_eastern_restaurant",
+      "types": [
+        "middle_eastern_restaurant",
+        "lebanese_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.919782399999995,
+      "lng": -77.0309582,
+      "googleMapsUri": "https://maps.google.com/?cid=956613197541909729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.maydandc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 82.33
+    },
+    {
+      "googlePlaceId": "ChIJYcH-1Qi3t4kRShLdqzSSXEg",
+      "name": "Segreto DC Speakeasy Bar",
+      "address": "1932 9th St NW, Washington, DC 20001, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 386,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9165001,
+      "lng": -77.02435369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5214203223507538506&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.segretodc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 82.25
+    },
+    {
+      "googlePlaceId": "ChIJIxKP_rnIt4kRrekV-3S3Lac",
+      "name": "The Fillmore Silver Spring",
+      "address": "8656 Colesville Rd, Silver Spring, MD 20910, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 5135,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "wedding_venue",
+        "auditorium",
+        "night_club",
+        "comedy_club",
+        "banquet_hall",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 38.997449,
+      "lng": -77.027579,
+      "googleMapsUri": "https://maps.google.com/?cid=12046486291342551469&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fillmoresilverspring.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 82.24
+    },
+    {
+      "googlePlaceId": "ChIJH5haTHi5t4kR-A-zEcWqk0U",
+      "name": "maman",
+      "address": "1300 4th St NE, Washington, DC 20002, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 3038,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "coffee_shop",
+      "types": [
+        "coffee_shop",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "cafe",
+        "family_restaurant",
+        "european_restaurant",
+        "dessert_shop",
+        "confectionery",
+        "french_restaurant",
+        "food_store",
+        "store",
+        "service",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.9092708,
+      "lng": -76.99923,
+      "googleMapsUri": "https://maps.google.com/?cid=5013538573575720952&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mamannyc.com/locations/union-market",
+      "openNow": true,
+      "matchedQueries": [
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.24
+    },
+    {
+      "googlePlaceId": "ChIJVSkXoVS3t4kRNzCvW-R9N9E",
+      "name": "Live-K Karaoke Bar | The Wharf",
+      "address": "730 Maine Ave SW, Washington, DC 20024, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 2918,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "karaoke",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.8788255,
+      "lng": -77.0233521,
+      "googleMapsUri": "https://maps.google.com/?cid=15075656697390247991&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.live-k.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 82.12
+    }
+  ]
+}

@@ -1,0 +1,3651 @@
+{
+  "location": "Houston, TX",
+  "generatedAt": "2026-05-17T19:05:20.672Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJqzEuToa_QIYRetkd7kIw47s",
+      "name": "Houston Museum of Natural Science",
+      "address": "5555 Hermann Park Dr, Houston, TX 77030, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 30422,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.722062500000003,
+      "lng": -95.3895625,
+      "googleMapsUri": "https://maps.google.com/?cid=13538717968826751354&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hmns.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.01
+    },
+    {
+      "googlePlaceId": "ChIJ_xtEc6S_QIYRmOMvxSUa2Ao",
+      "name": "Game Show Studio Houston",
+      "address": "125 W Gray St #100, Houston, TX 77019, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 5,
+      "reviewCount": 14979,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7531522,
+      "lng": -95.37971069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=781403284873143192&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameshowstudio.com/houston/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "immersive experiences",
+        "escape rooms",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 99.93
+    },
+    {
+      "googlePlaceId": "ChIJLZlhwACdQIYRFvnVL8mq8BM",
+      "name": "Space Center Houston",
+      "address": "1601 E NASA Pkwy, Houston, TX 77058, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 53138,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.551831999999997,
+      "lng": -95.0981044,
+      "googleMapsUri": "https://maps.google.com/?cid=1436836062198888726&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spacecenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJOzcF1LLEQIYRpkmtlUxhumI",
+      "name": "The Escape Game Houston (CityCentre)",
+      "address": "794 Sorella Ct #127, Houston, TX 77024, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 12778,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7790105,
+      "lng": -95.5613137,
+      "googleMapsUri": "https://maps.google.com/?cid=7114105542941690278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/houston/book-now/citycentre/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=hou-citycentre",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 99.42
+    },
+    {
+      "googlePlaceId": "ChIJ2-wQSJe_QIYREbxcKabmW9Q",
+      "name": "Lost & Found",
+      "address": "160 W Gray St, Houston, TX 77019, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 17353,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.753472499999997,
+      "lng": -95.3809497,
+      "googleMapsUri": "https://maps.google.com/?cid=15302077760254295057&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lostandfoundmidtown.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "TikTok restaurants",
+        "fine dining",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 98.2
+    },
+    {
+      "googlePlaceId": "ChIJJUo2UyK_QIYRI_nLX1af7Qg",
+      "name": "Discovery Green",
+      "address": "1500 McKinney St, Houston, TX 77010, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 22084,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7530669,
+      "lng": -95.359608,
+      "googleMapsUri": "https://maps.google.com/?cid=643345515107055907&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.discoverygreen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "interactive pop ups",
+        "best parks",
+        "mini golf",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs",
+        "holiday markets",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.88
+    },
+    {
+      "googlePlaceId": "ChIJ-2iakAJjP4YRuxAq74DFqDA",
+      "name": "Kemah Boardwalk",
+      "address": "215 Kipp Ave, Kemah, TX 77565, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 39825,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.5473219,
+      "lng": -95.0202048,
+      "googleMapsUri": "https://maps.google.com/?cid=3506269467466928315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kemahboardwalk.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.57
+    },
+    {
+      "googlePlaceId": "ChIJ85BrXaW_QIYRwTvrQszVy8c",
+      "name": "Beat The Bomb Houston",
+      "address": "2103 Lyons Ave #300, Houston, TX 77020, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4761,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "indoor_playground",
+        "playground",
+        "video_arcade",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7721067,
+      "lng": -95.34770139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14396835707092679617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.beatthebomb.com/locations/houston",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 96.24
+    },
+    {
+      "googlePlaceId": "ChIJ1_fBKTG_QIYRWdRY0QE5LH0",
+      "name": "Aquarium Restaurant",
+      "address": "410 Bagby St, Houston, TX 77002, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 11303,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "family_restaurant",
+        "aquarium",
+        "amusement_park",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 29.764608300000003,
+      "lng": -95.36727270000002,
+      "googleMapsUri": "https://maps.google.com/?cid=9019646833686271065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.downtownaquariumhouston.com/aquarium-restaurant",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 95.72
+    },
+    {
+      "googlePlaceId": "ChIJr776Xw7FQIYRut_zL3GEwxY",
+      "name": "Great Big Game Show Houston",
+      "address": "794 Sorella Ct #127, Houston, TX 77024, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 5,
+      "reviewCount": 5486,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7790105,
+      "lng": -95.5613137,
+      "googleMapsUri": "https://maps.google.com/?cid=1640300310963675066&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://greatbiggameshow.com/houston?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=houston",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.2
+    },
+    {
+      "googlePlaceId": "ChIJ48I5hnvBQIYRNdjz219pjUI",
+      "name": "JOEY Uptown",
+      "address": "5045 Westheimer Rd Suite X01, Houston, TX 77056, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 11453,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pub",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7401723,
+      "lng": -95.4629128,
+      "googleMapsUri": "https://maps.google.com/?cid=4795605038652446773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://joeyrestaurants.com/location/joey-uptown",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 95.11
+    },
+    {
+      "googlePlaceId": "ChIJK5qZwoO_QIYRF4P0H-ZPZ3I",
+      "name": "McGovern Centennial Gardens",
+      "address": "1500 Hermann Dr, Houston, TX 77004, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5098,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.720678999999997,
+      "lng": -95.38648529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8243645492722172695&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hermannpark.org/visit/mcgovern-centennial-gardens/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.26
+    },
+    {
+      "googlePlaceId": "ChIJEzJREIa_QIYR-GkQRMwI9GE",
+      "name": "Houston Zoo",
+      "address": "6200 Hermann Park Dr, Houston, TX 77030, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 43526,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7157813,
+      "lng": -95.39032069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7058276189404686840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.houstonzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.96
+    },
+    {
+      "googlePlaceId": "ChIJAWfrmTG_QIYRr-DtViEoYfo",
+      "name": "POST Houston",
+      "address": "401 Franklin St, Houston, TX 77201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 9055,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.766069599999994,
+      "lng": -95.36458990000001,
+      "googleMapsUri": "https://maps.google.com/?cid=18041745705880379567&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.posthtx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "rooftop bars",
+        "events tonight",
+        "cultural exhibits",
+        "cultural centers",
+        "sunset date spots",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "arts-culture",
+        "romantic-date-night",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.91
+    },
+    {
+      "googlePlaceId": "ChIJSx6QT3-_QIYRPaWcHKc3bbI",
+      "name": "The Museum of Fine Arts, Houston",
+      "address": "1001 Bissonnet St, Houston, TX 77005, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 11977,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7256229,
+      "lng": -95.3905328,
+      "googleMapsUri": "https://maps.google.com/?cid=12856993702091728189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mfah.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 93.76
+    },
+    {
+      "googlePlaceId": "ChIJY47Vz1ecP4YR4hJNhlhX9AI",
+      "name": "Moody Gardens Attractions Theme Park",
+      "address": "1 Hope Blvd, Galveston, TX 77554, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 19370,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "movie_theater",
+        "zoo",
+        "garden",
+        "botanical_garden",
+        "non_profit_organization",
+        "aquarium",
+        "tourist_attraction",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.274746,
+      "lng": -94.85169189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=212891120115192546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moodygardens.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.75
+    },
+    {
+      "googlePlaceId": "ChIJRbBSJXLZQIYRCo3TkAwrZUk",
+      "name": "Activate Games",
+      "address": "20225 Katy Fwy, Katy, TX 77450, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2580,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "adventure_sports_center",
+        "store",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7841128,
+      "lng": -95.7227837,
+      "googleMapsUri": "https://maps.google.com/?cid=5288680670385900810&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/katy?utm_source=google&utm_medium=organic&utm_campaign=gmb-katy",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.17
+    },
+    {
+      "googlePlaceId": "ChIJW6kbVYC_QIYRb-kc3i0D54c",
+      "name": "Immersive Gamebox",
+      "address": "1200 McKinney St Unit 313 3rd Floor, Houston, TX 77010, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 2559,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7551034,
+      "lng": -95.36204029999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9792799410275281263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/htx-the-highlight-houston-texas",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "local-exploration"
+      ],
+      "popularityScore": 93.14
+    },
+    {
+      "googlePlaceId": "ChIJ000aYTe_QIYRXyZGdHx8LwM",
+      "name": "The Hobby Center for the Performing Arts",
+      "address": "800 Bagby St, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4849,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.761666700000003,
+      "lng": -95.3697222,
+      "googleMapsUri": "https://maps.google.com/?cid=229538979987727967&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thehobbycenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "cultural centers",
+        "events this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93
+    },
+    {
+      "googlePlaceId": "ChIJoXCzG4O_QIYRepGQdokq9qQ",
+      "name": "Children's Museum Houston",
+      "address": "1500 Binz St, Houston, TX 77004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6669,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "cafe",
+        "amusement_center",
+        "event_venue",
+        "museum",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.722931300000003,
+      "lng": -95.385289,
+      "googleMapsUri": "https://maps.google.com/?cid=11886735036379074938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cmhouston.org/?utm_source=google&utm_medium=organic&utm_campaign=gmbhouston",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 92.92
+    },
+    {
+      "googlePlaceId": "ChIJ7eRdkTTBQIYR0-CkEgX4Gdc",
+      "name": "Houston Arboretum & Nature Center",
+      "address": "4501 Woodway Dr, Houston, TX 77024, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4228,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "tourist_attraction",
+        "botanical_garden",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7652236,
+      "lng": -95.45207049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15499692293243592915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.houstonarboretum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.56
+    },
+    {
+      "googlePlaceId": "ChIJR1kC54a_QIYRQQvvQ2sjJrE",
+      "name": "Hermann Park",
+      "address": "6100 Hermann Park Dr, Houston, TX 77030, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 30194,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7137742,
+      "lng": -95.389423,
+      "googleMapsUri": "https://maps.google.com/?cid=12764929137436461889&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hermannpark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 92.38
+    },
+    {
+      "googlePlaceId": "ChIJ-zLaJqjAQIYRfnCkjD5AWhA",
+      "name": "Buffalo Bayou Park",
+      "address": "105 Sabine St, Houston, TX 77007, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6245,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.763078,
+      "lng": -95.37614549999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1178324889902542974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://buffalobayou.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 92.31
+    },
+    {
+      "googlePlaceId": "ChIJRz4gnqi1RIYRBsmXj82av1Y",
+      "name": "The Escape Game Austin",
+      "address": "405 Red River St, Austin, TX 78701, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 17693,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.2647627,
+      "lng": -97.7375647,
+      "googleMapsUri": "https://maps.google.com/?cid=6250885015481600262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/austin/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=austin",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 92.21
+    },
+    {
+      "googlePlaceId": "ChIJ0b3z7m7BQIYRr1w81iD6A34",
+      "name": "The Galleria",
+      "address": "5085 Westheimer Rd, Houston, TX 77056, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 35037,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7391955,
+      "lng": -95.46343420000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9080376292649229487&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/the-galleria",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.16
+    },
+    {
+      "googlePlaceId": "ChIJDyV1iizBQIYRNjvTwnIlaQs",
+      "name": "Memorial Park",
+      "address": "6501 Memorial Dr, Houston, TX 77007, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 10729,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.766749800000003,
+      "lng": -95.44104689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=822229581796948790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.memorialparkconservancy.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 91.9
+    },
+    {
+      "googlePlaceId": "ChIJm6DLNzS_QIYRIIb46UhefqY",
+      "name": "Cockrell Butterfly Center",
+      "address": "5555 Hermann Park Dr, Houston, TX 77030, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2415,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.722167799999998,
+      "lng": -95.3903299,
+      "googleMapsUri": "https://maps.google.com/?cid=11997130124617614880&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hmns.org/cockrell-butterfly-center/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.86
+    },
+    {
+      "googlePlaceId": "ChIJucAC77HDQIYR0kYLBnTacVw",
+      "name": "Winsome Prime",
+      "address": "5888 Westheimer Rd, Houston, TX 77057, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 6517,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.738656700000003,
+      "lng": -95.48404839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6661345515710138066&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.winsomeprime.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.8
+    },
+    {
+      "googlePlaceId": "ChIJq-4v1za_QIYR3gBH_XWpKxo",
+      "name": "Downtown Aquarium",
+      "address": "410 Bagby St, Houston, TX 77002, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.1,
+      "reviewCount": 24932,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "aquarium",
+        "family_restaurant",
+        "water_park",
+        "amusement_park",
+        "association_or_organization",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7642703,
+      "lng": -95.36737920000002,
+      "googleMapsUri": "https://maps.google.com/?cid=1885787193210241246&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.downtownaquariumhouston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "street fairs",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.67
+    },
+    {
+      "googlePlaceId": "ChIJmaGBZ5r5QIYRVQmv9bXzvYk",
+      "name": "Brazos Bend State Park",
+      "address": "21901 Farm to Market Rd 762, Needville, TX 77461, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5869,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.370962100000003,
+      "lng": -95.63192079999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9925357116630960469&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tpwd.texas.gov/state-parks/brazos-bend",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 91.46
+    },
+    {
+      "googlePlaceId": "ChIJ39G-vhC_QIYRd0jotEi5Xmo",
+      "name": "Cidercade Houston",
+      "address": "2320 Canal St suite 100, Houston, TX 77003, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 5901,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "pizza_restaurant",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.757559399999995,
+      "lng": -95.3465344,
+      "googleMapsUri": "https://maps.google.com/?cid=7664767337755068535&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cidercade.com/houston/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "things to do this weekend",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.43
+    },
+    {
+      "googlePlaceId": "ChIJQetHYR-_QIYR3I6bzAfXUD4",
+      "name": "Truck Yard",
+      "address": "2118 Lamar St, Houston, TX 77003, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3685,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "sports_bar",
+        "bar_and_grill",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 29.7497749,
+      "lng": -95.3560409,
+      "googleMapsUri": "https://maps.google.com/?cid=4490325256985874140&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://truckyard.com/houston/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "sunset date spots",
+        "game night venues",
+        "karaoke bars",
+        "game bars",
+        "food trucks",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.02
+    },
+    {
+      "googlePlaceId": "ChIJDVq9HXO_QIYRAwpe106KY9w",
+      "name": "Axelrad Beer Garden",
+      "address": "1517 Alabama St, Houston, TX 77004, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 6644,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "beer_garden",
+      "types": [
+        "beer_garden",
+        "live_music_venue",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 29.734973300000004,
+      "lng": -95.3747763,
+      "googleMapsUri": "https://maps.google.com/?cid=15880688782263847427&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.axelradhouston.com/?utm_source=local&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.76
+    },
+    {
+      "googlePlaceId": "ChIJA-5lkIeIToYR5BLrU4XVoVU",
+      "name": "Traders Village Grand Prairie",
+      "address": "2602 Mayfield Rd, Grand Prairie, TX 75052, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 22392,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "roller_coaster",
+        "live_music_venue",
+        "amusement_park",
+        "market",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.6953405,
+      "lng": -97.05120269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6170447733089571556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://tradersvillage.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.72
+    },
+    {
+      "googlePlaceId": "ChIJ8b12Ex2_QIYRMTefkQiQQPk",
+      "name": "Social Beer Garden HTX",
+      "address": "3101 San Jacinto St, Houston, TX 77004, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2364,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "beer_garden",
+        "cocktail_bar",
+        "performing_arts_theater",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7409154,
+      "lng": -95.3746556,
+      "googleMapsUri": "https://maps.google.com/?cid=17960513680430806833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.socialbeergardenhtx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "comedy shows",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "karaoke bars",
+        "trivia nights",
+        "game bars",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 90.69
+    },
+    {
+      "googlePlaceId": "ChIJlQDR6zy_QIYR0Q2_-m3ijoc",
+      "name": "House of Blues Houston",
+      "address": "1204 Caroline St, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6572,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "wedding_venue",
+        "lounge_bar",
+        "night_club",
+        "store",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 29.7538217,
+      "lng": -95.36395309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9767993603799322065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://houston.houseofblues.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "festivals this weekend",
+        "local events",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.68
+    },
+    {
+      "googlePlaceId": "ChIJnb8KIafTQIYRZvEohfcGmnk",
+      "name": "The Chefs Table Houston",
+      "address": "110 Vintage Park Blvd Building J Suite P, Houston, TX 77070, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1668,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "portuguese_restaurant",
+        "african_restaurant",
+        "french_restaurant",
+        "american_restaurant",
+        "indian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.994357200000003,
+      "lng": -95.572017,
+      "googleMapsUri": "https://maps.google.com/?cid=8762323685163463014&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chefstablehouston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.67
+    },
+    {
+      "googlePlaceId": "ChIJSzrEtmK_QIYR-S_tv3teTvY",
+      "name": "Jones Hall for the Performing Arts",
+      "address": "615 Louisiana St, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3730,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7608809,
+      "lng": -95.3650382,
+      "googleMapsUri": "https://maps.google.com/?cid=17748227067107684345&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://houstonsymphony.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.66
+    },
+    {
+      "googlePlaceId": "ChIJh1u1L2-_QIYRS8CnhxGTg9A",
+      "name": "Brennan's Houston",
+      "address": "3300 Smith St, Houston, TX 77006, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3297,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "cajun_restaurant",
+        "american_restaurant",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.743003599999998,
+      "lng": -95.3814613,
+      "googleMapsUri": "https://maps.google.com/?cid=15025014485337751627&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brennanshouston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.66
+    },
+    {
+      "googlePlaceId": "ChIJz0peBLTEQIYReNQTuVx4EUM",
+      "name": "Taste of Texas",
+      "address": "10505 Katy Fwy, Houston, TX 77024, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 10719,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "butcher_shop",
+        "manufacturer",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 29.782816399999998,
+      "lng": -95.5569012,
+      "googleMapsUri": "https://maps.google.com/?cid=4832776214782661752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tasteoftexas.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.55
+    },
+    {
+      "googlePlaceId": "ChIJ_4RgI07BQIYRGdqQxH1AQuI",
+      "name": "Museum of Illusions Houston",
+      "address": "5060 W Alabama St STE 2D, Houston, TX 77056, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2001,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7383756,
+      "lng": -95.4646344,
+      "googleMapsUri": "https://maps.google.com/?cid=16303664509947533849&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moihouston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.15
+    },
+    {
+      "googlePlaceId": "ChIJ_bfKhzC_QIYRjcicKBqxadU",
+      "name": "Alley Theatre",
+      "address": "615 Texas Ave, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2179,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.762093800000002,
+      "lng": -95.3653724,
+      "googleMapsUri": "https://maps.google.com/?cid=15378017128541898893&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.alleytheatre.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.03
+    },
+    {
+      "googlePlaceId": "ChIJf7HmKbLBQIYRqkG98ccX_ps",
+      "name": "Color Factory Houston",
+      "address": "3303 Kirby Dr, Houston, TX 77098, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2652,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.735361899999997,
+      "lng": -95.4182555,
+      "googleMapsUri": "https://maps.google.com/?cid=11240447867484979626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.colorfactory.co/locations/houston",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.96
+    },
+    {
+      "googlePlaceId": "ChIJCfr86zC_QIYRXXL2ve3WCcY",
+      "name": "Wortham Theater Center",
+      "address": "501 Texas Ave, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2956,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7633474,
+      "lng": -95.3656579,
+      "googleMapsUri": "https://maps.google.com/?cid=14270173210882765405&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visithoustontexas.com/theater/venues/wortham-center/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.91
+    },
+    {
+      "googlePlaceId": "ChIJ9eJo8vDAQIYR3L4ylc5MoBA",
+      "name": "Levy Park",
+      "address": "3801 Eastside St, Houston, TX 77098, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6095,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.732653199999998,
+      "lng": -95.4233261,
+      "googleMapsUri": "https://maps.google.com/?cid=1198041951030656732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://levyparkhouston.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "mini golf"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 89.83
+    },
+    {
+      "googlePlaceId": "ChIJz5Yxb3G_QIYRi_XKDSC7a_0",
+      "name": "810 Entertainment - Houston",
+      "address": "1201 San Jacinto St Suite 321, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1741,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 29.7539943,
+      "lng": -95.3641749,
+      "googleMapsUri": "https://maps.google.com/?cid=18260894860448560523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.810bowling.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.71
+    },
+    {
+      "googlePlaceId": "ChIJM60VYOW-QIYRi7qVEstsO0s",
+      "name": "Toyota Center",
+      "address": "1510 Polk St, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 11471,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.750921299999998,
+      "lng": -95.3622173,
+      "googleMapsUri": "https://maps.google.com/?cid=5421046195916487307&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.toyotacenter.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.67
+    },
+    {
+      "googlePlaceId": "ChIJzxBWfyLBQIYRlIiltfz5vvc",
+      "name": "The Escape Game Houston (Galleria)",
+      "address": "5015 Westheimer Rd #A1178, Houston, TX 77056, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7629,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7393838,
+      "lng": -95.46238609999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17851980836717824148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/houston/book-now/the-galleria/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=hou-galleria",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.51
+    },
+    {
+      "googlePlaceId": "ChIJr95ma6rdQIYRlca_5pUiY9k",
+      "name": "Seismique",
+      "address": "2306 S Texas 6, Houston, TX 77077, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 4503,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "art_museum",
+        "tourist_attraction",
+        "bar",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.739995,
+      "lng": -95.6460929,
+      "googleMapsUri": "https://maps.google.com/?cid=15664401956141516437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seismique.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "mini golf",
+        "kids activities",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJUywG2OG_QIYRUp64RJXu9wA",
+      "name": "Bungalow",
+      "address": "407 Main St, Houston, TX 77002, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3187,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.761206700000002,
+      "lng": -95.36140329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=69786644118019666&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bungalowdining.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJ84Jv4S-_QIYRrPnSA2Vagik",
+      "name": "Market Square Park",
+      "address": "301 Milam St, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3106,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.762645099999997,
+      "lng": -95.36236079999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2991052492429785516&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://marketsquarepark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "farmers markets",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "shopping-markets",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.37
+    },
+    {
+      "googlePlaceId": "ChIJrWtASxnAQIYRV52aOcJuDxs",
+      "name": "NRG Stadium",
+      "address": "1 NRG Pkwy, Houston, TX 77054, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 28546,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.684721900000003,
+      "lng": -95.41070739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1949898944143859031&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://nrgpark.com/nrg-stadium",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 89.35
+    },
+    {
+      "googlePlaceId": "ChIJf1tBtfnQQIYR6F_1fUUOEzg",
+      "name": "Traders Village Houston",
+      "address": "7979 N Eldridge Pkwy, Houston, TX 77041, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 11816,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "rv_park",
+        "market",
+        "lodging",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.893721399999997,
+      "lng": -95.6101618,
+      "googleMapsUri": "https://maps.google.com/?cid=4040588982310232040&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tradersvillage.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.31
+    },
+    {
+      "googlePlaceId": "ChIJn0YveOjBQIYRVcI9ZbbcvwE",
+      "name": "The Riot Comedy Club",
+      "address": "2010 Waugh Dr, Houston, TX 77006, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 5555,
+      "priceLevel": null,
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 29.749954599999995,
+      "lng": -95.3966102,
+      "googleMapsUri": "https://maps.google.com/?cid=126061990530368085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://theriothtx.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 89.14
+    },
+    {
+      "googlePlaceId": "ChIJZRhNaU-_QIYRV5P2J_E0O-8",
+      "name": "Eleanor Tinsley Park",
+      "address": "18-3600 Allen Pkwy, Houston, TX 77019, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6360,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.762276099999998,
+      "lng": -95.3792185,
+      "googleMapsUri": "https://maps.google.com/?cid=17238430209052939095&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.houstontx.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJW_s0SRvHQIYREXn0DXARk9U",
+      "name": "Rainbow Lodge",
+      "address": "2011 Ella Blvd, Houston, TX 77008, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2827,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "steak_house",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.8045106,
+      "lng": -95.42978719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15389663524623251729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://rainbow-lodge.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.06
+    },
+    {
+      "googlePlaceId": "ChIJJ0aTHObAQIYRPKlKBtryX9Y",
+      "name": "State of Grace",
+      "address": "3258 Westheimer Rd, Houston, TX 77098, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1987,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7425,
+      "lng": -95.42527779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15447332265126439228&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stateofgracetx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.03
+    },
+    {
+      "googlePlaceId": "ChIJO9jSWbVfXIYRSRByBA4h70o",
+      "name": "Hopscotch San Antonio",
+      "address": "711 Navarro St Ste 100, San Antonio, TX 78205, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6358,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "lounge_bar",
+        "gift_shop",
+        "night_club",
+        "art_gallery",
+        "bar",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 29.428150499999997,
+      "lng": -98.49004219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5399570822328356937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.letshopscotch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.87
+    },
+    {
+      "googlePlaceId": "ChIJ7zDogNbFQIYRTA01J4hoY5Y",
+      "name": "Trill On Wheels Hip-Hop Party Bike",
+      "address": "3900 Almeda Rd, Houston, TX 77004, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 4989,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tourist_attraction",
+        "cultural_center",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.733686299999995,
+      "lng": -95.37546019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10836620062366174540&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trillonwheels.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.79
+    },
+    {
+      "googlePlaceId": "ChIJpTwf6G3BQIYRyZpTrmALPvQ",
+      "name": "Gerald D. Hines Waterwall Park",
+      "address": "2800 Post Oak Blvd, Houston, TX 77056, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9837,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7359479,
+      "lng": -95.4613024,
+      "googleMapsUri": "https://maps.google.com/?cid=17599516903679957705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.uptown-houston.com/news/page/water-wall-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.77
+    },
+    {
+      "googlePlaceId": "ChIJoW24imW-QIYRfVx2CeQVEa0",
+      "name": "Smither Park",
+      "address": "2441 Munger St, Houston, TX 77023, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1929,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7167608,
+      "lng": -95.3246374,
+      "googleMapsUri": "https://maps.google.com/?cid=12470772912321092733&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://orangeshow.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.29
+    },
+    {
+      "googlePlaceId": "ChIJJzfbZH-_QIYRux-QWCrEx4w",
+      "name": "The Menil Collection",
+      "address": "1533 Sul Ross St, Houston, TX 77006, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4314,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.737656500000003,
+      "lng": -95.398511,
+      "googleMapsUri": "https://maps.google.com/?cid=10144292371828842427&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.menil.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 88.27
+    },
+    {
+      "googlePlaceId": "ChIJG3farMjAQIYRebM366xkNhs",
+      "name": "Brenner's on the Bayou",
+      "address": "1 Birdsall St, Houston, TX 77007, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2978,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "wedding_venue",
+        "event_venue",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 29.7595459,
+      "lng": -95.4199139,
+      "googleMapsUri": "https://maps.google.com/?cid=1960865381609878393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.brennerssteakhouse.com/location/brenners-on-the-bayou/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJkarsG5m3QIYRpzba4-6mTgg",
+      "name": "Houston Interactive Aquarium & Animal Preserve",
+      "address": "5440 N Sam Houston Pkwy E, Humble, TX 77396, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 4074,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.938165599999998,
+      "lng": -95.3116683,
+      "googleMapsUri": "https://maps.google.com/?cid=598599345442010791&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.houstonaquariumtx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.04
+    },
+    {
+      "googlePlaceId": "ChIJz5s0I7vGQIYRwIHnsGWM5F4",
+      "name": "Dave & Buster's Houston - Katy Fwy",
+      "address": "7620 Katy Fwy Ste 100, Houston, TX 77024, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 8597,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "video_arcade",
+        "amusement_center",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 29.7862052,
+      "lng": -95.4659137,
+      "googleMapsUri": "https://maps.google.com/?cid=6837744502642803136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/houston-katy-fwy",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.84
+    },
+    {
+      "googlePlaceId": "ChIJye8F8oM3R4YRsX6C2-I3-Ks",
+      "name": "Game Show Battle Rooms - Houston (The Woodlands)",
+      "address": "8980 Metropark Dr Suite 100, Shenandoah, TX 77385, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 4500,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "bar",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.1947696,
+      "lng": -95.44937770000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12391715822194818737&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameshowbattlerooms.com/houston",
+      "openNow": null,
+      "matchedQueries": [
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 87.81
+    },
+    {
+      "googlePlaceId": "ChIJnSEHspTbQIYRPhxbAwXwpws",
+      "name": "Terry Hershey Park",
+      "address": "15200 Memorial Dr, Houston, TX 77079, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4067,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7817875,
+      "lng": -95.623719,
+      "googleMapsUri": "https://maps.google.com/?cid=839903759849692222&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cp4.harriscountytx.gov/Parks",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.68
+    },
+    {
+      "googlePlaceId": "ChIJ54TrhBXsW4YRhOQOg6nVWPc",
+      "name": "Enchanted Rock State Natural Area",
+      "address": "16710 Ranch Rd 965, Fredericksburg, TX 78624, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8036,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "nature_preserve",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.4951229,
+      "lng": -98.81999929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17823230449343718532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tpwd.texas.gov/state-parks/enchanted-rock",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJjWyGK86_QIYR_xBpyfcdvN0",
+      "name": "POST Market (Food Hall)",
+      "address": "401 Franklin St Suite 1200, Houston, TX 77201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2035,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.766214899999998,
+      "lng": -95.3648839,
+      "googleMapsUri": "https://maps.google.com/?cid=15977678528076910847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://posthtx.com/eat",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "TikTok restaurants",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.36
+    },
+    {
+      "googlePlaceId": "ChIJ0X3WfRnBQIYRMuf-5lFGyGA",
+      "name": "Central Market",
+      "address": "3815 Westheimer Rd, Houston, TX 77027, USA",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 4.6,
+      "reviewCount": 5528,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "grocery_store",
+      "types": [
+        "grocery_store",
+        "health_food_store",
+        "food_store",
+        "food",
+        "health",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7410979,
+      "lng": -95.4440566,
+      "googleMapsUri": "https://maps.google.com/?cid=6973901340564973362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.centralmarket.com/locations/houston?utm_source=google&utm_medium=organic&utm_campaign=cm_stores",
+      "openNow": true,
+      "matchedQueries": [
+        "cooking classes",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.32
+    },
+    {
+      "googlePlaceId": "ChIJX6Ht0U2XQIYRtCwGh6JcLPw",
+      "name": "Houston Botanic Garden",
+      "address": "1 Botanic Ln, Houston, TX 77017, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1842,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.687458399999993,
+      "lng": -95.2687278,
+      "googleMapsUri": "https://maps.google.com/?cid=18171000449652894900&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hbg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJG_kMMQDHQIYRt3vYgxkGID4",
+      "name": "Immersive Gamebox - Marq-E, Houston",
+      "address": "7620 Katy Fwy Suite 205, Houston, TX 77024, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 799,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.785774099999998,
+      "lng": -95.46584039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4476584736262224823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/mrq-marq-e-texas/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.25
+    },
+    {
+      "googlePlaceId": "ChIJz4ChNji_QIYRdUECFb9Pbf0",
+      "name": "Sam Houston Park",
+      "address": "1000 Bagby St, Houston, TX 77002, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1808,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.760137499999995,
+      "lng": -95.3716402,
+      "googleMapsUri": "https://maps.google.com/?cid=18261339746167046517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.houstontx.gov/abouthouston/samhoustonpark.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJ_0MiMm6_QIYRr7XETdEk5ZE",
+      "name": "The Breakfast Klub",
+      "address": "3711 Travis St, Houston, TX 77002, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 10016,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.738470699999997,
+      "lng": -95.3804262,
+      "googleMapsUri": "https://maps.google.com/?cid=10512849386537792943&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thebreakfastklub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.08
+    },
+    {
+      "googlePlaceId": "ChIJwaIsyDC_QIYRWjyGIQYmPYM",
+      "name": "Bayou Music Center",
+      "address": "520 Texas Ave, Houston, TX 77002, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 3224,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "wedding_venue",
+        "performing_arts_theater",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 29.762295700000003,
+      "lng": -95.36755819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9456756600322014298&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bayoumusiccenter.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJxX2eIQC_QIYRsn2WZzCoiXU",
+      "name": "Meow Wolf Houston's Radio Tave",
+      "address": "2103 Lyons Ave Building 2, Houston, TX 77020, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 1958,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "art_gallery",
+        "amusement_center",
+        "event_venue",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7721067,
+      "lng": -95.34770139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8469485500096740786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://meowwolf.com/visit/houston?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJt2xpItTHQIYRxs58fRmT1mE",
+      "name": "Unforgettable Kitchen and Cocktails",
+      "address": "5922 Washington Ave, Houston, TX 77007, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 4568,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "lounge_bar",
+        "night_club",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.771142699999995,
+      "lng": -95.42149669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7049984004383887046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.unforgettablehouston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.71
+    },
+    {
+      "googlePlaceId": "ChIJyXRvjGa_QIYR_ydqN-s5Agw",
+      "name": "AvantGarden",
+      "address": "411 Westheimer Rd, Houston, TX 77006, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1540,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "lounge_bar",
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "wedding_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.744348100000003,
+      "lng": -95.38645029999999,
+      "googleMapsUri": "https://maps.google.com/?cid=865317760818358271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.avantgardenhouston.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.71
+    },
+    {
+      "googlePlaceId": "ChIJ-b_yEIa_QIYR-1wAGOSxgH8",
+      "name": "Miller Outdoor Theatre",
+      "address": "6000 Hermann Park Dr, Houston, TX 77030, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 6237,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.719181199999998,
+      "lng": -95.38866809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9187538833049148667&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.milleroutdoortheatre.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.66
+    },
+    {
+      "googlePlaceId": "ChIJG30qnoO_QIYRwUEc8Xl2ZXQ",
+      "name": "The Health Museum",
+      "address": "1515 Hermann Dr, Houston, TX 77004, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 2545,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.721698,
+      "lng": -95.38598999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8387240147155698113&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thehealthmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJc0VvtUTBQIYRHfbEGci0964",
+      "name": "Locktopia Escape Room Houston",
+      "address": "5326 Weslayan St, Houston, TX 77005, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2897,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7240932,
+      "lng": -95.44243639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12607744453365790237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://locktopiahouston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.39
+    },
+    {
+      "googlePlaceId": "ChIJ1SNFhqrmQIYRK8z-jeFvF6E",
+      "name": "Smart Financial Centre at Sugar Land",
+      "address": "18111 Lexington Blvd, Sugar Land, TX 77479, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 6606,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "arena",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 29.5771563,
+      "lng": -95.6436398,
+      "googleMapsUri": "https://maps.google.com/?cid=11607869579111353387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://us.atgtickets.com/venues/smart-financial-centre/whats-on/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJt2alpAg3R4YRkC-7KPL0BtY",
+      "name": "Immersive Gamebox - Woodlands Mall, The Woodlands",
+      "address": "1201 Lake Woodlands Dr #3001, The Woodlands, TX 77380, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3862,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.1637626,
+      "lng": -95.4559154,
+      "googleMapsUri": "https://maps.google.com/?cid=15422283294879461264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/wtx-woodlands-texas/?utm_source=Googlemaps&utm_medium=maps&utm_campaign=WTX",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJ09FBbwy_QIYRy7QNN2j26_8",
+      "name": "713 Music Hall",
+      "address": "401 Franklin St Suite 1600, Houston, TX 77201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2576,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7659871,
+      "lng": -95.3641092,
+      "googleMapsUri": "https://maps.google.com/?cid=18441104026659304651&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.713musichall.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.17
+    },
+    {
+      "googlePlaceId": "ChIJyUx0m_nbQIYR5ZQeQ657zzA",
+      "name": "Sandbox VR",
+      "address": "797 Sorella Ct #102, Houston, TX 77024, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1556,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7795356,
+      "lng": -95.5618081,
+      "googleMapsUri": "https://maps.google.com/?cid=3517165822380250341&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/houston",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJX2l11lvHQIYRWhNNK1YdN40",
+      "name": "ARTECHOUSE Houston",
+      "address": "600 W 6th St, Houston, TX 77007, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 783,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "performing_arts_theater",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.781201199999998,
+      "lng": -95.4038187,
+      "googleMapsUri": "https://maps.google.com/?cid=10175634138997789530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://artechouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 86.04
+    },
+    {
+      "googlePlaceId": "ChIJH0WzifPBQIYRt0u5klMYtN8",
+      "name": "Provaré Houston",
+      "address": "5102 Washington Ave, Houston, TX 77007, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 5042,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7706281,
+      "lng": -95.4128726,
+      "googleMapsUri": "https://maps.google.com/?cid=16119535713488817079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://provarerestaurants.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.97
+    },
+    {
+      "googlePlaceId": "ChIJcU080mvBQIYR7kdDqXJEGRQ",
+      "name": "Moxies Houston Restaurant",
+      "address": "5000 Westheimer Rd, Houston, TX 77056, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 5100,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "wine_bar",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "family_restaurant",
+        "american_restaurant",
+        "bar_and_grill",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.7427161,
+      "lng": -95.4613554,
+      "googleMapsUri": "https://maps.google.com/?cid=1448264014433044462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moxies.com/restaurants/houston?utm_source=GMB&utm_medium=google-location-listing&utm_campaign=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJjfnzbEzHQIYRa3zh8igbVQw",
+      "name": "La Fisheria",
+      "address": "213 Milam St, Houston, TX 77002, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4762,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "latin_american_restaurant",
+        "cocktail_bar",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.763516199999998,
+      "lng": -95.362068,
+      "googleMapsUri": "https://maps.google.com/?cid=888646364163046507&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lafisheriahtx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJk9UtJoC_QIYRSaNeVGwpt7M",
+      "name": "Kiss",
+      "address": "2313 Edwards St #100, Houston, TX 77007, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 1937,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.770143099999995,
+      "lng": -95.3808238,
+      "googleMapsUri": "https://maps.google.com/?cid=12949864798775845705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kissrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJzWXFgI5aXIYRjOVfaKqJdSg",
+      "name": "Traders Village San Antonio",
+      "address": "9333 SW Loop 410, San Antonio, TX 78242, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 12508,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "tourist_attraction",
+        "amusement_park",
+        "market",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.3314605,
+      "lng": -98.6259644,
+      "googleMapsUri": "https://maps.google.com/?cid=2915387698780824972&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tradersvillage.com/san-antonio/",
+      "openNow": true,
+      "matchedQueries": [
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 85.6
+    },
+    {
+      "googlePlaceId": "ChIJy1uJ7UfDQIYRTuPlW-hSYIs",
+      "name": "Kamp",
+      "address": "6025 Westheimer Rd, Houston, TX 77057, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 8873,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 29.7368583,
+      "lng": -95.489273,
+      "googleMapsUri": "https://maps.google.com/?cid=10043118326963888974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kamphoustontx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJpyUiaPGgQIYRW0Km6E63iR4",
+      "name": "San Jacinto Battleground State Historic Site",
+      "address": "3523 Independence Pkwy, La Porte, TX 77571, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 6261,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "tourist_attraction",
+        "monument",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.750004299999997,
+      "lng": -95.0807188,
+      "googleMapsUri": "https://maps.google.com/?cid=2200491442485740123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thc.texas.gov/historic-sites/san-jacinto-battleground",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJ7SXrZDy_QIYRlrCOYMMKzSI",
+      "name": "Hull & Oak",
+      "address": "1070 Dallas St, Houston, TX 77002, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1158,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.754811000000004,
+      "lng": -95.3655795,
+      "googleMapsUri": "https://maps.google.com/?cid=2507672401770098838&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hullandoak.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.54
+    },
+    {
+      "googlePlaceId": "ChIJuTpdReKyQIYRCxVS_hx6wI0",
+      "name": "Main Event Humble",
+      "address": "20945 Spg Crk Xing, Humble, TX 77338, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 8622,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bowling_alley",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.023462199999997,
+      "lng": -95.2661514,
+      "googleMapsUri": "https://maps.google.com/?cid=10214298219820750091&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mainevent.com/locations/texas/humble",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJl841dLvGQIYR_DBN5E7z35g",
+      "name": "Marq-E Entertainment Center",
+      "address": "7620 Katy Fwy, Houston, TX 77024, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6047,
+      "priceLevel": null,
+      "primaryType": "movie_theater",
+      "types": [
+        "movie_theater",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.785747,
+      "lng": -95.46523130000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11015790733734785276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.marqehouston.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJt3nonWe_QIYRqe-SjPkbxgo",
+      "name": "Boheme",
+      "address": "307 Fairview St, Houston, TX 77006, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2806,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "cocktail_bar",
+        "bar_and_grill",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.747994799999997,
+      "lng": -95.38606180000001,
+      "googleMapsUri": "https://maps.google.com/?cid=776338744387235753&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barboheme.com/?utm_source=local&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJm-BiSZDEQIYRbB-_8ILt3ss",
+      "name": "Lucky Strike Houston",
+      "address": "925 Bunker Hill Rd, Houston, TX 77024, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 3864,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "bar_and_grill",
+        "sports_bar",
+        "video_arcade",
+        "event_venue",
+        "sporting_goods_store",
+        "sports_club",
+        "bar",
+        "sports_complex",
+        "association_or_organization",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 29.780182200000002,
+      "lng": -95.5320034,
+      "googleMapsUri": "https://maps.google.com/?cid=14690440181169725292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.luckystrikeent.com/location/lucky-strike-houston?utm_source=gbp&utm_medium=organic&utm_campaign=yext_listings",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.27
+    },
+    {
+      "googlePlaceId": "ChIJxV51qYi4QIYRnWQtTZfTlMU",
+      "name": "Well Done Cooking Classes",
+      "address": "8207 Long Point Rd Suite B, Houston, TX 77055, USA",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 5,
+      "reviewCount": 2027,
+      "priceLevel": null,
+      "primaryType": "food",
+      "types": [
+        "food",
+        "educational_institution",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.8022633,
+      "lng": -95.4923644,
+      "googleMapsUri": "https://maps.google.com/?cid=14237236968813323421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://welldonecc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJXTEJuUO_QIYRlsiJVT47umc",
+      "name": "Escape Hunt Houston",
+      "address": "125 W Gray St #100, Houston, TX 77019, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2698,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.753097,
+      "lng": -95.379778,
+      "googleMapsUri": "https://maps.google.com/?cid=7474351670483863702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapehunt.com/houston",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.06
+    }
+  ]
+}

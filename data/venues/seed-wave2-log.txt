@@ -1,0 +1,1788 @@
+============================================
+  Confetti Venue Seeder — Wave 2 — 20 Cities
+============================================
+
+[1/20] Seeding: Honolulu, HI → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/honolulu-hi.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 19 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 13 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 11 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 2 results
+[Immersive Experiences] interactive pop ups: page 1, 18 results
+[Immersive Experiences] VR experiences: page 1, 1 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 16 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 20 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 15 results
+[Sports & Recreation] bowling alleys: page 1, 10 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 18 results
+[Sports & Recreation] skating rinks: page 1, 4 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 4 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 11 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 3 results
+[Family & Kids] aquariums: page 1, 4 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 4 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 18 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 15 results
+[Learning & Classes] mixology classes: page 1, 2 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 5 results
+[Festivals & Seasonal Events] street fairs: page 1, 7 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 20 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 20 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 13 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/honolulu-hi.json
+  ✓ Done
+
+[2/20] Seeding: San Juan, Puerto Rico → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/san-juan-puerto-rico.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 16 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 13 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 7 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 11 results
+[Immersive Experiences] interactive pop ups: page 1, 20 results
+[Immersive Experiences] VR experiences: page 1, 20 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 8 results
+[Sports & Recreation] mini golf: page 1, 15 results
+[Sports & Recreation] driving ranges: page 1, 3 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 7 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 16 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 20 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 8 results
+[Shopping & Markets] flea markets: page 1, 10 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 1 results
+[Family & Kids] aquariums: page 1, 20 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 9 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 16 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 4 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 18 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 8 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 12 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 19 results
+[Festivals & Seasonal Events] street fairs: page 1, 19 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 13 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 20 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/san-juan-puerto-rico.json
+  ✓ Done
+
+[3/20] Seeding: Savannah, GA → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/savannah-ga.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 13 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 6 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 13 results
+[Live Entertainment] jazz clubs: page 1, 2 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 8 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 3 results
+[Immersive Experiences] interactive pop ups: page 1, 20 results
+[Immersive Experiences] VR experiences: page 1, 1 results
+[Outdoor & Nature] best parks: page 1, 12 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 6 results
+[Sports & Recreation] driving ranges: page 1, 10 results
+[Sports & Recreation] indoor golf simulators: page 1, 2 results
+[Sports & Recreation] bowling alleys: page 1, 2 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 4 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 8 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 1 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 3 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 7 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 14 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 19 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 7 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 6 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 17 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 20 results
+[Festivals & Seasonal Events] street fairs: page 1, 20 results
+[Festivals & Seasonal Events] holiday markets: page 1, 11 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 19 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 14 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 5 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 3 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/savannah-ga.json
+  ✓ Done
+
+[4/20] Seeding: Charleston, SC → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/charleston-sc.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 8 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 4 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 5 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 14 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 9 results
+[Immersive Experiences] interactive pop ups: page 1, 20 results
+[Immersive Experiences] VR experiences: page 1, 20 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 20 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 6 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 8 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 13 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 6 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 9 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 19 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 15 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 18 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 1 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 15 results
+[Festivals & Seasonal Events] street fairs: page 1, 20 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 20 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 1 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 13 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/charleston-sc.json
+  ✓ Done
+
+[5/20] Seeding: St. Louis, MO → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/st-louis-mo.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 7 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 16 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 20 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 20 results
+[Immersive Experiences] VR experiences: page 1, 2 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 20 results
+[Sports & Recreation] driving ranges: page 1, 16 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 20 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 20 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 20 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 7 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 1 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 17 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 18 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 14 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 15 results
+[Festivals & Seasonal Events] street fairs: page 1, 19 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 20 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 1 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 15 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 3 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/st-louis-mo.json
+  ✓ Done
+
+[6/20] Seeding: Baltimore, MD → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/baltimore-md.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 13 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 13 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 3 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 13 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 2 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 5 results
+[Immersive Experiences] interactive pop ups: page 1, 20 results
+[Immersive Experiences] VR experiences: page 1, 18 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 1 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 10 results
+[Sports & Recreation] driving ranges: page 1, 18 results
+[Sports & Recreation] indoor golf simulators: page 1, 7 results
+[Sports & Recreation] bowling alleys: page 1, 20 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 11 results
+[Sports & Recreation] barcades: page 1, 11 results
+[Sports & Recreation] skating rinks: page 1, 12 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 5 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 6 results
+[Family & Kids] aquariums: page 1, 3 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 2 results
+[Social Group Activities] barcades: page 1, 11 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 10 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 16 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 8 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 14 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 20 results
+[Festivals & Seasonal Events] street fairs: page 1, 20 results
+[Festivals & Seasonal Events] holiday markets: page 1, 1 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 14 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 1 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/baltimore-md.json
+  ✓ Done
+
+[7/20] Seeding: Pittsburgh, PA → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/pittsburgh-pa.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 19 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 20 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 9 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 18 results
+[Immersive Experiences] VR experiences: page 1, 20 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 20 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 16 results
+[Sports & Recreation] bowling alleys: page 1, 20 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 20 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 20 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 13 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 4 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 5 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 13 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 1 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 19 results
+[Festivals & Seasonal Events] street fairs: page 1, 15 results
+[Festivals & Seasonal Events] holiday markets: page 1, 1 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 1 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 17 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 20 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/pittsburgh-pa.json
+  ✓ Done
+
+[8/20] Seeding: Scottsdale, AZ → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/scottsdale-az.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 1 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 10 results
+[Live Entertainment] theater events: page 1, 13 results
+[Live Entertainment] ticketed events: page 1, 16 results
+[Live Entertainment] jazz clubs: page 1, 2 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 20 results
+[Immersive Experiences] VR experiences: page 1, 1 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 15 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 6 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 6 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 1 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 18 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 16 results
+[Shopping & Markets] flea markets: page 1, 17 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 19 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 15 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 3 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 13 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 10 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 1 results
+[Learning & Classes] mixology classes: page 1, 8 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 20 results
+[Festivals & Seasonal Events] street fairs: page 1, 1 results
+[Festivals & Seasonal Events] holiday markets: page 1, 5 results
+[Festivals & Seasonal Events] local events: page 1, 11 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 6 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 14 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 9 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 1 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 14 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/scottsdale-az.json
+  ✓ Done
+
+[9/20] Seeding: Milwaukee, WI → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/milwaukee-wi.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 13 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 17 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 13 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 3 results
+[Immersive Experiences] interactive pop ups: page 1, 15 results
+[Immersive Experiences] VR experiences: page 1, 5 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 15 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 20 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 20 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 19 results
+[Wellness & Relaxation] sound baths: page 1, 20 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 18 results
+[Shopping & Markets] boutiques: page 1, 17 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 1 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 17 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 20 results
+[Festivals & Seasonal Events] street fairs: page 1, 20 results
+[Festivals & Seasonal Events] holiday markets: page 1, 1 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 19 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 19 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 2 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/milwaukee-wi.json
+  ✓ Done
+
+[10/20] Seeding: Raleigh, NC → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/raleigh-nc.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 2 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 14 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 9 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 11 results
+[Immersive Experiences] VR experiences: page 1, 20 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 14 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 12 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 9 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 4 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 20 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 4 results
+[Family & Kids] aquariums: page 1, 20 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 2 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 18 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 3 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 9 results
+[Festivals & Seasonal Events] street fairs: page 1, 20 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 19 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 3 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 10 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 1 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/raleigh-nc.json
+  ✓ Done
+
+[11/20] Seeding: Lisbon, Portugal → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/lisbon-portugal.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 14 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 5 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 3 results
+[Immersive Experiences] VR experiences: page 1, 6 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 2 results
+[Sports & Recreation] driving ranges: page 1, 7 results
+[Sports & Recreation] indoor golf simulators: page 1, 4 results
+[Sports & Recreation] bowling alleys: page 1, 1 results
+[Sports & Recreation] pickleball courts: page 1, 2 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 4 results
+[Sports & Recreation] skating rinks: page 1, 16 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 11 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 14 results
+[Social Group Activities] barcades: page 1, 4 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 9 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 4 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 2 results
+[Festivals & Seasonal Events] street fairs: page 1, 5 results
+[Festivals & Seasonal Events] holiday markets: page 1, 10 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 17 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 9 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/lisbon-portugal.json
+  ✓ Done
+
+[12/20] Seeding: Seoul, South Korea → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/seoul-south-korea.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 17 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 20 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 12 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 10 results
+[Immersive Experiences] VR experiences: page 1, 5 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 1 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 14 results
+[Sports & Recreation] bowling alleys: page 1, 20 results
+[Sports & Recreation] pickleball courts: page 1, 12 results
+[Sports & Recreation] arcades: page 1, 14 results
+[Sports & Recreation] barcades: page 1, 15 results
+[Sports & Recreation] skating rinks: page 1, 20 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 18 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 3 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 16 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 2 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 15 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 5 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 7 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 12 results
+[Learning & Classes] mixology classes: page 1, 2 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 5 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 3 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 7 results
+[Festivals & Seasonal Events] street fairs: page 1, 7 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 6 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 19 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 11 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 10 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 4 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/seoul-south-korea.json
+  ✓ Done
+
+[13/20] Seeding: Bangkok, Thailand → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/bangkok-thailand.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 2 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 14 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 18 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 7 results
+[Immersive Experiences] interactive pop ups: page 1, 8 results
+[Immersive Experiences] VR experiences: page 1, 16 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 3 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 7 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 18 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 20 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 9 results
+[Family & Kids] aquariums: page 1, 2 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 12 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 5 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 1 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 5 results
+[Festivals & Seasonal Events] street fairs: page 1, 10 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 18 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 9 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 9 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/bangkok-thailand.json
+  ✓ Done
+
+[14/20] Seeding: Cancún, Mexico → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/canc-n-mexico.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 10 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 4 results
+[Immersive Experiences] interactive pop ups: page 1, 6 results
+[Immersive Experiences] VR experiences: page 1, 20 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 1 results
+[Sports & Recreation] driving ranges: page 1, 5 results
+[Sports & Recreation] indoor golf simulators: page 1, 8 results
+[Sports & Recreation] bowling alleys: page 1, 4 results
+[Sports & Recreation] pickleball courts: page 1, 2 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 8 results
+[Sports & Recreation] skating rinks: page 1, 11 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 5 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 20 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 8 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 19 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 19 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 5 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 20 results
+[Festivals & Seasonal Events] street fairs: page 1, 11 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 20 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 11 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 7 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/canc-n-mexico.json
+  ✓ Done
+
+[15/20] Seeding: Ibiza, Spain → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/ibiza-spain.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 17 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 6 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 9 results
+[Live Entertainment] theater events: page 1, 11 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 5 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 1 results
+[Immersive Experiences] interactive pop ups: page 1, 5 results
+[Immersive Experiences] VR experiences: page 1, 20 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 4 results
+[Sports & Recreation] golf courses: page 1, 1 results
+[Sports & Recreation] mini golf: page 1, 2 results
+[Sports & Recreation] driving ranges: page 1, 1 results
+[Sports & Recreation] indoor golf simulators: page 1, 1 results
+[Sports & Recreation] bowling alleys: page 1, 1 results
+[Sports & Recreation] pickleball courts: page 1, 7 results
+[Sports & Recreation] arcades: page 1, 18 results
+[Sports & Recreation] barcades: page 1, 17 results
+[Sports & Recreation] skating rinks: page 1, 13 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 10 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 17 results
+[Shopping & Markets] flea markets: page 1, 8 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 8 results
+[Social Group Activities] barcades: page 1, 17 results
+[Social Group Activities] karaoke bars: page 1, 6 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 13 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 3 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 19 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 7 results
+[Learning & Classes] mixology classes: page 1, 6 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 8 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 5 results
+[Festivals & Seasonal Events] street fairs: page 1, 10 results
+[Festivals & Seasonal Events] holiday markets: page 1, 9 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 8 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 10 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 10 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 7 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/ibiza-spain.json
+  ✓ Done
+
+[16/20] Seeding: Singapore → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/singapore.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 8 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 19 results
+[Immersive Experiences] VR experiences: page 1, 7 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 14 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 20 results
+[Sports & Recreation] bowling alleys: page 1, 20 results
+[Sports & Recreation] pickleball courts: page 1, 20 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 20 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 20 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 16 results
+[Family & Kids] aquariums: page 1, 3 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 20 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 19 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 4 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 20 results
+[Festivals & Seasonal Events] street fairs: page 1, 8 results
+[Festivals & Seasonal Events] holiday markets: page 1, 17 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 18 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 18 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 20 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 15 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/singapore.json
+  ✓ Done
+
+[17/20] Seeding: Milan, Italy → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/milan-italy.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 10 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 20 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 3 results
+[Live Entertainment] jazz clubs: page 1, 10 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 20 results
+[Immersive Experiences] interactive pop ups: page 1, 11 results
+[Immersive Experiences] VR experiences: page 1, 20 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 17 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 3 results
+[Sports & Recreation] driving ranges: page 1, 19 results
+[Sports & Recreation] indoor golf simulators: page 1, 5 results
+[Sports & Recreation] bowling alleys: page 1, 8 results
+[Sports & Recreation] pickleball courts: page 1, 7 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 15 results
+[Sports & Recreation] skating rinks: page 1, 20 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 8 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 11 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 7 results
+[Social Group Activities] barcades: page 1, 15 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 6 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 19 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 5 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 16 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 5 results
+[Festivals & Seasonal Events] street fairs: page 1, 15 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 18 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 8 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 5 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 19 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/milan-italy.json
+  ✓ Done
+
+[18/20] Seeding: Rio de Janeiro, Brazil → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/rio-de-janeiro-brazil.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 20 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 11 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 6 results
+[Immersive Experiences] interactive pop ups: page 1, 11 results
+[Immersive Experiences] VR experiences: page 1, 3 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 2 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 9 results
+[Sports & Recreation] driving ranges: page 1, 11 results
+[Sports & Recreation] indoor golf simulators: page 1, 3 results
+[Sports & Recreation] bowling alleys: page 1, 4 results
+[Sports & Recreation] pickleball courts: page 1, 16 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 6 results
+[Sports & Recreation] skating rinks: page 1, 20 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 11 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 7 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 6 results
+[Social Group Activities] barcades: page 1, 7 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 17 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 12 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 19 results
+[Learning & Classes] mixology classes: page 1, 3 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 18 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 2 results
+[Festivals & Seasonal Events] street fairs: page 1, 10 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 3 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 6 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 20 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/rio-de-janeiro-brazil.json
+  ✓ Done
+
+[19/20] Seeding: Cape Town, South Africa → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/cape-town-south-africa.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 1 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 20 results
+[Live Entertainment] theater events: page 1, 20 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 3 results
+[Immersive Experiences] interactive pop ups: page 1, 8 results
+[Immersive Experiences] VR experiences: page 1, 4 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 18 results
+[Sports & Recreation] golf courses: page 1, 20 results
+[Sports & Recreation] mini golf: page 1, 12 results
+[Sports & Recreation] driving ranges: page 1, 20 results
+[Sports & Recreation] indoor golf simulators: page 1, 11 results
+[Sports & Recreation] bowling alleys: page 1, 6 results
+[Sports & Recreation] pickleball courts: page 1, 4 results
+[Sports & Recreation] arcades: page 1, 20 results
+[Sports & Recreation] barcades: page 1, 20 results
+[Sports & Recreation] skating rinks: page 1, 8 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 2 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 20 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 11 results
+[Family & Kids] aquariums: page 1, 1 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 6 results
+[Social Group Activities] barcades: page 1, 20 results
+[Social Group Activities] karaoke bars: page 1, 17 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 1 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 20 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 4 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 20 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 20 results
+[Festivals & Seasonal Events] street fairs: page 1, 16 results
+[Festivals & Seasonal Events] holiday markets: page 1, 11 results
+[Festivals & Seasonal Events] local events: page 1, 20 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 4 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 11 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 1 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/cape-town-south-africa.json
+  ✓ Done
+
+[20/20] Seeding: Bali, Indonesia → /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/bali-indonesia.json
+[Dining] best restaurants: page 1, 20 results
+[Dining] popular brunch spots: page 1, 20 results
+[Dining] food halls: page 1, 20 results
+[Dining] chef table experiences: page 1, 20 results
+[Drinks & Nightlife] best cocktail bars: page 1, 20 results
+[Drinks & Nightlife] rooftop bars: page 1, 20 results
+[Drinks & Nightlife] hidden speakeasies: page 1, 20 results
+[Drinks & Nightlife] nightclubs: page 1, 20 results
+[Live Entertainment] events tonight: page 1, 20 results
+[Live Entertainment] live music events: page 1, 20 results
+[Live Entertainment] comedy shows: page 1, 7 results
+[Live Entertainment] theater events: page 1, 10 results
+[Live Entertainment] ticketed events: page 1, 20 results
+[Live Entertainment] jazz clubs: page 1, 20 results
+[Arts & Culture] best museums: page 1, 20 results
+[Arts & Culture] art galleries: page 1, 20 results
+[Arts & Culture] cultural exhibits: page 1, 20 results
+[Arts & Culture] cultural centers: page 1, 20 results
+[Immersive Experiences] immersive experiences: page 1, 20 results
+[Immersive Experiences] escape rooms: page 1, 2 results
+[Immersive Experiences] interactive pop ups: page 1, 13 results
+[Immersive Experiences] VR experiences: page 1, 1 results
+[Outdoor & Nature] best parks: page 1, 20 results
+[Outdoor & Nature] sunset hikes: page 1, 20 results
+[Outdoor & Nature] scenic walks: page 1, 20 results
+[Outdoor & Nature] waterfront gardens: page 1, 20 results
+[Sports & Recreation] golf courses: page 1, 7 results
+[Sports & Recreation] mini golf: page 1, 5 results
+[Sports & Recreation] driving ranges: page 1, 10 results
+[Sports & Recreation] indoor golf simulators: page 1, 6 results
+[Sports & Recreation] bowling alleys: page 1, 0 results
+[Sports & Recreation] pickleball courts: page 1, 10 results
+[Sports & Recreation] arcades: page 1, 8 results
+[Sports & Recreation] barcades: page 1, 4 results
+[Sports & Recreation] skating rinks: page 1, 1 results
+[Wellness & Relaxation] best spas: page 1, 20 results
+[Wellness & Relaxation] sauna experiences: page 1, 20 results
+[Wellness & Relaxation] sound baths: page 1, 5 results
+[Wellness & Relaxation] yoga studios: page 1, 20 results
+[Shopping & Markets] vintage shops: page 1, 20 results
+[Shopping & Markets] farmers markets: page 1, 20 results
+[Shopping & Markets] flea markets: page 1, 5 results
+[Shopping & Markets] boutiques: page 1, 20 results
+[Family & Kids] kids activities: page 1, 20 results
+[Family & Kids] family friendly things to do: page 1, 20 results
+[Family & Kids] interactive kids museums: page 1, 20 results
+[Family & Kids] aquariums: page 1, 20 results
+[Romantic / Date Night] date night restaurants: page 1, 20 results
+[Romantic / Date Night] romantic bars: page 1, 20 results
+[Romantic / Date Night] sunset date spots: page 1, 20 results
+[Romantic / Date Night] wine bars: page 1, 20 results
+[Social Group Activities] game night venues: page 1, 20 results
+[Social Group Activities] board game cafes: page 1, 6 results
+[Social Group Activities] barcades: page 1, 4 results
+[Social Group Activities] karaoke bars: page 1, 20 results
+[Social Group Activities] trivia nights: page 1, 20 results
+[Social Group Activities] game bars: page 1, 20 results
+[Social Group Activities] paint and sip: page 1, 20 results
+[Foodie / Viral Eats] viral food spots: page 1, 20 results
+[Foodie / Viral Eats] TikTok restaurants: page 1, 20 results
+[Foodie / Viral Eats] popular dessert spots: page 1, 20 results
+[Foodie / Viral Eats] food trucks: page 1, 14 results
+[Luxury & Special Occasion] fine dining: page 1, 20 results
+[Luxury & Special Occasion] private dining rooms: page 1, 20 results
+[Luxury & Special Occasion] luxury lounges: page 1, 20 results
+[Luxury & Special Occasion] bottle service: page 1, 20 results
+[Learning & Classes] cooking classes: page 1, 20 results
+[Learning & Classes] pottery classes: page 1, 20 results
+[Learning & Classes] mixology classes: page 1, 6 results
+[Learning & Classes] dance classes: page 1, 20 results
+[Festivals & Seasonal Events] events this weekend: page 1, 20 results
+[Festivals & Seasonal Events] things to do this weekend: page 1, 20 results
+[Festivals & Seasonal Events] festivals this weekend: page 1, 4 results
+[Festivals & Seasonal Events] seasonal pop ups: page 1, 15 results
+[Festivals & Seasonal Events] street fairs: page 1, 15 results
+[Festivals & Seasonal Events] holiday markets: page 1, 20 results
+[Festivals & Seasonal Events] local events: page 1, 16 results
+[Travel-Lite Local Exploration] neighborhood tours: page 1, 20 results
+[Travel-Lite Local Exploration] local landmarks: page 1, 20 results
+[Travel-Lite Local Exploration] day trips: page 1, 20 results
+[Travel-Lite Local Exploration] walking tours: page 1, 8 results
+[Adult / After-Dark Experiences] adult nightlife: page 1, 20 results
+[Adult / After-Dark Experiences] burlesque shows: page 1, 7 results
+[Adult / After-Dark Experiences] cigar lounges: page 1, 17 results
+[Adult / After-Dark Experiences] supper clubs: page 1, 20 results
+Wrote 100 venues to /Users/tyronecrossland/ai-lifestyle-concierge/data/venues/bali-indonesia.json
+  ✓ Done
+
+============================================
+  Wave 2 Complete: 20/20 succeeded
+  Output dir: /Users/tyronecrossland/ai-lifestyle-concierge/data/venues
+============================================

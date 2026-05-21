@@ -1,0 +1,3640 @@
+{
+  "location": "Cancún, Mexico",
+  "generatedAt": "2026-05-17T19:42:43.725Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJU3DYrW1ETo8RpQkYkh7oQoA",
+      "name": "Xcaret Park",
+      "address": "Carretera Chetumal, Puerto Juarez km 282-Int B, Colonia Rancho Xcaret, Juárez, 77580 Playa del Carmen, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 116975,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.5809134,
+      "lng": -87.119698,
+      "googleMapsUri": "https://maps.google.com/?cid=9242204603315390885&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.xcaret.com/es/?langRedirect=1",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "best parks",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.34
+    },
+    {
+      "googlePlaceId": "ChIJwf__P8kyTo8RlnFHVjYm4w8",
+      "name": "Xel-Há",
+      "address": "Carretera Chetumal Puerto Juárez Km 240, locales 1 & 2, módulo B, 77780 Q.R., Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 59520,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.3193587,
+      "lng": -87.3578124,
+      "googleMapsUri": "https://maps.google.com/?cid=1144800745099850134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.xelha.com/es/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.34
+    },
+    {
+      "googlePlaceId": "ChIJKYVhIBouTI8RyQ67CzD3I3c",
+      "name": "Finest Playa Mujeres",
+      "address": "Calle Vialidad Paseo Mujeres Supermanzana 3 Manzana 1 Lote 10, Zona continental, 77400 Cancún, Q.R., Mexico",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 25149,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "resort_hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.244564999999998,
+      "lng": -86.806192,
+      "googleMapsUri": "https://maps.google.com/?cid=8584977100425596617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.finestresorts.com/cancun/finest-playa-mujeres/",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "family friendly things to do",
+        "food trucks",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation",
+        "family-kids",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.89
+    },
+    {
+      "googlePlaceId": "ChIJdR8w9j5DTo8RDfrWJC5UMTw",
+      "name": "Cancun Adventures",
+      "address": "Av Balamkanche, Mz 30 Lote 4 Loc 16, Supermanzana Fase 2, Playacar, 77710 Playa del Carmen, Q.R., Mexico",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.9,
+      "reviewCount": 35011,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 20.6209599,
+      "lng": -87.08925909999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4337340473297795597&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cancun-adventure.com/en/?utm_source=google&utm_medium=organic&utm_campaign=Google%20My%20Business&utm_term=Cancun&utm_content=Website",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.37
+    },
+    {
+      "googlePlaceId": "ChIJ44qsfvVDTo8Rs89AYspFfVY",
+      "name": "Xplor Park",
+      "address": "Carretera Chetumal, Puerto Juarez Km 282, 77710 Playa del Carmen, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 30642,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.5934505,
+      "lng": -87.1255111,
+      "googleMapsUri": "https://maps.google.com/?cid=6232214194884759475&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.xplor.travel/es/?utm_source=google&utm_medium=organic&utm_campaign=gbp_xplor",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "VR experiences",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 97.37
+    },
+    {
+      "googlePlaceId": "ChIJTc0cUYCCTo8R5IF6JQxSq-Q",
+      "name": "Dolphins Beach",
+      "address": "Blvd. Kukulcan Km 18, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 28954,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0614359,
+      "lng": -86.7789181,
+      "googleMapsUri": "https://maps.google.com/?cid=16477353873786962404&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zonahoteleracancun.com/playadelfines",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.2
+    },
+    {
+      "googlePlaceId": "ChIJ58CR48Y4UY8Rmk2ZaKGgHnw",
+      "name": "Chichén Itzá",
+      "address": "97751 Yucatan, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 136876,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "historical_place",
+        "monument",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.684284899999998,
+      "lng": -88.5677826,
+      "googleMapsUri": "https://maps.google.com/?cid=8943762525109439898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://inah.gob.mx/zonas/146-zona-arqueologica-de-chichen-itza",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.8
+    },
+    {
+      "googlePlaceId": "ChIJUc8JdF8oTI8RtGQGPg0ITjQ",
+      "name": "La Isla Cancún",
+      "address": "5 Lt 18-10, Blvd. Kukulcan km 12.5, La Isla, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 36946,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.110539,
+      "lng": -86.76467889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3768958791123887284&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://islacancun.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "skating rinks",
+        "vintage shops",
+        "flea markets",
+        "boutiques",
+        "aquariums",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "sports-recreation",
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.72
+    },
+    {
+      "googlePlaceId": "ChIJLT6yM5AoTI8R9ncfaObMqDc",
+      "name": "Harry's Steakhouse & Raw Bar | Cancun",
+      "address": "Km. 14.2, Kukulkan 1, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 9107,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.092872699999997,
+      "lng": -86.77081559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4010680758134863862&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://harrys.com.mx/?utm_source=Website&utm_medium=Ficha&utm_campaign=Local",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 94.88
+    },
+    {
+      "googlePlaceId": "ChIJkaSr2ospTI8RKlOBA25k-W8",
+      "name": "Ilios | Greek restaurant in Cancun",
+      "address": "Blvd. Kukulcan Km. 13.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 10229,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "greek_restaurant",
+      "types": [
+        "greek_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.101077099999998,
+      "lng": -86.7668858,
+      "googleMapsUri": "https://maps.google.com/?cid=8068590631078941482&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://iliosrestaurante.com.mx/cancun/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 94.12
+    },
+    {
+      "googlePlaceId": "ChIJAXxOOowoTI8RHqzlMEC0bMo",
+      "name": "Bubba Gump Shrimp Co. Cancún",
+      "address": "Blvd. Kukulcan km 11.5, El Rey, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 11015,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "gift_shop",
+        "bar",
+        "seafood_restaurant",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1187357,
+      "lng": -86.7576812,
+      "googleMapsUri": "https://maps.google.com/?cid=14586231480937458718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bubbagump.mx/restaurant-cancun/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "trivia nights",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 93.24
+    },
+    {
+      "googlePlaceId": "ChIJCaot178oTI8RZ0pdSbvuIro",
+      "name": "Fred's | The best seafood in Cancun",
+      "address": "Blvd. Kukulcan 14.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7541,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.087841299999997,
+      "lng": -86.7732831,
+      "googleMapsUri": "https://maps.google.com/?cid=13412545128419904103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fredshouserestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "best cocktail bars",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.22
+    },
+    {
+      "googlePlaceId": "ChIJ604mby2DTo8RRz6Rr7OFo-Q",
+      "name": "AVA Resort Cancun",
+      "address": "BOULEVARD (BLVD.) KUKULKAN KM 25.3, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 7088,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "resort_hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0117941,
+      "lng": -86.81885199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16475158868642577991&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.avaresortcancun.com/?utm_source=mybusiness&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "arcades",
+        "best spas",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "wellness-relaxation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.94
+    },
+    {
+      "googlePlaceId": "ChIJZQ01KSQpTI8RUJB5E1bTzio",
+      "name": "Captain Hook Cancun",
+      "address": "Blvd. Kukulcan km.5-Km 5, Kukulcan Boulevard, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 9955,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1438514,
+      "lng": -86.7870368,
+      "googleMapsUri": "https://maps.google.com/?cid=3084635161442750544&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.capitanhook.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "immersive experiences",
+        "sunset hikes",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 91.84
+    },
+    {
+      "googlePlaceId": "ChIJq_CpNwcsTI8RucHSC99UCho",
+      "name": "Parque de las Palapas",
+      "address": "Tulipanes LB, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 33993,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1611457,
+      "lng": -86.82748819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1876405511706034617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "best parks",
+        "scenic walks",
+        "farmers markets",
+        "kids activities",
+        "family friendly things to do",
+        "paint and sip",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "shopping-markets",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.78
+    },
+    {
+      "googlePlaceId": "ChIJRTrNNgMwTI8R_uGrRh86_GY",
+      "name": "Playa Norte",
+      "address": "Rueda Medina 130, SM 001, Centro, 77506 Isla Mujeres, Q.R., Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 24080,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.261035099999997,
+      "lng": -86.75088099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7420870192003801598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://playanorte.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 91.66
+    },
+    {
+      "googlePlaceId": "ChIJo_mgQbMuTI8RdolxsLwS8Uc",
+      "name": "Marina Puerto Cancún",
+      "address": "Blvd. Kukulcan 1, Puerto Juarez, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 18290,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1608034,
+      "lng": -86.80797749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5183945247703533942&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://marinapuertocancun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "vintage shops",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 91.49
+    },
+    {
+      "googlePlaceId": "ChIJSUEQXBopTI8RotFwtfedxdk",
+      "name": "Nicoletta | Italian restaurant in Cancun",
+      "address": "Blvd. Kukulcan Km. 13.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4083,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1011979,
+      "lng": -86.7668174,
+      "googleMapsUri": "https://maps.google.com/?cid=15692122163868914082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nicolettarestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.41
+    },
+    {
+      "googlePlaceId": "ChIJP_La9_UvTI8RpTEtemG833k",
+      "name": "Dolphin Discovery Isla Mujeres",
+      "address": "Laguna Mar, Carr. Sac Bajo Lote 26, 77400 Isla Mujeres, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 11975,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "water_park",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2348738,
+      "lng": -86.7413152,
+      "googleMapsUri": "https://maps.google.com/?cid=8781944925243388325&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dolphindiscovery.com/cancun-islamujeres?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "interactive kids museums",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 91.29
+    },
+    {
+      "googlePlaceId": "ChIJpy4RUlwoTI8RXrJ2FFP42qc",
+      "name": "Moon Palace Cancun - All Inclusive Resort",
+      "address": "Carretera Cancun-Chetumal Km 340, Riviera Maya, 77500 Cancún, Q.R., Mexico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 16832,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.9886511,
+      "lng": -86.826701,
+      "googleMapsUri": "https://maps.google.com/?cid=12095252784966185566&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moonpalacecancun.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": null,
+      "matchedQueries": [
+        "indoor golf simulators",
+        "best spas",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "wellness-relaxation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.2
+    },
+    {
+      "googlePlaceId": "ChIJh15X1rLYzYURzLAWv5IOZAA",
+      "name": "Mercado 28",
+      "address": "Xel-ha Supermanzana 28 Manzana 13, 77509 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 58462,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "mexican_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.161160199999998,
+      "lng": -86.8333935,
+      "googleMapsUri": "https://maps.google.com/?cid=28163521105014988&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "cultural centers",
+        "vintage shops",
+        "farmers markets",
+        "flea markets",
+        "boutiques",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "street fairs",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.18
+    },
+    {
+      "googlePlaceId": "ChIJS-M_oXlDTo8RqH4VjGvJzHE",
+      "name": "Moon Palace The Grand Cancun",
+      "address": "Carretera Cancun-Chetumal, Riviera Maya Km.36.5, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 9959,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.9783689,
+      "lng": -86.83426879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8200150485283733160&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegrand.moonpalace.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": null,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "best parks",
+        "arcades",
+        "best spas",
+        "family friendly things to do",
+        "game night venues",
+        "events this weekend",
+        "things to do this weekend",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "outdoor-nature",
+        "sports-recreation",
+        "wellness-relaxation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.74
+    },
+    {
+      "googlePlaceId": "ChIJY0r-RgxETo8R9B8XzFow0nM",
+      "name": "Xenses Park",
+      "address": "Carretera Chetumal - Puerto Juárez km 282 MZA 021 Lote 062 Colonia Xcaret, 77710 Playa del Carmen, Q.R., Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 16671,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.5850917,
+      "lng": -87.1258778,
+      "googleMapsUri": "https://maps.google.com/?cid=8345786226000207860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.xensespark.com/es/?utm_source=google&utm_medium=organic&utm_campaign=gbp_xenses",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "best parks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.57
+    },
+    {
+      "googlePlaceId": "ChIJm_aJSiQpTI8R243zByGVT-o",
+      "name": "Torre Escénica del Embarcadero de Cancún",
+      "address": "Blvd. Kukulcan Km. 4.5, Kukulcan Boulevard, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4361,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1437982,
+      "lng": -86.7881895,
+      "googleMapsUri": "https://maps.google.com/?cid=16883877497135140315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/oficialtorrescenicadecancun",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.5
+    },
+    {
+      "googlePlaceId": "ChIJMWFrRV4oTI8R7aiOtbxAfQk",
+      "name": "Grand Park Royal Cancún",
+      "address": "Km. 10.5, Blvd. Kukulcan, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 21786,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "resort_hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1236543,
+      "lng": -86.75419649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=683773897674238189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.park-royalhotels.com/grand-park-royal-cancun.html?utm_medium=organic&utm_source=google&utm_campaign=google-my-business&utm_term=google-local&utm_id=parkroyal-grancancun",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "best parks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.26
+    },
+    {
+      "googlePlaceId": "ChIJj14R00crTI8Ru_vlX9qEeas",
+      "name": "Las Plazas Outlet Cancun",
+      "address": "Av. Andrés Quintana Roo 39, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 17593,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.151788699999997,
+      "lng": -86.8484192,
+      "googleMapsUri": "https://maps.google.com/?cid=12356053126114311099&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lasplazasoutletcancun.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "flea markets",
+        "boutiques",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.23
+    },
+    {
+      "googlePlaceId": "ChIJ16dIXvUoTI8Rpx2P2hEG35c",
+      "name": "Ferris Wheel Cancun",
+      "address": "Blvd. Kukulcan km 12.5, La Isla, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8219,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.112596999999997,
+      "lng": -86.76241979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10943472293284617639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://skywheelcancun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "VR experiences",
+        "sunset hikes",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.18
+    },
+    {
+      "googlePlaceId": "ChIJZXzt-i0oTI8RoJwsy8kmlQM",
+      "name": "Museo Maya de Cancún y Zona Arqueológica de San Miguelito",
+      "address": "Blvd. Kukulcan km 16.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7810,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.073825799999998,
+      "lng": -86.7771512,
+      "googleMapsUri": "https://maps.google.com/?cid=258155201782652064&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.inah.gob.mx/museos/museo-maya-de-cancun",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.03
+    },
+    {
+      "googlePlaceId": "ChIJDUX5CEYoTI8RcqrJB82Wp2Q",
+      "name": "Porfirio's Cancún | Restaurante de comida mexicana",
+      "address": "Km 14.2, Blvd. Kukulcan A-No.1, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5296,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.092391,
+      "lng": -86.77114449999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7252931532246592114&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://porfirios.com.mx/locaciones/restaurante-mexicano-en-cancun/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.98
+    },
+    {
+      "googlePlaceId": "ChIJWZj5akAqTI8RuGyk8zpU6mw",
+      "name": "Puerto Madero Cancún",
+      "address": "Blvd. Kukulcan Km. 14.1, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3507,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "argentinian_restaurant",
+      "types": [
+        "argentinian_restaurant",
+        "fish_and_chips_restaurant",
+        "steak_house",
+        "south_american_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0932492,
+      "lng": -86.7706827,
+      "googleMapsUri": "https://maps.google.com/?cid=7848177912818986168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.puertomaderorestaurantes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.86
+    },
+    {
+      "googlePlaceId": "ChIJnXPd6fJzTo8RmuKBnmyiSqk",
+      "name": "Extreme Adventure Cancun",
+      "address": "Ruta de los Cenotes, Quintana Roo Puerto Morelos - Leona Vicario KM 19.1, 77580 Puerto Morelos, Q.R., Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 4990,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.874856299999998,
+      "lng": -87.0788529,
+      "googleMapsUri": "https://maps.google.com/?cid=12198741128085889690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://extremeadventurecancun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.8
+    },
+    {
+      "googlePlaceId": "ChIJAaiTPh-BTo8RAPOO1Vr90Mk",
+      "name": "Xoximilco Cancún",
+      "address": "Chetumal Km. 282, Juárez, 77580 Puerto Morelos, Q.R., Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 11698,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.9946296,
+      "lng": -86.8582347,
+      "googleMapsUri": "https://maps.google.com/?cid=14542401763351130880&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.xoximilco.com/es/?utm_source=google&utm_medium=organic&utm_campaign=gbp_xoximilco",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.52
+    },
+    {
+      "googlePlaceId": "ChIJ332FoP0rTI8RrZrXb_wbJ1c",
+      "name": "Excellence Riviera Cancun",
+      "address": "Carretera Federal 307 Chetumal-Puerto Juarez Mz 7, V4FM+XM, Lote 1, 11, 77580 Puerto Morelos, Q.R., Mexico",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 20936,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.875443,
+      "lng": -86.866311,
+      "googleMapsUri": "https://maps.google.com/?cid=6280018976413555373&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://a2.adform.net/C/?bn=46366219;cpdir=https://www.excellenceresorts.com/riviera-maya-cancun/excellence-riviera-cancun/?utm_medium=gmb&utm_source=google&utm_campaign=gmb-xrc",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 89.09
+    },
+    {
+      "googlePlaceId": "ChIJK0oOU-wrTI8Rn3_4I1CBZao",
+      "name": "Parque Ecológico Kabah",
+      "address": "SM 053 M 1 L 1-01 Av. KABAH, Av. Nichupté, Sin Nombre, 77507 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 5387,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1433237,
+      "lng": -86.8382645,
+      "googleMapsUri": "https://maps.google.com/?cid=12278362140296380319&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cancun.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.93
+    },
+    {
+      "googlePlaceId": "ChIJmWs71vErTI8Rv7d4a3Auw2w",
+      "name": "Coco Bongo Cancun",
+      "address": "Blvd. Kukulcan 9.5, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 10927,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1326026,
+      "lng": -86.7471278,
+      "googleMapsUri": "https://maps.google.com/?cid=7837158836929083327&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cocobongo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs",
+        "cultural centers",
+        "romantic bars",
+        "wine bars",
+        "game night venues",
+        "karaoke bars",
+        "trivia nights",
+        "game bars",
+        "luxury lounges",
+        "bottle service",
+        "things to do this weekend",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "arts-culture",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.82
+    },
+    {
+      "googlePlaceId": "ChIJ0fhThCQA0oURALaHxBtFZ14",
+      "name": "National Art Museum",
+      "address": "C. de Tacuba 8, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 27540,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.436202299999998,
+      "lng": -99.13939549999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6802481747730085376&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.munal.mx/es",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.8
+    },
+    {
+      "googlePlaceId": "ChIJZ8MeRRouTI8REZAMtusUH3I",
+      "name": "Excellence Playa Mujeres",
+      "address": "Prolongación Bonampak S/N Mz. 1 Lt.10 Sm. 3 Condominio Playa Mujeres Sm. 3 Condominio Playa Mujeres, 77400 Q.R., Mexico",
+      "category": "adult-after-dark",
+      "categoryLabel": "Adult / After-Dark Experiences",
+      "rating": 4.9,
+      "reviewCount": 17555,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2436202,
+      "lng": -86.8054827,
+      "googleMapsUri": "https://maps.google.com/?cid=8223314447205961745&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://a2.adform.net/C/?bn=46366221;cpdir=https://www.excellenceresorts.com/cancun/excellence-playa-mujeres/?partner=5830&utm_medium=gmb&utm_source=google&utm_campaign=gmb-xpm",
+      "openNow": null,
+      "matchedQueries": [
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.57
+    },
+    {
+      "googlePlaceId": "ChIJ7woJAOUrTI8R2t4ieY7pe-c",
+      "name": "Marakame Cancún",
+      "address": "Av. Xpujil Sur Supermanzana 19, 77505 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6799,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "coffee_shop",
+        "cafe",
+        "breakfast_restaurant",
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "consultant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "service",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.144683399999998,
+      "lng": -86.8297406,
+      "googleMapsUri": "https://maps.google.com/?cid=16680182443023720154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://marakame.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "food halls",
+        "events tonight",
+        "popular dessert spots",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "viral-eats",
+        "learning-classes"
+      ],
+      "popularityScore": 88.52
+    },
+    {
+      "googlePlaceId": "ChIJ73_7aWKCTo8RhbXS2MCtTLk",
+      "name": "Navíos",
+      "address": "Blvd. Kukulcan Km. 19.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3110,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "mexican_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0451716,
+      "lng": -86.7835853,
+      "googleMapsUri": "https://maps.google.com/?cid=13352238039029691781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.naviosseafood.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJozt2381Gw4URNQUkY687NlQ",
+      "name": "Aquarium of Veracruz",
+      "address": "Blvd. Manuel Ávila Camacho S/n-Int. 25, Ricardo Flores Magón, 91900 Veracruz, Ver., Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 71189,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.187182099999998,
+      "lng": -96.12289410000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6068103172396942645&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariumpuertodeveracruz.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.32
+    },
+    {
+      "googlePlaceId": "ChIJfYZm_4QrTI8R4auRs0Trpik",
+      "name": "El Huerto del Edén",
+      "address": "Av Yaxchilán 17-Manzana 2, Coral Rivera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7587,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "brunch_restaurant",
+        "dog_cafe",
+        "bakery",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.1479256,
+      "lng": -86.8344619,
+      "googleMapsUri": "https://maps.google.com/?cid=3001344881991986145&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://elhuertodeleden.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.24
+    },
+    {
+      "googlePlaceId": "ChIJNU9gIUQoTI8RyUT2P2UMFp4",
+      "name": "Kempinski Hotel Cancún",
+      "address": "Rtno. del Rey 36, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 2919,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "lodging",
+        "wedding_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.093194699999998,
+      "lng": -86.7682547,
+      "googleMapsUri": "https://maps.google.com/?cid=11391305936484582601&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kempinski.com/en/hotel-cancun?utm_medium=organic&utm_source=google&utm_campaign=KICUN1&utm_content=gmb&source=S308962248",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "jazz clubs",
+        "best spas",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "wellness-relaxation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.21
+    },
+    {
+      "googlePlaceId": "ChIJLcllMPArTI8RhnEdS-qt6sE",
+      "name": "Bovinos Steakhouse & Seafood | Cancún",
+      "address": "Av Yaxchilán 17, Coral Rivera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 5879,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.148006799999997,
+      "lng": -86.8342242,
+      "googleMapsUri": "https://maps.google.com/?cid=13973172015664558470&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bovinos.restaurant/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.14
+    },
+    {
+      "googlePlaceId": "ChIJI0Jqhp0rTI8RydmtO71J-k4",
+      "name": "Lorenzillo's",
+      "address": "Blvd. Kukulcan Km 10.5, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3983,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1211983,
+      "lng": -86.7560613,
+      "googleMapsUri": "https://maps.google.com/?cid=5690942156234938825&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lorenzillos.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.03
+    },
+    {
+      "googlePlaceId": "ChIJjbEqz5goTI8RgCMLVZU-oBM",
+      "name": "Forum By The Sea",
+      "address": "Blvd. Kukulcan, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 9497,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.132363899999998,
+      "lng": -86.7471389,
+      "googleMapsUri": "https://maps.google.com/?cid=1414199094092178304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "rooftop bars",
+        "interactive pop ups",
+        "flea markets",
+        "boutiques",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "immersive-experiences",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88
+    },
+    {
+      "googlePlaceId": "ChIJ2ZXwTDYoTI8RKdgp1ppq0Ew",
+      "name": "RosaNegra | Latin American Restaurant in Cancun",
+      "address": "Blvd. Kukulcan Km 15, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3909,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0851087,
+      "lng": -86.7745277,
+      "googleMapsUri": "https://maps.google.com/?cid=5535041155288913961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rosanegra.com.mx/restaurantes-cancun?utm_source=organic&utm_medium=gmb&utm_campaign=rosacancun&ot_source=gmb_5427_rnc",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.98
+    },
+    {
+      "googlePlaceId": "ChIJTamj-l8oTI8RNQFPU-HIrFc",
+      "name": "Iberostar Selection Cancún",
+      "address": "km 17, Blvd. Kukulcan, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 30036,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "event_venue",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0671078,
+      "lng": -86.7784818,
+      "googleMapsUri": "https://maps.google.com/?cid=6317645247384846645&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.iberostar.com/en/hotels/cancun/iberostar-selection-cancun/?utm_source=gmb&utm_medium=organic&utm_campaign=IBSVOL_AME_SEOLOC_GMB_NA_EN_DOM_DOM_PUJ_CUN_PULL_NA_NA_NA_NA_NA",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.96
+    },
+    {
+      "googlePlaceId": "ChIJO-Mtd_UoTI8R8K1pr3kzjHc",
+      "name": "Interactive Aquarium Cancún",
+      "address": "Blvd. Kukulcan 12.5, La Isla, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 7982,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1094311,
+      "lng": -86.7643231,
+      "googleMapsUri": "https://maps.google.com/?cid=8614316784979914224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.interactiveaquariumcancun.com/?utm_source=google&utm_medium=organic&utm_campaign=maps&utm_term=mapa&utm_content=interactiveaquarium",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJ-ST6VHEtTI8RStb5-AzU8Sg",
+      "name": "Al Chimichurri Cancún",
+      "address": "Av Carlos Nader 3-L111, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2135,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1594964,
+      "lng": -86.8238934,
+      "googleMapsUri": "https://maps.google.com/?cid=2950372383086204490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://chimicancun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJTR85b9goTI8Ri8HTc9YUpmM",
+      "name": "Playa Langosta",
+      "address": "Kukulcan Boulevard, Hotel Zone, 77500 Cancún, Quintana Roo, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 19197,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1457161,
+      "lng": -86.77998149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7180449567187648907&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/profile.php?id=61556409531003",
+      "openNow": true,
+      "matchedQueries": [
+        "jazz clubs",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.69
+    },
+    {
+      "googlePlaceId": "ChIJDYZqUeQrTI8R_ZWKwOxy7JA",
+      "name": "Cafe Antoinette Xpuhil",
+      "address": "Al lado de Pabellon Caribe, Av Xpuhil Supermanzana 19 Manzana 2 Lote 24, centro, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 8657,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "cafeteria",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1443488,
+      "lng": -86.8294963,
+      "googleMapsUri": "https://maps.google.com/?cid=10442847997133493757&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cafe-antoinette.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.53
+    },
+    {
+      "googlePlaceId": "ChIJs2DoN_4rTI8RBLFPBdckKVQ",
+      "name": "Plaza Las Americas",
+      "address": "Av. Tulum Sur Supermanzana 7, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 53391,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1467939,
+      "lng": -86.82289360000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6064418879156760836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lasamericascentrocomercial.com.mx/cuenta",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.46
+    },
+    {
+      "googlePlaceId": "ChIJa7ElUp8oTI8R-T9EC38WtH4",
+      "name": "Monkey Business Cancún",
+      "address": "Blvd. Kukulcan km 9, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 3080,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "karaoke",
+        "bar",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1335601,
+      "lng": -86.74643119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9129947079492517881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.monkeybusiness.fun/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars",
+        "wine bars",
+        "game night venues",
+        "karaoke bars",
+        "trivia nights",
+        "game bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.27
+    },
+    {
+      "googlePlaceId": "ChIJS-WpoJgoTI8R0CERiPXCk7I",
+      "name": "Mandala Nightclub",
+      "address": "KM 9.5, Blvd. Kukulcan 5, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 2969,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1331663,
+      "lng": -86.74693769999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12867842920133239248&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mandalatickets.com/en/cancun/disco/mandala",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "romantic bars",
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "luxury lounges",
+        "bottle service",
+        "adult nightlife",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.16
+    },
+    {
+      "googlePlaceId": "ChIJQYlfVX0rTI8RKKTja2lM9J4",
+      "name": "What To Do In Cancun",
+      "address": "CALLE NOGAL, NE:MZ 99 A LOTE 5 NI:, Colon SN, ALAMOS I, 77533 Cancún, Q.R., Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 656,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.120463299999997,
+      "lng": -86.84455489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11453863767975371816&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://whattodoincancun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJQQyC3AksTI8RCcKZ54V2JS8",
+      "name": "Cancun Center",
+      "address": "Blvd. Kukulcan Km. 9, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2819,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.134787499999998,
+      "lng": -86.7468712,
+      "googleMapsUri": "https://maps.google.com/?cid=3397251811409248777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cancuncenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJl7BBESsoTI8RFcExklPwaaU",
+      "name": "Iberostar Selection Coral Cancun",
+      "address": "Blvd. Kukulcan KM 17 B, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "adult-after-dark",
+      "categoryLabel": "Adult / After-Dark Experiences",
+      "rating": 4.9,
+      "reviewCount": 10203,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0679576,
+      "lng": -86.77760289999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11919322130538414357&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.iberostar.com/eu/hotels/cancun/iberostar-selection-coral-cancun/?utm_source=gmb&utm_medium=organic&utm_campaign=IBSVOL_AME_SEOLOC_GMB_NA_EN_MEX_ROO_CUN_TCU_PULL_NA_NA_NA_NA_NA",
+      "openNow": null,
+      "matchedQueries": [
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.97
+    },
+    {
+      "googlePlaceId": "ChIJz4MyVUgtTI8RRKl9vV1VzvA",
+      "name": "Hunter Bar Cancun",
+      "address": "Alcatraces 45, Centro, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 901,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "sports_bar",
+        "coworking_space",
+        "sports_complex",
+        "swimming_pool",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.159772,
+      "lng": -86.827243,
+      "googleMapsUri": "https://maps.google.com/?cid=17351900275404548420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hunterbarcancun.shop/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "events tonight",
+        "romantic bars",
+        "wine bars",
+        "board game cafes",
+        "karaoke bars",
+        "trivia nights",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJQVVbfaglTI8RCdudYGGQbYk",
+      "name": "Punta Sur",
+      "address": "Isla Mujeres, 77403 Isla Mujeres, Quintana Roo, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 13431,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.2034228,
+      "lng": -86.71290049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9902729903564774153&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.93
+    },
+    {
+      "googlePlaceId": "ChIJeXdLZ0YoTI8RACUNddFGscM",
+      "name": "Sandos Cancun",
+      "address": "Km 14, Rtno. del Rey Manzana 53 Lote 37-1, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 20329,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "resort_hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0910938,
+      "lng": -86.7691383,
+      "googleMapsUri": "https://maps.google.com/?cid=14101129773699638528&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandos.com/sandos-cancun/vacation-deals-cancun?utm_source=gmbcancun&utm_medium=localmap",
+      "openNow": true,
+      "matchedQueries": [
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJ6YmHLzFTn4YRViKGHVeZAe8",
+      "name": "Gran Acuario Mazatlán",
+      "address": "Av. de los Deportes 111, Tellería, 82017 Mazatlán, Sin., Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 42692,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 23.228906199999997,
+      "lng": -106.4276094,
+      "googleMapsUri": "https://maps.google.com/?cid=17222215049478021718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.granacuario.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJ0xdy7Y4pTI8ROglrMTkDLIE",
+      "name": "Escapology Escape Rooms Cancun Ava",
+      "address": "Resort AVA, Blvd. Kukulcan KM 26, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1979,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0096197,
+      "lng": -86.8205206,
+      "googleMapsUri": "https://maps.google.com/?cid=9307818074045090106&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/cancun-ava",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.71
+    },
+    {
+      "googlePlaceId": "ChIJtUgSI3T70YURNMBnzBuMeHM",
+      "name": "ACUARIO MICHIN CDMX",
+      "address": "Calz. San Juan de Aragón 399, Granjas Modernas, Gustavo A. Madero, 07460 Ciudad de México, CDMX, Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 27933,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "indoor_playground",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4780938,
+      "lng": -99.1000801,
+      "googleMapsUri": "https://maps.google.com/?cid=8320554362588348468&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.acuariomichin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.65
+    },
+    {
+      "googlePlaceId": "ChIJUwFIblTPUY8R3gNh0JT3e8Y",
+      "name": "Zona arqueológica de Coba",
+      "address": "77793 Coba, Quintana Roo, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 18851,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.489777399999998,
+      "lng": -87.7294338,
+      "googleMapsUri": "https://maps.google.com/?cid=14302297260168381406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.inah.gob.mx/zonas/515-zona-arqueologica-de-coba",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJF5MVQF8vTI8RUVDQm0xcUWc",
+      "name": "Barezzito Puerto Cancun",
+      "address": "Avenida Bonampak, plaza oasis Puerto Cancún, Puerto Juarez, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1140,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.162567499999998,
+      "lng": -86.8200468,
+      "googleMapsUri": "https://maps.google.com/?cid=7444833143121530961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.grupoparty.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "comedy shows",
+        "wine bars",
+        "karaoke bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJo9uVNZ8oTI8RSK355oMiXRU",
+      "name": "Mandala Beach Club",
+      "address": "Blvd. Kukulcan km 09, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 3238,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.133108800000002,
+      "lng": -86.7470187,
+      "googleMapsUri": "https://maps.google.com/?cid=1539424597541760328&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mandalatickets.com/en/cancun/disco/mandala-beach",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "romantic bars",
+        "game night venues",
+        "game bars",
+        "luxury lounges",
+        "bottle service",
+        "events this weekend",
+        "seasonal pop ups",
+        "local events",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJj8Brv5koTI8RAOXaZ8plzyg",
+      "name": "Mayan Monkey Cancún",
+      "address": "Blvd. Kukulcan Km 9.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 8161,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "hostel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1300386,
+      "lng": -86.75037359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2940681001696421120&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mayanmonkey.com/mayan-monkey-cancun",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.26
+    },
+    {
+      "googlePlaceId": "ChIJEbUgiQMsTI8RTqLjA8nhy5w",
+      "name": "Market 23",
+      "address": "Jabín 9 6, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 6745,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1679949,
+      "lng": -86.82788649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11298372343658947150&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "vintage shops",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.89
+    },
+    {
+      "googlePlaceId": "ChIJURx2jDYpTI8RBnHMnyOwGj0",
+      "name": "La Taberna de Los Amigos",
+      "address": "Av. Bonampak Supermanzana 6 Mz 1 lt 1 7, 77500 Cancún, Q.R., Mexico",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.7,
+      "reviewCount": 4473,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1465543,
+      "lng": -86.8217911,
+      "googleMapsUri": "https://maps.google.com/?cid=4403025252759400710&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lataberna.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "board game cafes",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.83
+    },
+    {
+      "googlePlaceId": "ChIJ_90t2pcpTI8RS0pRKe4-0Xk",
+      "name": "Ryoshi Cancún",
+      "address": "Boulevard Kukulkán Lote 18-10 Manzana 52, U.P. 1 Sección “A, La Isla, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1025,
+      "priceLevel": null,
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1088469,
+      "lng": -86.7643396,
+      "googleMapsUri": "https://maps.google.com/?cid=8777866341338139211&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://costeno.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "fine dining",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJqfriFPMrTI8R3YQ_CVWNDjs",
+      "name": "Mermelada Cocina Que Reconforta.",
+      "address": "Av. Rodrigo Gómez Supermanzana 17 Manzana 2 Lote 17, Parque Capulines, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 5451,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1459841,
+      "lng": -86.8349992,
+      "googleMapsUri": "https://maps.google.com/?cid=4255494094278591709&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mermeladacocinaquereconforta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.76
+    },
+    {
+      "googlePlaceId": "ChIJAW6mReEB0oURfai5Fj_zJO8",
+      "name": "Papalote Museo del Niño",
+      "address": "Av. de los Compositores 710, Ampliación Daniel Garza, Bosque de Chapultepec II Secc, Miguel Hidalgo, 11830 Ciudad de México, CDMX, Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 28783,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4117008,
+      "lng": -99.19502159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17232165526516115581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.papalote.org.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.64
+    },
+    {
+      "googlePlaceId": "ChIJ56vuy1cpTI8RdtI1XWkPanY",
+      "name": "Plaza de Toros Stadium Cancun",
+      "address": "Av. Bonampak esquina Sayil SM, 4A, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 3668,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "cultural_center",
+        "shopping_mall",
+        "amusement_center",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1501937,
+      "lng": -86.82104729999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8532649389216617078&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://plazadetoroscancun.com.mx/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJ-cZsdr0rTI8RzMRgRTgktWc",
+      "name": "La Coyota Cancún - Cocina & Mixología",
+      "address": "Av Carlos Nader 138, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1200,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1576782,
+      "lng": -86.8235157,
+      "googleMapsUri": "https://maps.google.com/?cid=7472918980791944396&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lacoyotacancun.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "wine bars",
+        "TikTok restaurants",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.58
+    },
+    {
+      "googlePlaceId": "ChIJa_FvlQIuTI8RPu24vQGjakM",
+      "name": "Atelier Playa Mujeres",
+      "address": "Complejo, Prolongacion, Bonampak S/N, 77400 Playa Azul, Q.R., Mexico",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 8967,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "extended_stay_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.252789099999998,
+      "lng": -86.812232,
+      "googleMapsUri": "https://maps.google.com/?cid=4857874375945809214&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://atelierdehoteles.com/atelier-playa-mujeres?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJWZj5akAqTI8RC-FPVqlvNk8",
+      "name": "El Fish Fritanga",
+      "address": "Blvd. Kukulcan, La Isla, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4784,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1055514,
+      "lng": -86.7644505,
+      "googleMapsUri": "https://maps.google.com/?cid=5707872350826914059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://elfishfritanga.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.33
+    },
+    {
+      "googlePlaceId": "ChIJ06DTQ9cpTI8RxoGq3fGscTg",
+      "name": "Chambao Cancún Restaurant | Best Steakhouse in Cancún",
+      "address": "Blvd. Kukulcan Km. 15, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1590,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0861372,
+      "lng": -86.77399419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4067222093298303430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chambaorestaurant.com/en/steakhouse-cancun?utm_source=organic&utm_medium=gmb&utm_campaign=chambaocancun&ot_source=gmb_3743_chac",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.32
+    },
+    {
+      "googlePlaceId": "ChIJL_Ha-C8pTI8RugsUeSN9G80",
+      "name": "Teatro de Cancún",
+      "address": "Blvd. Kukulcan Km 4 terminal playa linda Zona Hotelera, Blvd. Kukulkan Km 4, Kukulcan Boulevard, 5 El Embarcadero, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2302,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.144662999999998,
+      "lng": -86.7884483,
+      "googleMapsUri": "https://maps.google.com/?cid=14779544193455098810&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.teatrodecancun.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "festivals this weekend",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.31
+    },
+    {
+      "googlePlaceId": "ChIJleC0jZAsTI8RziUz09IVbf0",
+      "name": "El Timón De Cancún",
+      "address": "km. 9.5, Blvd. Kukulcan, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 6700,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "seafood_restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.1366401,
+      "lng": -86.7465563,
+      "googleMapsUri": "https://maps.google.com/?cid=18261276059287889358&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://eltimondecancun.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.27
+    },
+    {
+      "googlePlaceId": "ChIJE21b4dkpTI8RA4zKZK3y7Y4",
+      "name": "Taboo Cancun Restaurant | Best Mediterranean Restaurant in Cancún",
+      "address": "Blvd. Kukulcan Km 13.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2162,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "greek_restaurant",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0971829,
+      "lng": -86.7688226,
+      "googleMapsUri": "https://maps.google.com/?cid=10299154749400452099&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.taboorestaurant.com.mx/en/restaurantes-cancun-restaurants?utm_source=organico&utm_medium=gmb&utm_campaign=tabc&ot_source=gmb_tabc",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJBYRCzUJhTo8RaEh-qAjRa80",
+      "name": "Joyà by Cirque du Soleil",
+      "address": "Carretera Federal, Cancun - Chetumal Km 48, 77710 Playa del Carmen, Q.R., Mexico",
+      "category": "adult-after-dark",
+      "categoryLabel": "Adult / After-Dark Experiences",
+      "rating": 4.8,
+      "reviewCount": 7675,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "performing_arts_theater",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.7684957,
+      "lng": -86.96637369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14802154435400058984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cirquedusoleil.com/es/joya?utm_source=GMB&utm_medium=Bot%C3%B3n&utm_campaign=GMB_Web?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": false,
+      "matchedQueries": [
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJiUHFxjpDTo8RnPMOc5Z17ZE",
+      "name": "3D Museum of Wonders",
+      "address": "10 Avenida Nte., Centro, 77710 Playa del Carmen, Q.R., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2899,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.627073499999998,
+      "lng": -87.0735514,
+      "googleMapsUri": "https://maps.google.com/?cid=10515189994015880092&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://3dmuseumofwonders.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.94
+    },
+    {
+      "googlePlaceId": "ChIJEYfuVtL-0YUR4oxYo0YLGFY",
+      "name": "Amigo Tours Cancun",
+      "address": "Av. Tulúm 4, capilla ecumenica, 77500 Cancún, Q.R., Mexico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 4589,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1551278,
+      "lng": -86.82480819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6203720884718963938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amigotours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJNaiYPHYrTI8R6qHmlkHnuWI",
+      "name": "Live Aqua Cancún",
+      "address": "Blvd. Kukulcan Km 12.5, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4809,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "massage_spa",
+        "massage",
+        "spa",
+        "lodging",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.1075371,
+      "lng": -86.763159,
+      "googleMapsUri": "https://maps.google.com/?cid=7113971355298996714&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fiestamericanatravelty.com/live-aqua/hoteles/live-aqua-cancun",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "best spas"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "wellness-relaxation"
+      ],
+      "popularityScore": 84.69
+    },
+    {
+      "googlePlaceId": "ChIJvaw0vf0rTI8R5ueM1Oyztrc",
+      "name": "Selvatica - The Adventure Tribe",
+      "address": "Ruta de los cenotes, Km 18, 77580 Puerto Morelos, Q.R., Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1825,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "water_park",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.8690292,
+      "lng": -87.0733339,
+      "googleMapsUri": "https://maps.google.com/?cid=13237965984461809638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.selvatica.com.mx/es?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 84.67
+    },
+    {
+      "googlePlaceId": "ChIJUXLyZAQsTI8RUSxe0XSXIjs",
+      "name": "PUNTO FRIO",
+      "address": "SM023 M 54 L1 Av Chichén Itzá, Jabín Supermanzana 23, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.1,
+      "reviewCount": 9312,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "consultant",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.168038,
+      "lng": -86.82853539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4261134725430520913&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.65
+    },
+    {
+      "googlePlaceId": "ChIJs3a0JOIrTI8R_8EN-X8CEXY",
+      "name": "Dubai Palace",
+      "address": "Av. Tulúm Mz 1 Lt 2 Sm 8, Centro, 77500 Cancún, Q.R., Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 3534,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "tourist_attraction",
+        "sports_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1422891,
+      "lng": -86.8237288,
+      "googleMapsUri": "https://maps.google.com/?cid=8507583919742108159&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dubaipalace.mx/?utm_source=GoogleMyBizListing&utm_medium=organic&utm_campaign=map_busquedas_organicas&utm_content=liga_al_sitio_oficial_desde_google_my_business",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.38
+    },
+    {
+      "googlePlaceId": "ChIJ9fT7y0opTI8RPduscYQcIBc",
+      "name": "Entertainment Plus",
+      "address": "Av Huayacan Mz 207 Lote 2, Av Alamos SM 313-Local 303, 77560 Cancún, Q.R., Mexico",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2932,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "airport_shuttle_service",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1228623,
+      "lng": -86.84241779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1666363217295498045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.entertainment-plus.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.38
+    },
+    {
+      "googlePlaceId": "ChIJo9dcqYgrTI8RDKEGQnOfIpI",
+      "name": "Stoa Social & Congress Hall",
+      "address": "Av. Alamos 1, Centro, 77560 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1145,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1171331,
+      "lng": -86.85202609999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10530154196123427084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stoacancun.mx/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.35
+    },
+    {
+      "googlePlaceId": "ChIJF6ss5ZwvTI8Ry0HId8Y9i_U",
+      "name": "Estatus Night Club",
+      "address": "Avenida Bonampak, Plaza Oasis, Puerto Cancún, Puerto Juarez, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1384,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1622289,
+      "lng": -86.8203642,
+      "googleMapsUri": "https://maps.google.com/?cid=17693303483677557195&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.grupoparty.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.31
+    },
+    {
+      "googlePlaceId": "ChIJq18R00crTI8RDxyDA12HMsU",
+      "name": "Cenacolo Hotel Zone Cancún",
+      "address": "Blvd. Kukulcan KM 12.5, La Isla, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 712,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "italian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.110313899999998,
+      "lng": -86.764873,
+      "googleMapsUri": "https://maps.google.com/?cid=14209568607867968527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cenacolo.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.04
+    },
+    {
+      "googlePlaceId": "ChIJH2qJwfcrTI8RPLXWYDnSOxw",
+      "name": "Café con Gracia",
+      "address": "Tankah 69 Mza, Av. Tankah 69-1 Lote, 77509 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5224,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "coffee_shop",
+      "types": [
+        "coffee_shop",
+        "cafe",
+        "breakfast_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.1575944,
+      "lng": -86.8333261,
+      "googleMapsUri": "https://maps.google.com/?cid=2034450800567563580&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cafecongracia.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 83.84
+    },
+    {
+      "googlePlaceId": "ChIJGw6p2PErTI8RDblc77mhvYc",
+      "name": "Costco Wholesale Cancún",
+      "address": "Av. Kabah esq Avenida Yaxchilán 24, Av Yaxchilán 37, 77505 Cancún, Q.R., Mexico",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 15571,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "warehouse_store",
+      "types": [
+        "warehouse_store",
+        "liquor_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 21.148102599999998,
+      "lng": -86.8353848,
+      "googleMapsUri": "https://maps.google.com/?cid=9781151785675438349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.costco.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.82
+    },
+    {
+      "googlePlaceId": "ChIJI1z1tNIrTI8RB59LjILQGVk",
+      "name": "Magic Planet Club | Parque Infantil Cancún",
+      "address": "Av. Bonampak Supermanzana 6, 77500 Cancún, Q.R., Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 423,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1467927,
+      "lng": -86.8214459,
+      "googleMapsUri": "https://maps.google.com/?cid=6420392002911444743&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://magicplanet.club/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "arcades",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.6
+    },
+    {
+      "googlePlaceId": "ChIJBy3fK7wuTI8R0n9HJvvwhlw",
+      "name": "Puerto Santo",
+      "address": "Av. José López Portillo s/n, Puerto Juarez, Juárez, 77505 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3314,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1796199,
+      "lng": -86.8074561,
+      "googleMapsUri": "https://maps.google.com/?cid=6667281259838275538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://puertosanto.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.59
+    },
+    {
+      "googlePlaceId": "ChIJU1XF4j8rTI8RrUTmSAz4BNs",
+      "name": "Gran Plaza Cancún",
+      "address": "Av. Nichupté 518, Sin Nombre, 77536 Cancún, Q.R., Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 11399,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.139885,
+      "lng": -86.8539174,
+      "googleMapsUri": "https://maps.google.com/?cid=15782011725859407021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 83.54
+    },
+    {
+      "googlePlaceId": "ChIJ24XhK74oTI8Rx853p_lkJ1Q",
+      "name": "Temptation Cancun Resort",
+      "address": "Blvd. Kukulcan Km 3.5, Kukulcan Boulevard, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 7849,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "hotel",
+        "spa",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.1483696,
+      "lng": -86.7923838,
+      "googleMapsUri": "https://maps.google.com/?cid=6063926446696943303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.temptationresorts.com/es/hoteles/mexico/cancun/temptationcancun/?partner=9477&affiliate=5701&utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "events this weekend",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.54
+    },
+    {
+      "googlePlaceId": "ChIJCXi1SbuBTo8RBnrwoU3U9-c",
+      "name": "Cancun International Airport",
+      "address": "Carr. a Aeropuerto Cancún, 77500 Cancún, Q.R., Mexico",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.1,
+      "reviewCount": 62402,
+      "priceLevel": null,
+      "primaryType": "international_airport",
+      "types": [
+        "international_airport",
+        "airport",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 21.0419232,
+      "lng": -86.8743844,
+      "googleMapsUri": "https://maps.google.com/?cid=16715061971903347206&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cuninternationalairport.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.53
+    },
+    {
+      "googlePlaceId": "ChIJVbyxNIZnTo8Rnq1tP92sqFM",
+      "name": "El Camaleón Golf Course at Mayakoba",
+      "address": "Carretera Fed. Chetumal Pto. Juárez Km. 298, 77710 Playa del Carmen, Q.R., Mexico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 4520,
+      "priceLevel": null,
+      "primaryType": "golf_course",
+      "types": [
+        "golf_course",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.6897606,
+      "lng": -87.0311157,
+      "googleMapsUri": "https://maps.google.com/?cid=6028258167487311262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mayakoba.com/el-camaleon-golf-course/",
+      "openNow": true,
+      "matchedQueries": [
+        "golf courses"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 83.46
+    },
+    {
+      "googlePlaceId": "ChIJwxSYAaMoTI8RbWJOG1YJfNY",
+      "name": "Hotel Riu Cancun",
+      "address": "KM 9, Blvd. Kukulcan Mz 50 Lt 5, Punta Cancun, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 10819,
+      "priceLevel": null,
+      "primaryType": "resort_hotel",
+      "types": [
+        "resort_hotel",
+        "massage_spa",
+        "massage",
+        "hotel",
+        "spa",
+        "lodging",
+        "wedding_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 21.1374471,
+      "lng": -86.7485116,
+      "googleMapsUri": "https://maps.google.com/?cid=15455238286658658925&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-cancun?utm_source=google&utm_medium=organic&utm_campaign=my_business&utm_content=CNC",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.39
+    }
+  ]
+}

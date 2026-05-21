@@ -1,0 +1,3441 @@
+{
+  "location": "Mexico City, Mexico",
+  "generatedAt": "2026-05-17T20:18:42.793Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ_6pkSM3-0YURDDaRslwM_0w",
+      "name": "Constitution Plaza",
+      "address": "Pl. de la Constitución S/N, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06010 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 323449,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.432641999999998,
+      "lng": -99.1333215,
+      "googleMapsUri": "https://maps.google.com/?cid=5548166858216125964&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/plaza-de-la-constitucion-the-zocalo/",
+      "openNow": null,
+      "matchedQueries": [
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.7
+    },
+    {
+      "googlePlaceId": "ChIJTQGqdSv50YURz-imDdIQ2Bc",
+      "name": "Palacio de Bellas Artes",
+      "address": "Av. Juárez S/N, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06050 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 192304,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4352,
+      "lng": -99.1412,
+      "googleMapsUri": "https://maps.google.com/?cid=1718141752200063183&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://palacio.inba.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "street fairs",
+        "local events",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.37
+    },
+    {
+      "googlePlaceId": "ChIJP1dJRVf_0YURr8MZosHl4kI",
+      "name": "Bosque de Chapultepec",
+      "address": "Miguel Hidalgo, Mexico City, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 266435,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4194815,
+      "lng": -99.18945579999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4819667171050898351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bosquedechapultepec.mx:9000/bosquedechapultepec/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.17
+    },
+    {
+      "googlePlaceId": "ChIJScjIILQB0oURJMVub-MaI4Q",
+      "name": "Museo Nacional de Antropología",
+      "address": "Av. P.º de la Reforma s/n, Polanco, Bosque de Chapultepec I Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 89944,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.426003200000004,
+      "lng": -99.1862786,
+      "googleMapsUri": "https://maps.google.com/?cid=9521483601320789284&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mna.inah.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.27
+    },
+    {
+      "googlePlaceId": "ChIJI4_tR83-0YURMouBJIUA4KY",
+      "name": "Chapultepec Castle",
+      "address": "Av. Heroico Colegio Militar 172, Bosque de Chapultepec I Secc, Miguel Hidalgo, 11580 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 87570,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "historical_landmark",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4204397,
+      "lng": -99.181935,
+      "googleMapsUri": "https://maps.google.com/?cid=12024611576922344242&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mnh.inah.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.2
+    },
+    {
+      "googlePlaceId": "ChIJnywNMVv_0YURVuuTE-_GX4Q",
+      "name": "Ling Ling by Hakkasan",
+      "address": "Av. P.º de la Reforma 509-Piso 56, Cuauhtémoc, 06500 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 40434,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4240425,
+      "lng": -99.1757592,
+      "googleMapsUri": "https://maps.google.com/?cid=9538561265921944406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hakkasangroup.com/es/venues/ling-ling-mexico-city/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "popular dessert spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 97.16
+    },
+    {
+      "googlePlaceId": "ChIJS7R39Sr50YURQE6mi9UOKds",
+      "name": "Alameda Central",
+      "address": "Av. Hidalgo s/n, Colonia Centro, Centro, Cuauhtémoc, 06010 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 121066,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4359374,
+      "lng": -99.1439285,
+      "googleMapsUri": "https://maps.google.com/?cid=15792169878685109824&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.alamedacentral.cdmx.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.89
+    },
+    {
+      "googlePlaceId": "ChIJCT06bhoC0oURszwDTCLicpM",
+      "name": "Museo Soumaya",
+      "address": "Blvd. Miguel de Cervantes Saavedra, Granada, Miguel Hidalgo, 11529 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 69772,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4406926,
+      "lng": -99.2047001,
+      "googleMapsUri": "https://maps.google.com/?cid=10624803107852467379&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museosoumaya.org/inicio/exposiciones/plaza-carso/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.82
+    },
+    {
+      "googlePlaceId": "ChIJ3dGBci350YURsDYUZcq-kIw",
+      "name": "Templo Mayor Museum",
+      "address": "Seminario 8, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06060 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 34540,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.434603799999998,
+      "lng": -99.13188099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10128805338444740272&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.inah.gob.mx/zonas/zona-arqueologica-templo-mayor",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.63
+    },
+    {
+      "googlePlaceId": "ChIJHwciRdL40YURIAzMPd3G_SA",
+      "name": "Monument to the Revolution",
+      "address": "Pl. de la República s/n, Tabacalera, Cuauhtémoc, 06030 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 78440,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4361328,
+      "lng": -99.154658,
+      "googleMapsUri": "https://maps.google.com/?cid=2377274831848344608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/monument-to-the-revolution/?lang=es",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "kids activities",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 95.04
+    },
+    {
+      "googlePlaceId": "ChIJ0fhThCQA0oURALaHxBtFZ14",
+      "name": "National Art Museum",
+      "address": "C. de Tacuba 8, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 27541,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.436202299999998,
+      "lng": -99.13939549999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6802481747730085376&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.munal.mx/es",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95
+    },
+    {
+      "googlePlaceId": "ChIJMc6vWiv50YURY1rtNDuRw2E",
+      "name": "Latin American Tower Viewpoint",
+      "address": "Eje Central Lázaro Cárdenas 2-piso 44, Col. Centro, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 58041,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "observation_deck",
+        "museum",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4339414,
+      "lng": -99.14063809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7044633925614656099&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miradortorrelatino.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "sunset hikes",
+        "family friendly things to do",
+        "sunset date spots",
+        "events this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.86
+    },
+    {
+      "googlePlaceId": "ChIJ-R6gAvwB0oURb42WS821FF4",
+      "name": "Auditorio Nacional",
+      "address": "Av. P.º de la Reforma 50, Polanco V Secc, Miguel Hidalgo, 11580 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 111202,
+      "priceLevel": null,
+      "primaryType": "auditorium",
+      "types": [
+        "auditorium",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4248097,
+      "lng": -99.19492559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6779243232440520047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.auditorio.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 94.75
+    },
+    {
+      "googlePlaceId": "ChIJYxW99TX_0YUR9y_gLQ5vNmw",
+      "name": "The Angel of Independence",
+      "address": "Av. P.º de la Reforma 342-Piso 27, Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 165493,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.426996199999998,
+      "lng": -99.16766229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7797541911528484855&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/el-angel-independencia/?lang=es",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.85
+    },
+    {
+      "googlePlaceId": "ChIJL0UaXyv50YURNyz05p6HsQg",
+      "name": "Casa de los Azulejos",
+      "address": "Av Francisco I. Madero 4, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06500 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 51855,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4342214,
+      "lng": -99.1401815,
+      "googleMapsUri": "https://maps.google.com/?cid=626430939730553911&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sanborns.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "food halls",
+        "scenic walks",
+        "family friendly things to do",
+        "private dining rooms",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "outdoor-nature",
+        "family-kids",
+        "luxury-special-occasion",
+        "local-exploration"
+      ],
+      "popularityScore": 93.45
+    },
+    {
+      "googlePlaceId": "ChIJOz-6AMT_0YURofTM9_ekAWI",
+      "name": "Frida Kahlo Museum",
+      "address": "Londres 247, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 44058,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.3551806,
+      "lng": -99.1624636,
+      "googleMapsUri": "https://maps.google.com/?cid=7062107075614930081&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museofridakahlo.org.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93
+    },
+    {
+      "googlePlaceId": "ChIJMQr0R9X40YURuSQb4enr-AU",
+      "name": "Teatro Metropólitan",
+      "address": "Av Independencia 90, Colonia Centro, Centro, Cuauhtémoc, 06050 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 32979,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4334897,
+      "lng": -99.146788,
+      "googleMapsUri": "https://maps.google.com/?cid=430353154150442169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://teatrometropolitan.mx/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.9
+    },
+    {
+      "googlePlaceId": "ChIJxa1_2i7_0YURgd4u9aNEAiY",
+      "name": "Arena México",
+      "address": "Dr. Lavista 189, Doctores, Cuauhtémoc, 06720 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 27852,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": 19.4247054,
+      "lng": -99.1516884,
+      "googleMapsUri": "https://maps.google.com/?cid=2738826994378530433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cmll.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.44
+    },
+    {
+      "googlePlaceId": "ChIJQ9Gr0Sr_0YUR4E4rpf_9EAA",
+      "name": "Mercado de Artesanías La Ciudadela",
+      "address": "Balderas S/N, Colonia Centro, Centro, Cuauhtémoc, 06040 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 33744,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4308122,
+      "lng": -99.14936929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4782874056937184&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/MERCADODEARTESANIASLACIUDADELA",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "boutiques",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.26
+    },
+    {
+      "googlePlaceId": "ChIJeYLOZMT_0YURFEhp2ubb43c",
+      "name": "Coyoacan Market",
+      "address": "Ignacio Allende s/n, Del Carmen, Coyoacán, 04100 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 55270,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "tourist_attraction",
+        "mexican_restaurant",
+        "market",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.3528679,
+      "lng": -99.16206640000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8638990294780037140&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.13
+    },
+    {
+      "googlePlaceId": "ChIJh3D2US350YURVW0T-_DRdsA",
+      "name": "El Cardenal",
+      "address": "Calle Palma 23 Cuauhtémoc, C. de la Palma 23, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 20029,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "brunch_restaurant",
+        "meal_takeaway",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4337049,
+      "lng": -99.13534639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13868502935468731733&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.restauranteelcardenal.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.93
+    },
+    {
+      "googlePlaceId": "ChIJd5OnVyH80YUR3aJAsoFl_zM",
+      "name": "Autódromo Hermanos Rodríguez",
+      "address": "Viad. Río de la Piedad S/n, Granjas México, Iztacalco, 08400 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 63623,
+      "priceLevel": null,
+      "primaryType": "race_course",
+      "types": [
+        "race_course",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4055604,
+      "lng": -99.09254039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3746825022711309021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ahr.mx/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.86
+    },
+    {
+      "googlePlaceId": "ChIJ4a8nxjL50YURJ19RJ_A9T5E",
+      "name": "Mexico City Metropolitan Cathedral",
+      "address": "Pl. de la Constitución S/N, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 23747,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4343942,
+      "lng": -99.13308239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10470655760320782119&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://catedralmetropolitana.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.75
+    },
+    {
+      "googlePlaceId": "ChIJHUMfYOcc0oURQnCEd9UDaNY",
+      "name": "Museo de Cera",
+      "address": "Londres 6, Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 33310,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.428528,
+      "lng": -99.15716789999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15449602737062572098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museodecera.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.58
+    },
+    {
+      "googlePlaceId": "ChIJAZuvG3kC0oURZpwgpzgYgp4",
+      "name": "Parque Bicentenario",
+      "address": "Av. 5 de Mayo 290, San Lorenzo Tlaltenango, Miguel Hidalgo, 11210 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 68822,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4678015,
+      "lng": -99.19613539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11421718236566166630&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parquebicentenario.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 91.43
+    },
+    {
+      "googlePlaceId": "ChIJxSUeddX-0YURNIFMA2OAD6I",
+      "name": "Mercado de San Juan Pugibet",
+      "address": "2ᵃ Calle de Ernesto Pugibet 21, Colonia Centro, Centro, Cuauhtémoc, 06070 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 23530,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4299708,
+      "lng": -99.1446309,
+      "googleMapsUri": "https://maps.google.com/?cid=11677693521540448564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lacocinadesanjuan.com.mx/mercado-san-juan",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.27
+    },
+    {
+      "googlePlaceId": "ChIJGZFPH7YA0oUR0s5BIBOhGus",
+      "name": "Parque La Mexicana",
+      "address": "Av. Luis Barragan 505, Santa Fe, Contadero, Cuajimalpa de Morelos, 05348 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 57267,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.357073700000004,
+      "lng": -99.2695914,
+      "googleMapsUri": "https://maps.google.com/?cid=16941030051825176274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parquelamexicana.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 90.92
+    },
+    {
+      "googlePlaceId": "ChIJU3DYrW1ETo8RpQkYkh7oQoA",
+      "name": "Xcaret Park",
+      "address": "Carretera Chetumal, Puerto Juarez km 282-Int B, Colonia Rancho Xcaret, Juárez, 77580 Playa del Carmen, Q.R., Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 116975,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 20.5809134,
+      "lng": -87.119698,
+      "googleMapsUri": "https://maps.google.com/?cid=9242204603315390885&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.xcaret.com/es/?langRedirect=1",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.74
+    },
+    {
+      "googlePlaceId": "ChIJFfwjrG7_0YUREze7MCOTMqw",
+      "name": "Parque México",
+      "address": "Av México s/n, Hipódromo, Cuauhtémoc, 06100 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 23006,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "city_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4115814,
+      "lng": -99.1695677,
+      "googleMapsUri": "https://maps.google.com/?cid=12408141702709851923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.41
+    },
+    {
+      "googlePlaceId": "ChIJb8brj_n_0YURP6P7j8_u4J0",
+      "name": "La Merced Market",
+      "address": "Circunvalación, La Merced, Zona Centro, Venustiano Carranza, 15100 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 43980,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "historical_landmark",
+        "market",
+        "grocery_store",
+        "food_store",
+        "historical_place",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.426112399999997,
+      "lng": -99.1251527,
+      "googleMapsUri": "https://maps.google.com/?cid=11376355233979147071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.4
+    },
+    {
+      "googlePlaceId": "ChIJAW6mReEB0oURfai5Fj_zJO8",
+      "name": "Papalote Museo del Niño",
+      "address": "Av. de los Compositores 710, Ampliación Daniel Garza, Bosque de Chapultepec II Secc, Miguel Hidalgo, 11830 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 28783,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4117008,
+      "lng": -99.19502159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17232165526516115581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.papalote.org.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 90.33
+    },
+    {
+      "googlePlaceId": "ChIJ0-qvVCz50YUR90ecnM1a0Ik",
+      "name": "Teatro de la Ciudad",
+      "address": "Donceles 36, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06010 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 11494,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.436693599999998,
+      "lng": -99.1372488,
+      "googleMapsUri": "https://maps.google.com/?cid=9930537017494226935&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.teatros.cultura.cdmx.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.99
+    },
+    {
+      "googlePlaceId": "ChIJAQAAMLMB0oURD_4FLwX5JUs",
+      "name": "Museo de Historia Natural",
+      "address": "Av. de los Compositores, Bosque de Chapultepec II Secc, Miguel Hidalgo, 11100 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 20474,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.409833,
+      "lng": -99.20151899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5415007927641964047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://data.sedema.cdmx.gob.mx/museodehistorianatural/?view=featured",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.84
+    },
+    {
+      "googlePlaceId": "ChIJGZTVlcn_zYURRZxrmu06Qto",
+      "name": "Six Flags México",
+      "address": "Carr. Picacho-Ajusco Km 1.5, Jardines del Ajusco, Tlalpan, 14219 Ciudad de México, CDMX, Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 170246,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.295576200000003,
+      "lng": -99.2107673,
+      "googleMapsUri": "https://maps.google.com/?cid=15727197640903597125&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sixflags.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.58
+    },
+    {
+      "googlePlaceId": "ChIJ48KvaD7_0YURhzmZCryLbSw",
+      "name": "Medellín Market",
+      "address": "Mercado Medellín #20, Campeche 101, Roma Sur, Cuauhtémoc, 06760 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 16764,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4104231,
+      "lng": -99.1633804,
+      "googleMapsUri": "https://maps.google.com/?cid=3201368549878217095&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/mercado-medellin/?lang=es",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.23
+    },
+    {
+      "googlePlaceId": "ChIJAQBwLTL_0YURNZVJbt5tDxU",
+      "name": "Bikes and Munchies -The original Street Food Bike Tour.",
+      "address": "Bikes and Munchies @ Bazar Fusion, Londres 37, Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 2413,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4279646,
+      "lng": -99.1595005,
+      "googleMapsUri": "https://maps.google.com/?cid=1517552401547629877&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bikesandmunchies.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 88.99
+    },
+    {
+      "googlePlaceId": "ChIJfU_GG0n_0YURqi2y37pZd20",
+      "name": "Prime Steak Club",
+      "address": "Av. P.º de la Reforma 333, Cuauhtémoc, 06500 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4447,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4281242,
+      "lng": -99.1678172,
+      "googleMapsUri": "https://maps.google.com/?cid=7887871931514498474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://primesteakclub.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.87
+    },
+    {
+      "googlePlaceId": "ChIJn63wsUf_0YUR7w-2EDnhTFw",
+      "name": "Enigma Rooms Roma1",
+      "address": "C.Colima 385, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 20871,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.417808,
+      "lng": -99.1702316,
+      "googleMapsUri": "https://maps.google.com/?cid=6650938384929132527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.enigmarooms.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.84
+    },
+    {
+      "googlePlaceId": "ChIJj4OJKZX-0YURj9mEeHCcyAo",
+      "name": "Floreria Mercado Jamaica",
+      "address": "Guillermo Prieto 45, Jamaica, Venustiano Carranza, 15800 Ciudad de México, CDMX, Mexico",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 58550,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "wholesaler",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.408065,
+      "lng": -99.1230732,
+      "googleMapsUri": "https://maps.google.com/?cid=777042942593653135&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mercadojamaica.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.78
+    },
+    {
+      "googlePlaceId": "ChIJzccDytP40YURL3s7rmq3pFE",
+      "name": "Frontón México",
+      "address": "Av. de la República 17, Tabacalera, Cuauhtémoc, 06050 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 9274,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "amusement_center",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "casino",
+        "restaurant",
+        "food",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.436840699999998,
+      "lng": -99.1536113,
+      "googleMapsUri": "https://maps.google.com/?cid=5883028682070260527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://frontonmexico.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.7
+    },
+    {
+      "googlePlaceId": "ChIJFXyDpgkvzoURUd5hWvqvUWE",
+      "name": "Parque Nacional Iztaccíhuatl - Popocatépetl",
+      "address": "Pl. de la Constitucion 9, Centro, 56900 Amecameca de Juárez, Méx., Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 33913,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.2083749,
+      "lng": -98.6612397,
+      "googleMapsUri": "https://maps.google.com/?cid=7012579584585621073&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gob.mx/semarnat/articulos/parque-nacional-iztaccihuatl-popocatepetl?idiom=es",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.63
+    },
+    {
+      "googlePlaceId": "ChIJZ2lB4Mf-0YUR1xUYsitgvN8",
+      "name": "Mercado Sonora",
+      "address": "Fray Servando Teresa de Mier 419, Merced Balbuena, Venustiano Carranza, 15810 Ciudad de México, CDMX, Mexico",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.3,
+      "reviewCount": 120159,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4221205,
+      "lng": -99.1247031,
+      "googleMapsUri": "https://maps.google.com/?cid=16121866506867316183&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mercadosonora.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.57
+    },
+    {
+      "googlePlaceId": "ChIJSXJAOdz_0YUR1cl3Y4k-vLs",
+      "name": "Supra Roma Rooftop",
+      "address": "Av. Álvaro Obregón 151, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 5672,
+      "priceLevel": null,
+      "primaryType": "fusion_restaurant",
+      "types": [
+        "fusion_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4181712,
+      "lng": -99.1617182,
+      "googleMapsUri": "https://maps.google.com/?cid=13527756140514363861&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.supraroma.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.45
+    },
+    {
+      "googlePlaceId": "ChIJTcMYut4A0oURoMYpThqkxOc",
+      "name": "Centro Santa Fe",
+      "address": "Vasco de Quiroga 3800, Santa Fe, Contadero, Cuajimalpa de Morelos, 05348 Ciudad de México, CDMX, Mexico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 112660,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "bar_and_grill",
+        "fast_food_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.3613493,
+      "lng": -99.27361599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16700653751084107424&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://centrosantafe.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJVVg3SSv50YURABg7nhqTBz0",
+      "name": "Friki Plaza",
+      "address": "Eje Central Lázaro Cárdenas 9, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Cuauhtémoc, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 51832,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4335144,
+      "lng": -99.1411863,
+      "googleMapsUri": "https://maps.google.com/?cid=4397645303683684352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.frikiplaza.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "dining",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJC0mk6gv_0YURgYWqkB8KHxI",
+      "name": "Escape rooms",
+      "address": "C.Colima 367-Piso 1, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 11569,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.417932699999998,
+      "lng": -99.16959539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1305773547648091521&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://enigmarooms.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.31
+    },
+    {
+      "googlePlaceId": "ChIJ63MFVkb_0YURCxM99ZnRQv8",
+      "name": "Sabores Mexico Food Tours",
+      "address": "Ámsterdam 255, Hipódromo, Cuauhtémoc, 06100 Ciudad de México, CDMX, Mexico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 5,
+      "reviewCount": 2012,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4113692,
+      "lng": -99.1673895,
+      "googleMapsUri": "https://maps.google.com/?cid=18393494287309148939&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://saboresmexicofoodtours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food trucks",
+        "cooking classes",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "learning-classes",
+        "local-exploration"
+      ],
+      "popularityScore": 88.24
+    },
+    {
+      "googlePlaceId": "ChIJ9dC2SSr50YURbY8j7GyISTc",
+      "name": "Museo Franz Mayer",
+      "address": "Av. Hidalgo 45, Centro Histórico de la Cdad. de México, Guerrero, Cuauhtémoc, 06300 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 19555,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.436865299999997,
+      "lng": -99.1431855,
+      "googleMapsUri": "https://maps.google.com/?cid=3983865346785513325&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://franzmayer.org.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.21
+    },
+    {
+      "googlePlaceId": "ChIJzbJ7ydL-0YURDh_BqkCUY5E",
+      "name": "Azul Historico",
+      "address": "Isabel La Católica 30, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 10663,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "breakfast_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4328194,
+      "lng": -99.13601659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10476380163657506574&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.azul.rest/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJrwqHxQEC0oURQc3yfAC7XdI",
+      "name": "Rosa Negra",
+      "address": "Av. Pdte. Masaryk 298, Polanco, Polanco IV Secc, Miguel Hidalgo, 11550 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7041,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "latin_american_restaurant",
+      "types": [
+        "latin_american_restaurant",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4313687,
+      "lng": -99.1932413,
+      "googleMapsUri": "https://maps.google.com/?cid=15158477531569638721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rosanegra.com.mx/restaurantes-polanco-mexico-city-restaurants?utm_source=organic&utm_medium=gmb&utm_campaign=rosapolanco&ot_source=gmb_2834_rnp",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.94
+    },
+    {
+      "googlePlaceId": "ChIJtUgSI3T70YURNMBnzBuMeHM",
+      "name": "ACUARIO MICHIN CDMX",
+      "address": "Calz. San Juan de Aragón 399, Granjas Modernas, Gustavo A. Madero, 07460 Ciudad de México, CDMX, Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 27934,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "indoor_playground",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4780938,
+      "lng": -99.1000801,
+      "googleMapsUri": "https://maps.google.com/?cid=8320554362588348468&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.acuariomichin.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.84
+    },
+    {
+      "googlePlaceId": "ChIJTQGqdSv50YURJKLN5Eu1o3U",
+      "name": "Museo de Arte Moderno",
+      "address": "Av. P.º de la Reforma s/n, Bosque de Chapultepec I Secc, Miguel Hidalgo, 11580 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 16934,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.423004199999998,
+      "lng": -99.179689,
+      "googleMapsUri": "https://maps.google.com/?cid=8476818261207261732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mam.inba.gob.mx/home.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.81
+    },
+    {
+      "googlePlaceId": "ChIJSXaFysz-0YUR_TmRjmzfMN0",
+      "name": "National Museum of World Cultures",
+      "address": "Moneda 13, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 16732,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.433158199999998,
+      "lng": -99.1304145,
+      "googleMapsUri": "https://maps.google.com/?cid=15938484738605529597&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museodelasculturas.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.78
+    },
+    {
+      "googlePlaceId": "ChIJuVTj7zr_0YURcJER1gvsIHU",
+      "name": "Cafebrería El Péndulo Roma",
+      "address": "Av. Álvaro Obregón 86, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 11335,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "coffee_shop",
+      "types": [
+        "coffee_shop",
+        "concert_hall",
+        "auditorium",
+        "bar_and_grill",
+        "cafe",
+        "live_music_venue",
+        "bar",
+        "performing_arts_theater",
+        "cafeteria",
+        "book_store",
+        "event_venue",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 19.418223599999997,
+      "lng": -99.1587366,
+      "googleMapsUri": "https://maps.google.com/?cid=8440005237272580464&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pendulo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.76
+    },
+    {
+      "googlePlaceId": "ChIJez8vvy__0YURP0rx5WhEig4",
+      "name": "Contramar",
+      "address": "Durango 200, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6598,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "mexican_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4195793,
+      "lng": -99.1671526,
+      "googleMapsUri": "https://maps.google.com/?cid=1047725080642144831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.contramar.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.76
+    },
+    {
+      "googlePlaceId": "ChIJmVxSVGP50YURnTjlP1025aU",
+      "name": "Casa Prime Hilton Centro Histórico",
+      "address": "Hotel Hilton, Av. Juárez #70-Local 1, Colonia Centro, Centro, Cuauhtémoc, 06010 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4212,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4348687,
+      "lng": -99.14640879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11954020560056694941&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://casaprime.mx/hilton/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.67
+    },
+    {
+      "googlePlaceId": "ChIJQf8SLon40YUR_LleMBmmhxs",
+      "name": "Arena CDMX",
+      "address": "Av. de las Granjas 800, Santa Barbara, Azcapotzalco, 02230 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 85045,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "arena",
+        "live_music_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.497719999999997,
+      "lng": -99.17513799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1983736787995900412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arenacdmx.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.66
+    },
+    {
+      "googlePlaceId": "ChIJr5ALKC350YUR-4SQmgr-4Sg",
+      "name": "Zinco Jazz Club",
+      "address": "Calle de Motolinia 20, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06050 Ciudad de México, CDMX, Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2822,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4340762,
+      "lng": -99.1371101,
+      "googleMapsUri": "https://maps.google.com/?cid=2945914952773305595&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.zincojazz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.62
+    },
+    {
+      "googlePlaceId": "ChIJh80WKBr_0YUROy_5zNKjA50",
+      "name": "Parque Delta",
+      "address": "Av. Cuauhtémoc 462, Piedad Narvarte, Benito Juárez, 03000 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 123315,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.402802599999998,
+      "lng": -99.15434069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11314066814662160187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parquedelta.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.59
+    },
+    {
+      "googlePlaceId": "ChIJmRyjRi350YUR5JZ-zfmpy6M",
+      "name": "Balcón del Zócalo",
+      "address": "Av. 5 de Mayo 61, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Cuauhtémoc, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 9111,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.433874,
+      "lng": -99.1342513,
+      "googleMapsUri": "https://maps.google.com/?cid=11802714138814093028&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.balcondelzocalo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "bowling alleys",
+        "date night restaurants",
+        "sunset date spots",
+        "game bars",
+        "TikTok restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "sports-recreation",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.55
+    },
+    {
+      "googlePlaceId": "ChIJP3q8QXsAzoUR1huFgqxLM7s",
+      "name": "Museo del Palacio de Bellas Artes",
+      "address": "Av. Juárez s/n esq, Eje Central Lázaro Cárdenas Col, Colonia Centro, Centro, Cuauhtémoc, 06050 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 10294,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.43523,
+      "lng": -99.14128339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13489208513200987094&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museopalaciodebellasartes.inba.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.54
+    },
+    {
+      "googlePlaceId": "ChIJt5t7NS350YURn_m9w0kUCf4",
+      "name": "Miralto Restaurante",
+      "address": "Eje Central Lázaro Cárdenas, TORRE LATINOAMERICANA 2-PISO 41, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 13186,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fusion_restaurant",
+        "brunch_restaurant",
+        "mexican_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.433881799999998,
+      "lng": -99.1406097,
+      "googleMapsUri": "https://maps.google.com/?cid=18305184467473267103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://miralto.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "rooftop bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJbWv_1CD80YUR0my1YUOaodI",
+      "name": "Palacio de los Deportes",
+      "address": "Añil 667, Granjas México, Iztacalco, 08400 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 62365,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4053359,
+      "lng": -99.09986459999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15177581833408048338&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://palaciodelosdeportes.mx/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.46
+    },
+    {
+      "googlePlaceId": "ChIJfepK50j_0YURaCReTwnVfkQ",
+      "name": "Toledo Rooftop",
+      "address": "Av Chapultepec 461, Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX, Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 5852,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4222144,
+      "lng": -99.1718516,
+      "googleMapsUri": "https://maps.google.com/?cid=4935616477607634024&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.toledorooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "game night venues",
+        "game bars",
+        "luxury lounges",
+        "bottle service",
+        "adult nightlife",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.43
+    },
+    {
+      "googlePlaceId": "ChIJYczSHCT80YURcAFpPX1ZlNk",
+      "name": "Foro Sol",
+      "address": "Viad. Río de la Piedad S/N, Granjas México, Iztacalco, 08400 Ciudad de México, CDMX, Mexico",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 60727,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4057434,
+      "lng": -99.0960131,
+      "googleMapsUri": "https://maps.google.com/?cid=15678254597219615088&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.estadiognpseguros.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.74
+    },
+    {
+      "googlePlaceId": "ChIJy2TvI83-0YUR3g8_H4M519E",
+      "name": "Museo de la Ciudad de Mexico",
+      "address": "José María Pino Suárez 30, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06060 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7621,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4292369,
+      "lng": -99.1321387,
+      "googleMapsUri": "https://maps.google.com/?cid=15120617509247455198&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/museum-of-the-city-of-mexico/?lang=es",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.66
+    },
+    {
+      "googlePlaceId": "ChIJs4nT1xoC0oURRpC7xl0_Pbg",
+      "name": "Antara",
+      "address": "Av. Ejército Nacional Mexicano 843-B, Granada, Miguel Hidalgo, 11520 Ciudad de México, CDMX, Mexico",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 57918,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4388161,
+      "lng": -99.2020268,
+      "googleMapsUri": "https://maps.google.com/?cid=13275836948556779590&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.antara.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 86.6
+    },
+    {
+      "googlePlaceId": "ChIJIRo9WdX-0YUR8SAxEJ2aSHU",
+      "name": "Memory and Tolerance Museum",
+      "address": "Av. Juárez 8, Colonia Centro, Centro, Cuauhtémoc, 06010 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 20451,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "cultural_center",
+        "tourist_attraction",
+        "park",
+        "library",
+        "event_venue",
+        "educational_institution",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 19.4346095,
+      "lng": -99.144525,
+      "googleMapsUri": "https://maps.google.com/?cid=8451174700132933873&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.myt.org.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJZe8DSSX_0YUR-1G4NtJsons",
+      "name": "Gardela",
+      "address": "Av. Álvaro Obregón 31, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 7846,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "argentinian_restaurant",
+      "types": [
+        "argentinian_restaurant",
+        "south_american_restaurant",
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.419229299999998,
+      "lng": -99.15611679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8908802663009243643&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gardelarestaurante.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJGQkBCFIAzoURlLaQUWnuYZc",
+      "name": "Banorte Stadium",
+      "address": "Calz. de Tlalpan 3465, Sta. Úrsula Coapa, Coyoacán, 04650 Ciudad de México, CDMX, Mexico",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 84127,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.3028607,
+      "lng": -99.1505277,
+      "googleMapsUri": "https://maps.google.com/?cid=10908261908575467156&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://estadiobanorte.com.mx/",
+      "openNow": null,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJXwApk-z_0YUR0xPu9oxISCQ",
+      "name": "Enigma Rooms Coyoacán",
+      "address": "Industria 64, Axotla, Álvaro Obregón, 01030 Ciudad de México, CDMX, Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 17036,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.3585275,
+      "lng": -99.17459819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2614419353963992019&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.enigmarooms.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJH3x1xy750YUR90qP2ipcKeQ",
+      "name": "Plaza Garibaldi",
+      "address": "Eje Central Lázaro Cárdenas 43, Centro, Cuauhtémoc, 06010 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.2,
+      "reviewCount": 44074,
+      "priceLevel": null,
+      "primaryType": "point_of_interest",
+      "types": [
+        "point_of_interest",
+        "plaza",
+        "tourist_attraction",
+        "cultural_landmark",
+        "establishment"
+      ],
+      "lat": 19.4406739,
+      "lng": -99.1391089,
+      "googleMapsUri": "https://maps.google.com/?cid=16440773253817912055&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/garibaldi-plaza/?lang=es",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJ5fbcRrp_LIQRqqQbCCuZNbI",
+      "name": "Bankers Club of Mexico",
+      "address": "16 de Septiembre 27, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2748,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "wedding_venue",
+        "restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4324317,
+      "lng": -99.13898119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12841338322615510186&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.clubdebanqueros.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events this weekend",
+        "festivals this weekend",
+        "local events",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJ0Z9P0z7_0YURVqrnz-OpFms",
+      "name": "Mercado Roma",
+      "address": "C. Querétaro 225, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 16939,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "market",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.414186,
+      "lng": -99.16455470000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7716541807456660054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mercadoroma.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.41
+    },
+    {
+      "googlePlaceId": "ChIJ7S61ljL50YURziQ_2fiOUe4",
+      "name": "Terraza Catedral",
+      "address": "República de Guatemala 4, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06020 Ciudad de México, CDMX, Mexico",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 3938,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.435168,
+      "lng": -99.133609,
+      "googleMapsUri": "https://maps.google.com/?cid=17172664053588239566&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mundojovenhostels.com/terraza-catedral/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "trivia nights",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJWZ2zdav40YURFvsU_rU3uaE",
+      "name": "Pujol",
+      "address": "Tennyson 133, Polanco, Polanco IV Secc, Miguel Hidalgo, 11570 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 5858,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.432376299999998,
+      "lng": -99.1948132,
+      "googleMapsUri": "https://maps.google.com/?cid=11653406765589265174&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pujol.com.mx/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.33
+    },
+    {
+      "googlePlaceId": "ChIJbU2eV4P_0YURBPZef1PTCtM",
+      "name": "Parque Hundido",
+      "address": "Av. Insurgentes Centro s/n, Extremadura Insurgentes, Benito Juárez, 03740 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 52071,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "playground",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.3782922,
+      "lng": -99.17874719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15207199447342577156&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/parque-hundido/?lang=es",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJsZw3q_4B0oURpW945e8nqDk",
+      "name": "Lunario",
+      "address": "Av. P.º de la Reforma 50, Polanco V Secc, Miguel Hidalgo, 11580 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 9506,
+      "priceLevel": null,
+      "primaryType": "auditorium",
+      "types": [
+        "auditorium",
+        "concert_hall",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4246116,
+      "lng": -99.1953999,
+      "googleMapsUri": "https://maps.google.com/?cid=4154614567549824933&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lunario.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJozt2381Gw4URNQUkY687NlQ",
+      "name": "Aquarium of Veracruz",
+      "address": "Blvd. Manuel Ávila Camacho S/n-Int. 25, Ricardo Flores Magón, 91900 Veracruz, Ver., Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 71189,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.187182099999998,
+      "lng": -96.12289410000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6068103172396942645&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariumpuertodeveracruz.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJnb61RNX40YURjLOqxoI9oh0",
+      "name": "Museum of Popular Art",
+      "address": "Revillagigedo 11, Colonia Centro, Centro, Cuauhtémoc, 06050 Cuauhtémoc, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 11335,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.433735199999997,
+      "lng": -99.1462978,
+      "googleMapsUri": "https://maps.google.com/?cid=2135336805215155084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.map.cdmx.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.06
+    },
+    {
+      "googlePlaceId": "ChIJrytwDXsAzoURdPOX5AOA3nw",
+      "name": "KidZania Cuicuilco",
+      "address": "649, Av. San Fernando 3500, Manantial Peña Pobre, Tlalpan, 14060 Ciudad de México, CDMX, Mexico",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 21009,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.2971863,
+      "lng": -99.18083969999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8997769859741250420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexico.kidzania.com/mx-es",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.96
+    },
+    {
+      "googlePlaceId": "ChIJ4-RmgarmjYARY5silxlKqLU",
+      "name": "Monterey Bay Aquarium",
+      "address": "886 Cannery Row, Monterey, CA 93940, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 45481,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.6182622,
+      "lng": -121.90195419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13089793790722612067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.montereybayaquarium.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.94
+    },
+    {
+      "googlePlaceId": "ChIJQ11IrDn_0YURx17mDNOe5bY",
+      "name": "Taquería Orinoco",
+      "address": "Av. Álvaro Obregón 100, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, Mexico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 23970,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "taco_restaurant",
+      "types": [
+        "taco_restaurant",
+        "mexican_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.418174,
+      "lng": -99.1591691,
+      "googleMapsUri": "https://maps.google.com/?cid=13179114513861336775&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.taqueriaorinoco.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.92
+    },
+    {
+      "googlePlaceId": "ChIJgxgQ_Sz50YURoJpnpRhMn7o",
+      "name": "Limosneros",
+      "address": "C. Allende 3, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06010 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3380,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.436066999999998,
+      "lng": -99.137811,
+      "googleMapsUri": "https://maps.google.com/?cid=13447550681089546912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://limosneros.com.mx/?lang=en",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "popular dessert spots",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.92
+    },
+    {
+      "googlePlaceId": "ChIJH6RGVQIA0oURGvnVLX9_YKY",
+      "name": "El Bazar Sábado",
+      "address": "Pl. San Jacinto 11, San Ángel TNT, San Ángel, Álvaro Obregón, 01000 Ciudad de México, CDMX, Mexico",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 5439,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.344931199999998,
+      "lng": -99.19265000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11988722392266832154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elbazaarsabado.mx/#",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.73
+    },
+    {
+      "googlePlaceId": "ChIJgzXOAjL50YURrYkbl8GCR0Y",
+      "name": "Centro Cultural del México Contemporáneo",
+      "address": "Leandro Valle 20, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3647,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4389301,
+      "lng": -99.1339859,
+      "googleMapsUri": "https://maps.google.com/?cid=5064160073976875437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sic.cultura.gob.mx/ficha.php?table=centro_cultural&table_id=2097",
+      "openNow": true,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.73
+    },
+    {
+      "googlePlaceId": "ChIJabM5h9T40YURqvTgMl5_p7I",
+      "name": "Sonora Grill",
+      "address": "Paseo de La Reforma Nte 1, Tabacalera, Cuauhtémoc, 06030 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 12893,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4351935,
+      "lng": -99.1510354,
+      "googleMapsUri": "https://maps.google.com/?cid=12873398102419109034&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sonoragrill.com.mx/sonora-grill-reforma",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.71
+    },
+    {
+      "googlePlaceId": "ChIJUcS1TAr50YURuwZKxZdg-ak",
+      "name": "Ryoshi Masaryk",
+      "address": "Av. Pdte. Masaryk 111, Polanco, Polanco V Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 12599,
+      "priceLevel": null,
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.431711699999997,
+      "lng": -99.1862479,
+      "googleMapsUri": "https://maps.google.com/?cid=12247926866577065659&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://costeno.com/ryoshi",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.7
+    },
+    {
+      "googlePlaceId": "ChIJwQNPQCT50YURd0rOhlLTvH4",
+      "name": "Churreria El Moro Centro",
+      "address": "Eje Central Lázaro Cárdenas 42, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 61235,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "breakfast_restaurant",
+        "cafeteria",
+        "dessert_shop",
+        "confectionery",
+        "mexican_restaurant",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4313392,
+      "lng": -99.1411061,
+      "googleMapsUri": "https://maps.google.com/?cid=9132406495802968695&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://elmoro.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJdaBloMy_YoYRf-ENtt9T-Hk",
+      "name": "Enigma Rooms",
+      "address": "Av. Real San Agustin Local 31, Zona San Agustín, 66260 San Pedro Garza García, N.L., Mexico",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 8331,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.648474699999998,
+      "lng": -100.3388961,
+      "googleMapsUri": "https://maps.google.com/?cid=8788866893110698367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://enigmarooms.mx/monterrey.html",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJ_7OZ9if50YURVR_Ea4DER2o",
+      "name": "Mercado Martínez de la Torre",
+      "address": "Eje 1 Nte. s/n, Guerrero, Cuauhtémoc, 06600 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 18765,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.445255,
+      "lng": -99.1442852,
+      "googleMapsUri": "https://maps.google.com/?cid=7658305747209690965&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/mercado-martinez-de-la-torre/?lang=es",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJM_mRahoC0oURmt8R_M3udzw",
+      "name": "Acuario Inbursa",
+      "address": "Blvd. Miguel de Cervantes Saavedra 386, Granada, Miguel Hidalgo, 11500 Ciudad de México, CDMX, Mexico",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 59376,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4399011,
+      "lng": -99.2051139,
+      "googleMapsUri": "https://maps.google.com/?cid=4357213732968980378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.acuarioinbursa.com.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJ4RZEj3H_0YURnGJSCI9pNW4",
+      "name": "World Trade Center Mexico City",
+      "address": "Montecito 38, Nápoles, Benito Juárez, 03810 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 58963,
+      "priceLevel": null,
+      "primaryType": "business_center",
+      "types": [
+        "business_center",
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.394584,
+      "lng": -99.17365710000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7941369580978594460&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wtcmexico.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.55
+    },
+    {
+      "googlePlaceId": "ChIJA0KYsiz50YURNCVEmA8LKxs",
+      "name": "Palacio de Iturbide",
+      "address": "Av Francisco I. Madero 17, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 13717,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "cultural_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4337824,
+      "lng": -99.13905129999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1957670624629630260&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://fomentoculturalbanamex.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJaXfBfPz60YURskrT48VwQKo",
+      "name": "Escomarti Vestidos Comunión Presentación Pages Bautizo Y Accesorios",
+      "address": "López Rayón 46 lote 1 Y, Saliendo Del Metro Lagunilla Garibaldi, C. Allende local 979 y 980, entre entrada 4 y 5, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX, Mexico",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.2,
+      "reviewCount": 26986,
+      "priceLevel": null,
+      "primaryType": "wholesaler",
+      "types": [
+        "tourist_attraction",
+        "wholesaler",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.4432808,
+      "lng": -99.1361326,
+      "googleMapsUri": "https://maps.google.com/?cid=12267929380190374578&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "boutiques",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.35
+    },
+    {
+      "googlePlaceId": "ChIJPVNOCAAC0oURSYtY8JP39VE",
+      "name": "Porfirio's Masaryk",
+      "address": "Av. Pdte. Masaryk 214, Chapultepec Morales, Polanco V Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX, Mexico",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 8698,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 19.4313389,
+      "lng": -99.1900472,
+      "googleMapsUri": "https://maps.google.com/?cid=5905898701130861385&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://porfirios.com.mx/locaciones/restaurante-mexicano-en-masaryk/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.27
+    },
+    {
+      "googlePlaceId": "ChIJjcZgKeX40YURn3i0Y4MaJzI",
+      "name": "Pepsi Center WTC",
+      "address": "Dakota s/n, Nápoles, Benito Juárez, 03810 Ciudad de México, CDMX, Mexico",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 26600,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.3947272,
+      "lng": -99.1747255,
+      "googleMapsUri": "https://maps.google.com/?cid=3613886377603922079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pepsicenterwtc.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJ55Xl4VBI2YARGQIOmslf5A8",
+      "name": "Tijuana Cultural Center",
+      "address": "P.º de los Héroes 9350, Zona Urbana Rio Tijuana, 22010 Tijuana, B.C., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 22585,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "movie_theater",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.5303,
+      "lng": -117.0235,
+      "googleMapsUri": "https://maps.google.com/?cid=1145145524736623129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cecut.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJXVZn5GIDyIkRjn58fGGo8Mc",
+      "name": "National Aquarium",
+      "address": "501 E Pratt St, Baltimore, MD 21202, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 33427,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2853928,
+      "lng": -76.6083984,
+      "googleMapsUri": "https://maps.google.com/?cid=14407200344612044430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aqua.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJVzA29SwCzoURM1Dq1KcwIek",
+      "name": "Parque Ecológico de Xochimilco",
+      "address": "Anillo Perif. 1, Col. Ciénega Grande, Xochimilco, 16036 Ciudad de México, CDMX, Mexico",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 17519,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 19.297332,
+      "lng": -99.09460899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16798761582458458163&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mexicocity.cdmx.gob.mx/venues/xochimilco-ecological-park/?lang=es",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.06
+    }
+  ]
+}

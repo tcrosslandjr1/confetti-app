@@ -1,0 +1,3473 @@
+{
+  "location": "Los Angeles, CA",
+  "generatedAt": "2026-05-17T18:56:24.741Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJzzgyJU--woARcZqceSdQ3dM",
+      "name": "Universal Studios Hollywood",
+      "address": "100 Universal City Plaza, Universal City, CA 91608, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 173613,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.137071299999995,
+      "lng": -118.35330610000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15266446442330102385&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.universalstudioshollywood.com/?utm_source=google&utm_medium=organic&utm_campaign=GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJm6deTdekwoARTY_RzhoRms0",
+      "name": "Santa Monica Pier",
+      "address": "200 Santa Monica Pier, Santa Monica, CA 90401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 132427,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "fishing_pier",
+      "types": [
+        "fishing_pier",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "visitor_center",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.008282099999995,
+      "lng": -118.4987585,
+      "googleMapsUri": "https://maps.google.com/?cid=14815172731025329997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://santamonicapier.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "aquariums",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.81
+    },
+    {
+      "googlePlaceId": "ChIJ9590IY3AwoARquS6ie60MUc",
+      "name": "Griffith Park",
+      "address": "Los Angeles, CA 90027, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 69595,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.13655440000001,
+      "lng": -118.29419999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5130080387157648554&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.laparks.org/griffithpark/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.05
+    },
+    {
+      "googlePlaceId": "ChIJbzYnQte8woARJaqqFVpKeNo",
+      "name": "The Getty",
+      "address": "1200 Getty Center Dr, Los Angeles, CA 90049, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 36432,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0773438,
+      "lng": -118.4732648,
+      "googleMapsUri": "https://maps.google.com/?cid=15742414248244587045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.getty.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.27
+    },
+    {
+      "googlePlaceId": "ChIJkyrqXbjHwoAR1bJ76zx89B8",
+      "name": "Crypto.com Arena",
+      "address": "1111 S Figueroa St, Los Angeles, CA 90015, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 34910,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "concert_hall",
+        "stadium",
+        "auditorium",
+        "sports_complex",
+        "live_music_venue",
+        "event_venue",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0430175,
+      "lng": -118.2672541,
+      "googleMapsUri": "https://maps.google.com/?cid=2302601910583800533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cryptoarena.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.55
+    },
+    {
+      "googlePlaceId": "ChIJXaYsEk3GwoARvx7RKBUE8Zg",
+      "name": "The Broad",
+      "address": "221 S Grand Ave, Los Angeles, CA 90012, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 17724,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0545021,
+      "lng": -118.25018019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11020594252077932223&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thebroad.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.08
+    },
+    {
+      "googlePlaceId": "ChIJywjU6WG_woAR3NrWwrEH_3M",
+      "name": "Griffith Observatory",
+      "address": "2800 E Observatory Rd, Los Angeles, CA 90027, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 17703,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "planetarium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1184341,
+      "lng": -118.30039350000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8358407893482396380&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://griffithobservatory.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 94.08
+    },
+    {
+      "googlePlaceId": "ChIJsXqcyjy5woARNz6sOh0ZmwA",
+      "name": "Los Angeles County Museum of Art",
+      "address": "5905 Wilshire Blvd, Los Angeles, CA 90036, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 20649,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "performing_arts_theater",
+        "history_museum",
+        "museum",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0639323,
+      "lng": -118.3592293,
+      "googleMapsUri": "https://maps.google.com/?cid=43656234719264311&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lacma.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.42
+    },
+    {
+      "googlePlaceId": "ChIJXzARBf3HwoARJyT7uZSV-G4",
+      "name": "Natural History Museum of Los Angeles County",
+      "address": "900 Exposition Blvd, Los Angeles, CA 90007, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 14322,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0171448,
+      "lng": -118.28866349999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7996305604404257831&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nhm.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 93.06
+    },
+    {
+      "googlePlaceId": "ChIJ21yHTgjIwoARcrUbrsffOB4",
+      "name": "California Science Center",
+      "address": "700 Exposition Park Dr, Los Angeles, CA 90037, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 20177,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "gift_shop",
+        "summer_camp_organizer",
+        "museum",
+        "movie_theater",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.015818599999996,
+      "lng": -118.28610900000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2177736468546172274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.californiasciencecenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.96
+    },
+    {
+      "googlePlaceId": "ChIJc1xhAk3bwoARBBlfKQzXKLM",
+      "name": "The Huntington Library, Art Museum, and Botanical Gardens",
+      "address": "1151 Oxford Rd, San Marino, CA 91108, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8147,
+      "priceLevel": null,
+      "primaryType": "research_institute",
+      "types": [
+        "research_institute",
+        "tourist_attraction",
+        "art_gallery",
+        "botanical_garden",
+        "library",
+        "art_museum",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1290452,
+      "lng": -118.1145242,
+      "googleMapsUri": "https://maps.google.com/?cid=12909804779091204356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://huntington.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "waterfront gardens",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 92.93
+    },
+    {
+      "googlePlaceId": "ChIJ_yD1_SK5woARmWLyCit3znQ",
+      "name": "La Brea Tar Pits and Museum",
+      "address": "5801 Wilshire Blvd, Los Angeles, CA 90036, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 15169,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.06388,
+      "lng": -118.35644500000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8416795780352991897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tarpits.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.53
+    },
+    {
+      "googlePlaceId": "ChIJ53JDjkvGwoAR2NMG6_1OnUg",
+      "name": "Grand Central Market",
+      "address": "317 S Broadway, Los Angeles, CA 90013, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 36621,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "tourist_attraction",
+        "market",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.050872,
+      "lng": -118.2490552,
+      "googleMapsUri": "https://maps.google.com/?cid=5232425194551170008&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://grandcentralmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.24
+    },
+    {
+      "googlePlaceId": "ChIJ0xG7n03GwoARsDH_OyyMcrM",
+      "name": "Walt Disney Concert Hall",
+      "address": "111 S Grand Ave, Los Angeles, CA 90012, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 11016,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "tourist_attraction",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0553454,
+      "lng": -118.249845,
+      "googleMapsUri": "https://maps.google.com/?cid=12930551601747145136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.laphil.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.2
+    },
+    {
+      "googlePlaceId": "ChIJXVodUFfHwoARe63Z7LSuUnY",
+      "name": "Girl & the Goat Los Angeles",
+      "address": "555-3 Mateo St, Los Angeles, CA 90013, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3688,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0402258,
+      "lng": -118.2331693,
+      "googleMapsUri": "https://maps.google.com/?cid=8526069136656805243&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://girlandthegoat.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.63
+    },
+    {
+      "googlePlaceId": "ChIJa147K9HX3IAR-lwiGIQv9i4",
+      "name": "Disneyland Park",
+      "address": "Anaheim, CA 92802, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 127300,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8120918,
+      "lng": -117.91897420000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3383944414402600186&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://disneyland.disney.go.com/destinations/disneyland/?CMP=OKC-330339_GM_DLR_destination_disneylandpark_NA",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.45
+    },
+    {
+      "googlePlaceId": "ChIJRUJ9pJjAwoARhqQ6EhQynzs",
+      "name": "The Greek Theatre",
+      "address": "2700 N Vermont Ave, Los Angeles, CA 90027, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 6818,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "concert_hall",
+        "tourist_attraction",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1195315,
+      "lng": -118.2962896,
+      "googleMapsUri": "https://maps.google.com/?cid=4296207631321310342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lagreektheatre.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.81
+    },
+    {
+      "googlePlaceId": "ChIJ_yXhTrTHwoARU36hVDFInhg",
+      "name": "Bottega Louie",
+      "address": "700 S Grand Ave, Los Angeles, CA 90017, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7670,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "chocolate_shop",
+        "brunch_restaurant",
+        "coffee_shop",
+        "pastry_shop",
+        "cafe",
+        "breakfast_restaurant",
+        "candy_store",
+        "french_restaurant",
+        "bakery",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 34.0470524,
+      "lng": -118.2565439,
+      "googleMapsUri": "https://maps.google.com/?cid=1773934679941021267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bottegalouie.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "popular dessert spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJPe8BasfHwoARtSk04iDAKfY",
+      "name": "Los Angeles Convention Center",
+      "address": "1201 S Figueroa St, Los Angeles, CA 90015, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 12236,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 34.040320699999995,
+      "lng": -118.26956240000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17737919854841964981&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.laconventioncenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.31
+    },
+    {
+      "googlePlaceId": "ChIJqaA5zt-4woARHGIEp3XlsZo",
+      "name": "République",
+      "address": "624 S La Brea Ave, Los Angeles, CA 90036, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7122,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "cafe",
+        "breakfast_restaurant",
+        "wine_bar",
+        "bakery",
+        "bar",
+        "american_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 34.064158899999995,
+      "lng": -118.343697,
+      "googleMapsUri": "https://maps.google.com/?cid=11146942846194704924&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.republiquela.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.24
+    },
+    {
+      "googlePlaceId": "ChIJo3h_9V8p3YARVTAekE45jq4",
+      "name": "Knott's Berry Farm",
+      "address": "8039 Beach Blvd, Buena Park, CA 90620, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 67952,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8443038,
+      "lng": -118.00022650000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12578053818880503893&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.knotts.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.63
+    },
+    {
+      "googlePlaceId": "ChIJgXwEey_GwoAR3hBKbYGk-2U",
+      "name": "Smorgasburg (Los Angeles)",
+      "address": "777 S Alameda St, Los Angeles, CA 90021, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3900,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "tourist_attraction",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0351184,
+      "lng": -118.24172399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7348648092776403166&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://la.smorgasburg.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "food trucks",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.59
+    },
+    {
+      "googlePlaceId": "ChIJf13sALnHwoARD8_A2Rt3Hcc",
+      "name": "Peacock Theater",
+      "address": "777 Chick Hearn Ct, Los Angeles, CA 90015, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 6430,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0444495,
+      "lng": -118.267151,
+      "googleMapsUri": "https://maps.google.com/?cid=14347754949373382415&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.peacocktheater.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.54
+    },
+    {
+      "googlePlaceId": "ChIJ_STuCE7GwoAR3vCqfD2J9es",
+      "name": "Gloria Molina Grand Park",
+      "address": "200 N Grand Ave, Los Angeles, CA 90012, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 8962,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0563289,
+      "lng": -118.24677129999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17002646865384763614&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.grandparkla.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJqbKnF0vGwoARREUrVhYGqTU",
+      "name": "Perch",
+      "address": "448 S Hill St, Los Angeles, CA 90013, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 7521,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0489961,
+      "lng": -118.25141069999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://perchla.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.29
+    },
+    {
+      "googlePlaceId": "ChIJ1cdRl2XAwoAR_WUoKRXLQTY",
+      "name": "Los Angeles Zoo",
+      "address": "5333 Zoo Dr, Los Angeles, CA 90027, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 21685,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1482153,
+      "lng": -118.28826009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3909629243279566333&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lazoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJ4cw5ine_woARAzBr2lGylGk",
+      "name": "Hollywood City Tours",
+      "address": "6609 W Sunset Blvd, Los Angeles, CA 90028, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 7441,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "tourist_attraction",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1333586,
+      "lng": -118.3176202,
+      "googleMapsUri": "https://maps.google.com/?cid=7607901735162163203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hollywoodcitytours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.91
+    },
+    {
+      "googlePlaceId": "ChIJuYQ2SbjHwoARC4aaAnD6xp0",
+      "name": "L.A. Live",
+      "address": "Lucky Strike Bowling - Los Angeles, 800 W Olympic Blvd, Los Angeles, CA 90015, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5170,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.044750799999996,
+      "lng": -118.26536420000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11369049668330358283&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lalive.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.91
+    },
+    {
+      "googlePlaceId": "ChIJmeuOVTC5woARRgUknn4XqXE",
+      "name": "The Original Farmers Market",
+      "address": "6333 W 3rd St, Los Angeles, CA 90036, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 16821,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "ice_cream_shop",
+        "market",
+        "dessert_shop",
+        "confectionery",
+        "grocery_store",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.072011499999995,
+      "lng": -118.36036990000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8190103229936436550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.farmersmarketla.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJwwPTwi-5woARbtuI_49vkMM",
+      "name": "The Grove",
+      "address": "189 The Grove Dr, Los Angeles, CA 90036, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 28090,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0719407,
+      "lng": -118.35751640000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14091885898300447598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegrovela.com/?utm_source=local-listings&utm_medium=organic&utm_campaign=local-listings",
+      "openNow": true,
+      "matchedQueries": [
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJ8xsjntZz3IAR2PcwE3R1vB4",
+      "name": "LEGOLAND® California Resort",
+      "address": "One Legoland Dr, Carlsbad, CA 92008, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 39339,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.1262316,
+      "lng": -117.310507,
+      "googleMapsUri": "https://maps.google.com/?cid=2214774258158073816&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.legoland.com/california/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.69
+    },
+    {
+      "googlePlaceId": "ChIJx9y0KwfqwoAR5-sWU6kp8iA",
+      "name": "Descanso Gardens",
+      "address": "1418 Descanso Dr, La Cañada Flintridge, CA 91011, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 10527,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.2011138,
+      "lng": -118.20972359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2374005760797895655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.descansogardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.57
+    },
+    {
+      "googlePlaceId": "ChIJ4-RmgarmjYARY5silxlKqLU",
+      "name": "Monterey Bay Aquarium",
+      "address": "886 Cannery Row, Monterey, CA 93940, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 45480,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.6182622,
+      "lng": -121.90195419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13089793790722612067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.montereybayaquarium.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.46
+    },
+    {
+      "googlePlaceId": "ChIJBw1wGumjwoARsKRsr2WJ-eQ",
+      "name": "The Getty Villa",
+      "address": "17985 Pacific Coast Hwy, Pacific Palisades, CA 90272, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 11632,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0458857,
+      "lng": -118.56486079999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16499369779676357808&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.getty.edu/visit/villa",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.46
+    },
+    {
+      "googlePlaceId": "ChIJK78XQ5qdwoARitCUKZSctgY",
+      "name": "Sandbox VR",
+      "address": "6316 CA-27 #1120, Woodland Hills, CA 91367, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9908,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1850782,
+      "lng": -118.6046145,
+      "googleMapsUri": "https://maps.google.com/?cid=483746170155618442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/woodlandhills",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.44
+    },
+    {
+      "googlePlaceId": "ChIJfVpQRQq_woARQ5hwJsast6s",
+      "name": "Hollywood Sign",
+      "address": "Los Angeles, CA 90068, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 13990,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.134115099999995,
+      "lng": -118.32154820000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12373548468272142403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hollywoodsign.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJhX1uVuC-woARQNzq4-b1Prk",
+      "name": "Runyon Canyon Park",
+      "address": "2000 N Fuller Ave, Los Angeles, CA 90046, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5631,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1125932,
+      "lng": -118.3511659,
+      "googleMapsUri": "https://maps.google.com/?cid=13348376717587831872&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.laparks.org/park/runyon-canyon",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJtXzMMjAx3YARll7hgkff2pY",
+      "name": "Aquarium of the Pacific",
+      "address": "100 Aquarium Way, Long Beach, CA 90802, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 35026,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.761973499999996,
+      "lng": -118.1969738,
+      "googleMapsUri": "https://maps.google.com/?cid=10870246148843593366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariumofpacific.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.71
+    },
+    {
+      "googlePlaceId": "ChIJd-OpVLTHwoARJ3fFiZG_xD4",
+      "name": "Seven Grand",
+      "address": "515 W 7th St 2nd floor, Los Angeles, CA 90014, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1962,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.047027500000006,
+      "lng": -118.25593359999998,
+      "googleMapsUri": "https://maps.google.com/?cid=4522950557589403431&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sevengrandbars.com/la",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.6
+    },
+    {
+      "googlePlaceId": "ChIJGRp0mmbHwoAREIgg7BzruC8",
+      "name": "Maze Rooms Escape Game - Vermont",
+      "address": "132 S Vermont Ave # 204, Los Angeles, CA 90004, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1128,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0722247,
+      "lng": -118.2912705,
+      "googleMapsUri": "https://maps.google.com/?cid=3438756824950540304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mazerooms.com/vermont-ave-escape-rooms/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJg4Tqa7PHwoARrWA-2kwYfDE",
+      "name": "71Above",
+      "address": "633 W 5th St 71st floor, Los Angeles, CA 90071, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2781,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.051029199999995,
+      "lng": -118.2544174,
+      "googleMapsUri": "https://maps.google.com/?cid=3565751723328692397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.71above.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.51
+    },
+    {
+      "googlePlaceId": "ChIJv4yVGknGwoARC_5zwy3zU5M",
+      "name": "Redbird",
+      "address": "114 E 2nd St, Los Angeles, CA 90012, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1810,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.050562,
+      "lng": -118.24407479999998,
+      "googleMapsUri": "https://maps.google.com/?cid=10616096124520627723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.redbird.la/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJAye4Ajm_woARztbwsoUDFug",
+      "name": "Hollywood Pantages Theatre",
+      "address": "6233 Hollywood Blvd, Los Angeles, CA 90028, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 7723,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.101842999999995,
+      "lng": -118.3256085,
+      "googleMapsUri": "https://maps.google.com/?cid=16723558139054577358&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.broadwayinhollywood.com/venues/detail/pantagestheatre",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.27
+    },
+    {
+      "googlePlaceId": "ChIJaRbaXjy5woARERNJSyktTog",
+      "name": "Petersen Automotive Museum",
+      "address": "6060 Wilshire Blvd, Los Angeles, CA 90036, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 13520,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.062024,
+      "lng": -118.36136309999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9821837492721619729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://petersen.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJAVkyYju_woARRZlW-HBUn5k",
+      "name": "Hollywood Bus Tours",
+      "address": "7044 Hollywood Blvd, Los Angeles, CA 90028, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 8908,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.101392,
+      "lng": -118.3429869,
+      "googleMapsUri": "https://maps.google.com/?cid=11069659253279463749&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hollywoodbustoursla.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJMwknwRu_woAR_eI2OM9ib2o",
+      "name": "Hollywood Bowl",
+      "address": "2301 Highland Ave, Los Angeles, CA 90068, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 17514,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "concert_hall",
+        "auditorium",
+        "tourist_attraction",
+        "live_music_venue",
+        "performing_arts_theater",
+        "non_profit_organization",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.112224,
+      "lng": -118.33912790000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7669457332576117501&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hollywoodbowl.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJWdkUR-_bwoARkR3FL6a-BKo",
+      "name": "Angeles National Forest",
+      "address": "701 N Santa Anita Ave, Arcadia, CA 91006, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 15516,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.4113389,
+      "lng": -118.17510019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12251126507329887633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fs.usda.gov/main/angeles/home",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.44
+    },
+    {
+      "googlePlaceId": "ChIJ_UUpJCHJwoARCb1YYDqNZas",
+      "name": "VR Gaming Arcade Plaza Americana",
+      "address": "Main Entrance, 1911 E Gage Ave Suite G, Los Angeles, CA 90001, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 285,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9823172,
+      "lng": -118.23851959999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12350432834997501193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://plazaamericana.net/video-arcade/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJ4504YaO7woARQFL3TV1OWl8",
+      "name": "The Escape Game LA",
+      "address": "10250 Santa Monica Blvd Space 2945, Los Angeles, CA 90067, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4829,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0586491,
+      "lng": -118.41875519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6870890344154092096&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/la/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=la",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.36
+    },
+    {
+      "googlePlaceId": "ChIJ8QbxZYTHwoAR9RMDcjmVra4",
+      "name": "JOEY DTLA",
+      "address": "700 W 7th St Ste S430, Los Angeles, CA 90017, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4829,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.048017,
+      "lng": -118.25805059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12586880607528883189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://joeyrestaurants.com/location/joey-dtla",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.31
+    },
+    {
+      "googlePlaceId": "ChIJHwvtZ-e_woARuWe1xgKbRqI",
+      "name": "Escapology Escape Rooms Citywalk",
+      "address": "1000 Universal City Plaza Ste H101-102, Bldg 5538, Universal City, CA 91608, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4723,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.136243199999996,
+      "lng": -118.35197040000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11693203918740088761&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/citywalk-ca",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.29
+    },
+    {
+      "googlePlaceId": "ChIJG5wBgrfHwoARMDbFw76Fl9o",
+      "name": "The Novo",
+      "address": "800 W Olympic Blvd a335, Los Angeles, CA 90015, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2919,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "convention_center",
+        "live_music_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0446014,
+      "lng": -118.2649917,
+      "googleMapsUri": "https://maps.google.com/?cid=15751205276126361136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thenovodtla.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJtS6SWkm-woARMMlLlRSNrOU",
+      "name": "Universal Studio Tour",
+      "address": "100 Universal City Plaza, Universal City, CA 91608, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 9411,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1390399,
+      "lng": -118.35370139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16549757850223364400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.universalstudioshollywood.com/web/en/us/things-to-do/rides-and-attractions/the-world-famous-studio-tour",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJX9JVNI65woARAltGGdhSBAA",
+      "name": "Baldwin Hills Scenic Overlook",
+      "address": "6300 Hetzler Rd, Culver City, CA 90232, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5025,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0182,
+      "lng": -118.38191250000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1216987997297410&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.parks.ca.gov/?page_id=22790",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJ___D30fHwoARymR_1Ylhtto",
+      "name": "Bacari Silverlake",
+      "address": "3626 Sunset Blvd, Los Angeles, CA 90026, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1645,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.090119699999995,
+      "lng": -118.27758039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15759891190649939146&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eatwithbacari.com/silverlake",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.99
+    },
+    {
+      "googlePlaceId": "ChIJf3j1UJS5woARU1F9fnWkUnU",
+      "name": "Sandbox VR",
+      "address": "3341 S La Cienega Blvd, Los Angeles, CA 90016, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4228,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0269993,
+      "lng": -118.3722635,
+      "googleMapsUri": "https://maps.google.com/?cid=8454000275068113235&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/culvercity/?utm_source=google&utm_medium=gbp&utm_campaign=website_button",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJYRxXCTnGwoARRisFMg-cGS8",
+      "name": "EightyTwo",
+      "address": "707 E 4th Pl, Los Angeles, CA 90013, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2703,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.045387,
+      "lng": -118.23745699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3393915383278021446&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.eightytwo.la/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.93
+    },
+    {
+      "googlePlaceId": "ChIJqS7ZGiW_woAR5ERtYa7kSPM",
+      "name": "Ultimate Hollywood Tours",
+      "address": "7044 Hollywood Blvd, Los Angeles, CA 90028, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 3237,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.101392,
+      "lng": -118.3429869,
+      "googleMapsUri": "https://maps.google.com/?cid=17530512987149649124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ultimatehollywoodtours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.85
+    },
+    {
+      "googlePlaceId": "ChIJ1c-IyT7GwoARIYcIK2TyJ3k",
+      "name": "Manuela",
+      "address": "907 E 3rd St, Los Angeles, CA 90013, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1479,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.046459899999995,
+      "lng": -118.23483369999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8730212914713626401&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://manuela-la.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "date night restaurants",
+        "romantic bars",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.68
+    },
+    {
+      "googlePlaceId": "ChIJ783ZIgQZ6IAR10iNg5_H6a0",
+      "name": "Point Dume",
+      "address": "Cliffside Dr &, Birdview Ave, Malibu, CA 90265, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8104,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "hiking_area",
+        "scenic_spot",
+        "sports_activity_location",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.001201,
+      "lng": -118.80644199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12531766926055917783&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parks.ca.gov/pointdume/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.66
+    },
+    {
+      "googlePlaceId": "ChIJo4G0L4W4woARbz4mhiS79jk",
+      "name": "The Wiltern",
+      "address": "3790 Wilshire Blvd, Los Angeles, CA 90010, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4473,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "event_venue",
+        "store",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.061501,
+      "lng": -118.308948,
+      "googleMapsUri": "https://maps.google.com/?cid=4176731469976583791&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wiltern.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJfZnkfyG_woARGCwKWvFwWSs",
+      "name": "A Day in LA Tours - Los Angeles Tours",
+      "address": "1537 2nd St, Santa Monica, CA 90401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1648,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0132385,
+      "lng": -118.49485489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3123651998458194968&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.adayinlatours.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJLyWtuAQt3YARKgnjb1ZrS5o",
+      "name": "Sandbox VR",
+      "address": "454 Los Cerritos Center E13, Cerritos, CA 90703, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5361,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8604694,
+      "lng": -118.09282270000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11118098124082710826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/cerritos",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.56
+    },
+    {
+      "googlePlaceId": "ChIJOe8VwQnIwoARB-EGOd2XBfY",
+      "name": "Exposition Park",
+      "address": "700 Exposition Park Dr, Los Angeles, CA 90037, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 16276,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0153446,
+      "lng": -118.28718479999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17727742484614144263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://expositionpark.ca.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.48
+    },
+    {
+      "googlePlaceId": "ChIJaUBtetO-woARqyrV4ASPECg",
+      "name": "Providence",
+      "address": "5955 Melrose Ave, Los Angeles, CA 90038, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1133,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "fine_dining_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 34.0836697,
+      "lng": -118.33002510000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2886964612259195563&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://providencela.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.35
+    },
+    {
+      "googlePlaceId": "ChIJa9HW1LrHwoARBX3iIos_k4E",
+      "name": "The Teragram Ballroom",
+      "address": "1234 W 7th St, Los Angeles, CA 90017, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1479,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.051873199999996,
+      "lng": -118.2670329,
+      "googleMapsUri": "https://maps.google.com/?cid=9336876319287442693&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.teragramballroom.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.28
+    },
+    {
+      "googlePlaceId": "ChIJdShDN_fAwoARlRtwHmyGais",
+      "name": "Pacific Park on the Santa Monica Pier",
+      "address": "380 Santa Monica Pier, Santa Monica, CA 90401, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 15041,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.008576,
+      "lng": -118.498101,
+      "googleMapsUri": "https://maps.google.com/?cid=3128460690087484309&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pacpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.25
+    },
+    {
+      "googlePlaceId": "ChIJX-TMlq7AwoARU9VRnuhSZtE",
+      "name": "The Dresden Restaurant & Lounge",
+      "address": "1760 N Vermont Ave, Los Angeles, CA 90027, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 850,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "lounge_bar",
+        "live_music_venue",
+        "bar",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 34.1030898,
+      "lng": -118.2915462,
+      "googleMapsUri": "https://maps.google.com/?cid=15088838760593478995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thedresden.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "romantic bars",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.17
+    },
+    {
+      "googlePlaceId": "ChIJifNcCjDW3IARLB8cjHhR31U",
+      "name": "Anaheim Packing District",
+      "address": "440 S Anaheim Blvd, Anaheim, CA 92805, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 14434,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8315543,
+      "lng": -117.91199069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6187753991218929452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.anaheimpackingdistrict.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.13
+    },
+    {
+      "googlePlaceId": "ChIJoeH4cobAwoARtbdnxFol0VU",
+      "name": "Old Los Angeles Zoo",
+      "address": "4801 Griffith Park Dr, Los Angeles, CA 90027, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1482,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "hiking_area",
+        "historical_landmark",
+        "historical_place",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1339393,
+      "lng": -118.28903779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6183764835128817589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://laparks.org/parks",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.03
+    },
+    {
+      "googlePlaceId": "ChIJy3VFXVS2woARBmn6yKDq7rE",
+      "name": "Kia Forum",
+      "address": "3900 W Manchester Blvd, Inglewood, CA 90305, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 19492,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "stadium",
+        "sports_complex",
+        "live_music_venue",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9580853,
+      "lng": -118.3420621,
+      "googleMapsUri": "https://maps.google.com/?cid=12821443165457901830&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thekiaforum.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.91
+    },
+    {
+      "googlePlaceId": "ChIJt9P3NHDDwoARpJxVEt9-Cw0",
+      "name": "Neon Retro Arcade",
+      "address": "28 S Raymond Ave, Pasadena, CA 91105, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 851,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1452266,
+      "lng": -118.14877409999998,
+      "googleMapsUri": "https://maps.google.com/?cid=939984443787287716&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://neonretroarcade.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.78
+    },
+    {
+      "googlePlaceId": "ChIJd9NcMVvGwoARpVcjtJfZBQo",
+      "name": "Philippe The Original",
+      "address": "1001 N Alameda St, Los Angeles, CA 90012, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 12099,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "sandwich_shop",
+      "types": [
+        "sandwich_shop",
+        "breakfast_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.059686299999996,
+      "lng": -118.23704889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=722222560848336805&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.philippes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 83.62
+    },
+    {
+      "googlePlaceId": "ChIJBTk8wjy5woARmunGKGJ3PCI",
+      "name": "Public Art \"Urban Light\"",
+      "address": "5905 Wilshire Blvd, Los Angeles, CA 90036, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 11801,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "sculpture",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0630235,
+      "lng": -118.35923729999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2466977959366814106&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://collections.lacma.org/node/214966",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.55
+    },
+    {
+      "googlePlaceId": "ChIJ-4GlonujwoARFpMagDgpLEQ",
+      "name": "Palisades Park",
+      "address": "Ocean Ave, Santa Monica, CA 90401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8077,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0230179,
+      "lng": -118.5094604,
+      "googleMapsUri": "https://maps.google.com/?cid=4912346616198501142&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.smgov.net/Departments/CCS/content.aspx?id=31700",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.55
+    },
+    {
+      "googlePlaceId": "ChIJ1y1MzdGbwoAR1PXt4nsEP20",
+      "name": "Escapology Escape Rooms Northridge",
+      "address": "9301 Tampa Ave Ste 130, Northridge, CA 91324, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2589,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.2403161,
+      "lng": -118.5560291,
+      "googleMapsUri": "https://maps.google.com/?cid=7872015603801650644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapology.com/en/northridge-ca",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.55
+    },
+    {
+      "googlePlaceId": "ChIJOalD_5DbwoARcH4Yl2C8xjE",
+      "name": "Los Angeles County Arboretum & Botanic Garden",
+      "address": "301 N Baldwin Ave, Arcadia, CA 91007, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5503,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "garden",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1439246,
+      "lng": -118.0516226,
+      "googleMapsUri": "https://maps.google.com/?cid=3586761276285025904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arboretum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.54
+    },
+    {
+      "googlePlaceId": "ChIJ3QTVZhilwoARvKaJXWR5z9Y",
+      "name": "Player One VR World",
+      "address": "1515 4th St, Santa Monica, CA 90401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 835,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0148991,
+      "lng": -118.49302390000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15478723916268676796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playeronevrworld.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.52
+    },
+    {
+      "googlePlaceId": "ChIJD0CDniO_woARL4Y93Bw1yNw",
+      "name": "World of Illusions Los Angeles",
+      "address": "6751 Hollywood Blvd, Los Angeles, CA 90028, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.2,
+      "reviewCount": 3074,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.101728,
+      "lng": -118.3375619,
+      "googleMapsUri": "https://maps.google.com/?cid=15909024081756653103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://laillusions.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 83.5
+    },
+    {
+      "googlePlaceId": "ChIJ39g051_HwoARzS2nDqZssMk",
+      "name": "Pixel Rooms",
+      "address": "1030 N Alvarado St, Los Angeles, CA 90026, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 140,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0771082,
+      "lng": -118.26349820000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14533235457990798797&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pixelrooms.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.36
+    },
+    {
+      "googlePlaceId": "ChIJXZG-D8O5woAR4lzvU1SEPfE",
+      "name": "Kenneth Hahn State Recreation Area",
+      "address": "4100 S La Cienega Blvd, Los Angeles, CA 90056, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 7182,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.012322,
+      "lng": -118.37175520000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17383195634440297698&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://parks.lacounty.gov/kenneth-hahn-state-recreation-area/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.21
+    },
+    {
+      "googlePlaceId": "ChIJ4cPZaB-_woARtEolLtFFYus",
+      "name": "Yamashiro Hollywood",
+      "address": "1999 N Sycamore Ave, Los Angeles, CA 90068, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 5685,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "asian_fusion_restaurant",
+        "asian_restaurant",
+        "sushi_restaurant",
+        "fusion_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1057604,
+      "lng": -118.3420926,
+      "googleMapsUri": "https://maps.google.com/?cid=16961195911355386548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://yamashirohollywood.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 83.13
+    },
+    {
+      "googlePlaceId": "ChIJ9z45-8i_woARgYQ35GetCrE",
+      "name": "PanIQ Escape Room West Hollywood",
+      "address": "921 N La Cienega Blvd, Los Angeles, CA 90069, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2237,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.087578500000006,
+      "lng": -118.37675979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12757199556202431617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://paniqescaperoom.com/los-angeles",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.13
+    },
+    {
+      "googlePlaceId": "ChIJrdT2lKPDwoAR9FWf6DhHUis",
+      "name": "Kidspace Children's Museum",
+      "address": "480 N Arroyo Blvd, Pasadena, CA 91103, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 3021,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "amusement_center",
+        "playground",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.155129099999996,
+      "lng": -118.1643692,
+      "googleMapsUri": "https://maps.google.com/?cid=3121635801467672052&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kidspacemuseum.org/?utm_source=vds&utm_medium=organic&utm_campaign=vdsgbp",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 83.1
+    },
+    {
+      "googlePlaceId": "ChIJT359ZcnHwoARlzqycZrBhdc",
+      "name": "The Belasco",
+      "address": "1050 S Hill St, Los Angeles, CA 90015, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2014,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "wedding_venue",
+        "night_club",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 34.0403336,
+      "lng": -118.25938829999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15530031759133653655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thebelasco.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.97
+    },
+    {
+      "googlePlaceId": "ChIJ7x21vxvHwoARqi3o7mbnqEg",
+      "name": "The Echo",
+      "address": "1822 Sunset Blvd, Los Angeles, CA 90026, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 938,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0777742,
+      "lng": -118.26008460000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5235688996099075498&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theecho.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.96
+    },
+    {
+      "googlePlaceId": "ChIJvVvovUvGwoARYrOMSp23rpQ",
+      "name": "Maccheroni Republic",
+      "address": "332 S Broadway, Los Angeles, CA 90013, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3091,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0500306,
+      "lng": -118.24853610000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10713702449749472098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.maccheronirepublic.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 82.91
+    },
+    {
+      "googlePlaceId": "ChIJk0VeT23BwoARVHcJXOEY-So",
+      "name": "Escape the Room LA",
+      "address": "3223 Galleria Way, Glendale, CA 91210, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2907,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.14632530000001,
+      "lng": -118.2569559,
+      "googleMapsUri": "https://maps.google.com/?cid=3096533574984759124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escapetheroom.com/los-angeles/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.79
+    },
+    {
+      "googlePlaceId": "ChIJLUnXl8rHwoARtD3MJvQALDU",
+      "name": "Globe Theatre Los Angeles",
+      "address": "740 S Broadway, Los Angeles, CA 90014, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 1092,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "wedding_venue",
+        "live_music_venue",
+        "night_club",
+        "sports_club",
+        "service",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.044092,
+      "lng": -118.2542355,
+      "googleMapsUri": "https://maps.google.com/?cid=3831438431608389044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.globetheatre-la.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.7
+    },
+    {
+      "googlePlaceId": "ChIJqb1onwrHwoARLygI6qDQOkE",
+      "name": "Bubble Planet: An Immersive Experience - Los Angeles",
+      "address": "634 Mateo St, Los Angeles, CA 90021, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 2234,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0371759,
+      "lng": -118.23192250000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4700298550654281775&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bubble-planet.com/los-angeles/?utm_source=google&utm_medium=localcards&utm_campaign=500549_lax",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.67
+    },
+    {
+      "googlePlaceId": "ChIJTwsCo0rGwoARKKzn_4khivA",
+      "name": "Rhythm Room L.A.",
+      "address": "206 W 6th St BSMT, Los Angeles, CA 90014, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 735,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "live_music_venue",
+        "sports_complex",
+        "night_club",
+        "event_venue",
+        "cocktail_bar",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 34.046040999999995,
+      "lng": -118.251384,
+      "googleMapsUri": "https://maps.google.com/?cid=17332702992476384296&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rhythmroomla.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "game night venues",
+        "game bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.65
+    },
+    {
+      "googlePlaceId": "ChIJw7eDeAa8woARKz-IMIfHd74",
+      "name": "Beverly Hills Garden Park",
+      "address": "9439 Santa Monica Blvd, Beverly Hills, CA 90210, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 14116,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.072325299999996,
+      "lng": -118.40344890000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13724657772883623723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.57
+    },
+    {
+      "googlePlaceId": "ChIJramzKAC_woARSk7s2HyRjCI",
+      "name": "Big Bus Tours Los Angeles",
+      "address": "6763 Hollywood Blvd, Los Angeles, CA 90028, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 4589,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1017617,
+      "lng": -118.33797419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2489524659430379082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigbustours.com/en/los-angeles/los-angeles-bus-tours?utm_source=GMB-los-angeles&utm_medium=GMB&utm_campaign=los-angeles-GMB-website",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 82.56
+    },
+    {
+      "googlePlaceId": "ChIJL_hWS8rHwoAR8tjTKEGvNyU",
+      "name": "The United Theater on Broadway",
+      "address": "929 S Broadway, Los Angeles, CA 90015, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1834,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "movie_theater",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0416451,
+      "lng": -118.25694589999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2681804797515127026&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theunitedtheater.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.5
+    },
+    {
+      "googlePlaceId": "ChIJAYOJ3iu_woARDJ0gQP5uH4Q",
+      "name": "Medieval Torture Museum",
+      "address": "6757 Hollywood Blvd, Los Angeles, CA 90028, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2551,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "history_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1018299,
+      "lng": -118.3378451,
+      "googleMapsUri": "https://maps.google.com/?cid=9520450175561145612&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://medievaltorturemuseum.com/?city=LA&utm_source=google&utm_medium=LA_bio",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 82.41
+    },
+    {
+      "googlePlaceId": "ChIJz7SQuzfHwoAREE6nSE8ZMmo",
+      "name": "Los Angeles Union Station",
+      "address": "800 N Alameda St, Los Angeles, CA 90012, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 11295,
+      "priceLevel": null,
+      "primaryType": "transportation_service",
+      "types": [
+        "transportation_service",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0562196,
+      "lng": -118.23650210000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7652206545167928848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.unionstationla.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.32
+    },
+    {
+      "googlePlaceId": "ChIJt1-0kze_woARkevCuYSmEOA",
+      "name": "Hollywood Palladium",
+      "address": "6215 Sunset Blvd, Los Angeles, CA 90028, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3660,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "performing_arts_theater",
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 34.098496,
+      "lng": -118.32427810000002,
+      "googleMapsUri": "https://maps.google.com/?cid=16145587753105681297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hollywoodpalladium.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.3
+    },
+    {
+      "googlePlaceId": "ChIJrw4SODm_woAR362Sui6yl9o",
+      "name": "AVALON Hollywood & Bardot",
+      "address": "1735 Vine St, Los Angeles, CA 90028, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1738,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1027414,
+      "lng": -118.3272224,
+      "googleMapsUri": "https://maps.google.com/?cid=15751254135520013791&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.avalonhollywood.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "bottle service",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.29
+    },
+    {
+      "googlePlaceId": "ChIJ_SlqhEzGwoARrIIERV62_po",
+      "name": "Angels Flight Railway",
+      "address": "351 S Hill St, Los Angeles, CA 90013, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 3601,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0516174,
+      "lng": -118.2506142,
+      "googleMapsUri": "https://maps.google.com/?cid=11168564641926513324&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://angelsflight.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 82.26
+    },
+    {
+      "googlePlaceId": "ChIJQcUDPwTHwoARRHqGUHAGndw",
+      "name": "Members Restaurant & Club",
+      "address": "7627 Sunset Blvd, Los Angeles, CA 90046, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 1656,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "night_club",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 34.0982257,
+      "lng": -118.35575610000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15896869339144813124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://members.love/",
+      "openNow": false,
+      "matchedQueries": [
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.2
+    }
+  ]
+}

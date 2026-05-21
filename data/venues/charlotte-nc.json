@@ -1,0 +1,3756 @@
+{
+  "location": "Charlotte, NC",
+  "generatedAt": "2026-05-17T19:52:44.549Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ10wKIXSdVogRS1vLRXSLvZo",
+      "name": "Game Show Battle Rooms - Charlotte (Ballantyne Village)",
+      "address": "14815 Ballantyne Village Way Suite F-200, Charlotte, NC 28277, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 13777,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "bar",
+        "sports_activity_location",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.05354,
+      "lng": -80.85173,
+      "googleMapsUri": "https://maps.google.com/?cid=11150221583942638411&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gameshowbattlerooms.com/charlotte",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 100.48
+    },
+    {
+      "googlePlaceId": "ChIJq6rOlCWgVogRu5TTFzKIEOo",
+      "name": "Kitchen + Kocktails by Kevin Kelley - Charlotte",
+      "address": "210 E Trade St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 18067,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "soul_food_restaurant",
+      "types": [
+        "soul_food_restaurant",
+        "fine_dining_restaurant",
+        "brunch_restaurant",
+        "fast_food_restaurant",
+        "live_music_venue",
+        "cocktail_bar",
+        "catering_service",
+        "meal_takeaway",
+        "bar",
+        "event_venue",
+        "food_delivery",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.225899999999996,
+      "lng": -80.84224560000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16866130353231991995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kitchenkocktailsusa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "viral-eats"
+      ],
+      "popularityScore": 99.17
+    },
+    {
+      "googlePlaceId": "ChIJhdkXDl2hVogR22-a7c-XUpM",
+      "name": "Aura",
+      "address": "124 E Brooklyn Vlg Ave, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 12491,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2227282,
+      "lng": -80.84796209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10615714190966026203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aurarooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "events tonight",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 99.05
+    },
+    {
+      "googlePlaceId": "ChIJw9KocSmgVogRa_j2UYnvjaM",
+      "name": "Dean's Italian Steakhouse",
+      "address": "128 E Brooklyn Vlg Ave, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 11130,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2226278,
+      "lng": -80.8479854,
+      "googleMapsUri": "https://maps.google.com/?cid=11785339172963154027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.deanssteakhousecharlotte.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 96.92
+    },
+    {
+      "googlePlaceId": "ChIJvXTR8EyfVogR2WqOig8jT_8",
+      "name": "Beat The Bomb Charlotte",
+      "address": "3638 Tryclan Dr, Charlotte, NC 28217, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4410,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "indoor_playground",
+        "playground",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.1946693,
+      "lng": -80.8769806,
+      "googleMapsUri": "https://maps.google.com/?cid=18396961552487836377&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.beatthebomb.com/locations/charlotte",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 96.71
+    },
+    {
+      "googlePlaceId": "ChIJLVWj3q-PVogR_hngLo7zfTI",
+      "name": "Carowinds",
+      "address": "North Carolina, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 32118,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "water_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.1024013,
+      "lng": -80.9412735,
+      "googleMapsUri": "https://maps.google.com/?cid=3638331865982573054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.carowinds.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.67
+    },
+    {
+      "googlePlaceId": "ChIJvd734yC9VogRIh4ieMP2mJ8",
+      "name": "U.S. National Whitewater Center",
+      "address": "5000 Whitewater Center Pkwy, Charlotte, NC 28214, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 11264,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "ice_skating_rink",
+        "tourist_attraction",
+        "hiking_area",
+        "tour_agency",
+        "travel_agency",
+        "live_music_venue",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.2712966,
+      "lng": -81.00554029999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11500212967885119010&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.whitewater.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "sunset hikes",
+        "waterfront gardens",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.51
+    },
+    {
+      "googlePlaceId": "ChIJL2yWy4ihVogRCcalxb9E7Cw",
+      "name": "Optimist Hall",
+      "address": "1115 N Brevard St, Charlotte, NC 28206, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 9819,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "historical_landmark",
+        "historical_place",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2342197,
+      "lng": -80.8276035,
+      "googleMapsUri": "https://maps.google.com/?cid=3237037822617961993&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://optimisthall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "cultural centers",
+        "viral food spots",
+        "events this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.06
+    },
+    {
+      "googlePlaceId": "ChIJyWIVfyigVogR6c37kTbkXa4",
+      "name": "NASCAR Hall of Fame",
+      "address": "400 E M.L.K. Jr Blvd, Charlotte, NC 28202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7908,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2211366,
+      "lng": -80.8439538,
+      "googleMapsUri": "https://maps.google.com/?cid=12564449458462117353&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nascarhall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.34
+    },
+    {
+      "googlePlaceId": "ChIJJ8WXmaSfVogRHKtq9R9COPk",
+      "name": "Freedom Park",
+      "address": "1908 East Blvd, Charlotte, NC 28203, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8338,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.1915966,
+      "lng": -80.843212,
+      "googleMapsUri": "https://maps.google.com/?cid=17958176219168680732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "pickleball courts",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.12
+    },
+    {
+      "googlePlaceId": "ChIJMU44uCSgVogRxzbX_XDOEpI",
+      "name": "Belk Theater at Blumenthal Performing Arts Center",
+      "address": "130 N Tryon St, Charlotte, NC 28202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 4796,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2273169,
+      "lng": -80.8415419,
+      "googleMapsUri": "https://maps.google.com/?cid=10525702263808669383&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.blumenthalarts.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.79
+    },
+    {
+      "googlePlaceId": "ChIJyUjTwZKhVogR6marUBDuBV0",
+      "name": "STK Steakhouse",
+      "address": "201 S College St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 8313,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.224889,
+      "lng": -80.843317,
+      "googleMapsUri": "https://maps.google.com/?cid=6703025374251149034&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/en-us/location/charlotte/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 94.41
+    },
+    {
+      "googlePlaceId": "ChIJPyhzNzX5U4gR_ngebl89muc",
+      "name": "Lazy 5 Ranch",
+      "address": "15100 Mooresville Rd, Mooresville, NC 28115, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 6618,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "ranch",
+        "farm",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.6229867,
+      "lng": -80.7204787,
+      "googleMapsUri": "https://maps.google.com/?cid=16688718849253472510&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lazy5ranch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.65
+    },
+    {
+      "googlePlaceId": "ChIJhf0_yC-DQIgRyTJafBKa4nE",
+      "name": "National Museum of the US Air Force",
+      "address": "1100 Spaatz St, Dayton, OH 45433, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 28976,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.780796099999996,
+      "lng": -84.1093818,
+      "googleMapsUri": "https://maps.google.com/?cid=8206290875208839881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalmuseum.af.mil/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 93.58
+    },
+    {
+      "googlePlaceId": "ChIJqxRTjC6gVogRVW3L0xQUAk0",
+      "name": "Romare Bearden Park",
+      "address": "300 S Church St, Charlotte, NC 28202, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6108,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2268785,
+      "lng": -80.8476791,
+      "googleMapsUri": "https://maps.google.com/?cid=5549019770559098197&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.charlottesgotalot.com/things-to-do/outdoors-adventure/romare-bearden-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.39
+    },
+    {
+      "googlePlaceId": "ChIJD-Um4jqhVogRg_iTz8PG1mw",
+      "name": "Angeline's",
+      "address": "303 S Church St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3585,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "italian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.22624,
+      "lng": -80.84652899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7842674345415800963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.angelinescharlotte.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.73
+    },
+    {
+      "googlePlaceId": "ChIJi__4cp-MQYgRRdAIjXXXrvI",
+      "name": "Ark Encounter",
+      "address": "1 Ark Encounter Dr, Williamstown, KY 41097, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 40060,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.627910799999995,
+      "lng": -84.5809292,
+      "googleMapsUri": "https://maps.google.com/?cid=17487151303003525189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://arkencounter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 92.45
+    },
+    {
+      "googlePlaceId": "ChIJYbCNy_ToVogRYclQJDbHWVQ",
+      "name": "Crowders Mountain State Park",
+      "address": "522 Park Office Ln, Kings Mountain, NC 28086, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5525,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2015141,
+      "lng": -81.3141461,
+      "googleMapsUri": "https://maps.google.com/?cid=6078108207464630625&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ncparks.gov/crowders-mountain-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 92.01
+    },
+    {
+      "googlePlaceId": "ChIJRX2cPiSgVogR-j4piI0LI3Y",
+      "name": "Spectrum Center",
+      "address": "333 E Trade St, Charlotte, NC 28202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8389,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2251952,
+      "lng": -80.8393468,
+      "googleMapsUri": "https://maps.google.com/?cid=8512660423163068154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.spectrumcentercharlotte.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.84
+    },
+    {
+      "googlePlaceId": "ChIJzZ80FEKgVogRHADlfind7vg",
+      "name": "Camp North End",
+      "address": "300 Camp Rd, Charlotte, NC 28206, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3698,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "real_estate_agency",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.2464282,
+      "lng": -80.8334412,
+      "googleMapsUri": "https://maps.google.com/?cid=17937517536155598876&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.camp.nc/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "interactive pop ups",
+        "skating rinks",
+        "kids activities",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.73
+    },
+    {
+      "googlePlaceId": "ChIJZ-LB1SSgVogR8_pkSkmqXHg",
+      "name": "Discovery Place Science",
+      "address": "168 W 6th St, Charlotte, NC 28202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4952,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "movie_theater",
+        "tourist_attraction",
+        "aquarium",
+        "planetarium",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.229441,
+      "lng": -80.8409271,
+      "googleMapsUri": "https://maps.google.com/?cid=8672994214166199027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://discoveryplace.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.6
+    },
+    {
+      "googlePlaceId": "ChIJIz618lahVogRgM8rFOqdNhI",
+      "name": "Deluxe Fun Dining",
+      "address": "305 W 4th St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3523,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "seafood_restaurant",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2281821,
+      "lng": -80.84656849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1312409970111401856&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.deluxefundining.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.57
+    },
+    {
+      "googlePlaceId": "ChIJ6QA5TymgVogRwfAmE5zenDE",
+      "name": "Mint Museum Uptown",
+      "address": "at Levine Center for the Arts, 500 S Tryon St, Charlotte, NC 28202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2494,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2244083,
+      "lng": -80.8480847,
+      "googleMapsUri": "https://maps.google.com/?cid=3574976966142914753&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mintmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.53
+    },
+    {
+      "googlePlaceId": "ChIJZcUZhgqnVogRO67yQV1aM8s",
+      "name": "Frankie's of Charlotte",
+      "address": "10621 Bryton Corporate Center Dr, Huntersville, NC 28078, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 4555,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "miniature_golf_course",
+        "video_arcade",
+        "go_karting_venue",
+        "race_course",
+        "bar",
+        "amusement_park",
+        "event_venue",
+        "restaurant",
+        "food",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.373329,
+      "lng": -80.82553999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14642146170096496187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://frankies.com/charlotte/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.32
+    },
+    {
+      "googlePlaceId": "ChIJC2hDco8bVIgRquOb_7FOMHs",
+      "name": "Truliant Amphitheater",
+      "address": "707 Pavilion Blvd, Charlotte, NC 28262, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 9963,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.3271592,
+      "lng": -80.7123113,
+      "googleMapsUri": "https://maps.google.com/?cid=8876681391951831978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.truliantamp.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.3
+    },
+    {
+      "googlePlaceId": "ChIJa2hvU9P1rIkRQaI7E_xzG4Q",
+      "name": "North Carolina Museum of Art",
+      "address": "2110 Blue Ridge Rd, Raleigh, NC 27607, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 11223,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "live_music_venue",
+        "wedding_venue",
+        "park",
+        "art_gallery",
+        "event_venue",
+        "museum",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.809885699999995,
+      "lng": -78.7025784,
+      "googleMapsUri": "https://maps.google.com/?cid=9519329763869303361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ncartmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.1
+    },
+    {
+      "googlePlaceId": "ChIJb5uT7hWfVogRiB7OuU0ZjCI",
+      "name": "State of Confusion- Charlotte",
+      "address": "3500 Dewitt Ln, Charlotte, NC 28217, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2150,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.194995399999996,
+      "lng": -80.8755943,
+      "googleMapsUri": "https://maps.google.com/?cid=2489392515649511048&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.confusionloso.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "rooftop bars",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "viral-eats"
+      ],
+      "popularityScore": 91.04
+    },
+    {
+      "googlePlaceId": "ChIJIWS8niSgVogR06cUHnjkmUU",
+      "name": "The Market at 7th Street",
+      "address": "224 E 7th St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3729,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "pizza_restaurant",
+        "coffee_shop",
+        "gift_shop",
+        "cafe",
+        "liquor_store",
+        "bar",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.227739,
+      "lng": -80.83804669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5015290864605636563&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.themarketat7thstreet.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "seasonal pop ups",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.66
+    },
+    {
+      "googlePlaceId": "ChIJH3zNsDegVogRHZCqaItEYaU",
+      "name": "The Fillmore Charlotte",
+      "address": "820 Hamilton St, Charlotte, NC 28206, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 5082,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "wedding_venue",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.2399602,
+      "lng": -80.8454612,
+      "googleMapsUri": "https://maps.google.com/?cid=11916881454546194461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fillmorenc.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.58
+    },
+    {
+      "googlePlaceId": "ChIJNVW2vSygVogRT5OrNr3IDkg",
+      "name": "Bank of America Stadium",
+      "address": "800 S Mint St, Charlotte, NC 28202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 10754,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.225828899999996,
+      "lng": -80.8528415,
+      "googleMapsUri": "https://maps.google.com/?cid=5192308135396348751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bankofamericastadium.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.26
+    },
+    {
+      "googlePlaceId": "ChIJGwBAGWaoVogRKZSCQ-LV1-I",
+      "name": "Discovery Place Kids-Huntersville",
+      "address": "105 Gilead Rd, Huntersville, NC 28078, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2193,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.4104996,
+      "lng": -80.8435295,
+      "googleMapsUri": "https://maps.google.com/?cid=16345768540336460841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kids.discoveryplace.org/huntersville",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 90.01
+    },
+    {
+      "googlePlaceId": "ChIJwSRLs5VnU4gR6FQolAZOOnE",
+      "name": "North Carolina Zoo",
+      "address": "4401 Zoo Pkwy, Asheboro, NC 27205, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 26345,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6296722,
+      "lng": -79.7644631,
+      "googleMapsUri": "https://maps.google.com/?cid=8158919465097516264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nczoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.97
+    },
+    {
+      "googlePlaceId": "ChIJE-TlUD2hVogRv5ypyMLSec8",
+      "name": "Museum of Illusions - Charlotte",
+      "address": "601 S Tryon St #138, Charlotte, NC 28202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 4152,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.222237899999996,
+      "lng": -80.84910699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14950212172065119423&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moicharlotte.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.91
+    },
+    {
+      "googlePlaceId": "ChIJj9Ng3YohVIgRIxbzCWOfIwk",
+      "name": "Activate Games",
+      "address": "1848 Galleria Blvd Suite 9B, Charlotte, NC 28270, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 769,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "adventure_sports_center",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 35.1381209,
+      "lng": -80.73458819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=658545218243728931&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/charlotte?utm_source=google&utm_medium=organic&utm_campaign=gmb-charlotte",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.85
+    },
+    {
+      "googlePlaceId": "ChIJh-Fbfr6WVogRUxsWCJF21sg",
+      "name": "Daniel Stowe Conservancy",
+      "address": "6500 S New Hope Rd, Belmont, NC 28012, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 2882,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "wedding_venue",
+        "park",
+        "botanical_garden",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.1681232,
+      "lng": -81.0576663,
+      "googleMapsUri": "https://maps.google.com/?cid=14471884817879669587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.danielstoweconservancy.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.81
+    },
+    {
+      "googlePlaceId": "ChIJYZHiVRMhVIgRrDBcG7QZ8eA",
+      "name": "McAlpine Creek Park",
+      "address": "8711 Monroe Rd, Charlotte, NC 28212, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2245,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.1511931,
+      "lng": -80.7406371,
+      "googleMapsUri": "https://maps.google.com/?cid=16208764795226960044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.charlottesgotalot.com/things-to-do/outdoors-adventure/mcalpine-creek-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.68
+    },
+    {
+      "googlePlaceId": "ChIJi8sDiRsbVIgR39_CYpXx0DU",
+      "name": "Charlotte Motor Speedway",
+      "address": "5555 Concord Pkwy S, Concord, NC 28027, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 10035,
+      "priceLevel": null,
+      "primaryType": "race_course",
+      "types": [
+        "race_course",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.351604099999996,
+      "lng": -80.686624,
+      "googleMapsUri": "https://maps.google.com/?cid=3877864903075356639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.charlottemotorspeedway.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.63
+    },
+    {
+      "googlePlaceId": "ChIJIwbv6T2hVogRtk3E67C6kOs",
+      "name": "The Game Show Challenge - Charlotte",
+      "address": "933 Louise Ave #102, Charlotte, NC 28204, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2248,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.224706999999995,
+      "lng": -80.820737,
+      "googleMapsUri": "https://maps.google.com/?cid=16974272264591920566&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thegameshowchallenge.com/charlotte?utm_source=GMBlisting&utm_medium=organic&utm_content=listing",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.49
+    },
+    {
+      "googlePlaceId": "ChIJA4fYJ_OcVogRGImhAmaiU-g",
+      "name": "Breakout Games",
+      "address": "11025 Carolina Pl Pkwy, Pineville, NC 28134, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7749,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.082087300000005,
+      "lng": -80.8762315,
+      "googleMapsUri": "https://maps.google.com/?cid=16740902798880770328&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/charlotte?utm_source=google&utm_medium=organic&utm_campaign=gmb-charlotte",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.23
+    },
+    {
+      "googlePlaceId": "ChIJeeL4ziSgVogR9noAgsMYhUk",
+      "name": "The Cellar at Duckworth's",
+      "address": "330 N Tryon St, Charlotte, NC 28202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1724,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2292585,
+      "lng": -80.8397251,
+      "googleMapsUri": "https://maps.google.com/?cid=5297667764650015478&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thecellaratduckworths.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.21
+    },
+    {
+      "googlePlaceId": "ChIJDUrIYLanVogRc-54IDsSgus",
+      "name": "Escapology Escape Rooms Charlotte",
+      "address": "9717 Northlake Centre Pkwy Ste B2 #B2, Charlotte, NC 28216, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5470,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.3476421,
+      "lng": -80.8595916,
+      "googleMapsUri": "https://maps.google.com/?cid=16970146391042616947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/charlotte-nc",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJ3Zk81PaQVogRPCPI3Ch23qs",
+      "name": "McDowell Nature Preserve",
+      "address": "15222 York Rd, Charlotte, NC 28278, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3030,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.0964855,
+      "lng": -81.0239543,
+      "googleMapsUri": "https://maps.google.com/?cid=12384465943190315836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parkandrec.mecknc.gov/Places-to-Visit/Nature",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.17
+    },
+    {
+      "googlePlaceId": "ChIJpUTJdf0R9YgRyBm2wbrDJkI",
+      "name": "Sandbox VR",
+      "address": "925 Battery Ave SE Suite 1170, Atlanta, GA 30339, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7508,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8874515,
+      "lng": -84.47120029999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4766712462499518920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJM6qiDSmgVogRzHpPzEBSWts",
+      "name": "Charlotte Convention Center",
+      "address": "501 S College St, Charlotte, NC 28202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3623,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.2226882,
+      "lng": -80.8464461,
+      "googleMapsUri": "https://maps.google.com/?cid=15806036280469322444&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.charlottemeetings.com/charlotte-convention-center",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.06
+    },
+    {
+      "googlePlaceId": "ChIJiUojjzSkVogRBsnrpnhZ8mw",
+      "name": "Latta Nature Preserve",
+      "address": "6345 Sample Rd, Huntersville, NC 28078, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1328,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.35756140000001,
+      "lng": -80.90697639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7850435475191613702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parkandrec.mecknc.gov/Places-to-Visit/Nature",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 89.05
+    },
+    {
+      "googlePlaceId": "ChIJ24pCbhogVIgRpre8kKCVt44",
+      "name": "Ovens Auditorium",
+      "address": "2900 E Independence Blvd, Charlotte, NC 28205, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3559,
+      "priceLevel": null,
+      "primaryType": "auditorium",
+      "types": [
+        "auditorium",
+        "concert_hall",
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.20389120000001,
+      "lng": -80.7942396,
+      "googleMapsUri": "https://maps.google.com/?cid=10283852790979409830&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boplex.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.01
+    },
+    {
+      "googlePlaceId": "ChIJabCqwvefVogRTqJTb7jCUG8",
+      "name": "The Fig Tree Restaurant",
+      "address": "1601 E 7th St, Charlotte, NC 28204, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1123,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2165903,
+      "lng": -80.8225703,
+      "googleMapsUri": "https://maps.google.com/?cid=8021125033744376398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charlottefigtree.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.9
+    },
+    {
+      "googlePlaceId": "ChIJa4_8nQ2gVogRPE90d2Wg2Yc",
+      "name": "Super Abari Game Bar",
+      "address": "1015 Seigle Ave, Charlotte, NC 28205, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 1745,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2281525,
+      "lng": -80.8229431,
+      "googleMapsUri": "https://maps.google.com/?cid=9789031622722735932&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://superabarigamebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.85
+    },
+    {
+      "googlePlaceId": "ChIJS-nfNSmgVogR7fiVrPwydQQ",
+      "name": "Knight Theater",
+      "address": "430 S Tryon St, Charlotte, NC 28202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2041,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2248586,
+      "lng": -80.84792019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=321219009235515629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.blumenthalarts.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 88.72
+    },
+    {
+      "googlePlaceId": "ChIJh7T9XCagVogROCnt4PNJ-p4",
+      "name": "Fahrenheit Charlotte",
+      "address": "222 S Caldwell St 21st Floor, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 5263,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "wine_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.222547,
+      "lng": -80.8410225,
+      "googleMapsUri": "https://maps.google.com/?cid=11455549913969797432&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fahrenheitrestaurants.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.5
+    },
+    {
+      "googlePlaceId": "ChIJ9ZHL56WhVogRanu6KRB30wM",
+      "name": "District 57",
+      "address": "1526 Alleghany St B, Charlotte, NC 28208, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 714,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2400929,
+      "lng": -80.89583139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=275694913503001450&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://district57.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "paint and sip",
+        "things to do this weekend",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.5
+    },
+    {
+      "googlePlaceId": "ChIJM8UQkUSfVogRu1VwerWNmtM",
+      "name": "STIR",
+      "address": "1422 S Tryon St Suite 130, Charlotte, NC 28203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2661,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "oyster_bar_restaurant",
+        "cocktail_bar",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2171021,
+      "lng": -80.85561369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15247655298999014843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stircharlotte.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.45
+    },
+    {
+      "googlePlaceId": "ChIJSayyQimgVogR9hN6UKVVbnc",
+      "name": "Harvey B. Gantt Center for African-American Arts + Culture",
+      "address": "551 S Tryon St, Charlotte, NC 28202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1540,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "community_center",
+        "tourist_attraction",
+        "non_profit_organization",
+        "performing_arts_theater",
+        "art_gallery",
+        "event_venue",
+        "service",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.22336670000001,
+      "lng": -80.84820049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8605910106459739126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ganttcenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "local events"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJB-2GqCWgVogRD-HSD4tefXI",
+      "name": "Rooster's Wood-fired Kitchen Uptown",
+      "address": "150 N College St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1877,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.226666699999996,
+      "lng": -80.84111109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8249854043771560207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://roosterskitchen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.39
+    },
+    {
+      "googlePlaceId": "ChIJR0LDIaccVIgRi-W99xgJQGs",
+      "name": "SEA LIFE Charlotte-Concord",
+      "address": "8111 Concord Mills Boulevard, Concord, NC 28027, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.2,
+      "reviewCount": 5060,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.3692328,
+      "lng": -80.72510779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7728186963408053643&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitsealife.com/charlotte-concord/?utm_source=local-listing&utm_medium=organic&utm_campaign=tickets",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJbXblZfCgVogR4dbZBpThZtc",
+      "name": "Victory Lane Indoor Karting",
+      "address": "2330 Tipton Dr, Charlotte, NC 28206, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 1866,
+      "priceLevel": null,
+      "primaryType": "go_karting_venue",
+      "types": [
+        "go_karting_venue",
+        "video_arcade",
+        "amusement_center",
+        "race_course",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.271074999999996,
+      "lng": -80.8435306,
+      "googleMapsUri": "https://maps.google.com/?cid=15521341191665342177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.victorylanekarting.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJ33BVPCWgVogRw-RVIBbNCHg",
+      "name": "The Capital Grille",
+      "address": "201 N Tryon St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2521,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "steak_house",
+        "wine_bar",
+        "seafood_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.228212,
+      "lng": -80.841984,
+      "googleMapsUri": "https://maps.google.com/?cid=8649388579280512195&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thecapitalgrille.com/locations/nc/charlotte/charlotte/8011?cmpid=br:tcg_ag:ie_ch:loc_ca:TCGGMB_sn:gmb_gt:charlotte-nc-8011_pl:locurl_rd:1008",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.32
+    },
+    {
+      "googlePlaceId": "ChIJZaoQhDqfVogRHhl6YODXC7Q",
+      "name": "Exit Strategy",
+      "address": "4215 Stuart Andrew Blvd B, Charlotte, NC 28217, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3357,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.189929299999996,
+      "lng": -80.88804879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12973700510262106398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.exitstrategyus.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.21
+    },
+    {
+      "googlePlaceId": "ChIJPWL3zzegVogREvWh36XRqtw",
+      "name": "AvidXchange Music Factory",
+      "address": "1000 Nc Music Factory Blvd, Charlotte, NC 28206, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1703,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "comedy_club",
+        "amphitheatre",
+        "beer_garden",
+        "sushi_restaurant",
+        "pub",
+        "arena",
+        "performing_arts_theater",
+        "sports_club",
+        "association_or_organization",
+        "japanese_restaurant",
+        "restaurant",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.2401967,
+      "lng": -80.84582019999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15900751944736699666&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.avidxchangemusicfactory.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "cultural centers",
+        "karaoke bars",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "arts-culture",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.07
+    },
+    {
+      "googlePlaceId": "ChIJ6_f_fZefVogRVrJPzCI8lSs",
+      "name": "VINYL",
+      "address": "1440 S Tryon St #105, Charlotte, NC 28203, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1220,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2165227,
+      "lng": -80.856597,
+      "googleMapsUri": "https://maps.google.com/?cid=3140482435315118678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.vinylclt.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.07
+    },
+    {
+      "googlePlaceId": "ChIJb_VL4iocU4gRch4-zqTVEoo",
+      "name": "Greensboro Science Center",
+      "address": "4301 Lawndale Dr, Greensboro, NC 27455, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 10058,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "aquarium",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1296495,
+      "lng": -79.8334197,
+      "googleMapsUri": "https://maps.google.com/?cid=9949249430626377330&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.greensboroscience.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJnY6epl-dVogRFlvCFAs5PNY",
+      "name": "Timed Out Escape",
+      "address": "12239 N Community House Rd, Charlotte, NC 28277, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2143,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "summer_camp_organizer",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.0685843,
+      "lng": -80.8413779,
+      "googleMapsUri": "https://maps.google.com/?cid=15437276342474922774&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timedoutescape.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJPRcYTDCgVogR8GtNLay9Vnw",
+      "name": "Crave Dessert Bar",
+      "address": "500 W 5th St UNIT 120, Charlotte, NC 28202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2989,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "cocktail_bar",
+        "hookah_bar",
+        "dessert_restaurant",
+        "night_club",
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.2318603,
+      "lng": -80.8455554,
+      "googleMapsUri": "https://maps.google.com/?cid=8959557055892253680&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cravedessertbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "romantic bars",
+        "popular dessert spots",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.73
+    },
+    {
+      "googlePlaceId": "ChIJGZ4dvNCYVogR3T3YoD4oTKs",
+      "name": "Charlotte Regional Farmers Market",
+      "address": "1801 Yorkmont Rd, Charlotte, NC 28217, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 2930,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.1870574,
+      "lng": -80.9100646,
+      "googleMapsUri": "https://maps.google.com/?cid=12343284928167296477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.charlottefarmersmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJq1AXwv6hVogR7IiqnqOFjJU",
+      "name": "Starlight on 22nd",
+      "address": "422 E 22nd St, Charlotte, NC 28206, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 387,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "comedy_club",
+        "karaoke",
+        "lounge_bar",
+        "night_club",
+        "association_or_organization",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2379114,
+      "lng": -80.8199988,
+      "googleMapsUri": "https://maps.google.com/?cid=10776134946178894060&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://starlighton22nd.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "jazz clubs",
+        "game night venues",
+        "karaoke bars",
+        "bottle service",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.59
+    },
+    {
+      "googlePlaceId": "ChIJKQgETPgdVIgRMFKolDkrnw0",
+      "name": "The Escape Game Concord",
+      "address": "8111 Concord Mills Boulevard #129B, Concord, NC 28027, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3269,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.370752599999996,
+      "lng": -80.72555469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=981550770097246768&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/concord/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=concord",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.48
+    },
+    {
+      "googlePlaceId": "ChIJjzFJS-2hVogR0AWou3Awqrs",
+      "name": "Middle C Jazz",
+      "address": "300 S Brevard St, Charlotte, NC 28202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1367,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2227112,
+      "lng": -80.84308759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13522674091876156880&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://middlecjazz.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJi0Ru45mHVIgRoE-TlaNhdNQ",
+      "name": "Morrow Mountain State Park",
+      "address": "49104 Morrow Mountain Rd, Albemarle, NC 28001, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3569,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "scenic_spot",
+        "campground",
+        "hiking_area",
+        "tourist_attraction",
+        "camping_cabin",
+        "swimming_pool",
+        "park",
+        "lodging",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.3703453,
+      "lng": -80.101062,
+      "googleMapsUri": "https://maps.google.com/?cid=15308968388556181408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncparks.gov/morrow-mountain-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.32
+    },
+    {
+      "googlePlaceId": "ChIJdShh2jegVogRZcVBxQTuSvs",
+      "name": "The Underground",
+      "address": "820 Hamilton St, Charlotte, NC 28206, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1863,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "wedding_venue",
+        "night_club",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.2397891,
+      "lng": -80.84598,
+      "googleMapsUri": "https://maps.google.com/?cid=18107546956053202277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.livenation.com/venue/KovZpZAIIvEA/the-underground-events?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs",
+        "cultural exhibits",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.27
+    },
+    {
+      "googlePlaceId": "ChIJ6c1ZjHSgVogR0glwdDuMHho",
+      "name": "Trolley Pub Charlotte",
+      "address": "2500 Dunavant St, Charlotte, NC 28203, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 3063,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "brewpub",
+        "pub",
+        "bar",
+        "restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2046825,
+      "lng": -80.8668836,
+      "googleMapsUri": "https://maps.google.com/?cid=1882095881271904722&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trolleypub.com/charlotte/",
+      "openNow": true,
+      "matchedQueries": [
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.26
+    },
+    {
+      "googlePlaceId": "ChIJo59gewChVogRkjfGuHEECoc",
+      "name": "Sea Grill Restaurant",
+      "address": "210 E Trade St B120, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2208,
+      "priceLevel": null,
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "fine_dining_restaurant",
+        "brunch_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2257798,
+      "lng": -80.84234769999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9730594831365191570&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seagrillnc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJb1jBeTiFbIcRk197BfSYqD8",
+      "name": "Sandbox VR",
+      "address": "8429 Park Meadows Center Dr #125, Lone Tree, CO 80124, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4172,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.5623978,
+      "lng": -104.8772931,
+      "googleMapsUri": "https://maps.google.com/?cid=4587084394308263827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/lonetree",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.18
+    },
+    {
+      "googlePlaceId": "ChIJy_uiYPefVogRwSjjkDr1ZH4",
+      "name": "Hawkers Asian Street Food",
+      "address": "1930 Camden Rd #260, Charlotte, NC 28203, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 8058,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2109206,
+      "lng": -80.8605816,
+      "googleMapsUri": "https://maps.google.com/?cid=9107673978337700033&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://eathawkers.com/?olonwp=JjBtp_vMLk25gkYh_bnoiQ",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.15
+    },
+    {
+      "googlePlaceId": "ChIJU8QmLn6fVogRee93hyd3aCg",
+      "name": "Seoul Food Meat Company",
+      "address": "1400 S Church St a, Charlotte, NC 28203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 3482,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "chicken_wings_restaurant",
+        "hamburger_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.219257,
+      "lng": -80.857579,
+      "googleMapsUri": "https://maps.google.com/?cid=2911708170755239801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://seoulfoodmeatcoclt.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "karaoke bars",
+        "viral food spots",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 87.13
+    },
+    {
+      "googlePlaceId": "ChIJbT-Vu42fVogRZIIqgTiyxw0",
+      "name": "Mama Ricotta's",
+      "address": "601 S Kings Dr AA, Charlotte, NC 28204, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3982,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2099287,
+      "lng": -80.83564989999999,
+      "googleMapsUri": "https://maps.google.com/?cid=992958198613443172&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mamaricottas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.98
+    },
+    {
+      "googlePlaceId": "ChIJw4FlFSWfVogRFE-oR_9KeqU",
+      "name": "Pins Mechanical Co",
+      "address": "307 W Tremont Ave, Charlotte, NC 28203, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 1888,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "bowling_alley",
+        "cocktail_bar",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2107029,
+      "lng": -80.8641011,
+      "googleMapsUri": "https://maps.google.com/?cid=11923925423696138004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pinsbar.com/locations/charlotte",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.91
+    },
+    {
+      "googlePlaceId": "ChIJrRwBo9kfVIgRckYYIHnFwMY",
+      "name": "Haberdish",
+      "address": "3106 N Davidson St, Charlotte, NC 28205, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3094,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2466027,
+      "lng": -80.806223,
+      "googleMapsUri": "https://maps.google.com/?cid=14321663939058353778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://haberdish.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJo_wdGWxfrIkRPvgSndgXAIk",
+      "name": "North Carolina Museum of Natural Sciences",
+      "address": "11 W Jones St, Raleigh, NC 27601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3004,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "research_institute",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.782182399999996,
+      "lng": -78.63929739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9871916602311768126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://naturalsciences.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.75
+    },
+    {
+      "googlePlaceId": "ChIJy0JlKvufVogREqNq-8c3HXQ",
+      "name": "Culinary Dropout",
+      "address": "1120 S Tryon St #100, Charlotte, NC 28203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1522,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "chicken_restaurant",
+        "hamburger_restaurant",
+        "brunch_restaurant",
+        "live_music_venue",
+        "food_store",
+        "bar",
+        "store",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.219430599999995,
+      "lng": -80.8530238,
+      "googleMapsUri": "https://maps.google.com/?cid=8366905014780338962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.culinarydropout.com/locations/charlotte-nc/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "learning-classes"
+      ],
+      "popularityScore": 86.6
+    },
+    {
+      "googlePlaceId": "ChIJd-4Mo1mhVogRfr9SBiy_HVY",
+      "name": "Ruby Sunshine",
+      "address": "332 W Bland St, Charlotte, NC 28203, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 6694,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "cocktail_bar",
+        "breakfast_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.219654,
+      "lng": -80.8575286,
+      "googleMapsUri": "https://maps.google.com/?cid=6205326057391964030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rubybrunch.com/?olonwp=JjBtp_vMLk25gkYh_bnoiQ",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJFfCtuoShVogRnCN2FADlWCM",
+      "name": "Supperland",
+      "address": "1212 The Plaza, Charlotte, NC 28205, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1063,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2189693,
+      "lng": -80.8105058,
+      "googleMapsUri": "https://maps.google.com/?cid=2547037377784062876&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://supper.land/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.52
+    },
+    {
+      "googlePlaceId": "ChIJ42jAKZUDVIgRBsHRkrEoERo",
+      "name": "Carolina Renaissance Festival",
+      "address": "16445 Poplar Tent Rd, Huntersville, NC 28078, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 5417,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.4386371,
+      "lng": -80.76467749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1878327262727749894&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.carolina.renfestinfo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.49
+    },
+    {
+      "googlePlaceId": "ChIJPWL3zzegVogRJvcCQL5tLQU",
+      "name": "Skyla Credit Union Amphitheatre",
+      "address": "1000 Nc Music Factory Blvd, Charlotte, NC 28206, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2271,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "performing_arts_theater",
+        "live_music_venue",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.23964,
+      "lng": -80.8445527,
+      "googleMapsUri": "https://maps.google.com/?cid=373075008026769190&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.skylacuamp.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.42
+    },
+    {
+      "googlePlaceId": "ChIJpU5jZKccVIgRkIH8ZTJpCdQ",
+      "name": "Concord Mills",
+      "address": "8111 Concord Mills Boulevard, Concord, NC 28027, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 16775,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.3690086,
+      "lng": -80.72197059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15278858876011446672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/concord-mills",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJq95lURWeVogRZk-IgY3hFls",
+      "name": "SouthPark",
+      "address": "4400 Sharon Rd, Charlotte, NC 28211, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 11915,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.150945,
+      "lng": -80.831569,
+      "googleMapsUri": "https://maps.google.com/?cid=6563681504818909030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.simon.com/mall/southpark",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.25
+    },
+    {
+      "googlePlaceId": "ChIJJ7mulcaZVogRMPpIG3rXShg",
+      "name": "Charlotte Premium Outlets",
+      "address": "5404 New Fashion Way, Charlotte, NC 28278, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 11695,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.16817090000001,
+      "lng": -80.97042499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1750448324630608432&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.premiumoutlets.com/outlet/charlotte",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJVY1gNvCdVogRDlsmnDOdGL8",
+      "name": "The Bowl at Ballantyne",
+      "address": "15119 Bowl St, Charlotte, NC 28277, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 678,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "food_court",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.0578745,
+      "lng": -80.845811,
+      "googleMapsUri": "https://maps.google.com/?cid=13769928705673943822&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thebowlnc.com/?utm_source=2060digital&utm_medium=localseo&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "VR experiences",
+        "skating rinks",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.13
+    },
+    {
+      "googlePlaceId": "ChIJRRFBPi0ZVIgRAxkaoS0FpDE",
+      "name": "Reedy Creek Nature Center",
+      "address": "2986 ROCKY RIVER RD, Charlotte, NC 28215, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 818,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "hiking_area",
+        "tourist_attraction",
+        "museum",
+        "park",
+        "educational_institution",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.261767,
+      "lng": -80.71938000000002,
+      "googleMapsUri": "https://maps.google.com/?cid=3576989697573525763&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parkandrec.mecknc.gov/Places-to-Visit/Nature/reedy-creek-nature-center",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJBYzQOkoZVIgRGg1kwEglSzg",
+      "name": "Reedy Creek Nature Preserve",
+      "address": "2900 Rocky River Rd, Charlotte, NC 28215, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1451,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "hiking_area",
+        "nature_preserve",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.26378750000001,
+      "lng": -80.71209840000002,
+      "googleMapsUri": "https://maps.google.com/?cid=4056376883772919066&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parkandrec.mecknc.gov/Places-to-Visit/Nature/reedy-creek-nature-center",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.09
+    },
+    {
+      "googlePlaceId": "ChIJlb0oz2gcVIgRv0qDAjjWB7g",
+      "name": "Exit Strategy North",
+      "address": "9539 Pinnacle Dr Suite 300, Charlotte, NC 28262, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1738,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.3288872,
+      "lng": -80.7386054,
+      "googleMapsUri": "https://maps.google.com/?cid=13260803163864386239&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.exitstrategyus.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.04
+    },
+    {
+      "googlePlaceId": "ChIJUcjnNxGeVogRAuOQ7QkPOF4",
+      "name": "RH Rooftop Restaurant at RH Charlotte",
+      "address": "6903 Phillips Pl Ct, Charlotte, NC 28210, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1279,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.1460268,
+      "lng": -80.82527979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6789192973575840514&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rh.com/charlotte/restaurant",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJBxRlxNebVogRsDz4KnmOn5g",
+      "name": "Piedmont Social House",
+      "address": "2135 Ayrsley Town Blvd STE C, Charlotte, NC 28273, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 3400,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "bowling_alley",
+        "cocktail_bar",
+        "sports_complex",
+        "sports_activity_location",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.1377159,
+      "lng": -80.9334014,
+      "googleMapsUri": "https://maps.google.com/?cid=10997665466125139120&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.piedmontsocial.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJqetqeOosV4gRWs4h8wXCe2Q",
+      "name": "South Mountains State Park",
+      "address": "3001 S Mountain Park, Connelly Springs, NC 28612, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 2925,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6115736,
+      "lng": -81.683024,
+      "googleMapsUri": "https://maps.google.com/?cid=7240594156737908314&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ncparks.gov/south-mountains-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJv9JWCvChVogRrI3H7F1IS9o",
+      "name": "Tipsy Pickle",
+      "address": "201 Camp Rd #120, Charlotte, NC 28206, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 862,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "tex_mex_restaurant",
+        "coffee_shop",
+        "golf_course",
+        "athletic_field",
+        "american_restaurant",
+        "cafe",
+        "bar",
+        "sports_activity_location",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2468217,
+      "lng": -80.83180709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15729745691763248556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tipsypickle.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "indoor golf simulators",
+        "pickleball courts",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJaU3FayWgVogRSbDBMGyJSPo",
+      "name": "Church and Union Charlotte",
+      "address": "127 N Tryon St #8, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 2337,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.228609500000005,
+      "lng": -80.8429948,
+      "googleMapsUri": "https://maps.google.com/?cid=18034815805572624457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.churchandunioncharlotte.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJ7cS_6yWgVogRDfat2KY-EhU",
+      "name": "Queen City Quarter",
+      "address": "210 E Trade St, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 7438,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "business_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.2252808,
+      "lng": -80.84210139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1518344910698051085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://queencityquarter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJZe_eSlEOVIgR7A5O9zRZ5RU",
+      "name": "The Basement Arcade Bar",
+      "address": "14 Union St S, Concord, NC 28025, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 484,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.410105,
+      "lng": -80.581233,
+      "googleMapsUri": "https://maps.google.com/?cid=1577765328485486316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thebasementarcadebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.72
+    },
+    {
+      "googlePlaceId": "ChIJp7FtFeShVogR4sxqvh2XYDE",
+      "name": "Spice Charlotte",
+      "address": "515 Ellis Ln Suite 101, Charlotte, NC 28202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 817,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "fine_dining_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "tapas_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.22871620000001,
+      "lng": -80.83671869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3558009859627207906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spicecharlotte.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.65
+    },
+    {
+      "googlePlaceId": "ChIJY_5TrnWgVogRHbnVtqGvxm8",
+      "name": "Amélie's French Bakery & Café",
+      "address": "136 E 36th St, Charlotte, NC 28205, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 7093,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bakery",
+      "types": [
+        "bakery",
+        "coffee_shop",
+        "sandwich_shop",
+        "meal_takeaway",
+        "internet_cafe",
+        "cafe",
+        "wholesaler",
+        "dessert_shop",
+        "confectionery",
+        "french_restaurant",
+        "food_store",
+        "store",
+        "service",
+        "manufacturer",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.251701,
+      "lng": -80.80789709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8054318092690766109&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ameliesfrenchbakery.com/?utm_source=local&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJdc9EhVNYwokR-naSYfm_Urc",
+      "name": "Birdland Jazz Club",
+      "address": "315 W 44th St, New York, NY 10036, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4954,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "cocktail_bar",
+        "night_club",
+        "association_or_organization",
+        "restaurant",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 40.759088899999995,
+      "lng": -73.9897175,
+      "googleMapsUri": "https://maps.google.com/?cid=13209831734835836666&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.birdlandjazz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.55
+    }
+  ]
+}

@@ -1,0 +1,3610 @@
+{
+  "location": "San Diego, CA",
+  "generatedAt": "2026-05-17T19:40:50.585Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJA8tw-pZU2YARxPYVsDwL8-0",
+      "name": "Balboa Park",
+      "address": "San Diego, CA, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 78682,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.734147899999996,
+      "lng": -117.14455299999997,
+      "googleMapsUri": "https://maps.google.com/?cid=17146060561609782980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://balboapark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive pop ups",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJwYBuKqtU2YARslNFQDCJt_s",
+      "name": "USS Midway Museum",
+      "address": "910 N Harbor Dr, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 52734,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7137398,
+      "lng": -117.17512649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18138116864587682738&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.midway.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 100.56
+    },
+    {
+      "googlePlaceId": "ChIJyYB_SZVU2YARR-I1Jjf08F0",
+      "name": "San Diego Zoo",
+      "address": "2920 Zoo Dr, San Diego, CA 92101, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 65970,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7360353,
+      "lng": -117.1509849,
+      "googleMapsUri": "https://maps.google.com/?cid=6769178757639299655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zoo.sandiegozoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.15
+    },
+    {
+      "googlePlaceId": "ChIJe9OrW-eq3oARuXXd8wQMg14",
+      "name": "Old Town San Diego State Historic Park",
+      "address": "San Diego Avenue and, Twiggs St, San Diego, CA 92110, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 31390,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "historical_place",
+        "museum",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7549063,
+      "lng": -117.19764070000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6810300276925101497&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parks.ca.gov/?page_id=663",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 97.85
+    },
+    {
+      "googlePlaceId": "ChIJj6yU_VRT2YARRK_XY0FcTD4",
+      "name": "Seaport Village",
+      "address": "849 W Harbor Dr, San Diego, CA 92101, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 31792,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7090645,
+      "lng": -117.17093659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4489064364499251012&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seaportvillage.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.79
+    },
+    {
+      "googlePlaceId": "ChIJVf6Wg2ZT2YARVV0zJbNLvg4",
+      "name": "The Escape Game San Diego (Gaslamp Quarter)",
+      "address": "232 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6795,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7079679,
+      "lng": -117.1602673,
+      "googleMapsUri": "https://maps.google.com/?cid=1062369794901368149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/san-diego/book-now/gaslamp/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=san-diego",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.4
+    },
+    {
+      "googlePlaceId": "ChIJd-tZsWCq3oAR_sO70namuLg",
+      "name": "SeaWorld San Diego",
+      "address": "500 Sea World Dr., San Diego, CA 92109, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 53842,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7642958,
+      "lng": -117.22643959999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13310571727965373438&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seaworld.com/san-diego/?utm_source=google&utm_medium=organic&utm_campaign=gbp_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.22
+    },
+    {
+      "googlePlaceId": "ChIJf8WHX0Cs3oARjGBkWjMtov4",
+      "name": "Cabrillo National Monument",
+      "address": "1800 Cabrillo Memorial Dr, San Diego, CA 92106, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 12702,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "monument",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.6722558,
+      "lng": -117.2416094,
+      "googleMapsUri": "https://maps.google.com/?cid=18348277530443931788&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/cabr/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.14
+    },
+    {
+      "googlePlaceId": "ChIJ-6-oXwXy24AR6C1du6y1FtI",
+      "name": "San Diego Zoo Safari Park",
+      "address": "15500 San Pasqual Valley Rd, Escondido, CA 92027, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 28618,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "wildlife_refuge",
+        "tourist_attraction",
+        "park",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0997931,
+      "lng": -116.99229419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15138486950934949352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sdzsafaripark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.81
+    },
+    {
+      "googlePlaceId": "ChIJa5RVrGcG3IARsS8AQCWntoc",
+      "name": "Torrey Pines State Natural Reserve",
+      "address": "12600 N Torrey Pines Rd, La Jolla, CA 92037, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 15494,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.9209345,
+      "lng": -117.25144429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9779187419310993329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.parks.ca.gov/?page_id=657",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 95.26
+    },
+    {
+      "googlePlaceId": "ChIJGZfrmeJU2YARL4VJe0IZZRQ",
+      "name": "Belmont Park",
+      "address": "3146 Mission Blvd, San Diego, CA 92109, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 17856,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7706735,
+      "lng": -117.2516218,
+      "googleMapsUri": "https://maps.google.com/?cid=1469608626733286703&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.belmontpark.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95
+    },
+    {
+      "googlePlaceId": "ChIJbWZpoMpV2YARvT8GC5huiN4",
+      "name": "Sandbox VR",
+      "address": "1640 Camino Del Rio N Suite 116, San Diego, CA 92108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6076,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7681784,
+      "lng": -117.1495249,
+      "googleMapsUri": "https://maps.google.com/?cid=16035188072551694269&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sandiego",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 94.95
+    },
+    {
+      "googlePlaceId": "ChIJ9dZdfnyq3oARI_cFYz7QSKM",
+      "name": "Mission Bay Park",
+      "address": "San Diego, CA 92109, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 25095,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7641067,
+      "lng": -117.2262649,
+      "googleMapsUri": "https://maps.google.com/?cid=11765882992873305891&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandiego.gov/locations/seaworld-san-diego",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.3
+    },
+    {
+      "googlePlaceId": "ChIJJ_VSfqJU2YARKrARYJFU1L8",
+      "name": "Japanese Friendship Garden & Museum",
+      "address": "2215 Pan American E Rd, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 10204,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "cultural_center",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.730148,
+      "lng": -117.14997849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13822766139665657898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.niwa.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.26
+    },
+    {
+      "googlePlaceId": "ChIJqTNLdAOr3oARx08fgT_mxGg",
+      "name": "Liberty Public Market",
+      "address": "2820 Historic Decatur Rd, San Diego, CA 92106, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 8013,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_court",
+        "tourist_attraction",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7400774,
+      "lng": -117.2110573,
+      "googleMapsUri": "https://maps.google.com/?cid=7549412035803434951&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://libertypublicmarketsd.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.86
+    },
+    {
+      "googlePlaceId": "ChIJ7fMsvKtU2YARXM4yStBv8rU",
+      "name": "Petco Park",
+      "address": "100 Park Blvd, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 22634,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.707617299999995,
+      "lng": -117.15704050000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13110664405617659484&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/padres",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.83
+    },
+    {
+      "googlePlaceId": "ChIJA65lSMOr3oARFZHgtdTySeo",
+      "name": "Sunset Cliffs Natural Park",
+      "address": "Ladera St, San Diego, CA 92107, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8746,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.715915,
+      "lng": -117.25516789999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16882291673573396757&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandiego.gov/park-and-recreation/parks/regional/shoreline/sunset",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 91.73
+    },
+    {
+      "googlePlaceId": "ChIJwQ4pG9FT2YARFaUC3yW1Nls",
+      "name": "Arcade Monsters San Diego",
+      "address": "704 J St, San Diego, CA 92101, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 2132,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7096422,
+      "lng": -117.1579546,
+      "googleMapsUri": "https://maps.google.com/?cid=6572639880453727509&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arcademonsters.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.7
+    },
+    {
+      "googlePlaceId": "ChIJzzc-aWUM3IARPOQr9sA6vfY",
+      "name": "San Diego Botanic Garden",
+      "address": "300 Quail Gardens Drive at, Ecke Ranch Rd, Encinitas, CA 92024, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4243,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "playground",
+        "hiking_area",
+        "gift_shop",
+        "museum",
+        "sports_activity_location",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0541558,
+      "lng": -117.2791068,
+      "googleMapsUri": "https://maps.google.com/?cid=17779431504366789692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sdbg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.63
+    },
+    {
+      "googlePlaceId": "ChIJpZPqMqNU2YARvWok4Fl9Thc",
+      "name": "San Diego Air & Space Museum",
+      "address": "2001 Pan American Plaza, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5997,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "wedding_venue",
+        "historical_landmark",
+        "historical_place",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7262258,
+      "lng": -117.15437359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1679417536021818045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandiegoairandspace.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.61
+    },
+    {
+      "googlePlaceId": "ChIJ_bRSP4JT2YAResHhgwImaUQ",
+      "name": "The Rady Shell at Jacobs Park",
+      "address": "222 Marina Park Way, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2954,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.704865600000005,
+      "lng": -117.1656924,
+      "googleMapsUri": "https://maps.google.com/?cid=4929513059378119034&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theshell.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.61
+    },
+    {
+      "googlePlaceId": "ChIJ8xsjntZz3IAR2PcwE3R1vB4",
+      "name": "LEGOLAND® California Resort",
+      "address": "One Legoland Dr, Carlsbad, CA 92008, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 39339,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.1262316,
+      "lng": -117.310507,
+      "googleMapsUri": "https://maps.google.com/?cid=2214774258158073816&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.legoland.com/california/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.35
+    },
+    {
+      "googlePlaceId": "ChIJi13lS1dT2YARpYx0CjdGiFY",
+      "name": "San Diego Convention Center",
+      "address": "111 Harbor Dr, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 8498,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.705497699999995,
+      "lng": -117.16010279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6235310886307007653&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://visitsandiego.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.19
+    },
+    {
+      "googlePlaceId": "ChIJbzYnQte8woARJaqqFVpKeNo",
+      "name": "The Getty",
+      "address": "1200 Getty Center Dr, Los Angeles, CA 90049, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 36432,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0773438,
+      "lng": -118.4732648,
+      "googleMapsUri": "https://maps.google.com/?cid=15742414248244587045&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.getty.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.16
+    },
+    {
+      "googlePlaceId": "ChIJH6VyMxxT2YARd2f8XaSqj_A",
+      "name": "Museum of Illusions - San Diego",
+      "address": "665 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 1763,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7124366,
+      "lng": -117.16002249999998,
+      "googleMapsUri": "https://maps.google.com/?cid=17334261113700509559&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moisandiego.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.11
+    },
+    {
+      "googlePlaceId": "ChIJA6VEXa1U2YARujw0K903u5k",
+      "name": "Waterfront Park",
+      "address": "1600 Pacific Hwy, San Diego, CA 92101, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9819,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.722280999999995,
+      "lng": -117.172761,
+      "googleMapsUri": "https://maps.google.com/?cid=11077509131500010682&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sdparks.org/content/sdparks/en/park-pages/Waterfront.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.99
+    },
+    {
+      "googlePlaceId": "ChIJ-6dQ_bMG3IARqV9Yevu9XLw",
+      "name": "Birch Aquarium",
+      "address": "2300 Expedition Way, La Jolla, CA 92037, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 9225,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.865813599999996,
+      "lng": -117.25063899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13572932264774885289&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aquarium.ucsd.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.75
+    },
+    {
+      "googlePlaceId": "ChIJTbIweJZU2YARhAbEo1Ysldw",
+      "name": "Spanish Village Art Center",
+      "address": "1770 Village Pl, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2792,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7332189,
+      "lng": -117.14743419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15894659210500376196&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://villageartscenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.34
+    },
+    {
+      "googlePlaceId": "ChIJH3qnMlhT2YARiLTh2eslL_A",
+      "name": "The Shout! House",
+      "address": "655 Fourth Ave, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2716,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "bar",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7121034,
+      "lng": -117.16091279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17307093587911095432&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theshouthouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "jazz clubs",
+        "karaoke bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.25
+    },
+    {
+      "googlePlaceId": "ChIJN0BfV5ZU2YARe0K26koVPa4",
+      "name": "San Diego Natural History Museum",
+      "address": "1788 El Prado, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3358,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "research_institute",
+        "amusement_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7323223,
+      "lng": -117.147364,
+      "googleMapsUri": "https://maps.google.com/?cid=12555214747688387195&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sdnat.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.81
+    },
+    {
+      "googlePlaceId": "ChIJA0eqWCD524ARV2mQEwYI2_w",
+      "name": "San Diego VR",
+      "address": "8604 Miramar Rd unit a, San Diego, CA 92126, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 790,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.892898599999995,
+      "lng": -117.1385161,
+      "googleMapsUri": "https://maps.google.com/?cid=18220165539648530775&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandiegovr.com/?utm_source=google&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.72
+    },
+    {
+      "googlePlaceId": "ChIJN9NqzFlT2YARNbO8FwgBcB0",
+      "name": "Werewolf",
+      "address": "627 Fourth Ave, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3113,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "karaoke",
+        "night_club",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.711942799999996,
+      "lng": -117.16078060000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2121196558761112373&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewerewolf.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "karaoke bars",
+        "trivia nights",
+        "game bars",
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.57
+    },
+    {
+      "googlePlaceId": "ChIJITml-JZU2YARvg2lEVgD-E8",
+      "name": "Fleet Science Center",
+      "address": "1875 El Prado, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4352,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "movie_theater",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7308009,
+      "lng": -117.14695929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5762359400008584638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fleetscience.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.51
+    },
+    {
+      "googlePlaceId": "ChIJ9TWHh6hU2YARMObTC4k8I3A",
+      "name": "San Diego Civic Theatre",
+      "address": "1100 Third Ave, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4831,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.717584599999995,
+      "lng": -117.1622183,
+      "googleMapsUri": "https://maps.google.com/?cid=8080368715739424304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandiegotheatres.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.44
+    },
+    {
+      "googlePlaceId": "ChIJK78XQ5qdwoARitCUKZSctgY",
+      "name": "Sandbox VR",
+      "address": "6316 CA-27 #1120, Woodland Hills, CA 91367, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9908,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1850782,
+      "lng": -118.6046145,
+      "googleMapsUri": "https://maps.google.com/?cid=483746170155618442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/woodlandhills",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.32
+    },
+    {
+      "googlePlaceId": "ChIJLZa8Z5zn3IARQ4JKnxUvpi4",
+      "name": "The Escape Game Irvine",
+      "address": "655 Spectrum Center Dr, Irvine, CA 92618, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9484,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.6508031,
+      "lng": -117.74430569999998,
+      "googleMapsUri": "https://maps.google.com/?cid=3361425941791932995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/irvine/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=irvine",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.18
+    },
+    {
+      "googlePlaceId": "ChIJU0G2erNU2YAR9XScAoqtvgU",
+      "name": "Juniper and Ivy",
+      "address": "2228 Kettner Blvd, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2701,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7274546,
+      "lng": -117.1711882,
+      "googleMapsUri": "https://maps.google.com/?cid=413959024025564405&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.juniperandivy.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.13
+    },
+    {
+      "googlePlaceId": "ChIJtXzMMjAx3YARll7hgkff2pY",
+      "name": "Aquarium of the Pacific",
+      "address": "100 Aquarium Way, Long Beach, CA 90802, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 35026,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.761973499999996,
+      "lng": -118.1969738,
+      "googleMapsUri": "https://maps.google.com/?cid=10870246148843593366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariumofpacific.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.84
+    },
+    {
+      "googlePlaceId": "ChIJ4yuqF7JU2YARcQmeuzO8iAE",
+      "name": "Born and Raised",
+      "address": "1909 India St, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3390,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.724668,
+      "lng": -117.168413,
+      "googleMapsUri": "https://maps.google.com/?cid=110545121247627633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bornandraisedsteak.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.74
+    },
+    {
+      "googlePlaceId": "ChIJhT3vwblU2YARZ3c8cyGp12U",
+      "name": "Mister A's",
+      "address": "2550 Fifth Ave 12th floor, San Diego, CA 92103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2377,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "french_restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7318692,
+      "lng": -117.16059949999998,
+      "googleMapsUri": "https://maps.google.com/?cid=7338520078955870055&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.asrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.74
+    },
+    {
+      "googlePlaceId": "ChIJldZd-1ZT2YAR0rXTzPlFJ_8",
+      "name": "The New Children’s Museum",
+      "address": "200 W Island Ave, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 3375,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.710668399999996,
+      "lng": -117.1651935,
+      "googleMapsUri": "https://maps.google.com/?cid=18385740942948939218&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thinkplaycreate.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive pop ups",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 88.72
+    },
+    {
+      "googlePlaceId": "ChIJ55Xl4VBI2YARGQIOmslf5A8",
+      "name": "Tijuana Cultural Center",
+      "address": "P.º de los Héroes 9350, Zona Urbana Rio Tijuana, 22010 Tijuana, B.C., Mexico",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 22585,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "movie_theater",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.5303,
+      "lng": -117.0235,
+      "googleMapsUri": "https://maps.google.com/?cid=1145145524736623129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cecut.gob.mx/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.58
+    },
+    {
+      "googlePlaceId": "ChIJzw3GNKxU2YARh9sRm39PY3o",
+      "name": "False Idol",
+      "address": "675 W Beech St, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1517,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7207772,
+      "lng": -117.16893079999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8818979904802642823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://falseidoltiki.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars",
+        "game night venues",
+        "karaoke bars",
+        "game bars",
+        "paint and sip",
+        "luxury lounges",
+        "adult nightlife",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJ6VN5EEGr3oARraHXh1nFwkc",
+      "name": "C Level Lounge",
+      "address": "880 Harbor Island Dr, San Diego, CA 92101, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 3363,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "bistro",
+        "seafood_restaurant",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7241309,
+      "lng": -117.188588,
+      "googleMapsUri": "https://maps.google.com/?cid=5170912310496567725&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.clevelsd.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.31
+    },
+    {
+      "googlePlaceId": "ChIJdREVn7tV2YARvV4hpEZZtOA",
+      "name": "Game Show Studio San Diego",
+      "address": "7007 Friars Rd, San Diego, CA 92108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 696,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.767824499999996,
+      "lng": -117.1683503,
+      "googleMapsUri": "https://maps.google.com/?cid=16191664720240008893&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameshowstudio.com/san-diego/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.23
+    },
+    {
+      "googlePlaceId": "ChIJVfalTNJT2YARCLfeN-FCmwc",
+      "name": "Good Night John Boy",
+      "address": "401 G St, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 686,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7124356,
+      "lng": -117.1609088,
+      "googleMapsUri": "https://maps.google.com/?cid=548105314728064776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://goodnightjb.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "karaoke bars",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJPXDC_Iv924ARj0aMv6SqTyM",
+      "name": "Mission Trails Regional Park",
+      "address": "1 Father Junipero Serra Trail, San Diego, CA 92119, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7810,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "nature_preserve",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.821457599999995,
+      "lng": -117.06241809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2544439939052619407&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mtrp.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJow6XvlWr3oARYSS2d35Iyj4",
+      "name": "Lara's Labyrinth",
+      "address": "2110 Hancock St, San Diego, CA 92110, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2170,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7453135,
+      "lng": -117.19009630000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4524508483658589281&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ca.laraslabyrinth.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.1
+    },
+    {
+      "googlePlaceId": "ChIJSTDVAwZV2YARKDn3B-TvS20",
+      "name": "Dave & Buster's San Diego",
+      "address": "2931 Camino Del Rio N, San Diego, CA 92108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.2,
+      "reviewCount": 7921,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "cocktail_bar",
+        "video_arcade",
+        "bar",
+        "amusement_center",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7727419,
+      "lng": -117.1314573,
+      "googleMapsUri": "https://maps.google.com/?cid=7875652136052668712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/san-diego",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.07
+    },
+    {
+      "googlePlaceId": "ChIJTRTOJQpV2YAROVCeEVwcsdU",
+      "name": "Madi",
+      "address": "3737 Adams Ave, San Diego, CA 92116, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2611,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7631116,
+      "lng": -117.11245740000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15398119782714593337&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://brunchlikemadi.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.98
+    },
+    {
+      "googlePlaceId": "ChIJe45_61VT2YARVbhwTKoZU7w",
+      "name": "The Lion's Share",
+      "address": "629 Kettner Blvd, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1782,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7119496,
+      "lng": -117.1689918,
+      "googleMapsUri": "https://maps.google.com/?cid=13570218321415026773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lionssharesd.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.84
+    },
+    {
+      "googlePlaceId": "ChIJ2_K2drNU2YAR-y2McDRLW_4",
+      "name": "Herb & Wood",
+      "address": "2210 Kettner Blvd, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2511,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "californian_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.727306,
+      "lng": -117.17102700000001,
+      "googleMapsUri": "https://maps.google.com/?cid=18328325797112983035&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.herbandwood.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.81
+    },
+    {
+      "googlePlaceId": "ChIJLyIl671U2YAREAPW56PTL3k",
+      "name": "The San Diego Museum of Art",
+      "address": "1450 El Prado, San Diego, CA 92102, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2743,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.732158,
+      "lng": -117.15043000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8732430903417373456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sdmart.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.68
+    },
+    {
+      "googlePlaceId": "ChIJgYC4rzeBhYARXLMKkmlB8T0",
+      "name": "Sandbox VR",
+      "address": "767 B Market St, San Francisco, CA 94103, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 8113,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7862194,
+      "lng": -122.40464800000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4463420627378418524&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sanfrancisco",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.6
+    },
+    {
+      "googlePlaceId": "ChIJDXRDaKNT2YARdPL4ryDWDn8",
+      "name": "Zama San Diego",
+      "address": "467 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1622,
+      "priceLevel": null,
+      "primaryType": "latin_american_restaurant",
+      "types": [
+        "latin_american_restaurant",
+        "cocktail_bar",
+        "sushi_restaurant",
+        "japanese_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7102629,
+      "lng": -117.15983559999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9155490528370422388&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zamasandiego.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.55
+    },
+    {
+      "googlePlaceId": "ChIJs7N7gbRU2YARkSPbQpAGTUM",
+      "name": "Kettner Exchange",
+      "address": "2001 Kettner Blvd, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2268,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "pub",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7253645,
+      "lng": -117.1697595,
+      "googleMapsUri": "https://maps.google.com/?cid=4849539590414607249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kettnerexchange.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJAToeQF5V2YARFtzFlAPKBgk",
+      "name": "Red Door Escape Room",
+      "address": "7007 Friars Rd Suite 212, San Diego, CA 92108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5476,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7669028,
+      "lng": -117.16857329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=650429312931322902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://reddoorescape.com/escape-rooms/san-diego/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.48
+    },
+    {
+      "googlePlaceId": "ChIJNVmHHqxU2YARRn_22st2wa8",
+      "name": "Music Box",
+      "address": "1337 India St, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2117,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "cocktail_bar",
+        "bar",
+        "sports_club",
+        "association_or_organization",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7193819,
+      "lng": -117.1681424,
+      "googleMapsUri": "https://maps.google.com/?cid=12664534245066571590&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.musicboxsd.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "interactive pop ups",
+        "events this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.28
+    },
+    {
+      "googlePlaceId": "ChIJRb75DdKr3oARzyqd9iycSM4",
+      "name": "Sunset Cliffs",
+      "address": "1100 Sunset Cliffs Blvd, San Diego, CA 92107, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 2514,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7321244,
+      "lng": -117.25651180000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14864302287066311375&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandiego.gov/park-and-recreation/parks/regional/shoreline/sunset",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.21
+    },
+    {
+      "googlePlaceId": "ChIJGdo8UVdT2YARU-W1hlFIS-0",
+      "name": "The Whiskey House",
+      "address": "420 Third Ave, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1448,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "breakfast_restaurant",
+        "gastropub",
+        "brunch_restaurant",
+        "pub",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7097222,
+      "lng": -117.16224170000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17098839925231838547&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewhiskeyhousesd.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "jazz clubs",
+        "bottle service",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.2
+    },
+    {
+      "googlePlaceId": "ChIJI-nwbESfj4AR46lo6mwYTaM",
+      "name": "Sandbox VR",
+      "address": "60 E 31st Ave #2044, San Mateo, CA 94403, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6955,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5378476,
+      "lng": -122.30044740000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11767088257457236451&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sanmateo",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.12
+    },
+    {
+      "googlePlaceId": "ChIJ6_R6EJZU2YARjlNooLF78lc",
+      "name": "Botanical Building",
+      "address": "1550 El Prado, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4960,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.732479999999995,
+      "lng": -117.14922490000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6337263628494328718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://balboaparkbotanical.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.12
+    },
+    {
+      "googlePlaceId": "ChIJg0ux9SwH3IARxsA5WlFCLOA",
+      "name": "Raised by Wolves",
+      "address": "4301 La Jolla Village Dr #2030, San Diego, CA 92122, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1897,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8721244,
+      "lng": -117.2128136,
+      "googleMapsUri": "https://maps.google.com/?cid=16153358880644645062&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://raisedxwolves.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJ2eY6pPZU2YARxP5X3qL_DWk",
+      "name": "The Observatory North Park",
+      "address": "2891 University Ave, San Diego, CA 92104, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3051,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "wedding_venue",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.7480121,
+      "lng": -117.13130059999997,
+      "googleMapsUri": "https://maps.google.com/?cid=7569987623659765444&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.observatorysd.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.91
+    },
+    {
+      "googlePlaceId": "ChIJf3j1UJS5woARU1F9fnWkUnU",
+      "name": "Sandbox VR",
+      "address": "3341 S La Cienega Blvd, Los Angeles, CA 90016, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4228,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.0269993,
+      "lng": -118.3722635,
+      "googleMapsUri": "https://maps.google.com/?cid=8454000275068113235&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/culvercity/?utm_source=google&utm_medium=gbp&utm_campaign=website_button",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.67
+    },
+    {
+      "googlePlaceId": "ChIJK8AHDOhU2YARXNfoeK2mhac",
+      "name": "insideOUT",
+      "address": "1642 University Ave, San Diego, CA 92103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1684,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "mediterranean_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7485748,
+      "lng": -117.14863740000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12071237640224560988&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://insideoutsd.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "private dining rooms",
+        "luxury lounges",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.57
+    },
+    {
+      "googlePlaceId": "ChIJJZEu2V5T2YAR55RY8VS0k8U",
+      "name": "So Diego Food Tours",
+      "address": "209 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1320,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.707762599999995,
+      "lng": -117.15995649999998,
+      "googleMapsUri": "https://maps.google.com/?cid=14236921123967636711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sodiego.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.56
+    },
+    {
+      "googlePlaceId": "ChIJVYD8GYtU2YARHDBsVcxSpJs",
+      "name": "The Smoking Goat",
+      "address": "3408 30th St, San Diego, CA 92104, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1177,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "meal_takeaway",
+        "wine_bar",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.741365099999996,
+      "lng": -117.13025730000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11215180009619337244&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thesmokinggoatrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.56
+    },
+    {
+      "googlePlaceId": "ChIJc1xhAk3bwoARBBlfKQzXKLM",
+      "name": "The Huntington Library, Art Museum, and Botanical Gardens",
+      "address": "1151 Oxford Rd, San Marino, CA 91108, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8147,
+      "priceLevel": null,
+      "primaryType": "research_institute",
+      "types": [
+        "research_institute",
+        "tourist_attraction",
+        "botanical_garden",
+        "art_gallery",
+        "art_museum",
+        "library",
+        "museum",
+        "service",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.1290452,
+      "lng": -118.1145242,
+      "googleMapsUri": "https://maps.google.com/?cid=12909804779091204356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://huntington.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.51
+    },
+    {
+      "googlePlaceId": "ChIJz5F4ladU2YARHjSTwhWk28M",
+      "name": "House of Blues San Diego",
+      "address": "1055 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 3696,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7164383,
+      "lng": -117.15982489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14113054270661276702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandiego.houseofblues.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.41
+    },
+    {
+      "googlePlaceId": "ChIJg-AEo15T2YARtlKsNmvT47c",
+      "name": "Quartyard",
+      "address": "1301 Market St #3, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1095,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "cafe",
+        "live_music_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.711373,
+      "lng": -117.15262200000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13250666986086355638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.quartyardsd.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "trivia nights",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.33
+    },
+    {
+      "googlePlaceId": "ChIJLyWtuAQt3YARKgnjb1ZrS5o",
+      "name": "Sandbox VR",
+      "address": "454 Los Cerritos Center E13, Cerritos, CA 90703, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5361,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8604694,
+      "lng": -118.09282270000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11118098124082710826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/cerritos",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJO9FDObcH3IARZsmW5W78BBw",
+      "name": "The Escape Game San Diego (Westfield UTC)",
+      "address": "4373 La Jolla Village Dr, San Diego, CA 92122, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3569,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.869281,
+      "lng": -117.21175079999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2019016086197291366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/san-diego/book-now/westfield-utc/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=san-diego-utc",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJZ9rbkedU2YAR5craYKa3iwk",
+      "name": "Hillcrest Farmers Market",
+      "address": "3960 Normal St #3960, San Diego, CA 92103, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 2043,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7484099,
+      "lng": -117.14832960000001,
+      "googleMapsUri": "https://maps.google.com/?cid=687845293321538277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hillcrestfarmersmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.12
+    },
+    {
+      "googlePlaceId": "ChIJXzRXlllT2YARXnn6T9KCaDI",
+      "name": "Rustic Root",
+      "address": "535 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 2902,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.710961,
+      "lng": -117.1599511,
+      "googleMapsUri": "https://maps.google.com/?cid=3632296939270863198&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rusticrootsd.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "rooftop bars",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.06
+    },
+    {
+      "googlePlaceId": "ChIJTRihlVVT2YARkKwrwHtzpEY",
+      "name": "Eddie V's Prime Seafood",
+      "address": "789 W Harbor Dr Suite 158, San Diego, CA 92101, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 1880,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "oyster_bar_restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7104936,
+      "lng": -117.1706613,
+      "googleMapsUri": "https://maps.google.com/?cid=5090320454177762448&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eddiev.com/locations/ca/san-diego/san-diego/8514?cmpid=br:ev_ag:ie_ch:loc_ca:EVGMB_sn:gmb_gt:san-diego-ca-8514_pl:locurl_rd:1013",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJW3MFtlKr3oARYkZGRPnweDs",
+      "name": "Maritime Museum of San Diego",
+      "address": "1492 N Harbor Dr, San Diego, CA 92101, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5343,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.720935499999996,
+      "lng": -117.1739873,
+      "googleMapsUri": "https://maps.google.com/?cid=4285439998826006114&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sdmaritime.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.85
+    },
+    {
+      "googlePlaceId": "ChIJS9zZxtEI3IARH5DPC9ifBnY",
+      "name": "Del Mar Fairgrounds",
+      "address": "2260 Jimmy Durante Blvd, Del Mar, CA 92014, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 6078,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "garden",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.9733004,
+      "lng": -117.2629567,
+      "googleMapsUri": "https://maps.google.com/?cid=8504660696595664927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://delmarfairgrounds.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJoXwPGVlT2YARjJRN5uLrAsM",
+      "name": "Noble Experiment",
+      "address": "777 G St, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 906,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7124267,
+      "lng": -117.1575869,
+      "googleMapsUri": "https://maps.google.com/?cid=14052053147108349068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nobleexperimentsd.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJ6VN5EEGr3oARsKWzNqTsnSM",
+      "name": "Island Prime",
+      "address": "880 Harbor Island Dr, San Diego, CA 92101, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2545,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "fine_dining_restaurant",
+        "steak_house",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7241177,
+      "lng": -117.18866799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2566467552707585456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.islandprime.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.7
+    },
+    {
+      "googlePlaceId": "ChIJvwCR-qZU2YARNFw_hFEN6NQ",
+      "name": "San Diego Symphony",
+      "address": "750 B St, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1222,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7182621,
+      "lng": -117.1579514,
+      "googleMapsUri": "https://maps.google.com/?cid=15341526774399851572&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sandiegosymphony.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.62
+    },
+    {
+      "googlePlaceId": "ChIJ8aKflTSr3oAR-pSbTLFwINQ",
+      "name": "Starlite",
+      "address": "3175 India St, San Diego, CA 92103, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1212,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "gastropub",
+      "types": [
+        "gastropub",
+        "cocktail_bar",
+        "bar_and_grill",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.73645,
+      "lng": -117.174989,
+      "googleMapsUri": "https://maps.google.com/?cid=15285341042092250362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.starlitesd.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.55
+    },
+    {
+      "googlePlaceId": "ChIJz_479dIO3IARSSMZDsd_eH8",
+      "name": "Belly Up Tavern",
+      "address": "143 S Cedros Ave, Solana Beach, CA 92075, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2723,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "cocktail_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.990589299999996,
+      "lng": -117.27048649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9185231932933874505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bellyup.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.51
+    },
+    {
+      "googlePlaceId": "ChIJRUTqQB6r3oARpn_o9U3CzjA",
+      "name": "Old Town San Diego",
+      "address": "2829 Juan St, San Diego, CA 92110, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 2931,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7558268,
+      "lng": -117.19726139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3516961999116861350&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oldtownsandiego.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.49
+    },
+    {
+      "googlePlaceId": "ChIJOVYGolIB3IARXNhQNGFaCYE",
+      "name": "La Jolla Shores Park",
+      "address": "8300 Camino Del Oro, La Jolla, CA 92037, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8334,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.858153699999995,
+      "lng": -117.2561029,
+      "googleMapsUri": "https://maps.google.com/?cid=9298062279219140700&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandiego.gov/lifeguards/beaches/shores",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJn8N5QFhT2YARW_WojgoQYms",
+      "name": "The Tipsy Crow",
+      "address": "770 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 2411,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "sports_bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.713469599999996,
+      "lng": -117.16033660000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7737764747305088347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thetipsycrow.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "comedy shows",
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.48
+    },
+    {
+      "googlePlaceId": "ChIJjR6flllT2YARo5sHpyBXy4A",
+      "name": "Prohibition Lounge",
+      "address": "548 Fifth Ave, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1133,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "cocktail_bar",
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7111155,
+      "lng": -117.16035279999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9280607254879902627&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://prohibitionsd.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "jazz clubs",
+        "luxury lounges",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJ__-_Ml5T2YAR58GahVCqkoo",
+      "name": "Punch Bowl Social",
+      "address": "1485 E St, San Diego, CA 92101, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 2185,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7144471,
+      "lng": -117.1508319,
+      "googleMapsUri": "https://maps.google.com/?cid=9985230586649428455&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://punchbowlsocial.com/location/san-diego/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "karaoke bars",
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.17
+    },
+    {
+      "googlePlaceId": "ChIJiQhcvr1U2YARgLK-JWBZeFc",
+      "name": "Alcázar Garden",
+      "address": "1363 El Prado, San Diego, CA 92101, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 917,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.731099,
+      "lng": -117.15163299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6302885947989996160&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://balboapark.org/parks-trails-gardens/alcazar-garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJS4xl21lT2YARGYzu2eh80zo",
+      "name": "La Puerta",
+      "address": "560 Fourth Ave, San Diego, CA 92101, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 5184,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "sports_bar",
+        "lounge_bar",
+        "night_club",
+        "brunch_restaurant",
+        "bar_and_grill",
+        "pub",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.711216199999996,
+      "lng": -117.1612498,
+      "googleMapsUri": "https://maps.google.com/?cid=4238869013816314905&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lapuertasd.com/?utm_source=Business-Listings",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.06
+    },
+    {
+      "googlePlaceId": "ChIJ5Xwm-61U2YARSLIbd0Nwhr8",
+      "name": "Little Italy Mercato Farmers' Market",
+      "address": "600 W Date St, San Diego, CA 92101, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 2535,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7231728,
+      "lng": -117.1684698,
+      "googleMapsUri": "https://maps.google.com/?cid=13800841543186887240&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sandiegomarkets.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJOW4zBFhT2YARFrtGfHeO9pI",
+      "name": "Balboa Theatre",
+      "address": "868 Fourth Ave, San Diego, CA 92101, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2234,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "historical_landmark",
+        "comedy_club",
+        "live_music_venue",
+        "historical_place",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7143416,
+      "lng": -117.16131670000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10589808217645562646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandiegotheatres.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.89
+    },
+    {
+      "googlePlaceId": "ChIJ9YPXLNMA3IARmF2_yZ7j3os",
+      "name": "Westfield UTC",
+      "address": "4545 La Jolla Village Dr Ste E-25, San Diego, CA 92122, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 13870,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "department_store",
+        "movie_theater",
+        "womens_clothing_store",
+        "gift_shop",
+        "shoe_store",
+        "clothing_store",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.87105460000001,
+      "lng": -117.21142230000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10078743287230848408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.westfield.com/en/united-states/utc",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJb8tpzpSq3oARMHVlr-y52B0",
+      "name": "Brick By Brick",
+      "address": "1130 Buenos Ave, San Diego, CA 92110, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1096,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.768690899999996,
+      "lng": -117.20108470000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2150673248275494192&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.brickbybrick.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.83
+    },
+    {
+      "googlePlaceId": "ChIJL0o_erUD3IARkQnO9a8MQVI",
+      "name": "Birdseye Rooftop",
+      "address": "1110 Prospect St, La Jolla, CA 92037, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 674,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8482469,
+      "lng": -117.27401829999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5927032534479014289&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://birdseyerooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.83
+    },
+    {
+      "googlePlaceId": "ChIJkzb2hm6q3oARTuRxjVsJxZA",
+      "name": "Mission Beach Boardwalk",
+      "address": "W Mission Bay Dr, San Diego, CA 92109, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 6403,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7729956,
+      "lng": -117.25299910000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10431754400693347406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sandiego.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.66
+    },
+    {
+      "googlePlaceId": "ChIJO9jSWbVfXIYRSRByBA4h70o",
+      "name": "Hopscotch San Antonio",
+      "address": "711 Navarro St Ste 100, San Antonio, TX 78205, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 6358,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "lounge_bar",
+        "gift_shop",
+        "night_club",
+        "art_gallery",
+        "bar",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 29.428150499999997,
+      "lng": -98.49004219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5399570822328356937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.letshopscotch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJ2WRAKA2r3oARvgoZnGCdJLo",
+      "name": "Tom Ham's Lighthouse",
+      "address": "2150 Harbor Island Dr, San Diego, CA 92101, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 4465,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7241648,
+      "lng": -117.21308379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13413018628477487806&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tomhamslighthouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.59
+    },
+    {
+      "googlePlaceId": "ChIJp0fCi9RU2YARwNZxELAvrDs",
+      "name": "Farmer's Bottega",
+      "address": "860 W Washington St, San Diego, CA 92103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1670,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.750074999999995,
+      "lng": -117.17085900000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4299864177468626624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.farmersbottega.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "chef table experiences",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.39
+    },
+    {
+      "googlePlaceId": "ChIJr3AaK9yq3oAR5gWZgzH17Uw",
+      "name": "Mormon Battalion Historic Site",
+      "address": "2510 Juan St, San Diego, CA 92110, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2807,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7542165,
+      "lng": -117.19408129999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5543356309372995046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.churchofjesuschrist.org/learn/locations/mormon-battalion-historic-site-at-san-diego?y_source=1_MjU4ODAwMjUtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.3
+    }
+  ]
+}

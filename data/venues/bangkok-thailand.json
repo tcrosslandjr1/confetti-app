@@ -1,0 +1,3368 @@
+{
+  "location": "Bangkok, Thailand",
+  "generatedAt": "2026-05-17T19:39:57.156Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJPzZsMU6Z4jARQUzvk913bCo",
+      "name": "The Grand Palace",
+      "address": "Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 78089,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "cultural_landmark",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7498558,
+      "lng": 100.4915765,
+      "googleMapsUri": "https://maps.google.com/?cid=3056950040631135297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalgrandpalace.th/th/home",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJtepc75aY4jARVvgRfYrM38s",
+      "name": "Asiatique The Riverfront",
+      "address": "2194 ถ. เจริญกรุง Khwaeng Wat Phraya Krai, Khet Bang Kho Laem, Krung Thep Maha Nakhon 10120, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 73293,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7044191,
+      "lng": 100.5032671,
+      "googleMapsUri": "https://maps.google.com/?cid=14690685404681730134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.asiatiquethailand.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "waterfront gardens",
+        "farmers markets",
+        "food trucks",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "shopping-markets",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.2
+    },
+    {
+      "googlePlaceId": "ChIJaSv_6gaZ4jARnbiUVn6Z_YY",
+      "name": "Wat Arun Ratchawararam Ratchawaramahawihan",
+      "address": "158 Thanon Wang Doem, Khwaeng Wat Arun, Khet Bangkok Yai, Krung Thep Maha Nakhon 10600, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 44335,
+      "priceLevel": null,
+      "primaryType": "buddhist_temple",
+      "types": [
+        "buddhist_temple",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.743865200000002,
+      "lng": 100.488444,
+      "googleMapsUri": "https://maps.google.com/?cid=9727099538087655581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/watarunofficial",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.19
+    },
+    {
+      "googlePlaceId": "ChIJ4VX0ws-e4jARBGaQ2IACrcQ",
+      "name": "centralwOrld",
+      "address": "999/9 Rama I Rd, Khwaeng Pathum Wan, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 76905,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.746533699999999,
+      "lng": 100.53914879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14171986354817230340&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.centralworld.co.th/th/home",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "skating rinks",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "sports-recreation",
+        "shopping-markets"
+      ],
+      "popularityScore": 96.7
+    },
+    {
+      "googlePlaceId": "ChIJFRjwgc2Z4jAR9JIadoa9YBY",
+      "name": "ICONSIAM",
+      "address": "299 Charoen Nakhon Rd, Khwaeng Khlong Ton Sai, Khet Khlong San, Krung Thep Maha Nakhon 10600, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 57675,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7262171,
+      "lng": 100.51062909999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1612497051803357940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.iconsiam.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "sports-recreation"
+      ],
+      "popularityScore": 96.51
+    },
+    {
+      "googlePlaceId": "ChIJ3fiD6BSc4jARS324hNeR8ZE",
+      "name": "Chatuchak Weekend Market",
+      "address": "587, 10 Kamphaeng Phet 2 Rd, Khwaeng Chatuchak, Khet Chatuchak, Krung Thep Maha Nakhon 10900, Thailand",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 55516,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.799781,
+      "lng": 100.55042449999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10516346959717498187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/p/%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%99%E0%B8%B1%E0%B8%94%E0%B8%88%E0%B8%95%E0%B8%B8%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3-%E0%B8%AA%E0%B8%87%E0%B8%95%E0%B8%81%E0%B8%97%E0%B8%A1-Chatuchak-Weekend-Market-Jatujak-market-jjmarket-100075700702634/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "family friendly things to do",
+        "things to do this weekend",
+        "street fairs",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.34
+    },
+    {
+      "googlePlaceId": "ChIJ7TZ3I5Of4jAR3lZ2lx-zXkA",
+      "name": "MBK CENTER",
+      "address": "444 Phaya Thai Rd, Khwaeng Wang Mai, Subdistrict, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 59258,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.744754200000001,
+      "lng": 100.529956,
+      "googleMapsUri": "https://maps.google.com/?cid=4638341614504662750&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mbk-center.co.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "shopping-markets",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.89
+    },
+    {
+      "googlePlaceId": "ChIJfWxvUM2e4jARCxWWp4sC0B4",
+      "name": "Bangkok Art & Culture Centre",
+      "address": "939 Rama I Rd, Khwaeng Wang Mai, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 20282,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.746737,
+      "lng": 100.53021659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2220277415128995083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bacc.or.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.41
+    },
+    {
+      "googlePlaceId": "ChIJF-IOh1GZ4jARTIr9wDpeJY4",
+      "name": "Playerbox (Banthat Thong Road Soi Chula 28) 电动卡丁车・游戏中心",
+      "address": "Banthat Thong Rd, Khwaeng Wang Mai, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6242,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.738192399999999,
+      "lng": 100.5221657,
+      "googleMapsUri": "https://maps.google.com/?cid=10242696533963016780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playerbox.co/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.05
+    },
+    {
+      "googlePlaceId": "ChIJG7BL7Saf4jARNmn5AQiyAaw",
+      "name": "Lumphini Park",
+      "address": "Lumphini, Pathum Wan, Bangkok 10330, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 40085,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.731428099999999,
+      "lng": 100.5416984,
+      "googleMapsUri": "https://maps.google.com/?cid=12394383396962920758&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.93
+    },
+    {
+      "googlePlaceId": "ChIJ3QCwc76f4jARutt2413z0zE",
+      "name": "Playerbox at 4th fl. Siam Discovery (Indoor E-Gokart Track, Game Arcade, Digger Land-空调电动卡丁车赛道, 游戏街机区, 挖掘乐园,)",
+      "address": "194 Phaya Thai Rd, Khwaeng Pathum Wan, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4900,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7468291,
+      "lng": 100.53134469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3590480912518142906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playerbox.co/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 94.3
+    },
+    {
+      "googlePlaceId": "ChIJbXZLwgyZ4jARO_0Exd6l_lU",
+      "name": "National Museum Bangkok",
+      "address": "4 Soi Na Phra That, Khwaeng Phra Borom Maha Ratchawang, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 9471,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7576171,
+      "lng": 100.4925167,
+      "googleMapsUri": "https://maps.google.com/?cid=6196572513515142459&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.virtualmuseum.finearts.go.th/bangkoknationalmuseums/index.php/th/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.15
+    },
+    {
+      "googlePlaceId": "ChIJH4I85c2e4jARUMYLeiqfBd0",
+      "name": "SEA LIFE Bangkok Ocean World",
+      "address": "ชั้น บี1-บี2 สยามพารากอน 991 Rama I Rd, Khwaeng Pathum Wan, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 29367,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7459351,
+      "lng": 100.53520569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15926310662050661968&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://expresstickets.shop/sea-life-bangkok-ocean-world",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 93.96
+    },
+    {
+      "googlePlaceId": "ChIJBYCkBQCZ4jARMk27YRVj-vM",
+      "name": "The Island Bangkok – Top Rated Thai Restaurant & Bar",
+      "address": "49 Soi Samsen 4, Khwaeng Ban Phan Thom, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 12351,
+      "priceLevel": null,
+      "primaryType": "thai_restaurant",
+      "types": [
+        "thai_restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "breakfast_restaurant",
+        "family_restaurant",
+        "bar",
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.763558,
+      "lng": 100.50033599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17580473038879280434&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theislandbangkok.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 93.92
+    },
+    {
+      "googlePlaceId": "ChIJWVT7hDKZ4jARGJOhe21RhOk",
+      "name": "Jim Thompson House Museum",
+      "address": "6 Soi Kasem San 2, Khwaeng Wang Mai, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 16966,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7493569,
+      "lng": 100.5281613,
+      "googleMapsUri": "https://maps.google.com/?cid=16826663638430487320&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://jimthompsonhouse.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.76
+    },
+    {
+      "googlePlaceId": "ChIJmfMfvBuf4jAR9rugvZd5Lyc",
+      "name": "Benjakitti Park",
+      "address": "Thanon Ratchadaphisek, Khwaeng Khlong Toei, Khet Khlong Toei, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 10702,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "city_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7292483,
+      "lng": 100.5585653,
+      "googleMapsUri": "https://maps.google.com/?cid=2823609184013040630&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/profile.php?id=100064388066662",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.43
+    },
+    {
+      "googlePlaceId": "ChIJc50ygA1jHTERbHsyFbmUFV0",
+      "name": "Safari World",
+      "address": "99 Panya Indra Rd, Khwaeng Sam Wa Tawan Tok, Khet Khlong Sam Wa, Krung Thep Maha Nakhon 10510, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 48351,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.866108899999999,
+      "lng": 100.7052516,
+      "googleMapsUri": "https://maps.google.com/?cid=6707430742683712364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.safariworld.online/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 92.66
+    },
+    {
+      "googlePlaceId": "ChIJHQcCZM2e4jARaESgxhA9-HM",
+      "name": "Madame Tussauds BANGKOK",
+      "address": "Siam Discovery, 989 Rama I Rd, Khwaeng Pathum Wan, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 9175,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.746418,
+      "lng": 100.53167099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8356496250847118440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madametussauds.com/bangkok/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.85
+    },
+    {
+      "googlePlaceId": "ChIJseKZbACf4jARyVc3t86ZgV0",
+      "name": "Galaxy Enterprise Gaming Thailand",
+      "address": "4th floor, Zone A (above SuperSports), Center 444, Wangmai, เขตปทุมวัน กรุงเทพมหานคร 10330, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2097,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7459166,
+      "lng": 100.53006529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6737835630639142857&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playatgalaxy.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.66
+    },
+    {
+      "googlePlaceId": "ChIJ82hpAWaf4jARIPIc3KEAPtw",
+      "name": "Abandoned Mansion",
+      "address": "41 Soi Sukhumvit 14, Klongtoey, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 6735,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.735256999999999,
+      "lng": 100.5600491,
+      "googleMapsUri": "https://maps.google.com/?cid=15870122832082825760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://montraj.com/coach-hotel/abandoned-mansion-bangkok/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 90.94
+    },
+    {
+      "googlePlaceId": "ChIJ5Wl37g6Z4jARiP4itarBPDQ",
+      "name": "The Temple of the Emerald Buddha",
+      "address": "Na Phra Lan Rd, Khwaeng Phra Borom Maha Ratchawang, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 42879,
+      "priceLevel": null,
+      "primaryType": "buddhist_temple",
+      "types": [
+        "buddhist_temple",
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7516435,
+      "lng": 100.4927041,
+      "googleMapsUri": "https://maps.google.com/?cid=3764096327502462600&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.royalgrandpalace.th/th/home",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.59
+    },
+    {
+      "googlePlaceId": "ChIJWxFU1due4jARqxJjpOmgCdA",
+      "name": "Medici Playhouse Italian Restaurant & Bar Bangkok",
+      "address": "55/555 โรงแรมมิวส์ กรุงเทพฯ 55, 555 Lang Suan Rd, Khwaeng Lumphini, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 2057,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "wine_bar",
+        "cocktail_bar",
+        "mediterranean_restaurant",
+        "fine_dining_restaurant",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.740205699999999,
+      "lng": 100.5436412,
+      "googleMapsUri": "https://maps.google.com/?cid=14990689760025186987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.medicikitchenandbarbangkok.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.5
+    },
+    {
+      "googlePlaceId": "ChIJ5178Viqf4jARZKFL40SO2RU",
+      "name": "The Speakeasy Rooftop Bar Bangkok",
+      "address": "55, 555 Lang Suan Rd, Khwaeng Lumphini, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2867,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.740205699999999,
+      "lng": 100.5436412,
+      "googleMapsUri": "https://maps.google.com/?cid=1574445971265003876&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thespeakeasyrooftopbarbangkok.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.43
+    },
+    {
+      "googlePlaceId": "ChIJp-qLmcCZ4jARYoCSpq8q75M",
+      "name": "Bangkok Ethical Elephant Tour (Living Green Elephant Sanctuary)",
+      "address": "154, 1 Thanon Ram Buttri, Khwaeng Talat Yot, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 1726,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7593667,
+      "lng": 100.4986366,
+      "googleMapsUri": "https://maps.google.com/?cid=10659785776911515746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://livinggreenelephantsanctuary.com/chonburi/",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.41
+    },
+    {
+      "googlePlaceId": "ChIJgcxFcQWZ4jARLsIR9Qia9H0",
+      "name": "Wat Phra Chetuphon Wimon Mangkhalaram Rajwaramahawihan",
+      "address": "2 Thanon Sanam Chai, Khwaeng Phra Borom Maha Ratchawang, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 37432,
+      "priceLevel": null,
+      "primaryType": "buddhist_temple",
+      "types": [
+        "buddhist_temple",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7464237,
+      "lng": 100.4927733,
+      "googleMapsUri": "https://maps.google.com/?cid=9076048512320389678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.watpho.com/th/home#Page1",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 90.17
+    },
+    {
+      "googlePlaceId": "ChIJa73kwAmf4jARllLeKNsJqFY",
+      "name": "Zero Latency Thailand",
+      "address": "ชั้น 4 ห้างสรรพสินค้า The EmQuartier อาคาร The Glass Quartier Sukhumvit Rd, Khwaeng Khlong Tan Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1298,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.731352099999999,
+      "lng": 100.5697053,
+      "googleMapsUri": "https://maps.google.com/?cid=6244251720237339286&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.zerolatency.co.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.17
+    },
+    {
+      "googlePlaceId": "ChIJ_QYAIOOe4jARxBtLupRX4u4",
+      "name": "Bangkok Heightz Rooftop (Restaurant & Bar 39th floor)",
+      "address": "413 ชั้น 39, โรงแรม เดอะ คอนทิเนนท์, Sukhumvit Rd, Khwaeng Khlong Toei Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 2820,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "thai_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 13.736264,
+      "lng": 100.5621587,
+      "googleMapsUri": "https://maps.google.com/?cid=17213417022055717828&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://montraj.com/continent-hotel/bangkok-heightz-rooftop-restaurant-sukhumvit/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.98
+    },
+    {
+      "googlePlaceId": "ChIJFQlcIOOe4jARjPvJp7kSngI",
+      "name": "Axis & Spin Rooftop Restaurant & Bar (38th floor)",
+      "address": "38th Floor 413 Sukhumvit Rd, Khwaeng Khlong Toei Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1715,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 13.736114899999999,
+      "lng": 100.5619832,
+      "googleMapsUri": "https://maps.google.com/?cid=188608822989421452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://montraj.com/continent-hotel/axis-and-spin-restaurant/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.94
+    },
+    {
+      "googlePlaceId": "ChIJVwZugw2Z4jARb9AqXVD9nRk",
+      "name": "SIN Rooftop Bar Bangkok",
+      "address": "Avani+ Riverside Bangkok Hotel, 257 Charoen Nakhon Rd, Khwaeng Samre, Khet Thon Buri, Krung Thep Maha Nakhon 10600, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1200,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "sports_club",
+        "association_or_organization",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7054599,
+      "lng": 100.4910546,
+      "googleMapsUri": "https://maps.google.com/?cid=1845909943894069359&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sin.seenrooftopbangkok.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.93
+    },
+    {
+      "googlePlaceId": "ChIJu1mpMZRgHTERRNTicTdIHxg",
+      "name": "Suan Luang Rama IX",
+      "address": "Chaloem Phrakiat Ratchakan Thi 9 Rd, เเขวงหนองบอน Khet Prawet, Krung Thep Maha Nakhon 10250, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 19027,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.688319,
+      "lng": 100.6641942,
+      "googleMapsUri": "https://maps.google.com/?cid=1738187384159392836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://suanluangrama9.or.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.81
+    },
+    {
+      "googlePlaceId": "ChIJs6CnycSY4jAR5cqJZjPOsgs",
+      "name": "Mandarin Oriental, Bangkok",
+      "address": "48 Oriental Ave, Khwaeng Bang Rak, Khet Bang Rak, Krung Thep Maha Nakhon 10500, Thailand",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 6547,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "banquet_hall",
+        "wedding_venue",
+        "spa",
+        "catering_service",
+        "food_delivery",
+        "lodging",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 13.7236158,
+      "lng": 100.51431679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=842962800430664421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mandarinoriental.com/en/bangkok/chao-phraya-river?src=loc.yext.mobkk.ggl",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.75
+    },
+    {
+      "googlePlaceId": "ChIJDYDMLHBgHTERm8DRBile97w",
+      "name": "Train Night Market Srinagarindra",
+      "address": "1, 4 Thanon Srinagarindra, Khwaeng Nong Bon, Khet Prawet, Krung Thep Maha Nakhon 10250, Thailand",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 18098,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.6938923,
+      "lng": 100.65118009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13616455528679063707&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://web.facebook.com/taradrodfi/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.61
+    },
+    {
+      "googlePlaceId": "ChIJ2_aPeJb9DDkRjFaPO3zBsCo",
+      "name": "Museum of Illusions",
+      "address": "A 30-33 1st Floor, A Block, Inner Cir, Block A, Connaught Place, New Delhi, Delhi 110001, India",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 44515,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "cafe",
+        "store",
+        "restaurant",
+        "point_of_interest",
+        "service",
+        "food",
+        "establishment"
+      ],
+      "lat": 28.633448599999998,
+      "lng": 77.2181884,
+      "googleMapsUri": "https://maps.google.com/?cid=3076171284813403788&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museumofillusions.in/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJvzMZsGySAjERUYRvklulr98",
+      "name": "Nongnooch Pattaya Garden",
+      "address": "Na Chom Thian, Sattahip District, Chon Buri 20250, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 43612,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 12.765497,
+      "lng": 100.93513139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16118283404099683409&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nongnoochpattaya.com/th/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.54
+    },
+    {
+      "googlePlaceId": "ChIJD_Ph9PF-HTERKo_7Kxa8k0g",
+      "name": "Dream World",
+      "address": "Bueng Yitho, Thanyaburi District, Pathum Thani 12130, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 17311,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "park_and_ride",
+        "water_park",
+        "parking",
+        "park",
+        "transportation_service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.9881551,
+      "lng": 100.6752221,
+      "googleMapsUri": "https://maps.google.com/?cid=5229730395720486698&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dreamworld.co.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.47
+    },
+    {
+      "googlePlaceId": "ChIJhxshNqWf4jARgYxEW8hBGcE",
+      "name": "Octave Rooftop Lounge & Bar",
+      "address": "2 ซอย, Sukhumvit Rd, Khwaeng Khlong Tan Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 6056,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.723502300000002,
+      "lng": 100.58054260000002,
+      "googleMapsUri": "https://maps.google.com/?cid=13914224852518341761&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sevenrooms.com/reservations/octaverooftoploungebarbkkms/goog",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJGzV2mdKY4jARdIb62T7BoE4",
+      "name": "King Power Mahanakhon",
+      "address": "114 Thanon Naradhiwat Rajanagarindra, Si Lom, Khet Bang Rak, Krung Thep Maha Nakhon 10500, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 28908,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "bar",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7240107,
+      "lng": 100.52847709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5665740806921291380&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kingpowermahanakhon.co.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.36
+    },
+    {
+      "googlePlaceId": "ChIJHYtcggKf4jARcZyO9vYmIIM",
+      "name": "Amritsr Restaurant Sukhumvit Soi 22 - Best Indian Restaurant in Bangkok",
+      "address": "Sukhumvit Soi 22, Khwaeng Khlong Toei, Khet Khlong Toei, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 11446,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "indian_restaurant",
+      "types": [
+        "indian_restaurant",
+        "snack_bar",
+        "bar_and_grill",
+        "meal_takeaway",
+        "north_indian_restaurant",
+        "bar",
+        "chinese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.732825199999999,
+      "lng": 100.565086,
+      "googleMapsUri": "https://maps.google.com/?cid=9448594860363652209&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amritsr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 89.33
+    },
+    {
+      "googlePlaceId": "ChIJ10MhX0kqHDER_CvyxA9QSwE",
+      "name": "Khao Yai National Park",
+      "address": "Nakhon Ratchasima, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 16867,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "hiking_area",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 14.3109229,
+      "lng": 101.5304415,
+      "googleMapsUri": "https://maps.google.com/?cid=93256245950163964&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://khaoyainationalpark.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.99
+    },
+    {
+      "googlePlaceId": "ChIJV0YZRNmY4jARhoPwJOh_TgM",
+      "name": "Co van Kessel Bangkok Tours (River City)",
+      "address": "23 Charoen Krung 24, Khwaeng Talat Noi, Khet Samphanthawong, Krung Thep Maha Nakhon 10100, Thailand",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 4096,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 13.730590399999999,
+      "lng": 100.5136389,
+      "googleMapsUri": "https://maps.google.com/?cid=238268465326097286&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.covankessel.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.99
+    },
+    {
+      "googlePlaceId": "ChIJKVqr3I6Z4jARPi6t_zvvL1A",
+      "name": "Jim Thompson, A Thai Restaurant",
+      "address": "6/1,6, 2 Soi Kasem San 2, Khwaeng Wang Mai, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 3543,
+      "priceLevel": null,
+      "primaryType": "thai_restaurant",
+      "types": [
+        "thai_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7491036,
+      "lng": 100.52857630000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5778099887911284286&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://jimthompsonrestaurant.com/restaurant/a-thai-restaurant/",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.94
+    },
+    {
+      "googlePlaceId": "ChIJL-UmnhyZ4jARuwY-UTadgnI",
+      "name": "Pak Khlong Talat (Flower Market)",
+      "address": "สน พระราชวัง ปาก คลองตลาด - วัดกัลยาณมิตร, Khwaeng Wang Burapha Phirom, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 15239,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7416831,
+      "lng": 100.4963788,
+      "googleMapsUri": "https://maps.google.com/?cid=8251330323912984251&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.67
+    },
+    {
+      "googlePlaceId": "ChIJR4LgSl-f4jARSMzR8x4RA3E",
+      "name": "View Rooftop Bangkok",
+      "address": "9th Floor, Novotel Bangkok, Platinum Pratunam, 220 Thanon Phetchaburi, Khwaeng Thanon Phetchaburi, Khet Ratchathewi, Krung Thep Maha Nakhon 10400, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1797,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.749584400000002,
+      "lng": 100.54066329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8143371375853292616&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://viewrooftopbarbangkok.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.58
+    },
+    {
+      "googlePlaceId": "ChIJbV4oLqWf4jAR3_0nWI-E_Zk",
+      "name": "Total VR Arcade",
+      "address": "3rd Floor Gateway Ekamai Mall, M120, 982 22 ถ. สุขุมวิท แขวงพระโขนง เขตคลองเตย กรุงเทพมหานคร 10110, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 773,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 13.718713,
+      "lng": 100.58538899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11096170808104975839&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://totalvr.co/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.57
+    },
+    {
+      "googlePlaceId": "ChIJjYPUa8GZ4jARi9fgigQOiR8",
+      "name": "RONGROS",
+      "address": "392/16 Thanon Maha Rat, Khwaeng Phra Borom Maha Ratchawang, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4467,
+      "priceLevel": null,
+      "primaryType": "thai_restaurant",
+      "types": [
+        "thai_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7442546,
+      "lng": 100.49170869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2272362899657774987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://linktr.ee/RONGROS_bkk",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.56
+    },
+    {
+      "googlePlaceId": "ChIJAVT7t-ie4jARe7wAWZrzW4U",
+      "name": "Above Eleven Rooftop Bar & Restaurant",
+      "address": "Fraser Suites, 38/8 Sukhumvit Rd, Khwaeng Khlong Toei Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 6012,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "peruvian_restaurant",
+      "types": [
+        "peruvian_restaurant",
+        "bar_and_grill",
+        "sushi_restaurant",
+        "bar",
+        "japanese_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 13.7456558,
+      "lng": 100.5567655,
+      "googleMapsUri": "https://maps.google.com/?cid=9609542074168818811&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aboveeleven.com/bangkok/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.38
+    },
+    {
+      "googlePlaceId": "ChIJZx_rgQ2f4jARkCOc1rNDSOs",
+      "name": "Indian Express",
+      "address": "70 55-56 Soi Phetchaburi 31, Khwaeng Makkasan, Khet Ratchathewi, Krung Thep Maha Nakhon 10400, Thailand",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 10326,
+      "priceLevel": null,
+      "primaryType": "indian_restaurant",
+      "types": [
+        "indian_restaurant",
+        "halal_restaurant",
+        "thai_restaurant",
+        "live_music_venue",
+        "italian_restaurant",
+        "bar",
+        "event_venue",
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7526566,
+      "lng": 100.54584200000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16953875236914996112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://indianexpressthai.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJiYe3uWuc4jARtODfpOuyAhQ",
+      "name": "Children’s Discovery Museum",
+      "address": "810 Kamphaeng Phet 4 Rd, Khwaeng Chatuchak, Khet Chatuchak, Krung Thep Maha Nakhon 10900, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4831,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.803110300000002,
+      "lng": 100.55135179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1441911555865174196&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bkk-cdm.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJTw-JsUKc4jAREpXc3JmuyAE",
+      "name": "Wachirabenchathat Park (State Railway Park)",
+      "address": "Kamphaeng Phet 3 Rd, แขวง ลาดยาว, Khet Chatuchak, Krung Thep Maha Nakhon 10900, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 8607,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "city_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.811069999999999,
+      "lng": 100.5536575,
+      "googleMapsUri": "https://maps.google.com/?cid=128544565238732050&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.25
+    },
+    {
+      "googlePlaceId": "ChIJFXu8H6R25DAResligLqc7lQ",
+      "name": "Erawan National Park",
+      "address": "94GV+5HW, Tha Kradan, Si Sawat District, Kanchanaburi 71250, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 16237,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 14.3754962,
+      "lng": 99.1439623,
+      "googleMapsUri": "https://maps.google.com/?cid=6120001268474890618&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/profile.php?id=100066897145164",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.22
+    },
+    {
+      "googlePlaceId": "ChIJR5NzOMOc4jAR-zcXjSL3h84",
+      "name": "Museum of Contemporary Art (MOCA BANGKOK)",
+      "address": "499 Kamphaeng Phet 6 Rd, Khwaeng Lat Yao, Khet Chatuchak, Krung Thep Maha Nakhon 10900, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6249,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.8523198,
+      "lng": 100.5630092,
+      "googleMapsUri": "https://maps.google.com/?cid=14882135221437151227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mocabangkok.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.1
+    },
+    {
+      "googlePlaceId": "ChIJE70sFzKZ4jAR5_UZUnIT378",
+      "name": "E-Gokart Track สนามโกคาร์ทไฟฟ้า (Banthat Thong Road, Chula 28) 电动卡丁车赛道",
+      "address": "187, 27 Banthat Thong Rd, Khwaeng Wang Mai, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 3306,
+      "priceLevel": null,
+      "primaryType": "go_karting_venue",
+      "types": [
+        "go_karting_venue",
+        "race_course",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.738337,
+      "lng": 100.5228709,
+      "googleMapsUri": "https://maps.google.com/?cid=13825790762775344615&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playerbox.co/e-gokart/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "family-kids"
+      ],
+      "popularityScore": 88.08
+    },
+    {
+      "googlePlaceId": "ChIJ_1wg6Xqf4jARwu_tBPmKbmU",
+      "name": "Sri Nakhon Khuean Khan Park and Botanical Garden",
+      "address": "73 Soi Wat Rat Rangsan, Tambon Bang Kachao, Amphoe Phra Pradaeng, Chang Wat Samut Prakan 10130, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 4854,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.6968366,
+      "lng": 100.5649237,
+      "googleMapsUri": "https://maps.google.com/?cid=7308932047403085762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.suansri-bangkachao.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.97
+    },
+    {
+      "googlePlaceId": "ChIJY71ZvnGf4jAR2isivLDWSdM",
+      "name": "Playmondo",
+      "address": "2nd Floor, Central World, 999/9 ถ. พระรามที่ 1 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330, Thailand",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 1251,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7478882,
+      "lng": 100.5390657,
+      "googleMapsUri": "https://maps.google.com/?cid=15224936069861616602&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.playmondo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJs4eYXBqf4jARtzrmWsDaDiM",
+      "name": "Queen Sirikit National Convention Center",
+      "address": "60 Thanon Ratchadaphisek, Khwaeng Khlong Toei, Khet Khlong Toei, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 20110,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.724535399999999,
+      "lng": 100.55898219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2526196960695040695&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.qsncc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.79
+    },
+    {
+      "googlePlaceId": "ChIJg0Kb2I6Y4jARlIfc8vnJ1YU",
+      "name": "SEEN Restaurant & Bar Bangkok",
+      "address": "AVANI Riverside Bangkok Charoen Nakhon Rd, Khwaeng Samre, Khet Thon Buri, Krung Thep Maha Nakhon 10600, Thailand",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1694,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7051152,
+      "lng": 100.491159,
+      "googleMapsUri": "https://maps.google.com/?cid=9643836252442363796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seenrooftopbangkok.com/?utm_source=GoogleMyBusiness&utm_medium=GMB&utm_term=SEENBangkok&utm_content=Home&utm_campaign=Google_GMB",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJPXYszxSf4jARvqTluQfT_is",
+      "name": "Tichuca Rooftop Bar",
+      "address": "ตึก ที วัน ชั้น 46, Soi Sukhumvit 40, Khwaeng Phra Khanong, Khet Khlong Toei, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 6860,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7222399,
+      "lng": 100.5807134,
+      "googleMapsUri": "https://maps.google.com/?cid=3170203217852474558&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://tichuca.co/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.64
+    },
+    {
+      "googlePlaceId": "ChIJ6Vhm6Baf4jARdunalBbPskU",
+      "name": "Sato San Rooftop Bar",
+      "address": "111 Thanon Ratchadamri, Khwaeng Lumphini, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 5,
+      "reviewCount": 1935,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.747712199999999,
+      "lng": 100.5417143,
+      "googleMapsUri": "https://maps.google.com/?cid=5022304230365129078&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.satosanrooftopbar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.51
+    },
+    {
+      "googlePlaceId": "ChIJWaoiBdmY4jAReVIX1maq_-I",
+      "name": "Wat Trai Mit Witthayaram Worawihan",
+      "address": "661 ถ. เจริญกรุง Khwaeng Talat Noi, Khet Samphanthawong, Krung Thep Maha Nakhon 10100, Thailand",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 22258,
+      "priceLevel": null,
+      "primaryType": "buddhist_temple",
+      "types": [
+        "buddhist_temple",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.737707499999999,
+      "lng": 100.5134545,
+      "googleMapsUri": "https://maps.google.com/?cid=16356979730288169593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/WatTrimitrWithayaramWorawihan?mibextid=ZbWKwL",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.45
+    },
+    {
+      "googlePlaceId": "ChIJbxEMbg6Z4jARJ7AV6fSNNeU",
+      "name": "Bangkok City Pillar Shrine",
+      "address": "Lak Muang Rd, Khwaeng Phra Borom Maha Ratchawang, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 10894,
+      "priceLevel": null,
+      "primaryType": "place_of_worship",
+      "types": [
+        "tourist_attraction",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7525651,
+      "lng": 100.4940402,
+      "googleMapsUri": "https://maps.google.com/?cid=16516263291473211431&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bangkokcitypillarshrine.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.43
+    },
+    {
+      "googlePlaceId": "ChIJGe2dNRSZ4jARXs-hTwCQmFI",
+      "name": "Rattanakosin Exhibition Hall",
+      "address": "100 Thanon Ratchadamnoen Klang, Khwaeng Wat Bowon Niwet, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2497,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.755854099999999,
+      "lng": 100.5038224,
+      "googleMapsUri": "https://maps.google.com/?cid=5951665238580514654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nitasrattanakosin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.41
+    },
+    {
+      "googlePlaceId": "ChIJrc78zJBjHTERdLG8EciM5Qs",
+      "name": "Siam Amazing Park",
+      "address": "203 Thanon Suan Sayam, Khwaeng Khan Na Yao, Khet Khan Na Yao, Krung Thep Maha Nakhon 10230, Thailand",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.2,
+      "reviewCount": 16739,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.806290599999999,
+      "lng": 100.692527,
+      "googleMapsUri": "https://maps.google.com/?cid=857246095002874228&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.siamamazingpark.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.17
+    },
+    {
+      "googlePlaceId": "ChIJa9RCZwif4jARKi_J4yuKF2w",
+      "name": "Cul de Sac - Thonglor Rooftop Bar",
+      "address": "Quartier by Montraj Sukhumvit, 10th Floor, 413 ซ. สุขุมวิท 39 แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 2468,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.737022099999999,
+      "lng": 100.5758671,
+      "googleMapsUri": "https://maps.google.com/?cid=7788846001670401834&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://montraj.com/quartier-hotel/cul-de-sac-rooftop-thonglor/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.17
+    },
+    {
+      "googlePlaceId": "ChIJzddV98ed4jARsZ7Bi-51v2k",
+      "name": "Khlong Lad Mayom Floating Market",
+      "address": "30/1 หมู่ที่ 15 Thanon Bang Ramat, Khwaeng Bang Ramat, Khet Taling Chan, Krung Thep Maha Nakhon 10170, Thailand",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.3,
+      "reviewCount": 11545,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7616655,
+      "lng": 100.41578849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7619938761941556913&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/taladnamkhlongladmayom/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.11
+    },
+    {
+      "googlePlaceId": "ChIJ_T1BvdWZ4jAR5Bzk9oYHsnw",
+      "name": "So Thai Spa",
+      "address": "181, 16 Surawong Rd, Khwaeng Suriya Wong, Khet Bang Rak, Krung Thep Maha Nakhon 10500, Thailand",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 3909,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "massage_spa",
+        "massage",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 13.727606,
+      "lng": 100.5242511,
+      "googleMapsUri": "https://maps.google.com/?cid=8985252482806717668&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sothaispabkk.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas",
+        "sound baths"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJk31AdLKf4jARXwt8iVGkqwI",
+      "name": "Jodd Fairs Ratchada",
+      "address": "129 Thanon Ratchadaphisek, Khwaeng Din Daeng, Khet Din Daeng, Krung Thep Maha Nakhon 10400, Thailand",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.2,
+      "reviewCount": 16355,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.76792,
+      "lng": 100.5711979,
+      "googleMapsUri": "https://maps.google.com/?cid=192428079199292255&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.facebook.com/JoddFairs",
+      "openNow": false,
+      "matchedQueries": [
+        "food trucks",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.09
+    },
+    {
+      "googlePlaceId": "ChIJEZXxzp6Z4jAR119D3wQhnAE",
+      "name": "YABAR Secret Bar & Rooftop",
+      "address": "28, 10 Trok Bowonrangsi, Khwaeng Chana Songkhram, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 5,
+      "reviewCount": 868,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7612116,
+      "lng": 100.49370979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=116003995214110679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.02
+    },
+    {
+      "googlePlaceId": "ChIJ5djiGgJfHTERpkDbGVbddjk",
+      "name": "Topgolf Megacity",
+      "address": "Topgolf Megacity, 971, Bang Kaeo subdistrict, อำเภอบางพลี สมุทรปราการ 10540, Thailand",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 3703,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.6432565,
+      "lng": 100.6756812,
+      "googleMapsUri": "https://maps.google.com/?cid=4140740269284475046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.topgolfthailand.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "mini golf",
+        "driving ranges"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 86.93
+    },
+    {
+      "googlePlaceId": "ChIJlfTGdoSZ4jAR3QxxLj97yVM",
+      "name": "Sanay Rooftop Bar Khaosan - เสน่ห์ รูฟท็อป บาร์ ข้าวสาร",
+      "address": "19 Thanon Tani, Khwaeng Talat Yot, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 626,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.760680899999999,
+      "lng": 100.4978153,
+      "googleMapsUri": "https://maps.google.com/?cid=6037492286759177437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thegravitiquehotel.com/dining/sanay-rooftop-bar/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJaZEaAGCZ4jARDri8TzszXuQ",
+      "name": "Embers",
+      "address": "Arun Amarin, Bangkok Noi, Bangkok 10700, Thailand",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 8838,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.765059299999999,
+      "lng": 100.48296839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16455646418292226062&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.embersbkk.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJl0M90fRtHTERCZMNidsW6W0",
+      "name": "Bangkok Elephant Park",
+      "address": "47, Suwinthawong, Khwaeng Krathum Rai, Khet Nong Chok, Krung Thep Maha Nakhon 10530, Thailand",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 5,
+      "reviewCount": 4352,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.805695499999999,
+      "lng": 100.928066,
+      "googleMapsUri": "https://maps.google.com/?cid=7919886551860744969&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bangkokelephant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJu2YM5gSZ4jARoL7Fey_yXy0",
+      "name": "Museum Siam",
+      "address": "4 Thanon Sanam Chai, Khwaeng Phra Borom Maha Ratchawang, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8121,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.744147000000002,
+      "lng": 100.494137,
+      "googleMapsUri": "https://maps.google.com/?cid=3269598140248211104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.72
+    },
+    {
+      "googlePlaceId": "ChIJxYf1agCWAjERSpuP5_nSV84",
+      "name": "Alcazar Cabaret Show",
+      "address": "78, WVVQ+WRX, 14 Thanon Pattayasaisong, ตำบล หนองปรือ, Amphoe Bang Lamung, Chang Wat Chon Buri 20150, Thailand",
+      "category": "adult-after-dark",
+      "categoryLabel": "Adult / After-Dark Experiences",
+      "rating": 4.5,
+      "reviewCount": 24796,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 12.943133099999999,
+      "lng": 100.88875349999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14868584665560619850&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://see-ticket.com/alcazar-cabaret/",
+      "openNow": false,
+      "matchedQueries": [
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.69
+    },
+    {
+      "googlePlaceId": "ChIJEyraT0CZ4jAREz5xKJKTLDM",
+      "name": "Rajadamnern Muay Thai Stadium",
+      "address": "8 Thanon Ratchadamnoen Nok, เเขวง วัดโสมนัส, Khet Pom Prap Sattru Phai, Krung Thep Maha Nakhon 10100, Thailand",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 8519,
+      "priceLevel": null,
+      "primaryType": "health",
+      "types": [
+        "arena",
+        "event_venue",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7610766,
+      "lng": 100.50851290000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3687484450862611987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rajadamnern.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.67
+    },
+    {
+      "googlePlaceId": "ChIJxwxeU5Cf4jARR2EqtuYxqd0",
+      "name": "Vol de Nuit, The Hidden Bar",
+      "address": "178, 1 Suanplu Road, Khwaeng Thung Maha Mek, Khet Sathon, Krung Thep Maha Nakhon 10240, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 5,
+      "reviewCount": 838,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "cafe",
+        "dessert_restaurant",
+        "museum",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7206175,
+      "lng": 100.5376201,
+      "googleMapsUri": "https://maps.google.com/?cid=15972352420414644551&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lenvolbkk.com/vol-de-nuit-bar",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.67
+    },
+    {
+      "googlePlaceId": "ChIJL-1RuzKh4jARd-9ZboreTeA",
+      "name": "The Erawan Museum",
+      "address": "JHHQ+CH หมู่ที่1, 99 Kanchanaphisek Rd, Tambon Bang Muang Mai, Amphoe Mueang Samut Prakan, Chang Wat Samut Prakan 10270, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 13934,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.6285625,
+      "lng": 100.5889375,
+      "googleMapsUri": "https://maps.google.com/?cid=16162819323840819063&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.klook.com/en-GB/activity/368-ancient-city-erawan-museum-ticket-bangkok/?aid=30843&aff_adid=743734&aff_label1=V%C3%A9%20B%E1%BA%A3o%20T%C3%A0ng%20Erawan%20%20th%C3%A1i%20lan&aff_label2=&aff_label3=&aff_pid=&aff_sid=&utm_medium=affiliate-alwayson&utm_source=non-network&utm_campaign=30843&utm_term=&utm_content=&aff_klick_id=44377434499-30843-743734-82f47cf",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.65
+    },
+    {
+      "googlePlaceId": "ChIJCztWnuOe4jARxcnC7XWPzjM",
+      "name": "Pier 21",
+      "address": "ชั้น 5, 88 Sukhumvit Rd, Khwaeng Khlong Toei Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 24123,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 13.737625,
+      "lng": 100.5606201,
+      "googleMapsUri": "https://maps.google.com/?cid=3733078877799631301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.terminal21.co.th/asok/shop/pier21/en",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.6
+    },
+    {
+      "googlePlaceId": "ChIJF0QAycSY4jARv3t4vwi1r8A",
+      "name": "The Bamboo Bar",
+      "address": "48 Oriental Ave, Khwaeng Bang Rak, Khet Bang Rak, Krung Thep Maha Nakhon 10500, Thailand",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1185,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7241436,
+      "lng": 100.5139267,
+      "googleMapsUri": "https://maps.google.com/?cid=13884515225383238591&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mandarinoriental.com/en/bangkok/chao-phraya-river/dine/the-bamboo-bar?src=loc.yext.mobkk.ggl",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "romantic bars",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.59
+    },
+    {
+      "googlePlaceId": "ChIJ-WOptA2Z4jARRFoeZFcz_Gk",
+      "name": "Sanam Luang",
+      "address": "QF4V+88R, Thanon Ratchadamnoen Klang, Khwaeng Phra Borom Maha Ratchawang, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 26954,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "garden",
+        "park",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.755869299999999,
+      "lng": 100.49328039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7637035518548400708&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJRf8ELbOf4jARF2dtNc45Xyg",
+      "name": "MunJom.A, Korean BBQ",
+      "address": "89/70 Room A6 CocoWalk Ratchathewi, ถ. พญาไท แขวงถนนเพชรบุรี Rajthawei, กรุงเทพมหานคร 10400, Thailand",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 5446,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.751441799999998,
+      "lng": 100.53232899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2909107442127038231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/MunJom.AThailand",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJqZVFQ0CZ4jARcYeRi9n6IJk",
+      "name": "Wang Lang Market",
+      "address": "112 13 ซอย วังหลัง Khwaeng Siriraj, Khet Bangkok Noi, Krung Thep Maha Nakhon 10700, Thailand",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.5,
+      "reviewCount": 4398,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.756086999999999,
+      "lng": 100.4862868,
+      "googleMapsUri": "https://maps.google.com/?cid=11034094899314132849&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/marketwanglang",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJO8nFroGf4jARlObYrnwT2Jo",
+      "name": "Once Upon A Thai Wellness and Spa (Ratchadamri)",
+      "address": "231/4 Soi, ถ. สารสิน แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร 10330, Thailand",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 3036,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "wellness_center",
+        "beauty_salon",
+        "massage_spa",
+        "massage",
+        "spa",
+        "public_bath",
+        "point_of_interest",
+        "health",
+        "service",
+        "establishment"
+      ],
+      "lat": 13.7357844,
+      "lng": 100.54038709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11157689503040726676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.onceuponathaispa.com/visit-ratchadamri",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas",
+        "sound baths"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJhW6hs4uZ4jARwfIKUtEHyRw",
+      "name": "The Family",
+      "address": "1 6 Prachathipatai Rd, Khwaeng Ban Phan Thom, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2662,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "thai_restaurant",
+      "types": [
+        "thai_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.760166199999999,
+      "lng": 100.5027915,
+      "googleMapsUri": "https://maps.google.com/?cid=2074197698986832577&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.facebook.com/thefamilybkk",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.3
+    },
+    {
+      "googlePlaceId": "ChIJF6uVAzt9HTEROKM0WKZMU7M",
+      "name": "The Artist House Bangkok",
+      "address": "309, 28 Phet Kasem Rd, Khwaeng Khuha Sawan, Khet Phasi Charoen, Krung Thep Maha Nakhon 10160, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3058,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "coffee_shop",
+        "cafe",
+        "art_gallery",
+        "food_store",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 13.7313154,
+      "lng": 100.4632197,
+      "googleMapsUri": "https://maps.google.com/?cid=12921756033184211768&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/Baansilapin/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJwy9HTgeCHTERwkufzqG5VyA",
+      "name": "National Science Museum",
+      "address": "องค์การพิพิธภัณฑ์วิทยาศาสตร์แห่งชาติ 39 หมู่ที่ 3 ถนน เลียบคลองห้า Tambon Khlong Ha, Amphoe Khlong Luang, Chang Wat Pathum Thani 12120, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5339,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 14.048542399999999,
+      "lng": 100.71734130000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2330535436794940354&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nsm.or.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.27
+    },
+    {
+      "googlePlaceId": "ChIJZ3p9P8-e4jAROWTAP3o5qDM",
+      "name": "Platinum Fashion Mall",
+      "address": "222, PLATINUM FASHION MALL, Thanon Phetchaburi, Khwaeng Thanon Phetchaburi, Khet Ratchathewi, Krung Thep Maha Nakhon 10400, Thailand",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 30815,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7503785,
+      "lng": 100.53944249999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3722288289240081465&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.platinumfashionmall.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 86.26
+    },
+    {
+      "googlePlaceId": "ChIJuT3ek1uf4jARN0abB7juMBQ",
+      "name": "Baannok",
+      "address": "อาคาร วีฟร์ ชั้นที่ 2, 34/3 Lang Suan Rd, Khwaeng Lumphini, Pathum Wan, Krung Thep Maha Nakhon 10330, Thailand",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1659,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7416977,
+      "lng": 100.54335090000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1454925153809679927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.erestaurants.co/modules/booking/book_form_section.php?redirect=1&data=&bkrestaurant=TH_BK_R_BaannokLangsuan&bktitle=&city=&country=&bkextra=&bktracking=Googlebusiness&hideimage=&bkdate=&restaurantselected=&bkpromo=&type=&notestext=&clientid=&language=",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.94
+    },
+    {
+      "googlePlaceId": "ChIJZ5P52NGf4jARysEjAwZO-7k",
+      "name": "Bamboo Gaming Center & Bar",
+      "address": "21 Soi Ekkamai 22, Khwaeng Khlong Tan Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 330,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "internet_cafe",
+        "amusement_center",
+        "event_venue",
+        "bar",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.736323599999999,
+      "lng": 100.59031979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13401390903900488138&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bambooesc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.93
+    },
+    {
+      "googlePlaceId": "ChIJZen-Mlqc4jAR9Qiuu1zLBw8",
+      "name": "Blue Sky Rooftop Restaurant & Bar at Centara Grand at Central Plaza Ladprao Bangkok",
+      "address": "1695 Centara Grand at Central plaza, Ladprao, 24 Fl, แขวงจตุจักร เขตจตุจักร กรุงเทพมหานคร 10900, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1321,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 13.818031,
+      "lng": 100.5596752,
+      "googleMapsUri": "https://maps.google.com/?cid=1083057834552068341&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.centarahotelsresorts.com/bluesky/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJB7xuSwmZ4jARD9UcGcGRW8s",
+      "name": "AMAZE ME at Asiatique the Riverfront",
+      "address": "2194 ถ. เจริญกรุง Khwaeng Wat Phraya Krai, Khet Bang Kho Laem, Krung Thep Maha Nakhon 10120, Thailand",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 919,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7043873,
+      "lng": 100.50229929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14653466071116076303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://amazeme.co.th/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.85
+    },
+    {
+      "googlePlaceId": "ChIJfTpKodSf4jARqk2omnReCig",
+      "name": "Vertigo & Moon Bar Rooftop",
+      "address": "21/100 S Sathon Rd, Khwaeng Thung Maha Mek, Khet Sathon, Krung Thep Maha Nakhon 10120, Thailand",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 4367,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "western_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.723564699999999,
+      "lng": 100.5396054,
+      "googleMapsUri": "https://maps.google.com/?cid=2885222366188162474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.banyantree.com/thailand/bangkok/dining/vertigo",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJQ8bhvJyf4jARNVgpZ9-YHNA",
+      "name": "Once Upon A Thai Spa (Phrom Phong)",
+      "address": "8 7 Soi Bannasan, Khlongton Khlongtoey Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 4558,
+      "priceLevel": null,
+      "primaryType": "massage_spa",
+      "types": [
+        "massage_spa",
+        "massage",
+        "spa",
+        "point_of_interest",
+        "health",
+        "service",
+        "establishment"
+      ],
+      "lat": 13.7281216,
+      "lng": 100.57201529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14996028944512800821&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.onceuponathaispa.com/visit-phromphong",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJwf47m8CZ4jARLTs_Bk0eaBs",
+      "name": "Space & Time Cube+",
+      "address": "607 Phet Kasem Rd, Khwaeng Bang Wa, Khet Phasi Charoen, Krung Thep Maha Nakhon 10160, Thailand",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 2650,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.712141100000002,
+      "lng": 100.43522469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1974861752768084781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zipeventapp.com/e/Space-Time-Cube?fbclid=PAQ0xDSwL8TeVleHRuA2FlbQIxMQABp6wL-hvnG2E0PJIkQBbzz0TVwAPqFftKogEVgS07PdKjcKYHMpfruIv3Af0v_aem_ol9lW_mpBd-REIdES0SXgw",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJdVyFquif4jARGn8fUTV28PM",
+      "name": "Pratunam Market",
+      "address": "Soi Phetchaburi 21, Khwaeng Thanon Phaya Thai, Khet Ratchathewi, Krung Thep Maha Nakhon 10400, Thailand",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 4867,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.752803499999999,
+      "lng": 100.54059769999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17577679316993408794&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "boutiques",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.78
+    },
+    {
+      "googlePlaceId": "ChIJtzsv7T2Z4jAR2fSNVxk9_Jc",
+      "name": "The Standard Grill",
+      "address": "5th Floor, The Standard, Bangkok Mahanakhon, 114 Narathiwas Road, Si Lom, Khet Bang Rak, Krung Thep Maha Nakhon 10500, Thailand",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 1256,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7235301,
+      "lng": 100.52829559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10951695572910601433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thestandardgrill.com/the-standard-grill-bkk",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.72
+    },
+    {
+      "googlePlaceId": "ChIJ6zH3C31YHTERx4JA_l21VS4",
+      "name": "The Ancient City",
+      "address": "296, 1 Sukhumvit Rd, Tambon Bang Pu Mai, Amphoe Mueang Samut Prakan, Chang Wat Samut Prakan 10280, Thailand",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 17905,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.538602599999999,
+      "lng": 100.6225741,
+      "googleMapsUri": "https://maps.google.com/?cid=3338774114067317447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.muangboranmuseum.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJ8ZkGJn2e4jAR3ox4hGFQGfo",
+      "name": "Siam Niramit Bangkok",
+      "address": "19 Thiam Ruam Mit Rd, Khwaeng Huai Khwang, Khet Huai Khwang, Krung Thep Maha Nakhon 10310, Thailand",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 6224,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "cultural_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.768829799999999,
+      "lng": 100.57749679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18021523763664293086&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.siamniramit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 85.64
+    },
+    {
+      "googlePlaceId": "ChIJIxuKzr6f4jARbYUS3lwpNdA",
+      "name": "Cielo Sky Bar & Restaurant",
+      "address": "1595/ 500 Sukhumvit Rd, พระโขนงเหนือ Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1770,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 13.7144788,
+      "lng": 100.5935391,
+      "googleMapsUri": "https://maps.google.com/?cid=15002943212494161261&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cieloskybar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.64
+    },
+    {
+      "googlePlaceId": "ChIJV3QuEKmf4jAR2dFT78VeNmg",
+      "name": "Eden The Ultimate Spa and Massage Experience (Sukhumvit11 , Nana)",
+      "address": "43 15 Soi Sukhumvit 11, Khwaeng Khlong Toei Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 1678,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "sauna",
+        "massage",
+        "spa",
+        "public_bath",
+        "point_of_interest",
+        "health",
+        "service",
+        "establishment"
+      ],
+      "lat": 13.746354,
+      "lng": 100.55604430000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7509293632903696857&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/profile.php?id=61558079724954&locale=th_TH",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJwxKB42mf4jARlMITZqsdrho",
+      "name": "Amritsr Restaurant Sukhumvit Soi 11 - Indian Restaurant in Bangkok",
+      "address": "26/13 Soi Sukhumvit 11, Khwaeng Khlong Tan Nuea, Watthana, Krung Thep Maha Nakhon 10110, Thailand",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 8419,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "indian_restaurant",
+      "types": [
+        "indian_restaurant",
+        "north_indian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 13.7445005,
+      "lng": 100.5571418,
+      "googleMapsUri": "https://maps.google.com/?cid=1922506712922964628&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://amritsr.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.53
+    }
+  ]
+}

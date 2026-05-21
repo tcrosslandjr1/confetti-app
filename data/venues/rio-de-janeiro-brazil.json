@@ -1,0 +1,3456 @@
+{
+  "location": "Rio de Janeiro, Brazil",
+  "generatedAt": "2026-05-17T19:52:46.355Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJMSqhMld_mQAR4QxmcfkBaTE",
+      "name": "Museu do Amanhã",
+      "address": "Praça Mauá, 1 - Centro, Rio de Janeiro - RJ, 20081-240, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 104496,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.8940177,
+      "lng": -43.1794418,
+      "googleMapsUri": "https://maps.google.com/?cid=3560379151274085601&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://museudoamanha.org.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 100.04
+    },
+    {
+      "googlePlaceId": "ChIJL1eUcj6AmQAR6bpebtMpFpU",
+      "name": "Monumento Natural dos Morros do Pão de Açúcar e da Urca",
+      "address": "Pista Claudio Coutinho, s/n - Urca, Rio de Janeiro - RJ, 22290-255, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 59821,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9537972,
+      "lng": -43.163340399999996,
+      "googleMapsUri": "https://maps.google.com/?cid=10742819949205437161&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.monapaodeacucar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 99.08
+    },
+    {
+      "googlePlaceId": "ChIJT0hbxVh_mQARr0EoWZhw0rA",
+      "name": "Centro Cultural Banco do Brasil (CCBB)",
+      "address": "R. Primeiro de Março, 66 - Centro, Rio de Janeiro - RJ, 20010-000, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 46738,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.901058799999998,
+      "lng": -43.1765213,
+      "googleMapsUri": "https://maps.google.com/?cid=12741370095417704879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ccbb.com.br/rio-de-janeiro",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.75
+    },
+    {
+      "googlePlaceId": "ChIJXWj-VXt_mQARNSwlewQeAXY",
+      "name": "Escadaria Selarón",
+      "address": "R. Manuel Carneiro - Santa Teresa, Rio de Janeiro - RJ, 20241-120, Brazil",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 93947,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.915292299999997,
+      "lng": -43.1792036,
+      "googleMapsUri": "https://maps.google.com/?cid=8503110576046943285&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://prefeitura.rio/",
+      "openNow": null,
+      "matchedQueries": [
+        "immersive experiences",
+        "family friendly things to do",
+        "paint and sip",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.62
+    },
+    {
+      "googlePlaceId": "ChIJeTd8pTvVmwARPechOa3rhVY",
+      "name": "Copacabana Fort (Army History Museum and Copacabana Fort)",
+      "address": "Praça Cel. Eugênio Franco, 1, Posto 6 - Copacabana, Rio de Janeiro - RJ, 22070-020, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 46761,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.986171300000002,
+      "lng": -43.1876757,
+      "googleMapsUri": "https://maps.google.com/?cid=6234648388384712509&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mhexfc.eb.mil.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97
+    },
+    {
+      "googlePlaceId": "ChIJUSQw7WF_mQARQKXFPmK9_6A",
+      "name": "Theatro Municipal do Rio de Janeiro",
+      "address": "Praça Floriano, S/N - Centro, Rio de Janeiro - RJ, 20031-050, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 24409,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9090481,
+      "lng": -43.1765575,
+      "googleMapsUri": "https://maps.google.com/?cid=11601199394787272000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://theatromunicipal.rj.gov.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "things to do this weekend",
+        "festivals this weekend",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 96.82
+    },
+    {
+      "googlePlaceId": "ChIJfw5LPHjVmwARI8TbAsKq5CQ",
+      "name": "Parque Lage",
+      "address": "R. Jardim Botânico, 414 - Jardim Botânico, Rio de Janeiro - RJ, 22461-000, Brazil",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 51018,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9612517,
+      "lng": -43.213111000000005,
+      "googleMapsUri": "https://maps.google.com/?cid=2658437430303769635&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://eavparquelage.rj.gov.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.81
+    },
+    {
+      "googlePlaceId": "ChIJP6FKmNV_mQAR3gKVAdeEyZ0",
+      "name": "Christ the Redeemer",
+      "address": "Parque Nacional da Tijuca - Alto da Boa Vista, Rio de Janeiro - RJ, 22261, Brazil",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 130676,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.951916,
+      "lng": -43.210487199999996,
+      "googleMapsUri": "https://maps.google.com/?cid=11369764793252905694&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://santuariocristoredentor.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.8
+    },
+    {
+      "googlePlaceId": "ChIJ4zqbyNV_mQAR_BSfApu9sEY",
+      "name": "Tijuca National Park",
+      "address": "Estr. da Cascatinha, 850 - | Santa Teresa - Estrada das Paineiras, S/N - Alto da Boa Vista, Rio de Janeiro - RJ, 20531-590, Brazil",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 21585,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "hiking_area",
+        "tourist_attraction",
+        "cycling_park",
+        "amusement_park",
+        "park",
+        "sports_activity_location",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9560998,
+      "lng": -43.279930799999995,
+      "googleMapsUri": "https://maps.google.com/?cid=5093779652017591548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/parquenacionaldatijuca/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.45
+    },
+    {
+      "googlePlaceId": "ChIJfVzFqCPVmwARUBFlJIm6e8k",
+      "name": "Pedra do Arpoador",
+      "address": "Av. Francisco Bhering, s/n - Ipanema, Rio de Janeiro - RJ, 22080-050, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 32666,
+      "priceLevel": null,
+      "primaryType": "scenic_spot",
+      "types": [
+        "scenic_spot",
+        "tourist_attraction",
+        "landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9903829,
+      "lng": -43.1909875,
+      "googleMapsUri": "https://maps.google.com/?cid=14518402921942815056&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "sound baths",
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "wellness-relaxation",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 96.18
+    },
+    {
+      "googlePlaceId": "ChIJ3y0eRfF_mQARRi1YDN_OqEI",
+      "name": "Fogo de Chão",
+      "address": "Av. Reporter Nestor Moreira, S/N - Botafogo, Rio de Janeiro - RJ, 22290-210, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 35414,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "barbecue_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "cocktail_bar",
+        "buffet_restaurant",
+        "brazilian_restaurant",
+        "steak_house",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9487718,
+      "lng": -43.1803052,
+      "googleMapsUri": "https://maps.google.com/?cid=4803316459970768198&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fogodechao.com.br/location/botafogo/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 96.17
+    },
+    {
+      "googlePlaceId": "ChIJ1UBopT7VmwAROmGzVspQpvg",
+      "name": "Marius Degustare",
+      "address": "Av. Atlântica, 290 - Copacabana, Rio de Janeiro - RJ, 22010-000, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 18097,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "brazilian_restaurant",
+        "mediterranean_restaurant",
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9619514,
+      "lng": -43.166349499999995,
+      "googleMapsUri": "https://maps.google.com/?cid=17917096997508309306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.marius.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 95.93
+    },
+    {
+      "googlePlaceId": "ChIJjZJPDlTVmwARroitzBhRLu8",
+      "name": "Copacabana Palace, A Belmond Hotel, Rio de Janeiro",
+      "address": "Av. Atlântica, 1702 - Copacabana, Rio de Janeiro - RJ, 22021-001, Brazil",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.8,
+      "reviewCount": 41360,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9673111,
+      "lng": -43.1789541,
+      "googleMapsUri": "https://maps.google.com/?cid=17234801990948456622&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.belmond.com/hotels/south-america/brazil/rio-de-janeiro/belmond-copacabana-palace/?utm_source=local_search&utm_medium=link&utm_campaign=google_business",
+      "openNow": null,
+      "matchedQueries": [
+        "best spas",
+        "sound baths",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 95.13
+    },
+    {
+      "googlePlaceId": "ChIJ4e3-XpJ-mQAR0yx4slEf_Yg",
+      "name": "Municipal Market RJ - CADEG",
+      "address": "R. Cap. Félix, 110 - Benfica, Rio de Janeiro - RJ, 20920-310, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 40417,
+      "priceLevel": null,
+      "primaryType": "food_store",
+      "types": [
+        "liquor_store",
+        "market",
+        "wholesaler",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": -22.8953794,
+      "lng": -43.235329799999995,
+      "googleMapsUri": "https://maps.google.com/?cid=9871080394013027539&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cadeg.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.01
+    },
+    {
+      "googlePlaceId": "ChIJUTDHPoB_mQARATxqvy10AFQ",
+      "name": "Museu da República (Palácio do Catete)",
+      "address": "R. do Catete, 153 - Catete, Rio de Janeiro - RJ, 22220-000, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 19236,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9259013,
+      "lng": -43.1763666,
+      "googleMapsUri": "https://maps.google.com/?cid=6052965639019707393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://museudarepublica.museus.gov.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 94.61
+    },
+    {
+      "googlePlaceId": "ChIJA0tgM6PVmwARYbqb7Eo9VO4",
+      "name": "Botanical Garden of Rio de Janeiro",
+      "address": "R. Jardim Botânico, 1008 - Jardim Botânico, Rio de Janeiro - RJ, 22460-030, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 48080,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9706778,
+      "lng": -43.223475199999996,
+      "googleMapsUri": "https://maps.google.com/?cid=17173418671077046881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gov.br/jbrj",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 94.48
+    },
+    {
+      "googlePlaceId": "ChIJd5RAyp_WmwARE2WYii9mBZU",
+      "name": "Mirante do Leblon",
+      "address": "Av. Niemeyer - Vidigal, Rio de Janeiro - RJ, 22450-220, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 19210,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "scenic_spot",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9893494,
+      "lng": -43.227363200000006,
+      "googleMapsUri": "https://maps.google.com/?cid=10738101240909554963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://prefeitura.rio/infraestrutura/revitalizado-mirante-do-leblon-volta-a-ser-admirado-por-cariocas-e-turistas/",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "sunset date spots",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night",
+        "local-exploration"
+      ],
+      "popularityScore": 94.35
+    },
+    {
+      "googlePlaceId": "ChIJg-6UrMN_mQARNw6ae3cOZ6I",
+      "name": "Mirante Dona Marta",
+      "address": "Estr. Mirante Dona Marta, S/N - Cosme Velho, Rio de Janeiro - RJ, 22241, Brazil",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 10092,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "landmark",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9449982,
+      "lng": -43.1963955,
+      "googleMapsUri": "https://maps.google.com/?cid=11702338063083114039&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.icmbio.gov.br/parnatijuca/guia-do-visitante.html",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.19
+    },
+    {
+      "googlePlaceId": "ChIJUSgMNtmBmQARXIhu6uypMK4",
+      "name": "Museu de Arte Moderna do Rio de Janeiro",
+      "address": "Av. Infante Dom Henrique, 85 - Parque do Flamengo, Rio de Janeiro - RJ, 20021-140, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 19517,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9137527,
+      "lng": -43.171799299999996,
+      "googleMapsUri": "https://maps.google.com/?cid=12551718996492060764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mam.rio/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.95
+    },
+    {
+      "googlePlaceId": "ChIJ58MVZlp_mQARIHvZTsIR8wM",
+      "name": "Rio Museum of Art",
+      "address": "Praça Mauá, 5 - Saúde, Rio de Janeiro - RJ, 20081-240, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 21625,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.896655799999998,
+      "lng": -43.1819565,
+      "googleMapsUri": "https://maps.google.com/?cid=284590727698676512&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museudeartedorio.org.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 93.86
+    },
+    {
+      "googlePlaceId": "ChIJtfU8L0jamwARvyjdP06T3ac",
+      "name": "Barra Shopping",
+      "address": "Av. das Américas, 4666 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102, Brazil",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 69502,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "lat": -22.997658299999998,
+      "lng": -43.3581268,
+      "googleMapsUri": "https://maps.google.com/?cid=12095986138475210943&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barrashopping.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "shopping-markets"
+      ],
+      "popularityScore": 93.82
+    },
+    {
+      "googlePlaceId": "ChIJDS8Rvkd_mQARVO3hXnRFoYA",
+      "name": "AquaRio",
+      "address": "Praça Muhammad Ali - Via Binário do Porto, s/n - Gamboa, Rio de Janeiro - RJ, 20220-360, Brazil",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 89189,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.89332,
+      "lng": -43.1921598,
+      "googleMapsUri": "https://maps.google.com/?cid=9268765874215578964&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariomarinhodorio.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 93.72
+    },
+    {
+      "googlePlaceId": "ChIJ359FHhN_mQAR_EvrZI_83O0",
+      "name": "Parque das Ruínas",
+      "address": "R. Murtinho Nobre, 169 - Santa Teresa, Rio de Janeiro - RJ, 20241-050, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 15627,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9178319,
+      "lng": -43.1823262,
+      "googleMapsUri": "https://maps.google.com/?cid=17139851974668930044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.89
+    },
+    {
+      "googlePlaceId": "ChIJGbC2UPh_mQARaQ-EQH_-1IY",
+      "name": "Shopping RioSul",
+      "address": "Rua Lauro Müller, 116 - Botafogo, Rio de Janeiro - RJ, 22290-070, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 69723,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9572921,
+      "lng": -43.177039699999995,
+      "googleMapsUri": "https://maps.google.com/?cid=9715670118641700713&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.riosul.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 92.73
+    },
+    {
+      "googlePlaceId": "ChIJ3Vt-cOKBmQARV_PYv8SfH2A",
+      "name": "Espaço Cultural da Marinha",
+      "address": "Av. Alfred Agache, S/N - Centro, Rio de Janeiro - RJ, 20021-000, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 8382,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.900467199999998,
+      "lng": -43.174940199999995,
+      "googleMapsUri": "https://maps.google.com/?cid=6926430419300184919&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marinha.mil.br/dphdm/espaco-cultural-da-marinha",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.14
+    },
+    {
+      "googlePlaceId": "ChIJDYuIul1-mQAR5XRi7ogx8_U",
+      "name": "Maracanã",
+      "address": "R. Prof. Eurico Rabelo - Maracanã, Rio de Janeiro - RJ, 20271-150, Brazil",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 115014,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.912160999999998,
+      "lng": -43.2301712,
+      "googleMapsUri": "https://maps.google.com/?cid=17722563422817776869&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.estadiodomaracana.com.br/",
+      "openNow": null,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.07
+    },
+    {
+      "googlePlaceId": "ChIJQzdNfjmAmQARLkKbh1992nA",
+      "name": "Bar e Restaurante Urca",
+      "address": "bar) e Sobreloja(restaurante - R. Cândido Gaffrée, 205 - Urca, Rio de Janeiro - RJ, 22291-080, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 12567,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "brazilian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9436155,
+      "lng": -43.1602357,
+      "googleMapsUri": "https://maps.google.com/?cid=8131949926421316142&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barurca.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "sunset date spots",
+        "game bars",
+        "viral food spots",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.54
+    },
+    {
+      "googlePlaceId": "ChIJi5EJLyt_mQARYbskZJfAyYo",
+      "name": "Carnaval Experience",
+      "address": "Avenida Binário do Porto - Entrada Principal da - Cidade do Samba - Santo Cristo, Rio de Janeiro - RJ, 22132-503, Brazil",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5887,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.895514199999997,
+      "lng": -43.197565999999995,
+      "googleMapsUri": "https://maps.google.com/?cid=10000736204005620577&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://carnavalexperience.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.54
+    },
+    {
+      "googlePlaceId": "ChIJXeGXD2Z_mQAR_kN7im5_Gok",
+      "name": "Rio Scenarium",
+      "address": "R. do Lavradio, 20 - Centro, Rio de Janeiro - RJ, 20230-070, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 8313,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9082902,
+      "lng": -43.184137199999995,
+      "googleMapsUri": "https://maps.google.com/?cid=9879348845337068542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rioscenarium.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "nightclubs",
+        "jazz clubs",
+        "game night venues",
+        "trivia nights",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.42
+    },
+    {
+      "googlePlaceId": "ChIJA8bajmR_mQARGUoRj_vgUHk",
+      "name": "Circo Voador",
+      "address": "R. dos Arcos, s/n - Lapa, Rio de Janeiro - RJ, 20230-060, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 5587,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9129257,
+      "lng": -43.1803557,
+      "googleMapsUri": "https://maps.google.com/?cid=8741734247767820825&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.circovoador.com.br/",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "bottle service",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.34
+    },
+    {
+      "googlePlaceId": "ChIJib7JdQCAmQAR8WuNPg_fxOU",
+      "name": "Joaquina",
+      "address": "Av. Atlântica, 974 - Loja A - Copacabana, Rio de Janeiro - RJ, 22010-100, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 5269,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brazilian_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9642755,
+      "lng": -43.1726418,
+      "googleMapsUri": "https://maps.google.com/?cid=16556603386687745009&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://joaquinabar.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "viral-eats"
+      ],
+      "popularityScore": 91.16
+    },
+    {
+      "googlePlaceId": "ChIJReD9Wl9_mQARf8mLedDcE7g",
+      "name": "Paço Imperial",
+      "address": "Praça Quinze de Novembro, 48 - Centro, Rio de Janeiro - RJ, 20010-010, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4659,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.903547,
+      "lng": -43.174242799999995,
+      "googleMapsUri": "https://maps.google.com/?cid=13264188115486755199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amigosdopacoimperial.org.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.8
+    },
+    {
+      "googlePlaceId": "ChIJqeJXMWB_mQARjAMkA0Ma-p4",
+      "name": "Museu Nacional de Belas Artes",
+      "address": "Av. Rio Branco, 199 - Centro, Rio de Janeiro - RJ, 20040-008, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4450,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9088,
+      "lng": -43.1756856,
+      "googleMapsUri": "https://maps.google.com/?cid=11455497477288100748&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gov.br/museus/pt-br/museus-ibram/mnba",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.66
+    },
+    {
+      "googlePlaceId": "ChIJSWWrd15_mQAR2sYl5o7xsoE",
+      "name": "Confeitaria Colombo",
+      "address": "R. Gonçalves Dias, 32 - Centro, Rio de Janeiro - RJ, 20050-030, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 39081,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "pastry_shop",
+      "types": [
+        "pastry_shop",
+        "dessert_shop",
+        "confectionery",
+        "bakery",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9051966,
+      "lng": -43.178745899999996,
+      "googleMapsUri": "https://maps.google.com/?cid=9345797772796085978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.confeitariacolombo.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 90.56
+    },
+    {
+      "googlePlaceId": "ChIJ30BhD0vamwARGjm7LTOTg90",
+      "name": "Cidade das Artes",
+      "address": "Av. das Américas, 5300 - Barra da Tijuca, Rio de Janeiro - RJ, 22793-080, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 14874,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "philharmonic_hall",
+        "concert_hall",
+        "auditorium",
+        "art_gallery",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9991557,
+      "lng": -43.3657976,
+      "googleMapsUri": "https://maps.google.com/?cid=15961763352351029530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cidadedasartes.rio.rj.gov.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 90.54
+    },
+    {
+      "googlePlaceId": "ChIJr-YgYRqAmQARLmcPJIpAdEg",
+      "name": "Terra Brasilis",
+      "address": "Praça Gen. Tibúrcio, S/N - Urca, Rio de Janeiro - RJ, 22290-270, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 14897,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pizza_restaurant",
+        "brazilian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9559416,
+      "lng": -43.1650947,
+      "googleMapsUri": "https://maps.google.com/?cid=5220868830083901230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://restauranteterrabrasilis.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.9
+    },
+    {
+      "googlePlaceId": "ChIJW0Vy7SqAmQARoPS6aIEAnZ0",
+      "name": "Parque Brig. Eduardo Gomes (Aterro do Flamengo)",
+      "address": "Av. Infante Dom Henrique, s/n - Parque do Flamengo, Rio de Janeiro - RJ, 22210-030, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 28969,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.929972799999998,
+      "lng": -43.172357,
+      "googleMapsUri": "https://maps.google.com/?cid=11357234391106122912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.72
+    },
+    {
+      "googlePlaceId": "ChIJq66Bcm3VmwARJXdwGtJWmjc",
+      "name": "Parque Natural Municipal da Catacumba",
+      "address": "Av. Epitácio Pessoa, 3000 - Lagoa, Rio de Janeiro - RJ, 22471-003, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9632,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.972478799999998,
+      "lng": -43.2027376,
+      "googleMapsUri": "https://maps.google.com/?cid=4006610278886176549&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.7
+    },
+    {
+      "googlePlaceId": "ChIJZ84ogXx_mQARfgVX5YjfTiE",
+      "name": "Centro Luiz Gonzaga de Tradições Nordestinas",
+      "address": "Campo de São Cristóvão - Imperial de São Cristóvão, Rio de Janeiro - RJ, 20921-240, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 24536,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.8976512,
+      "lng": -43.2202037,
+      "googleMapsUri": "https://maps.google.com/?cid=2400101430491284862&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.feirasaocristovao.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.63
+    },
+    {
+      "googlePlaceId": "ChIJzRXrptyBmQARwwyUOYlKvtQ",
+      "name": "Xian Rio",
+      "address": "Av. Alm. Silvio de Noronha, 365 - Centro, Rio de Janeiro - RJ, 20021-010, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4508,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "sushi_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9138499,
+      "lng": -43.166818500000005,
+      "googleMapsUri": "https://maps.google.com/?cid=15329772134852725955&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.xianrio.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.6
+    },
+    {
+      "googlePlaceId": "ChIJ85CgXVXVmwARV5VBnUUxaMQ",
+      "name": "Rio 40 Graus Turismo",
+      "address": "Av. Nossa Sra. de Copacabana, 435 - sala 807 - Copacabana, Rio de Janeiro - RJ, 22020-002, Brazil",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 12972,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "hiking_area",
+        "tour_agency",
+        "race_course",
+        "event_venue",
+        "transportation_service",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.967952300000004,
+      "lng": -43.1821627,
+      "googleMapsUri": "https://maps.google.com/?cid=14152616004072609111&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rio40brasil.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.54
+    },
+    {
+      "googlePlaceId": "ChIJr02tNYV_mQARYiP3ZAzKpZ8",
+      "name": "Parque Eduardo Guinle",
+      "address": "R. Paulo César de Andrade, s/n - Laranjeiras, Rio de Janeiro - RJ, 22221-090, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8867,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "garden",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9308436,
+      "lng": -43.182811799999996,
+      "googleMapsUri": "https://maps.google.com/?cid=11503822977770136418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rio.rj.gov.br/home",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJxfKTuEfbmwARBmc-e2vYxH0",
+      "name": "Fogo de Chão Barra",
+      "address": "Av. das Américas, 4.666 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 22449,
+      "priceLevel": null,
+      "primaryType": "barbecue_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "cocktail_bar",
+        "brazilian_restaurant",
+        "steak_house",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9979695,
+      "lng": -43.3603143,
+      "googleMapsUri": "https://maps.google.com/?cid=9062606306317068038&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fogodechao.com.br/location/barra-da-tijuca/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 89.42
+    },
+    {
+      "googlePlaceId": "ChIJU2L0_CeAmQARO9eDslr1KZY",
+      "name": "Julieta de Serpa",
+      "address": "Praia do Flamengo, 340 - sobreloja - Flamengo, Rio de Janeiro - RJ, 22210-065, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2788,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.936401399999998,
+      "lng": -43.1744786,
+      "googleMapsUri": "https://maps.google.com/?cid=10820449349625173819&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://julietadeserpa.com.br/gastronomia/julieta-restaurante/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.27
+    },
+    {
+      "googlePlaceId": "ChIJX8bjH2V_mQARyXxUXZYaAZc",
+      "name": "Bar Carioca da Gema",
+      "address": "Av. Mem de Sá, 79 - Lapa, Rio de Janeiro - RJ, 20230-150, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 3437,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.913225999999998,
+      "lng": -43.181989,
+      "googleMapsUri": "https://maps.google.com/?cid=10881007407817063625&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcariocadagema.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "jazz clubs",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.79
+    },
+    {
+      "googlePlaceId": "ChIJe3Hs4ATVmwARsLPcaC--ux8",
+      "name": "Zazá Bistrô Tropical",
+      "address": "R. Joana Angélica, 40 - Ipanema, Rio de Janeiro - RJ, 22420-030, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3152,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bistro",
+      "types": [
+        "bistro",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9854508,
+      "lng": -43.2049036,
+      "googleMapsUri": "https://maps.google.com/?cid=2286630346652693424&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/zazabistro?igsh=MXB0Z3A2NGI1c3ZueQ==",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.53
+    },
+    {
+      "googlePlaceId": "ChIJfzUpdlrVmwARBa4qxLE4r7k",
+      "name": "Pavão Azul Bar",
+      "address": "R. Hilário de Gouveia, 71 - Copacabana, Rio de Janeiro - RJ, 22040-002, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 11768,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "pub",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9676586,
+      "lng": -43.1846008,
+      "googleMapsUri": "https://maps.google.com/?cid=13379975354092531205&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.facebook.com/pavaoazuloficial/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "trivia nights",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.5
+    },
+    {
+      "googlePlaceId": "ChIJRyzu7xWAmQARWZmpCVxQ5og",
+      "name": "Trilha do Morro da Urca",
+      "address": "Av. Pasteur, 520 - Urca, Rio de Janeiro - RJ, 22290-240, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 15809,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.952470599999998,
+      "lng": -43.160752699999996,
+      "googleMapsUri": "https://maps.google.com/?cid=9864660390030973273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bondinho.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJg7SpGTjamwARb0WFjO5pckE",
+      "name": "HotZone",
+      "address": "Av. das Américas, 4666 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102, Brazil",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 6743,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.996990999999998,
+      "lng": -43.358035,
+      "googleMapsUri": "https://maps.google.com/?cid=4715948233091007855&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hotzone.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.19
+    },
+    {
+      "googlePlaceId": "ChIJabKc7IJ_mQARRT3_uNkfFzU",
+      "name": "Rio Star",
+      "address": "Porto Maravilha - Av. Rodrigues Alves, 455 - Santo Cristo, Rio de Janeiro - RJ, 20220-360, Brazil",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 11952,
+      "priceLevel": null,
+      "primaryType": "ferris_wheel",
+      "types": [
+        "ferris_wheel",
+        "scenic_spot",
+        "amusement_park",
+        "amusement_center",
+        "tourist_attraction",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.8930743,
+      "lng": -43.1942285,
+      "googleMapsUri": "https://maps.google.com/?cid=3825561428446625093&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rio.yupstar.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.14
+    },
+    {
+      "googlePlaceId": "ChIJg2yZP1TVmwARblj3f2LHJgo",
+      "name": "Churrascaria Palace",
+      "address": "R. Rodolfo Dantas, 16 - Lojas A e B - Copacabana, Rio de Janeiro - RJ, 22020-040, Brazil",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 10242,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "barbecue_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "bar_and_grill",
+        "brazilian_restaurant",
+        "bar",
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9666586,
+      "lng": -43.1783911,
+      "googleMapsUri": "https://maps.google.com/?cid=731491215361923182&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://churrascariapalace.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.14
+    },
+    {
+      "googlePlaceId": "ChIJyX4lQObbmwARYuTd3njkExU",
+      "name": "Farmasi Arena",
+      "address": "Av. Embaixador Abelardo Bueno, 3401 - Barra Olímpica, Rio de Janeiro - RJ, 22775-040, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 14762,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9754614,
+      "lng": -43.390500499999995,
+      "googleMapsUri": "https://maps.google.com/?cid=1518808707140281442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.farmasiarena.com.br/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJUSgMNtmBmQAR6eY1oLAQGb0",
+      "name": "Vivo Rio",
+      "address": "Av. Infante Dom Henrique, 85 - Parque do Flamengo, Rio de Janeiro - RJ, 20021-150, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 9534,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9133842,
+      "lng": -43.1713757,
+      "googleMapsUri": "https://maps.google.com/?cid=13625940498374321897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.vivorio.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJY-jVeOh_mQAReZ6ycWKYBds",
+      "name": "Casa Nossa Lounge",
+      "address": "Rua Paschoal Carlos Magno, 121 - Santa Teresa, Rio de Janeiro - RJ, 20240-290, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 3134,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.921276,
+      "lng": -43.186388199999996,
+      "googleMapsUri": "https://maps.google.com/?cid=15782188017771519609&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.instagram.com/casanossalounge",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJFSDbUvd-mQARBpYtFtksZxs",
+      "name": "Quinta da Boa Vista",
+      "address": "Parque Quinta da Boa Vista - Imperial de São Cristóvão, Rio de Janeiro - RJ, 20940-040, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 43117,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "athletic_field",
+        "sports_club",
+        "park",
+        "association_or_organization",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9051942,
+      "lng": -43.221785399999995,
+      "googleMapsUri": "https://maps.google.com/?cid=1974596272516863494&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rio.rj.gov.br/web/guest/exibeconteudo?id=7561573",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.06
+    },
+    {
+      "googlePlaceId": "ChIJaXW-F2R_mQARjtqcwUcZSfM",
+      "name": "Catedral Metropolitana de São Sebastião do Rio de Janeiro",
+      "address": "Av. República do Chile, 245 - Centro, Rio de Janeiro - RJ, 20031-170, Brazil",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 28582,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9106919,
+      "lng": -43.1806828,
+      "googleMapsUri": "https://maps.google.com/?cid=17530570820498021006&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.catedral.com.br/",
+      "openNow": null,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.93
+    },
+    {
+      "googlePlaceId": "ChIJP0gsN2OBmQARJWlzongt8vE",
+      "name": "Museu de Arte Contemporânea de Niterói",
+      "address": "Mirante da Boa Viagem, s/nº - Boa Viagem, Niterói - RJ, 24210-390, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 21958,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.907835799999997,
+      "lng": -43.125867,
+      "googleMapsUri": "https://maps.google.com/?cid=17434047103649409317&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://culturaeumdireito.niteroi.rj.gov.br/mac",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.8
+    },
+    {
+      "googlePlaceId": "ChIJf2iVsyZjmQARDE45CoNciMs",
+      "name": "Parque Madureira",
+      "address": "R. Soares Caldeira, 115 - Madureira, Rio de Janeiro - RJ, 21351-140, Brazil",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 39204,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.857833799999998,
+      "lng": -43.3502559,
+      "googleMapsUri": "https://maps.google.com/?cid=14666073904414019084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rio.rj.gov.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 87.77
+    },
+    {
+      "googlePlaceId": "ChIJgy6xTi-AmQARho3-rqpFdR0",
+      "name": "Assador",
+      "address": "Av. Infante Dom Henrique, s/n - Flamengo, Rio de Janeiro - RJ, 20021-140, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 7208,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "barbecue_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9368064,
+      "lng": -43.1694597,
+      "googleMapsUri": "https://maps.google.com/?cid=2122679398757731718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.assador.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJZ967g-TVmwARC8hMCssDboM",
+      "name": "Roxy Dinner Show",
+      "address": "R. Bolívar, 45 - Copacabana, Rio de Janeiro - RJ, 22061-020, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 1432,
+      "priceLevel": null,
+      "primaryType": "philharmonic_hall",
+      "types": [
+        "philharmonic_hall",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9761478,
+      "lng": -43.1899004,
+      "googleMapsUri": "https://maps.google.com/?cid=9470511236992780299&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.roxydinnershow.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "private dining rooms",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJSeog8sZ_mQARQqakG-A8N1w",
+      "name": "Casa Roberto Marinho",
+      "address": "R. Cosme Velho, 1105 - Cosme Velho, Rio de Janeiro - RJ, 22241-091, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3134,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.940196399999998,
+      "lng": -43.2043354,
+      "googleMapsUri": "https://maps.google.com/?cid=6644846708442572354&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.casarobertomarinho.org.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.72
+    },
+    {
+      "googlePlaceId": "ChIJuRv6W6zVmwARWm4zN7N94TA",
+      "name": "Babbo Osteria",
+      "address": "R. Barão da Torre, 632 - Ipanema, Rio de Janeiro - RJ, 22411-002, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2229,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9826432,
+      "lng": -43.2122708,
+      "googleMapsUri": "https://maps.google.com/?cid=3522234592259173978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://instagram.com/babboosteria/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.51
+    },
+    {
+      "googlePlaceId": "ChIJC2lrvkR_mQARXsJf1RgnnAo",
+      "name": "Pedra do Sal",
+      "address": "R. Tia Ciata - Saúde, Rio de Janeiro - RJ, 20081-040, Brazil",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 19677,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.8979788,
+      "lng": -43.185325999999996,
+      "googleMapsUri": "https://maps.google.com/?cid=764529024358662750&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 87.48
+    },
+    {
+      "googlePlaceId": "ChIJFT9l0IB_mQAR-f_kJ13m_zo",
+      "name": "Oi Futuro Flamengo",
+      "address": "R. Dois de Dezembro, 63 - Flamengo, Rio de Janeiro - RJ, 22220-040, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3882,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "cultural_center",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9300346,
+      "lng": -43.1764946,
+      "googleMapsUri": "https://maps.google.com/?cid=4251369861036703737&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://futuros.org.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJrzNrEanVmwARqMQNDNynlXY",
+      "name": "Shopping Leblon",
+      "address": "Av. Afrânio de Melo Franco, 290 - Leblon, Rio de Janeiro - RJ, 22430-060, Brazil",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 34258,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9824704,
+      "lng": -43.2168792,
+      "googleMapsUri": "https://maps.google.com/?cid=8544920431542256808&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://shoppingleblon.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 87.37
+    },
+    {
+      "googlePlaceId": "ChIJG63wZxfVmwARm8hScVYMzB0",
+      "name": "Praça General Osório",
+      "address": "R. Prudente de Morais, 123 - Ipanema, Rio de Janeiro - RJ, 22420-041, Brazil",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.3,
+      "reviewCount": 18731,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "plaza",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9851939,
+      "lng": -43.197785499999995,
+      "googleMapsUri": "https://maps.google.com/?cid=2147104687756855451&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rio.rj.gov.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.28
+    },
+    {
+      "googlePlaceId": "ChIJh93cB51_mQARZDVCt9ubeqc",
+      "name": "Aprazível",
+      "address": "R. Aprazível, 62 - Santa Teresa, Rio de Janeiro - RJ, 20241-270, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 6042,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brazilian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9248138,
+      "lng": -43.18747,
+      "googleMapsUri": "https://maps.google.com/?cid=12068129519467378020&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aprazivel.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.17
+    },
+    {
+      "googlePlaceId": "ChIJ8bDN5_Z-mQAROixoqiaG1gY",
+      "name": "BioPark of Rio",
+      "address": "Parque da Quinta da Boa Vista S/N - Imperial de São Cristóvão, Rio de Janeiro - RJ, 20940-040, Brazil",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.2,
+      "reviewCount": 46188,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.904330899999998,
+      "lng": -43.2289773,
+      "googleMapsUri": "https://maps.google.com/?cid=492728709869481018&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bit.ly/3VxG47p",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.11
+    },
+    {
+      "googlePlaceId": "ChIJFYqonejVmwARbCp9HS1ageo",
+      "name": "Alloro al Miramar",
+      "address": "Av. Atlântica, 3668 - Copacabana, Rio de Janeiro - RJ, 22070-001, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1923,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.980939,
+      "lng": -43.1902726,
+      "googleMapsUri": "https://maps.google.com/?cid=16897886426685581932&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://windsorhoteis.com/hotel/miramar-by-windsor-copacabana/gastronomia/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.07
+    },
+    {
+      "googlePlaceId": "ChIJYWzi-ljbmwARj-BUUdp05so",
+      "name": "Parque Olímpico do Rio de Janeiro",
+      "address": "Av. Embaixador Abelardo Bueno, 3401 - Barra Olímpica, Rio de Janeiro - RJ, 22775-040, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6922,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9744781,
+      "lng": -43.3934892,
+      "googleMapsUri": "https://maps.google.com/?cid=14620501721321103503&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parqueolimpico.rio.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 86.97
+    },
+    {
+      "googlePlaceId": "ChIJY_qTIizamwARjePwRnKwnFM",
+      "name": "Via Parque Shopping",
+      "address": "Av. Ayrton Senna, 3000 - Barra da Tijuca, Rio de Janeiro - RJ, 22775-904, Brazil",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 43238,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.982690599999998,
+      "lng": -43.3641911,
+      "googleMapsUri": "https://maps.google.com/?cid=6024884406377833357&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://viaparqueshopping.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJLRlF9jvVmwARyOR9aub6a9E",
+      "name": "Estátua de Carlos Drummond de Andrade",
+      "address": "Av. Atlântica, S/N - Copacabana, Rio de Janeiro - RJ, 22070-002, Brazil",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 20121,
+      "priceLevel": null,
+      "primaryType": "sculpture",
+      "types": [
+        "sculpture",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.984369299999997,
+      "lng": -43.1891556,
+      "googleMapsUri": "https://maps.google.com/?cid=15090430843971036360&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://aorracer.com/20004253/estatua-de-carlos-drummond-de-andrade",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJ7VxfmT-AmQARQEs0tVlJ8Wc",
+      "name": "Clássico Beach Club Urca",
+      "address": "Av. Pasteur, 520 - Urca, Rio de Janeiro - RJ, 22290-240, Brazil",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 5397,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.949528299999997,
+      "lng": -43.1563398,
+      "googleMapsUri": "https://maps.google.com/?cid=7489848304934865728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://classicobeachclub.com.br/pt/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars",
+        "sunset date spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.88
+    },
+    {
+      "googlePlaceId": "ChIJ2eWNoPV_mQARU7ObN-C7o2o",
+      "name": "MUHCAB - Museu da História e da Cultura Afro-Brasileira",
+      "address": "R. Pedro Ernesto, 80 - Gamboa, Rio de Janeiro - RJ, 20220-350, Brazil",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 978,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.896171,
+      "lng": -43.1942895,
+      "googleMapsUri": "https://maps.google.com/?cid=7684191960904217427&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rio.rj.gov.br/web/muhcab",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.86
+    },
+    {
+      "googlePlaceId": "ChIJX4e9vljbmwARqESWlRfkh4I",
+      "name": "Qualistage",
+      "address": "Av. Ayrton Senna, 3000 - Barra da Tijuca, Rio de Janeiro - RJ, 22775-003, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 7257,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9827933,
+      "lng": -43.362822,
+      "googleMapsUri": "https://maps.google.com/?cid=9405737136731604136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.qualistage.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.66
+    },
+    {
+      "googlePlaceId": "ChIJATmbY_t_mQAR8dxFi-Jf3NI",
+      "name": "Bar Bukowski",
+      "address": "R. Álvaro Ramos, 270 - Botafogo, Rio de Janeiro - RJ, 22280-110, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 5003,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "pub",
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9567366,
+      "lng": -43.1827993,
+      "googleMapsUri": "https://maps.google.com/?cid=15194124669445070065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://barbukowski.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "karaoke bars",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.61
+    },
+    {
+      "googlePlaceId": "ChIJ56zSgj_amwAR9JZepyZ0v3I",
+      "name": "VillageMall",
+      "address": "Av. das Américas, 3900 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102, Brazil",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 18117,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9993406,
+      "lng": -43.3515489,
+      "googleMapsUri": "https://maps.google.com/?cid=8268455150241093364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.shoppingvillagemall.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 86.58
+    },
+    {
+      "googlePlaceId": "ChIJWYE5Dgd9mQARduPidzzfBZ4",
+      "name": "Estádio Nilton Santos",
+      "address": "R. José dos Reis, 425 - Engenho de Dentro, Rio de Janeiro - RJ, 20770-001, Brazil",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 36889,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.893274899999998,
+      "lng": -43.2923128,
+      "googleMapsUri": "https://maps.google.com/?cid=11386752683678557046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://botafogo.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.49
+    },
+    {
+      "googlePlaceId": "ChIJL_m2lQXVmwAR6NMoyBojgy4",
+      "name": "Nosso",
+      "address": "R. Maria Quitéria, 91 - Ipanema, Rio de Janeiro - RJ, 22410-040, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1509,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9833517,
+      "lng": -43.207175799999995,
+      "googleMapsUri": "https://maps.google.com/?cid=3351561145628021736&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nossoipanema.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "hidden speakeasies",
+        "date night restaurants",
+        "romantic bars",
+        "wine bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.35
+    },
+    {
+      "googlePlaceId": "ChIJtVk2RCF_mQARssYKXvLX5Uw",
+      "name": "Spesso,",
+      "address": "Praia Shopping - Praia de Botafogo, 400 - 8º andar - Botafogo, Rio de Janeiro - RJ, 22250-910, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 10788,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "coffee_shop",
+        "cafe",
+        "breakfast_restaurant",
+        "italian_restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": -22.947461000000004,
+      "lng": -43.183467199999996,
+      "googleMapsUri": "https://maps.google.com/?cid=5541072352509085362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://spesso.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJtxa1r7zVmwAReqbulxj-Nj0",
+      "name": "Rubaiyat",
+      "address": "R. Jardim Botânico, 971 - Jardim Botânico, Rio de Janeiro - RJ, 22470-051, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3646,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9704907,
+      "lng": -43.2224114,
+      "googleMapsUri": "https://maps.google.com/?cid=4410992266637649530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rubaiyat.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.12
+    },
+    {
+      "googlePlaceId": "ChIJ2duMhXd_mQARPb3Ob2QMqrE",
+      "name": "Explorer Bar",
+      "address": "R. Alm. Alexandrino, 399 - Santa Teresa, Rio de Janeiro - RJ, 20241-260, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 2013,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9212435,
+      "lng": -43.184812199999996,
+      "googleMapsUri": "https://maps.google.com/?cid=12802058516266138941&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://explorer-bar.cluvi.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJhWl8Qd5_mQAR-xc4FQjSFaQ",
+      "name": "Lasai",
+      "address": "Largo dos Leões, 35 - Humaitá, Rio de Janeiro - RJ, 22271-020, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 958,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.953308099999997,
+      "lng": -43.1963114,
+      "googleMapsUri": "https://maps.google.com/?cid=11823587328888674299&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lasai.com.br/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJuZ1Ic4N_mQARIx6FfT_KSqg",
+      "name": "The Maze Rio",
+      "address": "Comunidade Tavares Bastos - R. Tavares Bastos, 414 - Casa 66 - Catete, Rio de Janeiro - RJ, 22221-030, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1373,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.927684000000003,
+      "lng": -43.1837278,
+      "googleMapsUri": "https://maps.google.com/?cid=12126727320686108195&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/themaze_rio/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "live music events",
+        "jazz clubs",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJjZJPDlTVmwARJnson9A3CG4",
+      "name": "Restaurante Pérgula",
+      "address": "Av. Atlântica, 1702 - Copacabana, Rio de Janeiro - RJ, 22021-001, Brazil",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1265,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9672709,
+      "lng": -43.1788983,
+      "googleMapsUri": "https://maps.google.com/?cid=7928648513148713766&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.belmond.com/hotels/south-america/brazil/rio-de-janeiro/belmond-copacabana-palace/dining?utm_source=local_search&utm_medium=link&utm_campaign=google_restaurant",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJRQHQkQ1_mQARfRZwxYdugdA",
+      "name": "Sambódromo Marquês de Sapucaí",
+      "address": "R. Marquês de Sapucaí - Santo Cristo, Rio de Janeiro - RJ, 20220-007, Brazil",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 28786,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9114522,
+      "lng": -43.196804,
+      "googleMapsUri": "https://maps.google.com/?cid=15024411361296782973&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sambadrome.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.76
+    },
+    {
+      "googlePlaceId": "ChIJ1_5NpR9_mQAR5UwIl0_jQSo",
+      "name": "Kobra \"Etnias\" Mural",
+      "address": "Orla Pref. Luiz Paulo Conde - Centro, Rio de Janeiro - RJ, 20220-460, Brazil",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 15269,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.8943849,
+      "lng": -43.1871598,
+      "googleMapsUri": "https://maps.google.com/?cid=3044964754054991077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJDbF9EK7ZmwARoWJUCfy64Og",
+      "name": "ParkJacarepaguá",
+      "address": "Estr. de Jacarepaguá, 6069 - Jacarepaguá, Rio de Janeiro - RJ, 22753-038, Brazil",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 13342,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.957141399999998,
+      "lng": -43.3397254,
+      "googleMapsUri": "https://maps.google.com/?cid=16780617803233518241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://parkjacarepagua.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJcwAxd6V9mQARPUgyYZIzhrA",
+      "name": "Imperator - Centro Cultural João Nogueira",
+      "address": "R. Dias da Cruz, 170 - Méier, Rio de Janeiro - RJ, 20720-012, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 12885,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.902671299999998,
+      "lng": -43.2820073,
+      "googleMapsUri": "https://maps.google.com/?cid=12719910901343471677&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://imperator.rj.gov.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJY3uv2XLpmwAR5Z-YRzg4ouQ",
+      "name": "Área de Proteção Ambiental de Grumari",
+      "address": "Rio de Janeiro - State of Rio de Janeiro, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 14399,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "hiking_area",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -23.0537225,
+      "lng": -43.5428514,
+      "googleMapsUri": "https://maps.google.com/?cid=16474792201245204453&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJo45RTvyymQAREdm0DWF4GSU",
+      "name": "Parque Nacional da Serra dos Órgãos",
+      "address": "Avenida Rotariana, S/n - Soberbo, Teresópolis - RJ, 25960-602, Brazil",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8681,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "hiking_area",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.488148199999998,
+      "lng": -43.0669208,
+      "googleMapsUri": "https://maps.google.com/?cid=2673300212058216721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.icmbio.gov.br/parnaserradosorgaos/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.49
+    },
+    {
+      "googlePlaceId": "ChIJxTc8LADXmwAR1UMVETtX1Yw",
+      "name": "MASI",
+      "address": "Rooftop do Hotel Nacional - Av. Niemeyer, 769 - 30 andar - São Conrado, Rio de Janeiro - RJ, 22450-221, Brazil",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 892,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9980396,
+      "lng": -43.2568208,
+      "googleMapsUri": "https://maps.google.com/?cid=10148113246550574037&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://usetag.me/masi",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.49
+    },
+    {
+      "googlePlaceId": "ChIJzUXmWcvVmwAR4QdmvzMPEmY",
+      "name": "Nino Cucina - Ipanema",
+      "address": "R. Barão da Torre, 490 - Ipanema, Rio de Janeiro - RJ, 22411-002, Brazil",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 4010,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9828156,
+      "lng": -43.2088174,
+      "googleMapsUri": "https://maps.google.com/?cid=7354957856378324961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.alifenino.com.br/restaurante-nino/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 85.35
+    },
+    {
+      "googlePlaceId": "ChIJSVCygRzVmwARyXgE5oRd0gU",
+      "name": "Liz Cocktail e Wine",
+      "address": "Rua Dias Ferreira, 679A - Leblon, Rio de Janeiro - RJ, 22431-050, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 514,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "bistro",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9816468,
+      "lng": -43.2240882,
+      "googleMapsUri": "https://maps.google.com/?cid=419500540674996425&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lizcocktailewine.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "wine bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.35
+    },
+    {
+      "googlePlaceId": "ChIJq6ouRlrVmwART-XLgM5roLU",
+      "name": "camarote carnaval",
+      "address": "Rua Siqueira Campos, 90 - Térreo - Copacabana, Rio de Janeiro - RJ, 22031-072, Brazil",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 1905,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9668796,
+      "lng": -43.1862024,
+      "googleMapsUri": "https://maps.google.com/?cid=13087579051806942543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.riocarnaval.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJi703zVeBmQART60mIkiMFRw",
+      "name": "Embaixada Carioca",
+      "address": "Morro da Urca Primeira Parada do Bondinho 🚠 Pão de Açúcar alternativa: Subida pela Trilha do Morro da Urca - Av. Pasteur, 520 - Urca, Rio de Janeiro - RJ, 22290-255, Brazil",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 7781,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "cocktail_bar",
+        "acai_shop",
+        "breakfast_restaurant",
+        "brazilian_restaurant",
+        "coffee_shop",
+        "bar",
+        "cafe",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9511223,
+      "lng": -43.1642121,
+      "googleMapsUri": "https://maps.google.com/?cid=2023677849011400015&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.embaixadacarioca.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.17
+    },
+    {
+      "googlePlaceId": "ChIJa4kHfNx_mQARcKdgETh2Ffo",
+      "name": "Brewteco Botafogo",
+      "address": "Praia de Botafogo, 400 - Loja 900 - terraço, Rio de Janeiro - RJ, 22250-040, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 11242,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.947481099999997,
+      "lng": -43.182811699999995,
+      "googleMapsUri": "https://maps.google.com/?cid=18020439467174700912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.brewteco.com.br/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife"
+      ],
+      "popularityScore": 85.16
+    },
+    {
+      "googlePlaceId": "ChIJw6N-z7nVmwARlml-m65YOVE",
+      "name": "Terrazza Garden Rio de Janeiro",
+      "address": "Av. Epitácio Pessoa, quiosque 6 - Lagoa, Rio de Janeiro - RJ, 22410-090, Brazil",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 2066,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.9770994,
+      "lng": -43.199946999999995,
+      "googleMapsUri": "https://maps.google.com/?cid=5852806697700977046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://instagram.com/terrazzariodejaneiro?utm_medium=copy_link",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.13
+    },
+    {
+      "googlePlaceId": "ChIJA8lvBEzUmwARgHEFcYvYjdE",
+      "name": "Sheraton Grand Rio Hotel & Resort",
+      "address": "Av. Niemeyer, 121 - Leblon, Rio de Janeiro - RJ, 22450-220, Brazil",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 11048,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "wedding_venue",
+        "lodging",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": -22.992146599999998,
+      "lng": -43.2332922,
+      "googleMapsUri": "https://maps.google.com/?cid=15099963219051377024&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marriott.com/en-us/hotels/riosi-sheraton-grand-rio-hotel-and-resort/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+      "openNow": null,
+      "matchedQueries": [
+        "golf courses"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 85.11
+    },
+    {
+      "googlePlaceId": "ChIJc7UfAA1imQARirvb8KD_aCY",
+      "name": "Museu Aeroespacial",
+      "address": "Av. Marechal Fontenele, 2000 - Campo dos Afonsos, Rio de Janeiro - RJ, 21740-000, Brazil",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 7573,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": -22.8847792,
+      "lng": -43.3902205,
+      "googleMapsUri": "https://maps.google.com/?cid=2767743037719952266&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www2.fab.mil.br/musal/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.09
+    }
+  ]
+}

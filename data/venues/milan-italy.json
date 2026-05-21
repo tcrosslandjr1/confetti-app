@@ -1,0 +1,3503 @@
+{
+  "location": "Milan, Italy",
+  "generatedAt": "2026-05-17T19:50:13.394Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJoTZGw67GhkcREy4aECdOf6s",
+      "name": "Duomo di Milano",
+      "address": "P.za del Duomo, 20122 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 201138,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.464097599999995,
+      "lng": 9.1919265,
+      "googleMapsUri": "https://maps.google.com/?cid=12357681832208772627&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.duomomilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "best spas",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "neighborhood tours",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "outdoor-nature",
+        "wellness-relaxation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJw7aG_QY1eUcRFtQJWKmcCyc",
+      "name": "Galleria Vittorio Emanuele II",
+      "address": "20123 Milan, Metropolitan City of Milan, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 113313,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4658434,
+      "lng": 9.1899401,
+      "googleMapsUri": "https://maps.google.com/?cid=2813514643363451926&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.yesmilano.it/esplora/luoghi/galleria-vittorio-emanuele-ii",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "arcades",
+        "boutiques",
+        "kids activities",
+        "family friendly things to do",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "sports-recreation",
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.06
+    },
+    {
+      "googlePlaceId": "ChIJPXupDrb8hkcRm8JyxGbdVmU",
+      "name": "Sforzesco Castle",
+      "address": "Piazza Castello, 20121 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 91222,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4704762,
+      "lng": 9.1793325,
+      "googleMapsUri": "https://maps.google.com/?cid=7302267279280095899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.milanocastello.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.43
+    },
+    {
+      "googlePlaceId": "ChIJWUblrUjBhkcRtpP5ICHdu7g",
+      "name": "Parco Sempione",
+      "address": "20121 Milan, Metropolitan City of Milan, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 84653,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4720981,
+      "lng": 9.177224299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13311476257980519350&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.comune.milano.it/aree-tematiche/verde/verde-pubblico/parchi-cittadini/parco-sempione",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.12
+    },
+    {
+      "googlePlaceId": "ChIJz7dBqkfBhkcRFcbFfk20vPs",
+      "name": "Arco della Pace",
+      "address": "Piazza Sempione, 20154 Milano MI, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 36879,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.475692699999996,
+      "lng": 9.1724514,
+      "googleMapsUri": "https://maps.google.com/?cid=18139571644073887253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lombardiabeniculturali.it/architetture/schede/LMD80-00431/",
+      "openNow": null,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.84
+    },
+    {
+      "googlePlaceId": "ChIJH05-WBHuhkcRNjexLI56Nhs",
+      "name": "Pinacoteca di Brera",
+      "address": "Via Brera, 28, 20121 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 34369,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.471954499999995,
+      "lng": 9.1878145,
+      "googleMapsUri": "https://maps.google.com/?cid=1960889438820185910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pinacotecabrera.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "waterfront gardens",
+        "family friendly things to do",
+        "interactive kids museums",
+        "paint and sip",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.64
+    },
+    {
+      "googlePlaceId": "ChIJnfEj-pPBhkcREvPvegzTxwk",
+      "name": "San Siro Stadium",
+      "address": "Piazzale Angelo Moratti, 20151 Milano MI, Italy",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 106445,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4780807,
+      "lng": 9.123996,
+      "googleMapsUri": "https://maps.google.com/?cid=704763917262385938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sansirostadium.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "skating rinks",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.63
+    },
+    {
+      "googlePlaceId": "ChIJV1caia3GhkcRT4MuEEjprRs",
+      "name": "Teatro alla Scala",
+      "address": "V. Filodrammatici, 2, 20121 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 33865,
+      "priceLevel": null,
+      "primaryType": "opera_house",
+      "types": [
+        "opera_house",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "tourist_attraction",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4674021,
+      "lng": 9.1895512,
+      "googleMapsUri": "https://maps.google.com/?cid=1994506705713398607&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.teatroallascala.org/it/index.html",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.09
+    },
+    {
+      "googlePlaceId": "ChIJ1Uy5okrBhkcRBrw9t2Rrd58",
+      "name": "Gloria Osteria Milano",
+      "address": "Via Tivoli, 3, 20121 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 10675,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "mediterranean_restaurant",
+        "fine_dining_restaurant",
+        "family_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.471816,
+      "lng": 9.1834434,
+      "googleMapsUri": "https://maps.google.com/?cid=11490771054574287878&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gloria-osteria.com/it/gloria-osteria-milano?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.39
+    },
+    {
+      "googlePlaceId": "ChIJoXV1xa7GhkcRgWMIumOeV90",
+      "name": "Palazzo Reale di Milano",
+      "address": "P.za del Duomo, 12, 20122 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 20695,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.463131399999995,
+      "lng": 9.1911569,
+      "googleMapsUri": "https://maps.google.com/?cid=15949390756515963777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.palazzorealemilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.08
+    },
+    {
+      "googlePlaceId": "ChIJB4CSZFzAhkcRwPCxEusUvvM",
+      "name": "Piazza del Duomo",
+      "address": "P.za del Duomo, 20123 Milano MI, Italy",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.8,
+      "reviewCount": 14700,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4641941,
+      "lng": 9.189698,
+      "googleMapsUri": "https://maps.google.com/?cid=17563498596655034560&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.8
+    },
+    {
+      "googlePlaceId": "ChIJ76jHT1rBhkcRhv_9lZv4uG0",
+      "name": "Leonardo's Last Supper Museum",
+      "address": "Piazza di Santa Maria delle Grazie, 2, 20123 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 12737,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4661853,
+      "lng": 9.170600499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7906342492968976262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cenacolovinciano.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "paint and sip",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.69
+    },
+    {
+      "googlePlaceId": "ChIJm-5swlnBhkcRkuvlGcqPRXI",
+      "name": "Leonardo da Vinci Museum of Science and Technology",
+      "address": "Via San Vittore, 21, 20123 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 30465,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4628869,
+      "lng": 9.1706523,
+      "googleMapsUri": "https://maps.google.com/?cid=8234145591897484178&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museoscienza.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 90.94
+    },
+    {
+      "googlePlaceId": "ChIJwcLyGObDhkcRd4Ay1dlKE3I",
+      "name": "Mudec",
+      "address": "Via Tortona, 56, 20144 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 16858,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4515435,
+      "lng": 9.1615384,
+      "googleMapsUri": "https://maps.google.com/?cid=8219996044326502519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mudec.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 90.29
+    },
+    {
+      "googlePlaceId": "ChIJqSs-X6rBhkcRu72Lfg08fho",
+      "name": "L'immagine Bistrot Ristorante",
+      "address": "Via Varesina, 61, 20156 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3061,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bistro",
+        "italian_restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.497222199999996,
+      "lng": 9.1455556,
+      "googleMapsUri": "https://maps.google.com/?cid=1909029320706997691&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.limmaginebistrot.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.81
+    },
+    {
+      "googlePlaceId": "ChIJRwVc7UXBhkcRIlGMal_aWHU",
+      "name": "Triennale di Milano",
+      "address": "Viale Emilio Alemagna, 6, 20121 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 9350,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "cultural_center",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.472232999999996,
+      "lng": 9.173606999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8455748403732435234&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.triennale.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.71
+    },
+    {
+      "googlePlaceId": "ChIJDxeqbWvpgUcR7RAuKLmnUb8",
+      "name": "Gardaland Resort",
+      "address": "Via Derna, 4, 37014 Castelnuovo del Garda VR, Italy",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 126265,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4562903,
+      "lng": 10.713301099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13785984348042694893&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gardaland.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.57
+    },
+    {
+      "googlePlaceId": "ChIJn4mXg6HBhkcRrnzFv2yPXR8",
+      "name": "Ribot Restaurant",
+      "address": "Via Marco Cremosano, 41, 20148 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5062,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4832289,
+      "lng": 9.138024900000001,
+      "googleMapsUri": "https://maps.google.com/?cid=2260120285246487726&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ribotmilano.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.05
+    },
+    {
+      "googlePlaceId": "ChIJfT1_P-HGhkcR_LXv8lYoJiE",
+      "name": "Milanoguida | Visite Guidate e Mostre a Milano",
+      "address": "Via Alessandro Tadino, 29A, 20124 Milano MI, Italy",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 7911,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4798456,
+      "lng": 9.2082341,
+      "googleMapsUri": "https://maps.google.com/?cid=2388641006274721276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.milanoguida.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.88
+    },
+    {
+      "googlePlaceId": "ChIJ0WugyjvBhkcR5PIknXCkP94",
+      "name": "Fabbrica del Vapore",
+      "address": "Via Giulio Cesare Procaccini, 4, 20154 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 15067,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4848469,
+      "lng": 9.175348399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16014699603532509924&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fabbricadelvapore.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.87
+    },
+    {
+      "googlePlaceId": "ChIJsaKEAjXDhkcRb7zCr6IRCXI",
+      "name": "Via Pasteria - Daniele Crespi",
+      "address": "Via Daniele Crespi, 14, 20123 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 6589,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4569032,
+      "lng": 9.1734745,
+      "googleMapsUri": "https://maps.google.com/?cid=8217118385545329775&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://viapasteria.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.75
+    },
+    {
+      "googlePlaceId": "ChIJTxyy9ZnDhkcRJwX08gvYqgs",
+      "name": "Free Tour Milán Español | Cuore Tours",
+      "address": "Via Tivoli, 1, 20121 Milano MI, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 1563,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4720082,
+      "lng": 9.1824664,
+      "googleMapsUri": "https://maps.google.com/?cid=840721826290337063&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://freetourmilan.net/",
+      "openNow": null,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 88.58
+    },
+    {
+      "googlePlaceId": "ChIJjcBseK7GhkcRHlZ7PBALSOU",
+      "name": "Ristorante Galleria",
+      "address": "Galleria Vittorio Emanuele II, 75, 20121 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6289,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4660612,
+      "lng": 9.1899193,
+      "googleMapsUri": "https://maps.google.com/?cid=16521467397370762782&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ristorantegalleria.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.57
+    },
+    {
+      "googlePlaceId": "ChIJaYIUUk9u5kcRfAhRNL_ZJgw",
+      "name": "Pink Mamma",
+      "address": "20bis Rue de Douai, 75009 Paris, France",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 48913,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "pizza_restaurant",
+        "mediterranean_restaurant",
+        "family_restaurant",
+        "european_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 48.881946899999996,
+      "lng": 2.3345309,
+      "googleMapsUri": "https://maps.google.com/?cid=875626592809846908&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigmammagroup.com/italian-restaurants/pink-mamma?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJLxywR6zGhkcRzWA5FDqJTeE",
+      "name": "Piazza Mercanti",
+      "address": "Piazza dei Mercanti, 20123 Milano MI, Italy",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 5697,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.464633899999995,
+      "lng": 9.187676999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16234783114280919245&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.turismo.milano.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.29
+    },
+    {
+      "googlePlaceId": "ChIJgxy_RFrBhkcRWVrH08TNW-0",
+      "name": "Basilica di Santa Maria delle Grazie",
+      "address": "Via Giuseppe Antonio Sassi, 3, 20123 Milano MI, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 18959,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.465962999999995,
+      "lng": 9.170962099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17103490255119931993&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://legraziemilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJ90iZT83GhkcRXLqkHmqRL2w",
+      "name": "BAM - Biblioteca degli Alberi Milano",
+      "address": "Via Gaetano de Castillia, 28, 20124 Milano MI, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6069,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "garden",
+        "botanical_garden",
+        "cultural_landmark",
+        "tourist_attraction",
+        "park",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4845641,
+      "lng": 9.1926072,
+      "googleMapsUri": "https://maps.google.com/?cid=7795609364968290908&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bam.milano.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJ1Vb9C_zrhkcRoCekWE9FfWc",
+      "name": "LOG Lot Of Games - Merlata Bloom",
+      "address": "Merlata Bloom - Primo piano, Via Triboniano, 20156 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1420,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.514045499999995,
+      "lng": 9.101977699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7457192765087295392&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.loggames.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "game night venues",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.61
+    },
+    {
+      "googlePlaceId": "ChIJKQXg_izBhkcRxzoUsizwFrc",
+      "name": "Blue Note Milano",
+      "address": "Via Pietro Borsieri, 37, 20159 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5136,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4893667,
+      "lng": 9.1884942,
+      "googleMapsUri": "https://maps.google.com/?cid=13192996233185344199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bluenotemilano.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.59
+    },
+    {
+      "googlePlaceId": "ChIJSepT3aPGhkcR-yVAAgWl6IE",
+      "name": "Teatro Dal Verme",
+      "address": "Via S. Giovanni sul Muro, 2, 20121 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5017,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "amphitheatre",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4672498,
+      "lng": 9.1810922,
+      "googleMapsUri": "https://maps.google.com/?cid=9360913266420753915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dalverme.org/index.php",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.52
+    },
+    {
+      "googlePlaceId": "ChIJX19ryKPGhkcR5i34n6bQsyI",
+      "name": "Pirelli Hangar Bicocca",
+      "address": "Via Chiese, 2, 20126 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 9193,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.52096770000001,
+      "lng": 9.219177799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2500571632187747814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pirellihangarbicocca.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.51
+    },
+    {
+      "googlePlaceId": "ChIJzdIin0vBhkcRVWReb6nZjwQ",
+      "name": "Debbie's",
+      "address": "Corso Garibaldi, 22, 20121 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4051,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "sandwich_shop",
+        "dessert_shop",
+        "bakery",
+        "confectionery",
+        "restaurant",
+        "point_of_interest",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4737951,
+      "lng": 9.183637899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=328720619562493013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.debbies.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.36
+    },
+    {
+      "googlePlaceId": "ChIJI1FlH1XBhkcRYO3-DPtraNA",
+      "name": "Ostello Bello",
+      "address": "Via Medici, 3, 20123 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3916,
+      "priceLevel": null,
+      "primaryType": "hostel",
+      "types": [
+        "hostel",
+        "pub",
+        "lodging",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.460646399999995,
+      "lng": 9.1810058,
+      "googleMapsUri": "https://maps.google.com/?cid=15017371683465915744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ostellobello.com/en/hostel/milan-duomo/?utm_source=google&utm_medium=local&utm_campaign=MyBusiness_OBM",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "interactive pop ups",
+        "game night venues",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.21
+    },
+    {
+      "googlePlaceId": "ChIJnTnjWdrBhkcRyEZm9KAn8zQ",
+      "name": "Via Pasteria - Arco Delle Pace",
+      "address": "Piazza Sempione, 6, 20154 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 6680,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4765093,
+      "lng": 9.172265699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3815436881561536200&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.viapasteria.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.04
+    },
+    {
+      "googlePlaceId": "ChIJkXXVlE3BhkcR5Tw9CPuNuT4",
+      "name": "Piazza Castello Fountain",
+      "address": "Piazza Castello, 20121 Milano MI, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 2481,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4692345,
+      "lng": 9.180943,
+      "googleMapsUri": "https://maps.google.com/?cid=4519799810357542117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fontanedimilano.it/piazza-castello/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87
+    },
+    {
+      "googlePlaceId": "ChIJz1_uvS3DhkcR3tKbWV3i9wI",
+      "name": "Zero Latency VR Milano",
+      "address": "Via Bisceglie, 74, 20152 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 744,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4523285,
+      "lng": 9.1164802,
+      "googleMapsUri": "https://maps.google.com/?cid=213888397886608094&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zerolatency-vr.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJaXk07X7FhkcRFX6XOVKoOg4",
+      "name": "Via Pasteria - Corso Italia",
+      "address": "Corso Italia, 16, 20122 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 7763,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.457802900000004,
+      "lng": 9.1874909,
+      "googleMapsUri": "https://maps.google.com/?cid=1025316936287223317&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.viapasteria.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.37
+    },
+    {
+      "googlePlaceId": "ChIJmS187yzBhkcRcU31Pxw5GmQ",
+      "name": "Al Baretto San Marco",
+      "address": "Via Marsala, 2, 20121 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1691,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.478389899999996,
+      "lng": 9.188031800000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7213140546682178929&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.albarettosanmarco.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJC5I0NzXHhkcRqEoVi4VsJaE",
+      "name": "Rinascente Milano",
+      "address": "P.za del Duomo, 20121 Milano MI, Italy",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 24388,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "bar",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4649368,
+      "lng": 9.191822799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11611806535064570536&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.rinascente.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "boutiques",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.35
+    },
+    {
+      "googlePlaceId": "ChIJST0k_q3GhkcR7JMZRBadEzM",
+      "name": "Gallerie d’Italia",
+      "address": "Piazza della Scala, 6, 20121 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6324,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "art_gallery",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4672474,
+      "lng": 9.1904533,
+      "googleMapsUri": "https://maps.google.com/?cid=3680458039449195500&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gallerieditalia.com/it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJl-MC8rHGhkcRbn3y-uOYmIQ",
+      "name": "Poldi Pezzoli Museum",
+      "address": "Via Alessandro Manzoni, 12, 20121 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3338,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.468527699999996,
+      "lng": 9.191692699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9554554714401701230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museopoldipezzoli.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.95
+    },
+    {
+      "googlePlaceId": "ChIJaa0ThCHEhkcRI1IK3ek_ePw",
+      "name": "Trattoria Trippa",
+      "address": "Via Giorgio Vasari, 1, 20135 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1718,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.452166,
+      "lng": 9.2054825,
+      "googleMapsUri": "https://maps.google.com/?cid=18192360968431489571&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.trippamilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 85.95
+    },
+    {
+      "googlePlaceId": "ChIJe0cQFC3BhkcR9PIokdW6DQA",
+      "name": "White Rabbit Speakeasy",
+      "address": "Via Garigliano, 4, 20159 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1664,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4879324,
+      "lng": 9.1895829,
+      "googleMapsUri": "https://maps.google.com/?cid=3864601123418868&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.whiterabbitmilano.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJ5RQ7V7DGhkcRpDodQbl-mTs",
+      "name": "Bagatti Valsecchi Museum",
+      "address": "Via Gesù, 5, 20121 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1885,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "cultural_center",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4694469,
+      "lng": 9.195017499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4294603053800962724&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museobagattivalsecchi.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJNwuVZSjBhkcRsSeGkcP7Z50",
+      "name": "Alcatraz",
+      "address": "Via Valtellina, 25, 20159 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 12520,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "convention_center",
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.494689,
+      "lng": 9.182658,
+      "googleMapsUri": "https://maps.google.com/?cid=11342311003934566321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.alcatrazmilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJoTZGw67GhkcRoftJzT3Bt2Q",
+      "name": "Museo del Duomo di Milano",
+      "address": "P.za del Duomo, 12, 20122 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 2302,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.463099899999996,
+      "lng": 9.1915911,
+      "googleMapsUri": "https://maps.google.com/?cid=7257481795712187297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.duomomilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.69
+    },
+    {
+      "googlePlaceId": "ChIJhwxpI-hMgUcR0ebSpFfHk0c",
+      "name": "Leolandia",
+      "address": "Via Vittorio Veneto, 52, 24042 Capriate San Gervasio BG, Italy",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 37497,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "amusement_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.606157499999995,
+      "lng": 9.5390104,
+      "googleMapsUri": "https://maps.google.com/?cid=5157685177510717137&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.leolandia.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.44
+    },
+    {
+      "googlePlaceId": "ChIJ7VZ-jPrAhkcR6d6wTXeBpkU",
+      "name": "Spirit de Milan",
+      "address": "Via Bovisasca, 59, 20157 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 7422,
+      "priceLevel": null,
+      "primaryType": "dance_hall",
+      "types": [
+        "dance_hall",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.506809499999996,
+      "lng": 9.1593089,
+      "googleMapsUri": "https://maps.google.com/?cid=5018841184155524841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://spiritdemilan.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "jazz clubs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJhccWg6PHhkcRvvi6CCCa2vY",
+      "name": "Mercato Centrale Milano",
+      "address": "Via Giovanni Battista Sammartini, 2, 20125 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 17049,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "pizza_restaurant",
+        "wine_bar",
+        "florist",
+        "bar",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4866698,
+      "lng": 9.203519199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17787699140629297342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mercatocentrale.it/milano/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 85.33
+    },
+    {
+      "googlePlaceId": "ChIJd6wqEbnGhkcRl5BVgRTS-Zc",
+      "name": "Milan Natural History Museum",
+      "address": "Corso Venezia, 55, 20121 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 11124,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.472772000000006,
+      "lng": 9.2023776,
+      "googleMapsUri": "https://maps.google.com/?cid=10951014954439118999&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museodistorianaturalemilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.2
+    },
+    {
+      "googlePlaceId": "ChIJ0aJqFrnGhkcRC7zxxQ2Yk8E",
+      "name": "Modern Art Gallery",
+      "address": "Via Palestro, 16, 20121 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 3204,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.472777799999996,
+      "lng": 9.200000000000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13948659655819508747&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gam-milano.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.14
+    },
+    {
+      "googlePlaceId": "ChIJT7P1XvrDhkcRbn0zuxKQFh8",
+      "name": "BLUES CANAL",
+      "address": "Via Casale, 7, 20144 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 5790,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pub",
+      "types": [
+        "pub",
+        "cocktail_bar",
+        "hamburger_restaurant",
+        "live_music_venue",
+        "american_restaurant",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.451474,
+      "lng": 9.170964,
+      "googleMapsUri": "https://maps.google.com/?cid=2240136274787925358&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bluescanalmilano.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "karaoke bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.08
+    },
+    {
+      "googlePlaceId": "ChIJYzVbjzVnh0cRE64Nv2b1wu4",
+      "name": "Designer Outlet Serravalle",
+      "address": "Via della Moda, 1, 15069 Serravalle Scrivia AL, Italy",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 47491,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "sportswear_store",
+        "shoe_store",
+        "shopping_mall",
+        "womens_clothing_store",
+        "clothing_store",
+        "gift_shop",
+        "sporting_goods_store",
+        "restaurant",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 44.736214,
+      "lng": 8.836337,
+      "googleMapsUri": "https://maps.google.com/?cid=17204583348149530131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mcarthurglen.com/it/serravalle-designer-outlet/it/?utm_source=gmb&utm_medium=organic&utm_campaign=MAG13&y_source=1_Mzk5ODY2OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
+      "openNow": false,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJnzodHu3HhkcRxxe9ophKK6U",
+      "name": "Nàpiz' Milano",
+      "address": "Viale Vittorio Veneto, 30, 20124 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4339,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pizza_restaurant",
+      "types": [
+        "pizza_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.477646,
+      "lng": 9.198862499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11901688459682453447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/napiz.pizzeriamilano/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.71
+    },
+    {
+      "googlePlaceId": "ChIJj20xf93qhkcRGTv63zRvsFM",
+      "name": "FIERA MILANO Spa",
+      "address": "Strada Statale Sempione, 28, 20017 Rho MI, Italy",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 42547,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.5197013,
+      "lng": 9.07896,
+      "googleMapsUri": "https://maps.google.com/?cid=6030442173935794969&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fieramilano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.7
+    },
+    {
+      "googlePlaceId": "ChIJ_-jmxeqUhkcRpMyt-v_OM5k",
+      "name": "Alfa Romeo Museum",
+      "address": "Viale Alfa Romeo, 20044 Arese MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 12611,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.5573517,
+      "lng": 9.0460497,
+      "googleMapsUri": "https://maps.google.com/?cid=11039394710432894116&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museoalfaromeo.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.51
+    },
+    {
+      "googlePlaceId": "ChIJV103u8sihEcRT9ewj_k5QUI",
+      "name": "Villa Carlotta",
+      "address": "Via Statale, 5605, 22016 Tremezzina CO, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 11915,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "botanical_garden",
+        "art_museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.9858523,
+      "lng": 9.2306397,
+      "googleMapsUri": "https://maps.google.com/?cid=4774160824009807695&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.villacarlotta.it/it/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.35
+    },
+    {
+      "googlePlaceId": "ChIJDVM5wCrBhkcR1lcujMZOLHM",
+      "name": "ESCAPERS MILANO - Escape Room Milano",
+      "address": "Via Francesco Nava, 17, 20159 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2959,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4944397,
+      "lng": 9.1920556,
+      "googleMapsUri": "https://maps.google.com/?cid=8299094827999320022&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapersmilano.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.31
+    },
+    {
+      "googlePlaceId": "ChIJrzT24BvfhUcRuft-061oTa8",
+      "name": "Giardini Botanici di Villa Taranto",
+      "address": "Via Vittorio Veneto, 111, 28922 Verbania VB, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 11317,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.925914299999995,
+      "lng": 8.565280699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12631867625631054777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.villataranto.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.2
+    },
+    {
+      "googlePlaceId": "ChIJn9zrbVXBhkcRIpaeSKJxvlo",
+      "name": "Pasta d’Autore",
+      "address": "Corso di Porta Ticinese, 16, 20123 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4254,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4587585,
+      "lng": 9.1809426,
+      "googleMapsUri": "https://maps.google.com/?cid=6538788650805532194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mymenuweb.com/it/restaurants/919788/?utm_source=google_profile&utm_medium=google_profile&utm_campaign=admin",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.2
+    },
+    {
+      "googlePlaceId": "ChIJuUIncffDhkcRQUPax-i_PFE",
+      "name": "Nidaba Theatre - Live Music Club Milano Navigli",
+      "address": "Via Emilio Gola, 12, 20143 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1062,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "bar",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4489922,
+      "lng": 9.175803700000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5853764622181090113&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nidaba.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "jazz clubs",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.17
+    },
+    {
+      "googlePlaceId": "ChIJx5EulSzBhkcRgd9rfbqvxPg",
+      "name": "Cantine MILANO - WINE & RESTAURANT",
+      "address": "Via Traù, 1, 20159 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1691,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "liquor_store",
+        "bar",
+        "point_of_interest",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4900337,
+      "lng": 9.1902282,
+      "googleMapsUri": "https://maps.google.com/?cid=17925645632344416129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cantinemilano.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "wine bars",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.16
+    },
+    {
+      "googlePlaceId": "ChIJV0k3ccHGhkcRr97WcHuxTP8",
+      "name": "ESCAPE ROOM - Secret Rooms Milano",
+      "address": "V. Ruggero Boscovich, 48, 20124 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 585,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "video_arcade",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.479444400000006,
+      "lng": 9.2086111,
+      "googleMapsUri": "https://maps.google.com/?cid=18396273721633857199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.secret-rooms.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 83.97
+    },
+    {
+      "googlePlaceId": "ChIJzZZrG2vBhkcRdPQVhQgBcW8",
+      "name": "CityLife Shopping District",
+      "address": "Piazza Tre Torri, snc, 20145 Milano MI, Italy",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 31891,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.477813999999995,
+      "lng": 9.156590999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8030200746682479732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.goldenpoint.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 83.87
+    },
+    {
+      "googlePlaceId": "ChIJzwUenYv-g0cRWcRoakSqnvg",
+      "name": "QC San Pellegrino Terme",
+      "address": "Viale della Vittoria, 53, 24016 San Pellegrino Terme BG, Italy",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.5,
+      "reviewCount": 21026,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "tourist_attraction",
+        "massage_spa",
+        "bar",
+        "massage",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.841355199999995,
+      "lng": 9.664195099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17914943578546160729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.qcterme.com/it/san-pellegrino/qc-terme-san-pellegrino",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 83.78
+    },
+    {
+      "googlePlaceId": "ChIJeQbq4K3GhkcR05tp7wNtS_A",
+      "name": "Leonardo3",
+      "address": "Galleria Vittorio Emanuele II, 11, 20121 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 9819,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4664661,
+      "lng": 9.189972599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17315053056025009107&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.leonardo3.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 83.75
+    },
+    {
+      "googlePlaceId": "ChIJ7WClUYvBhkcRGSqdF6tjAcE",
+      "name": "Puente Tours Milan",
+      "address": "Corso Garibaldi, 99, 20121 Milano MI, Italy",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1560,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4774253,
+      "lng": 9.183812099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13907506710783535641&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://puentetoursmilan.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.57
+    },
+    {
+      "googlePlaceId": "ChIJMfRV4s_GhkcRYLtXZTp4LZU",
+      "name": "Excelsior Hotel Gallia, a Luxury Collection Hotel, Milan",
+      "address": "Piazza Duca d'Aosta, 9, 20124 Milano MI, Italy",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.7,
+      "reviewCount": 2861,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "wedding_venue",
+        "event_venue",
+        "lodging",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4856769,
+      "lng": 9.2014669,
+      "googleMapsUri": "https://maps.google.com/?cid=10749380077806926688&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marriott.com/en-us/hotels/millc-excelsior-hotel-gallia-a-luxury-collection-hotel-milan/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+      "openNow": null,
+      "matchedQueries": [
+        "best spas",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.51
+    },
+    {
+      "googlePlaceId": "ChIJXaskfwjDhkcRm38aGcszv2w",
+      "name": "Unipol Forum",
+      "address": "Via Giuseppe di Vittorio, 6, 20057 Assago MI, Italy",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 28033,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.401412199999996,
+      "lng": 9.142294699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7836038824040497051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.unipolforum.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 83.5
+    },
+    {
+      "googlePlaceId": "ChIJjzEOBNDGhkcRms4ppXAXGWE",
+      "name": "Terrazza Gallia",
+      "address": "Piazza Duca d'Aosta, 9, 20124 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 705,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "italian_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4857763,
+      "lng": 9.202005999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6996649268671532698&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.galliadining.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.4
+    },
+    {
+      "googlePlaceId": "ChIJXbeJSrDHhkcRPDD7xbMM_W8",
+      "name": "Vr Club Milano Bicocca Village - Sala di realta virtuale",
+      "address": "Via chiese, all'interno dl, Bicocca Village, 60, 20126 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 273,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.5219984,
+      "lng": 9.2159702,
+      "googleMapsUri": "https://maps.google.com/?cid=8069620073578049596&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vrclubitaly.it/sale-vr/sala-vr-milano-bicocca/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.34
+    },
+    {
+      "googlePlaceId": "ChIJ_cucRpLBhkcRoLxZga9x5XU",
+      "name": "Raboucer",
+      "address": "Via Gian Giacomo Mora, 3, 20123 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 988,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.458836299999994,
+      "lng": 9.180417400000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8495321270707666080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.raboucer.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.32
+    },
+    {
+      "googlePlaceId": "ChIJ5ye8TRbHhkcRqozv40t6V4Q",
+      "name": "Arcimboldi Theater Milan",
+      "address": "Viale dell'Innovazione, 20, 20126 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 17729,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.514842,
+      "lng": 9.2135531,
+      "googleMapsUri": "https://maps.google.com/?cid=9536225202345577642&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.teatroarcimboldi.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.29
+    },
+    {
+      "googlePlaceId": "ChIJd5c-usLDhkcRWY9T2LZWcPw",
+      "name": "Morlacchi Dario",
+      "address": "Viale Carlo Troya, 20, 20144 Milano MI, Italy",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 5,
+      "reviewCount": 454,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4505738,
+      "lng": 9.1550548,
+      "googleMapsUri": "https://maps.google.com/?cid=18190134238262824793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.morlacchi.eu/",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.29
+    },
+    {
+      "googlePlaceId": "ChIJUXZgVxLBhkcRZqb-oegKs8g",
+      "name": "Venchi Cioccolato e Gelato, Milano Via Dante",
+      "address": "Via Dante, 5, 20123 Milano MI, Italy",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 5472,
+      "priceLevel": null,
+      "primaryType": "chocolate_shop",
+      "types": [
+        "chocolate_shop",
+        "ice_cream_shop",
+        "dessert_shop",
+        "candy_store",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4662351,
+      "lng": 9.1847029,
+      "googleMapsUri": "https://maps.google.com/?cid=14461914822683305574&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://it.venchi.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.22
+    },
+    {
+      "googlePlaceId": "ChIJvXIsPMTGhkcR0USFsZosHYk",
+      "name": "Boscovich Bistrot & Osteria",
+      "address": "V. Ruggero Boscovich, 31, 20124 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2485,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bistro",
+        "wine_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4813293,
+      "lng": 9.2051009,
+      "googleMapsUri": "https://maps.google.com/?cid=9880102200435623121&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bistrotboscovich.it/brunch-pranzo/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 83.11
+    },
+    {
+      "googlePlaceId": "ChIJGfK8UijHhkcRpSEBYTFFzKU",
+      "name": "Trap | Escape Room Milano",
+      "address": "Via Adeodato Ressi, 23, 20125 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3576,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4967349,
+      "lng": 9.2030228,
+      "googleMapsUri": "https://maps.google.com/?cid=11946999989890261413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.trapmilano.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.1
+    },
+    {
+      "googlePlaceId": "ChIJh9AN_izHhkcRpf3aZr-UmYw",
+      "name": "La Gioia San Marco",
+      "address": "Via S. Marco, 38, 20121 Milano MI, Italy",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 3337,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.478108399999996,
+      "lng": 9.18913,
+      "googleMapsUri": "https://maps.google.com/?cid=10131292386531933605&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lagioiasanmarco.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 82.85
+    },
+    {
+      "googlePlaceId": "ChIJx9LAD8nGhkcRXR2Z6D7saDY",
+      "name": "STK Milan",
+      "address": "Piazza della Repubblica, 13, 20124 Milano MI, Italy",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 845,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.479343199999995,
+      "lng": 9.196297099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3920643230560492893&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/venues/milan/",
+      "openNow": null,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.82
+    },
+    {
+      "googlePlaceId": "ChIJsVBjwTTBhkcR9brIBDpHppI",
+      "name": "Eataly Milano Smeraldo",
+      "address": "P.za XXV Aprile, 10, 20121 Milano MI, Italy",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.2,
+      "reviewCount": 14726,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "grocery_store",
+      "types": [
+        "wine_bar",
+        "liquor_store",
+        "italian_restaurant",
+        "grocery_store",
+        "food_store",
+        "bar",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.480624899999995,
+      "lng": 9.1878807,
+      "googleMapsUri": "https://maps.google.com/?cid=10567211890185386741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eataly.net/it_it/negozi/milano-smeraldo?utm_source=gmb&utm_medium=listing&utm_campaign=organic-search",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.71
+    },
+    {
+      "googlePlaceId": "ChIJ6VMJJPrDhkcRBQ03OU6avRk",
+      "name": "Mag Cafe",
+      "address": "Ripa di Porta Ticinese, 43, 20143 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 4058,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4512784,
+      "lng": 9.1734365,
+      "googleMapsUri": "https://maps.google.com/?cid=1854808282304548101&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.farmilygroup.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 82.71
+    },
+    {
+      "googlePlaceId": "ChIJH8GJfKnGhkcR6T08qB4u0ps",
+      "name": "The roof milano",
+      "address": "Piazza Giuseppe Missori, 1, 20123 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 2400,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.4609275,
+      "lng": 9.1887549,
+      "googleMapsUri": "https://maps.google.com/?cid=11228087530194484713&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theroofmilano.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "luxury lounges",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 82.51
+    },
+    {
+      "googlePlaceId": "ChIJDbI_deXDhkcRvDTVrWLCaVU",
+      "name": "Armani/Silos",
+      "address": "V. Ambrogio Bergognone da Fossano, 40, 20144 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3321,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4516329,
+      "lng": 9.1649082,
+      "googleMapsUri": "https://maps.google.com/?cid=6154664094857508028&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.armanisilos.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 82.44
+    },
+    {
+      "googlePlaceId": "ChIJGe2VLikdhEcR87_XMhQv31E",
+      "name": "Villa Monastero garden",
+      "address": "Viale Giovanni Polvani, 4, 23829 Varenna LC, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 8964,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "convention_center",
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 46.009266499999995,
+      "lng": 9.2855607,
+      "googleMapsUri": "https://maps.google.com/?cid=5899485800677490675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.villamonastero.eu/index.php/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 82.43
+    },
+    {
+      "googlePlaceId": "ChIJQ3zPcGmNhkcRaHtN_wK8cjg",
+      "name": "Anger Games",
+      "address": "Via Graziano, 31, 20162 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 612,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.5131553,
+      "lng": 9.190709499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4067520134528203624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.angergames.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 82.35
+    },
+    {
+      "googlePlaceId": "ChIJme8STSDEhkcRboAwdFWxSho",
+      "name": "Teatro Franco Parenti",
+      "address": "Via Pier Lombardo, 14, 20135 Milano MI, Italy",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4530,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4541459,
+      "lng": 9.206512799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1894521573842387054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.teatrofrancoparenti.it",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 82.23
+    },
+    {
+      "googlePlaceId": "ChIJmbdYRqnGhkcRiMDZx0WS2Es",
+      "name": "MARTINI",
+      "address": "Piazza Armando Diaz, 7, 20123 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 678,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "wedding_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4617468,
+      "lng": 9.1899803,
+      "googleMapsUri": "https://maps.google.com/?cid=5465278976217432200&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.martini.com/it/it/terrazza-martini/",
+      "openNow": null,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "luxury lounges",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 82.19
+    },
+    {
+      "googlePlaceId": "ChIJLd2VYRsuVUARNjgLnq9U2dE",
+      "name": "Museo del Novecento",
+      "address": "Palazzo dell'Arengario, P.za del Duomo, 8, 20123 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 6476,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.463408,
+      "lng": 9.1901686,
+      "googleMapsUri": "https://maps.google.com/?cid=15121210337120696374&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.museodelnovecento.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 82.15
+    },
+    {
+      "googlePlaceId": "ChIJ23Owob3GhkcRoGhYsMXgMmc",
+      "name": "Nottingham Forest",
+      "address": "Viale Piave, 1, 20129 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 3023,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.468748,
+      "lng": 9.206738,
+      "googleMapsUri": "https://maps.google.com/?cid=7436253074413873312&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nottingham-forest.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 82.12
+    },
+    {
+      "googlePlaceId": "ChIJldO9rqNhLxMRTWbASR1MV8Y",
+      "name": "Mercato Centrale",
+      "address": "Via Giovanni Giolitti, 36, 00185 Roma RM, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 16116,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8988083,
+      "lng": 12.5034472,
+      "googleMapsUri": "https://maps.google.com/?cid=14291975631158666829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mercatocentrale.it/roma",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 81.92
+    },
+    {
+      "googlePlaceId": "ChIJ33igWXXHhkcRoEQRblBXj-4",
+      "name": "SunEleven Rooftop Bar",
+      "address": "P.za Cesare Beccaria, 20122 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 897,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.464588,
+      "lng": 9.195422899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17190054305652098208&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ih-hotels.com/city-hotel/milano/ih-hotels-milano-ambasciatori/servizi",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.89
+    },
+    {
+      "googlePlaceId": "ChIJU8zbIpPGhkcREO0aSaZYcTg",
+      "name": "MOBA Milano",
+      "address": "Via Giovanni Pascoli, 70/2, 20133 Milano MI, Italy",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 1657,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "video_arcade",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4764707,
+      "lng": 9.2249758,
+      "googleMapsUri": "https://maps.google.com/?cid=4067129409706585360&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 81.75
+    },
+    {
+      "googlePlaceId": "ChIJD2qElsbGhkcRPJ9sSZHm1bc",
+      "name": "Mamma Rosa Osteria",
+      "address": "P.zza Cincinnato, 4, 20124 Milano MI, Italy",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 4834,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 45.479712,
+      "lng": 9.2044411,
+      "googleMapsUri": "https://maps.google.com/?cid=13246747390656683836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.osteriamammarosa.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 81.71
+    },
+    {
+      "googlePlaceId": "ChIJt1qMtBjEhkcRxC2IoFgjwSY",
+      "name": "QC Termemilano",
+      "address": "P.le Medaglie D'Oro, 2, 20135 Milano MI, Italy",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.1,
+      "reviewCount": 13776,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "massage_spa",
+        "bar",
+        "massage",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4517364,
+      "lng": 9.2017142,
+      "googleMapsUri": "https://maps.google.com/?cid=2792552107503791556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.qcterme.com/it/destinazioni/milano/qc-spa-milano",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences",
+        "sound baths"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 81.67
+    },
+    {
+      "googlePlaceId": "ChIJQ1j3T8XGhkcRiDqwwHKmDFk",
+      "name": "Venchi",
+      "address": "Piazza Duca d'Aosta, 1, 20124 Milano MI, Italy",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 3096,
+      "priceLevel": null,
+      "primaryType": "chocolate_shop",
+      "types": [
+        "chocolate_shop",
+        "ice_cream_shop",
+        "dessert_shop",
+        "candy_store",
+        "confectionery",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4867183,
+      "lng": 9.2051661,
+      "googleMapsUri": "https://maps.google.com/?cid=6416686580885371528&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://it.venchi.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 81.59
+    },
+    {
+      "googlePlaceId": "ChIJs2i-2ZjHhkcRVJ_Wne6XQHk",
+      "name": "LiQuido Rooftop Bar",
+      "address": "Via Giovanni Battista Pirelli, 5B, 20124 Milano MI, Italy",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 366,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "lounge_bar",
+        "observation_deck",
+        "night_club",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4841408,
+      "lng": 9.201206899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8737150328204861268&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.iqhotelmilano.it/it?utm_source=google&utm_medium=organic&utm_campaign=gmb_profile",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 81.53
+    },
+    {
+      "googlePlaceId": "ChIJK3azIubBhkcRh6VvaLoTo2w",
+      "name": "Bowling Space Milano",
+      "address": "Via Novara, 15, 20147 Milano MI, Italy",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 524,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "amusement_center",
+        "video_arcade",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.4683543,
+      "lng": 9.127763,
+      "googleMapsUri": "https://maps.google.com/?cid=7828122268637046151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bowlingspacemilano.it/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "bowling alleys",
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 81.45
+    },
+    {
+      "googlePlaceId": "ChIJE41BRhjBhkcRzBuDTSqwFgo",
+      "name": "Titan Gaming Center",
+      "address": "Via Giuseppe Govone, 31, 20155 Milano MI, Italy",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 391,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": null,
+      "types": [
+        "pub",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.489697199999995,
+      "lng": 9.1666669,
+      "googleMapsUri": "https://maps.google.com/?cid=726962085602466764&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.titangamingcenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 81.31
+    },
+    {
+      "googlePlaceId": "ChIJn8qyiKzGhkcRbtP7f16_hsw",
+      "name": "Pinacoteca Ambrosiana",
+      "address": "Piazza Pio XI, 2, 20123 Milano MI, Italy",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1763,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "library",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 45.4634791,
+      "lng": 9.1857881,
+      "googleMapsUri": "https://maps.google.com/?cid=14737677243211567982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ambrosiana.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 81.28
+    },
+    {
+      "googlePlaceId": "ChIJX6Fas1fHhkcRUNIoZY5K1Jw",
+      "name": "Parco Nord Milano",
+      "address": "Via Gian Carlo Clerici, 150, 20099 Sesto San Giovanni MI, Italy",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5861,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 45.537317699999996,
+      "lng": 9.2101351,
+      "googleMapsUri": "https://maps.google.com/?cid=11300739340422402640&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.parconord.milano.it/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 81.22
+    }
+  ]
+}

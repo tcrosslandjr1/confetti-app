@@ -1,0 +1,3682 @@
+{
+  "location": "Philadelphia, PA",
+  "generatedAt": "2026-05-17T19:20:28.831Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJ2VBVVSVWxokR0GCj7N5QgPI",
+      "name": "Longwood Gardens",
+      "address": "1001 Longwood Rd, Kennett Square, PA 19348, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 31795,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.8735119,
+      "lng": -75.67342169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17474055472580616400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://longwoodgardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.72
+    },
+    {
+      "googlePlaceId": "ChIJ_5CoRebFxokR08ApAyF2KIs",
+      "name": "Philadelphia Museum of Art",
+      "address": "2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 23066,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "live_music_venue",
+        "wedding_venue",
+        "event_venue",
+        "museum",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.965569699999996,
+      "lng": -75.18096609999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10027394454499475667&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.philamuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.57
+    },
+    {
+      "googlePlaceId": "ChIJGVDvkoTIxokRIQNxPpqAR4Y",
+      "name": "Independence National Historical Park",
+      "address": "Philadelphia, PA 19106, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 26248,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.949531199999996,
+      "lng": -75.14973189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9675843724389712673&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/inde/index.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.79
+    },
+    {
+      "googlePlaceId": "ChIJCQH7WCnGxokRAWsd3AfQj80",
+      "name": "Reading Terminal Market",
+      "address": "1136 Arch St, Philadelphia, PA 19107, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 45721,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "market",
+      "types": [
+        "market",
+        "grocery_store",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.9531593,
+      "lng": -75.15909839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14812286431621114625&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://readingterminalmarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 97.45
+    },
+    {
+      "googlePlaceId": "ChIJ05tdhjTGxokReHRD0wXejyE",
+      "name": "The Franklin Institute",
+      "address": "222 N 20th St, Philadelphia, PA 19103, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 13712,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "historical_landmark",
+        "history_museum",
+        "tourist_attraction",
+        "event_venue",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9582109,
+      "lng": -75.17313469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2418395641521861752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fi.edu/?utm_source=google&utm_medium=googlemybusiness&utm_campaign=2021",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "festivals this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.67
+    },
+    {
+      "googlePlaceId": "ChIJBy3vHE3JxokRyJFviUaJD3Y",
+      "name": "Fabrika",
+      "address": "1108 Frankford Ave, Philadelphia, PA 19125, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 3913,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "brunch_restaurant",
+        "night_club",
+        "performing_arts_theater",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9673097,
+      "lng": -75.13454329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8507169157172662728&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fabrikaphilly.com/?utm_source=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "jazz clubs",
+        "immersive experiences",
+        "date night restaurants",
+        "luxury lounges",
+        "adult nightlife",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "immersive-experiences",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 94.88
+    },
+    {
+      "googlePlaceId": "ChIJh7CgRy7GxokRJ1eaM21VO48",
+      "name": "Dilworth Park",
+      "address": "1 S 15th St, Philadelphia, PA 19102, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 9940,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9530357,
+      "lng": -75.16468429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10320936898555172647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://centercityphila.org/parks/dilworth-park?utm_source=gmb-dilworth&utm_medium=social&utm_campaign=gmb-evergreen&utm_content=dilworthpark",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "skating rinks",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.62
+    },
+    {
+      "googlePlaceId": "ChIJk9G5mI_HxokR5CJYCLj6M1E",
+      "name": "Beat The Bomb Philadelphia",
+      "address": "1218 Chestnut St, Philadelphia, PA 19107, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3294,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "indoor_playground",
+        "playground",
+        "video_arcade",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9504792,
+      "lng": -75.1612219,
+      "googleMapsUri": "https://maps.google.com/?cid=5851296009205326564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.beatthebomb.com/locations/philly",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 94.32
+    },
+    {
+      "googlePlaceId": "ChIJL1AEC4PIxokRI--B-1PgOc4",
+      "name": "Liberty Bell",
+      "address": "526 Market St, Philadelphia, PA 19106, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 23368,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.949610299999996,
+      "lng": -75.1502821,
+      "googleMapsUri": "https://maps.google.com/?cid=14860155096792166179&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/inde/learn/historyculture/stories-libertybell.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.16
+    },
+    {
+      "googlePlaceId": "ChIJv2tKaJDIxokRNjXcij0s6U4",
+      "name": "Spruce Street Harbor Park",
+      "address": "301 S Christopher Columbus Blvd, Philadelphia, PA 19106, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 8195,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9443944,
+      "lng": -75.14148329999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5686124647366276406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sprucestreetharborpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "seasonal pop ups",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.99
+    },
+    {
+      "googlePlaceId": "ChIJR62iBlTHxokR7cwJdUPCS8o",
+      "name": "Sandbox VR",
+      "address": "1712 Walnut St, Philadelphia, PA 19103, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1980,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.949968299999995,
+      "lng": -75.16982999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14576958213896916205&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/philadelphia",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 93.76
+    },
+    {
+      "googlePlaceId": "ChIJ0XuDVzTGxokRL_W5oMGr3u8",
+      "name": "Please Touch Museum",
+      "address": "4231 Avenue of the Republic, Philadelphia, PA 19131, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 7136,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.979496399999995,
+      "lng": -75.209147,
+      "googleMapsUri": "https://maps.google.com/?cid=17284441268008121647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.pleasetouchmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.54
+    },
+    {
+      "googlePlaceId": "ChIJkydYBi7GxokRB1nllBaz4zk",
+      "name": "JFK Plaza (Love Park)",
+      "address": "1501 John F Kennedy Blvd, Philadelphia, PA 19102, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 15772,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "sculpture",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9541322,
+      "lng": -75.16563959999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4171374589443922183&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.phila.gov/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "events this weekend",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.53
+    },
+    {
+      "googlePlaceId": "ChIJ____iyvGxokRwltrMEVrhxg",
+      "name": "Pennsylvania Convention Center",
+      "address": "1101 Arch St, Philadelphia, PA 19107, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8192,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.9551235,
+      "lng": -75.16264290000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1767499323675466690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://paconvention.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.89
+    },
+    {
+      "googlePlaceId": "ChIJqyD-RZ3IxokRlperfPwPx9M",
+      "name": "Talula's Garden",
+      "address": "210 W Washington Square, Philadelphia, PA 19106, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2952,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "bar",
+        "family_restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.947260199999995,
+      "lng": -75.1535347,
+      "googleMapsUri": "https://maps.google.com/?cid=15260183439466010518&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.talulasgarden.com/?utm_source=Google%20My%20Business&utm_medium=Website%20Button",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.86
+    },
+    {
+      "googlePlaceId": "ChIJE0IUmt-7xokRQi32DdBL4kk",
+      "name": "Morris Arboretum & Gardens of the University of Pennsylvania",
+      "address": "100 E Northwestern Ave, Philadelphia, PA 19118, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2873,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.0881617,
+      "lng": -75.2219848,
+      "googleMapsUri": "https://maps.google.com/?cid=5323901066464865602&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.morrisarboretum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.78
+    },
+    {
+      "googlePlaceId": "ChIJ7x4bRCHGxokR-BVjmbZ2LWk",
+      "name": "Philadelphia's Magic Gardens",
+      "address": "1020 South St, Philadelphia, PA 19147, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5629,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9426127,
+      "lng": -75.159357,
+      "googleMapsUri": "https://maps.google.com/?cid=7578844274563945976&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phillymagicgardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "sound baths",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "wellness-relaxation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.77
+    },
+    {
+      "googlePlaceId": "ChIJCQbEvTDGxokRneVcOpxMXDI",
+      "name": "The Dandelion",
+      "address": "124 S 18th St, Philadelphia, PA 19103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5434,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pub",
+        "bar",
+        "meal_takeaway",
+        "british_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.950998899999995,
+      "lng": -75.1706311,
+      "googleMapsUri": "https://maps.google.com/?cid=3628859633631552925&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thedandelionpub.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "wine bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "popular dessert spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.65
+    },
+    {
+      "googlePlaceId": "ChIJ1U-L54DIxokRcoW6JtzjcDM",
+      "name": "Franklin Square",
+      "address": "200 N 6th St, Philadelphia, PA 19106, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 5113,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "miniature_golf_course",
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9556634,
+      "lng": -75.1504502,
+      "googleMapsUri": "https://maps.google.com/?cid=3706713028007986546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.historicphiladelphia.org/franklin-square/what-to-see/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "mini golf",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.45
+    },
+    {
+      "googlePlaceId": "ChIJ74Iw4oTIxokRONknVjwsA2E",
+      "name": "Museum of the American Revolution",
+      "address": "101 S 3rd St, Philadelphia, PA 19106, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3631,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9483203,
+      "lng": -75.1457547,
+      "googleMapsUri": "https://maps.google.com/?cid=6990479684264253752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.amrevmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 92.44
+    },
+    {
+      "googlePlaceId": "ChIJBU1gv_LIxokRrI1AakMG5x8",
+      "name": "Adventure Aquarium",
+      "address": "1 Riverside Dr, Camden, NJ 08103, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 19311,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "zoo",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.946086799999996,
+      "lng": -75.1311712,
+      "googleMapsUri": "https://maps.google.com/?cid=2298813021411118508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.adventureaquarium.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 92.04
+    },
+    {
+      "googlePlaceId": "ChIJIZ3KbZGVxokR3CSOkyHyyUE",
+      "name": "Expedition Escape! - Escape Room",
+      "address": "601 S Henderson Rd, King of Prussia, PA 19406, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 13621,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.0787939,
+      "lng": -75.3569945,
+      "googleMapsUri": "https://maps.google.com/?cid=4740586308807566556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.expeditionescape.com/?utm_source=Google_Listing_Website_Button",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.8
+    },
+    {
+      "googlePlaceId": "ChIJo2sUmco0wYkRxFDaT5BRiLg",
+      "name": "Amazing Escape Room Cherry Hill",
+      "address": "2050 Springdale Rd #200, Cherry Hill Township, NJ 08003, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 11963,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "adventure_sports_center",
+        "amusement_center",
+        "tourist_attraction",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9135961,
+      "lng": -74.9659178,
+      "googleMapsUri": "https://maps.google.com/?cid=13296967580068237508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://amazingescaperoom.com/cherry-hill-nj/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.38
+    },
+    {
+      "googlePlaceId": "ChIJi38nlHPHxokRahq_C3bxx78",
+      "name": "Philadelphia Zoo",
+      "address": "3400 W Girard Ave, Philadelphia, PA 19104, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 22476,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9714959,
+      "lng": -75.1955383,
+      "googleMapsUri": "https://maps.google.com/?cid=13819279470915164778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.philadelphiazoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.18
+    },
+    {
+      "googlePlaceId": "ChIJ1WsMX9HHxokRAEC4YQ677fE",
+      "name": "SOUTH Restaurant & Jazz Club",
+      "address": "600 N Broad St, Philadelphia, PA 19130, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3452,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "night_club",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9644228,
+      "lng": -75.1614946,
+      "googleMapsUri": "https://maps.google.com/?cid=17432795403064459264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.southjazzkitchen.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "date night restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.17
+    },
+    {
+      "googlePlaceId": "ChIJ7wchMmbIxokRzO3qOFuSrC8",
+      "name": "The Fillmore Philadelphia",
+      "address": "29 E Allen St, Philadelphia, PA 19123, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5369,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "wedding_venue",
+        "concert_hall",
+        "bar",
+        "auditorium",
+        "performing_arts_theater",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.9655615,
+      "lng": -75.1350602,
+      "googleMapsUri": "https://maps.google.com/?cid=3435281536271445452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thefillmorephilly.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.11
+    },
+    {
+      "googlePlaceId": "ChIJOxKK_y_GxokRAcSUh1dzBbM",
+      "name": "Butcher and Singer",
+      "address": "1500 Walnut St, Philadelphia, PA 19102, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2390,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "steak_house",
+        "cocktail_bar",
+        "fine_dining_restaurant",
+        "bar",
+        "family_restaurant",
+        "meal_takeaway",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.949473,
+      "lng": -75.1662616,
+      "googleMapsUri": "https://maps.google.com/?cid=12899843527446676481&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://butcherandsinger.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.07
+    },
+    {
+      "googlePlaceId": "ChIJIcPcqf64xokRSPxypSWNWic",
+      "name": "Wissahickon Valley Park",
+      "address": "Valley Green Rd, Philadelphia, PA 19128, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6860,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.056210799999995,
+      "lng": -75.21733100000002,
+      "googleMapsUri": "https://maps.google.com/?cid=2835734108212231240&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fow.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.86
+    },
+    {
+      "googlePlaceId": "ChIJ2YjEfbmVxokRi8-FjU2ARJc",
+      "name": "The Escape Game King Of Prussia",
+      "address": "160 N Gulph Rd STE 4230, King of Prussia, PA 19406, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 10114,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.0879303,
+      "lng": -75.3953287,
+      "googleMapsUri": "https://maps.google.com/?cid=10899978068718636939&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/kingofprussia/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=kingofprussia",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.83
+    },
+    {
+      "googlePlaceId": "ChIJPWg_kNXHxokRPXdE7nqMsI4",
+      "name": "Union Transfer",
+      "address": "1026 Spring Garden St, Philadelphia, PA 19123, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3256,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "bar",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.961387599999995,
+      "lng": -75.1553236,
+      "googleMapsUri": "https://maps.google.com/?cid=10281872408898205501&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://utphilly.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.58
+    },
+    {
+      "googlePlaceId": "ChIJ88NKb1rJxokR2h4zSVnruUE",
+      "name": "Museum of Illusions Philadelphia",
+      "address": "401 Market St, Philadelphia, PA 19106, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3880,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_gallery",
+        "art_museum",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9505337,
+      "lng": -75.14741140000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4736075251869490906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moiphilly.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.45
+    },
+    {
+      "googlePlaceId": "ChIJR7VfqnvHxokRylYXcxVo5bU",
+      "name": "Time Mission - Philadelphia, PA",
+      "address": "1530 Chestnut St, S 16th St Entrance, Philadelphia, PA 19102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1437,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9509496,
+      "lng": -75.1671783,
+      "googleMapsUri": "https://maps.google.com/?cid=13106996731866207946&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://timemission.com/philadelphia?utm_source=Google+GMB",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.12
+    },
+    {
+      "googlePlaceId": "ChIJsQ12kDPGxokRYptRvAoz79o",
+      "name": "The Academy of Natural Sciences of Drexel University",
+      "address": "1900 Benjamin Franklin Pkwy, Philadelphia, PA 19103, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3944,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9568422,
+      "lng": -75.1712897,
+      "googleMapsUri": "https://maps.google.com/?cid=15775884140904291170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ansp.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 90.11
+    },
+    {
+      "googlePlaceId": "ChIJOetvJu7FxokR-jV1vd4SAgk",
+      "name": "Citizens Bank Park",
+      "address": "1 Citizens Bank Way, Philadelphia, PA 19148, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 21612,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9060572,
+      "lng": -75.1664952,
+      "googleMapsUri": "https://maps.google.com/?cid=649102044165387770&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mlb.com/phillies/ballpark/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 90.01
+    },
+    {
+      "googlePlaceId": "ChIJKZI5O8MyHogRMAkx1ntablc",
+      "name": "The Mütter Museum at The College of Physicians of Philadelphia",
+      "address": "19 S 22nd St, Philadelphia, PA 19103, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 6504,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "cultural_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9532308,
+      "lng": -75.1763698,
+      "googleMapsUri": "https://maps.google.com/?cid=6300072416658917680&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://muttermuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.99
+    },
+    {
+      "googlePlaceId": "ChIJd8kca4PIxokRqW59OWceihQ",
+      "name": "Independence Hall",
+      "address": "520 Chestnut St, Philadelphia, PA 19106, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 7793,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.948880599999995,
+      "lng": -75.1500349,
+      "googleMapsUri": "https://maps.google.com/?cid=1480028856239615657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/inde/planyourvisit/independencehall.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 89.93
+    },
+    {
+      "googlePlaceId": "ChIJKXlkPpswxIkRIuu4QUrnzE4",
+      "name": "Dorney Park & Wildwater Kingdom",
+      "address": "3830 Dorney Park Rd, Allentown, PA 18104, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 20783,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "water_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.578530099999995,
+      "lng": -75.5326285,
+      "googleMapsUri": "https://maps.google.com/?cid=5678167536323586850&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dorneypark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.83
+    },
+    {
+      "googlePlaceId": "ChIJUyEPZwO5xokRfaREsFG789k",
+      "name": "Fairmount Park",
+      "address": "Reservoir Dr, Philadelphia, PA 19119, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2497,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9881142,
+      "lng": -75.1971204,
+      "googleMapsUri": "https://maps.google.com/?cid=15705102285095085181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.phila.gov/parksandrecreation/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.72
+    },
+    {
+      "googlePlaceId": "ChIJqVUuJ7OVxokRlZsGFvDD2Bo",
+      "name": "Amazing Escape Room King of Prussia",
+      "address": "1020 W 8th Ave #3b, King of Prussia, PA 19406, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6820,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "adventure_sports_center",
+        "amusement_center",
+        "tourist_attraction",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.09928,
+      "lng": -75.4153388,
+      "googleMapsUri": "https://maps.google.com/?cid=1934511475884727189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://amazingescaperoom.com/king-of-prussia-pa/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.54
+    },
+    {
+      "googlePlaceId": "ChIJ-TsteYbIxokR-row5CsRts8",
+      "name": "Founding Footsteps Tours",
+      "address": "302 Arch St, Philadelphia, PA 19106, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2305,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.9520438,
+      "lng": -75.145432,
+      "googleMapsUri": "https://maps.google.com/?cid=14967169291822086906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.foundingfootsteps.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89.51
+    },
+    {
+      "googlePlaceId": "ChIJIQGrHTrGxokRofc6nBBJrRU",
+      "name": "Rittenhouse Square",
+      "address": "1800 Walnut St, Philadelphia, PA 19103, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 6801,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9494621,
+      "lng": -75.1718915,
+      "googleMapsUri": "https://maps.google.com/?cid=1561984981456844705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.friendsofrittenhouse.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "best parks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.49
+    },
+    {
+      "googlePlaceId": "ChIJfWCzLwnGxokROy6ZBUPSLE4",
+      "name": "Kimmel Center for the Performing Arts",
+      "address": "300 S Broad St, Philadelphia, PA 19102, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 4567,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "wedding_venue",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.9467935,
+      "lng": -75.165297,
+      "googleMapsUri": "https://maps.google.com/?cid=5633108419232214587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ensembleartsphilly.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 89.29
+    },
+    {
+      "googlePlaceId": "ChIJicQ2ljDGxokRH_KV3ONo-B4",
+      "name": "The Love.",
+      "address": "130 S 18th St, Philadelphia, PA 19103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1901,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.950607,
+      "lng": -75.1709389,
+      "googleMapsUri": "https://maps.google.com/?cid=2231648943229760031&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theloverestaurant.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.23
+    },
+    {
+      "googlePlaceId": "ChIJAxKGsFShxokR-dUOtss9B9k",
+      "name": "Amazing Escape Room Montgomeryville",
+      "address": "668 Bethlehem Pike, Montgomeryville, PA 18936, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5801,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "adventure_sports_center",
+        "amusement_center",
+        "tourist_attraction",
+        "sports_complex",
+        "event_venue",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.255248,
+      "lng": -75.248594,
+      "googleMapsUri": "https://maps.google.com/?cid=15638536176209417721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://amazingescaperoom.com/montgomeryville/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.02
+    },
+    {
+      "googlePlaceId": "ChIJH7GKvYPIxokRwygyUGwAtck",
+      "name": "Grim Philly Twilight Tours",
+      "address": "523 Market St, Philadelphia, PA 19106, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2729,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.950905500000005,
+      "lng": -75.15002059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14534523837610076355&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.grimphilly.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.96
+    },
+    {
+      "googlePlaceId": "ChIJD8z8z2jHxokRagk8TOQjaqI",
+      "name": "The Met Philadelphia",
+      "address": "858 N Broad St, Philadelphia, PA 19130, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 6137,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "banquet_hall",
+        "wedding_venue",
+        "live_music_venue",
+        "auditorium",
+        "night_club",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.9698503,
+      "lng": -75.16003719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11703206045114173802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.themetphilly.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 88.95
+    },
+    {
+      "googlePlaceId": "ChIJQa1JHDDGxokRGExiHLDYVOA",
+      "name": "Harp & Crown",
+      "address": "1525 Sansom St, Philadelphia, PA 19102, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2411,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "gastropub",
+      "types": [
+        "gastropub",
+        "fine_dining_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9505176,
+      "lng": -75.16680319999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16164783213441600536&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://harpcrown.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "best cocktail bars",
+        "bowling alleys",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "sports-recreation",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.9
+    },
+    {
+      "googlePlaceId": "ChIJ5w95FDqUxokRPiFOVYyT8T4",
+      "name": "Escape Room Mystery",
+      "address": "840 1st Ave #500, King of Prussia, PA 19406, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5482,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.0961667,
+      "lng": -75.40089809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4535568530674688318&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escaperoommystery.com/kop-location/?utm_source=GMBlisting&utm_medium=Organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.83
+    },
+    {
+      "googlePlaceId": "ChIJ33ZAsLXHxokRRidoQ-ctnM4",
+      "name": "Philadelphia Museum of Art Steps",
+      "address": "2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 14333,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9648049,
+      "lng": -75.179878,
+      "googleMapsUri": "https://maps.google.com/?cid=14887824939471611718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.visitphilly.com/museums-attractions/philadelphia/the-rocky-statue-and-the-rocky-steps/#sm.000ud05qr1czldxfx271raiv5praf",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.67
+    },
+    {
+      "googlePlaceId": "ChIJDcKfuBTzNIgRyANv9mblUsc",
+      "name": "Sandbox VR",
+      "address": "1681 Smallman St, Pittsburgh, PA 15222, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5020,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.4504526,
+      "lng": -79.98711209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14362794392021828552&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/pittsburgh",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.54
+    },
+    {
+      "googlePlaceId": "ChIJrcsBU8vHxokR4FXP2BplJks",
+      "name": "Barnes Foundation",
+      "address": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4576,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9606433,
+      "lng": -75.17280749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5415126767940621792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barnesfoundation.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJseL9lYPIxokR9MI85DazUl4",
+      "name": "Independence Visitor Center",
+      "address": "599 Market St, Philadelphia, PA 19106, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 4033,
+      "priceLevel": null,
+      "primaryType": "visitor_center",
+      "types": [
+        "visitor_center",
+        "tourist_information_center",
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "gift_shop",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9514196,
+      "lng": -75.1499212,
+      "googleMapsUri": "https://maps.google.com/?cid=6796691835994292980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phlvisitorcenter.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 88.43
+    },
+    {
+      "googlePlaceId": "ChIJ7RDIKZrIxokRlsVAmP_3P8g",
+      "name": "The Twisted Tail",
+      "address": "509 S 2nd St, Philadelphia, PA 19147, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2022,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "brunch_restaurant",
+        "bar",
+        "live_music_venue",
+        "event_venue",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9418766,
+      "lng": -75.14519880000002,
+      "googleMapsUri": "https://maps.google.com/?cid=14429524408261461398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thetwistedtail.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "hidden speakeasies",
+        "live music events",
+        "jazz clubs",
+        "date night restaurants",
+        "romantic bars",
+        "TikTok restaurants",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.33
+    },
+    {
+      "googlePlaceId": "ChIJJ6oV_tfLxokRhJOt4gHyhu4",
+      "name": "Escape Room Mystery",
+      "address": "1200 Haddonfield Rd, Cherry Hill Township, NJ 08002, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4550,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9205208,
+      "lng": -75.0331034,
+      "googleMapsUri": "https://maps.google.com/?cid=17187691117817992068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://escaperoommystery.com/cherry-hill/?utm_source=GMBlisting&utm_medium=Organic",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.22
+    },
+    {
+      "googlePlaceId": "ChIJlSxKX2SzxokRidklj5KVXCo",
+      "name": "Otherworld Philadelphia",
+      "address": "2500 Grant Ave #1, Philadelphia, PA 19114, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 1933,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.0781062,
+      "lng": -75.0250121,
+      "googleMapsUri": "https://maps.google.com/?cid=3052479104149739913&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://otherworldphila.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "game night venues",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.18
+    },
+    {
+      "googlePlaceId": "ChIJb_iFIvKTxokR-9Ha5lAtuG4",
+      "name": "Valley Forge National Historical Park",
+      "address": "1400 N Outer Line Dr, King of Prussia, PA 19406, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.8,
+      "reviewCount": 8683,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.098299499999996,
+      "lng": -75.443185,
+      "googleMapsUri": "https://maps.google.com/?cid=7978176565380567547&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/vafo/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJBS-ne8PJxokRHmNGHwMwEX0",
+      "name": "Middle Child Clubhouse",
+      "address": "1232 N Front St, Philadelphia, PA 19122, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1323,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "sandwich_shop",
+        "breakfast_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.9701638,
+      "lng": -75.136144,
+      "googleMapsUri": "https://maps.google.com/?cid=9012037119312814878&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://middlechildphilly.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.05
+    },
+    {
+      "googlePlaceId": "ChIJe_A3sT7HxokRO1lqEkc-5JM",
+      "name": "Center City Escape Room",
+      "address": "1425 Arch St Level B, Philadelphia, PA 19102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 4089,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.954909,
+      "lng": -75.1641733,
+      "googleMapsUri": "https://maps.google.com/?cid=10656711093237995835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.centercityescape.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.88
+    },
+    {
+      "googlePlaceId": "ChIJmzPYgJFZwokRg4zUwTlZwtI",
+      "name": "Comedy Cellar",
+      "address": "117 MacDougal St, New York, NY 10012, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 7899,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "tourist_attraction",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.730200200000006,
+      "lng": -74.0005639,
+      "googleMapsUri": "https://maps.google.com/?cid=15186798998046674051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://comedycellar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJCQH7WCnGxokRv0FaySC6Tqs",
+      "name": "Down Home Diner",
+      "address": "Reading Terminal Market, 51 N 12th St, Philadelphia, PA 19107, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 6456,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "diner",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.952868699999996,
+      "lng": -75.1590265,
+      "googleMapsUri": "https://maps.google.com/?cid=12344008278648963519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://downhomediner.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJGd1QdsBLtokRihAkR6N6TdE",
+      "name": "Sandbox VR",
+      "address": "1656 Silver Hill Dr, Tysons, VA 22102, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 5517,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 38.924360400000005,
+      "lng": -77.23272949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15081845568825462922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/mclean",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.75
+    },
+    {
+      "googlePlaceId": "ChIJBz9zwke8xokR4YRG31WbSUQ",
+      "name": "LEGOLAND Discovery Center Philadelphia",
+      "address": "Mall, Unit #1055 500 W Germantown Pike, Plymouth Meeting, PA 19462, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 3322,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.1159439,
+      "lng": -75.2819933,
+      "googleMapsUri": "https://maps.google.com/?cid=4920634860999443681&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.legolanddiscoverycenter.com/philadelphia",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.75
+    },
+    {
+      "googlePlaceId": "ChIJzSVn2prIxokRx1kTchCYRwI",
+      "name": "Zahav",
+      "address": "237 St James Pl, Philadelphia, PA 19106, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3053,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "israeli_restaurant",
+      "types": [
+        "israeli_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.946233299999996,
+      "lng": -75.1450162,
+      "googleMapsUri": "https://maps.google.com/?cid=164267107823081927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.zahavrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.52
+    },
+    {
+      "googlePlaceId": "ChIJNxESpoPIxokRs5NCI4-Aosc",
+      "name": "Independence Beer Garden",
+      "address": "100 S Independence Mall W, Philadelphia, PA 19106, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 2154,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "beer_garden",
+      "types": [
+        "beer_garden",
+        "bar_and_grill",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.950275,
+      "lng": -75.1507561,
+      "googleMapsUri": "https://maps.google.com/?cid=14385201512035029939&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.phlbeergarden.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.44
+    },
+    {
+      "googlePlaceId": "ChIJr6puOL3HxokRg8MLy4Dz_x0",
+      "name": "Smith Memorial Playground & Playhouse",
+      "address": "3500 Reservoir Dr, Philadelphia, PA 19121, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2110,
+      "priceLevel": null,
+      "primaryType": "playground",
+      "types": [
+        "playground",
+        "tourist_attraction",
+        "park",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.981725399999995,
+      "lng": -75.1956208,
+      "googleMapsUri": "https://maps.google.com/?cid=2161714080649036675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.smithplayground.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.42
+    },
+    {
+      "googlePlaceId": "ChIJk9L-ztTHxokRockRfkbrwZc",
+      "name": "Underground Arts",
+      "address": "1200 Callowhill St, Philadelphia, PA 19107, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1716,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9590922,
+      "lng": -75.1587521,
+      "googleMapsUri": "https://maps.google.com/?cid=10935280058227607969&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://undergroundarts.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.39
+    },
+    {
+      "googlePlaceId": "ChIJR7HjD-zFxokRLbpFP7Ixn1I",
+      "name": "Xfinity Mobile Arena",
+      "address": "3601 S Broad St, Philadelphia, PA 19148, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 18591,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 39.9012015,
+      "lng": -75.17197949999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5953531874042559021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://xfinitymobilearena.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.31
+    },
+    {
+      "googlePlaceId": "ChIJ2SMy_xLDxokR8mn3ZUlRNEI",
+      "name": "John Heinz National Wildlife Refuge at Tinicum",
+      "address": "8601 Lindbergh Blvd., Philadelphia, PA 19153, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3163,
+      "priceLevel": null,
+      "primaryType": "wildlife_refuge",
+      "types": [
+        "wildlife_refuge",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.8921524,
+      "lng": -75.2572137,
+      "googleMapsUri": "https://maps.google.com/?cid=4770527280977373682&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fws.gov/refuge/john_heinz/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.24
+    },
+    {
+      "googlePlaceId": "ChIJrWKnrM3HxokRykMoFT3yhpk",
+      "name": "Wilder",
+      "address": "2009 Sansom St, Philadelphia, PA 19103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 989,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "pizza_restaurant",
+        "fine_dining_restaurant",
+        "event_venue",
+        "meal_takeaway",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.951479899999995,
+      "lng": -75.17402799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11062795878844089290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wilderphilly.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJjRoEci_GxokRQKayshr-5EU",
+      "name": "Time",
+      "address": "1315 Sansom St, Philadelphia, PA 19107, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1923,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9500362,
+      "lng": -75.162516,
+      "googleMapsUri": "https://maps.google.com/?cid=5036429673927714368&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timerestaurant.net/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "jazz clubs",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.07
+    },
+    {
+      "googlePlaceId": "ChIJZ3LgS4HIxokRct8iqCzISOY",
+      "name": "National Constitution Center",
+      "address": "525 Arch St, Philadelphia, PA 19106, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2650,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "non_profit_organization",
+        "history_museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.953695499999995,
+      "lng": -75.1491166,
+      "googleMapsUri": "https://maps.google.com/?cid=16593732921171566450&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://constitutioncenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.06
+    },
+    {
+      "googlePlaceId": "ChIJVxCRc4XIxokRIQ9K6Vf7w9w",
+      "name": "Sassafras",
+      "address": "48 S 2nd St, Philadelphia, PA 19106, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 663,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.948786999999996,
+      "lng": -75.1440824,
+      "googleMapsUri": "https://maps.google.com/?cid=15907834663797395233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sassafrasbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.9
+    },
+    {
+      "googlePlaceId": "ChIJgWFIzRbHxokRdMJJuTAXkJI",
+      "name": "Vera Art Studio",
+      "address": "Billy Penn Studios, 1516 N 5th St Suite 328 3rd Floor, Philadelphia, PA 19122, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 1083,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.9748483,
+      "lng": -75.1442314,
+      "googleMapsUri": "https://maps.google.com/?cid=10560966624218301044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.veraartstudio.us/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJ_8Tvm4XIxokRBA-RzDneztg",
+      "name": "Cuba Libre Restaurant & Rum Bar",
+      "address": "10 S 2nd St, Philadelphia, PA 19106, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.3,
+      "reviewCount": 3876,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cuban_restaurant",
+      "types": [
+        "cuban_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9496092,
+      "lng": -75.1439376,
+      "googleMapsUri": "https://maps.google.com/?cid=15622668497221390084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cubalibrerestaurant.com/en/philadelphia",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.5
+    },
+    {
+      "googlePlaceId": "ChIJ595L92jIxokRany45-G9urw",
+      "name": "Barcade",
+      "address": "1114 Frankford Ave, Philadelphia, PA 19125, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 2557,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9674598,
+      "lng": -75.13458589999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13599390802751552618&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://barcade.com/fishtown/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.5
+    },
+    {
+      "googlePlaceId": "ChIJ487CtO3HxokRpQTcjx2xLNM",
+      "name": "Schuylkill River Park",
+      "address": "300 S 25th St, Philadelphia, PA 19103, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1914,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9488177,
+      "lng": -75.1817665,
+      "googleMapsUri": "https://maps.google.com/?cid=15216731981503792293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fsrp.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "pickleball courts"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 86.45
+    },
+    {
+      "googlePlaceId": "ChIJW-aFZHzIxokRzmahxNNWXXA",
+      "name": "Silk City",
+      "address": "435 Spring Garden St, Philadelphia, PA 19123, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2986,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "diner",
+      "types": [
+        "diner",
+        "brunch_restaurant",
+        "beer_garden",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.961396,
+      "lng": -75.1463618,
+      "googleMapsUri": "https://maps.google.com/?cid=8096723172619019982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.silkcityphilly.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.35
+    },
+    {
+      "googlePlaceId": "ChIJf4zVyIzMxokRGz9Fm3xsT0E",
+      "name": "The Great Escape Room Challenge",
+      "address": "1400 Haddonfield-Berlin Rd, Cherry Hill Township, NJ 08003, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2541,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.8789631,
+      "lng": -75.00664859999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4706099418062208795&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://madescape.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJ7RhuX0_GxokRjL5qFrDINys",
+      "name": "World Cafe Live",
+      "address": "3025 Walnut St, Philadelphia, PA 19104, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2323,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "concert_hall",
+        "non_profit_organization",
+        "bar",
+        "auditorium",
+        "american_restaurant",
+        "association_or_organization",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.952067299999996,
+      "lng": -75.1851726,
+      "googleMapsUri": "https://maps.google.com/?cid=3114178325965880972&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://worldcafelive.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.23
+    },
+    {
+      "googlePlaceId": "ChIJtQzg4dZ9OIgRW3IMV8vgxvE",
+      "name": "Otherworld",
+      "address": "5819 Chantry Dr, Columbus, OH 43232, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 9072,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9221317,
+      "lng": -82.8360785,
+      "googleMapsUri": "https://maps.google.com/?cid=17421859372472758875&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://otherworld.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJRT5m_AtKwYkRHyoXG_kRCy4",
+      "name": "The Funplex",
+      "address": "3320-24 NJ-38, Mt Laurel Township, NJ 08054, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 5246,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "video_arcade",
+        "tourist_attraction",
+        "bowling_alley",
+        "water_park",
+        "sports_complex",
+        "amusement_center",
+        "bar",
+        "go_karting_venue",
+        "hotel",
+        "lodging",
+        "race_course",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.967727599999996,
+      "lng": -74.89196980000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3317765312087534111&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thefunplex.com/mount-laurel/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.99
+    },
+    {
+      "googlePlaceId": "ChIJd0Vm6DDGxokRYDQQ0aFQgqY",
+      "name": "The Continental Mid-town",
+      "address": "1801 Chestnut St, Philadelphia, PA 19103, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 3655,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "american_restaurant",
+        "meal_takeaway",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9518644,
+      "lng": -75.1704634,
+      "googleMapsUri": "https://maps.google.com/?cid=11998241013195879520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://continentalmidtown.com/?utm_source=GoogleBusinessProfiles&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJsSHnhJfHxokR876ZRHs_grY",
+      "name": "F1 Arcade Philadelphia",
+      "address": "1330 Chestnut St, Philadelphia, PA 19107, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 960,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "sports_bar",
+        "video_arcade",
+        "bar_and_grill",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.950638,
+      "lng": -75.16315399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13151143660539723507&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://f1arcade.com/us/philadelphia?utm_source=google&utm_medium=organic&utm_campaign=gbp-listing&utm_term=philadelphia",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.9
+    },
+    {
+      "googlePlaceId": "ChIJxwS3QX7IxokRoktbRzjUbwI",
+      "name": "Franklin Music Hall",
+      "address": "421 N 7th St, Philadelphia, PA 19123, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 2980,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.959159799999995,
+      "lng": -75.1497116,
+      "googleMapsUri": "https://maps.google.com/?cid=175592248671161250&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.franklinmusichall.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.89
+    },
+    {
+      "googlePlaceId": "ChIJreKNFonIxokRPfXi7jRKom0",
+      "name": "Cherry Street Pier",
+      "address": "121 N Christopher Columbus Blvd, Philadelphia, PA 19106, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 1593,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "market",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 39.9524997,
+      "lng": -75.13927919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7899958287567877437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cherrystreetpier.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "waterfront gardens",
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "shopping-markets"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJY5RrYw1KtokRuIuPANDym0s",
+      "name": "Ridley Creek State Park",
+      "address": "1023 Sycamore Mills Rd, Media, PA 19063, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3415,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.951373,
+      "lng": -75.44404349999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5448215149411273656&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dcnr.pa.gov/StateParks/FindAPark/RidleyCreekStatePark/Pages/default.aspx",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJ0asdg4rHxokRaViKGI0wfvM",
+      "name": "Flight Club Philadelphia",
+      "address": "1417 Walnut St, Philadelphia, PA 19102, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 317,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "brunch_restaurant",
+        "night_club",
+        "british_restaurant",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9495637,
+      "lng": -75.16507059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17545514580842272873&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.flightclubdartsusa.com/philadelphia",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "game night venues",
+        "game bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJueM_GTfGxokRq_IKa4nOJi4",
+      "name": "The Ranstead Room",
+      "address": "2013 Ranstead St, Philadelphia, PA 19103, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 867,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.952609599999995,
+      "lng": -75.17396149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3325572464461410987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ransteadroom.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJn_0OoojIxokRli62b71uVCo",
+      "name": "Elfreth's Alley Museum",
+      "address": "126 Elfreth's Alley, Philadelphia, PA 19106, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 4474,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "historical_landmark",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.952717799999995,
+      "lng": -75.14243909999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3050184607538753174&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elfrethsalley.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.52
+    },
+    {
+      "googlePlaceId": "ChIJAwOi1dvJxokRHd7xBp3nKz8",
+      "name": "Oh Brother Philly",
+      "address": "206 Market St, Philadelphia, PA 19106, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 5274,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fast_food_restaurant",
+        "hamburger_restaurant",
+        "chicken_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.9496989,
+      "lng": -75.1441608,
+      "googleMapsUri": "https://maps.google.com/?cid=4551986510000414237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ohbrotherphilly.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJlT7VlTzGxokRCBFKum31X-I",
+      "name": "Rex at the Royal",
+      "address": "1524 South St, Philadelphia, PA 19146, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 809,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "liquor_store",
+        "cafe",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9437809,
+      "lng": -75.1681729,
+      "googleMapsUri": "https://maps.google.com/?cid=16312026226984882440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://rexphl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJzX5a9zTHxokRhnKJZzW5vok",
+      "name": "Jean-Georges Philadelphia",
+      "address": "One N 19th St, Philadelphia, PA 19103, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 806,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "fine_dining_restaurant",
+        "bar",
+        "night_club",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9563324,
+      "lng": -75.1703316,
+      "googleMapsUri": "https://maps.google.com/?cid=9925574267792618118&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jean-georgesphiladelphia.com/?utm_source=google&utm_medium=organicsearch&utm_campaign=tor-phi-fab-mid-seo-na&utm_content=na-na&utm_term=na",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.33
+    },
+    {
+      "googlePlaceId": "ChIJC5yi0dTHxokRo2gedZEEXcg",
+      "name": "TAP Esports Center",
+      "address": "924 Cherry St Basement, Philadelphia, PA 19107, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 282,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.954316,
+      "lng": -75.1556064,
+      "googleMapsUri": "https://maps.google.com/?cid=14437701003201374371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.tapesportscenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJH_yjzvy-zokRRT2Xk3_dC5Y",
+      "name": "Penn's Cave and Wildlife Park",
+      "address": "222 Penns Cave Rd, Centre Hall, PA 16828, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.7,
+      "reviewCount": 4917,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "wildlife_park",
+        "zoo",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 40.8825498,
+      "lng": -77.61165679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10811978870439755077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pennscave.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJvzKmO1vGxokRJm5brUPctFE",
+      "name": "Penn Museum",
+      "address": "3260 South St, Philadelphia, PA 19104, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2880,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9492392,
+      "lng": -75.191367,
+      "googleMapsUri": "https://maps.google.com/?cid=5887572796109450790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.penn.museum/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.18
+    },
+    {
+      "googlePlaceId": "ChIJ1ymsTJnIxokRYlpNP0JNb4c",
+      "name": "Theatre of The Living Arts",
+      "address": "334 South St, Philadelphia, PA 19147, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2679,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "wedding_venue",
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 39.941402599999996,
+      "lng": -75.14872059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9759103864460368482&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tlaphilly.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJfwscx4nIxokR-c_mG_n0Pdk",
+      "name": "Morgan's Pier",
+      "address": "221 N Christopher Columbus Blvd, Philadelphia, PA 19106, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.1,
+      "reviewCount": 2928,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "beer_garden",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9549028,
+      "lng": -75.1389057,
+      "googleMapsUri": "https://maps.google.com/?cid=15653937230561857529&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.morganspier.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "interactive pop ups",
+        "waterfront gardens",
+        "sunset date spots",
+        "trivia nights",
+        "game bars",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "outdoor-nature",
+        "romantic-date-night",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.14
+    },
+    {
+      "googlePlaceId": "ChIJ6X1dkoLIxokRPv9FKJrlGqs",
+      "name": "Morimoto",
+      "address": "723 Chestnut St, Philadelphia, PA 19106, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2429,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "wine_bar",
+        "seafood_restaurant",
+        "meal_takeaway",
+        "sushi_restaurant",
+        "japanese_restaurant",
+        "family_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.949652799999996,
+      "lng": -75.153275,
+      "googleMapsUri": "https://maps.google.com/?cid=12329419380143554366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://morimotorestaurant.com/?utm_source=GoogleBusinessProfile&utm_medium=Website&utm_campaign=MapLabs",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.03
+    },
+    {
+      "googlePlaceId": "ChIJQeJwUebpxokREDQvm_yGXO8",
+      "name": "Joseph Anthony Retreat Spa & Salon - Springfield",
+      "address": "400 W Sproul Rd, Springfield, PA 19064, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 2381,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "massage",
+        "spa",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9256546,
+      "lng": -75.3529913,
+      "googleMapsUri": "https://maps.google.com/?cid=17247809092415599632&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://josephanthony.com/sf",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.01
+    },
+    {
+      "googlePlaceId": "ChIJrdSEdjfGxokRiRg70O7yqyM",
+      "name": "Helium Comedy Club",
+      "address": "2031 Sansom St, Philadelphia, PA 19103, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3110,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "bar",
+        "night_club",
+        "performing_arts_theater",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.9515214,
+      "lng": -75.17473199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2570415119854672009&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://philadelphia.heliumcomedy.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.98
+    }
+  ]
+}

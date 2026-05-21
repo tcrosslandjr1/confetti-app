@@ -1,0 +1,3619 @@
+{
+  "location": "Atlanta, GA",
+  "generatedAt": "2026-05-17T19:08:17.432Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJGQT0RX4E9YgR3EqvqXZw1_4",
+      "name": "Georgia Aquarium",
+      "address": "225 Baker St NW, Atlanta, GA 30313, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 88915,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.763382,
+      "lng": -84.3951098,
+      "googleMapsUri": "https://maps.google.com/?cid=18363269660581776092&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.georgiaaquarium.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.6
+    },
+    {
+      "googlePlaceId": "ChIJxUSiIIsJ9YgRSfGWV6GmWGg",
+      "name": "Game Show Battle Rooms - Atlanta (Dunwoody)",
+      "address": "4550 Olde Perimeter Way Suite 402B, Dunwoody, GA 30346, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 15907,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "bar",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.930208799999996,
+      "lng": -84.3438099,
+      "googleMapsUri": "https://maps.google.com/?cid=7518942789784498505&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gameshowbattlerooms.com/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "family friendly things to do",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 98.71
+    },
+    {
+      "googlePlaceId": "ChIJf6se6VkF9YgRpGJ3GDXcpAg",
+      "name": "Beat The Bomb Atlanta",
+      "address": "1483 Chattahoochee Ave NW, Atlanta, GA 30318, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 12034,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "indoor_playground",
+        "playground",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8089766,
+      "lng": -84.4357868,
+      "googleMapsUri": "https://maps.google.com/?cid=622864769085825700&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.beatthebomb.com/locations/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "game bars",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.86
+    },
+    {
+      "googlePlaceId": "ChIJ3-tvIpOv9YgRXBg1XZnygW8",
+      "name": "Stone Mountain Park",
+      "address": "1000 Robert E Lee Blvd, Stone Mountain, GA 30083, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 42710,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8052096,
+      "lng": -84.1451453,
+      "googleMapsUri": "https://maps.google.com/?cid=8034969950713354332&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://stonemountainpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.35
+    },
+    {
+      "googlePlaceId": "ChIJGaxkUDkE9YgRDjUv9U7qrvM",
+      "name": "Piedmont Park",
+      "address": "Atlanta, GA 30309, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 17870,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7879265,
+      "lng": -84.37216819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17559229622006002958&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://piedmontpark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "seasonal pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.87
+    },
+    {
+      "googlePlaceId": "ChIJ0RXVJTgE9YgRtdaB6IH56qA",
+      "name": "Atlanta Botanical Garden",
+      "address": "1345 Piedmont Ave NE, Atlanta, GA 30309, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 22850,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7899568,
+      "lng": -84.37259879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11595354526965683893&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.atlantabg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.53
+    },
+    {
+      "googlePlaceId": "ChIJr3-OMRsE9YgRNJTNacJKKqQ",
+      "name": "TWO urban licks",
+      "address": "820 Ralph McGill Blvd NE, Atlanta, GA 30306, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 14739,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "barbecue_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.768453099999995,
+      "lng": -84.3612569,
+      "googleMapsUri": "https://maps.google.com/?cid=11829349570101220404&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.twourbanlicks.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 95.18
+    },
+    {
+      "googlePlaceId": "ChIJlxF9wRAE9YgRn5oLqkWmNE8",
+      "name": "9 Mile Station",
+      "address": "Ponce City Market, 1829, 675 Ponce De Leon Ave NE, Atlanta, GA 30308, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 8714,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7730216,
+      "lng": -84.3663558,
+      "googleMapsUri": "https://maps.google.com/?cid=5707369445921102495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.9milestation.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "private dining rooms",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.67
+    },
+    {
+      "googlePlaceId": "ChIJ8yjI7H4E9YgRyacfAZqyAUQ",
+      "name": "World of Coca-Cola",
+      "address": "121 Baker St NW, Atlanta, GA 30313, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 35808,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7625564,
+      "lng": -84.39243599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4900394244069369801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.worldofcoca-cola.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.61
+    },
+    {
+      "googlePlaceId": "ChIJ2dYN7MED9YgRzChlRsbObnA",
+      "name": "Zoo Atlanta",
+      "address": "800 Cherokee Ave SE, Atlanta, GA 30315, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 23904,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.732596,
+      "lng": -84.37145799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8101640130665982156&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://zooatlanta.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.47
+    },
+    {
+      "googlePlaceId": "ChIJV1BRyvUD9YgREE_OCsyMEBw",
+      "name": "Martin Luther King, Jr. National Historical Park",
+      "address": "450 Auburn Ave NE, Atlanta, GA 30312, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 11611,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "historical_landmark",
+        "tourist_attraction",
+        "museum",
+        "national_park",
+        "park",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.756673899999996,
+      "lng": -84.3731798,
+      "googleMapsUri": "https://maps.google.com/?cid=2022271040671862544&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/malu/index.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 94.05
+    },
+    {
+      "googlePlaceId": "ChIJ44tbZH4E9YgRS8805iQvAoE",
+      "name": "Pemberton Place",
+      "address": "126 Ivan Allen Jr Blvd NW, Atlanta, GA 30308, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 16985,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7636055,
+      "lng": -84.3934955,
+      "googleMapsUri": "https://maps.google.com/?cid=9296044416373673803&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.02
+    },
+    {
+      "googlePlaceId": "ChIJG28dFRMD9YgRRAIBCftzmNU",
+      "name": "Utopia Restaurant at the Underground Atlanta",
+      "address": "50 Upper Alabama St, Atlanta, GA 30303, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 3388,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.752588599999996,
+      "lng": -84.3905079,
+      "googleMapsUri": "https://maps.google.com/?cid=15391179248563716676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://utopialoungeatl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "date night restaurants",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.87
+    },
+    {
+      "googlePlaceId": "ChIJ28DQdm8E9YgRnsZ4YZ94nRo",
+      "name": "Fox Theatre",
+      "address": "660 Peachtree St NE, Atlanta, GA 30308, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 11097,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "wedding_venue",
+        "historical_landmark",
+        "concert_hall",
+        "tourist_attraction",
+        "historical_place",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7726136,
+      "lng": -84.3853395,
+      "googleMapsUri": "https://maps.google.com/?cid=1917821642260137630&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.foxtheatre.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.81
+    },
+    {
+      "googlePlaceId": "ChIJTTv9ohAE9YgRgRWbbatrrsg",
+      "name": "Ponce City Market",
+      "address": "675 Ponce De Leon Ave NE, Atlanta, GA 30308, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 16798,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "historical_landmark",
+        "historical_place",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.772768299999996,
+      "lng": -84.3655967,
+      "googleMapsUri": "https://maps.google.com/?cid=14460613837555701121&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://poncecitymarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.73
+    },
+    {
+      "googlePlaceId": "ChIJIRYhpn8E9YgRWy0NPvzLU1M",
+      "name": "Centennial Olympic Park",
+      "address": "Atlanta, GA 30313, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 15716,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.760463,
+      "lng": -84.3930831,
+      "googleMapsUri": "https://maps.google.com/?cid=6004367012448251227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gwcca.org/centennial-olympic-park",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "best parks",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.53
+    },
+    {
+      "googlePlaceId": "ChIJf8bUMEUE9YgR8nttKmmxaPc",
+      "name": "High Museum of Art",
+      "address": "1280 Peachtree Rd NE, Atlanta, GA 30309, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 5881,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "sculpture",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7900632,
+      "lng": -84.38555199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17827694190187609074&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.high.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.36
+    },
+    {
+      "googlePlaceId": "ChIJf8bUMEUE9YgRI5s3hH594AY",
+      "name": "Woodruff Arts Center",
+      "address": "1280 Peachtree St NE, Atlanta, GA 30309, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 6278,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7893845,
+      "lng": -84.38465529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=495533941348342563&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.woodruffcenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 92.16
+    },
+    {
+      "googlePlaceId": "ChIJ3ShBWX8E9YgRzJtXBprRejs",
+      "name": "SkyView Atlanta",
+      "address": "168 Luckie St NW, Atlanta, GA 30303, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 10961,
+      "priceLevel": null,
+      "primaryType": "ferris_wheel",
+      "types": [
+        "ferris_wheel",
+        "scenic_spot",
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7589378,
+      "lng": -84.3916921,
+      "googleMapsUri": "https://maps.google.com/?cid=4285968454858021836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.skyviewatlanta.com/?y_source=1_MjAzNDY3MjQwNi03MTUtbG9jYXRpb24ud2Vic2l0ZQ==",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.07
+    },
+    {
+      "googlePlaceId": "ChIJJWeQDuoD9YgRkJK0eKgT3zE",
+      "name": "Grant Park",
+      "address": "840 Cherokee Ave SE, Atlanta, GA 30315, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6748,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.735704,
+      "lng": -84.371164,
+      "googleMapsUri": "https://maps.google.com/?cid=3593612641965478544&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gpconservancy.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.68
+    },
+    {
+      "googlePlaceId": "ChIJfxX2u9AP9YgRzZBlCbF1W_U",
+      "name": "Activate Games",
+      "address": "4540 Roswell Rd Suite A, Atlanta, GA 30342, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2161,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.879085499999995,
+      "lng": -84.380516,
+      "googleMapsUri": "https://maps.google.com/?cid=17679854165400326349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/atlanta?utm_source=google&utm_medium=organic&utm_campaign=gmb-atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 91.48
+    },
+    {
+      "googlePlaceId": "ChIJ4fRXllAE9YgR6nR6SZWzinI",
+      "name": "Center For Puppetry Arts",
+      "address": "1404 Spring St NW, Atlanta, GA 30309, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 3030,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "tourist_attraction",
+        "performing_arts_theater",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.792874999999995,
+      "lng": -84.38985989999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8253606720874116330&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.puppet.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "best museums",
+        "cultural exhibits",
+        "interactive pop ups",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 91.42
+    },
+    {
+      "googlePlaceId": "ChIJQTC3DsEG9YgRoHJUUKVsK94",
+      "name": "Fernbank Museum | 3D Theater | Forest",
+      "address": "767 Clifton Rd NE, Atlanta, GA 30307, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8807,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "nature_preserve",
+        "museum",
+        "movie_theater",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7739247,
+      "lng": -84.32799849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16009008757691675296&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fernbankmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.4
+    },
+    {
+      "googlePlaceId": "ChIJ1_xvcY4F9YgRt4Fsgwz-ENY",
+      "name": "Gypsy Kitchen",
+      "address": "3035 Peachtree Rd NE Ste A209, Atlanta, GA 30305, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 4034,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8379035,
+      "lng": -84.3806417,
+      "googleMapsUri": "https://maps.google.com/?cid=15425108053441937847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gypsykitchenatl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 91.2
+    },
+    {
+      "googlePlaceId": "ChIJJbthuA0Q9YgRLIGtr6ZLaOU",
+      "name": "Canoe",
+      "address": "4199 Paces Ferry Rd SE, Atlanta, GA 30339, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5115,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "brunch_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.859739999999995,
+      "lng": -84.455173,
+      "googleMapsUri": "https://maps.google.com/?cid=16530545611547443500&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.canoeatl.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.83
+    },
+    {
+      "googlePlaceId": "ChIJncEjP7YO9YgRgiTw6GHfo7I",
+      "name": "Mastermind Escape Games Atlanta",
+      "address": "5825 Glenridge Dr Building 4 Suite #200, Atlanta, GA 30328, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 15995,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9151751,
+      "lng": -84.3592018,
+      "googleMapsUri": "https://maps.google.com/?cid=12872377771567883394&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mastermindescapegames.com/locations/escape-room-sandy-springs/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.48
+    },
+    {
+      "googlePlaceId": "ChIJh9_9OwQD9YgRSaSpuqqJm8U",
+      "name": "Insomnia Nightclub",
+      "address": "119 Shirley C. Franklin Blvd, Atlanta, GA 30303, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1518,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.751392599999996,
+      "lng": -84.38959220000001,
+      "googleMapsUri": "https://maps.google.com/?cid=14239126013231080521&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://insomnianightclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "nightclubs",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.4
+    },
+    {
+      "googlePlaceId": "ChIJF_GNhuid44kRG524SWbe7IY",
+      "name": "Your 3rd Spot",
+      "address": "400 Chattahoochee Row NW, Atlanta, GA 30318, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 4328,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "bowling_alley",
+        "bar",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.8036652,
+      "lng": -84.4305744,
+      "googleMapsUri": "https://maps.google.com/?cid=9722390226490924315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.your3rdspot.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "date night restaurants",
+        "sunset date spots",
+        "game night venues",
+        "board game cafes",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.32
+    },
+    {
+      "googlePlaceId": "ChIJvSuOY0QE9YgReHlGmG84Sno",
+      "name": "5Church Midtown",
+      "address": "1197 Peachtree St NE #528, Atlanta, GA 30361, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5974,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7870834,
+      "lng": -84.3828185,
+      "googleMapsUri": "https://maps.google.com/?cid=8811917672851077496&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://midtown.5church-atlanta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.21
+    },
+    {
+      "googlePlaceId": "ChIJ8-AgkXwF9YgRerw_Yj02Fsw",
+      "name": "El Viñedo Local",
+      "address": "730 Peachtree St NE Suite 100, Atlanta, GA 30308, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 7236,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "south_american_restaurant",
+      "types": [
+        "south_american_restaurant",
+        "wine_bar",
+        "breakfast_restaurant",
+        "coffee_shop",
+        "bar",
+        "cafe",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.774389299999996,
+      "lng": -84.38490709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14706001270494182522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elvinedolocal.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.2
+    },
+    {
+      "googlePlaceId": "ChIJ1Q3ZVn8E9YgRxZ015hv_l-w",
+      "name": "Tabernacle",
+      "address": "152 Luckie St NW, Atlanta, GA 30303, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 6062,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "concert_hall",
+        "banquet_hall",
+        "auditorium",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.7588551,
+      "lng": -84.39140569999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17048375409725775301&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tabernacleatl.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.85
+    },
+    {
+      "googlePlaceId": "ChIJIxIc4QsF9YgRR8u3xLdV69c",
+      "name": "Sandbox VR",
+      "address": "1115 Howell Ml Rd P180, Atlanta, GA 30318, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 10272,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7853644,
+      "lng": -84.41052789999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15558623585449265991&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.77
+    },
+    {
+      "googlePlaceId": "ChIJE-yZNAYF9YgR_zdFaWUC9MQ",
+      "name": "Museum of Illusions",
+      "address": "264 19th St NW, Atlanta, GA 30363, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3018,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7931241,
+      "lng": -84.3973305,
+      "googleMapsUri": "https://maps.google.com/?cid=14191970960332371967&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.moiatlanta.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.21
+    },
+    {
+      "googlePlaceId": "ChIJL0x7RGkD9YgRzO7lINfMItc",
+      "name": "Spin Art Splatter Paint, Rage Room & Game Show (Atlanta)",
+      "address": "22 Park Pl SE, Atlanta, GA 30303, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 991,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.753902,
+      "lng": -84.3887438,
+      "googleMapsUri": "https://maps.google.com/?cid=15502178091704643276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spinartnation.com/atlanta?utm_source=google&utm_medium=gbp&utm_campaign=gbp_optimization",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "kids activities",
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 89.09
+    },
+    {
+      "googlePlaceId": "ChIJ0zG7YhcJ9YgR6XDZKl2rSyE",
+      "name": "Exhibition Hub Art Center Atlanta",
+      "address": "5660 Buford Hwy NE, Doraville, GA 30340, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1358,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.907011,
+      "lng": -84.27105759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2399199643144122601&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theartcenters.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 88.96
+    },
+    {
+      "googlePlaceId": "ChIJj8Rtp0ZcYIgRoW7nm2Y2Ez8",
+      "name": "Rock City Gardens",
+      "address": "1400 Patten Rd, Lookout Mountain, GA 30750, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 28156,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.973022,
+      "lng": -85.3502156,
+      "googleMapsUri": "https://maps.google.com/?cid=4545036263277162145&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://seerockcity.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 88.92
+    },
+    {
+      "googlePlaceId": "ChIJpUTJdf0R9YgRyBm2wbrDJkI",
+      "name": "Sandbox VR",
+      "address": "925 Battery Ave SE Suite 1170, Atlanta, GA 30339, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 7508,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8874515,
+      "lng": -84.47120029999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4766712462499518920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.81
+    },
+    {
+      "googlePlaceId": "ChIJR5qRk7sF9YgRb4oLZrvBkSE",
+      "name": "The Hive Buckhead",
+      "address": "1845 Peachtree Rd NW, Atlanta, GA 30309, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 27044,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8054858,
+      "lng": -84.3937103,
+      "googleMapsUri": "https://maps.google.com/?cid=2418927485489744495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hivebuckhead.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 88.79
+    },
+    {
+      "googlePlaceId": "ChIJww40UHgE9YgR66AJn9YJKuE",
+      "name": "Ray's In the City",
+      "address": "240 Peachtree St, Atlanta, GA 30303, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6646,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "wine_bar",
+        "steak_house",
+        "bar",
+        "event_venue",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7605673,
+      "lng": -84.3877345,
+      "googleMapsUri": "https://maps.google.com/?cid=16224791424951492843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://raysrestaurants.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.38
+    },
+    {
+      "googlePlaceId": "ChIJ91usCuwE9YgRP6FYPUrfhb0",
+      "name": "Marcel",
+      "address": "1170 Howell Ml Rd, Atlanta, GA 30318, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2173,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "french_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.785745299999995,
+      "lng": -84.4125409,
+      "googleMapsUri": "https://maps.google.com/?cid=13656566955020689727&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.marcelatl.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJ_wIBseoE9YgRyk7faFC6t1I",
+      "name": "Terminal West",
+      "address": "887 West Marietta St NW STE C, Atlanta, GA 30318, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2419,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7816081,
+      "lng": -84.4155938,
+      "googleMapsUri": "https://maps.google.com/?cid=5960437486367755978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://terminalwestatl.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJ5-J0u6j69IgRCHegmCcbU1k",
+      "name": "Fun Spot America Theme Parks — Atlanta",
+      "address": "1675 GA-85, Fayetteville, GA 30214, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 4338,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "go_karting_venue",
+        "tourist_attraction",
+        "video_arcade",
+        "race_course",
+        "roller_coaster",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.4963312,
+      "lng": -84.42797259999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6436518149320898312&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://funspotamericaatlanta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.12
+    },
+    {
+      "googlePlaceId": "ChIJJeHmiLUR9YgRRvT3Ql98wPk",
+      "name": "The Escape Game Atlanta (The Battery)",
+      "address": "900 Battery Ave SE #1020, Atlanta, GA 30339, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 7260,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8891986,
+      "lng": -84.4702992,
+      "googleMapsUri": "https://maps.google.com/?cid=17996520859559785542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/atlanta/book-now/the-battery/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=atl-battery",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.06
+    },
+    {
+      "googlePlaceId": "ChIJ0eQfrtYD9YgRBf_21hqdv9M",
+      "name": "Hungry AF Downtown",
+      "address": "27 Piedmont Ave NE d1, Atlanta, GA 30303, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4184,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.75530200000001,
+      "lng": -84.38205300000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15258086801155751685&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thehungryaf.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.06
+    },
+    {
+      "googlePlaceId": "ChIJaQZPLF0F9YgRnI3FO0tHP9E",
+      "name": "Trap Music Museum",
+      "address": "630 Travis St NW, Atlanta, GA 30318, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.3,
+      "reviewCount": 5623,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7717788,
+      "lng": -84.4085049,
+      "googleMapsUri": "https://maps.google.com/?cid=15077848465910631836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trapmusicmuseum.us/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.82
+    },
+    {
+      "googlePlaceId": "ChIJQ3f8TLkF9YgRADLIKRd0wug",
+      "name": "Wagyu House Atlanta",
+      "address": "1042 Northside Dr NW suite 1300, Atlanta, GA 30318, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 9111,
+      "priceLevel": null,
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "yakiniku_restaurant",
+        "barbecue_area",
+        "buffet_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.783333299999995,
+      "lng": -84.4086198,
+      "googleMapsUri": "https://maps.google.com/?cid=16772095605115204096&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wagyuhouse.group/project/wagyu-house-atlanta/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.65
+    },
+    {
+      "googlePlaceId": "ChIJ1R3_hhoE9YgR76S4q-sAxgI",
+      "name": "The Masquerade",
+      "address": "50 Lower Alabama Street #110, Atlanta, GA 30303, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4122,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.751623699999996,
+      "lng": -84.3898347,
+      "googleMapsUri": "https://maps.google.com/?cid=199848245662885103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://masqueradeatlanta.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.57
+    },
+    {
+      "googlePlaceId": "ChIJpwdZ0AcE9YgR4Y8mHDdrygo",
+      "name": "Ladybird Grove & Mess Hall",
+      "address": "684 John Wesley Dobbs Ave NE Unit J, Atlanta, GA 30312, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3574,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "beer_garden",
+        "barbecue_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7595612,
+      "lng": -84.36422999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=777551770114494433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ladybirdatl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.53
+    },
+    {
+      "googlePlaceId": "ChIJPRzoQ4AE9YgRqgunUXVptj4",
+      "name": "National Center for Civil and Human Rights",
+      "address": "100 Ivan Allen Jr Blvd NW, Atlanta, GA 30313, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3949,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7640278,
+      "lng": -84.39307219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4518915228714863530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.civilandhumanrights.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJ07TVp0ME9YgRmzH4SKordbc",
+      "name": "STK Steakhouse",
+      "address": "1075 Peachtree St NE, Atlanta, GA 30309, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.6,
+      "reviewCount": 23848,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "bar",
+        "event_venue",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.78415580000001,
+      "lng": -84.38293929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13219520291584618907&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/venues/atlanta/",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.31
+    },
+    {
+      "googlePlaceId": "ChIJ38j8xX4E9YgRqM2Zg4zInn4",
+      "name": "Children's Museum of Atlanta",
+      "address": "275 Centennial Olympic Park Dr NW, Atlanta, GA 30313, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 3211,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7625707,
+      "lng": -84.39173269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9123950400928075176&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://childrensmuseumatlanta.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 87.2
+    },
+    {
+      "googlePlaceId": "ChIJxXZfE3gE9YgR1RyIwQQbJsc",
+      "name": "Red Phone Booth",
+      "address": "17 Andrew Young International Blvd NW, Atlanta, GA 30303, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2736,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7595884,
+      "lng": -84.38691469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14350186969903406293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.redphonebooth.com/locations/ga/atlanta",
+      "openNow": false,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "jazz clubs",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.16
+    },
+    {
+      "googlePlaceId": "ChIJO_RB-dep9YgR5e4iz03UL0U",
+      "name": "Your DeKalb Farmers Market",
+      "address": "3000 E Ponce de Leon Ave, Decatur, GA 30030, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 21889,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "grocery_store",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.786959599999996,
+      "lng": -84.2698114,
+      "googleMapsUri": "https://maps.google.com/?cid=4985436743175171813&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dekalbfarmersmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 87.04
+    },
+    {
+      "googlePlaceId": "ChIJGVNl5N4T9YgRxHcdUR_h1gg",
+      "name": "Battle and Brew - Sandy Springs",
+      "address": "5920 Roswell Rd a120, Sandy Springs, GA 30328, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 3399,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "pub",
+        "video_arcade",
+        "sports_bar",
+        "wedding_venue",
+        "bar",
+        "event_venue",
+        "store",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.917156999999996,
+      "lng": -84.380926,
+      "googleMapsUri": "https://maps.google.com/?cid=636943921940625348&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.battleandbrew.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.98
+    },
+    {
+      "googlePlaceId": "ChIJS56ZfdYR9YgRVCv-ZtCbooQ",
+      "name": "Ray's on the River",
+      "address": "6700 Powers Ferry Rd NW, Sandy Springs, GA 30339, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 11243,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "steak_house",
+        "bar_and_grill",
+        "brunch_restaurant",
+        "wine_bar",
+        "seafood_restaurant",
+        "wedding_venue",
+        "bar",
+        "american_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.900492,
+      "lng": -84.44080199999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9557372678617049940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://raysontheriver.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.75
+    },
+    {
+      "googlePlaceId": "ChIJNxuVRfED9YgRmzlCKsPpZsw",
+      "name": "Our Bar ATL",
+      "address": "339 Edgewood Ave SE, Atlanta, GA 30312, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 660,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.75422,
+      "lng": -84.3764755,
+      "googleMapsUri": "https://maps.google.com/?cid=14728716655798663579&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ourbaratl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "karaoke bars",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.74
+    },
+    {
+      "googlePlaceId": "ChIJCQU0jXgF9YgR1Yy079niGbA",
+      "name": "Puttshack - Atlanta - Midtown",
+      "address": "1115 Howell Mill Rd NW, Atlanta, GA 30318, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 3914,
+      "priceLevel": null,
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7855266,
+      "lng": -84.41094389999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12689422850750450901&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.puttshack.com/locations/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "indoor golf simulators",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJ7cYy3FEQ9YgRh1uz3C0qaew",
+      "name": "The Battery Atlanta",
+      "address": "800 Battery Ave SE, Atlanta, GA 30339, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 11527,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.890493899999996,
+      "lng": -84.4698758,
+      "googleMapsUri": "https://maps.google.com/?cid=17035193441970248583&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://batteryatl.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJ64EOU48F9YgRm7LZKECRw0c",
+      "name": "Wicked Wolf Atlanta",
+      "address": "1080 Peachtree St NE #7, Atlanta, GA 30309, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1815,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "sports_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7834386,
+      "lng": -84.3844357,
+      "googleMapsUri": "https://maps.google.com/?cid=5171136501900751515&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://wickedwolfatl.squarespace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "game night venues",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJfUbX_2Pj9IgRoe05caLs9zQ",
+      "name": "Whisk Breakfast & Brunch",
+      "address": "3523 Camp Creek Pkwy, East Point, GA 30344, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 5541,
+      "priceLevel": null,
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "coffee_shop",
+        "coworking_space",
+        "cafe",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.6558132,
+      "lng": -84.49970210000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3816779391648263585&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://whiskatlanta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.13
+    },
+    {
+      "googlePlaceId": "ChIJ1b5Y6CwZ9YgR67d2d7T4-nM",
+      "name": "Six Flags Over Georgia",
+      "address": "275 Riverside Pkwy, Austell, GA 30168, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.1,
+      "reviewCount": 33506,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "roller_coaster",
+        "tourist_attraction",
+        "concert_hall",
+        "auditorium",
+        "water_park",
+        "live_music_venue",
+        "amusement_park",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7683499,
+      "lng": -84.5500261,
+      "googleMapsUri": "https://maps.google.com/?cid=8357265512521447403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sixflags.com/overgeorgia?utm_source=googlebusinessprofile&utm_medium=organic&utm_campaign=Google+Business+Profile",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJLTcZFewE9YgRHsW7wP1bEYs",
+      "name": "Cooks & Soldiers",
+      "address": "691 14th St NW, Atlanta, GA 30318, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2702,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "basque_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.7860302,
+      "lng": -84.4114164,
+      "googleMapsUri": "https://maps.google.com/?cid=10020891791294448926&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cooksandsoldiers.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJb-C19jcQ9YgROLqHV2HYjDA",
+      "name": "Cobb Energy Performing Arts Centre",
+      "address": "2800 Cobb Galleria Pkwy, Atlanta, GA 30339, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 6150,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.88471,
+      "lng": -84.4585962,
+      "googleMapsUri": "https://maps.google.com/?cid=3498408923151972920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cobbenergycentre.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86
+    },
+    {
+      "googlePlaceId": "ChIJm07D0ZQi9YgRBwSdnPHMKKQ",
+      "name": "Sweetwater Creek State Park",
+      "address": "1750 Mt Vernon Rd, Lithia Springs, GA 30122, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 7587,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "hiking_area",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7525384,
+      "lng": -84.628709,
+      "googleMapsUri": "https://maps.google.com/?cid=11828929759375328263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gastateparks.org/SweetwaterCreek",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.99
+    },
+    {
+      "googlePlaceId": "ChIJ9yj0u7gF9YgR41IzK4YFaDE",
+      "name": "The Escape Game Atlanta (West Midtown)",
+      "address": "1115 Howell Mill Rd NW Suite G101, Atlanta, GA 30318, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3655,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7856477,
+      "lng": -84.4106553,
+      "googleMapsUri": "https://maps.google.com/?cid=3560101579244917475&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/atlanta/book-now/the-interlock/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=atl-west-midtown",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.95
+    },
+    {
+      "googlePlaceId": "ChIJzyHkTFAQ9YgR4EHWYXx855o",
+      "name": "Coca-Cola Roxy",
+      "address": "800 Battery Ave SE #500, Atlanta, GA 30339, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 4705,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "wedding_venue",
+        "banquet_hall",
+        "night_club",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.8902516,
+      "lng": -84.469726,
+      "googleMapsUri": "https://maps.google.com/?cid=11162027075120284128&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cocacolaroxy.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.77
+    },
+    {
+      "googlePlaceId": "ChIJoYf-GwAd9YgRwun8kDWc-5A",
+      "name": "Cascade Springs Nature Preserve",
+      "address": "2852 Cascade Rd, Atlanta, GA 30311, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 2277,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.719508999999995,
+      "lng": -84.4812907,
+      "googleMapsUri": "https://maps.google.com/?cid=10447115514495691202&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.atlantatrails.com/hiking-trails/cascade-springs-nature-preserve/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 85.75
+    },
+    {
+      "googlePlaceId": "ChIJGVKxxMYH9YgRjesCGyZugUg",
+      "name": "Unexpected Atlanta Tours and Gifts",
+      "address": "235 Peachtree Rd NE Suite 400, Atlanta, GA 30303, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1087,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "gift_shop",
+        "store",
+        "point_of_interest",
+        "service",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.7605323,
+      "lng": -84.3872341,
+      "googleMapsUri": "https://maps.google.com/?cid=5224578152667474829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://unexpectedatlanta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.73
+    },
+    {
+      "googlePlaceId": "ChIJLUV41JEP9YgRVaViUvQq9Ak",
+      "name": "5Church Buckhead",
+      "address": "3379 Peachtree Rd NE STE. 125, Atlanta, GA 30326, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 3426,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8485422,
+      "lng": -84.3659086,
+      "googleMapsUri": "https://maps.google.com/?cid=717245469501334869&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://buckhead.5church-atlanta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.7
+    },
+    {
+      "googlePlaceId": "ChIJPU6rKzkQ9YgRag9o-h2ngy0",
+      "name": "Main Event Atlanta",
+      "address": "3101 Cobb Pkwy SE Suite 104, Atlanta, GA 30339, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.1,
+      "reviewCount": 9118,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.8792481,
+      "lng": -84.4561691,
+      "googleMapsUri": "https://maps.google.com/?cid=3279648700852866922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mainevent.com/locations/georgia/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.61
+    },
+    {
+      "googlePlaceId": "ChIJb6X4LAcL9YgRJbB7976SmYA",
+      "name": "Escapology Escape Rooms Atlanta - Sandy Springs",
+      "address": "8725 Roswell Rd, Sandy Springs, GA 30350, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3203,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.9934978,
+      "lng": -84.3501479,
+      "googleMapsUri": "https://maps.google.com/?cid=9266599057185026085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/sandy-springs-ga/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.54
+    },
+    {
+      "googlePlaceId": "ChIJbUlCkX8D9YgR-18nztzVYLA",
+      "name": "State Farm Arena",
+      "address": "1 State Farm Dr, Atlanta, GA 30303, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 6464,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "stadium",
+        "sports_complex",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7574062,
+      "lng": -84.396233,
+      "googleMapsUri": "https://maps.google.com/?cid=12709393292767748091&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.statefarmarena.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.45
+    },
+    {
+      "googlePlaceId": "ChIJPa8F3YsD9YgRpjPDbxOChoc",
+      "name": "The Municipal Market",
+      "address": "209 Edgewood Ave SE, Atlanta, GA 30303, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2226,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "grocery_store",
+        "butcher_shop",
+        "food_store",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "manufacturer",
+        "establishment"
+      ],
+      "lat": 33.75402450000001,
+      "lng": -84.38008110000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9765635861990552486&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://municipalmarketatl.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.43
+    },
+    {
+      "googlePlaceId": "ChIJNRy_0iQU9YgR49LCKZHd-a4",
+      "name": "The Peachtree Trolley Co.",
+      "address": "275 Baker St NW, Atlanta, GA 30313, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 1401,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.7619223,
+      "lng": -84.3956462,
+      "googleMapsUri": "https://maps.google.com/?cid=12608352247341044451&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thepeachtreetrolley.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.4
+    },
+    {
+      "googlePlaceId": "ChIJwWNQxHEE9YgRCjuVoqKbVhU",
+      "name": "Poor Calvin's",
+      "address": "510 Piedmont Ave NE, Atlanta, GA 30308, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4276,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_fusion_restaurant",
+      "types": [
+        "asian_fusion_restaurant",
+        "fusion_restaurant",
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.768466499999995,
+      "lng": -84.3822003,
+      "googleMapsUri": "https://maps.google.com/?cid=1537587445608299274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.poorcalvins.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.28
+    },
+    {
+      "googlePlaceId": "ChIJr9PpEZME9YgRYg1YifCbOw8",
+      "name": "The Optimist",
+      "address": "914 Howell Ml Rd, Atlanta, GA 30318, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 4221,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "oyster_bar_restaurant",
+        "fine_dining_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.779813499999996,
+      "lng": -84.4104515,
+      "googleMapsUri": "https://maps.google.com/?cid=1097642391593553250&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theoptimistrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJQ4UABPcJ9YgR6_ydUUKL8QE",
+      "name": "Kitchen + Kocktails By Kevin Kelley - Atlanta",
+      "address": "4400 Ashford Dunwoody Rd Space #3030, Dunwoody, Atlanta, GA 30346, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 7963,
+      "priceLevel": null,
+      "primaryType": "soul_food_restaurant",
+      "types": [
+        "soul_food_restaurant",
+        "chicken_restaurant",
+        "fine_dining_restaurant",
+        "chicken_wings_restaurant",
+        "catering_service",
+        "brunch_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "meal_takeaway",
+        "food_delivery",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.923136899999996,
+      "lng": -84.3398704,
+      "googleMapsUri": "https://maps.google.com/?cid=140046180378606827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kitchenkocktailsusa.com/atlanta/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJg8d2cqkG9YgR6QyKwKKl_ck",
+      "name": "Variety Playhouse",
+      "address": "1099 Euclid Ave NE, Atlanta, GA 30307, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2534,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.76372870000001,
+      "lng": -84.35107149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14554971689164868841&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.variety-playhouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJ00zCHiAH9YgR3l-kmURAKrM",
+      "name": "Lazy Betty",
+      "address": "999 Peachtree St NE Suite #140, Atlanta, GA 30309, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1078,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7813991,
+      "lng": -84.3836584,
+      "googleMapsUri": "https://maps.google.com/?cid=12910201945190588382&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lazybettyatl.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85
+    },
+    {
+      "googlePlaceId": "ChIJoXe78d4J9YgRxbh9u0IqCK4",
+      "name": "Buford Highway Farmers Market",
+      "address": "5600 Buford Hwy NE, Doraville, GA 30340, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 11147,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "grocery_store",
+      "types": [
+        "grocery_store",
+        "market",
+        "supermarket",
+        "food_store",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9056701,
+      "lng": -84.2738342,
+      "googleMapsUri": "https://maps.google.com/?cid=12540319628514932933&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.aofwc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJY55lWA8F9YgR5gtK8Z4fFtQ",
+      "name": "Eclipso Atlanta",
+      "address": "550 Somerset Terrace NE, Atlanta, GA 30306, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2134,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7688859,
+      "lng": -84.36155049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15282437153041812454&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://eclipso-entertainment.com/en/atlanta/",
+      "openNow": null,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.95
+    },
+    {
+      "googlePlaceId": "ChIJb2W3_oIG9YgRE9vdc5nu930",
+      "name": "Whiskey Bird",
+      "address": "1409 N Highland Ave NE, Atlanta, GA 30306, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2856,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "cocktail_bar",
+        "american_restaurant",
+        "asian_fusion_restaurant",
+        "fusion_restaurant",
+        "asian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.792656,
+      "lng": -84.351852,
+      "googleMapsUri": "https://maps.google.com/?cid=9076985916829850387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eatwhiskeybird.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.74
+    },
+    {
+      "googlePlaceId": "ChIJh_xy_YUF9YgRppRCyz5ezrU",
+      "name": "Atlanta History Center",
+      "address": "130 W Paces Ferry Rd NW, Atlanta, GA 30305, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1125,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "library",
+        "museum",
+        "wedding_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.8419397,
+      "lng": -84.38611279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13100511989858473126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.atlantahistorycenter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 84.68
+    },
+    {
+      "googlePlaceId": "ChIJ_RkHPPgD9YgR-6pzvoBtxpM",
+      "name": "Krog Street Market",
+      "address": "99 Krog St NE, Atlanta, GA 30307, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 10023,
+      "priceLevel": null,
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "market",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.756876999999996,
+      "lng": -84.3641688,
+      "googleMapsUri": "https://maps.google.com/?cid=10648318768682609403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thekrogdistrict.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.65
+    },
+    {
+      "googlePlaceId": "ChIJkyAKdQsE9YgR1FIYKpsbVEI",
+      "name": "Big Escape Rooms",
+      "address": "190 Sandy Springs Pl NE, Atlanta, GA 30328, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 4884,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9218524,
+      "lng": -84.3815153,
+      "googleMapsUri": "https://maps.google.com/?cid=4779475457787056852&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigescaperooms.com/sandysprings/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.64
+    },
+    {
+      "googlePlaceId": "ChIJyXLceFAE9YgRds6FmV9tr-s",
+      "name": "Center Stage Theater",
+      "address": "1374 W Peachtree St NW, Atlanta, GA 30309, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2774,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7922155,
+      "lng": -84.3879559,
+      "googleMapsUri": "https://maps.google.com/?cid=16982912977202433654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.centerstage-atlanta.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.6
+    },
+    {
+      "googlePlaceId": "ChIJVcXlYWUD9YgREATC-OiQBgU",
+      "name": "Game Show Studio",
+      "address": "22 Park Pl SE, Atlanta, GA 30303, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 5,
+      "reviewCount": 279,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.753908599999995,
+      "lng": -84.3887436,
+      "googleMapsUri": "https://maps.google.com/?cid=362136150330180624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gameshowstudio.com/atlanta/",
+      "openNow": true,
+      "matchedQueries": [
+        "barcades",
+        "kids activities",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 84.56
+    },
+    {
+      "googlePlaceId": "ChIJ3_-4LwcF9YgRhbABX06Ca0s",
+      "name": "Flight Club Atlanta",
+      "address": "1055 Howell Ml Rd Suite 140, Atlanta, GA 30318, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 642,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "brunch_restaurant",
+        "lounge_bar",
+        "american_restaurant",
+        "night_club",
+        "british_restaurant",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7831991,
+      "lng": -84.4115332,
+      "googleMapsUri": "https://maps.google.com/?cid=5434580648465641605&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.flightclubdartsusa.com/atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "game bars",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.46
+    },
+    {
+      "googlePlaceId": "ChIJ60IsnfYD9YgRtc0ykonQYd0",
+      "name": "Staplehouse",
+      "address": "541 Edgewood Ave SE, Atlanta, GA 30312, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 698,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bakery",
+        "deli",
+        "market",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7540939,
+      "lng": -84.3698805,
+      "googleMapsUri": "https://maps.google.com/?cid=15952260644404907445&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://staplehouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.32
+    },
+    {
+      "googlePlaceId": "ChIJG8Wzy6gG9YgRBQVGToEnXTg",
+      "name": "The Vortex Bar & Grill",
+      "address": "438 Moreland Ave NE, Atlanta, GA 30307, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 8738,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.766247199999995,
+      "lng": -84.3492306,
+      "googleMapsUri": "https://maps.google.com/?cid=4061445875275531525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thevortexbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.22
+    },
+    {
+      "googlePlaceId": "ChIJufEmKiBs9IgRlm1VvWC9yE0",
+      "name": "High Falls State Park",
+      "address": "76 High Falls Park Dr, Jackson, GA 30233, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 4942,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "park",
+        "campground",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.1784509,
+      "lng": -84.0204715,
+      "googleMapsUri": "https://maps.google.com/?cid=5604937959453584790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gastateparks.org/HighFalls",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.22
+    },
+    {
+      "googlePlaceId": "ChIJQzOGZnEF9YgRfYnqfFItJNA",
+      "name": "Verdure Kitchen & Cocktails",
+      "address": "560 Dutch Valley Rd NE STE 100, Atlanta, GA 30324, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1116,
+      "priceLevel": null,
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "brunch_restaurant",
+        "african_restaurant",
+        "fusion_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 33.7923112,
+      "lng": -84.36938219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14998162491356907901&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.verdurekitchen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "best cocktail bars",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 83.96
+    },
+    {
+      "googlePlaceId": "ChIJkTaDxVEQ9YgRoWOMZ4VLuGY",
+      "name": "Punch Bowl Social",
+      "address": "875 Battery Ave SE Ste 720, Atlanta, GA 30339, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.2,
+      "reviewCount": 3657,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.889048,
+      "lng": -84.4698483,
+      "googleMapsUri": "https://maps.google.com/?cid=7401749023923397537&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://punchbowlsocial.com/location/atlanta/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "karaoke bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.9
+    },
+    {
+      "googlePlaceId": "ChIJc2vdMFYP9YgRu9vA5uVua1Y",
+      "name": "True Food Kitchen",
+      "address": "3393 Peachtree Rd NE Ste 3058B, Atlanta, GA 30326, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 5430,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "mediterranean_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.847652,
+      "lng": -84.36375,
+      "googleMapsUri": "https://maps.google.com/?cid=6227192843467807675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.truefoodkitchen.com/locations/atlanta/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.86
+    },
+    {
+      "googlePlaceId": "ChIJp-YA7RAE9YgRIDc_aiSq1pc",
+      "name": "Skyline Park",
+      "address": "Ponce City Market, 675 Ponce De Leon Ave NE, Atlanta, GA 30308, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 1502,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "ice_skating_rink",
+        "miniature_golf_course",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.77282710000001,
+      "lng": -84.3655928,
+      "googleMapsUri": "https://maps.google.com/?cid=10941119418121271072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://poncecityroof.com/skyline-park",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "best parks",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "game night venues",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "romantic-date-night",
+        "social-group-activities",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 83.77
+    },
+    {
+      "googlePlaceId": "ChIJh7fpICcK9YgRdnSnyaoDrgs",
+      "name": "Brook Run Park",
+      "address": "4770 N Peachtree Rd, Dunwoody, GA 30338, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3595,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.934629199999996,
+      "lng": -84.2948584,
+      "googleMapsUri": "https://maps.google.com/?cid=841614212427379830&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dunwoodyga.gov/government/departments/parks-and-recreation/parks-facilities/brook-run-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.7
+    },
+    {
+      "googlePlaceId": "ChIJZWxRu3gE9YgRZZWPZLNFOcM",
+      "name": "ATL-Cruzers Electric Car and Segway Tours",
+      "address": "160 Ted Turner Dr NW, Atlanta, GA 30303, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 798,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.759678699999995,
+      "lng": -84.39025,
+      "googleMapsUri": "https://maps.google.com/?cid=14067351547857048933&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.atlcruzers.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.68
+    },
+    {
+      "googlePlaceId": "ChIJYRrjrGUP9YgRlr8NjyDVObA",
+      "name": "Breakout Games",
+      "address": "3867 Roswell Rd NE, Atlanta, GA 30342, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2491,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.860047,
+      "lng": -84.38018799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12698414960163536790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/atlanta?utm_source=google&utm_medium=organic&utm_campaign=gmb-atlanta-buckhead",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.67
+    },
+    {
+      "googlePlaceId": "ChIJqcwOVxt19YgRhXyj_dbHTYg",
+      "name": "Ameris Bank Amphitheatre",
+      "address": "2200 Encore Pkwy, Alpharetta, GA 30009, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 7227,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.054428099999996,
+      "lng": -84.3063583,
+      "googleMapsUri": "https://maps.google.com/?cid=9821726088557198469&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.amerisbankampatl.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.64
+    },
+    {
+      "googlePlaceId": "ChIJHwq_6PQD9YgRaS_OmcG1JSY",
+      "name": "Joystick Gamebar",
+      "address": "427 Edgewood Ave SE, Atlanta, GA 30312, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 1598,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "amusement_center",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.7542009,
+      "lng": -84.3736742,
+      "googleMapsUri": "https://maps.google.com/?cid=2748802990693298025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://joystickgamebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.56
+    }
+  ]
+}

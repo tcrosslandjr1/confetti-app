@@ -1,0 +1,3587 @@
+{
+  "location": "Detroit, MI",
+  "generatedAt": "2026-05-17T19:49:40.828Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJK6vJwpk1O4gRgZhmT3EWy04",
+      "name": "Henry Ford Museum of American Innovation",
+      "address": "20900 Oakwood Blvd, Dearborn, MI 48124, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 31040,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "non_profit_organization",
+        "historical_landmark",
+        "historical_place",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3034513,
+      "lng": -83.23420589999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5677656431149881473&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehenryford.org/visit/henry-ford-museum/?utm_source=google&utm_medium=organic&utm_campaign=gmb&utm_content=museum",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 101.14
+    },
+    {
+      "googlePlaceId": "ChIJO6USub3SJIgRshN1AKZBH20",
+      "name": "Detroit Institute of Arts",
+      "address": "5200 Woodward Ave, Detroit, MI 48202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 13733,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "movie_theater",
+        "tourist_attraction",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3593793,
+      "lng": -83.06450099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7863075655640224690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dia.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.43
+    },
+    {
+      "googlePlaceId": "ChIJX0K0mzMtO4gRXpDZC0HNsqg",
+      "name": "Comerica Park",
+      "address": "2100 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 25810,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "sports_complex",
+        "event_venue",
+        "athletic_field",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3389436,
+      "lng": -83.04922660000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12156004023481765982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://detroit.tigers.mlb.com/det/ballpark/index.jsp",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 97.93
+    },
+    {
+      "googlePlaceId": "ChIJozI8mDDPJIgRuhULHMJd8_E",
+      "name": "Detroit Zoo",
+      "address": "8450 W 10 Mile Rd, Royal Oak, MI 48067, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 25479,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.476835799999996,
+      "lng": -83.14904419999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17434381670756849082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://detroitzoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.18
+    },
+    {
+      "googlePlaceId": "ChIJCxS_IcvSJIgReEafl2DYD8s",
+      "name": "Little Caesars Arena",
+      "address": "2645 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 26008,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.341795999999995,
+      "lng": -83.05466109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14632151623722288760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.313presents.com/venues-events/little-caesars-arena",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 96.85
+    },
+    {
+      "googlePlaceId": "ChIJMT3LltrSJIgR8BzVrnzA4E8",
+      "name": "Detroit Riverwalk",
+      "address": "1340 Atwater St, Detroit, MI 48207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6211,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.330376099999995,
+      "lng": -83.0318545,
+      "googleMapsUri": "https://maps.google.com/?cid=5755811965521173744&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.detroitmi.gov/recreation",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.8
+    },
+    {
+      "googlePlaceId": "ChIJj_be6i8tO4gRBmKCiJEi1Yw",
+      "name": "Campus Martius Park",
+      "address": "Campus Martius Park, 800 Woodward Ave, Detroit, MI 48226, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 13185,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.331914499999996,
+      "lng": -83.0465866,
+      "googleMapsUri": "https://maps.google.com/?cid=10148055343805129222&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "street fairs",
+        "holiday markets",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.7
+    },
+    {
+      "googlePlaceId": "ChIJb0HVt-U1O4gRNJVfh4HMS_8",
+      "name": "Greenfield Village",
+      "address": "20900 Oakwood Blvd, Dearborn, MI 48124, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 5760,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "non_profit_organization",
+        "historical_landmark",
+        "historical_place",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3039126,
+      "lng": -83.23141,
+      "googleMapsUri": "https://maps.google.com/?cid=18396021959618958644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehenryford.org/visit/venues/greenfield-village/?utm_source=google&utm_medium=organic&utm_campaign=gmb&utm_content=greenfield",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 95.55
+    },
+    {
+      "googlePlaceId": "ChIJWfEyfDMtO4gRMVoXtqCDVPI",
+      "name": "Fox Theatre",
+      "address": "Fox Theatre, 2211 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 9551,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.338519,
+      "lng": -83.052403,
+      "googleMapsUri": "https://maps.google.com/?cid=17461726381495245361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.313presents.com/venues-events/fox-theatre",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.63
+    },
+    {
+      "googlePlaceId": "ChIJ5zhKUb7SJIgR8KEEmAw0q3k",
+      "name": "Charles H. Wright Museum of African American History",
+      "address": "315 E Warren Ave, Detroit, MI 48201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3648,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "tourist_attraction",
+        "art_museum",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.358776999999996,
+      "lng": -83.0609516,
+      "googleMapsUri": "https://maps.google.com/?cid=8767158328301494768&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thewright.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 94.03
+    },
+    {
+      "googlePlaceId": "ChIJUWP7K1MrO4gRf7OwAoh0syY",
+      "name": "Belle Isle Aquarium",
+      "address": "3 Inselruhe Ave, Detroit, MI 48207, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4719,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3365928,
+      "lng": -82.98527539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2788700721781977983&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.belleisleconservancy.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.78
+    },
+    {
+      "googlePlaceId": "ChIJhf0_yC-DQIgRyTJafBKa4nE",
+      "name": "National Museum of the US Air Force",
+      "address": "1100 Spaatz St, Dayton, OH 45433, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 28976,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.780796099999996,
+      "lng": -84.1093818,
+      "googleMapsUri": "https://maps.google.com/?cid=8206290875208839881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nationalmuseum.af.mil/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 93.76
+    },
+    {
+      "googlePlaceId": "ChIJlUbZ4qMsDogR3tCinMzzKUg",
+      "name": "The Art Institute of Chicago",
+      "address": "111 S Michigan Ave, Chicago, IL 60603, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 37893,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.8796031,
+      "lng": -87.6223504,
+      "googleMapsUri": "https://maps.google.com/?cid=5199955304902742238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.artic.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 93.55
+    },
+    {
+      "googlePlaceId": "ChIJt2HWQyUtO4gR191OXx9F3jw",
+      "name": "Experience Zuzu",
+      "address": "511 Woodward Ave suite 100, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4402,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_restaurant",
+      "types": [
+        "asian_restaurant",
+        "sushi_restaurant",
+        "fusion_restaurant",
+        "japanese_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3295062,
+      "lng": -83.04568909999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4386019088150748631&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.experiencezuzu.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.55
+    },
+    {
+      "googlePlaceId": "ChIJYTf6WCQtO4gR1owf0fbQvoQ",
+      "name": "Hart Plaza",
+      "address": "1 Hart Plaza, Detroit, MI 48226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5564,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3280226,
+      "lng": -83.04489319999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9565312417070550230&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://detroitriverfront.org/riverfront/east-riverfront/hart-plaza",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "ticketed events",
+        "interactive pop ups",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.23
+    },
+    {
+      "googlePlaceId": "ChIJOR1lkDstO4gRuSrwWiMXhPM",
+      "name": "Huntington Place",
+      "address": "1 Washington Blvd, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 7694,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "service",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3266194,
+      "lng": -83.0494216,
+      "googleMapsUri": "https://maps.google.com/?cid=17547175488759278265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.huntingtonplacedetroit.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "cultural centers",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "dining",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.21
+    },
+    {
+      "googlePlaceId": "ChIJV89SFmrPJIgRq_aJIy2q8O8",
+      "name": "Breakout Escape Rooms Royal Oak",
+      "address": "222 E 4th St, Royal Oak, MI 48067, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 16974,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.487165,
+      "lng": -83.14228539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17289506080321828523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://roombreakout.com/royal-oak-mi/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 93.08
+    },
+    {
+      "googlePlaceId": "ChIJbxyFHXEtO4gRX2mGb1ujvZs",
+      "name": "ADELINA",
+      "address": "1040 Woodward Ave, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2210,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3328093,
+      "lng": -83.04743649999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11222305459585575263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.adelinadetroit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.37
+    },
+    {
+      "googlePlaceId": "ChIJs13acU0tO4gRqBwdiMZ1rsc",
+      "name": "Sound Board Theater",
+      "address": "2901 Grand River Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3923,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3381213,
+      "lng": -83.0673861,
+      "googleMapsUri": "https://maps.google.com/?cid=14388567355042897064&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.soundboarddetroit.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "interactive pop ups",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.07
+    },
+    {
+      "googlePlaceId": "ChIJ51RoiDMtO4gRyxVKHvnE1l0",
+      "name": "The Fillmore Detroit",
+      "address": "2115 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 5803,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 42.3378437,
+      "lng": -83.05180179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6761808464777450955&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thefillmoredetroit.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.87
+    },
+    {
+      "googlePlaceId": "ChIJV0AwM30rDogR2sd-X0cgErU",
+      "name": "Field Museum",
+      "address": "1400 S Lake Shore Dr, Chicago, IL 60605, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 30302,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.866261,
+      "lng": -87.6169805,
+      "googleMapsUri": "https://maps.google.com/?cid=13047526561362659290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fieldmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 91.71
+    },
+    {
+      "googlePlaceId": "ChIJ1YyD9TYtO4gRo9oV_KUYLPI",
+      "name": "Beacon Park",
+      "address": "1901 Grand River Ave, Detroit, MI 48226, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2493,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3345254,
+      "lng": -83.05530689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17450349757331790499&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://empoweringmichigan.com/beacon-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.67
+    },
+    {
+      "googlePlaceId": "ChIJmbwKErHSJIgRdFpKuhy3rE8",
+      "name": "Selden Standard",
+      "address": "3921 2nd Ave, Detroit, MI 48201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 2461,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3478001,
+      "lng": -83.06501779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5741164959002942068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seldenstandard.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.62
+    },
+    {
+      "googlePlaceId": "ChIJq0mQsdDSJIgROAyTCUvrVjg",
+      "name": "Eastern Market",
+      "address": "2934 Russell St, Detroit, MI 48207, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 3849,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3490499,
+      "lng": -83.0418984,
+      "googleMapsUri": "https://maps.google.com/?cid=4059690821636787256&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.easternmarket.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.61
+    },
+    {
+      "googlePlaceId": "ChIJMxVXeK8tO4gRH4TJh16TM7g",
+      "name": "JoJo's Shake Bar - Detroit",
+      "address": "88 W Columbia St, Detroit, MI 48201, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 5704,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "dessert_shop",
+        "bar",
+        "confectionery",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 42.3377963,
+      "lng": -83.0532405,
+      "googleMapsUri": "https://maps.google.com/?cid=13273114561005323295&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jojosshakebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "popular dessert spots",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.56
+    },
+    {
+      "googlePlaceId": "ChIJq6TuBC2RJIgRURBAkMedCOY",
+      "name": "Pine Knob Music Theatre",
+      "address": "33 Bob Seger Dr, Village of Clarkston, MI 48348, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 13834,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.745146,
+      "lng": -83.3722868,
+      "googleMapsUri": "https://maps.google.com/?cid=16575671908981280849&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.313presents.com/venue/pine-knob-music-theatre",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 91.5
+    },
+    {
+      "googlePlaceId": "ChIJ14Db4S8tO4gRhNP1-W1y4xs",
+      "name": "Parc",
+      "address": "800 Woodward Ave, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4589,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.331564799999995,
+      "lng": -83.04679689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2009575675408012164&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://parcdetroit.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.49
+    },
+    {
+      "googlePlaceId": "ChIJMSuIlbnSJIgRbUFj__-VGdA",
+      "name": "HopCat",
+      "address": "4265 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6319,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3524386,
+      "lng": -83.0616762,
+      "googleMapsUri": "https://maps.google.com/?cid=14995181361040671085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hopcat.com/?olonwp=JjBtp_vMLk25gkYh_bnoiQ",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "trivia nights",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.45
+    },
+    {
+      "googlePlaceId": "ChIJ3Q5Al7nSJIgRQtzJ32hAwX4",
+      "name": "The Whitney",
+      "address": "4421 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3162,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wedding_venue",
+        "cocktail_bar",
+        "wine_bar",
+        "brunch_restaurant",
+        "live_music_venue",
+        "banquet_hall",
+        "fine_dining_restaurant",
+        "dessert_restaurant",
+        "event_venue",
+        "bar",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.352803,
+      "lng": -83.061897,
+      "googleMapsUri": "https://maps.google.com/?cid=9133652338459401282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewhitney.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.36
+    },
+    {
+      "googlePlaceId": "ChIJ5UotDJ3SJIgRb6dr_ZGN4Dc",
+      "name": "Grey Ghost Detroit",
+      "address": "47 Watson St, Detroit, MI 48201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3087,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.345174799999995,
+      "lng": -83.0555796,
+      "googleMapsUri": "https://maps.google.com/?cid=4026373725030688623&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.greyghostdetroit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.28
+    },
+    {
+      "googlePlaceId": "ChIJH3rDXhIgJYgRUWsjqGGxfKE",
+      "name": "C.J. Barrymore's",
+      "address": "21750 Hall Rd, Clinton Township, MI 48038, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 5808,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "go_karting_venue",
+        "bowling_alley",
+        "roller_coaster",
+        "video_arcade",
+        "miniature_golf_course",
+        "sports_complex",
+        "race_course",
+        "sports_activity_location",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.6280242,
+      "lng": -82.89568709999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11636370570209356625&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cjbarrymores.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.17
+    },
+    {
+      "googlePlaceId": "ChIJ82dvZ8stO4gRuoJJyJWeWEM",
+      "name": "Sexy Steak",
+      "address": "1942 Grand River Ave, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2986,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "lounge_bar",
+        "halal_restaurant",
+        "night_club",
+        "wine_bar",
+        "live_music_venue",
+        "fine_dining_restaurant",
+        "event_venue",
+        "italian_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.33503470000001,
+      "lng": -83.054965,
+      "googleMapsUri": "https://maps.google.com/?cid=4852802964639285946&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sexysteakdetroit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.17
+    },
+    {
+      "googlePlaceId": "ChIJeTFN0VqvPIgR0mmv-EoO5RA",
+      "name": "Breakout Escape Rooms Ann Arbor",
+      "address": "3460 E Ellsworth Rd, Ann Arbor, MI 48108, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 8842,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.230025399999995,
+      "lng": -83.6903516,
+      "googleMapsUri": "https://maps.google.com/?cid=1217394989436201426&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://roombreakout.com/ann-arbor-mi/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.92
+    },
+    {
+      "googlePlaceId": "ChIJn0cr0ygtO4gR5aVcQrFWGcM",
+      "name": "Saint Andrew’s Hall",
+      "address": "431 E Congress St, Detroit, MI 48226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4233,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 42.3322259,
+      "lng": -83.04146469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14058363031136282085&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.saintandrewsdetroit.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.82
+    },
+    {
+      "googlePlaceId": "ChIJSUl9LlMrO4gRY-zYgWsR_lM",
+      "name": "Anna Scripps Whitcomb Conservatory",
+      "address": "4 Inselruhe Ave, Detroit, MI 48207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1824,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3362595,
+      "lng": -82.9855864,
+      "googleMapsUri": "https://maps.google.com/?cid=6052294102670175331&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://michigan.gov/belleisle",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.63
+    },
+    {
+      "googlePlaceId": "ChIJf1pYEwAtO4gR_Agr6d3XVVQ",
+      "name": "Museum of Illusions",
+      "address": "1545 Woodward Ave, Detroit, MI 48226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1767,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "amusement_center",
+        "tourist_attraction",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3353891,
+      "lng": -83.05013869999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6077000620306008316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moidetroit.com/?utm_source=Google+GMB&utm_medium=website",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.52
+    },
+    {
+      "googlePlaceId": "ChIJPcdzk9EsO4gRlKOUnvSvy_o",
+      "name": "Outdoor Adventure Center",
+      "address": "Outdoor Adventure Center, Globe Trading Company Building, 1801 Atwater St, Detroit, MI 48207, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1726,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3334015,
+      "lng": -83.02732630000001,
+      "googleMapsUri": "https://maps.google.com/?cid=18071731394921669524&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.michigan.gov/oac",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "VR experiences",
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend",
+        "street fairs",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.45
+    },
+    {
+      "googlePlaceId": "ChIJ_xO-slDTJIgRT9_VAWCEkwQ",
+      "name": "Mad Nice",
+      "address": "4120 2nd Ave, Detroit, MI 48201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2278,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3492205,
+      "lng": -83.0650115,
+      "googleMapsUri": "https://maps.google.com/?cid=329752745610698575&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madnicedetroit.com/?olonwp=JjBtp_vMLk25gkYh_bnoiQ",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.27
+    },
+    {
+      "googlePlaceId": "ChIJGVhz6lgtO4gRrCQe2Lr9hpk",
+      "name": "Michigan Central",
+      "address": "2001 15th St Suite 101, Detroit, MI 48216, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2858,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3287347,
+      "lng": -83.0777696,
+      "googleMapsUri": "https://maps.google.com/?cid=11062808513613800620&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://michigancentral.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 89.97
+    },
+    {
+      "googlePlaceId": "ChIJGylPe3nTJIgRkpVk2bxRz0A",
+      "name": "Baobab Fare",
+      "address": "6568 Woodward Ave Suite 100, Detroit, MI 48202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1611,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3701364,
+      "lng": -83.07296889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4670041210149442962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.baobabfare.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.82
+    },
+    {
+      "googlePlaceId": "ChIJ1_zVs4mVIogR8YM7ZSiuoYc",
+      "name": "Horrocks Farm Market",
+      "address": "7420 W Saginaw Hwy, Lansing, MI 48917, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.8,
+      "reviewCount": 11631,
+      "priceLevel": null,
+      "primaryType": "grocery_store",
+      "types": [
+        "grocery_store",
+        "food_store",
+        "market",
+        "store",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.7414111,
+      "lng": -84.66108190000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9773284154891011057&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.shophorrocks.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.63
+    },
+    {
+      "googlePlaceId": "ChIJgVEtgSgtO4gR26c1oo9NbtY",
+      "name": "Andiamo Detroit Riverfront",
+      "address": "400 Renaissance Center A-03, Detroit, MI 48243, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 4979,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3282595,
+      "lng": -83.03942959999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15451372650851837915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://andiamoitalia.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.61
+    },
+    {
+      "googlePlaceId": "ChIJCbQ5TFLFJIgRb-gnArbGswQ",
+      "name": "Kids Empire Troy",
+      "address": "388 John R Rd, Troy, MI 48083, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 4781,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.53733760000001,
+      "lng": -83.1041444,
+      "googleMapsUri": "https://maps.google.com/?cid=338832882005436527&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kidsempire.com/park/troy?utm_source=gmb&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.53
+    },
+    {
+      "googlePlaceId": "ChIJCbdPDDQtO4gRf_2BrvWSqXI",
+      "name": "Cliff Bell's",
+      "address": "2030 Park Ave, Detroit, MI 48226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2488,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "fine_dining_restaurant",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.336858199999995,
+      "lng": -83.05266519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8262296575280283007&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cliffbells.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs",
+        "sunset date spots",
+        "burlesque shows",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJsZibe2ctO4gRXxgCmv1swtk",
+      "name": "Green Dot Stables",
+      "address": "2200 W Lafayette Blvd, Detroit, MI 48216, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6519,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.321894799999995,
+      "lng": -83.0714794,
+      "googleMapsUri": "https://maps.google.com/?cid=15691223888178583647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.greendotstables.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.41
+    },
+    {
+      "googlePlaceId": "ChIJX2l0sxHPJIgRASar56DnTDk",
+      "name": "Belle Isle Nature Center",
+      "address": "176 Lakeside Dr, Detroit, MI 48207, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1646,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.346852,
+      "lng": -82.963718,
+      "googleMapsUri": "https://maps.google.com/?cid=4128929636659439105&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://belleislenaturecenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "best parks",
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.19
+    },
+    {
+      "googlePlaceId": "ChIJ-cn5BZ3SJIgR96ot-ZV1n9I",
+      "name": "Fisher Theatre",
+      "address": "3011 W Grand Blvd, Detroit, MI 48202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 2234,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.369512799999995,
+      "lng": -83.07673439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15176978556252957431&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://us.atgtickets.com/venues/fisher-theatre/whats-on/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.15
+    },
+    {
+      "googlePlaceId": "ChIJVU3BY77SJIgRg9BnNZnRjQY",
+      "name": "Michigan Science Center",
+      "address": "5020 John R St, Detroit, MI 48202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 3128,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "movie_theater",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.358450999999995,
+      "lng": -83.06239660000001,
+      "googleMapsUri": "https://maps.google.com/?cid=472263991899967619&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mi-sci.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJF2z44DotO4gRI6wdmXQoQjk",
+      "name": "The Apparatus Room",
+      "address": "250 W Larned St, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3067,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "cocktail_bar",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.328328,
+      "lng": -83.048352,
+      "googleMapsUri": "https://maps.google.com/?cid=4125904689874971683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://detroitfoundationhotel.com/dine/apparatus-room/?utm_source=google-gbp&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.05
+    },
+    {
+      "googlePlaceId": "ChIJUccKLbKVJIgRQh5K50vbGOU",
+      "name": "SEA LIFE Michigan Aquarium",
+      "address": "4316 Baldwin Rd, Auburn Hills, MI 48326, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 6519,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.7036708,
+      "lng": -83.2965047,
+      "googleMapsUri": "https://maps.google.com/?cid=16508185553175977538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitsealife.com/michigan/?utm_source=local-listing&utm_medium=organic&utm_campaign=tickets",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 88.96
+    },
+    {
+      "googlePlaceId": "ChIJK-ToO73SJIgRiRcmOZ4u0Rg",
+      "name": "Detroit Historical Museum",
+      "address": "5401 Woodward Ave, Detroit, MI 48202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2046,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3597909,
+      "lng": -83.0671394,
+      "googleMapsUri": "https://maps.google.com/?cid=1788261784141305737&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.detroithistorical.org/visit/detroit-historical-museum",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.86
+    },
+    {
+      "googlePlaceId": "ChIJ69ONcL3SJIgRMxmNlatQMjQ",
+      "name": "Chartreuse Kitchen & Cocktails",
+      "address": "15 E Kirby St D, Detroit, MI 48202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1057,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3602235,
+      "lng": -83.0663045,
+      "googleMapsUri": "https://maps.google.com/?cid=3761157336686467379&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.chartreusekc.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.82
+    },
+    {
+      "googlePlaceId": "ChIJSS2gz1ktO4gRdZH5xelu3Zw",
+      "name": "The Sugar House",
+      "address": "2130 Michigan Ave, Detroit, MI 48216, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1446,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3315639,
+      "lng": -83.0757833,
+      "googleMapsUri": "https://maps.google.com/?cid=11303312590097715573&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sugarhousedetroit.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "interactive pop ups",
+        "romantic bars",
+        "bottle service",
+        "mixology classes",
+        "seasonal pop ups",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "learning-classes",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.76
+    },
+    {
+      "googlePlaceId": "ChIJr1uNgcarJIgRVgxJrmy01mk",
+      "name": "Maybury State Park",
+      "address": "49601 Eight Mile W, Northville, MI 48167, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3096,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.4290301,
+      "lng": -83.5301163,
+      "googleMapsUri": "https://maps.google.com/?cid=7626481397872004182&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.michigandnr.com/parksandtrails/Details.aspx?id=469&type=SPRK",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.74
+    },
+    {
+      "googlePlaceId": "ChIJuQWhErHUJIgRFKm3NB-wPEw",
+      "name": "Belle Isle Park",
+      "address": "99 Pleasure Dr, Detroit, MI 48207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 10086,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3377033,
+      "lng": -82.9989865,
+      "googleMapsUri": "https://maps.google.com/?cid=5493459293560088852&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.michigan.gov/recsearch/parks/belleisle",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.71
+    },
+    {
+      "googlePlaceId": "ChIJs1AnRCUtO4gR1ZFyk05lsUI",
+      "name": "Guardian Building",
+      "address": "500 Griswold St, Detroit, MI 48226, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 2562,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "event_venue",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3296291,
+      "lng": -83.0461262,
+      "googleMapsUri": "https://maps.google.com/?cid=4805733665536643541&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.guardianbuilding.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.51
+    },
+    {
+      "googlePlaceId": "ChIJt-BCZy0tO4gRtonmr5I3ktQ",
+      "name": "Ford Field",
+      "address": "2000 Brush St, Detroit, MI 48226, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 15798,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "athletic_field",
+        "event_venue",
+        "sports_complex",
+        "store",
+        "sports_activity_location",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.3400064,
+      "lng": -83.045603,
+      "googleMapsUri": "https://maps.google.com/?cid=15317366385796352438&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fordfield.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.45
+    },
+    {
+      "googlePlaceId": "ChIJ-QgBUkvTJIgRGXg4cBYH6pA",
+      "name": "Detroit Shipping Company",
+      "address": "474 Peterboro St, Detroit, MI 48201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3073,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3440836,
+      "lng": -83.0615332,
+      "googleMapsUri": "https://maps.google.com/?cid=10442166478965340185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.detroitshippingcompany.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "viral-eats"
+      ],
+      "popularityScore": 88.41
+    },
+    {
+      "googlePlaceId": "ChIJucSxN9fSJIgRI9hypW3IfjM",
+      "name": "Eastern Market Shed 5",
+      "address": "2810 Russell St, Detroit, MI 48207, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 897,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3483958,
+      "lng": -83.041281,
+      "googleMapsUri": "https://maps.google.com/?cid=3710623516252624931&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.easternmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "farmers markets",
+        "flea markets",
+        "festivals this weekend",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.28
+    },
+    {
+      "googlePlaceId": "ChIJVd4y1bnSJIgRF1MYN7yMy50",
+      "name": "Magic Stick",
+      "address": "4120-4140 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1206,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "concert_hall",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3511427,
+      "lng": -83.060109,
+      "googleMapsUri": "https://maps.google.com/?cid=11370336424233030423&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.majesticdetroit.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "local events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.16
+    },
+    {
+      "googlePlaceId": "ChIJg1Ph_T2uPIgRb-I4xXj280k",
+      "name": "Ann Arbor Hands-On Museum",
+      "address": "220 E Ann St, Ann Arbor, MI 48104, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3855,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.282004099999995,
+      "lng": -83.7465101,
+      "googleMapsUri": "https://maps.google.com/?cid=5328873782674776687&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://discoverscienceandnature.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.11
+    },
+    {
+      "googlePlaceId": "ChIJBxid5tAsO4gRT0x0xaIyFqY",
+      "name": "William G. Milliken State Park and Harbor",
+      "address": "1900 Atwater St, Detroit, MI 48207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2253,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3324745,
+      "lng": -83.0260078,
+      "googleMapsUri": "https://maps.google.com/?cid=11967808734462495823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www2.dnr.state.mi.us/parksandtrails/Details.aspx?type=SPRK&id=697",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 88.08
+    },
+    {
+      "googlePlaceId": "ChIJMSDejMssO4gRYPcjlIg9Kx4",
+      "name": "Robert C. Valade Park",
+      "address": "2670 Atwater St, Detroit, MI 48207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1263,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3350702,
+      "lng": -83.0195365,
+      "googleMapsUri": "https://maps.google.com/?cid=2173898901946627936&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.detroitriverfront.org/plan-your-visit/parks-greenways/robert-c-valade-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 87.91
+    },
+    {
+      "googlePlaceId": "ChIJW6xDZZXGJIgRXn6kBHEH3xU",
+      "name": "Somerset Collection",
+      "address": "2800 W Big Beaver Rd, Troy, MI 48084, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 12928,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.5598057,
+      "lng": -83.1838968,
+      "googleMapsUri": "https://maps.google.com/?cid=1575986576593550942&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thesomersetcollection.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.78
+    },
+    {
+      "googlePlaceId": "ChIJO-TazgDPJIgRAaSLQS4BvK0",
+      "name": "Breakout Escape Rooms Warren",
+      "address": "7300 Miller Dr Suite B, Warren, MI 48092, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3380,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.526221,
+      "lng": -83.03277539999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12518882362362930177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://roombreakout.com/warren-mi/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.73
+    },
+    {
+      "googlePlaceId": "ChIJQ3xXUjAtO4gR-IPk58hroK8",
+      "name": "Bad Luck Bar",
+      "address": "1218 Griswold St, Detroit, MI 48226, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 755,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.33302200000001,
+      "lng": -83.0486808,
+      "googleMapsUri": "https://maps.google.com/?cid=12655233463539237880&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.badluckbar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJ449sLSrTJIgRsXqEFB3pbUc",
+      "name": "Dequindre Cut",
+      "address": "Dequindre Cut Greenway, Detroit, MI 48207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1395,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.343879,
+      "lng": -83.0335601,
+      "googleMapsUri": "https://maps.google.com/?cid=5147026260261894833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://detroitriverfront.org/riverfront/dequindre-cut/dequindre-cut",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "scenic walks",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.59
+    },
+    {
+      "googlePlaceId": "ChIJD5JI6rbPJIgR5H2UrNdZZkY",
+      "name": "Mabel Gray",
+      "address": "23825 John R Rd, Hazel Park, MI 48030, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1387,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.4676504,
+      "lng": -83.1045211,
+      "googleMapsUri": "https://maps.google.com/?cid=5072840813127695844&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mabelgraykitchen.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.57
+    },
+    {
+      "googlePlaceId": "ChIJzYtqLWgtO4gRb7WSpNrPzAQ",
+      "name": "BESA",
+      "address": "600 Woodward Ave, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 963,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "steak_house",
+        "seafood_restaurant",
+        "american_restaurant",
+        "bar",
+        "european_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3304823,
+      "lng": -83.04543230000002,
+      "googleMapsUri": "https://maps.google.com/?cid=345879809371583855&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.besadetroit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.41
+    },
+    {
+      "googlePlaceId": "ChIJ9dL31sfgJIgRS2z0K6-yblI",
+      "name": "Xtreme Breakout Escape Rooms Shelby Twp",
+      "address": "14620 23 Mile Rd, Shelby Township, MI 48315, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2981,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "karaoke",
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.6706778,
+      "lng": -82.98226590000002,
+      "googleMapsUri": "https://maps.google.com/?cid=5939881423974722635&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://roombreakout.com/xtreme-shelby-township/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.31
+    },
+    {
+      "googlePlaceId": "ChIJu8KujD3TJIgR5JoETPYl14w",
+      "name": "Oak & Reel",
+      "address": "2921 E Grand Blvd, Detroit, MI 48202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 667,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3721935,
+      "lng": -83.066938,
+      "googleMapsUri": "https://maps.google.com/?cid=10148622025070254820&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oakandreel.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJx8EDmi0tO4gRzlez8tgyFns",
+      "name": "Music Hall Center for the Performing Arts",
+      "address": "350 Madison St, Detroit, MI 48226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2027,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3371871,
+      "lng": -83.04588269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8869332423518934990&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://musichall.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "jazz clubs",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.28
+    },
+    {
+      "googlePlaceId": "ChIJo-ZbOCLmJIgRM_XcriTgoX0",
+      "name": "Stony Creek Metropark",
+      "address": "4300 Main Park Dr, Shelby Township, MI 48316, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 7808,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.7092868,
+      "lng": -83.0703388,
+      "googleMapsUri": "https://maps.google.com/?cid=9052763174148568371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.metroparks.com/parks/stony-creek-metropark/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.21
+    },
+    {
+      "googlePlaceId": "ChIJBcyuXpYyO4gRyUw7nADF5rg",
+      "name": "El Club",
+      "address": "4114 Vernor Hwy, Detroit, MI 48209, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1880,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.321388999999996,
+      "lng": -83.093536,
+      "googleMapsUri": "https://maps.google.com/?cid=13323553154033994953&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elclubdetroit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.03
+    },
+    {
+      "googlePlaceId": "ChIJTbnSWzAtO4gRgC2Z_rJNPVw",
+      "name": "Prime + Proper",
+      "address": "1145 Griswold St, Detroit, MI 48226, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.5,
+      "reviewCount": 3103,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3322879,
+      "lng": -83.04931049999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6646554056239689088&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://primeandproperdetroit.com/?olonwp=JjBtp_vMLk25gkYh_bnoiQ",
+      "openNow": false,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.94
+    },
+    {
+      "googlePlaceId": "ChIJV_bXbc4sO4gRLB7AGT6-8a0",
+      "name": "The Aretha Franklin Amphitheatre",
+      "address": "2600 Atwater St, Detroit, MI 48207, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4751,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "night_club",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3338608,
+      "lng": -83.021427,
+      "googleMapsUri": "https://maps.google.com/?cid=12534008411878071852&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thearetha.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.86
+    },
+    {
+      "googlePlaceId": "ChIJh9jZsLfSJIgRaA02yR737go",
+      "name": "Orchestra Hall",
+      "address": "Max M. & Marjorie S. Fisher Music Center, 3711 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1671,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3485691,
+      "lng": -83.0589317,
+      "googleMapsUri": "https://maps.google.com/?cid=787838696433257832&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dso.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.69
+    },
+    {
+      "googlePlaceId": "ChIJL1pWHC4tO4gR1aabYUyo6wE",
+      "name": "The Skip",
+      "address": "1234 The Belt, Detroit, MI 48226, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 1080,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "beer_garden",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.334705899999996,
+      "lng": -83.046706,
+      "googleMapsUri": "https://maps.google.com/?cid=138389259573503701&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theskipdetroit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "sunset date spots",
+        "bottle service",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.69
+    },
+    {
+      "googlePlaceId": "ChIJJf89guNQI4gRReCenmhAy9A",
+      "name": "Island Lake Recreation Area",
+      "address": "6301 Kensington Rd, Brighton, MI 48116, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 3860,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.5025465,
+      "lng": -83.7122878,
+      "googleMapsUri": "https://maps.google.com/?cid=15045189798243262533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.michigandnr.com/parksandtrails/Details.aspx?id=462&type=SPRK",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.62
+    },
+    {
+      "googlePlaceId": "ChIJdcq0Fi4tO4gRHAg2pJeA0r0",
+      "name": "Standby",
+      "address": "225 Gratiot Ave, Detroit, MI 48226, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1244,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3344154,
+      "lng": -83.0460318,
+      "googleMapsUri": "https://maps.google.com/?cid=13678136407061039132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.standbydetroit.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.51
+    },
+    {
+      "googlePlaceId": "ChIJHfZS3tbSJIgR_B4fzpCkCU4",
+      "name": "Shed 3",
+      "address": "Shed #3, Detroit, MI 48207, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 2238,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.347083999999995,
+      "lng": -83.0403418,
+      "googleMapsUri": "https://maps.google.com/?cid=5623206551589166844&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.easternmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJmQSgHW0tO4gRnFaWWnChWHY",
+      "name": "Fixins Soul Kitchen",
+      "address": "1435 Randolph Street, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2085,
+      "priceLevel": null,
+      "primaryType": "soul_food_restaurant",
+      "types": [
+        "soul_food_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3355982,
+      "lng": -83.0459627,
+      "googleMapsUri": "https://maps.google.com/?cid=8527743398354245276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fixinssoulkitchen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.27
+    },
+    {
+      "googlePlaceId": "ChIJ85F41AmyJIgRdZArElkSyl4",
+      "name": "Dave & Buster's Livonia",
+      "address": "19375 Victor Pkwy, Livonia, MI 48152, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4,
+      "reviewCount": 7824,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "video_arcade",
+        "amusement_center",
+        "bar_and_grill",
+        "family_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.4285358,
+      "lng": -83.4229058,
+      "googleMapsUri": "https://maps.google.com/?cid=6830291958627012725&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/livonia",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.26
+    },
+    {
+      "googlePlaceId": "ChIJe56t9TYtO4gRHGAriuDAlK0",
+      "name": "Lumen Detroit",
+      "address": "1903 Grand River Ave, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1304,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.334499099999995,
+      "lng": -83.05487339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12507834135738015772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lumendetroit.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.22
+    },
+    {
+      "googlePlaceId": "ChIJq6mt5T-xJIgRTtWr8ORXavk",
+      "name": "Zap Zone - Farmington",
+      "address": "31506 Grand River Ave, Farmington, MI 48336, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2472,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "pizza_restaurant",
+        "go_karting_venue",
+        "miniature_golf_course",
+        "video_arcade",
+        "race_course",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.4573292,
+      "lng": -83.3570993,
+      "googleMapsUri": "https://maps.google.com/?cid=17972273903777338702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://farmington.zap-zone.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.19
+    },
+    {
+      "googlePlaceId": "ChIJbVPtNC8tO4gRhFfaggoxqy0",
+      "name": "Sweetwater Tavern",
+      "address": "400 E Congress St, Detroit, MI 48226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4,
+      "reviewCount": 4861,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 42.3316532,
+      "lng": -83.0416966,
+      "googleMapsUri": "https://maps.google.com/?cid=3290777873939060612&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sweetwatertavern.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJ6ZLBo5MjJYgRWUgk1daUnS4",
+      "name": "Lake Saint Clair Metropark",
+      "address": "31300 Metro Pkwy, Harrison Township, MI 48045, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 7877,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.5750959,
+      "lng": -82.7961795,
+      "googleMapsUri": "https://maps.google.com/?cid=3359004547508095065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.metroparks.com/lake-st-clair-metropark/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJlX1mdBTHJIgRIDbuXgqSzEc",
+      "name": "Cranbrook Institute of Science",
+      "address": "1 Institute Way, Bloomfield Hills, MI 48304, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2048,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.5732296,
+      "lng": -83.24949339999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5173670645181855264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://science.cranbrook.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.01
+    },
+    {
+      "googlePlaceId": "ChIJt4e8Hj7PJIgRDyONeFkFaFg",
+      "name": "Holiday Market",
+      "address": "1203 S Main St, Royal Oak, MI 48067, USA",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 4.6,
+      "reviewCount": 2730,
+      "priceLevel": null,
+      "primaryType": "grocery_store",
+      "types": [
+        "grocery_store",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 42.4790626,
+      "lng": -83.1429057,
+      "googleMapsUri": "https://maps.google.com/?cid=6370347554748310287&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.holiday-market.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cooking classes",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "learning-classes",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJj8VacVMrO4gRVNz9Mwt4LCs",
+      "name": "Dossin Great Lakes Museum",
+      "address": "100 The Strand, Detroit, MI 48207, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1147,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3346533,
+      "lng": -82.98556119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3110993432118418516&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.detroithistorical.org/visit/dossin-great-lakes-museum",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJVd4y1bnSJIgR1zSVu0dRSug",
+      "name": "The Majestic Theatre",
+      "address": "4140 Woodward Ave, Detroit, MI 48201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2041,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.351442999999996,
+      "lng": -83.0601082,
+      "googleMapsUri": "https://maps.google.com/?cid=16738280333607515351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.majesticdetroit.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJ_wvYIlyvPIgRdrMxxzKXNks",
+      "name": "BIG Best In Games - The Ultimate Event Party Venue!",
+      "address": "4095 Carpenter Rd Suite A, Ypsilanti, MI 48197, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 2544,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "go_karting_venue",
+        "video_arcade",
+        "race_course",
+        "event_venue",
+        "bar",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.2281517,
+      "lng": -83.6775864,
+      "googleMapsUri": "https://maps.google.com/?cid=5419685445933052790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bestingames.com/ypsilanti/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.63
+    },
+    {
+      "googlePlaceId": "ChIJPfUGwIlNO4gRcpjNNslrIKw",
+      "name": "MyFlight Tours Detroit",
+      "address": "11745 Conner St, Detroit, MI 48213, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 2499,
+      "priceLevel": null,
+      "primaryType": "transportation_service",
+      "types": [
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 42.4103563,
+      "lng": -83.0047764,
+      "googleMapsUri": "https://maps.google.com/?cid=12403031885730388082&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.myflighttours.com/detroit-helicopter-rides/",
+      "openNow": true,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.62
+    },
+    {
+      "googlePlaceId": "ChIJR3mTeOSrPIgRF0CehvEp8Jg",
+      "name": "Matthaei Botanical Gardens",
+      "address": "882P+QP, 1800 N Dixboro Rd, Ann Arbor, MI 48105, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3396,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.302233799999996,
+      "lng": -83.6632035,
+      "googleMapsUri": "https://maps.google.com/?cid=11020354405497978903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mbgna.umich.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.54
+    },
+    {
+      "googlePlaceId": "ChIJF5QBKknSJIgRfWRH6vvEO4w",
+      "name": "Fо̄wling Warehouse Detroit",
+      "address": "3901 Christopher St, Hamtramck, MI 48211, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 2389,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3939658,
+      "lng": -83.0442248,
+      "googleMapsUri": "https://maps.google.com/?cid=10104886775182222461&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fowlingwarehouse.com/detroit/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.43
+    },
+    {
+      "googlePlaceId": "ChIJs4AsOzItO4gRHEWzUNXy9FM",
+      "name": "Detroit Opera House",
+      "address": "1526 Broadway St, Detroit, MI 48226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4563,
+      "priceLevel": null,
+      "primaryType": "opera_house",
+      "types": [
+        "opera_house",
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3362452,
+      "lng": -83.04865749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6049727197461300508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.detroitopera.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.42
+    },
+    {
+      "googlePlaceId": "ChIJE4jyMSYtO4gRwaaqbv_nXTc",
+      "name": "General Motors Renaissance Center",
+      "address": "400 Renaissance Center, Detroit, MI 48243, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1721,
+      "priceLevel": null,
+      "primaryType": "business_center",
+      "types": [
+        "business_center",
+        "tourist_attraction",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3293284,
+      "lng": -83.0397632,
+      "googleMapsUri": "https://maps.google.com/?cid=3989599929179481793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gmrencen.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.39
+    },
+    {
+      "googlePlaceId": "ChIJ3a2S8kctO4gRS-ALRHP5hx0",
+      "name": "MGM Grand Detroit",
+      "address": "1777 3rd Ave, Detroit, MI 48226, USA",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.2,
+      "reviewCount": 23549,
+      "priceLevel": null,
+      "primaryType": "casino",
+      "types": [
+        "casino",
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3335223,
+      "lng": -83.0602009,
+      "googleMapsUri": "https://maps.google.com/?cid=2127943622414032971&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mgmgranddetroit.mgmresorts.com/en.html?ecid=GMB_MD_HO",
+      "openNow": null,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.37
+    },
+    {
+      "googlePlaceId": "ChIJuWNNiAs1O4gRh-FsO_PxzDA",
+      "name": "Launch Family Entertainment Dearborn",
+      "address": "5901 Mercury Dr Suite 101, Dearborn, MI 48126, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 1404,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "bowling_alley",
+        "video_arcade",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 42.3316077,
+      "lng": -83.2116219,
+      "googleMapsUri": "https://maps.google.com/?cid=3516451436045853063&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://launchtrampolinepark.com/dearborn",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.36
+    },
+    {
+      "googlePlaceId": "ChIJy9O25C3dJIgRieO4tYQTq4o",
+      "name": "Activate Games",
+      "address": "45330 Utica Park Blvd, Utica, MI 48315, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 620,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 42.6290273,
+      "lng": -83.0054071,
+      "googleMapsUri": "https://maps.google.com/?cid=9992101658956981129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/detroit?utm_source=google&utm_medium=organic&utm_campaign=gmb-utica",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.35
+    }
+  ]
+}

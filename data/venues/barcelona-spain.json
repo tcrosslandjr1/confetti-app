@@ -1,0 +1,3506 @@
+{
+  "location": "Barcelona, Spain",
+  "generatedAt": "2026-05-17T20:21:11.563Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJk_s92NyipBIRUMnDG8Kq2Js",
+      "name": "Basílica de la Sagrada Família",
+      "address": "Carrer de Mallorca, 401, Eixample, 08013 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 323887,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.4036299,
+      "lng": 2.1743558,
+      "googleMapsUri": "https://maps.google.com/?cid=11229913421514525008&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sagradafamilia.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 101.8
+    },
+    {
+      "googlePlaceId": "ChIJYUFLSe2ipBIRD04uni940kA",
+      "name": "Casa Batlló",
+      "address": "Pg. de Gràcia, 43, Eixample, 08007 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 205912,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3917,
+      "lng": 2.164918,
+      "googleMapsUri": "https://maps.google.com/?cid=4670927909449256463&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.casabatllo.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.45
+    },
+    {
+      "googlePlaceId": "ChIJGUgrYPGipBIRS9ZgHK_C7B4",
+      "name": "Plaça de Catalunya",
+      "address": "Plaça de Catalunya, Eixample, 08002 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 216933,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.387015399999996,
+      "lng": 2.1700471,
+      "googleMapsUri": "https://maps.google.com/?cid=2228369972992726603&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.meet.barcelona/ca/visita-la-i-estima-la/punts-dinteres-de-la-ciutat/la-placa-de-catalunya-99400356287",
+      "openNow": null,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.39
+    },
+    {
+      "googlePlaceId": "ChIJAVoetfeipBIR1a1z3FTGCoY",
+      "name": "Mercat de la Boqueria",
+      "address": "La Rambla, 91, Ciutat Vella, 08001 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 210847,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3817399,
+      "lng": 2.1715853,
+      "googleMapsUri": "https://maps.google.com/?cid=9658750418627571157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boqueria.barcelona/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.32
+    },
+    {
+      "googlePlaceId": "ChIJ1eGKmZOipBIRah43T2Kjn8Q",
+      "name": "La Pedrera - Casa Milà",
+      "address": "Pg. de Gràcia, 92, Eixample, 08008 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 110642,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3952155,
+      "lng": 2.1619024,
+      "googleMapsUri": "https://maps.google.com/?cid=14168222595362004586&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lapedrera.com/es?utm_source=google&utm_medium=organic&utm_campaign=myb",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.64
+    },
+    {
+      "googlePlaceId": "ChIJq0HUUq6ipBIRWM6qGqALmok",
+      "name": "Park Güell",
+      "address": "Gràcia, 08024 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 234052,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.4144948,
+      "lng": 2.1526945,
+      "googleMapsUri": "https://maps.google.com/?cid=9915250311879642712&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parkguell.barcelona/",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.5
+    },
+    {
+      "googlePlaceId": "ChIJoXZqNuOipBIRsZU39a8r_qk",
+      "name": "Arc de Triomf",
+      "address": "Passeig de Lluís Companys, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 98962,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3910524,
+      "lng": 2.1806449,
+      "googleMapsUri": "https://maps.google.com/?cid=12249276071227659697&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelonaturisme.com/wv3/ca/page/1211/arc-de-triomf.html",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "street fairs",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.33
+    },
+    {
+      "googlePlaceId": "ChIJ4QmWQ_2ipBIRcD1a5hhhOEI",
+      "name": "Ciutadella Park",
+      "address": "Passeig de Picasso, 21, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 77196,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.388123,
+      "lng": 2.1860152,
+      "googleMapsUri": "https://maps.google.com/?cid=4771670564770823536&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelona.cat/es/que-hacer-en-bcn/parques-y-jardines/parque-de-la-ciutadella-92086011921",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.64
+    },
+    {
+      "googlePlaceId": "ChIJMU59xHGipBIRkdwlcgUWAYY",
+      "name": "Museu Nacional d'Art de Catalunya",
+      "address": "Palau Nacional, Parc de Montjuïc, s/n, Sants-Montjuïc, 08038 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 38076,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3684399,
+      "lng": 2.1535699999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9656023288704785553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museunacional.cat/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.79
+    },
+    {
+      "googlePlaceId": "ChIJN5lVhnCipBIRajHculw3xh4",
+      "name": "Magic Fountain of Montjuïc",
+      "address": "Pl. de Carles Buïgas, Sants-Montjuïc, 08038 Barcelona, Spain",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 89724,
+      "priceLevel": null,
+      "primaryType": "fountain",
+      "types": [
+        "fountain",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3711603,
+      "lng": 2.1517402,
+      "googleMapsUri": "https://maps.google.com/?cid=2217520737938059626&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelona.cat/ca/que-pots-fer-a-bcn/font-magica",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.31
+    },
+    {
+      "googlePlaceId": "ChIJQQSrd_qipBIRQ2xzarVkqn8",
+      "name": "Palau de la Música Catalana",
+      "address": "C/ Palau de la Música, 4-6, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 54107,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "tourist_attraction",
+        "auditorium",
+        "live_music_venue",
+        "historical_landmark",
+        "historical_place",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3875752,
+      "lng": 2.1753128,
+      "googleMapsUri": "https://maps.google.com/?cid=9199275919195466819&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.palaumusica.cat/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 94.26
+    },
+    {
+      "googlePlaceId": "ChIJ89DYevGipBIRg4J37uXv8F0",
+      "name": "Free Walking Tours Barcelona",
+      "address": "Avinguda del Paral·lel, 36, 6, 1, Ciutat Vella, 08001 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 13082,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.374932799999996,
+      "lng": 2.1729453,
+      "googleMapsUri": "https://maps.google.com/?cid=6769174010765214339&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://freewalkingtoursbarcelona.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.65
+    },
+    {
+      "googlePlaceId": "ChIJCTj8nLmjpBIRxMXHe_EdGcY",
+      "name": "BARKENO TOURS",
+      "address": "Pl. de Catalunya, 2, Eixample, 08002 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 5,
+      "reviewCount": 23357,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.3864233,
+      "lng": 2.1692093,
+      "googleMapsUri": "https://maps.google.com/?cid=14274473416928511428&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barkenotours.es/",
+      "openNow": false,
+      "matchedQueries": [
+        "scenic walks",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.5
+    },
+    {
+      "googlePlaceId": "ChIJN7FiCkGipBIR1PJn6ohejww",
+      "name": "Montjuïc Castle",
+      "address": "Ctra. de Montjuïc, 66, Sants-Montjuïc, 08038 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 60846,
+      "priceLevel": null,
+      "primaryType": "castle",
+      "types": [
+        "castle",
+        "tourist_attraction",
+        "historical_place",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.362959,
+      "lng": 2.1650636,
+      "googleMapsUri": "https://maps.google.com/?cid=905045992266003156&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.barcelona.cat/castelldemontjuic/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.79
+    },
+    {
+      "googlePlaceId": "ChIJzdmhJBqYpBIR83dP63GAFSA",
+      "name": "CosmoCaixa Museum of Science",
+      "address": "Carrer d'Isaac Newton, 26, Sarrià-Sant Gervasi, 08022 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 47575,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.413180499999996,
+      "lng": 2.131123,
+      "googleMapsUri": "https://maps.google.com/?cid=2311895210492131315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://cosmocaixa.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 92.16
+    },
+    {
+      "googlePlaceId": "ChIJoYA0MqKipBIRRwJG2R8H8s4",
+      "name": "Casa Vicens Gaudí",
+      "address": "Carrer de les Carolines, 20-26, Gràcia, 08012 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 21636,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.4034978,
+      "lng": 2.1506455,
+      "googleMapsUri": "https://maps.google.com/?cid=14911989149547758151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://casavicens.org/ca/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "family friendly things to do",
+        "interactive kids museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 92.14
+    },
+    {
+      "googlePlaceId": "ChIJwYnKYCeYpBIRyz3MKkhZ5C8",
+      "name": "Tibidabo Amusement Park",
+      "address": "Pl. del Tibidabo, 3, 4, Sarrià-Sant Gervasi, 08035 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 47940,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.421631999999995,
+      "lng": 2.1194491,
+      "googleMapsUri": "https://maps.google.com/?cid=3450981380963188171&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tibidabo.cat/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.13
+    },
+    {
+      "googlePlaceId": "ChIJM5FFbvKipBIRdWugDh577Ao",
+      "name": "El Nacional Barcelona",
+      "address": "Pg. de Gràcia, 24 Bis, Eixample, 08007 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 40254,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.390583,
+      "lng": 2.1683914,
+      "googleMapsUri": "https://maps.google.com/?cid=787139403907623797&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elnacionalbcn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.65
+    },
+    {
+      "googlePlaceId": "ChIJVU1DOWCipBIRSA8HlZk90Zk",
+      "name": "Mercat de Sant Antoni",
+      "address": "Carrer del Comte d'Urgell, 1, Eixample, 08011 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 38278,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.3786358,
+      "lng": 2.1620492,
+      "googleMapsUri": "https://maps.google.com/?cid=11083707887775059784&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mercatdesantantoni.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.51
+    },
+    {
+      "googlePlaceId": "ChIJ0_AVBL-jpBIRPIty8ZVT_Q0",
+      "name": "IKONO Barcelona",
+      "address": "Gran Via de les Corts Catalanes, 373-385, Centro Comercial Arenas, 3ª planta, Eixample, 08015 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 10706,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3765152,
+      "lng": 2.1492913,
+      "googleMapsUri": "https://maps.google.com/?cid=1008053795066907452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ikono.global/nav/barcelona?utm_source=google-business&utm_medium=google-business&utm_campaign=bcn-google-business-1126",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.29
+    },
+    {
+      "googlePlaceId": "ChIJUaCJvVCjpBIR2UGF0dSChDo",
+      "name": "Space Ilusiona Diagonal Mar",
+      "address": "Diagonal Mar, Centro Comercial, Sant Martí, 08019 Barcelona, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 8899,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.410016999999996,
+      "lng": 2.215008,
+      "googleMapsUri": "https://maps.google.com/?cid=4216639001685475801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ilusiona.com/spacediagonal/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.79
+    },
+    {
+      "googlePlaceId": "ChIJIcQYgdyjpBIRtZCeUheVtU0",
+      "name": "Dragon club",
+      "address": "Carrer del Bruc, 58, Eixample, 08009 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 5,
+      "reviewCount": 16437,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "cultural_center",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3930723,
+      "lng": 2.1714719,
+      "googleMapsUri": "https://maps.google.com/?cid=5599545639107989685&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/dragonclubbarcelona/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.78
+    },
+    {
+      "googlePlaceId": "ChIJe8sRfTujpBIRIF5teCKhoEI",
+      "name": "SENSAS | Barcelona",
+      "address": "Carrer d'Entença, 91-93, Bajos 2, Eixample, 08015 Barcelona, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3835,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3798113,
+      "lng": 2.1500507,
+      "googleMapsUri": "https://maps.google.com/?cid=4801014372198342176&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sensas-experience.com/barcelona/?utm_source=google&utm_medium=localcards&utm_campaign=266522_bcn",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "arcades",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids"
+      ],
+      "popularityScore": 90.66
+    },
+    {
+      "googlePlaceId": "ChIJoW3KxVeipBIRWyvQI76z4cA",
+      "name": "Viana Barcelona",
+      "address": "Carrer del Vidre, 7, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 5084,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "fusion_restaurant",
+      "types": [
+        "fusion_restaurant",
+        "mediterranean_restaurant",
+        "bar_and_grill",
+        "spanish_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3798315,
+      "lng": 2.1762981999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=13898587554268064603&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.vianabcn.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.34
+    },
+    {
+      "googlePlaceId": "ChIJZ45huwCjpBIRA2de0hBdZAg",
+      "name": "ABANIC",
+      "address": "Carrer del Rosselló, 207, Eixample, 08008 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 9565,
+      "priceLevel": null,
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3927731,
+      "lng": 2.1564300999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=604710576804751107&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://reservation.dish.co/widget/hydra-f784ff55-a585-48a8-8343-48eaf7885b96",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 90.33
+    },
+    {
+      "googlePlaceId": "ChIJCYRnt6OjpBIRMsca2JGNEvw",
+      "name": "Mariposa Negra Cocktail Bar - Cocteleria artesana",
+      "address": "Plaça de les Olles, 4, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 4903,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "manufacturer",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3837185,
+      "lng": 2.1830986,
+      "googleMapsUri": "https://maps.google.com/?cid=18163735904674039602&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mariposanegrabar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.24
+    },
+    {
+      "googlePlaceId": "ChIJFbGR9zCjpBIRMe35kJinIrY",
+      "name": "La Lolita Barcelona",
+      "address": "Rambla de Catalunya, 27, Local, Eixample, 08007 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 13145,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "halal_restaurant",
+      "types": [
+        "halal_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.388977,
+      "lng": 2.1657512,
+      "googleMapsUri": "https://maps.google.com/?cid=13124236537820212529&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lalolitarestaurante.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "popular dessert spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.66
+    },
+    {
+      "googlePlaceId": "ChIJr3spdvWYpBIRuQQb_jBT9kQ",
+      "name": "Spotify Camp Nou",
+      "address": "Les Corts, 08028 Barcelona, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 167995,
+      "priceLevel": null,
+      "primaryType": "stadium",
+      "types": [
+        "stadium",
+        "tourist_attraction",
+        "event_venue",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.380896,
+      "lng": 2.1228198,
+      "googleMapsUri": "https://maps.google.com/?cid=4969250708736640185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fcbarcelona.cat/ca/club/installacions/spotify-camp-nou",
+      "openNow": false,
+      "matchedQueries": [
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 89.54
+    },
+    {
+      "googlePlaceId": "ChIJTSzGu4WipBIRkznre9Zwis0",
+      "name": "Disfrutar",
+      "address": "Carrer de Villarroel, 163, Eixample, 08036 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3698,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "mediterranean_restaurant",
+        "spanish_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3878056,
+      "lng": 2.1531881,
+      "googleMapsUri": "https://maps.google.com/?cid=14810774391065622931&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.disfrutarbarcelona.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.46
+    },
+    {
+      "googlePlaceId": "ChIJyTz8wvuipBIRfmWLwQzVTc8",
+      "name": "Mercat de Santa Caterina",
+      "address": "Av. de Francesc Cambó, 16, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 18141,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.386361099999995,
+      "lng": 2.1781566,
+      "googleMapsUri": "https://maps.google.com/?cid=14937829789821265278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mercatsantacaterina.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJPYsEIIWjpBIR11TxVUpXkTk",
+      "name": "Barcelona Weed Club",
+      "address": "Carrer de Casanova, 33, Eixample, 08011 Barcelona, Spain",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 14394,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "association_or_organization",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3834981,
+      "lng": 2.1610362999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=4148192708566013143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://barcelonaweedclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "board game cafes",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.31
+    },
+    {
+      "googlePlaceId": "ChIJDz5L73KjpBIRPfPZU3PsjVw",
+      "name": "Nix Tapas & Drinks",
+      "address": "Carrer dels Escudellers, 12, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 6417,
+      "priceLevel": null,
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3795328,
+      "lng": 2.1763996999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=6669246603277759293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://nixtapasdrinks.shop/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 89.23
+    },
+    {
+      "googlePlaceId": "ChIJAZCEwxyjpBIR6yTRMnAtRtI",
+      "name": "El Templo Esports Gaming Center",
+      "address": "Carrer de la Diputació, 160, Eixample, 08011 Barcelona, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 3769,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "internet_cafe",
+        "association_or_organization",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.3834363,
+      "lng": 2.1581284,
+      "googleMapsUri": "https://maps.google.com/?cid=15151847956246766827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eltemploesports.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJA_sTFX-ipBIR4foXyGXk9vU",
+      "name": "La Terraza Miró",
+      "address": "Carrer de Tarragona, 129, Sants-Montjuïc, 08014 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4770,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "spanish_restaurant",
+      "types": [
+        "spanish_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.377438999999995,
+      "lng": 2.1460809,
+      "googleMapsUri": "https://maps.google.com/?cid=17723604509363010273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://laterrazamirobcn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 89.07
+    },
+    {
+      "googlePlaceId": "ChIJebQOLzqjpBIRr9udRFMaKDk",
+      "name": "White Rabbit · The Immersive Experience of Barcelona",
+      "address": "Pg. de Gràcia, 55, Eixample, 08007 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2936,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3926379,
+      "lng": 2.163732,
+      "googleMapsUri": "https://maps.google.com/?cid=4118570804166122415&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://whiterabbit-theoffmuseum.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 88.83
+    },
+    {
+      "googlePlaceId": "ChIJ3XUCr0K5Z0ARbKq1CqAKgJQ",
+      "name": "Vinitus",
+      "address": "Carrer del Consell de Cent, 333, Eixample, 08007 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 17000,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "tapas_restaurant",
+      "types": [
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3900261,
+      "lng": 2.1640484,
+      "googleMapsUri": "https://maps.google.com/?cid=10700564397123021420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.laflautagroup.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "wine bars",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.62
+    },
+    {
+      "googlePlaceId": "ChIJj_P_6iujpBIRhzNyXpDo0YI",
+      "name": "Jacqueline Barcelona",
+      "address": "Carrer d'Enric Granados, 66, Eixample, 08008 Barcelona, Spain",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 5851,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "cocktail_bar",
+        "seafood_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3921408,
+      "lng": 2.1569024999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=9426571201820636039&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jacquelinebarcelona.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.53
+    },
+    {
+      "googlePlaceId": "ChIJtWCztVSipBIRYJl5aFMSIDs",
+      "name": "L’Aquàrium de Barcelona",
+      "address": "del Port Vell, Moll d'Espanya, s/n, Ciutat Vella, 08039 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.1,
+      "reviewCount": 73065,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3768473,
+      "lng": 2.1843334,
+      "googleMapsUri": "https://maps.google.com/?cid=4260425396936874336&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.aquariumbcn.com/?utm_campaign=maps&utm_medium=organic&utm_source=googlemaps",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.49
+    },
+    {
+      "googlePlaceId": "ChIJb-E-RfmipBIRmDyFS5ND__8",
+      "name": "Arcano Restaurant cave",
+      "address": "Carrer dels Mercaders, 10, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5678,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "spanish_restaurant",
+        "museum",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.384992499999996,
+      "lng": 2.1786544,
+      "googleMapsUri": "https://maps.google.com/?cid=18446536898639117464&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.arcanobarcelona.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.45
+    },
+    {
+      "googlePlaceId": "ChIJLcelLmmipBIRqmlJrcEfypY",
+      "name": "Fundació Joan Miró",
+      "address": "Parc de Montjuïc, s/n, Sants-Montjuïc, 08038 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 14540,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "cultural_center",
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3686304,
+      "lng": 2.1598509,
+      "googleMapsUri": "https://maps.google.com/?cid=10865531967681161642&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fmirobcn.org/es/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 88.44
+    },
+    {
+      "googlePlaceId": "ChIJtUAGDhmjpBIRypg66Y-dDwQ",
+      "name": "Razzmatazz",
+      "address": "Carrer dels Almogàvers, 122, Sant Martí, 08018 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 22911,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3977323,
+      "lng": 2.1911107999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=292625742221187274&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.salarazzmatazz.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.89
+    },
+    {
+      "googlePlaceId": "ChIJ5xOF6fGipBIREVqhYxW5kKY",
+      "name": "Bobby's Free",
+      "address": "Carrer de Pau Claris, 85, Eixample, 08010 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 4346,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.389853599999995,
+      "lng": 2.1706685,
+      "googleMapsUri": "https://maps.google.com/?cid=12002296508459342353&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bobbysfree.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJa7biWyWjpBIRmgjz-bAWEHw",
+      "name": "Prison Experience Barcelona",
+      "address": "Carrer Antic de Bofarull, 15, Sant Martí, 08026 Barcelona, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1309,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.4108182,
+      "lng": 2.1861699,
+      "googleMapsUri": "https://maps.google.com/?cid=8939670209693943962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.prison-experience.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJg2xxlvmipBIRg1jhdSQR9hY",
+      "name": "Cathedral of Barcelona",
+      "address": "Pla de la Seu, s/n, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 82658,
+      "priceLevel": null,
+      "primaryType": "church",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.383962000000004,
+      "lng": 2.1761991,
+      "googleMapsUri": "https://maps.google.com/?cid=1654528761399433347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://catedralbcn.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.58
+    },
+    {
+      "googlePlaceId": "ChIJJVQ6VneipBIRIV6uqvMfBI0",
+      "name": "CaixaForum Barcelona",
+      "address": "Av. de Francesc Ferrer i Guàrdia, 6-8, Sants-Montjuïc, 08038 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 18457,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "concert_hall",
+        "auditorium",
+        "tourist_attraction",
+        "museum",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.371308,
+      "lng": 2.149575,
+      "googleMapsUri": "https://maps.google.com/?cid=10161281790655749665&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://caixaforum.org/barcelona/home",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 87.35
+    },
+    {
+      "googlePlaceId": "ChIJr0Kpwf6ipBIRyy5KccISQmE",
+      "name": "Dr. Stravinsky cocktail bar",
+      "address": "Carrer dels Mirallers, 5, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 3674,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3842035,
+      "lng": 2.1806664,
+      "googleMapsUri": "https://maps.google.com/?cid=7008184596475555531&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://drstravinsky.cat/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.25
+    },
+    {
+      "googlePlaceId": "ChIJKx4fa-SipBIRqiOfFfzD8ro",
+      "name": "Aventurico Tetuan Barcelona",
+      "address": "Carrer de Roger de Flor, 89, Eixample, 08013 Barcelona, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 4944,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3943332,
+      "lng": 2.1783523,
+      "googleMapsUri": "https://maps.google.com/?cid=13471044922880500650&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://bcn.aventurico.com/?utm_source=gmb_tetuan&utm_medium=organic&bonus=gmb10",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJifkA9v2jpBIRDCqfUDQmItM",
+      "name": "Olivia Bistro",
+      "address": "Carrer de Viladomat, 80, Eixample, 08015 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2768,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3785216,
+      "lng": 2.1590525,
+      "googleMapsUri": "https://maps.google.com/?cid=15213764497343719948&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://olivia-bistro.makro.rest/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 86.91
+    },
+    {
+      "googlePlaceId": "ChIJOXLdBbKjpBIRYATfxHt8Qok",
+      "name": "Moco Museum Barcelona",
+      "address": "Carrer de Montcada, 25, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 12334,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "cultural_center",
+        "gift_shop",
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "event_venue",
+        "museum",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.384724399999996,
+      "lng": 2.1815552,
+      "googleMapsUri": "https://maps.google.com/?cid=9890604602684802144&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://mocomuseum.com/barcelona",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJW9Y1K7WjpBIR-FmdtplvDtM",
+      "name": "Barcelona Local Experiences | Barcelona Tours",
+      "address": "Carrer de Bailèn, 105, Eixample, 08009 Barcelona, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 6802,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3971648,
+      "lng": 2.1699899,
+      "googleMapsUri": "https://maps.google.com/?cid=15208215697661188600&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelonalocalexperiences.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.84
+    },
+    {
+      "googlePlaceId": "ChIJP9t20GijpBIRRoc04WuZuwI",
+      "name": "Don Asador",
+      "address": "Carrer del Comte d'Urgell, 111, Eixample, 08011 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 28191,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "argentinian_restaurant",
+      "types": [
+        "argentinian_restaurant",
+        "steak_house",
+        "family_restaurant",
+        "south_american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.384485999999995,
+      "lng": 2.1551885,
+      "googleMapsUri": "https://maps.google.com/?cid=196919697339615046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://app.donasador.es/inicio/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.82
+    },
+    {
+      "googlePlaceId": "ChIJc0WMe_GipBIRJiU_pUq_bRc",
+      "name": "Casa Padellàs (Barcelona History Museum MUHBA)",
+      "address": "Pl. del Rei, s/n, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 5400,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "history_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.383922999999996,
+      "lng": 2.1776676999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=1688215762654668070&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelona.cat/museuhistoria/es",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.56
+    },
+    {
+      "googlePlaceId": "ChIJUcV95LSipBIRUBkO4FCGMRU",
+      "name": "MUHBA Turó de la Rovira",
+      "address": "Carrer de Marià Labèrnia, s/n, Horta-Guinardó, 08032 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 17494,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.419300299999996,
+      "lng": 2.1618258999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=1527149430569834832&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelona.cat/museuhistoria/ca/patrimonis/els-espais-del-muhba/muhba-turo-de-la-rovira",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJOYA7QzijpBIRg8hVOMpIIgg",
+      "name": "ESPECIARIUM BAR | Barcelona",
+      "address": "Carrer de la Princesa, 29, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 2780,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3857089,
+      "lng": 2.1807634,
+      "googleMapsUri": "https://maps.google.com/?cid=586110934877325443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.especiariumbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.53
+    },
+    {
+      "googlePlaceId": "ChIJ43qAnvaipBIRUtx1ZGY_OZY",
+      "name": "La Whiskeria",
+      "address": "Carrer de Casp, 39, Eixample, 08010 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1812,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3918113,
+      "lng": 2.1736163,
+      "googleMapsUri": "https://maps.google.com/?cid=10824752888366357586&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lawhiskeria.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "jazz clubs",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.4
+    },
+    {
+      "googlePlaceId": "ChIJifFEUvOipBIRXPD3uFM35pg",
+      "name": "YouBarcelona - Lista Isaac (Discotecas / Night Clubs)",
+      "address": "Pl. d'Urquinaona, 6, planta 12, Eixample, 08010 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1508,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "night_club",
+        "association_or_organization",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.3897921,
+      "lng": 2.1729341,
+      "googleMapsUri": "https://maps.google.com/?cid=11017554371133567068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.youbarcelona.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "ticketed events",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.34
+    },
+    {
+      "googlePlaceId": "ChIJ5UOrvvOipBIRby3CRJ9ztf4",
+      "name": "La Taverna de Barcelona",
+      "address": "Ronda de la Univ., 37, Eixample, 08007 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 5698,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.387333399999996,
+      "lng": 2.1679233000000004,
+      "googleMapsUri": "https://maps.google.com/?cid=18353702984308895087&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/latavernadebarcelona",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "live music events",
+        "jazz clubs",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.26
+    },
+    {
+      "googlePlaceId": "ChIJJ2JbaneipBIRpVQ6RTJSwLA",
+      "name": "Poble Espanyol",
+      "address": "Av. de Francesc Ferrer i Guàrdia, 13, Sants-Montjuïc, 08038 Barcelona, Spain",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.2,
+      "reviewCount": 40272,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3690713,
+      "lng": 2.1467419,
+      "googleMapsUri": "https://maps.google.com/?cid=12736270122067055781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://poble-espanyol.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJO8-idVyipBIRprMh0nqXWP4",
+      "name": "Sala Apolo",
+      "address": "Carrer Nou de la Rambla, 113, Sants-Montjuïc, 08004 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 12025,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "night_club",
+      "types": [
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.374402599999996,
+      "lng": 2.1695739,
+      "googleMapsUri": "https://maps.google.com/?cid=18327565237351461798&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sala-apolo.com/es/?utm_source=Google+Maps&utm_medium=Google+Maps&utm_campaign=Ficha+Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.12
+    },
+    {
+      "googlePlaceId": "ChIJIQHFmEejpBIRXVCebGsWJzw",
+      "name": "Space Cowboy",
+      "address": "Carrer dels Carders, 31, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1533,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "comedy_club",
+        "sports_bar",
+        "american_restaurant",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3869835,
+      "lng": 2.1802902,
+      "googleMapsUri": "https://maps.google.com/?cid=4334457817007018077&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.spacecowboybcn.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "comedy shows",
+        "game night venues",
+        "karaoke bars",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.94
+    },
+    {
+      "googlePlaceId": "ChIJD4WNnt6jpBIRIVeGBhxHwH8",
+      "name": "Gastronomic Arts Barcelona / GAB LAB",
+      "address": "Carrer de Lancaster, 10, Bajo 1a, Ciutat Vella, 08001 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 2721,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "visitor_center",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "food",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3783198,
+      "lng": 2.1743265,
+      "googleMapsUri": "https://maps.google.com/?cid=9205435824039417633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gastronomicartsbarcelona.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJA-c18FeipBIRw8n-UGwjVLk",
+      "name": "Bodega Biarritz 1881",
+      "address": "Carrer Nou de Sant Francesc, 7, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 8875,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "tapas_restaurant",
+      "types": [
+        "tapas_restaurant",
+        "spanish_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3791891,
+      "lng": 2.1770567,
+      "googleMapsUri": "https://maps.google.com/?cid=13354337743182678467&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bodega-biarritz.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.78
+    },
+    {
+      "googlePlaceId": "ChIJZRHm-efmuhIRqYgTtq9C6J0",
+      "name": "BIG: Barcelona Improv Group",
+      "address": "Carrer del Comte Borrell, 143, Local/Bajos, Eixample, 08015 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 5,
+      "reviewCount": 750,
+      "priceLevel": null,
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "child_care_agency",
+        "bar",
+        "manufacturer",
+        "association_or_organization",
+        "educational_institution",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.381611299999996,
+      "lng": 2.1564928,
+      "googleMapsUri": "https://maps.google.com/?cid=11378417780993001641&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://barcelonaimprovgroup.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "theater events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.77
+    },
+    {
+      "googlePlaceId": "ChIJ83mWb46ipBIRf3WEFfIXQ0o",
+      "name": "The Alchemix",
+      "address": "Carrer de València, 212, Eixample, 08011 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1822,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3892751,
+      "lng": 2.1589926999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=5351147110756808063&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thealchemix.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.76
+    },
+    {
+      "googlePlaceId": "ChIJD9r_i1eipBIRV0AtCwmbIDs",
+      "name": "Tablao Flamenco Cordobes | Barcelona",
+      "address": "La Rambla, 35, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4262,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "tapas_restaurant",
+        "performing_arts_theater",
+        "historical_landmark",
+        "event_venue",
+        "spanish_restaurant",
+        "historical_place",
+        "sports_school",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3789078,
+      "lng": 2.1747321,
+      "googleMapsUri": "https://maps.google.com/?cid=4260575710637015127&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tablaocordobes.es/es",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "theater events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJ12d3ZlmYpBIRStDXELkkdJE",
+      "name": "Design Museum of Barcelona",
+      "address": "Plaça de les Glòries Catalanes, 38, c, Sant Martí, 08018 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 8978,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "cultural_center",
+        "event_venue",
+        "museum",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.402451,
+      "lng": 2.1880918,
+      "googleMapsUri": "https://maps.google.com/?cid=10481042610068115530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dissenyhub.barcelona/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.36
+    },
+    {
+      "googlePlaceId": "ChIJ5XPgx1uYpBIRepd2FUDpLwg",
+      "name": "Parc de Cervantes",
+      "address": "Av. Diagonal, 706, Les Corts, 08034 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 8658,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3832306,
+      "lng": 2.1067299999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=589946537656096634&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lameva.barcelona.cat/ca/aprofita-la/parcs-i-jardins/parc-de-cervantes_92086010721.html",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 85.26
+    },
+    {
+      "googlePlaceId": "ChIJSwC911aipBIRt2zr380K3Co",
+      "name": "Christopher Columbus monument",
+      "address": "Plaça Portal de la Pau, s/n, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.5,
+      "reviewCount": 52688,
+      "priceLevel": null,
+      "primaryType": "sculpture",
+      "types": [
+        "sculpture",
+        "tourist_information_center",
+        "scenic_spot",
+        "tourist_attraction",
+        "tour_agency",
+        "travel_agency",
+        "cultural_landmark",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3758087,
+      "lng": 2.1777606000000005,
+      "googleMapsUri": "https://maps.google.com/?cid=3088355323810639031&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelonaturisme.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 85.24
+    },
+    {
+      "googlePlaceId": "ChIJpYmDEzSjpBIRs7imvY8zB_g",
+      "name": "Museu Alien",
+      "address": "Carrer de Juan de Garay, 31, Sant Andreu, 08027 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 978,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.419170199999996,
+      "lng": 2.1825295,
+      "googleMapsUri": "https://maps.google.com/?cid=17872310338698262707&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museoalien.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 85.15
+    },
+    {
+      "googlePlaceId": "ChIJ_dPAk_2ipBIR4JAJ7OLhr-U",
+      "name": "Aire Ancient Baths | Barcelona",
+      "address": "Passeig de Picasso, 22, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.6,
+      "reviewCount": 9398,
+      "priceLevel": null,
+      "primaryType": "spa",
+      "types": [
+        "spa",
+        "gift_shop",
+        "massage_spa",
+        "massage",
+        "public_bath",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 41.3870319,
+      "lng": 2.1834724,
+      "googleMapsUri": "https://maps.google.com/?cid=16550695520348770528&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://relax.beaire.com/es/aire-ancient-baths-barcelona",
+      "openNow": true,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences",
+        "sound baths"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJdWBeWYc0GQ0RktxySU7hjxM",
+      "name": "Time Out Market",
+      "address": "Mercado da Ribeira, Av. 24 de Julho, 1200-479 Lisboa, Portugal",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 73629,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 38.7070608,
+      "lng": -9.1456691,
+      "googleMapsUri": "https://maps.google.com/?cid=1409592934746217618&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timeout.pt/time-out-market-lisboa/pt",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.06
+    },
+    {
+      "googlePlaceId": "ChIJa-K8mf6ipBIRY8wAB3EeASc",
+      "name": "Picasso Museum Barcelona",
+      "address": "Carrer de Montcada, 15-23, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 38923,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3852706,
+      "lng": 2.1809472,
+      "googleMapsUri": "https://maps.google.com/?cid=2810561113253530723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://museupicassobcn.cat/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.06
+    },
+    {
+      "googlePlaceId": "ChIJ3QZxaVmjpBIR_3UyNBuUcGc",
+      "name": "Never",
+      "address": "Carrer de la Cera, 17, Ciutat Vella, 08001 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 848,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3790167,
+      "lng": 2.1663844,
+      "googleMapsUri": "https://maps.google.com/?cid=7453620227858920959&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.privateaser.es/local/52514-Never",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85
+    },
+    {
+      "googlePlaceId": "ChIJEwl7ox-jpBIRxB5swwRcjqE",
+      "name": "La Selva Barcelona | Còrsega",
+      "address": "Carrer de Còrsega, 235, Eixample, 08036 Barcelona, Spain",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 14289,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3922131,
+      "lng": 2.1532164,
+      "googleMapsUri": "https://maps.google.com/?cid=11641343262327578308&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://laselvabarcelona.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.94
+    },
+    {
+      "googlePlaceId": "ChIJxRcGuP6ipBIRAwX8RwYnvZg",
+      "name": "Dux Gin & Cocktail Bar Barcelona",
+      "address": "Carrer dels Vigatans, 13, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 2267,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.384409999999995,
+      "lng": 2.180063,
+      "googleMapsUri": "https://maps.google.com/?cid=11005995972294345987&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://duxborne.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJ7Uy86VeipBIRs8LOEbx5dEY",
+      "name": "Ocaña",
+      "address": "Pl. Reial, 13-15, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 15735,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "mediterranean_restaurant",
+        "coffee_shop",
+        "cafe",
+        "live_music_venue",
+        "spanish_restaurant",
+        "food_store",
+        "bar",
+        "store",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3798266,
+      "lng": 2.1757052999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=5076816528612967091&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ocana.cat/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "jazz clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.76
+    },
+    {
+      "googlePlaceId": "ChIJb2HVzleipBIRsd7SIU8GRmE",
+      "name": "Colom Restaurant",
+      "address": "Carrer dels Escudellers, 33, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 34141,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "tapas_restaurant",
+        "spanish_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.379852799999995,
+      "lng": 2.1765,
+      "googleMapsUri": "https://maps.google.com/?cid=7009296806988406449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.74
+    },
+    {
+      "googlePlaceId": "ChIJ67TY2euipBIRhKOwdXPxwyQ",
+      "name": "Billy Brunch",
+      "address": "Carrer de Bailèn, 115, Eixample, 08009 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 12643,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3976991,
+      "lng": 2.1693767,
+      "googleMapsUri": "https://maps.google.com/?cid=2649226484022027140&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.billybrunch.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.6
+    },
+    {
+      "googlePlaceId": "ChIJOQoz5PWipBIR6C31-VUBPPI",
+      "name": "Runner Bean Tours Barcelona - Private Tours & Free Tours",
+      "address": "Carrer de Bilbao, 91, Sant Martí, 08005 Barcelona, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2813,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.404289399999996,
+      "lng": 2.2013661,
+      "googleMapsUri": "https://maps.google.com/?cid=17454827724558642664&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://runnerbeantours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.41
+    },
+    {
+      "googlePlaceId": "ChIJ168J5w2jpBIRzWLMd9pRSNE",
+      "name": "The Ranch Smokehouse",
+      "address": "Ronda de la Univ., 20, Eixample, 08007 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 8002,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "barbecue_restaurant",
+        "hamburger_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.386815899999995,
+      "lng": 2.1676503,
+      "googleMapsUri": "https://maps.google.com/?cid=15080393351004709581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theranch.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.39
+    },
+    {
+      "googlePlaceId": "ChIJl5eY8VmjpBIRxvPBseTDqec",
+      "name": "Gelateria Da Gallo | Heladería Barcelona",
+      "address": "Carrer de Mallorca, 277, Eixample, 08037 Barcelona, Spain",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 7724,
+      "priceLevel": null,
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "dessert_restaurant",
+        "pastry_shop",
+        "dessert_shop",
+        "bakery",
+        "coffee_shop",
+        "cafe",
+        "confectionery",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 41.395055899999996,
+      "lng": 2.1638319,
+      "googleMapsUri": "https://maps.google.com/?cid=16693088880827691974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gelateriadagallo.com/?utm_source=gmb&utm_medium=organic&utm_campaign=gmb_website",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJSXLa41aipBIRSxh0VZJFv4E",
+      "name": "El Bosc de Les Fades",
+      "address": "Passatge de la Banca, 7, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 17353,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "coffee_shop",
+        "cafe",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3771786,
+      "lng": 2.1773873999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=9349267846245652555&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.boscdelesfades.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.33
+    },
+    {
+      "googlePlaceId": "ChIJBTfBbwCjpBIRK-jjm940utc",
+      "name": "Museum of the History of Catalonia",
+      "address": "Pça. de Pau Vila, 3, Ciutat Vella, 08039 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 6137,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.380804,
+      "lng": 2.185873,
+      "googleMapsUri": "https://maps.google.com/?cid=15544795194525476907&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mhcat.cat/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 84.31
+    },
+    {
+      "googlePlaceId": "ChIJ4aTqxfaipBIRi9Kz759j6GI",
+      "name": "Prado de Flores Restaurant",
+      "address": "Carrer de Santa Anna, 11, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 11314,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "cocktail_bar",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "food_store",
+        "restaurant",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3851526,
+      "lng": 2.1711624,
+      "googleMapsUri": "https://maps.google.com/?cid=7127055948886299275&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pradodeflores.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.3
+    },
+    {
+      "googlePlaceId": "ChIJGXYcFbijpBIRNV9z9rGx7-E",
+      "name": "Time Out Market Barcelona",
+      "address": "Moll d'Espanya, 5, 2nd floor, Ciutat Vella, 08039 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2331,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.375268899999995,
+      "lng": 2.1830457,
+      "googleMapsUri": "https://maps.google.com/?cid=16280426555869716277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.timeoutmarket.com/barcelona",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "trivia nights",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 84.24
+    },
+    {
+      "googlePlaceId": "ChIJRe3sx_OipBIR9pucTPum9X0",
+      "name": "Flamenco Barcelona SL",
+      "address": "Rambla de Catalunya, 2, Eixample, 08007 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3954,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3876598,
+      "lng": 2.168402,
+      "googleMapsUri": "https://maps.google.com/?cid=9076344222287436790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.flamencobarcelonacity.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.2
+    },
+    {
+      "googlePlaceId": "ChIJO2ZW2lqipBIR4EBRH-H6AA8",
+      "name": "Parc del Mirador del Poble-sec",
+      "address": "Passeig de Montjuïc, 28, Sants-Montjuïc, 08005 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 10078,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.371799599999996,
+      "lng": 2.1718933,
+      "googleMapsUri": "https://maps.google.com/?cid=1081139755368923360&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelona.cat/es/que-hacer-en-bcn/parques-y-jardines/parc-del-mirador-del-poble-sec_95125123610.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.18
+    },
+    {
+      "googlePlaceId": "ChIJEU-WHeZZoRIR0KjSG5WrWlQ",
+      "name": "PortAventura World",
+      "address": "Av. Pere Molas, s/n, 43480 Vila-seca, Tarragona, Spain",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.2,
+      "reviewCount": 118278,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "resort_hotel",
+        "hotel",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.0879066,
+      "lng": 1.1573704999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6078359303995173072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.portaventuraworld.com/?utm_campaign=My+Business&utm_medium=maps&utm_source=google",
+      "openNow": null,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.17
+    },
+    {
+      "googlePlaceId": "ChIJUxwdO_6ipBIRdMGRVDsolaM",
+      "name": "Paradiso",
+      "address": "Carrer de Rera Palau, 4, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 7321,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "sandwich_shop",
+        "cocktail_bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.383677399999996,
+      "lng": 2.1836913,
+      "googleMapsUri": "https://maps.google.com/?cid=11787371834999161204&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://paradiso.cat/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.1
+    },
+    {
+      "googlePlaceId": "ChIJ3fHTIFiipBIRpKXCn_E_oJY",
+      "name": "Palau Güell",
+      "address": "Carrer Nou de la Rambla, 3-5, Ciutat Vella, 08001 Barcelona, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 23198,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3788851,
+      "lng": 2.1742398,
+      "googleMapsUri": "https://maps.google.com/?cid=10853745408962897316&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://inici.palauguell.cat/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.08
+    },
+    {
+      "googlePlaceId": "ChIJGay6pFqjpBIRGcXCXgytarc",
+      "name": "Virtua",
+      "address": "Carrer de Viladomat, 95, Eixample, 08015 Barcelona, Spain",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 2080,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.379055,
+      "lng": 2.157896,
+      "googleMapsUri": "https://maps.google.com/?cid=13216566325113177369&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.virtuabarcelona.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation"
+      ],
+      "popularityScore": 83.98
+    },
+    {
+      "googlePlaceId": "ChIJW8xABViipBIRnWNZEAqOXaA",
+      "name": "Gran Teatre del Liceu",
+      "address": "La Rambla, 51, 59, Ciutat Vella, 08002 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 14685,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3801969,
+      "lng": 2.1732948,
+      "googleMapsUri": "https://maps.google.com/?cid=11555548392777671581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.liceubarcelona.cat/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.92
+    },
+    {
+      "googlePlaceId": "ChIJIcuXQHaYpBIR0RPzzTUFBpg",
+      "name": "Afterlife e-Sports Bar",
+      "address": "Carrer de Bailèn, 7, Eixample, 08010 Barcelona, Spain",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 1895,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "hamburger_restaurant",
+      "types": [
+        "hamburger_restaurant",
+        "bar_and_grill",
+        "cocktail_bar",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 41.3915121,
+      "lng": 2.1773569,
+      "googleMapsUri": "https://maps.google.com/?cid=10954448872271975377&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.afterlifebar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 83.92
+    },
+    {
+      "googlePlaceId": "ChIJD9g1nu2jpBIR5kWbNdosTN8",
+      "name": "Steak House Barcelona",
+      "address": "Carrer de Mallorca, 266, Eixample, 08008 Barcelona, Spain",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 9789,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3945151,
+      "lng": 2.1640004999999998,
+      "googleMapsUri": "https://maps.google.com/?cid=16090284884401800678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.steakhousebarcelona.es/",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.9
+    },
+    {
+      "googlePlaceId": "ChIJ7YU7Fn6jpBIRE-ur8uBlBrg",
+      "name": "Gloria Osteria Barcelona",
+      "address": "Carrer d'Enric Granados, 86, Eixample, 08008 Barcelona, Spain",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 9772,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "family_restaurant",
+        "fine_dining_restaurant",
+        "pizza_restaurant",
+        "european_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3929873,
+      "lng": 2.1559049,
+      "googleMapsUri": "https://maps.google.com/?cid=13260398169657436947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gloria-osteria.com/es/gloria-osteria-barcelona?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.89
+    },
+    {
+      "googlePlaceId": "ChIJk9GkPPiipBIRsBg8Cre6hRk",
+      "name": "Excursions Barcelona",
+      "address": "Carrer del Doctor Trueta, 33, Sant Martí, 08005 Barcelona, Spain",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 4397,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.391149899999995,
+      "lng": 2.1935070999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=1839081318164207792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://excursionsbarcelona.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 83.89
+    },
+    {
+      "googlePlaceId": "ChIJ6UvsNWyipBIR9P29l8A1kJ4",
+      "name": "Palau Sant Jordi",
+      "address": "Passeig Olímpic, 5-7, Sants-Montjuïc, 08038 Barcelona, Spain",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 32216,
+      "priceLevel": null,
+      "primaryType": "sports_complex",
+      "types": [
+        "sports_complex",
+        "tourist_attraction",
+        "auditorium",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3639595,
+      "lng": 2.1520405,
+      "googleMapsUri": "https://maps.google.com/?cid=11425691355934752244&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://palausantjordi.barcelona/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.88
+    },
+    {
+      "googlePlaceId": "ChIJLcC0-PSipBIRdHiFCj_ewdY",
+      "name": "Centre de Cultura Contemporània de Barcelona",
+      "address": "Carrer de Montalegre, 5, Ciutat Vella, 08001 Barcelona, Spain",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 11318,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.3837044,
+      "lng": 2.1668624999999997,
+      "googleMapsUri": "https://maps.google.com/?cid=15474894156962560116&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cccb.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.85
+    },
+    {
+      "googlePlaceId": "ChIJDzyZ6MyipBIRN8o_qdw8A0g",
+      "name": "Parc del Guinardó",
+      "address": "Horta-Guinardó, 08032 Barcelona, Spain",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 8839,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.4199675,
+      "lng": 2.1667967,
+      "googleMapsUri": "https://maps.google.com/?cid=5189058114090945079&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barcelona.cat/es/que-hacer-en-bcn/parques-y-jardines/parque-del-guinardo-92086011954",
+      "openNow": false,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 83.82
+    },
+    {
+      "googlePlaceId": "ChIJeYwrA_uipBIRtLLknGLSRQA",
+      "name": "Casa Lolea Barcelona",
+      "address": "Carrer de Sant Pere Més Alt, 49, Ciutat Vella, 08003 Barcelona, Spain",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 6447,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "mediterranean_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 41.38890000000001,
+      "lng": 2.1771556,
+      "googleMapsUri": "https://maps.google.com/?cid=19653094373896884&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://casalolea.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.8
+    }
+  ]
+}

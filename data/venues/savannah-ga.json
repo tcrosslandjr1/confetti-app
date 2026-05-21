@@ -1,0 +1,3734 @@
+{
+  "location": "Savannah, GA",
+  "generatedAt": "2026-05-17T19:12:56.675Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJj52mkmqe-4gR45_Sb2frBd8",
+      "name": "Forsyth Park",
+      "address": "Savannah, GA 31401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 19109,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0675356,
+      "lng": -81.09623839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16070509674831716323&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.savannahga.gov/351/Parks-Playgrounds",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "farmers markets",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "shopping-markets",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 100.48
+    },
+    {
+      "googlePlaceId": "ChIJM8y4h2BTfIgR8_DDZFsihLc",
+      "name": "Savannah Historic District",
+      "address": "301 Martin Luther King Jr Blvd, Savannah, GA 31401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 7210,
+      "priceLevel": null,
+      "primaryType": "historical_place",
+      "types": [
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0761241,
+      "lng": -81.0990759,
+      "googleMapsUri": "https://maps.google.com/?cid=13223732181794550003&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.savannah.com/savannah-historic-district/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.15
+    },
+    {
+      "googlePlaceId": "ChIJyQpbUGSe-4gReydRVhkCbKc",
+      "name": "The Olde Pink House",
+      "address": "23 Abercorn St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 10334,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.079614899999996,
+      "lng": -81.0898033,
+      "googleMapsUri": "https://maps.google.com/?cid=12064019809664313211&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://theoldepinkhouserestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 96.18
+    },
+    {
+      "googlePlaceId": "ChIJ3cUVRmqe-4gR2AR6ilqCyLQ",
+      "name": "Fountain at Forsyth Park",
+      "address": "1 W Gaston St, Savannah, GA 31401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5088,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.069242599999995,
+      "lng": -81.09559279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13026805247551079640&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.savannahga.gov/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.96
+    },
+    {
+      "googlePlaceId": "ChIJzYqq3Wae-4gRy3JqkHNOHhE",
+      "name": "City Market",
+      "address": "Jefferson at, W Saint Julian Street, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 9613,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "asian_grocery_store",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0808197,
+      "lng": -81.0949369,
+      "googleMapsUri": "https://maps.google.com/?cid=1233509606197195467&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.savannahcitymarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.93
+    },
+    {
+      "googlePlaceId": "ChIJ3-Iw_Beh-4gRcRBxEFo_Uno",
+      "name": "Fun Zone",
+      "address": "1040 US-80, Pooler, GA 31322, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 6465,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "go_karting_venue",
+        "tourist_attraction",
+        "video_arcade",
+        "amusement_park",
+        "miniature_golf_course",
+        "race_course",
+        "sports_activity_location",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.108983099999996,
+      "lng": -81.2293516,
+      "googleMapsUri": "https://maps.google.com/?cid=8814177076772933745&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://poolerfunzone.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "barcades",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.67
+    },
+    {
+      "googlePlaceId": "ChIJVValpMWf-4gRYqdB4a4_f_w",
+      "name": "Better Than Sex - A Dessert Restaurant",
+      "address": "410 W Broughton St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 3697,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "dessert_shop",
+        "wine_bar",
+        "cocktail_bar",
+        "lounge_bar",
+        "dessert_restaurant",
+        "night_club",
+        "confectionery",
+        "bar",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0803274,
+      "lng": -81.0966467,
+      "googleMapsUri": "https://maps.google.com/?cid=18194331039936128866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.betterthansexdesserts.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "date night restaurants",
+        "sunset date spots",
+        "game night venues",
+        "popular dessert spots",
+        "food trucks",
+        "private dining rooms",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.77
+    },
+    {
+      "googlePlaceId": "ChIJFc9_9n-C-4gRoF1k7lVJZfY",
+      "name": "Fort Pulaski National Monument",
+      "address": "101 Fort Pulaski Rd, Savannah, GA, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 6104,
+      "priceLevel": null,
+      "primaryType": "monument",
+      "types": [
+        "monument",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0271085,
+      "lng": -80.8904933,
+      "googleMapsUri": "https://maps.google.com/?cid=17754677739398651296&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nps.gov/fopu/planyourvisit/hours.htm",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.33
+    },
+    {
+      "googlePlaceId": "ChIJWRlk2WCe-4gRYylHOb7Zczk",
+      "name": "JW Marriott Savannah Plant Riverside District",
+      "address": "500 W River St, Savannah, GA 31401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 4455,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "wedding_venue",
+        "event_venue",
+        "lodging",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0833613,
+      "lng": -81.0953474,
+      "googleMapsUri": "https://maps.google.com/?cid=4139891893511596387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.marriott.com/en-us/hotels/savjw-jw-marriott-savannah-plant-riverside-district/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "interactive pop ups",
+        "events this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.3
+    },
+    {
+      "googlePlaceId": "ChIJf7q2D2ae-4gRfYiTnNw2FUQ",
+      "name": "The Collins Quarter",
+      "address": "151 Bull St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4835,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "coffee_shop",
+        "brunch_restaurant",
+        "australian_restaurant",
+        "meal_takeaway",
+        "cafe",
+        "breakfast_restaurant",
+        "pastry_shop",
+        "dessert_shop",
+        "bakery",
+        "confectionery",
+        "point_of_interest",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0771863,
+      "lng": -81.092806,
+      "googleMapsUri": "https://maps.google.com/?cid=4905887690237642877&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thecollinsquarter.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 93.18
+    },
+    {
+      "googlePlaceId": "ChIJw6Ch4Wae-4gR_otM9FVaVbI",
+      "name": "American Prohibition Museum",
+      "address": "209 W Saint Julian Street, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 4265,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "art_museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.080559,
+      "lng": -81.0946235,
+      "googleMapsUri": "https://maps.google.com/?cid=12850276436988955646&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.americanprohibitionmuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "hidden speakeasies",
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "mixology classes",
+        "events this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "arts-culture",
+        "family-kids",
+        "learning-classes",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.15
+    },
+    {
+      "googlePlaceId": "ChIJj8Rtp0ZcYIgRoW7nm2Y2Ez8",
+      "name": "Rock City Gardens",
+      "address": "1400 Patten Rd, Lookout Mountain, GA 30750, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 28156,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.973022,
+      "lng": -85.3502156,
+      "googleMapsUri": "https://maps.google.com/?cid=4545036263277162145&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://seerockcity.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 92.45
+    },
+    {
+      "googlePlaceId": "ChIJ30Ccw5x2-4gRicIvbdfN8oo",
+      "name": "Wormsloe State Historic Site",
+      "address": "7601 Skidaway Rd, Savannah, GA 31406, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 4598,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "state_park",
+        "museum",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 31.980160100000003,
+      "lng": -81.0692663,
+      "googleMapsUri": "https://maps.google.com/?cid=10012291246731543177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gastateparks.org/Wormsloe",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.31
+    },
+    {
+      "googlePlaceId": "ChIJOajTj2Se-4gRvjK9ZBWtsmQ",
+      "name": "The Cotton Exchange Tavern",
+      "address": "201 E River St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4538,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0808088,
+      "lng": -81.0885393,
+      "googleMapsUri": "https://maps.google.com/?cid=7256052257043329726&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.exchangetavern-savannah.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "nightclubs",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.27
+    },
+    {
+      "googlePlaceId": "ChIJofzkcWSe-4gR82DLlBwl3mM",
+      "name": "Vic's On the River",
+      "address": "26 E Bay St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6184,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "banquet_hall",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.081235500000005,
+      "lng": -81.0903189,
+      "googleMapsUri": "https://maps.google.com/?cid=7196230059270299891&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://vicsontheriver.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.22
+    },
+    {
+      "googlePlaceId": "ChIJUVQ1XGSe-4gRPbRUbEFughs",
+      "name": "Treylor Park",
+      "address": "115 E Bay St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6837,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "gastropub",
+        "bar_and_grill",
+        "pub",
+        "beer_garden",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0803005,
+      "lng": -81.0896289,
+      "googleMapsUri": "https://maps.google.com/?cid=1982268013265859645&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.treylorpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 92.17
+    },
+    {
+      "googlePlaceId": "ChIJ7S0LX8Sf-4gRKqHkghRMhP0",
+      "name": "Zunzi's",
+      "address": "236 Drayton St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1579,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "live_music_venue",
+        "seafood_restaurant",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.074939,
+      "lng": -81.091984,
+      "googleMapsUri": "https://maps.google.com/?cid=18267809639500652842&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zunzis.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "best cocktail bars",
+        "rooftop bars",
+        "live music events",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.96
+    },
+    {
+      "googlePlaceId": "ChIJ6ztjSHue-4gRJcOrnnNpBjY",
+      "name": "River Street Market Place",
+      "address": "502 E River St #32, Savannah, GA 31401, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.6,
+      "reviewCount": 2760,
+      "priceLevel": null,
+      "primaryType": "gift_shop",
+      "types": [
+        "gift_shop",
+        "tourist_attraction",
+        "flea_market",
+        "market",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.080491099999996,
+      "lng": -81.0858499,
+      "googleMapsUri": "https://maps.google.com/?cid=3892914873212584741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.riverstreetmarketplace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "vintage shops",
+        "farmers markets",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "shopping-markets",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.67
+    },
+    {
+      "googlePlaceId": "ChIJ3QgA-3qe-4gREF2BviWb1yo",
+      "name": "The Pirates' House",
+      "address": "20 E Broad St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 10918,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0780806,
+      "lng": -81.0841452,
+      "googleMapsUri": "https://maps.google.com/?cid=3087106655998008592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thepirateshouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 91.56
+    },
+    {
+      "googlePlaceId": "ChIJg5TuGrZ2-4gR5hhn4Hhkl-Q",
+      "name": "Skidaway Island State Park",
+      "address": "52 Diamond Causeway, Savannah, GA 31411, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1910,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 31.954765599999995,
+      "lng": -81.0525755,
+      "googleMapsUri": "https://maps.google.com/?cid=16471744632454584550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gastateparks.org/SkidawayIsland",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.51
+    },
+    {
+      "googlePlaceId": "ChIJfcZdZWSe-4gRCooavUCFkLc",
+      "name": "Rousakis Riverfront Plaza",
+      "address": "Savannah, GA 31401, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 9691,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "shopping_mall",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0814587,
+      "lng": -81.0895149,
+      "googleMapsUri": "https://maps.google.com/?cid=13227218618684181002&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.21
+    },
+    {
+      "googlePlaceId": "ChIJZxAD7GWe-4gREXpreIlKKXk",
+      "name": "Zunzibar",
+      "address": "236 Drayton St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 5232,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "live_music_venue",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0749693,
+      "lng": -81.0919562,
+      "googleMapsUri": "https://maps.google.com/?cid=8730591306925701649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zunzibar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 91.05
+    },
+    {
+      "googlePlaceId": "ChIJ3TNELmme-4gRFV0UPp_6xZ8",
+      "name": "Andrew Low House Museum",
+      "address": "Andrew Low House Museum, 329 Abercorn St, Savannah, GA 31401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2000,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0730147,
+      "lng": -81.0924551,
+      "googleMapsUri": "https://maps.google.com/?cid=11512883584290807061&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.andrewlowhouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 90.57
+    },
+    {
+      "googlePlaceId": "ChIJHafA_6p1-4gRA1eyHQV103E",
+      "name": "Oglethorpe Mall",
+      "address": "7804 Abercorn Extention, Savannah, GA 31406, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 8508,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0027718,
+      "lng": -81.11702799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8202028011205318403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.oglethorpemall.com/en.html",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.46
+    },
+    {
+      "googlePlaceId": "ChIJpZ1Js0Ke-4gR4v2BXNLr7Gg",
+      "name": "Old Town Trolley Tours of Savannah",
+      "address": "234 Martin Luther King Jr Blvd, Savannah, GA 31401, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 4088,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "tourist_attraction",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.0765177,
+      "lng": -81.0979394,
+      "googleMapsUri": "https://maps.google.com/?cid=7560677163175902690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.trolleytours.com/savannah",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.41
+    },
+    {
+      "googlePlaceId": "ChIJ48MqmWWe-4gRyQlExMhjZFE",
+      "name": "Owens-Thomas House & Slave Quarters",
+      "address": "124 Abercorn St, Savannah, GA 31401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 2559,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0773837,
+      "lng": -81.0892894,
+      "googleMapsUri": "https://maps.google.com/?cid=5864922328680630729&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.telfair.org/visit/owens-thomas/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.31
+    },
+    {
+      "googlePlaceId": "ChIJW9AUqGWe-4gR73NLd2K3n2U",
+      "name": "Leopold's Ice Cream",
+      "address": "212 E Broughton St, Savannah, GA 31401, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 14108,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "catering_service",
+        "cafe",
+        "food_delivery",
+        "dessert_shop",
+        "confectionery",
+        "american_restaurant",
+        "meal_takeaway",
+        "food_store",
+        "store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.0784884,
+      "lng": -81.08928139999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7322773152663827439&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.leopoldsicecream.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 90.09
+    },
+    {
+      "googlePlaceId": "ChIJoSNLPWie-4gR64D-BmkkYGw",
+      "name": "Adventure Tours in Motion/Savannah Segway",
+      "address": "502 E Broughton St Suite C, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 631,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0776845,
+      "lng": -81.08649109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7809281787367948523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://adventuretoursinmotion.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "kids activities",
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.93
+    },
+    {
+      "googlePlaceId": "ChIJvU4m1GCe-4gRj7Wnz1oTirc",
+      "name": "Savannah Smiles Dueling Pianos",
+      "address": "314 Williamson St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 2211,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "night_club",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0827112,
+      "lng": -81.0947746,
+      "googleMapsUri": "https://maps.google.com/?cid=13225404536478741903&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.smilespianos.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "karaoke bars",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.81
+    },
+    {
+      "googlePlaceId": "ChIJnT5M-Gae-4gR6viE21k750k",
+      "name": "Savannah Seafood Shack",
+      "address": "116 E Broughton St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5080,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0787396,
+      "lng": -81.0902669,
+      "googleMapsUri": "https://maps.google.com/?cid=5325290341509953770&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://savannahseafoodshack.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.4
+    },
+    {
+      "googlePlaceId": "ChIJkweqnBif-4gRcXhFmkSJgK0",
+      "name": "Starland Yard",
+      "address": "2411 De Soto Ave, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1366,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "cocktail_bar",
+        "beer_garden",
+        "family_restaurant",
+        "live_music_venue",
+        "park",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0547058,
+      "lng": -81.1018873,
+      "googleMapsUri": "https://maps.google.com/?cid=12502143493319522417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.starlandyard.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.27
+    },
+    {
+      "googlePlaceId": "ChIJrap3-UKe-4gR7RoXG63bm5M",
+      "name": "Savannah Square Pops",
+      "address": "344 Martin Luther King Jr Blvd, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 601,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "dessert_shop",
+      "types": [
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0744081,
+      "lng": -81.09925009999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10636336481495882477&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.savannahsquarepops.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "popular dessert spots",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.11
+    },
+    {
+      "googlePlaceId": "ChIJNwYyhRSe-4gRL9olNIYm5o0",
+      "name": "Hearse Ghost Tours",
+      "address": "NOT A PICKUP. Check your email, 1410 E Broad St, Savannah, GA 31401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 5384,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "medical_clinic",
+        "service",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0601846,
+      "lng": -81.0908072,
+      "googleMapsUri": "https://maps.google.com/?cid=10224902361833658927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hearseghosttours.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 89
+    },
+    {
+      "googlePlaceId": "ChIJjeNjUQCe-4gRHo596iZt7Y4",
+      "name": "Daffin Park",
+      "address": "E Victory Dr, Savannah, GA 31404, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1802,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.045328,
+      "lng": -81.0815665,
+      "googleMapsUri": "https://maps.google.com/?cid=10299007936776474142&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.savannahga.gov/2957/Recreation-and-Leisure-Services",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "pickleball courts"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 88.71
+    },
+    {
+      "googlePlaceId": "ChIJn8WWCZif-4gRS15w6QJlhr0",
+      "name": "Common Thread",
+      "address": "122 E 37th St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 820,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0568305,
+      "lng": -81.0980242,
+      "googleMapsUri": "https://maps.google.com/?cid=13656713983228403275&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.commonthreadsavannah.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.62
+    },
+    {
+      "googlePlaceId": "ChIJdZA4VWae-4gR5BumAlNzgmA",
+      "name": "Alley Cat Lounge",
+      "address": "207 W Broughton Ln, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1110,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0793379,
+      "lng": -81.0947515,
+      "googleMapsUri": "https://maps.google.com/?cid=6954247574977387492&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.alleycatsavannah.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "romantic bars",
+        "game night venues",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.56
+    },
+    {
+      "googlePlaceId": "ChIJQa4OF2ae-4gRZe_cJmokA4E",
+      "name": "Husk Savannah",
+      "address": "12 W Oglethorpe Ave, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2035,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0773016,
+      "lng": -81.0931967,
+      "googleMapsUri": "https://maps.google.com/?cid=9296314094159982437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://husksavannah.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.43
+    },
+    {
+      "googlePlaceId": "ChIJCzVCHmSe-4gRCF1oKr_6dpA",
+      "name": "Churchill's",
+      "address": "13 W Bay St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 3345,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "pub",
+      "types": [
+        "pub",
+        "bar_and_grill",
+        "vegetarian_restaurant",
+        "sports_bar",
+        "wine_bar",
+        "brunch_restaurant",
+        "british_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.080922799999996,
+      "lng": -81.09186729999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10409783287670660360&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.churchillsonbay.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "trivia nights",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.37
+    },
+    {
+      "googlePlaceId": "ChIJZ1g6smee-4gRre39-dn-Oeg",
+      "name": "Jepson Center & Telfair Children's Art Museum (CAM)",
+      "address": "207 W York St, Savannah, GA 31401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1398,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0782855,
+      "lng": -81.0951522,
+      "googleMapsUri": "https://maps.google.com/?cid=16733686102627315117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.telfair.org/visit/jepson/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "kids activities",
+        "interactive kids museums",
+        "paint and sip",
+        "things to do this weekend",
+        "seasonal pop ups",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.24
+    },
+    {
+      "googlePlaceId": "ChIJ71c2iGSe-4gRzZw_klHCjKY",
+      "name": "Savannah's Waterfront",
+      "address": "1 W River St, Savannah, GA 31401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 524,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0818497,
+      "lng": -81.09184929999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12001180762637311181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://savannahswaterfront.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs",
+        "holiday markets",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.2
+    },
+    {
+      "googlePlaceId": "ChIJPdpWlWie-4gR8UN-2CR0qwI",
+      "name": "Six Pence Pub",
+      "address": "245 Bull St, Savannah, GA 31401, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.5,
+      "reviewCount": 3499,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "pub",
+        "british_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0751231,
+      "lng": -81.0936108,
+      "googleMapsUri": "https://maps.google.com/?cid=192375110693176305&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sixpencepub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "karaoke bars",
+        "trivia nights",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJU2D8OWqf-4gR_ucPm40r5y4",
+      "name": "The Savannah Underground",
+      "address": "415 W Boundary St, Savannah, GA 31401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 372,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "tourist_attraction",
+        "performing_arts_theater",
+        "event_venue",
+        "tour_agency",
+        "travel_agency",
+        "manufacturer",
+        "service",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0733865,
+      "lng": -81.105728,
+      "googleMapsUri": "https://maps.google.com/?cid=3379717932556740606&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thesavannahunderground.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 88.13
+    },
+    {
+      "googlePlaceId": "ChIJz1phcsmf-4gRjKFgO-W3_ac",
+      "name": "Common Restaurant",
+      "address": "118 E Broughton St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1789,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "cocktail_bar",
+        "wine_bar",
+        "seafood_restaurant",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0786446,
+      "lng": -81.0901992,
+      "googleMapsUri": "https://maps.google.com/?cid=12105033568613343628&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.commonrestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJq2oKFGSe-4gRjnp5F1uIC64",
+      "name": "Genteel & Bard",
+      "address": "24 E Liberty, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 926,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0747983,
+      "lng": -81.09264979999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12541267512160516750&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://genteelandbard.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 87.99
+    },
+    {
+      "googlePlaceId": "ChIJPRtZgV2e-4gRFeie2yr6EQc",
+      "name": "The Grey",
+      "address": "109 Martin Luther King Jr Blvd, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2650,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0798625,
+      "lng": -81.0976641,
+      "googleMapsUri": "https://maps.google.com/?cid=509463294849771541&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thegreyrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJ0fUsD4Kf-4gR2oJqqJ-s_IU",
+      "name": "The Bootlegger Savannah Speakeasy",
+      "address": "115 E River St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 628,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.081037099999996,
+      "lng": -81.0889272,
+      "googleMapsUri": "https://maps.google.com/?cid=9654781502900830938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thebootleggersav.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "hidden speakeasies",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "game bars",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJMezt0Wae-4gRjaBE8IDcV18",
+      "name": "Rocks on the Roof",
+      "address": "The Bohemian Hotel Savannah Riverfront, 102 W Bay St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 2268,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "cocktail_bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0818142,
+      "lng": -81.0923405,
+      "googleMapsUri": "https://maps.google.com/?cid=6870202202921934989&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kesslercollection.com/bohemian-savannah/dining/#roof",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "game night venues",
+        "fine dining",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJpUYFc2Se-4gR6nohYgZAXbw",
+      "name": "River Street Sweets",
+      "address": "13 E River St, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 2676,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "chocolate_shop",
+        "candy_store",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0813123,
+      "lng": -81.0904473,
+      "googleMapsUri": "https://maps.google.com/?cid=13573075248124885738&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.riverstreetsweets.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "viral-eats"
+      ],
+      "popularityScore": 87.66
+    },
+    {
+      "googlePlaceId": "ChIJU6NueUKe-4gR-8HsnUX-iA4",
+      "name": "Crystal Beer Parlor",
+      "address": "301 W Jones St, Savannah, GA 31401, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.7,
+      "reviewCount": 6817,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0734941,
+      "lng": -81.0978483,
+      "googleMapsUri": "https://maps.google.com/?cid=1047366488319377915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.crystalbeerparlor.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 87.61
+    },
+    {
+      "googlePlaceId": "ChIJlauZXWee-4gR1At9iAmFKWo",
+      "name": "Ships Of The Sea Maritime Museum",
+      "address": "41 Martin Luther King Jr Blvd, Savannah, GA 31401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 1155,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.081160499999996,
+      "lng": -81.0972819,
+      "googleMapsUri": "https://maps.google.com/?cid=7649791718056594388&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.shipsofthesea.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.59
+    },
+    {
+      "googlePlaceId": "ChIJYUvzzmWe-4gRS11bZLGwIY0",
+      "name": "Planet Fun",
+      "address": "127 E Broughton St, Savannah, GA 31401, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 1516,
+      "priceLevel": null,
+      "primaryType": "toy_store",
+      "types": [
+        "toy_store",
+        "book_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0782283,
+      "lng": -81.0901184,
+      "googleMapsUri": "https://maps.google.com/?cid=10169603709518699851&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.facebook.com/pages/Planet-Fun/192550347462387",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.47
+    },
+    {
+      "googlePlaceId": "ChIJkU_BBC-f-4gRQok8o7yNNzA",
+      "name": "The Nest Rooftop Lounge",
+      "address": "At Cotton Sail hotel. 6th Floor (First Double Doors, 126 W Bay St 6th Floor, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1093,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "diner",
+        "night_club",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.082059799999996,
+      "lng": -81.0928737,
+      "googleMapsUri": "https://maps.google.com/?cid=3474401478871648578&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thenestsav.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJH4LSO16e-4gRaRZGOihgw-o",
+      "name": "Service Brewing Co.",
+      "address": "574 Indian St, Savannah, GA 31401, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.8,
+      "reviewCount": 694,
+      "priceLevel": null,
+      "primaryType": "brewery",
+      "types": [
+        "brewery",
+        "beer_garden",
+        "brewpub",
+        "pub",
+        "bar",
+        "manufacturer",
+        "restaurant",
+        "food",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0844154,
+      "lng": -81.09847669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16916470351226345065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://servicebrewing.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "trivia nights",
+        "food trucks",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJ6-JNu2Ke-4gR_0w_7XtRETQ",
+      "name": "Savannah Convention Center",
+      "address": "1 International Dr, Savannah, GA 31421, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 1691,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0838296,
+      "lng": -81.0878429,
+      "googleMapsUri": "https://maps.google.com/?cid=3751869557279509759&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.savconventioncenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.39
+    },
+    {
+      "googlePlaceId": "ChIJzSsQ2lif-4gRPLqUt9Atdes",
+      "name": "Graveface Museum",
+      "address": "410 E Lower, Factors Walk, Savannah, GA 31401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 1053,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0803541,
+      "lng": -81.08642549999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16966517545644636732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gravefacemuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.33
+    },
+    {
+      "googlePlaceId": "ChIJDX7vcmx2-4gRTB669NjmwCE",
+      "name": "The Wyld",
+      "address": "2740 Livingston Ave, Savannah, GA 31406, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 1638,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0134772,
+      "lng": -81.0589571,
+      "googleMapsUri": "https://maps.google.com/?cid=2432197618273230412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thewylddockbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.29
+    },
+    {
+      "googlePlaceId": "ChIJg-gevCef-4gRvYo0WnGG_5o",
+      "name": "Toast! All Day",
+      "address": "1 W Broughton St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 6093,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0788772,
+      "lng": -81.0921236,
+      "googleMapsUri": "https://maps.google.com/?cid=11168793422304938685&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://toastallday.com/locations/toast-savannah",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJ-YtMl7Cd-4gRcRiu0RKwiik",
+      "name": "Old Fort Jackson",
+      "address": "1 Fort Jackson Rd, Savannah, GA 31404, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 2348,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0818985,
+      "lng": -81.0358067,
+      "googleMapsUri": "https://maps.google.com/?cid=2993398497214863473&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.chsgeorgia.org/OFJ",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "local-exploration"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJqzQLsxKf-4gRuHGgkDdghIU",
+      "name": "Enmarket Arena",
+      "address": "620 Stiles Ave, Savannah, GA 31415, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 1935,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0740493,
+      "lng": -81.11158069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9620920495736123832&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.enmarketarena.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "skating rinks",
+        "game night venues",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.15
+    },
+    {
+      "googlePlaceId": "ChIJ8We4W3Wf-4gRp7FfSTX3jWc",
+      "name": "Witching Hour Savannah- Paranormal Tours",
+      "address": "c/o Flip Flop Shops, 100 Bull St, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 863,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.078654,
+      "lng": -81.09170800000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7461891965859115431&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.witchinghoursavannah.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 87.1
+    },
+    {
+      "googlePlaceId": "ChIJ5TaEFGee-4gRLZhDP6yljw8",
+      "name": "The Escape Company",
+      "address": "30 Montgomery St, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 1345,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.080542099999995,
+      "lng": -81.09592459999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1121296991452895277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theescapecompanysavannah.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 87.06
+    },
+    {
+      "googlePlaceId": "ChIJb0T6Cxae-4gRqbdQZdT91Fw",
+      "name": "Sly's Sliders and Fries",
+      "address": "1710 Abercorn St, Savannah, GA 31401, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 2200,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "fast_food_restaurant",
+      "types": [
+        "fast_food_restaurant",
+        "hamburger_restaurant",
+        "american_restaurant",
+        "meal_takeaway",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.059485099999996,
+      "lng": -81.0966041,
+      "googleMapsUri": "https://maps.google.com/?cid=6689250435226711977&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://slysslidersandfries.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.99
+    },
+    {
+      "googlePlaceId": "ChIJZ1g6smee-4gRUGA9ZASZcEw",
+      "name": "Telfair Academy",
+      "address": "121 Barnard St, Savannah, GA 31401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1061,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "history_museum",
+        "art_museum",
+        "historical_landmark",
+        "historical_place",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0789347,
+      "lng": -81.09531,
+      "googleMapsUri": "https://maps.google.com/?cid=5508070588414779472&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.telfair.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.9
+    },
+    {
+      "googlePlaceId": "ChIJNd7Ps4Of-4gRfw_efQhSZ9A",
+      "name": "Victory North Savannah",
+      "address": "2603 Whitaker St, Savannah, GA 31401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 493,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "concert_hall",
+        "auditorium",
+        "banquet_hall",
+        "live_music_venue",
+        "wedding_venue",
+        "service",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0531225,
+      "lng": -81.1031106,
+      "googleMapsUri": "https://maps.google.com/?cid=15017061678915129215&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://victorynorthsavannah.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "interactive pop ups",
+        "events this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJzTAAps5t9ogRqEnSk81MZ7c",
+      "name": "The State Botanical Garden of Georgia",
+      "address": "2450 S Milledge Ave, Athens, GA 30605, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3995,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "gift_shop",
+        "park",
+        "store",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9023502,
+      "lng": -83.38468759999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13215616077374048680&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://botgarden.uga.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.88
+    },
+    {
+      "googlePlaceId": "ChIJUX1ZEhie-4gRvbjVuTu4Zy8",
+      "name": "Green Truck Neighborhood Pub",
+      "address": "2430 Habersham St, Savannah, GA 31401, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 3231,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "hamburger_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0528524,
+      "lng": -81.0966261,
+      "googleMapsUri": "https://maps.google.com/?cid=3415901409044183229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://greentruckpub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.81
+    },
+    {
+      "googlePlaceId": "ChIJKz5cUG6d-4gRnqs9OYFuTKc",
+      "name": "Oatland Island Wildlife Center",
+      "address": "711 Sandtown Rd, Savannah, GA 31410, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2078,
+      "priceLevel": null,
+      "primaryType": "wildlife_park",
+      "types": [
+        "wildlife_park",
+        "wildlife_refuge",
+        "zoo",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.049158999999996,
+      "lng": -81.02449969999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12055131803854154654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://oatland.sccpss.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJp1SmfWae-4gRyXW_xVyrYSk",
+      "name": "The Paris Market, Savannah",
+      "address": "36 W Broughton St, Savannah, GA 31401, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 1015,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "gift_shop",
+      "types": [
+        "gift_shop",
+        "coffee_shop",
+        "cafe",
+        "jewelry_store",
+        "food_store",
+        "clothing_store",
+        "food",
+        "point_of_interest",
+        "home_goods_store",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.079344899999995,
+      "lng": -81.09289179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2981852843238979017&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theparismarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "vintage shops",
+        "boutiques",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.75
+    },
+    {
+      "googlePlaceId": "ChIJHeNiiGSe-4gRosKV850IZAE",
+      "name": "Huey's",
+      "address": "115 E River St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 4365,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "cajun_restaurant",
+        "brunch_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0811004,
+      "lng": -81.08934119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=100214566198559394&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hueysontheriver.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.68
+    },
+    {
+      "googlePlaceId": "ChIJk9OM8mae-4gRhhHqPSiRleE",
+      "name": "Barrelhouse South",
+      "address": "125 W Congress St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 882,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0799465,
+      "lng": -81.0935329,
+      "googleMapsUri": "https://maps.google.com/?cid=16255058032087142790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://m.facebook.com/barrelhousesouth/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "trivia nights",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.67
+    },
+    {
+      "googlePlaceId": "ChIJLxgenFye-4gRGUyKTFpQ-U0",
+      "name": "Gray Line Savannah",
+      "address": "223 Martin Luther King Jr Blvd, Savannah, GA 31401, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.9,
+      "reviewCount": 975,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0776982,
+      "lng": -81.0985312,
+      "googleMapsUri": "https://maps.google.com/?cid=5618610358882815001&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://savannahgrayline.us/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 86.66
+    },
+    {
+      "googlePlaceId": "ChIJrXs49Tye-4gRNKJdO6Nl3sY",
+      "name": "Elizabeth's on 37th",
+      "address": "105 E 37th St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1154,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "seafood_restaurant",
+        "american_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0564549,
+      "lng": -81.098828,
+      "googleMapsUri": "https://maps.google.com/?cid=14330002816089563700&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.elizabethon37threstaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.54
+    },
+    {
+      "googlePlaceId": "ChIJZSQ0WEKe-4gRV4061LQDTgI",
+      "name": "Rancho Alegre Cuban Restaurant",
+      "address": "402 Martin Luther King Jr Blvd, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3604,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cuban_restaurant",
+      "types": [
+        "cuban_restaurant",
+        "caribbean_restaurant",
+        "sandwich_shop",
+        "vegetarian_restaurant",
+        "family_restaurant",
+        "coffee_shop",
+        "cafe",
+        "seafood_restaurant",
+        "live_music_venue",
+        "dessert_restaurant",
+        "latin_american_restaurant",
+        "food_store",
+        "bar",
+        "store",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0739167,
+      "lng": -81.09943059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=166074311448890711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ranchoalegrecuban.com/?utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "dining",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.48
+    },
+    {
+      "googlePlaceId": "ChIJW2aPm_qf-4gRYGms8Dt0_H8",
+      "name": "Electric Moon Skytop Lounge",
+      "address": "400 W River St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 1548,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0834197,
+      "lng": -81.09538429999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9222373937737656672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.plantriverside.com/savannah-restaurants-bars/electric-moon/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "nightclubs",
+        "sunset date spots",
+        "game night venues",
+        "game bars",
+        "luxury lounges",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.39
+    },
+    {
+      "googlePlaceId": "ChIJZ9KVp8yf-4gRFqHEZhPIfG4",
+      "name": "Savannah Tequila Co",
+      "address": "500 W River St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1488,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0835356,
+      "lng": -81.09502599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7961458226938290454&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.plantriverside.com/savannah-restaurants-bars/savannah-tequila-company/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJmwyf6Gie-4gRlACAs844sW0",
+      "name": "Artillery Bar",
+      "address": "307 Bull St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 575,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.074433500000005,
+      "lng": -81.0938237,
+      "googleMapsUri": "https://maps.google.com/?cid=7904161281437859988&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.artillerybar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.31
+    },
+    {
+      "googlePlaceId": "ChIJ-xDdTwiK7ogRnix9ifo4zjo",
+      "name": "Wild Adventures",
+      "address": "3766 Old Clyattville Rd, Valdosta, GA 31601, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 12149,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "water_park",
+        "zoo",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.7193266,
+      "lng": -83.32245470000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4237386948101876894&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wildadventures.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJy-qgvGme-4gRxkvSS-uFxbo",
+      "name": "Mrs. Wilkes Dining Room",
+      "address": "107 W Jones St, Savannah, GA 31401, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 3324,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.072652399999996,
+      "lng": -81.0959663,
+      "googleMapsUri": "https://maps.google.com/?cid=13458310307102477254&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mrswilkes.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.25
+    },
+    {
+      "googlePlaceId": "ChIJaxDF7CKe-4gRjXkGW6uBfno",
+      "name": "Chef Darin's Kitchen Table",
+      "address": "2514 Abercorn St Suite 140, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 662,
+      "priceLevel": null,
+      "primaryType": "educational_institution",
+      "types": [
+        "furniture_store",
+        "home_improvement_store",
+        "home_goods_store",
+        "educational_institution",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0525357,
+      "lng": -81.09932669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8826634892659292557&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.chefdarin.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes"
+      ],
+      "popularityScore": 86.19
+    },
+    {
+      "googlePlaceId": "ChIJcTmyVmae-4gR6jU5fYwK8kE",
+      "name": "Alligator Soul Restaurant",
+      "address": "114 Barnard St, Savannah, GA 31401, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2355,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "cajun_restaurant",
+        "american_restaurant",
+        "bar",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.078992,
+      "lng": -81.094207,
+      "googleMapsUri": "https://maps.google.com/?cid=4751872155341895146&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://alligatorsoul.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.13
+    },
+    {
+      "googlePlaceId": "ChIJt_zO-mae-4gRKNmP_JYC5bA",
+      "name": "Goose Feathers Cafe & Bakery",
+      "address": "39 Barnard St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3166,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "coffee_shop",
+        "bakery",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "sandwich_shop",
+        "cafe",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.0799699,
+      "lng": -81.0941727,
+      "googleMapsUri": "https://maps.google.com/?cid=12746597167847692584&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.goosefeatherscafe.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots",
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.04
+    },
+    {
+      "googlePlaceId": "ChIJ8UoIxGSe-4gRmp1VCMe2vzI",
+      "name": "B. Matthew's Eatery",
+      "address": "325 E Bay St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3429,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "brunch_restaurant",
+        "meal_takeaway",
+        "breakfast_restaurant",
+        "event_venue",
+        "bar",
+        "american_restaurant",
+        "service",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.079667799999996,
+      "lng": -81.0870703,
+      "googleMapsUri": "https://maps.google.com/?cid=3656842388402707866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bmatthewseatery.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJo_wdGWxfrIkRPvgSndgXAIk",
+      "name": "North Carolina Museum of Natural Sciences",
+      "address": "11 W Jones St, Raleigh, NC 27601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3003,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "research_institute",
+        "tourist_attraction",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.782182399999996,
+      "lng": -78.63929739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9871916602311768126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://naturalsciences.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJfxX2u9AP9YgRzZBlCbF1W_U",
+      "name": "Activate Games",
+      "address": "4540 Roswell Rd Suite A, Atlanta, GA 30342, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 2161,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 33.879085499999995,
+      "lng": -84.380516,
+      "googleMapsUri": "https://maps.google.com/?cid=17679854165400326349&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/atlanta?utm_source=google&utm_medium=organic&utm_campaign=gmb-atlanta",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 85.88
+    },
+    {
+      "googlePlaceId": "ChIJXWF5bmee-4gRkeTfMDwtv64",
+      "name": "The Portal Arcade, Cafe, and Bar",
+      "address": "408 W Broughton St, Savannah, GA 31401, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 692,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "video_arcade",
+        "cafe",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.080286,
+      "lng": -81.09655699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12591832819692463249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://savannahsarcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 85.84
+    },
+    {
+      "googlePlaceId": "ChIJ4ec3Wdqf-4gRMOUURXNlgxk",
+      "name": "Collins Quarter at Forsyth",
+      "address": "621 Drayton St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 4004,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "australian_restaurant",
+        "coffee_shop",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "cafe",
+        "american_restaurant",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.0681271,
+      "lng": -81.0954067,
+      "googleMapsUri": "https://maps.google.com/?cid=1838424618651936048&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://forsythpark.thecollinsquarter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJMxJaaGee-4gRfomlTI_D_04",
+      "name": "Congress Street Social Club",
+      "address": "411 W Congress St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1431,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "sports_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0808092,
+      "lng": -81.0966455,
+      "googleMapsUri": "https://maps.google.com/?cid=5692483474253252990&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.congressstreetsocialclub.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.47
+    },
+    {
+      "googlePlaceId": "ChIJa7rPTGme-4gRtgln4axGyDw",
+      "name": "Clary's Cafe",
+      "address": "404 Abercorn St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4987,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "diner",
+      "types": [
+        "diner",
+        "breakfast_restaurant",
+        "cafe",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0716454,
+      "lng": -81.09203790000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4379828345947752886&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.claryscafe.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.44
+    },
+    {
+      "googlePlaceId": "ChIJSXCR6W-e-4gRZqrxC1WJ6oQ",
+      "name": "Painting with a Twist",
+      "address": "513 E Oglethorpe Ave, Savannah, GA 31401, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 714,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "home_goods_store",
+        "event_venue",
+        "educational_institution",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.0747904,
+      "lng": -81.0873311,
+      "googleMapsUri": "https://maps.google.com/?cid=9577618555922393702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paintingwithatwist.com/studio/savannah/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 85.35
+    },
+    {
+      "googlePlaceId": "ChIJ42JU7MWf-4gRuR-2uu2MYA8",
+      "name": "Pop Vault",
+      "address": "128 E Broughton St, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 308,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.078645,
+      "lng": -81.0900145,
+      "googleMapsUri": "https://maps.google.com/?cid=1108040461000777657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.popvaultstore.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "arcades",
+        "barcades",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.29
+    },
+    {
+      "googlePlaceId": "ChIJtTqMrmie-4gRKQpJ70UePqw",
+      "name": "Savannah Theatre",
+      "address": "222 Bull St, Savannah, GA 31401, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1493,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0758167,
+      "lng": -81.0924435,
+      "googleMapsUri": "https://maps.google.com/?cid=12411390908795783721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.savannahtheatre.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.27
+    },
+    {
+      "googlePlaceId": "ChIJh3hMQWSe-4gRLto-PSUoz2E",
+      "name": "The Fitzroy",
+      "address": "9 Drayton St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 948,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "american_restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.080228999999996,
+      "lng": -81.09040499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7047896082264545838&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thefitzroysavannah.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.17
+    },
+    {
+      "googlePlaceId": "ChIJo0pFZOV0-4gRBI83UrL51QQ",
+      "name": "Bowlero Savannah",
+      "address": "115 Tibet Ave, Savannah, GA 31406, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 1639,
+      "priceLevel": null,
+      "primaryType": "bowling_alley",
+      "types": [
+        "bowling_alley",
+        "bar_and_grill",
+        "sports_bar",
+        "video_arcade",
+        "sports_complex",
+        "sporting_goods_store",
+        "sports_activity_location",
+        "sports_club",
+        "association_or_organization",
+        "store",
+        "restaurant",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 31.988900400000002,
+      "lng": -81.1335149,
+      "googleMapsUri": "https://maps.google.com/?cid=348459090469949188&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bowlero.com/location/bowlero-savannah?utm_source=gbp&utm_medium=organic&utm_campaign=yext_listings",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.09
+    },
+    {
+      "googlePlaceId": "ChIJp0-mREWf-4gRljPH4bGo7Eo",
+      "name": "Bar Julian",
+      "address": "201 Port St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.5,
+      "reviewCount": 546,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.0773124,
+      "lng": -81.0790863,
+      "googleMapsUri": "https://maps.google.com/?cid=5398875535260988310&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barjulian.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.04
+    },
+    {
+      "googlePlaceId": "ChIJibH7s2Se-4gR_5TIYMCe6a0",
+      "name": "Ghosts & Gravestones Tour Savannah",
+      "address": "301 E River St, Savannah, GA 31401, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.3,
+      "reviewCount": 2684,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tourist_attraction",
+        "tourist_information_center",
+        "event_venue",
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.080670700000006,
+      "lng": -81.08738919999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12531721987229783295&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ghostsandgravestones.com/savannah",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "local-exploration"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJuec8DDqh-4gR5Y1LtkQqJM0",
+      "name": "National Museum of the Mighty Eighth Air Force",
+      "address": "175 Bourne Ave, Pooler, GA 31322, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 2307,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.1154483,
+      "lng": -81.2364126,
+      "googleMapsUri": "https://maps.google.com/?cid=14781986351541358053&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mightyeighth.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85
+    },
+    {
+      "googlePlaceId": "ChIJZXSWHCyY-4gRtnVPH6wIW2A",
+      "name": "Savannah National Wildlife Refuge",
+      "address": "694 Beech Hill Lane, Hardeeville, SC 29927, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 2595,
+      "priceLevel": null,
+      "primaryType": "wildlife_refuge",
+      "types": [
+        "wildlife_refuge",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.2223166,
+      "lng": -81.1176766,
+      "googleMapsUri": "https://maps.google.com/?cid=6943152785874449846&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fws.gov/refuge/savannah",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.96
+    },
+    {
+      "googlePlaceId": "ChIJGZC2DGSe-4gR7dg-3cOomYA",
+      "name": "Savannah Riverboat Cruises",
+      "address": "9 E River St, Savannah, GA 31401, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.3,
+      "reviewCount": 4330,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.0813775,
+      "lng": -81.0907716,
+      "googleMapsUri": "https://maps.google.com/?cid=9266623267475478765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.savannahriverboat.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 84.91
+    },
+    {
+      "googlePlaceId": "ChIJyYaSyGOf-4gR4poD2jh8sgc",
+      "name": "Treylor Park Double Wide Diner",
+      "address": "135a W Bay St, Savannah, GA 31401, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1347,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "diner",
+      "types": [
+        "diner",
+        "pizza_restaurant",
+        "brunch_restaurant",
+        "family_restaurant",
+        "american_restaurant",
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0811955,
+      "lng": -81.0931858,
+      "googleMapsUri": "https://maps.google.com/?cid=554642287737674466&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.treylorpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "food halls",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 84.87
+    },
+    {
+      "googlePlaceId": "ChIJI7dbr3ue-4gRzqNzTUmeqnY",
+      "name": "Lavender Rooftop Kitchen & Bar",
+      "address": "601 E River St, Savannah, GA 31401, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 366,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.0792838,
+      "lng": -81.0833432,
+      "googleMapsUri": "https://maps.google.com/?cid=8550820880185533390&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lavendersavannah.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.77
+    }
+  ]
+}

@@ -1,0 +1,3629 @@
+{
+  "location": "Raleigh, NC",
+  "generatedAt": "2026-05-17T19:32:22.051Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJa2hvU9P1rIkRQaI7E_xzG4Q",
+      "name": "North Carolina Museum of Art",
+      "address": "2110 Blue Ridge Rd, Raleigh, NC 27607, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 11222,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "wedding_venue",
+        "park",
+        "live_music_venue",
+        "museum",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.809885699999995,
+      "lng": -78.7025784,
+      "googleMapsUri": "https://maps.google.com/?cid=9519329763869303361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ncartmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.13
+    },
+    {
+      "googlePlaceId": "ChIJ_dGrunpfrIkR59MjiIyAwHc",
+      "name": "Trolley Pub Raleigh",
+      "address": "502 S West St, Raleigh, NC 27601, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 5140,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "brewpub",
+        "pub",
+        "bar",
+        "tour_agency",
+        "travel_agency",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.7743945,
+      "lng": -78.64662589999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8629038227109696487&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://trolleypub.com/raleigh",
+      "openNow": true,
+      "matchedQueries": [
+        "trivia nights",
+        "bottle service",
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "luxury-special-occasion",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 97.71
+    },
+    {
+      "googlePlaceId": "ChIJQ-TWbW1frIkRhsxjww62Wow",
+      "name": "Marbles Kids Museum",
+      "address": "201 E Hargett St, Raleigh, NC 27601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 7434,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "movie_theater",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7783093,
+      "lng": -78.6364427,
+      "googleMapsUri": "https://maps.google.com/?cid=10113596087737764998&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.marbleskidsmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 96.75
+    },
+    {
+      "googlePlaceId": "ChIJdWMB44X1rIkR8x_gTt_Tobg",
+      "name": "Pullen Park",
+      "address": "520 Ashe Ave, Raleigh, NC 27606, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 9528,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7792205,
+      "lng": -78.66287080000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13304147730283634675&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.raleighnc.gov/parks/content/ParksRec/Articles/Parks/Pullen.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.48
+    },
+    {
+      "googlePlaceId": "ChIJi3GT76TwrIkRy5mbzxyd-UE",
+      "name": "Angus Barn",
+      "address": "9401 Glenwood Ave, Raleigh, NC 27617, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 10213,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "banquet_hall",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "wedding_venue",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.8992,
+      "lng": -78.7635889,
+      "googleMapsUri": "https://maps.google.com/?cid=4754003628733995467&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.angusbarn.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.87
+    },
+    {
+      "googlePlaceId": "ChIJo_wdGWxfrIkRPvgSndgXAIk",
+      "name": "North Carolina Museum of Natural Sciences",
+      "address": "11 W Jones St, Raleigh, NC 27601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 3004,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "research_institute",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.782182399999996,
+      "lng": -78.63929739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9871916602311768126&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://naturalsciences.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "events this weekend",
+        "things to do this weekend",
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.71
+    },
+    {
+      "googlePlaceId": "ChIJpQa5L6nmrIkR7hmOPw0fvFE",
+      "name": "Sarah P. Duke Gardens",
+      "address": "420 Anderson St, Durham, NC 27705, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 9010,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0020618,
+      "lng": -78.931518,
+      "googleMapsUri": "https://maps.google.com/?cid=5889616554455079406&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://gardens.duke.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.5
+    },
+    {
+      "googlePlaceId": "ChIJg6TvgLpfrIkRQph7o73IRCg",
+      "name": "Flavor Hills",
+      "address": "319 Fayetteville St Suite 105, Raleigh, NC 27601, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 5021,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "soul_food_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7763007,
+      "lng": -78.63911879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2901664776750602306&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.theflavorhills.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.23
+    },
+    {
+      "googlePlaceId": "ChIJ8f5TWGVfrIkR8jPHaGp5Uo4",
+      "name": "Morgan Street Food Hall",
+      "address": "411 W Morgan St, Raleigh, NC 27603, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 6892,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "food_court",
+      "types": [
+        "food_court",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7795722,
+      "lng": -78.6455861,
+      "googleMapsUri": "https://maps.google.com/?cid=10255392799407420402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.morganfoodhall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.2
+    },
+    {
+      "googlePlaceId": "ChIJwSzNPmZfrIkRhcJcQTFnyYg",
+      "name": "Sullivan's Steakhouse",
+      "address": "410 Glenwood Ave #100, Raleigh, NC 27603, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.7,
+      "reviewCount": 9356,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "bar_and_grill",
+        "fine_dining_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.786099799999995,
+      "lng": -78.6470628,
+      "googleMapsUri": "https://maps.google.com/?cid=9856522720724697733&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sullivanssteakhouse.com/raleigh/",
+      "openNow": true,
+      "matchedQueries": [
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 93.17
+    },
+    {
+      "googlePlaceId": "ChIJpQaln4f6rIkREo5MXy9za54",
+      "name": "Frankie's of Raleigh",
+      "address": "11190 Fun Park Dr, Raleigh, NC 27617, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 8178,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "miniature_golf_course",
+        "go_karting_venue",
+        "race_course",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "sports_activity_location",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.9193406,
+      "lng": -78.79401899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11415344327800163858&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://frankies.com/raleigh/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "VR experiences",
+        "best parks",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.67
+    },
+    {
+      "googlePlaceId": "ChIJY101yZBYrIkREiGioT3p1bo",
+      "name": "Martin Marietta Center for the Performing Arts",
+      "address": "2 E South St, Raleigh, NC 27601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2771,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7712601,
+      "lng": -78.6396078,
+      "googleMapsUri": "https://maps.google.com/?cid=13462923112007999762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.martinmariettacenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.33
+    },
+    {
+      "googlePlaceId": "ChIJa-ocXHFfrIkR2nIUQ3PZgGg",
+      "name": "Raleigh Convention Center",
+      "address": "500 S Salisbury St, Raleigh, NC 27601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 3696,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.773799,
+      "lng": -78.6411027,
+      "googleMapsUri": "https://maps.google.com/?cid=7530257666033349338&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.raleighconvention.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "cultural centers",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.2
+    },
+    {
+      "googlePlaceId": "ChIJI5JTm29frIkRPpzgRTTHd0A",
+      "name": "Second Empire Restaurant and Tavern",
+      "address": "330 Hillsborough St, Raleigh, NC 27603, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1874,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "fine_dining_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7809386,
+      "lng": -78.6446948,
+      "googleMapsUri": "https://maps.google.com/?cid=4645400567980530750&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.second-empire.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.12
+    },
+    {
+      "googlePlaceId": "ChIJlW4Em8r1rIkRMCy1ush4pCg",
+      "name": "JC Raulston Arboretum",
+      "address": "Ruby McSwain Education Center, 4415 Beryl Rd, Raleigh, NC 27606, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2933,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "tourist_attraction",
+        "botanical_garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.79455170000001,
+      "lng": -78.6999457,
+      "googleMapsUri": "https://maps.google.com/?cid=2928598461218892848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://jcra.ncsu.edu/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.88
+    },
+    {
+      "googlePlaceId": "ChIJxVCmVnn1rIkRsADIqUY_PM4",
+      "name": "State Farmers Market",
+      "address": "1201 Agriculture St, Raleigh, NC 27603, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.7,
+      "reviewCount": 9357,
+      "priceLevel": null,
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "market",
+        "point_of_interest",
+        "grocery_store",
+        "food_store",
+        "store",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.762980999999996,
+      "lng": -78.6624073,
+      "googleMapsUri": "https://maps.google.com/?cid=14860822443144511664&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": true,
+      "matchedQueries": [
+        "farmers markets",
+        "flea markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.67
+    },
+    {
+      "googlePlaceId": "ChIJL7C1g7TwrIkRj8ymStBSWYI",
+      "name": "William B. Umstead State Park",
+      "address": "8801 Glenwood Ave, Raleigh, NC 27617, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2536,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "visitor_center",
+        "tourist_information_center",
+        "tour_agency",
+        "travel_agency",
+        "park",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.8894623,
+      "lng": -78.7518462,
+      "googleMapsUri": "https://maps.google.com/?cid=9392629552417000591&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncparks.gov/william-b-umstead-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.64
+    },
+    {
+      "googlePlaceId": "ChIJxcFYfHBfrIkRHc39S5CWxlI",
+      "name": "Boxcar Bar + Arcade",
+      "address": "330 W Davie St, Raleigh, NC 27601, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 4000,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "wine_bar",
+        "cocktail_bar",
+        "video_arcade",
+        "sports_bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7759584,
+      "lng": -78.64502209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5964620302993181981&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theboxcarbar.com/raleigh/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "karaoke bars",
+        "game bars",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.37
+    },
+    {
+      "googlePlaceId": "ChIJXVZn5GIDyIkRjn58fGGo8Mc",
+      "name": "National Aquarium",
+      "address": "501 E Pratt St, Baltimore, MD 21202, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 33427,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 39.2853928,
+      "lng": -76.6083984,
+      "googleMapsUri": "https://maps.google.com/?cid=14407200344612044430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://aqua.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 91.35
+    },
+    {
+      "googlePlaceId": "ChIJ1QmAH1D1rIkRaZ-Bg9xHZ2U",
+      "name": "Drive Shack",
+      "address": "6901 Play Golf Wy, Raleigh, NC 27607, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 8478,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_activity_location",
+      "types": [
+        "bar_and_grill",
+        "sports_bar",
+        "indoor_golf_course",
+        "golf_course",
+        "athletic_field",
+        "bar",
+        "event_venue",
+        "sports_activity_location",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8015537,
+      "lng": -78.7393329,
+      "googleMapsUri": "https://maps.google.com/?cid=7306887932856606569&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.driveshack.com/locations/raleigh",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "driving ranges",
+        "indoor golf simulators"
+      ],
+      "matchedCategories": [
+        "sports-recreation"
+      ],
+      "popularityScore": 91.34
+    },
+    {
+      "googlePlaceId": "ChIJF1nRfeb0rIkRcOIaLLNq5jc",
+      "name": "Lake Johnson Park",
+      "address": "4601 Avent Ferry Rd, Raleigh, NC 27606, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4960,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.762394199999996,
+      "lng": -78.71426490000002,
+      "googleMapsUri": "https://maps.google.com/?cid=4028024234501137008&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.raleighnc.gov/parks/content/ParksRec/Articles/Parks/LakeJohnson.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 91.29
+    },
+    {
+      "googlePlaceId": "ChIJC__8X5n1rIkRNXbgL40Cq6I",
+      "name": "WRAL Azalea Garden",
+      "address": "2619 Western Blvd, Raleigh, NC 27606, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1397,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7785789,
+      "lng": -78.6738594,
+      "googleMapsUri": "https://maps.google.com/?cid=11721465260578731573&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wral-gardens.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.13
+    },
+    {
+      "googlePlaceId": "ChIJN6O3t3FfrIkRO3hIls0zkpk",
+      "name": "Whiskey Kitchen",
+      "address": "201 W Martin St, Raleigh, NC 27601, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 3206,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.776711999999996,
+      "lng": -78.642141,
+      "googleMapsUri": "https://maps.google.com/?cid=11065964192485374011&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.whiskey.kitchen/",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.62
+    },
+    {
+      "googlePlaceId": "ChIJwSRLs5VnU4gR6FQolAZOOnE",
+      "name": "North Carolina Zoo",
+      "address": "4401 Zoo Pkwy, Asheboro, NC 27205, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 26343,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6296722,
+      "lng": -79.7644631,
+      "googleMapsUri": "https://maps.google.com/?cid=8158919465097516264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nczoo.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 90.55
+    },
+    {
+      "googlePlaceId": "ChIJURCabm1frIkRDOM-cNWLTmA",
+      "name": "Marbles IMAX",
+      "address": "201 E Hargett St, Raleigh, NC 27601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1557,
+      "priceLevel": null,
+      "primaryType": "movie_theater",
+      "types": [
+        "movie_theater",
+        "museum",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7790582,
+      "lng": -78.6355763,
+      "googleMapsUri": "https://maps.google.com/?cid=6939637824651977484&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://marbleskidsmuseum.org/imax",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.4
+    },
+    {
+      "googlePlaceId": "ChIJM1LNgjpfrIkRn6Pl1XhtNuI",
+      "name": "Nerd Escape Room Raleigh",
+      "address": "117 Glenwood Ave, Raleigh, NC 27603, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1257,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7824087,
+      "lng": -78.6477416,
+      "googleMapsUri": "https://maps.google.com/?cid=16300336267066188703&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncnerd.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "game night venues",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.38
+    },
+    {
+      "googlePlaceId": "ChIJd3lnTIRfrIkRdA5YD6R_XXo",
+      "name": "Wonderland Kitchen & Cocktails",
+      "address": "222 Glenwood Ave, Raleigh, NC 27603, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2912,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "latin_american_restaurant",
+      "types": [
+        "latin_american_restaurant",
+        "cocktail_bar",
+        "mexican_restaurant",
+        "night_club",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.784047400000006,
+      "lng": -78.647234,
+      "googleMapsUri": "https://maps.google.com/?cid=8817343988070092404&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://we-are-wonderland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "arcades",
+        "barcades",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "game night venues",
+        "private dining rooms",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "sports-recreation",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 90.3
+    },
+    {
+      "googlePlaceId": "ChIJH3eNBXBerIkR8XD-sAHc8pU",
+      "name": "Coastal Credit Union Music Park at Walnut Creek",
+      "address": "3801 Rock Quarry Rd, Raleigh, NC 27610, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6143,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "store",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7509181,
+      "lng": -78.5779143,
+      "googleMapsUri": "https://maps.google.com/?cid=10804940355837784305&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.coastalcreditunionmusicpark.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.21
+    },
+    {
+      "googlePlaceId": "ChIJLwR1AbZfrIkRaf0O-VvVzUs",
+      "name": "Birdie's Barroom & Kitchen",
+      "address": "150 Fayetteville St, Raleigh, NC 27601, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1450,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.778957399999996,
+      "lng": -78.6395634,
+      "googleMapsUri": "https://maps.google.com/?cid=5462256514067529065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.birdiesraleigh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 90.16
+    },
+    {
+      "googlePlaceId": "ChIJWa0xSLgfqokROdXSG5tXLp0",
+      "name": "Battleship North Carolina",
+      "address": "1 Battleship Rd NE, Wilmington, NC 28401, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 12093,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.2365524,
+      "lng": -77.9543704,
+      "googleMapsUri": "https://maps.google.com/?cid=11326086436581725497&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://battleshipnc.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 90.13
+    },
+    {
+      "googlePlaceId": "ChIJ87AbtUBfrIkR-i9mC2vw2ro",
+      "name": "Stanbury",
+      "address": "938 N Blount St, Raleigh, NC 27604, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1018,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7935033,
+      "lng": -78.6353809,
+      "googleMapsUri": "https://maps.google.com/?cid=13464338378520932346&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.stanburyraleigh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.07
+    },
+    {
+      "googlePlaceId": "ChIJ9UoJB0r0rIkRP6OCzT293s4",
+      "name": "The Raleigh Market",
+      "address": "4285 Trinity Rd, Raleigh, NC 27607, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 2518,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "food_court",
+        "market",
+        "home_goods_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7945906,
+      "lng": -78.7081011,
+      "googleMapsUri": "https://maps.google.com/?cid=14906559889781465919&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.theraleighmarket.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "vintage shops",
+        "farmers markets",
+        "flea markets",
+        "things to do this weekend",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.81
+    },
+    {
+      "googlePlaceId": "ChIJI1-HrtWMrIkRVRiDebcSX5Q",
+      "name": "Koka Booth Amphitheatre",
+      "address": "8003 Regency Pkwy, Cary, NC 27518, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5741,
+      "priceLevel": null,
+      "primaryType": "amphitheatre",
+      "types": [
+        "amphitheatre",
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7290391,
+      "lng": -78.7958541,
+      "googleMapsUri": "https://maps.google.com/?cid=10691284619627796565&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://boothamphitheatre.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.78
+    },
+    {
+      "googlePlaceId": "ChIJsbpb733_qYkROi0sTrmYuAw",
+      "name": "North Carolina Aquarium at Fort Fisher",
+      "address": "900 Loggerhead Rd, Kure Beach, NC 28449, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 12371,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "garden",
+        "tourist_attraction",
+        "museum",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.9626558,
+      "lng": -77.92611889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=916650445817785658&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncaquariums.com/fort-fisher",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 89.76
+    },
+    {
+      "googlePlaceId": "ChIJY101yZBYrIkR2-AEFcGAyv8",
+      "name": "Meymandi Concert Hall",
+      "address": "2 E South St, Raleigh, NC 27601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1451,
+      "priceLevel": null,
+      "primaryType": "concert_hall",
+      "types": [
+        "concert_hall",
+        "live_music_venue",
+        "auditorium",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7715926,
+      "lng": -78.6401858,
+      "googleMapsUri": "https://maps.google.com/?cid=18431685991736860891&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.martinmariettacenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.76
+    },
+    {
+      "googlePlaceId": "ChIJIYvf23BfrIkRq-UZhiIhp3o",
+      "name": "Red Hat Amphitheater",
+      "address": "500 South McDowell St, Raleigh, NC 27601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 3725,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7732062,
+      "lng": -78.6434503,
+      "googleMapsUri": "https://maps.google.com/?cid=8838069225900336555&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.redhatamphitheater.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.63
+    },
+    {
+      "googlePlaceId": "ChIJKWHRe73jrIkR2Kn40jccB_8",
+      "name": "Museum of Life and Science",
+      "address": "433 W Murray Ave, Durham, NC 27704, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1976,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0293716,
+      "lng": -78.89944609999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18376687830596889048&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lifeandscience.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJrwtl821frIkRuLN_Pr0pfus",
+      "name": "The Raleigh Times",
+      "address": "14 E Hargett St, Raleigh, NC 27601, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 3021,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7780493,
+      "lng": -78.6386322,
+      "googleMapsUri": "https://maps.google.com/?cid=16969046338752721848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.raleightimesbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "trivia nights",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.32
+    },
+    {
+      "googlePlaceId": "ChIJlwevWT72rIkRT1QtQ43lw2U",
+      "name": "Seasons 52",
+      "address": "4325 Glenwood Ave Suite 2100, Raleigh, NC 27612, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2539,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "wine_bar",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "steak_house",
+        "meal_takeaway",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8407754,
+      "lng": -78.6795382,
+      "googleMapsUri": "https://maps.google.com/?cid=7332957013169493071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seasons52.com/locations/nc/raleigh/raleigh/4547?cmpid=br:s52_ag:ie_ch:loc_ca:S52GMB_sn:gmb_gt:raleigh-nc-4547_pl:locurl_rd:1039",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.19
+    },
+    {
+      "googlePlaceId": "ChIJHdSPSmZfrIkRc05LD3hb_2E",
+      "name": "Vidrio",
+      "address": "500 Glenwood Ave #100, Raleigh, NC 27603, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2074,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.786622799999996,
+      "lng": -78.64712039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7061463311951023731&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.vidrioraleigh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.16
+    },
+    {
+      "googlePlaceId": "ChIJbRA3em1frIkRgJ9bbWLVkF0",
+      "name": "Watts & Ward",
+      "address": "200 S Blount St, Raleigh, NC 27601, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1429,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7780444,
+      "lng": -78.6367417,
+      "googleMapsUri": "https://maps.google.com/?cid=6742123260891864960&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://wattsandward.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "romantic bars",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 89.01
+    },
+    {
+      "googlePlaceId": "ChIJu-ZMSWzkrIkR5y7cYEquZsI",
+      "name": "Durham Performing Arts Center",
+      "address": "123 William V Bill Bell Wy, Durham, NC 27701, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 8192,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.993248,
+      "lng": -78.9021923,
+      "googleMapsUri": "https://maps.google.com/?cid=14008075325458362087&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dpacnc.com/home",
+      "openNow": false,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 88.83
+    },
+    {
+      "googlePlaceId": "ChIJsfCtOWRZrIkRlhf1FxdkQZE",
+      "name": "STIR",
+      "address": "4242 Six Forks Rd #100, Raleigh, NC 27609, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 2566,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "oyster_bar_restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8378012,
+      "lng": -78.64053090000002,
+      "googleMapsUri": "https://maps.google.com/?cid=10466757059334707094&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stirraleigh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.78
+    },
+    {
+      "googlePlaceId": "ChIJvyHkGg1frIkRJm-_Z_3QDgs",
+      "name": "Transfer Co. Food Hall",
+      "address": "500 E Davie St, Raleigh, NC 27601, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 2088,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food_court",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7750255,
+      "lng": -78.6321464,
+      "googleMapsUri": "https://maps.google.com/?cid=796803970877058854&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.transfercofoodhall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "viral food spots",
+        "TikTok restaurants",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.78
+    },
+    {
+      "googlePlaceId": "ChIJf2VzeSuNrIkR7AYuLR5APVI",
+      "name": "Game On Escapes & More - Cary",
+      "address": "107 Edinburgh S Dr 206 STE 203, Cary, NC 27511, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3922,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7367485,
+      "lng": -78.79866229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5925963183040628460&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gameonescapes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.55
+    },
+    {
+      "googlePlaceId": "ChIJb_VL4iocU4gRch4-zqTVEoo",
+      "name": "Greensboro Science Center",
+      "address": "4301 Lawndale Dr, Greensboro, NC 27455, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 10058,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "aquarium",
+        "tourist_attraction",
+        "non_profit_organization",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.1296495,
+      "lng": -79.8334197,
+      "googleMapsUri": "https://maps.google.com/?cid=9949249430626377330&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.greensboroscience.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.42
+    },
+    {
+      "googlePlaceId": "ChIJqVbhUgBZrIkR8bIKoCgzKfc",
+      "name": "ParTee Shack - Raleigh",
+      "address": "6231 Triangle Plantation Dr, Raleigh, NC 27616, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 617,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "miniature_golf_course",
+        "bowling_alley",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.872896499999996,
+      "lng": -78.5843969,
+      "googleMapsUri": "https://maps.google.com/?cid=17809822450990101233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parteeshack.com/raleigh-north",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "mini golf",
+        "bowling alleys",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.39
+    },
+    {
+      "googlePlaceId": "ChIJDYZ1sdFYrIkRK0HtK-1bob4",
+      "name": "The Ritz",
+      "address": "2820 Industrial Dr, Raleigh, NC 27609, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 3540,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "wedding_venue",
+        "banquet_hall",
+        "concert_hall",
+        "auditorium",
+        "night_club",
+        "event_venue",
+        "store",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.816279699999996,
+      "lng": -78.6205392,
+      "googleMapsUri": "https://maps.google.com/?cid=13736361412659069227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ritzraleigh.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJneOkEHJfrIkRidqBmAyeguY",
+      "name": "Bittersweet",
+      "address": "16 E Martin St, Raleigh, NC 27601, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 1165,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7768529,
+      "lng": -78.6386769,
+      "googleMapsUri": "https://maps.google.com/?cid=16610012152631253641&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://bittersweetraleigh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "popular dessert spots",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.32
+    },
+    {
+      "googlePlaceId": "ChIJfUUHkGP2rIkR1kr3dtlXYG8",
+      "name": "Sassafras All Children's Playground",
+      "address": "3808 Edwards Mill Rd, Raleigh, NC 27612, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.9,
+      "reviewCount": 1133,
+      "priceLevel": null,
+      "primaryType": "playground",
+      "types": [
+        "playground",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.830559,
+      "lng": -78.697712,
+      "googleMapsUri": "https://maps.google.com/?cid=8025511127489661654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.raleighnc.gov/parks/content/ParksRec/Articles/Parks/LaurelHills.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 88.28
+    },
+    {
+      "googlePlaceId": "ChIJcQXpgHJfrIkROVJBrp1DgEc",
+      "name": "Brewery Bhavana - Downtown",
+      "address": "218 S Blount St, Raleigh, NC 27601, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 3415,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "dim_sum_restaurant",
+        "cantonese_restaurant",
+        "chinese_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7774132,
+      "lng": -78.6369174,
+      "googleMapsUri": "https://maps.google.com/?cid=5152192318224290361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://brewerybhavana.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 88.04
+    },
+    {
+      "googlePlaceId": "ChIJiScsRlL9pIkRsnRXK65kyTg",
+      "name": "North Carolina Aquarium on Roanoke Island",
+      "address": "374 Airport Rd, Manteo, NC 27954, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 8728,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.9176536,
+      "lng": -75.7039834,
+      "googleMapsUri": "https://maps.google.com/?cid=4091912435657045170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncaquariums.com/roanoke-island",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.94
+    },
+    {
+      "googlePlaceId": "ChIJzwPYqECcrIkRYDXfQT4RQzk",
+      "name": "Raven Rock State Park",
+      "address": "3009 Raven Rock Rd, Lillington, NC 27546, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 3712,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "picnic_ground",
+        "hiking_area",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.4635101,
+      "lng": -78.91357409999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4126160642692298080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncparks.gov/raven-rock-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.92
+    },
+    {
+      "googlePlaceId": "ChIJEyImA25frIkRsIhJGErQbQc",
+      "name": "Death and Taxes",
+      "address": "105 W Hargett St, Raleigh, NC 27601, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 1028,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7781944,
+      "lng": -78.6404271,
+      "googleMapsUri": "https://maps.google.com/?cid=535312947380586672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ac-restaurants.com/death-taxes/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.91
+    },
+    {
+      "googlePlaceId": "ChIJT7NfoGNZrIkRA0gU3xuUBAw",
+      "name": "Raleigh Game Show",
+      "address": "6675-015 Falls of Neuse Rd, Raleigh, NC 27615, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 5,
+      "reviewCount": 440,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8748727,
+      "lng": -78.62484549999999,
+      "googleMapsUri": "https://maps.google.com/?cid=865979875789654019&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.raleighgameshow.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "immersive experiences",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.71
+    },
+    {
+      "googlePlaceId": "ChIJmVuhfj1RrIkROLOmcvk6UaY",
+      "name": "Galaxy Fun Park",
+      "address": "14460 Falls of Neuse Rd Ste 145, Raleigh, NC 27614, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.4,
+      "reviewCount": 1862,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "indoor_playground",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.943472199999995,
+      "lng": -78.5436194,
+      "googleMapsUri": "https://maps.google.com/?cid=11984424926454395704&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.galaxyfunpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJTaD_5GRfrIkRynJ-tfJtZSI",
+      "name": "Dram & Draught",
+      "address": "1 Glenwood Ave Suite 101, Raleigh, NC 27603, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 697,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.780028699999995,
+      "lng": -78.6478637,
+      "googleMapsUri": "https://maps.google.com/?cid=2478508059131802314&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://dramanddraught.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.7
+    },
+    {
+      "googlePlaceId": "ChIJtwaibLBfrIkRWbY8veT0L4k",
+      "name": "Madre",
+      "address": "518 N West St, Raleigh, NC 27603, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 911,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "tapas_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7864109,
+      "lng": -78.6450507,
+      "googleMapsUri": "https://maps.google.com/?cid=9885388970366121561&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.madreraleigh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.5
+    },
+    {
+      "googlePlaceId": "ChIJnWcNW8-KrIkRquB1SgkPkng",
+      "name": "Historic Yates Mill County Park",
+      "address": "4620 Lake Wheeler Rd, Raleigh, NC 27603, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 640,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "manufacturer",
+        "establishment"
+      ],
+      "lat": 35.721626,
+      "lng": -78.685693,
+      "googleMapsUri": "https://maps.google.com/?cid=8688023163729469610&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wakegov.com/parks/yatesmill/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 87.41
+    },
+    {
+      "googlePlaceId": "ChIJfxxtPvJfrIkRdD_vQD9aabE",
+      "name": "Flour and Barrel",
+      "address": "400 W North St Suite 120, Raleigh, NC 27603, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 853,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7849444,
+      "lng": -78.6449221,
+      "googleMapsUri": "https://maps.google.com/?cid=12783848244986724212&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://flourandbarrel.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.28
+    },
+    {
+      "googlePlaceId": "ChIJXRdcNJ7xrIkRKrsCxcMH4tM",
+      "name": "Lake Crabtree County Park",
+      "address": "1400 Aviation Pkwy, Morrisville, NC 27560, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2493,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8439076,
+      "lng": -78.7952217,
+      "googleMapsUri": "https://maps.google.com/?cid=15267774224144710442&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.wakegov.com/parks/lakecrabtree/Pages/default.aspx",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJY0AJ3vxfrIkReadn9dEU_C8",
+      "name": "Brodeto",
+      "address": "2201 Iron Works Dr suite 137, Raleigh, NC 27604, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 732,
+      "priceLevel": null,
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "croatian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8083086,
+      "lng": -78.61910600000002,
+      "googleMapsUri": "https://maps.google.com/?cid=3457661505911629689&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.brodeto.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJ7-H7AD72rIkR9lU3YbY6MLk",
+      "name": "Crabtree",
+      "address": "4325 Glenwood Ave, Raleigh, NC 27612, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 17674,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8407717,
+      "lng": -78.6802391,
+      "googleMapsUri": "https://maps.google.com/?cid=13344230250888254966&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.shopcrabtree.com/?utm_source=google&utm_medium=onlinesearch&utm_content=gmp_website_button&utm_campaign=yext",
+      "openNow": true,
+      "matchedQueries": [
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.01
+    },
+    {
+      "googlePlaceId": "ChIJj9Ng3YohVIgRIxbzCWOfIwk",
+      "name": "Activate Games",
+      "address": "1848 Galleria Blvd Suite 9B, Charlotte, NC 28270, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 769,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.1381209,
+      "lng": -80.73458819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=658545218243728931&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/charlotte?utm_source=google&utm_medium=organic&utm_campaign=gmb-charlotte",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "game night venues",
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.98
+    },
+    {
+      "googlePlaceId": "ChIJpTy5S19XrIkReRU-PDs9a-M",
+      "name": "Durant Nature Preserve",
+      "address": "8305 Camp Durant Rd, Raleigh, NC 27614, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1321,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8948523,
+      "lng": -78.5790375,
+      "googleMapsUri": "https://maps.google.com/?cid=16387258993740748153&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.raleighnc.gov/parks/content/ParksRec/Articles/Parks/Durant.html",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.85
+    },
+    {
+      "googlePlaceId": "ChIJL8C17srkpIkRRGpdgbFKfB8",
+      "name": "Jennette's Pier",
+      "address": "7223 S Virginia Dare Trail Box 1445, Nags Head, NC 27959, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 6271,
+      "priceLevel": null,
+      "primaryType": "fishing_pier",
+      "types": [
+        "fishing_pier",
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.9100671,
+      "lng": -75.5955845,
+      "googleMapsUri": "https://maps.google.com/?cid=2268770438527937092&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jennettespier.net/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.83
+    },
+    {
+      "googlePlaceId": "ChIJkQ9C1f_grIkRRAB0q-hUA1M",
+      "name": "Eno River State Park",
+      "address": "Durham, NC 27705, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 2638,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0765737,
+      "lng": -79.0136595,
+      "googleMapsUri": "https://maps.google.com/?cid=5981718088363802692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncparks.gov/eno-river-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.77
+    },
+    {
+      "googlePlaceId": "ChIJ3Q2vBnJfrIkR7K5rl54aduQ",
+      "name": "The Big Easy NC",
+      "address": "222 Fayetteville St, Raleigh, NC 27601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.2,
+      "reviewCount": 2697,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "bistro",
+        "cajun_restaurant",
+        "night_club",
+        "american_restaurant",
+        "bar_and_grill",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 35.777595999999996,
+      "lng": -78.6396299,
+      "googleMapsUri": "https://maps.google.com/?cid=16462374756346998508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bigeasync.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "jazz clubs",
+        "karaoke bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.74
+    },
+    {
+      "googlePlaceId": "ChIJSVjAN39frIkRW9-Y_fI0q-4",
+      "name": "Dix Park",
+      "address": "1030 Richardson Dr, Raleigh, NC 27603, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2155,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7699035,
+      "lng": -78.6536675,
+      "googleMapsUri": "https://maps.google.com/?cid=17197897820285755227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dixpark.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 86.49
+    },
+    {
+      "googlePlaceId": "ChIJK-OssIpfrIkRcj1UngXOSgQ",
+      "name": "Side Quest Game Lounge + Bar",
+      "address": "317 W Morgan St APT 113, Raleigh, NC 27601, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 238,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.779660299999996,
+      "lng": -78.64374459999999,
+      "googleMapsUri": "https://maps.google.com/?cid=309286047954779506&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://sidequestgameloungeandbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "escape rooms",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "trivia nights",
+        "game bars",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.3
+    },
+    {
+      "googlePlaceId": "ChIJAZyy6mdfrIkRsHSZYRGu7XA",
+      "name": "Raleigh Beer Garden",
+      "address": "614 Glenwood Ave Suite B, Raleigh, NC 27603, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 5373,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "beer_garden",
+      "types": [
+        "beer_garden",
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.788076200000006,
+      "lng": -78.6468743,
+      "googleMapsUri": "https://maps.google.com/?cid=8137351491403478192&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://theraleighbeergarden.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.26
+    },
+    {
+      "googlePlaceId": "ChIJ9YSANOJZrIkRMjidQFrtx7Q",
+      "name": "All In Adventures Escape Rooms",
+      "address": "5959 Triangle Town Blvd Space EU 2113, Raleigh, NC 27616, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 3730,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.865911,
+      "lng": -78.5754,
+      "googleMapsUri": "https://maps.google.com/?cid=13026641419079333938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://allinadventures.com/locations/raleigh-nc",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJHSRWbORerIkRxwSx2c5M2oM",
+      "name": "Alamo Drafthouse Cinema Raleigh",
+      "address": "2116-D New Bern Ave, Raleigh, NC 27610, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 7096,
+      "priceLevel": null,
+      "primaryType": "movie_theater",
+      "types": [
+        "movie_theater",
+        "cocktail_bar",
+        "performing_arts_theater",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.7786505,
+      "lng": -78.6049906,
+      "googleMapsUri": "https://maps.google.com/?cid=9500990815190713543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://drafthouse.com/raleigh/theater/raleigh",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJXSBcmmP1rIkRkjefXEFFeBU",
+      "name": "Spin Art Nation & Splatter studio (Raleigh)",
+      "address": "8204 Tryon Woods Dr #116, Cary, NC 27518, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 712,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7462245,
+      "lng": -78.7416207,
+      "googleMapsUri": "https://maps.google.com/?cid=1547062619030894482&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://spinartnation.com/raleigh-cary-nc",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.07
+    },
+    {
+      "googlePlaceId": "ChIJkbvV54r3rIkRoai5WLPzEuI",
+      "name": "Margaux's Restaurant",
+      "address": "8111 Creedmoor Rd, Raleigh, NC 27613, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 818,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "fine_dining_restaurant",
+      "types": [
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.897833,
+      "lng": -78.68210499999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16290350753765763233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://margauxsrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.04
+    },
+    {
+      "googlePlaceId": "ChIJI1YlSk_lrIkRaOUH5kh6juE",
+      "name": "Boxcar Bar + Arcade",
+      "address": "621 Foster St, Durham, NC 27701, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 2116,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "cocktail_bar",
+        "video_arcade",
+        "sports_bar",
+        "pizza_restaurant",
+        "wine_bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 36.003381,
+      "lng": -78.9016694,
+      "googleMapsUri": "https://maps.google.com/?cid=16253062558742209896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theboxcarbar.com/durham/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.98
+    },
+    {
+      "googlePlaceId": "ChIJFzlGo2JfrIkRUrhoCq6xH5k",
+      "name": "Goodnights Comedy Club",
+      "address": "401 Woodburn Rd, Raleigh, NC 27605, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2929,
+      "priceLevel": null,
+      "primaryType": "comedy_club",
+      "types": [
+        "comedy_club",
+        "performing_arts_theater",
+        "night_club",
+        "event_venue",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7895476,
+      "lng": -78.6596991,
+      "googleMapsUri": "https://maps.google.com/?cid=11033732973138065490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.goodnightscomedy.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "comedy shows",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.97
+    },
+    {
+      "googlePlaceId": "ChIJPyhzNzX5U4gR_ngebl89muc",
+      "name": "Lazy 5 Ranch",
+      "address": "15100 Mooresville Rd, Mooresville, NC 28115, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 6618,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "ranch",
+        "farm",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.6229867,
+      "lng": -80.7204787,
+      "googleMapsUri": "https://maps.google.com/?cid=16688718849253472510&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lazy5ranch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.91
+    },
+    {
+      "googlePlaceId": "ChIJRSPQR2qNU4gRhzwywCUFZ5I",
+      "name": "N.C. Transportation Museum",
+      "address": "1 Samuel Spencer Dr, Spencer, NC 28159, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4717,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "historical_landmark",
+        "museum",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.6873326,
+      "lng": -80.434446,
+      "googleMapsUri": "https://maps.google.com/?cid=10549406311835122823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nctransportationmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJLz0F-T-TrIkReyW_ORGyaVI",
+      "name": "Mad Splatter Apex - Pottery, Splatter, and Canvas Paint Studio",
+      "address": "2016 Creekside Landing Dr, Apex, NC 27502, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 931,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "tourist_attraction",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.7458696,
+      "lng": -78.8844834,
+      "googleMapsUri": "https://maps.google.com/?cid=5938473370717726075&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://apex.madsplatter.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip",
+        "pottery classes"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "learning-classes"
+      ],
+      "popularityScore": 85.87
+    },
+    {
+      "googlePlaceId": "ChIJndEGGw5ZrIkRF1XEKYwGk_I",
+      "name": "Northside Bistro Raleigh",
+      "address": "832 Spring Forest Rd, Raleigh, NC 27609, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.7,
+      "reviewCount": 394,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8662196,
+      "lng": -78.6226173,
+      "googleMapsUri": "https://maps.google.com/?cid=17479321777820947735&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://northsidebistroraleigh.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.79
+    },
+    {
+      "googlePlaceId": "ChIJG0srlBT_rIkRfV-A1J8N5xc",
+      "name": "Falls Lake State Recreation Area",
+      "address": "13304 Creedmoor Rd, Wake Forest, NC 27587, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4480,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.022957999999996,
+      "lng": -78.6994326,
+      "googleMapsUri": "https://maps.google.com/?cid=1722360362608648061&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ncparks.gov/falls-lake-state-recreation-area",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.7
+    },
+    {
+      "googlePlaceId": "ChIJl2HMn3JfrIkRpzYpcasOtgc",
+      "name": "Moore Square",
+      "address": "201 S Blount St, Raleigh, NC 27601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 1408,
+      "priceLevel": null,
+      "primaryType": "plaza",
+      "types": [
+        "plaza",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.777482899999995,
+      "lng": -78.63578989999999,
+      "googleMapsUri": "https://maps.google.com/?cid=555647733527557799&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://raleighnc.gov/places/moore-square",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "interactive pop ups",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJFxg5_4JerIkRPjCVWMnY0wc",
+      "name": "Historic Oak View County Park",
+      "address": "4028 Carya Dr, Raleigh, NC 27610, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 719,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7700909,
+      "lng": -78.57035090000001,
+      "googleMapsUri": "https://maps.google.com/?cid=564032737637642302&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wake.gov/departments-government/parks-recreation-open-space/all-parks-trails/historic-oak-view-county-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "neighborhood tours",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJpwk6pHNfrIkRzhRrXzW6iKE",
+      "name": "Lincoln Theatre",
+      "address": "126 E Cabarrus St, Raleigh, NC 27601, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 1269,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7738728,
+      "lng": -78.6374357,
+      "googleMapsUri": "https://maps.google.com/?cid=11639757975335933134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lincolntheatre.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.61
+    },
+    {
+      "googlePlaceId": "ChIJ3VNRsev3rIkRTGC7T06LbJI",
+      "name": "The Dinner Detective True Crime Murder Mystery Dinner Show - Raleigh-Durham, NC",
+      "address": "4700 Creedmoor Rd, Raleigh, NC 27612, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1162,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "store",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 35.8448561,
+      "lng": -78.67915760000001,
+      "googleMapsUri": "https://maps.google.com/?cid=10550961195483619404&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thedinnerdetective.com/raleigh-durham/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.52
+    },
+    {
+      "googlePlaceId": "ChIJoYIiu_DnrIkRQe7aOCbkt-A",
+      "name": "Xepher Arcade",
+      "address": "4015 University Dr H, Durham, NC 27707, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 132,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "toy_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.9645732,
+      "lng": -78.9565811,
+      "googleMapsUri": "https://maps.google.com/?cid=16192661838047669825&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://xepherarcade.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.43
+    },
+    {
+      "googlePlaceId": "ChIJ8dnWfFVfrIkRL5cgTO4YCG8",
+      "name": "919 FAYE ART LAB",
+      "address": "319 Fayetteville St Suite 104, Raleigh, NC 27601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 5,
+      "reviewCount": 565,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7760575,
+      "lng": -78.63872119999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8000672149782173487&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://919fayeartlabrdu.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "art galleries",
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.3
+    },
+    {
+      "googlePlaceId": "ChIJc-BabEBZrIkRKyhYD6TXD4I",
+      "name": "Adventure Landing",
+      "address": "3311 Capital Blvd, Raleigh, NC 27604, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.1,
+      "reviewCount": 2371,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "video_arcade",
+        "tourist_attraction",
+        "miniature_golf_course",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8252599,
+      "lng": -78.5878557,
+      "googleMapsUri": "https://maps.google.com/?cid=9371946449213335595&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://raleigh.adventurelanding.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJKxHsZQfkrIkR0VeJi7ym5es",
+      "name": "Bull City Escape",
+      "address": "2020 W Main St Suite 300, Durham, NC 27705, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1846,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 36.0070876,
+      "lng": -78.9231176,
+      "googleMapsUri": "https://maps.google.com/?cid=16998175697304901585&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bullcityescape.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.92
+    },
+    {
+      "googlePlaceId": "ChIJn5ny-XJfrIkRLcjO926_fwc",
+      "name": "Artspace",
+      "address": "201 E Davie St, Raleigh, NC 27601, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 299,
+      "priceLevel": null,
+      "primaryType": "art_gallery",
+      "types": [
+        "art_gallery",
+        "tourist_attraction",
+        "art_museum",
+        "museum",
+        "educational_institution",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.77563,
+      "lng": -78.63626200000002,
+      "googleMapsUri": "https://maps.google.com/?cid=540360963632580653&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.artspacenc.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "interactive pop ups",
+        "paint and sip",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "social-group-activities",
+        "local-exploration"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJdff0V5BYrIkRbgLOIOcKVwU",
+      "name": "Sur La Table",
+      "address": "4421 Six Forks Rd #107, Raleigh, NC 27609, USA",
+      "category": "learning-classes",
+      "categoryLabel": "Learning & Classes",
+      "rating": 4.9,
+      "reviewCount": 1787,
+      "priceLevel": null,
+      "primaryType": "furniture_store",
+      "types": [
+        "furniture_store",
+        "home_improvement_store",
+        "home_goods_store",
+        "educational_institution",
+        "food",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.839594399999996,
+      "lng": -78.6438972,
+      "googleMapsUri": "https://maps.google.com/?cid=384788280967561838&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.surlatable.com/locations/nc/raleigh/store-138.html",
+      "openNow": true,
+      "matchedQueries": [
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "learning-classes"
+      ],
+      "popularityScore": 84.81
+    },
+    {
+      "googlePlaceId": "ChIJWcNzyXv1rIkR5cohEy_AXHs",
+      "name": "State Farmers Market Restaurant",
+      "address": "1240 Farmers Market Dr, Raleigh, NC 27603, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 4730,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 35.7620229,
+      "lng": -78.6641446,
+      "googleMapsUri": "https://maps.google.com/?cid=8889191072939494117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.realbiscuits.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 84.78
+    },
+    {
+      "googlePlaceId": "ChIJlQy9RNqMrIkRRJlTHz6acSw",
+      "name": "Hemlock Bluffs Nature Preserve",
+      "address": "2616 Kildaire Farm Rd, Cary, NC 27518, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 1429,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7238611,
+      "lng": -78.78375,
+      "googleMapsUri": "https://maps.google.com/?cid=3202510401641355588&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.hemlockbluffs.org/hemlock-bluffs-nature-preserve.html",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.71
+    },
+    {
+      "googlePlaceId": "ChIJ48u7brj1rIkRiAArs7A1V9s",
+      "name": "Neomonde Mediterranean Raleigh",
+      "address": "3817 Beryl Rd, Raleigh, NC 27607, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4406,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "lebanese_restaurant",
+      "types": [
+        "lebanese_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "middle_eastern_restaurant",
+        "mediterranean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.793184,
+      "lng": -78.6901713,
+      "googleMapsUri": "https://maps.google.com/?cid=15805160450316501128&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://neomonde.squarespace.com/raleigh-nc",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.54
+    },
+    {
+      "googlePlaceId": "ChIJY_NkazFfrIkR_v4qbZ0OOSE",
+      "name": "Botanical Lounge",
+      "address": "419 Glenwood Ave Level 1, Raleigh, NC 27603, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 376,
+      "priceLevel": null,
+      "primaryType": "lounge_bar",
+      "types": [
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7857015,
+      "lng": -78.6476308,
+      "googleMapsUri": "https://maps.google.com/?cid=2393960746228317950&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://botanicalraleigh.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "hidden speakeasies",
+        "nightclubs",
+        "jazz clubs",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "game night venues",
+        "luxury lounges",
+        "bottle service",
+        "cigar lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.53
+    },
+    {
+      "googlePlaceId": "ChIJjWQQnm9frIkRc-p5X0HfAyQ",
+      "name": "Taverna Agora",
+      "address": "326 Hillsborough St, Raleigh, NC 27603, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 4339,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "greek_restaurant",
+      "types": [
+        "greek_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.7808358,
+      "lng": -78.644441,
+      "googleMapsUri": "https://maps.google.com/?cid=2595163282163231347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tavernaagora.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 84.49
+    },
+    {
+      "googlePlaceId": "ChIJvavvXHLkrIkRQwjH_Cqnc-8",
+      "name": "The Carolina Theatre",
+      "address": "309 W Morgan St, Durham, NC 27701, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 3089,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "movie_theater",
+        "non_profit_organization",
+        "live_music_venue",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.997653299999996,
+      "lng": -78.9027674,
+      "googleMapsUri": "https://maps.google.com/?cid=17254318400457869379&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.carolinatheatre.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "comedy shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.45
+    },
+    {
+      "googlePlaceId": "ChIJt5d-MCzHqIkR7WlG9s_Rjo0",
+      "name": "North Carolina Aquarium at Pine Knoll Shores",
+      "address": "1 Roosevelt Blvd, Pine Knoll Shores, NC 28512, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.7,
+      "reviewCount": 3048,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 34.6996493,
+      "lng": -76.82900889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10200320897160997357&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.ncaquariums.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 84.4
+    },
+    {
+      "googlePlaceId": "ChIJT4OGgeNZrIkRUJC0LLe_RRk",
+      "name": "Xcape Reality",
+      "address": "3209 Gresham Lake Rd #128, Raleigh, NC 27615, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 406,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 35.8855619,
+      "lng": -78.5806631,
+      "googleMapsUri": "https://maps.google.com/?cid=1821072417791184976&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.xcape-reality.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 84.39
+    }
+  ]
+}

@@ -1,0 +1,3622 @@
+{
+  "location": "Miami, FL",
+  "generatedAt": "2026-05-17T19:02:27.104Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJMVakivS02YgRa2FneAZeSbo",
+      "name": "Miami Culinary Tours",
+      "address": "1000 5th St #200, Miami Beach, FL 33139, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 17702,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 25.774148300000004,
+      "lng": -80.1385432,
+      "googleMapsUri": "https://maps.google.com/?cid=13423363546237329771&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.miamiculinarytours.com/?utm_source=GMBlisting&utm_medium=organic&utm_content=listing",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes",
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes",
+        "local-exploration"
+      ],
+      "popularityScore": 99.38
+    },
+    {
+      "googlePlaceId": "ChIJ98BffLK22YgRsymdIvOgjNA",
+      "name": "Wynwood Walls",
+      "address": "2516 NW 2nd Ave, Miami, FL 33127, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 48662,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "tourist_attraction",
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8010178,
+      "lng": -80.1993841,
+      "googleMapsUri": "https://maps.google.com/?cid=15027563022746724787&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://thewynwoodwalls.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.22
+    },
+    {
+      "googlePlaceId": "ChIJ2YAfbyC02YgRQzEiuI4qloc",
+      "name": "Bayside Marketplace",
+      "address": "401 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 78496,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "tourist_attraction",
+        "live_music_venue",
+        "event_venue",
+        "marina",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7771696,
+      "lng": -80.1848308,
+      "googleMapsUri": "https://maps.google.com/?cid=9770043234089840963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://baysidemarketplace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "events tonight",
+        "VR experiences",
+        "events this weekend",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "dining",
+        "live-entertainment",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.5
+    },
+    {
+      "googlePlaceId": "ChIJ56WSjYG22YgRV8CLvPG3z9E",
+      "name": "Crazy About You",
+      "address": "1155 Brickell Bay Dr PH101, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 19038,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "spanish_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7620008,
+      "lng": -80.1889886,
+      "googleMapsUri": "https://maps.google.com/?cid=15118504722984321111&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://passionrestaurantgroup.com/restaurants/crazy-about-you/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 97.4
+    },
+    {
+      "googlePlaceId": "ChIJd9nFxyC02YgRVdtnh8Obwp8",
+      "name": "Bayfront Park",
+      "address": "301 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 21246,
+      "priceLevel": null,
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "amphitheatre",
+        "performing_arts_theater",
+        "tourist_attraction",
+        "park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.775258899999997,
+      "lng": -80.18618889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11511934861605067605&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bayfrontparkmiami.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.64
+    },
+    {
+      "googlePlaceId": "ChIJc2PcMM612YgR_kdEdDDuTrQ",
+      "name": "Rusty Pelican Miami",
+      "address": "3201 Rickenbacker Cwy, Key Biscayne, FL 33149, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 20842,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "seafood_restaurant",
+      "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7478443,
+      "lng": -80.17531160000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12992583866886932478&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.therustypelican.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 96.58
+    },
+    {
+      "googlePlaceId": "ChIJ9aBMC4S22YgRbGgugfhBkbA",
+      "name": "Dolores But You Can Call Me Lolita",
+      "address": "1000 S Miami Ave, Miami, FL 33130, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 12554,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "spanish_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.764271700000002,
+      "lng": -80.1934058,
+      "googleMapsUri": "https://maps.google.com/?cid=12723022957873358956&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://passionrestaurantgroup.com/restaurants/dolores-lolita/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "date night restaurants",
+        "board game cafes",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 96.11
+    },
+    {
+      "googlePlaceId": "ChIJ49bn4Vm32YgRh9MeU2fSIy0",
+      "name": "CASA NEOS",
+      "address": "40 SW North River Dr, Miami, FL 33128, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 11754,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "brunch_restaurant",
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.773616,
+      "lng": -80.2005081,
+      "googleMapsUri": "https://maps.google.com/?cid=3252674697109623687&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.casa-neos.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 95.9
+    },
+    {
+      "googlePlaceId": "ChIJE5jqT1222YgR4STdDoStYPg",
+      "name": "Vizcaya Museum & Gardens",
+      "address": "3251 S Miami Ave, Miami, FL 33129, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 15984,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.744386600000002,
+      "lng": -80.21047469999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17897495701867013345&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://vizcaya.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.76
+    },
+    {
+      "googlePlaceId": "ChIJX8eX6ym12YgRyyMcNUAJQTQ",
+      "name": "Lola bar",
+      "address": "401 Biscayne Blvd S118, Miami, FL 33132, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 7051,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.777399600000003,
+      "lng": -80.1853003,
+      "googleMapsUri": "https://maps.google.com/?cid=3765300934832038859&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://lolabar.site/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "wine bars",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.42
+    },
+    {
+      "googlePlaceId": "ChIJX1w1u7e32YgRw5kqYLI5Tx8",
+      "name": "The Miami Experience Boat Party",
+      "address": "401 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 4356,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "night_club",
+        "tour_agency",
+        "travel_agency",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.77875,
+      "lng": -80.18678,
+      "googleMapsUri": "https://maps.google.com/?cid=2256085376616274371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://themiamiexperienceboatparty.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "local events",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.92
+    },
+    {
+      "googlePlaceId": "ChIJ--RbNpK02YgRuBwrQraWUZQ",
+      "name": "Lummus Park",
+      "address": "1130 Ocean Dr, Miami Beach, FL 33139, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 24288,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7808924,
+      "lng": -80.12994789999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10687489100265233592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miamibeachfl.gov/city-hall/parks-and-recreation/parks-facilities-directory/lummus-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 93.81
+    },
+    {
+      "googlePlaceId": "ChIJlZFyCaC22YgRbFtPKFIFrRM",
+      "name": "Kaseya Center",
+      "address": "601 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 23349,
+      "priceLevel": null,
+      "primaryType": "arena",
+      "types": [
+        "arena",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7814014,
+      "lng": -80.18696899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1417795308113320812&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kaseyacenter.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.68
+    },
+    {
+      "googlePlaceId": "ChIJZ3JrxAO32YgRbPAUfW6-19Q",
+      "name": "Claudie",
+      "address": "1101 Brickell Ave S-113, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 4774,
+      "priceLevel": null,
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "wine_bar",
+        "fine_dining_restaurant",
+        "mediterranean_restaurant",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7632665,
+      "lng": -80.1910857,
+      "googleMapsUri": "https://maps.google.com/?cid=15336936437787717740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.claudierestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 93.11
+    },
+    {
+      "googlePlaceId": "ChIJtaM_HB602YgRWEIQVSrIQnY",
+      "name": "Maurice A. Ferré Park",
+      "address": "1075 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 6291,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.784358299999997,
+      "lng": -80.1871918,
+      "googleMapsUri": "https://maps.google.com/?cid=8521593529079710296&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bayfrontparkmiami.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.86
+    },
+    {
+      "googlePlaceId": "ChIJpwznMWi32YgRs_iFE7Vok3Y",
+      "name": "Rosa Sky",
+      "address": "115 SW 8th St 22nd Floor, Miami, FL 33130, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 6269,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "brunch_restaurant",
+        "lounge_bar",
+        "bar",
+        "night_club",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.766847199999997,
+      "lng": -80.196175,
+      "googleMapsUri": "https://maps.google.com/?cid=8544288044977879219&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://rosaskyrooftop.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "nightclubs",
+        "events tonight",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "wine bars",
+        "TikTok restaurants",
+        "luxury lounges",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 92.85
+    },
+    {
+      "googlePlaceId": "ChIJxWXNtnC32YgRSjtndHSzTQM",
+      "name": "Paradox Museum Miami",
+      "address": "2301 N Miami Ave, Miami, FL 33127, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 4008,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "art_museum",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.799119599999997,
+      "lng": -80.19469169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=238043668071005002&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://paradoxmuseum.com/miami/?utm_source=google&utm_medium=localcards&utm_campaign=253015_mia",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "paint and sip",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 92.56
+    },
+    {
+      "googlePlaceId": "ChIJc7K5Gnu12YgRMXPWvBcju30",
+      "name": "Skyviews Miami Observation Wheel",
+      "address": "401 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 5340,
+      "priceLevel": null,
+      "primaryType": "ferris_wheel",
+      "types": [
+        "ferris_wheel",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.777190599999997,
+      "lng": -80.1845579,
+      "googleMapsUri": "https://maps.google.com/?cid=9059873660245275441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://skyviewsmiami.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.35
+    },
+    {
+      "googlePlaceId": "ChIJPfhtahS12YgRSpPRowAC4k8",
+      "name": "El Patio Restaurant – Bar Habana – La Terraza Rooftop",
+      "address": "660 Washington Ave, Miami Beach, FL 33139, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4329,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "brunch_restaurant",
+        "cuban_restaurant",
+        "breakfast_restaurant",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.776532099999997,
+      "lng": -80.13417890000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5756165475504591690&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://elpatio-barhabana.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "rooftop bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 92.15
+    },
+    {
+      "googlePlaceId": "ChIJA4ZAFqe22YgRnYc9-xaO590",
+      "name": "Adrienne Arsht Center for the Performing Arts of Miami-Dade County",
+      "address": "1300 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4549,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "farmers_market",
+        "market",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7876284,
+      "lng": -80.1899025,
+      "googleMapsUri": "https://maps.google.com/?cid=15989905231357773725&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.arshtcenter.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.86
+    },
+    {
+      "googlePlaceId": "ChIJT6PHOUbK2YgRamANgVMeFqk",
+      "name": "Bill Baggs Cape Florida State Park",
+      "address": "1200 Crandon Blvd, Key Biscayne, FL 33149, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 12705,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.675521699999997,
+      "lng": -80.1590677,
+      "googleMapsUri": "https://maps.google.com/?cid=12183959185893711978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.floridastateparks.org/parks-and-trails/bill-baggs-cape-florida-state-park",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 91.8
+    },
+    {
+      "googlePlaceId": "ChIJdfkR4PC32YgRgxEP4swq1oY",
+      "name": "Sexy Fish Miami",
+      "address": "1001 S Miami Ave, Miami, FL 33130, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 8756,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "cocktail_bar",
+        "seafood_restaurant",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7643553,
+      "lng": -80.1930205,
+      "googleMapsUri": "https://maps.google.com/?cid=9716000305552757123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sexyfishmiami.com/?utm_source=LocalGoogleExtNet&utm_medium=Organic",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.69
+    },
+    {
+      "googlePlaceId": "ChIJd6C8AYO22YgRYuO-L2IUdDQ",
+      "name": "Komodo Miami",
+      "address": "801 Brickell Ave, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 8686,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.765616,
+      "lng": -80.19006159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3779668399211078498&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://komodomiami.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "TikTok restaurants",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.66
+    },
+    {
+      "googlePlaceId": "ChIJlz72E5622YgRLXWCKTEFM_M",
+      "name": "CVI.CHE 105",
+      "address": "105 NE 3rd Ave, Miami, FL 33132, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 29910,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "peruvian_restaurant",
+      "types": [
+        "peruvian_restaurant",
+        "wine_bar",
+        "latin_american_restaurant",
+        "south_american_restaurant",
+        "cocktail_bar",
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7754765,
+      "lng": -80.18844179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17524356283736683821&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.ceviche105.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 91.65
+    },
+    {
+      "googlePlaceId": "ChIJI-aAsE-32YgRlQrq8LqdUa8",
+      "name": "Giselle Miami",
+      "address": "15 NE 11th St, Miami, FL 33132, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2926,
+      "priceLevel": null,
+      "primaryType": "fusion_restaurant",
+      "types": [
+        "fusion_restaurant",
+        "steak_house",
+        "cocktail_bar",
+        "french_restaurant",
+        "fine_dining_restaurant",
+        "seafood_restaurant",
+        "bar",
+        "asian_fusion_restaurant",
+        "asian_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7849637,
+      "lng": -80.19341399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12633051855982299797&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gisellemiami.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 91.59
+    },
+    {
+      "googlePlaceId": "ChIJu_e4BnTI2YgREAOg3GxMK8g",
+      "name": "Fairchild Tropical Botanic Garden",
+      "address": "Old Cutler Rd, Coral Gables, FL 33156, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5040,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.6767893,
+      "lng": -80.2720386,
+      "googleMapsUri": "https://maps.google.com/?cid=14423706262025798416&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fairchildgarden.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.52
+    },
+    {
+      "googlePlaceId": "ChIJAUUpLJq22YgRAU604E8-tsM",
+      "name": "Pérez Art Museum Miami",
+      "address": "1103 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 7802,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.785930699999998,
+      "lng": -80.1861912,
+      "googleMapsUri": "https://maps.google.com/?cid=14102527795950538241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.pamm.org/en/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.33
+    },
+    {
+      "googlePlaceId": "ChIJFY7wCsjD2YgRn8R_2IMRjtw",
+      "name": "Zoo Miami",
+      "address": "12400 SW 152nd St, Miami, FL 33177, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 20312,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "botanical_garden",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.6095318,
+      "lng": -80.3964056,
+      "googleMapsUri": "https://maps.google.com/?cid=15892659393007699103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.zoomiami.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.05
+    },
+    {
+      "googlePlaceId": "ChIJzUa0ehS32YgRcmRb-aF5_3A",
+      "name": "Skinny Louie",
+      "address": "322 NW 24th St, Miami, FL 33127, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 23482,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "hamburger_restaurant",
+      "types": [
+        "hamburger_restaurant",
+        "fast_food_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.799935299999998,
+      "lng": -80.2009219,
+      "googleMapsUri": "https://maps.google.com/?cid=8142360387889357938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://skinnylouie.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 90.9
+    },
+    {
+      "googlePlaceId": "ChIJfW8fEnWt2YgRpLHVb4Wf_Hg",
+      "name": "Oleta River State Park",
+      "address": "3400 NE 163rd St, North Miami Beach, FL 33160, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 7163,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.9134301,
+      "lng": -80.1298671,
+      "googleMapsUri": "https://maps.google.com/?cid=8718018374138180004&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.floridastateparks.org/park/Oleta-River",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 90.67
+    },
+    {
+      "googlePlaceId": "ChIJe09Qgem32YgRB2TzZpJ4k3o",
+      "name": "Marabu Restaurant",
+      "address": "701 S Miami Ave Fl 4, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 10626,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "steak_house",
+        "cocktail_bar",
+        "seafood_restaurant",
+        "bar",
+        "family_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.766885,
+      "lng": -80.1939008,
+      "googleMapsUri": "https://maps.google.com/?cid=8832535864391459847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.maraburestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 90.59
+    },
+    {
+      "googlePlaceId": "ChIJISrRpNC32YgRBTY3l4DVuCk",
+      "name": "Bistro Café",
+      "address": "1352 NE 1st Ave, Miami, FL 33132, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 20698,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "brunch_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7879971,
+      "lng": -80.19268629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3006387499539314181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://instagram.com/bistrocaferest",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 90.51
+    },
+    {
+      "googlePlaceId": "ChIJTfVsr5-12YgRSQcrWV_EZ4o",
+      "name": "Carnaval Rooftop",
+      "address": "928 Ocean Dr, Miami Beach, FL 33139, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 2387,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7797794,
+      "lng": -80.1311089,
+      "googleMapsUri": "https://maps.google.com/?cid=9973155813632182089&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.carnavalrooftop.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 90.3
+    },
+    {
+      "googlePlaceId": "ChIJab3yr6C22YgRdh8TY4oVu_w",
+      "name": "Phillip & Patricia Frost Museum of Science",
+      "address": "1101 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 7896,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "aquarium",
+        "planetarium",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.785262099999997,
+      "lng": -80.1878898,
+      "googleMapsUri": "https://maps.google.com/?cid=18211173202314600310&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.frostscience.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.27
+    },
+    {
+      "googlePlaceId": "ChIJl41ZjJC22YgRqNY20-g5Dgk",
+      "name": "The Wharf Miami",
+      "address": "114 SW North River Dr, Miami, FL 33130, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4994,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "cultural_center",
+        "live_music_venue",
+        "market",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.772361999999998,
+      "lng": -80.1997554,
+      "googleMapsUri": "https://maps.google.com/?cid=652522668154082984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wharfmiami.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "cultural centers",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.95
+    },
+    {
+      "googlePlaceId": "ChIJhdEC7MUD2YgRWqeIwaYujc4",
+      "name": "Xtreme Action Park",
+      "address": "5300 Powerline Rd, Fort Lauderdale, FL 33309, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.6,
+      "reviewCount": 17140,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 26.191592399999998,
+      "lng": -80.1536955,
+      "googleMapsUri": "https://maps.google.com/?cid=14883603637275764570&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://xtremeactionpark.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 89.87
+    },
+    {
+      "googlePlaceId": "ChIJoVWX_Rm02YgRllHsIZGN16c",
+      "name": "Miami Children's Museum",
+      "address": "980 MacArthur Cswy, Miami, FL 33132, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4431,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "childrens_camp",
+        "tourist_attraction",
+        "summer_camp_organizer",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.784699399999997,
+      "lng": -80.1765206,
+      "googleMapsUri": "https://maps.google.com/?cid=12094290978805666198&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miamichildrensmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.57
+    },
+    {
+      "googlePlaceId": "ChIJG2-9xp222YgRJ_Dqby74tmg",
+      "name": "Café Bastille Downtown Miami",
+      "address": "248 SE 1st St, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 19850,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "bakery",
+        "cafe",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 25.7733642,
+      "lng": -80.1893597,
+      "googleMapsUri": "https://maps.google.com/?cid=7545491104035696679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.cafebastilledowntown.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 89.28
+    },
+    {
+      "googlePlaceId": "ChIJeU7uMTW32YgRjmffReuy-rc",
+      "name": "Tanuki River Landing",
+      "address": "1420 NW N River Dr, Miami, FL 33125, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 4849,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "asian_fusion_restaurant",
+      "types": [
+        "asian_fusion_restaurant",
+        "cocktail_bar",
+        "sushi_restaurant",
+        "fine_dining_restaurant",
+        "catering_service",
+        "vegetarian_restaurant",
+        "food_delivery",
+        "japanese_restaurant",
+        "family_restaurant",
+        "bar",
+        "chinese_restaurant",
+        "fusion_restaurant",
+        "asian_restaurant",
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 25.7853295,
+      "lng": -80.2196917,
+      "googleMapsUri": "https://maps.google.com/?cid=13257105176677803918&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tanukimiami.com/?utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "date night restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.25
+    },
+    {
+      "googlePlaceId": "ChIJcZJcKfG02YgRpzq_bjkv3vc",
+      "name": "South Pointe Park",
+      "address": "1 Washington Ave, Miami Beach, FL 33139, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 10738,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.766380899999998,
+      "lng": -80.134671,
+      "googleMapsUri": "https://maps.google.com/?cid=17860765095915633319&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miamiandbeaches.com/neighborhoods/south-beach",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 89.12
+    },
+    {
+      "googlePlaceId": "ChIJayhIp7i12YgRW94lbHWSNas",
+      "name": "Café Bastille Miami Beach",
+      "address": "538 Washington Ave, Miami Beach, FL 33139, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 13119,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "family_restaurant",
+        "breakfast_restaurant",
+        "juice_shop",
+        "french_restaurant",
+        "bakery",
+        "american_restaurant",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 25.775406000000004,
+      "lng": -80.1341934,
+      "googleMapsUri": "https://maps.google.com/?cid=12336927787274591835&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cafebastilledowntown.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 89.09
+    },
+    {
+      "googlePlaceId": "ChIJIeFjL1Sx2YgR_K_UxHKqgYY",
+      "name": "Lagniappe",
+      "address": "3425 NE 2nd Ave, Miami, FL 33137, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 5195,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "wine_bar",
+        "guest_house",
+        "american_restaurant",
+        "live_music_venue",
+        "event_venue",
+        "lodging",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.8090711,
+      "lng": -80.19098629999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9692215282983284732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lagniappehouse.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "jazz clubs",
+        "romantic bars",
+        "wine bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.02
+    },
+    {
+      "googlePlaceId": "ChIJqxEB9li32YgRJOrdLqbY-LQ",
+      "name": "RosaNegra Miami",
+      "address": "1346 S Miami Ave, Miami, FL 33130, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1793,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7608161,
+      "lng": -80.1937694,
+      "googleMapsUri": "https://maps.google.com/?cid=13040410929313737252&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rosanegrarestaurant.us/?utm_source=gmb&utm_medium=organic&ot_source=gmb_2564_rnm",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.97
+    },
+    {
+      "googlePlaceId": "ChIJ4V0TH_kA2YgRxgaQuq3qeV4",
+      "name": "Glitch Bar",
+      "address": "905 NE 5th Ave, Fort Lauderdale, FL 33304, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 2630,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "night_club",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 26.1353327,
+      "lng": -80.1391925,
+      "googleMapsUri": "https://maps.google.com/?cid=6807730343627458246&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.glitchbar.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.66
+    },
+    {
+      "googlePlaceId": "ChIJ5V4l-Y632YgR5aB1WgSTjIg",
+      "name": "Red Phone Booth",
+      "address": "1010 Brickell Ave Unit 105, Miami, FL 33131, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 5,
+      "reviewCount": 1542,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "cocktail_bar",
+        "event_venue",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 25.763995899999998,
+      "lng": -80.1924609,
+      "googleMapsUri": "https://maps.google.com/?cid=9839400932804501733&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.redphonebooth.com/locations/fl/miami?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_location=miami&utm_content=profile",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.55
+    },
+    {
+      "googlePlaceId": "ChIJeVpjGKW32YgROG-7zMGpoVU",
+      "name": "Lafayette Miami",
+      "address": "1111 SW 1st Ave, Miami, FL 33130, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 723,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "fine_dining_restaurant",
+        "steak_house",
+        "barbecue_restaurant",
+        "bar",
+        "american_restaurant",
+        "association_or_organization",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.763261399999998,
+      "lng": -80.19496889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6170399614302908216&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lafayette-miami.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.35
+    },
+    {
+      "googlePlaceId": "ChIJV_1rv4O02YgRwYPLnjrwnqE",
+      "name": "Miami Beach Botanical Garden",
+      "address": "2000 Convention Ctr Dr, Miami Beach, FL 33139, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 3561,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7956364,
+      "lng": -80.13547989999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11646009820989588417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mbgarden.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.25
+    },
+    {
+      "googlePlaceId": "ChIJKe7ZApG32YgRrcWNzrI9C34",
+      "name": "Bayshore Club Bar & Grill",
+      "address": "3391 Pan American Dr, Miami, FL 33133, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 9942,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar_and_grill",
+      "types": [
+        "bar_and_grill",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7287715,
+      "lng": -80.2341624,
+      "googleMapsUri": "https://maps.google.com/?cid=9082420911701607853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bayshoreclubmiami.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 88.23
+    },
+    {
+      "googlePlaceId": "ChIJ-xmu2z7B2YgR475kG66MeFM",
+      "name": "Arcade Odyssey",
+      "address": "12045 SW 117th Ave, Miami, FL 33186, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 1578,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "asian_fusion_restaurant",
+        "asian_restaurant",
+        "event_venue",
+        "fusion_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.6554577,
+      "lng": -80.3826586,
+      "googleMapsUri": "https://maps.google.com/?cid=6014711981765082851&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.arcadeodyssey.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.17
+    },
+    {
+      "googlePlaceId": "ChIJRwghBLK22YgR_csunfj75Q8",
+      "name": "Wynwood Marketplace",
+      "address": "2250 NW 2nd Ave, Miami, FL 33127, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 2795,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "food_court",
+        "event_venue",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7986643,
+      "lng": -80.19995519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1145598725443210237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wynwood-marketplace.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "flea markets",
+        "festivals this weekend",
+        "seasonal pop ups",
+        "street fairs",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.14
+    },
+    {
+      "googlePlaceId": "ChIJYS9d7Xyn2YgRzgiA4dDGQs4",
+      "name": "Activate Pembroke Pines",
+      "address": "10350 Pines Blvd d106, Pembroke Pines, FL 33026, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 5,
+      "reviewCount": 2349,
+      "priceLevel": null,
+      "primaryType": "adventure_sports_center",
+      "types": [
+        "adventure_sports_center",
+        "sports_complex",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 26.006670600000003,
+      "lng": -80.2846327,
+      "googleMapsUri": "https://maps.google.com/?cid=14862660320714819790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/pembroke-pines",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 88.1
+    },
+    {
+      "googlePlaceId": "ChIJQ8ISEdq32YgRKUoI40z8SH8",
+      "name": "The Escape Game Miami",
+      "address": "701 S Miami Ave Suite 367 C, Miami, FL 33131, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 6653,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.767750799999998,
+      "lng": -80.19302379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9171858048296700457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/miami/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=miami-brickell",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.09
+    },
+    {
+      "googlePlaceId": "ChIJw5CI04a22YgRHpJqzrxjbYU",
+      "name": "Barsecco",
+      "address": "1421 S Miami Ave, Miami, FL 33130, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.5,
+      "reviewCount": 4756,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "hookah_bar",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.760386999999998,
+      "lng": -80.19330699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9614450442073969182&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.barsecco.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars",
+        "bottle service",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.04
+    },
+    {
+      "googlePlaceId": "ChIJVQ9LYL-32YgRV9kFDwePb4g",
+      "name": "Sala'o Cuban Restaurant & Bar - Live music",
+      "address": "1642 SW 8th St, Miami, FL 33135, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 12888,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cuban_restaurant",
+      "types": [
+        "cuban_restaurant",
+        "seafood_restaurant",
+        "live_music_venue",
+        "latin_american_restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.76551,
+      "lng": -80.22144999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9831233772052666711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://salaorestaurant.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.94
+    },
+    {
+      "googlePlaceId": "ChIJ9bclqMKy2YgRr00sETb0tIU",
+      "name": "Miami Beach Bandshell",
+      "address": "7275 Collins Ave, Miami Beach, FL 33141, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 2086,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8581181,
+      "lng": -80.1205215,
+      "googleMapsUri": "https://maps.google.com/?cid=9634594015905861039&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miamibeachbandshell.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 87.94
+    },
+    {
+      "googlePlaceId": "ChIJcXKr4lax2YgRUAZWgmR2DY8",
+      "name": "Miami Design District",
+      "address": "4000 NE 1st Ave, Miami, FL 33137, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 18327,
+      "priceLevel": null,
+      "primaryType": "business_center",
+      "types": [
+        "business_center",
+        "cultural_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.813549,
+      "lng": -80.1934548,
+      "googleMapsUri": "https://maps.google.com/?cid=10308025296176416336&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.miamidesigndistrict.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 87.93
+    },
+    {
+      "googlePlaceId": "ChIJV-KL_SC02YgR386MTNlyvVs",
+      "name": "Big Bus Tours Miami",
+      "address": "401 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.6,
+      "reviewCount": 14402,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "transportation_service",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 25.777983199999998,
+      "lng": -80.18736229999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6610566105667522271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bigbustours.com/en/miami/miami-bus-tours?utm_source=GMB-miami+&utm_medium=GMB&utm_campaign=miami-GMB-website",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.83
+    },
+    {
+      "googlePlaceId": "ChIJX19cNJy22YgRjx4OIdVA_CQ",
+      "name": "Black Market Miami",
+      "address": "168 SE 1st St, Miami, FL 33131, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.6,
+      "reviewCount": 2743,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "hamburger_restaurant",
+        "sports_bar",
+        "lounge_bar",
+        "american_restaurant",
+        "night_club",
+        "gastropub",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.773249999999997,
+      "lng": -80.19050299999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2665076363623276175&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.blackmarketmia.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "trivia nights",
+        "game bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.69
+    },
+    {
+      "googlePlaceId": "ChIJcxgXo9qz2YgRmognSigF8CE",
+      "name": "Bon Bouquet Cafe",
+      "address": "3865 Indian Creek Dr, Miami Beach, FL 33140, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 8252,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "french_restaurant",
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8116219,
+      "lng": -80.1242335,
+      "googleMapsUri": "https://maps.google.com/?cid=2445460268263114906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cafebonbouquet.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.66
+    },
+    {
+      "googlePlaceId": "ChIJzQrOrTy12YgRWX2GhLGVA2E",
+      "name": "Swizzle Rum Bar & Drinkery",
+      "address": "1120 Collins Ave, Miami Beach, FL 33139, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1608,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7822088,
+      "lng": -80.1315618,
+      "googleMapsUri": "https://maps.google.com/?cid=6990595636274298201&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.swizzlerumbardrinkery.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "mixology classes"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "learning-classes"
+      ],
+      "popularityScore": 87.58
+    },
+    {
+      "googlePlaceId": "ChIJXSKYE6622YgRB0uqybV5XiM",
+      "name": "FunDimension Game Center",
+      "address": "2129 NW 1st Ct, Miami, FL 33127, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 2277,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "bowling_alley",
+        "lounge_bar",
+        "sports_complex",
+        "bar",
+        "sports_activity_location",
+        "night_club",
+        "service",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.7973262,
+      "lng": -80.1974979,
+      "googleMapsUri": "https://maps.google.com/?cid=2548608260817701639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fundimensionusa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "bowling alleys",
+        "arcades",
+        "barcades",
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.51
+    },
+    {
+      "googlePlaceId": "ChIJyVX8ZJu02YgR1Q-Psp8kj28",
+      "name": "Maxine's Bistro and Bar - American Restaurant in Miami Beach",
+      "address": "1756 Collins Ave, Miami Beach, FL 33139, USA",
+      "category": "adult-after-dark",
+      "categoryLabel": "Adult / After-Dark Experiences",
+      "rating": 4.7,
+      "reviewCount": 15099,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7934272,
+      "lng": -80.1299013,
+      "googleMapsUri": "https://maps.google.com/?cid=8038684128193744853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.catalinahotel.com/drinking-dining/maxine-s-bistro-bar",
+      "openNow": true,
+      "matchedQueries": [
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.33
+    },
+    {
+      "googlePlaceId": "ChIJzfknX4y32YgR8nBnbXTmzfQ",
+      "name": "Amor Miami",
+      "address": "2322 N Miami Ave, Miami, FL 33127, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 2608,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7997445,
+      "lng": -80.19508069999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17640008703206191346&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.amormiamiwynwood.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "game night venues",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "social-group-activities",
+        "viral-eats"
+      ],
+      "popularityScore": 87.33
+    },
+    {
+      "googlePlaceId": "ChIJlWtEu5i22YgRzZCKKHKFyj0",
+      "name": "Axe Habits -Axe Throwing",
+      "address": "2129 NW 1st Ct, Miami, FL 33127, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 916,
+      "priceLevel": null,
+      "primaryType": "sports_activity_location",
+      "types": [
+        "video_arcade",
+        "sports_club",
+        "sports_activity_location",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.797319899999998,
+      "lng": -80.1974663,
+      "googleMapsUri": "https://maps.google.com/?cid=4452517906962092237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://axehabits.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.33
+    },
+    {
+      "googlePlaceId": "ChIJaSnpyl632YgRXs-pFumdXn0",
+      "name": "Ossobuco Miami - Steak house",
+      "address": "62 NW 27th St, Miami, FL 33127, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4101,
+      "priceLevel": null,
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8020657,
+      "lng": -80.19629739999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9033831526984961886&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ossobuco.miami/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.23
+    },
+    {
+      "googlePlaceId": "ChIJD21Nxwsf2YgRChKXwM5KZpo",
+      "name": "Morikami Museum and Japanese Gardens",
+      "address": "4000 Morikami Park Rd, Delray Beach, FL 33446, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 10219,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "botanical_garden",
+        "garden",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 26.429154399999998,
+      "lng": -80.15643209999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11125662181320233482&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.morikami.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJ5cU9IsO22YgRvGkS5RYhRFE",
+      "name": "Elia",
+      "address": "1440 NW N River Dr Suite 195, Miami, FL 33125, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3584,
+      "priceLevel": null,
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar",
+        "italian_restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7850982,
+      "lng": -80.2204292,
+      "googleMapsUri": "https://maps.google.com/?cid=5855841797704673724&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eliaontheriver.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night"
+      ],
+      "popularityScore": 87.22
+    },
+    {
+      "googlePlaceId": "ChIJ22LQJJO32YgRvVI_Rwd7Z-Y",
+      "name": "Thank You Miami Cocina & Beer House",
+      "address": "1701 W Flagler St #101, Miami, FL 33135, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 746,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "beer_garden",
+        "comedy_club",
+        "bar_and_grill",
+        "sports_bar",
+        "hamburger_restaurant",
+        "pub",
+        "live_music_venue",
+        "night_club",
+        "bar",
+        "american_restaurant",
+        "event_venue",
+        "karaoke",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7731522,
+      "lng": -80.22321269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16602373822514942653&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thankyoumiami.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "game night venues",
+        "board game cafes",
+        "karaoke bars",
+        "trivia nights"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.95
+    },
+    {
+      "googlePlaceId": "ChIJnzB6oPi32YgRNNmDNezouZY",
+      "name": "Skinny Louie",
+      "address": "1551 SW 8th St, Miami, FL 33135, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 6535,
+      "priceLevel": null,
+      "primaryType": "hamburger_restaurant",
+      "types": [
+        "hamburger_restaurant",
+        "fast_food_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7658517,
+      "lng": -80.2206404,
+      "googleMapsUri": "https://maps.google.com/?cid=10860968077588420916&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://skinnylouie.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.93
+    },
+    {
+      "googlePlaceId": "ChIJqU2oA4m32YgRYwF5JdM4I38",
+      "name": "Superblue Miami",
+      "address": "1101 NW 23rd St, Miami, FL 33127, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.2,
+      "reviewCount": 5238,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7991925,
+      "lng": -80.2138844,
+      "googleMapsUri": "https://maps.google.com/?cid=9161228546519662947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.superblue.com/?utm_source=rsd&utm_medium=gmb&utm_campaign=brandawareness&utm_content=",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.79
+    },
+    {
+      "googlePlaceId": "ChIJwacPloS02YgRczTrK6Zixwk",
+      "name": "The Fillmore Miami Beach",
+      "address": "1700 Washington Ave, Miami Beach, FL 33139, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2869,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7929818,
+      "lng": -80.13302159999999,
+      "googleMapsUri": "https://maps.google.com/?cid=704640332547699827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fillmore-miami.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": false,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.73
+    },
+    {
+      "googlePlaceId": "ChIJTXzs98y-2YgRyh7W8MCcT-Y",
+      "name": "Dave & Buster's Miami",
+      "address": "11481 NW 12th St, Miami, FL 33172, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.4,
+      "reviewCount": 6830,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "bar_and_grill",
+        "cocktail_bar",
+        "video_arcade",
+        "sports_bar",
+        "amusement_center",
+        "event_venue",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.7874335,
+      "lng": -80.381349,
+      "googleMapsUri": "https://maps.google.com/?cid=16595655504371785418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/miami",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.57
+    },
+    {
+      "googlePlaceId": "ChIJVVVFQsW32YgRshiwWyuedns",
+      "name": "Level 6 Rooftop Restaurant Miami",
+      "address": "3480 Main Hwy 6th floor, Coconut Grove, FL 33133, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 2893,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7264563,
+      "lng": -80.24422179999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8896472022976043186&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://level6miami.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.55
+    },
+    {
+      "googlePlaceId": "ChIJbYrWIza12YgRkWYCIvvK6cY",
+      "name": "Sola Miami Beach",
+      "address": "1000 Collins Ave, Miami Beach, FL 33139, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.8,
+      "reviewCount": 8024,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "steak_house",
+        "hookah_bar",
+        "cocktail_bar",
+        "diner",
+        "brunch_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.780732999999998,
+      "lng": -80.1317913,
+      "googleMapsUri": "https://maps.google.com/?cid=14333210469039498897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://solamiami.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.47
+    },
+    {
+      "googlePlaceId": "ChIJf2LdW-W02YgR4q0vx7_GK18",
+      "name": "South Pointe Park Pier",
+      "address": "1 Washington Ave, Miami Beach, FL 33139, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8013,
+      "priceLevel": null,
+      "primaryType": "fishing_pier",
+      "types": [
+        "fishing_pier",
+        "scenic_spot",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7635368,
+      "lng": -80.1296706,
+      "googleMapsUri": "https://maps.google.com/?cid=6857793384584556002&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miamiandbeaches.com/l/outdoor-experiences/south-pointe-park/2966",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.46
+    },
+    {
+      "googlePlaceId": "ChIJkWXRuBC02YgRripCIoUAN9g",
+      "name": "Jungle Island",
+      "address": "1111 Parrot Jungle Trail, Miami, FL 33132, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.1,
+      "reviewCount": 6462,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "summer_camp_organizer",
+        "childrens_camp",
+        "amusement_park",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.786206999999997,
+      "lng": -80.175026,
+      "googleMapsUri": "https://maps.google.com/?cid=15579922007716932270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jungleisland.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "best parks",
+        "sunset hikes",
+        "mini golf",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "festivals this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "outdoor-nature",
+        "sports-recreation",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.35
+    },
+    {
+      "googlePlaceId": "ChIJEeqmR7a_2YgRwFZhZiIOMT0",
+      "name": "Kids Empire Miami Dolphin Mall",
+      "address": "11401 NW 12th St, Miami, FL 33172, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.9,
+      "reviewCount": 5372,
+      "priceLevel": null,
+      "primaryType": "indoor_playground",
+      "types": [
+        "indoor_playground",
+        "amusement_center",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7867443,
+      "lng": -80.38065470000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4409321051081758400&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.kidsempire.com/park/miami?utm_source=gmb&utm_medium=organic",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 86.32
+    },
+    {
+      "googlePlaceId": "ChIJhe3DKSu32YgRVOWZEyWPqdo",
+      "name": "Mayami Wynwood",
+      "address": "127 NW 23rd St, Miami, FL 33127, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.5,
+      "reviewCount": 7490,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "brunch_restaurant",
+        "night_club",
+        "live_music_venue",
+        "mexican_restaurant",
+        "bar",
+        "event_venue",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.799334599999998,
+      "lng": -80.197581,
+      "googleMapsUri": "https://maps.google.com/?cid=15756282160737805652&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mayamiwynwood.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.2
+    },
+    {
+      "googlePlaceId": "ChIJbboSIGi32YgRmFVvBCOS50M",
+      "name": "Fiore Caffe Miami",
+      "address": "228 SE 1st St, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 7236,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "breakfast_restaurant",
+      "types": [
+        "breakfast_restaurant",
+        "brunch_restaurant",
+        "chicken_restaurant",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7732729,
+      "lng": -80.1895347,
+      "googleMapsUri": "https://maps.google.com/?cid=4893040199257249176&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fiorecaffemiami.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.15
+    },
+    {
+      "googlePlaceId": "ChIJiaj_ukLH2YgR566n3tFhpwk",
+      "name": "A Love Story Winery & Bistro",
+      "address": "8800 SW 56th St, Miami, FL 33165, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2931,
+      "priceLevel": null,
+      "primaryType": "wine_bar",
+      "types": [
+        "wine_bar",
+        "catering_service",
+        "fine_dining_restaurant",
+        "tapas_restaurant",
+        "latin_american_restaurant",
+        "mediterranean_restaurant",
+        "family_restaurant",
+        "food_delivery",
+        "spanish_restaurant",
+        "steak_house",
+        "seafood_restaurant",
+        "bar",
+        "restaurant",
+        "service",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7161512,
+      "lng": -80.3378273,
+      "googleMapsUri": "https://maps.google.com/?cid=695632221463621351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://alovestorywinery.com/?utm_source=google",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars",
+        "wine bars",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.14
+    },
+    {
+      "googlePlaceId": "ChIJ6QXTcYS22YgR0ZMsL-hzFhM",
+      "name": "Panamericano Bar",
+      "address": "900 S Miami Ave #260, Miami, FL 33130, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 5,
+      "reviewCount": 2000,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.764967,
+      "lng": -80.193753,
+      "googleMapsUri": "https://maps.google.com/?cid=1375414177269322705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://panamericanobar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife"
+      ],
+      "popularityScore": 86.11
+    },
+    {
+      "googlePlaceId": "ChIJZ1_YdYO32YgRoAuAP3ZGayc",
+      "name": "Sur La Table",
+      "address": "701 S Miami Ave Suite 338, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1754,
+      "priceLevel": null,
+      "primaryType": "furniture_store",
+      "types": [
+        "furniture_store",
+        "home_improvement_store",
+        "home_goods_store",
+        "educational_institution",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.767750799999998,
+      "lng": -80.19302379999999,
+      "googleMapsUri": "https://maps.google.com/?cid=2840441463672671136&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.surlatable.com/locations/fl/miami/store-159.html",
+      "openNow": true,
+      "matchedQueries": [
+        "chef table experiences",
+        "cooking classes"
+      ],
+      "matchedCategories": [
+        "dining",
+        "learning-classes"
+      ],
+      "popularityScore": 86.1
+    },
+    {
+      "googlePlaceId": "ChIJ2SZlJu4H2YgRrNF4wygtIGg",
+      "name": "Lockbox Escape Room",
+      "address": "8490 W State Rd 84, Davie, FL 33324, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4688,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "store",
+        "service",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 26.1012137,
+      "lng": -80.26218420000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7503046632300663212&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lockboxescaperoom.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.9
+    },
+    {
+      "googlePlaceId": "ChIJ2wVsejCo0IgRlzEvdlY-4A8",
+      "name": "Everglades National Park",
+      "address": "Florida, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 13402,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.2866155,
+      "lng": -80.89865089999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1143982846423019927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nps.gov/ever/index.htm",
+      "openNow": null,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJaXDYCGKz2YgRZcbuI00YQuY",
+      "name": "Watr at the 1 Rooftop",
+      "address": "2341 Collins Ave Floor 18, Miami Beach, FL 33139, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.4,
+      "reviewCount": 1911,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7995901,
+      "lng": -80.1268576,
+      "googleMapsUri": "https://maps.google.com/?cid=16591850696780727909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.1hotels.com/south-beach/taste/watr-at-the-rooftop?utm_source=google-gbp&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.86
+    },
+    {
+      "googlePlaceId": "ChIJQS5AgDi32YgRVMzqEtBuS8U",
+      "name": "ARTXSPACE",
+      "address": "301 NW 28th St, Miami, FL 33127, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 740,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8029633,
+      "lng": -80.2012792,
+      "googleMapsUri": "https://maps.google.com/?cid=14216578488674733140&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.artxspace.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.82
+    },
+    {
+      "googlePlaceId": "ChIJlW3XylS32YgRxedM3GH7npM",
+      "name": "Naked Farmer",
+      "address": "200 S Biscayne Blvd Suite 145, Miami, FL 33131, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1592,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "meal_takeaway",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.772242199999997,
+      "lng": -80.18773809999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10637215767622117317&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.eatnakedfarmer.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.8
+    },
+    {
+      "googlePlaceId": "ChIJgXsLYMu32YgRW7YLCQdgS_s",
+      "name": "Savage Labs Wynwood",
+      "address": "2451 NW 5th Ave, Miami, FL 33127, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 1269,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "lounge_bar",
+        "night_club",
+        "live_music_venue",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.8005171,
+      "lng": -80.202832,
+      "googleMapsUri": "https://maps.google.com/?cid=18107672310106011227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://savagelabswynwood.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.74
+    },
+    {
+      "googlePlaceId": "ChIJ58ADOrK52YgROLJMckI4joA",
+      "name": "Escapology Escape Rooms Doral",
+      "address": "3450 NW 83rd Ave Ste 150 #150, Doral, FL 33122, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 3089,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8072774,
+      "lng": -80.33156819999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9263403341584314936&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/doral-fl/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.7
+    },
+    {
+      "googlePlaceId": "ChIJLx5iM6222YgR2ubX5fvu4ts",
+      "name": "Rubell Museum",
+      "address": "1100 NW 23rd St, Miami, FL 33127, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1001,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.798671000000002,
+      "lng": -80.21411859999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15844489204703160026&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://rubellmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.66
+    },
+    {
+      "googlePlaceId": "ChIJCW2xU8G32YgRI_CFR-Rzqpo",
+      "name": "SKOOPS MIAMI",
+      "address": "401 Biscayne Blvd S10, Miami, FL 33132, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 4312,
+      "priceLevel": null,
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 25.777472399999997,
+      "lng": -80.18607279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11144847652171411491&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://baysidemarketplace.com/directory/restaurants/eateries/skoops/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.64
+    },
+    {
+      "googlePlaceId": "ChIJP_TMP1ex2YgR4S9TDvJAO2M",
+      "name": "Institute of Contemporary Art, Miami",
+      "address": "61 NE 41st St, Miami, FL 33137, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1396,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8143335,
+      "lng": -80.19425220000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7150380241747390433&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://icamiami.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences"
+      ],
+      "popularityScore": 85.59
+    },
+    {
+      "googlePlaceId": "ChIJsQeCYpK02YgRSn7c430EGV4",
+      "name": "Mango's South Beach",
+      "address": "900 Ocean Dr, Miami Beach, FL 33139, USA",
+      "category": "luxury-special-occasion",
+      "categoryLabel": "Luxury & Special Occasion",
+      "rating": 4.6,
+      "reviewCount": 12184,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "night_club",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.7794405,
+      "lng": -80.1312129,
+      "googleMapsUri": "https://maps.google.com/?cid=6780455652723293770&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://miami.mangos.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.57
+    },
+    {
+      "googlePlaceId": "ChIJtwclboO22YgRoEae3LsRNio",
+      "name": "Sugar Rooftop",
+      "address": "788 Brickell Plaza #40, Miami, FL 33131, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.2,
+      "reviewCount": 3512,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "lounge_bar",
+        "night_club",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.766635299999997,
+      "lng": -80.1925061,
+      "googleMapsUri": "https://maps.google.com/?cid=3041638096893265568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.easthotels.com/en/miami/restaurants-and-bars/sugar/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "romantic bars",
+        "sunset date spots",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.55
+    },
+    {
+      "googlePlaceId": "ChIJrRCdX5en2YgRJzCRjgTWb-A",
+      "name": "Flamingo Gardens",
+      "address": "3750 S Flamingo Rd, Davie, FL 33330, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 8377,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "nature_preserve",
+        "history_museum",
+        "wildlife_refuge",
+        "park",
+        "museum",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 26.0742403,
+      "lng": -80.3133325,
+      "googleMapsUri": "https://maps.google.com/?cid=16172380101970833447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.flamingogardens.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJGxd5HsCy2YgR6OWONdwRdmk",
+      "name": "North Beach Oceanside Park",
+      "address": "8328 Collins Ave, Miami Beach, FL 33141, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4763,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8685302,
+      "lng": -80.1205658,
+      "googleMapsUri": "https://maps.google.com/?cid=7599281058723325416&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://web.miamibeachfl.gov/parksandrecreation/scroll.aspx?id=49654",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.5
+    },
+    {
+      "googlePlaceId": "ChIJd28tXwK32YgRO57zVtNFWSs",
+      "name": "Sha Wynwood",
+      "address": "97 NW 25th St, Miami, FL 33127, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 1622,
+      "priceLevel": null,
+      "primaryType": "mediterranean_restaurant",
+      "types": [
+        "mediterranean_restaurant",
+        "asian_fusion_restaurant",
+        "fusion_restaurant",
+        "lounge_bar",
+        "night_club",
+        "live_music_venue",
+        "asian_restaurant",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 25.8009371,
+      "lng": -80.196981,
+      "googleMapsUri": "https://maps.google.com/?cid=3123604590557371963&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.shawynwood.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "date night restaurants",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 85.4
+    },
+    {
+      "googlePlaceId": "ChIJ1ZdJ2WS32YgRUzj7gS9nYeY",
+      "name": "MIAM CAFE - BISCAYNE",
+      "address": "1040 Biscayne Blvd, Miami, FL 33132, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 5464,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "brunch_restaurant",
+      "types": [
+        "brunch_restaurant",
+        "salad_shop",
+        "breakfast_restaurant",
+        "sandwich_shop",
+        "bakery",
+        "coffee_shop",
+        "cafe",
+        "grocery_store",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 25.784686299999997,
+      "lng": -80.1903751,
+      "googleMapsUri": "https://maps.google.com/?cid=16600663155206207571&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miamcafe.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 85.28
+    },
+    {
+      "googlePlaceId": "ChIJOx8kLAiw2YgRgaWJcTwN1l8",
+      "name": "Amelia Earhart Park",
+      "address": "401 E 65th St, Hialeah, FL 33013, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 10910,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.8855187,
+      "lng": -80.27424099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6905721631873279361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.miamidade.gov/parks/amelia-earhart.asp",
+      "openNow": null,
+      "matchedQueries": [
+        "best parks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.22
+    },
+    {
+      "googlePlaceId": "ChIJLXuwSom02YgRzi6nUmT4PCE",
+      "name": "Flamingo Park",
+      "address": "11th Street, Jefferson Ave, Miami Beach, FL 33139, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2563,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 25.7840255,
+      "lng": -80.1374786,
+      "googleMapsUri": "https://maps.google.com/?cid=2395062211621367502&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.miamibeachfl.gov/city-hall/parks-and-recreation/parks-facilities-directory/flamingo-park/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "pickleball courts"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "sports-recreation"
+      ],
+      "popularityScore": 85.08
+    }
+  ]
+}

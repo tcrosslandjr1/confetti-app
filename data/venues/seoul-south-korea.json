@@ -1,0 +1,3281 @@
+{
+  "location": "Seoul, South Korea",
+  "generatedAt": "2026-05-17T19:37:12.596Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJqWqOqFeifDURpYJ5LnxX-Fw",
+      "name": "N Seoul Tower",
+      "address": "105 Namsangongwon-gil, Yongsan District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 66847,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5511694,
+      "lng": 126.98822659999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6699200636580889253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nseoultower.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset hikes",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.5
+    },
+    {
+      "googlePlaceId": "ChIJod7tSseifDUR9hXHLFNGMIs",
+      "name": "Gyeongbokgung Palace",
+      "address": "161 Sajik-ro, Jongno District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 46216,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.579617,
+      "lng": 126.977041,
+      "googleMapsUri": "https://maps.google.com/?cid=10029593693201569270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://royal.khs.go.kr/ROYAL/contents/menuInfo-gbg.do?grpCode=gbg",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.44
+    },
+    {
+      "googlePlaceId": "ChIJgf4OJaelfDURmDvA_sHyPUM",
+      "name": "Lotte World",
+      "address": "240 Olympic-ro, Songpa District, Seoul, South Korea",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 52216,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "amusement_park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5111158,
+      "lng": 127.09816699999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4845295689137142680&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lotteworld.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "skating rinks",
+        "kids activities",
+        "family friendly things to do",
+        "game night venues",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.52
+    },
+    {
+      "googlePlaceId": "ChIJ8cRRtD-ifDURoBcqFZyRluE",
+      "name": "War Memorial of Korea",
+      "address": "29 Itaewon-ro, Yongsan District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 18015,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.536986899999995,
+      "lng": 126.97710149999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16255340004596389792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.warmemo.or.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 95.47
+    },
+    {
+      "googlePlaceId": "ChIJN2x0fu2ifDUR51BupseGYmE",
+      "name": "National Museum of Korea",
+      "address": "137 Seobinggo-ro, Yongsan District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 28338,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.523850599999996,
+      "lng": 126.98047020000001,
+      "googleMapsUri": "https://maps.google.com/?cid=7017319361445515495&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museum.go.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 94.75
+    },
+    {
+      "googlePlaceId": "ChIJCdIYQBqhfDURkKY4q8e3k98",
+      "name": "Seoul Arts Center",
+      "address": "2406 Nambusunhwan-ro, Seocho District, Seoul, South Korea",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 12102,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.479290299999995,
+      "lng": 127.0128613,
+      "googleMapsUri": "https://maps.google.com/?cid=16110422360233387664&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.sac.or.kr/",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "cultural exhibits",
+        "cultural centers",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "adult-after-dark"
+      ],
+      "popularityScore": 94.22
+    },
+    {
+      "googlePlaceId": "ChIJT8H4r9qifDURmuXJ_6m6vM0",
+      "name": "Bukchon Hanok Village",
+      "address": "Gyedong-gil, Jongno District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 23965,
+      "priceLevel": null,
+      "primaryType": "landmark",
+      "types": [
+        "landmark",
+        "tourist_attraction",
+        "cultural_landmark",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5814696,
+      "lng": 126.9849519,
+      "googleMapsUri": "https://maps.google.com/?cid=14824929312700491162&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hanok.seoul.go.kr/front/kor/town/town01.do",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural centers",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 94.17
+    },
+    {
+      "googlePlaceId": "ChIJm3V0fu2ifDURRJ8IMUijVtY",
+      "name": "Gwangjang Market",
+      "address": "88 Cheonggyecheon-ro, Jongno District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 43868,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.570039799999996,
+      "lng": 126.99960360000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15444711502569316164&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.kwangjangmarket.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "holiday markets",
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 93.87
+    },
+    {
+      "googlePlaceId": "ChIJK_b0UX2jfDURmkYPvmWYm90",
+      "name": "Seoul Forest Park",
+      "address": "273 Ttukseom-ro, Seongdong-gu, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 10684,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.544387799999996,
+      "lng": 127.03744239999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15968524466520016538&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.seoul.go.kr/template/sub/seoulforest.do",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "kids activities",
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.82
+    },
+    {
+      "googlePlaceId": "ChIJ4wh0zluifDURaFBW2pdrKf8",
+      "name": "Changdeokgung",
+      "address": "99 Yulgok-ro, Jongno District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 13717,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5794309,
+      "lng": 126.9910426,
+      "googleMapsUri": "https://maps.google.com/?cid=18386345253664084072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://royal.khs.go.kr/ROYAL/contents/menuInfo-cdg.do?grpCode=cdg",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.86
+    },
+    {
+      "googlePlaceId": "ChIJIwCT4-yifDUR1E63iG76hr0",
+      "name": "Cheonggyecheon",
+      "address": "Jongno District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 10639,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.569101499999995,
+      "lng": 126.97866919999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13656878272694669012&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sisul.or.kr/open_content/cheonggye/",
+      "openNow": true,
+      "matchedQueries": [
+        "scenic walks",
+        "family friendly things to do",
+        "things to do this weekend",
+        "holiday markets",
+        "local landmarks",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.71
+    },
+    {
+      "googlePlaceId": "ChIJrUQcQuuifDUR-IWAEQylVek",
+      "name": "Gwanghwamun Square",
+      "address": "172 Sejong-daero, Jongno District, Seoul, South Korea",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.5,
+      "reviewCount": 14018,
+      "priceLevel": null,
+      "primaryType": "historical_landmark",
+      "types": [
+        "historical_landmark",
+        "tourist_attraction",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.572389,
+      "lng": 126.9769117,
+      "googleMapsUri": "https://maps.google.com/?cid=16813526255109441016&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://gwanghwamun.seoul.go.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "street fairs",
+        "holiday markets",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 92.08
+    },
+    {
+      "googlePlaceId": "ChIJ4XWDXNqYfDUR1omOTf7d4UQ",
+      "name": "DMZ Tour From Seoul / PLK Travel",
+      "address": "South Korea, Seoul, Jung District, Toegye-ro 16-gil, 5 2층",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 6857,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 37.5603522,
+      "lng": 126.98465689999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4963492348631615958&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.plktravel.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 92.08
+    },
+    {
+      "googlePlaceId": "ChIJc9c0zgNUezURmIAjGbaKoR8",
+      "name": "Everland",
+      "address": "199 Everland-ro, Pogok-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, South Korea",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 63856,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.2939104,
+      "lng": 127.20256639999998,
+      "googleMapsUri": "https://maps.google.com/?cid=2279255401136619672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.everland.com/everland/home/main",
+      "openNow": false,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 91.86
+    },
+    {
+      "googlePlaceId": "ChIJd2CFE9ekfDURzCHysZT1nRY",
+      "name": "Seoul Children's Grand Park",
+      "address": "216 Neungdong-ro, Gwangjin District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 13015,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.549363,
+      "lng": 127.08181259999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1629728659167388108&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sisul.or.kr/open_content/childrenpark/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 91.85
+    },
+    {
+      "googlePlaceId": "ChIJGXh8WPGifDURZOTN-wc3Tdc",
+      "name": "Shinsegae Department Store Main Store",
+      "address": "63 Sogong-ro, Jung District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 12821,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.56092230000001,
+      "lng": 126.98113889999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15514116798790100068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://department.shinsegae.com/store/main.jsp?storeCode=D01",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "seasonal pop ups",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.1
+    },
+    {
+      "googlePlaceId": "ChIJMcWZMY2ifDUR2NLv8F3Togc",
+      "name": "Deoksugung Palace",
+      "address": "99 Sejong-daero, Jung District, Seoul, South Korea",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 20207,
+      "priceLevel": null,
+      "primaryType": "cultural_landmark",
+      "types": [
+        "cultural_landmark",
+        "tourist_attraction",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5658862,
+      "lng": 126.97490169999999,
+      "googleMapsUri": "https://maps.google.com/?cid=550234504920290008&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://royal.khs.go.kr/dsg",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.83
+    },
+    {
+      "googlePlaceId": "ChIJfYjlFvWifDURYSDsoxYbN80",
+      "name": "Namdaemun Market",
+      "address": "21 Namdaemunsijang 4-gil, Jung District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 28125,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.559277,
+      "lng": 126.9777029,
+      "googleMapsUri": "https://maps.google.com/?cid=14787317685547704417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.namdaemunmarket.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.72
+    },
+    {
+      "googlePlaceId": "ChIJda9gFeQmYzURIsXnKaOqStY",
+      "name": "Nami Island",
+      "address": "1 Namiseom-gil, Namsan-myeon, Chuncheon, Gangwon-do, South Korea",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 37458,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.789935199999995,
+      "lng": 127.52580719999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15441341890152613154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.namisum.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.58
+    },
+    {
+      "googlePlaceId": "ChIJ6RPSci2jfDURXTSdf7JjYp8",
+      "name": "Naksan Park",
+      "address": "41 Naksan-gil, Jongno District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 6043,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.580657099999996,
+      "lng": 127.00748349999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11484851618044523613&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.seoul.go.kr/template/sub/naksan.do",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.53
+    },
+    {
+      "googlePlaceId": "ChIJod7tSseifDUR4HuzvkBA2ns",
+      "name": "The National Folk Museum of Korea",
+      "address": "37 Samcheong-ro, Jongno District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3743,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5816456,
+      "lng": 126.9789948,
+      "googleMapsUri": "https://maps.google.com/?cid=8924516258409577440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.nfm.go.kr/home/index.do/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 90.52
+    },
+    {
+      "googlePlaceId": "ChIJX2GTuVJFezURGK4FSyWdbak",
+      "name": "Haneul Park",
+      "address": "95 Haneulgongwon-ro, Mapo-gu, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 8284,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5674533,
+      "lng": 126.8854782,
+      "googleMapsUri": "https://maps.google.com/?cid=12208586948369296920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": null,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "family friendly things to do",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night"
+      ],
+      "popularityScore": 90.42
+    },
+    {
+      "googlePlaceId": "ChIJm3V0fu2ifDURL5X2_nPOeVQ",
+      "name": "Namsan Mountain Park",
+      "address": "231 Samil-daero, Jung District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 2490,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5509895,
+      "lng": 126.99089910000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6087123368962069807&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://parks.seoul.go.kr/template/sub/namsan.do",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.34
+    },
+    {
+      "googlePlaceId": "ChIJ8RLTNNakfDUR5IER601Rgi4",
+      "name": "Seoul Children's Museum",
+      "address": "216 Neungdong-ro, Gwangjin District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3311,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.550430999999996,
+      "lng": 127.07749450000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3351330467815195108&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seoulchildrensmuseum.org/main.do",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.13
+    },
+    {
+      "googlePlaceId": "ChIJmylq-vyifDUR_r3t4Ve-w3k",
+      "name": "Namsangol Hanok Village",
+      "address": "28 Toegye-ro 34-gil, Jung District, Seoul, South Korea",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.4,
+      "reviewCount": 10280,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.559315,
+      "lng": 126.99447699999997,
+      "googleMapsUri": "https://maps.google.com/?cid=8774065783709744638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://hanokmaeul.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90
+    },
+    {
+      "googlePlaceId": "ChIJIRVdC6pFezUR02aa2I7i57A",
+      "name": "Starfield Coex Mall",
+      "address": "513 Yeongdong-daero, Gangnam District, Seoul, South Korea",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 24568,
+      "priceLevel": null,
+      "primaryType": "point_of_interest",
+      "types": [
+        "point_of_interest",
+        "shopping_mall",
+        "establishment"
+      ],
+      "lat": 37.5118346,
+      "lng": 127.05978710000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12747406373442709203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.starfield.co.kr/coexmall/main.do",
+      "openNow": false,
+      "matchedQueries": [
+        "barcades",
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "shopping-markets",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.65
+    },
+    {
+      "googlePlaceId": "ChIJNcDTNGdfezURe02IeYml3yQ",
+      "name": "Seoul Grand Park",
+      "address": "102 Daegongwongwangjang-ro, Gwacheon-si, Gyeonggi-do, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 15039,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.4275247,
+      "lng": 127.0170252,
+      "googleMapsUri": "https://maps.google.com/?cid=2657024315039960443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://see-ticket.com/SeoulGrandPark/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJXz2vx_GifDURImd3aTJZ1VA",
+      "name": "Myeongdong Shopping Street",
+      "address": "Myeong-dong 2(i)-ga, Jung District, Seoul, South Korea",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.4,
+      "reviewCount": 26087,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5637699,
+      "lng": 126.9844765,
+      "googleMapsUri": "https://maps.google.com/?cid=5824659766126274338&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=6a7ed3b6-0be8-48fd-8786-6ef63e171f35&utm_source=googlemap",
+      "openNow": null,
+      "matchedQueries": [
+        "farmers markets",
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "shopping-markets",
+        "local-exploration"
+      ],
+      "popularityScore": 89.44
+    },
+    {
+      "googlePlaceId": "ChIJeTTrvI6ZfDURUj3EVtdv_hY",
+      "name": "Hangong-Gan",
+      "address": "South Korea, Seoul, Mapo-gu, 연남동 561-4",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 5,
+      "reviewCount": 1146,
+      "priceLevel": null,
+      "primaryType": "asian_fusion_restaurant",
+      "types": [
+        "asian_fusion_restaurant",
+        "fusion_restaurant",
+        "asian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.56103280000001,
+      "lng": 126.9204141,
+      "googleMapsUri": "https://maps.google.com/?cid=1656884683583274322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/hangonggan",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 89.44
+    },
+    {
+      "googlePlaceId": "ChIJ77fEAzuffDURLEWNv56G2KQ",
+      "name": "Yeouido Hangang Park",
+      "address": "330 Yeouidong-ro, Yeongdeungpo District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 18158,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "playground",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5267106,
+      "lng": 126.9347112,
+      "googleMapsUri": "https://maps.google.com/?cid=11878392033566344492&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://hangang.seoul.go.kr//",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.39
+    },
+    {
+      "googlePlaceId": "ChIJZ53lFwClfDURWzrE7GCacXE",
+      "name": "Whipped House",
+      "address": "16 Seongsui-ro 20-gil, Seongdong-gu, Seoul, South Korea",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2772,
+      "priceLevel": null,
+      "primaryType": "cosmetics_store",
+      "types": [
+        "cosmetics_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.543016,
+      "lng": 127.05836099999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8174484539733981787&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://creatrip.com/en/spot/14309",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.97
+    },
+    {
+      "googlePlaceId": "ChIJY8CkmHqlfDUR2PPJ26BlhrA",
+      "name": "LINE FRIENDS SQUARE SEONGSU",
+      "address": "77 Seongsui-ro, Seongdong-gu, Seoul, South Korea",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 2743,
+      "priceLevel": null,
+      "primaryType": "general_store",
+      "types": [
+        "general_store",
+        "food_store",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.5419619,
+      "lng": 127.0560176,
+      "googleMapsUri": "https://maps.google.com/?cid=12719965939111162840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://linefriendssquare.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.94
+    },
+    {
+      "googlePlaceId": "ChIJRynTqcaifDURBaSFx8HncPs",
+      "name": "National Museum of Modern and Contemporary Art, Seoul",
+      "address": "30 Samcheong-ro, Jongno District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 4083,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5788333,
+      "lng": 126.9804281,
+      "googleMapsUri": "https://maps.google.com/?cid=18118236120373634053&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mmca.go.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.89
+    },
+    {
+      "googlePlaceId": "ChIJl4xz5DalfDUR5J-cZDd1bDM",
+      "name": "COEX Convention & Exhibition Center",
+      "address": "513 Yeongdong-daero, Gangnam District, Seoul, South Korea",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 8542,
+      "priceLevel": null,
+      "primaryType": "convention_center",
+      "types": [
+        "convention_center",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.511682799999996,
+      "lng": 127.05915100000001,
+      "googleMapsUri": "https://maps.google.com/?cid=3705465474190712804&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.coex.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "ticketed events",
+        "street fairs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.77
+    },
+    {
+      "googlePlaceId": "ChIJ91oV-fGifDURtBoizcsB2Hc",
+      "name": "LOTTE Department Store Main Store",
+      "address": "81 Namdaemun-ro, Jung District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 13379,
+      "priceLevel": null,
+      "primaryType": "department_store",
+      "types": [
+        "department_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.564707299999995,
+      "lng": 126.98166370000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8635654260314479284&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lotteshopping.com/store/main?cstrCd=0001",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "interactive pop ups",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "immersive-experiences",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.38
+    },
+    {
+      "googlePlaceId": "ChIJU97c4xujfDURu6F4mICL7Ps",
+      "name": "Leeum Museum of Art",
+      "address": "60-16 Itaewon-ro 55-gil, Yongsan District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 3037,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "art_gallery",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5379389,
+      "lng": 126.9992749,
+      "googleMapsUri": "https://maps.google.com/?cid=18153037582453744059&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.leeum.org/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.36
+    },
+    {
+      "googlePlaceId": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s",
+      "name": "Lotte World Tower",
+      "address": "300 Olympic-ro, Songpa District, Seoul, South Korea",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.4,
+      "reviewCount": 50674,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "hotel",
+        "corporate_office",
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.512464099999995,
+      "lng": 127.10254300000001,
+      "googleMapsUri": "https://maps.google.com/?cid=12388013674260724962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lwt.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 88.28
+    },
+    {
+      "googlePlaceId": "ChIJz7WjUcWYfDURLQpMqR1EfhI",
+      "name": "Club FF",
+      "address": "407-8 Seogyo-dong, Mapo-gu, Seoul, South Korea",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 1040,
+      "priceLevel": null,
+      "primaryType": "association_or_organization",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5502152,
+      "lng": 126.92228920000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1332577433933318701&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://clubff.modoo.at/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 88.04
+    },
+    {
+      "googlePlaceId": "ChIJgTlJS-eifDUR2Hk0TIa4xrw",
+      "name": "The Painters Gwanghwamun theater",
+      "address": "3 Jeongdong-gil, Jung District, Seoul, South Korea",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.9,
+      "reviewCount": 4446,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5681697,
+      "lng": 126.9699923,
+      "googleMapsUri": "https://maps.google.com/?cid=13602762611462797784&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thepainters.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 87.86
+    },
+    {
+      "googlePlaceId": "ChIJ6_AXh4WjfDUR6CFwDwSvXhc",
+      "name": "다이나믹 메이즈 인사동점",
+      "address": "South Korea, Seoul, Jongno District, Insadong-gil, 12 대일빌딩 지하 1층",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.8,
+      "reviewCount": 1341,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_park",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.571840699999996,
+      "lng": 126.98720859999997,
+      "googleMapsUri": "https://maps.google.com/?cid=1683975742656881128&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dynamicmaze.com/main/main.php#&slider1=2",
+      "openNow": false,
+      "matchedQueries": [
+        "escape rooms",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.74
+    },
+    {
+      "googlePlaceId": "ChIJ0aVJAwmjfDURPfa3OEEMUTE",
+      "name": "DMZ Tour - Seoul City Tour",
+      "address": "South Korea, Seoul, Jongno District, Insa-dong, 194-4 하나로빌딩 507호",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1574,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 37.572060199999996,
+      "lng": 126.9853831,
+      "googleMapsUri": "https://maps.google.com/?cid=3553635055236019773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.koreaseoulcitytour.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.44
+    },
+    {
+      "googlePlaceId": "ChIJW7FBDfCifDURHTpisLbVUH0",
+      "name": "Myeongdong Kyoja",
+      "address": "29 Myeongdong 10-gil, Jung District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.2,
+      "reviewCount": 14480,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "dumpling_restaurant",
+      "types": [
+        "dumpling_restaurant",
+        "korean_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.5625266,
+      "lng": 126.98560900000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9029952233497836061&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mdkj.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 87.13
+    },
+    {
+      "googlePlaceId": "ChIJyTgAjPKifDURQO2hRmq-LqE",
+      "name": "Seoul Plaza",
+      "address": "110 Sejong-daero, Jung District, Seoul, South Korea",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.3,
+      "reviewCount": 3445,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5655675,
+      "lng": 126.978014,
+      "googleMapsUri": "https://maps.google.com/?cid=11614429852695915840&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://plaza.seoul.go.kr/seoul",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "skating rinks",
+        "events this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "sports-recreation",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJe6zftTajfDURivWXLZMCTjk",
+      "name": "Kampungku Restaurant",
+      "address": "16-4 Namsan-dong 2(i)-ga, Jung District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 3387,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "halal_restaurant",
+      "types": [
+        "halal_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.5590205,
+      "lng": 126.98602059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4129240739493705098&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://m.facebook.com/kampungkumyeongdong/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.96
+    },
+    {
+      "googlePlaceId": "ChIJ8xRYr29FezUR3AtFqx2pIlw",
+      "name": "Dongdaemun Design Plaza (DDP)",
+      "address": "281 Eulji-ro, Jung District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 31551,
+      "priceLevel": null,
+      "primaryType": "cultural_center",
+      "types": [
+        "cultural_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5665256,
+      "lng": 127.00922360000001,
+      "googleMapsUri": "https://maps.google.com/?cid=6639054745590107100&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://ddp.or.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 86.78
+    },
+    {
+      "googlePlaceId": "ChIJ20xMxqGgfDURGokBIQOyJVI",
+      "name": "Seoulland",
+      "address": "181 Gwangmyeong-ro, Gwacheon-si, Gyeonggi-do, South Korea",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 13925,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.4341563,
+      "lng": 127.02012669999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5919333011756779802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.seoulland.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.36
+    },
+    {
+      "googlePlaceId": "ChIJm432th2jfDURPewrnLgZyII",
+      "name": "이태리국시 한남(ITALYGUKSI HANNAM)",
+      "address": "South Korea, Seoul, Yongsan District, Itaewon-ro, 234 2층 극동스푸링쿨라(주",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.9,
+      "reviewCount": 7666,
+      "priceLevel": null,
+      "primaryType": "fusion_restaurant",
+      "types": [
+        "fusion_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.5356921,
+      "lng": 126.99960370000001,
+      "googleMapsUri": "https://maps.google.com/?cid=9423810500957563965&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "date night restaurants"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 86.33
+    },
+    {
+      "googlePlaceId": "ChIJZ-YgONuYfDUR2w8zpfOvpvE",
+      "name": "강남 돼지상회 무한리필 홍대점 | Hongdae Korean bbq restaurant All you can eat | サムギョプサル | 焼肉 | 烤肉",
+      "address": "28 Hongik-ro 5an-gil, 서교동 Mapo-gu, Seoul, South Korea",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 4710,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "korean_barbecue_restaurant",
+      "types": [
+        "korean_barbecue_restaurant",
+        "korean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.553538499999995,
+      "lng": 126.921178,
+      "googleMapsUri": "https://maps.google.com/?cid=17412798470258102235&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.bestkoreanbbqrestaurant.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.29
+    },
+    {
+      "googlePlaceId": "ChIJgcs2nlujfDURZe-3Vni6FcE",
+      "name": "Myeongdong Korean BBQ Mongvely",
+      "address": "South Korea, Seoul, Jung District, Myeongdong 8na-gil, 9 3층",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 4529,
+      "priceLevel": null,
+      "primaryType": "korean_barbecue_restaurant",
+      "types": [
+        "korean_barbecue_restaurant",
+        "barbecue_restaurant",
+        "korean_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.561357,
+      "lng": 126.98441619999998,
+      "googleMapsUri": "https://maps.google.com/?cid=13913231649844752229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.myeongdongkoreanbbqmongvely.com/korean-bbq-in-myeongdong-seoul",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 86.17
+    },
+    {
+      "googlePlaceId": "ChIJJ_I-T1yZfDUR-1HhUuG4E6I",
+      "name": "THE SEOUL PUB CRAWL",
+      "address": "362-14 Seogyo-dong, Mapo-gu, Seoul, South Korea",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 559,
+      "priceLevel": null,
+      "primaryType": "service",
+      "types": [
+        "service",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.551711499999996,
+      "lng": 126.92290390000001,
+      "googleMapsUri": "https://maps.google.com/?cid=11678881536599478779&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.seoulpubcrawl.kr/",
+      "openNow": true,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.08
+    },
+    {
+      "googlePlaceId": "ChIJeRHNK5mjfDURcT8zYZsZv-Q",
+      "name": "Children's Museum of the National Museum of Korea",
+      "address": "137 Seobinggo-ro, Yongsan District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1107,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5239147,
+      "lng": 126.97875710000001,
+      "googleMapsUri": "https://maps.google.com/?cid=16482921316340678513&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.museum.go.kr/site/child/home",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 86.03
+    },
+    {
+      "googlePlaceId": "ChIJEbpmM_CifDURKJZq-oh9uxo",
+      "name": "Myeongdong NANTA Theatre",
+      "address": "UNESCO House, 26 Myeongdong-gil, Jung District, Seoul, South Korea",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 5572,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5635748,
+      "lng": 126.98361860000001,
+      "googleMapsUri": "https://maps.google.com/?cid=1926271292901332520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nanta.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 85.92
+    },
+    {
+      "googlePlaceId": "ChIJLwsYxYijfDURiJD-QZw6MYU",
+      "name": "Jungsik Seoul",
+      "address": "11 Seolleung-ro 158-gil, Gangnam District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 1611,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "korean_restaurant",
+      "types": [
+        "korean_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.525673399999995,
+      "lng": 127.04108459999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9597516723699749000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.jungsik.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.67
+    },
+    {
+      "googlePlaceId": "ChIJ43as88ajfDURSfI9rFRp0SA",
+      "name": "Bar Pomme",
+      "address": "135-4 Tongin-dong, Jongno District, Seoul, South Korea",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 470,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5793302,
+      "lng": 126.9703248,
+      "googleMapsUri": "https://maps.google.com/?cid=2364787091734131273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://pommebar.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.54
+    },
+    {
+      "googlePlaceId": "ChIJ72K1TGqkfDURa_ENqoUeeXs",
+      "name": "SEA LIFE COEX",
+      "address": "513 Yeongdong-daero, Gangnam District, Seoul, South Korea",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.4,
+      "reviewCount": 11902,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.513131,
+      "lng": 127.05828269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8897176098279649643&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.visitsealife.com/coex-seoul/",
+      "openNow": false,
+      "matchedQueries": [
+        "family friendly things to do",
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 85.46
+    },
+    {
+      "googlePlaceId": "ChIJA9lRtLGqfDURyWWCAEvlS_A",
+      "name": "Hwadamsup",
+      "address": "278 Docheogwit-ro, Docheok-myeon, Gwangju-si, Gyeonggi-do, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.5,
+      "reviewCount": 14574,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "hiking_area",
+        "botanical_garden",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.3412584,
+      "lng": 127.28920369999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17315185302649857481&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hwadamsup.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 85.45
+    },
+    {
+      "googlePlaceId": "ChIJXRZRbvCifDURbuKKYKu2iwM",
+      "name": "BOUND BAR",
+      "address": "South Korea, Seoul, 5F Myeongdong 10-gil, 38 KR 서울특별시 중구",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.8,
+      "reviewCount": 591,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5621626,
+      "lng": 126.9855789,
+      "googleMapsUri": "https://maps.google.com/?cid=255498651051942510&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "romantic bars",
+        "game night venues",
+        "karaoke bars",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 85.41
+    },
+    {
+      "googlePlaceId": "ChIJqb-ne_CifDURR-yH8a3sjXM",
+      "name": "Myeongdong Night Market",
+      "address": "8-3 Chungmuro 2(i)-ga, Jung District, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 6625,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.561668499999996,
+      "lng": 126.9858438,
+      "googleMapsUri": "https://maps.google.com/?cid=8326571517903629383&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "things to do this weekend",
+        "holiday markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 85.37
+    },
+    {
+      "googlePlaceId": "ChIJ6bHiyEGjfDUR60pDrDnWtrA",
+      "name": "Daehan Hanbok Gyeongbokgung Hanbok Rental",
+      "address": "South Korea, Seoul, Jongno District, Sajik-ro, 133-2 2 층",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.9,
+      "reviewCount": 3484,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "clothing_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.576087099999995,
+      "lng": 126.97345969999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12733600539628227307&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://linktr.ee/daehanhanbok",
+      "openNow": false,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 85.34
+    },
+    {
+      "googlePlaceId": "ChIJ0X7IQw2jfDURa8XanOsn0cw",
+      "name": "Cherry Garden",
+      "address": "South Korea, Seoul, Jongno District, il)-dong 1 KR 서울특별시 종로구 서울 종로구 종로 326 330-2 Changsin https://naver.me/5Vm1R32v",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 1188,
+      "priceLevel": null,
+      "primaryType": "korean_restaurant",
+      "types": [
+        "korean_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "halal_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.5723047,
+      "lng": 127.0139954,
+      "googleMapsUri": "https://maps.google.com/?cid=14758621346772206955&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/cherrygarden00?igsh=MWxmaWxoOXVxdncz",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 85.21
+    },
+    {
+      "googlePlaceId": "ChIJ-REWzvGjfDURAZhPWTYiJq0",
+      "name": "런닝맨 인사동점 (Running Man Experience Center Insadong)",
+      "address": "South Korea, Seoul, Jongno District, Insadong-gil, 12 대일빌딩 지하 1층",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.9,
+      "reviewCount": 1183,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_park",
+        "indoor_playground",
+        "playground",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5718175,
+      "lng": 126.98735409999998,
+      "googleMapsUri": "https://maps.google.com/?cid=12476697434498504705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://running-man.co.kr/main/main.php",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.19
+    },
+    {
+      "googlePlaceId": "ChIJY-nOhd2jfDUR_m1oGRl-0Cw",
+      "name": "Seoul Museum of Craft Art",
+      "address": "4 Yulgok-ro 3-gil, Jongno District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 1313,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.576599699999996,
+      "lng": 126.98322530000002,
+      "googleMapsUri": "https://maps.google.com/?cid=3229219579090202110&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://craftmuseum.seoul.go.kr/main",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 85.07
+    },
+    {
+      "googlePlaceId": "ChIJNbhaHPGifDURDCGKakYKwXw",
+      "name": "Odarijip Ganjang Gejang",
+      "address": "2F, 28 명동8나길 중구 서울특별시 South Korea",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.7,
+      "reviewCount": 6339,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "korean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.561379599999995,
+      "lng": 126.9834141,
+      "googleMapsUri": "https://maps.google.com/?cid=8989477628759646476&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.odarijip.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 85.03
+    },
+    {
+      "googlePlaceId": "ChIJl9uaZfCifDURGRfX-D7QFHQ",
+      "name": "Cats' Playground",
+      "address": "37-14 Myeongdong 8-gil, Jung District, Seoul, South Korea",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 2254,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.561951,
+      "lng": 126.98546899999998,
+      "googleMapsUri": "https://maps.google.com/?cid=8364539376815249177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.facebook.com/catplayground",
+      "openNow": false,
+      "matchedQueries": [
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 85.02
+    },
+    {
+      "googlePlaceId": "ChIJN2x0fu2ifDURheJ4-U3YaAA",
+      "name": "Bukhansan National Park",
+      "address": "262 Bogungmun-ro, Seongbuk District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 2901,
+      "priceLevel": null,
+      "primaryType": "national_park",
+      "types": [
+        "national_park",
+        "tourist_attraction",
+        "hiking_area",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.6190261,
+      "lng": 126.99695839999998,
+      "googleMapsUri": "https://maps.google.com/?cid=29511226987438725&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.knps.or.kr/bukhan",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.97
+    },
+    {
+      "googlePlaceId": "ChIJmcQwZJSifDURXE5tDMDpElI",
+      "name": "I Love Seoul Tour",
+      "address": "South Korea, Seoul, Jung District, Sejong-daero, 135, KOREANA HOTEL, 804호",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 2174,
+      "priceLevel": null,
+      "primaryType": "travel_agency",
+      "types": [
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 37.568031,
+      "lng": 126.976669,
+      "googleMapsUri": "https://maps.google.com/?cid=5914046271742365276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.iloveseoultour.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "day trips"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.96
+    },
+    {
+      "googlePlaceId": "ChIJA6gxryiZfDURJvmbeBvdz_Y",
+      "name": "Mangwon Market",
+      "address": "27 Poeun-ro 6-gil, Mapo-gu, Seoul, South Korea",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 8744,
+      "priceLevel": null,
+      "primaryType": "market",
+      "types": [
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5559018,
+      "lng": 126.90628539999997,
+      "googleMapsUri": "https://maps.google.com/?cid=17784676563566721318&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.mangwonmarket.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets"
+      ],
+      "popularityScore": 84.89
+    },
+    {
+      "googlePlaceId": "ChIJzzJLib-ffDURjaM7pZPPh10",
+      "name": "Garden of Morning Calm",
+      "address": "432 Sumogwon-ro, Sang-myeon, Gapyeong-gun, Gyeonggi-do, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.4,
+      "reviewCount": 17209,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.7439678,
+      "lng": 127.35248639999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6739583600422527885&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.morningcalm.co.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 84.88
+    },
+    {
+      "googlePlaceId": "ChIJ0dTW7JWjfDURaSIxN1CVe1I",
+      "name": "Line Esthe (aesthetic & spa )",
+      "address": "South Korea, Seoul, Jung District, Myeongdong 7-gil, 19 중원빌딩 4층",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 2104,
+      "priceLevel": null,
+      "primaryType": "beauty_salon",
+      "types": [
+        "beautician",
+        "skin_care_clinic",
+        "massage_spa",
+        "massage",
+        "beauty_salon",
+        "spa",
+        "medical_clinic",
+        "service",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5647218,
+      "lng": 126.98419650000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5943508305001390697&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://lineesthemyeongdong.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 84.86
+    },
+    {
+      "googlePlaceId": "ChIJjXuM24mjfDURSwmouRnxNlM",
+      "name": "Mingles",
+      "address": "South Korea, Seoul, Gangnam District, Dosan-daero 67-gil, 19 힐탑빌딩 2층",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 864,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "korean_restaurant",
+      "types": [
+        "korean_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.5253386,
+      "lng": 127.04414519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5996245046681667915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.restaurant-mingles.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.8
+    },
+    {
+      "googlePlaceId": "ChIJe_DH-eeifDURH6NzBYr0d7I",
+      "name": "Insa-dong Culture Street",
+      "address": "Insa-dong, Jongno District, Seoul, South Korea",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 4.3,
+      "reviewCount": 13600,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5721517,
+      "lng": 126.9867517,
+      "googleMapsUri": "https://maps.google.com/?cid=12860016134613869343&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hiinsa.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "neighborhood tours",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 84.78
+    },
+    {
+      "googlePlaceId": "ChIJXZvbb0iifDURdSMUpMDYfTI",
+      "name": "Southside Parlor",
+      "address": "218 Noksapyeong-daero, Yongsan District, Seoul, South Korea",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 596,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "wine_bar",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.5370925,
+      "lng": 126.9870429,
+      "googleMapsUri": "https://maps.google.com/?cid=3638302395883332469&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://ssp448.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "sunset date spots",
+        "trivia nights",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "social-group-activities",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.74
+    },
+    {
+      "googlePlaceId": "ChIJfZLLbCOjfDURJv2oIh07atc",
+      "name": "찰스 H. Charles H. (H. Bar)",
+      "address": "97 Saemunan-ro, Jongno District, Seoul, South Korea",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 590,
+      "priceLevel": null,
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "wine_bar",
+        "lounge_bar",
+        "night_club",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 37.5705573,
+      "lng": 126.97543139999998,
+      "googleMapsUri": "https://maps.google.com/?cid=15522284062007426342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fourseasons.com/seoul/dining/lounges/charles_h/?utm_source=google&utm_medium=organicsearch&utm_campaign=tor-sko-fab-mid-seo-na&utm_content=na-na&utm_term=na",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 84.7
+    },
+    {
+      "googlePlaceId": "ChIJYfNQzIKifDURMkFeEUrf-QE",
+      "name": "Seodaemun Prison History Hall",
+      "address": "251 Tongil-ro, Seodaemun-gu, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 7975,
+      "priceLevel": null,
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 37.574270999999996,
+      "lng": 126.95607100000001,
+      "googleMapsUri": "https://maps.google.com/?cid=142390372450844978&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sphh.sscmc.or.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.65
+    },
+    {
+      "googlePlaceId": "ChIJHyS4wtaifDURHzOOAZM0aWA",
+      "name": "Changdeokgung Secret Garden",
+      "address": "South Korea, Seoul, Jongno District, 율곡로 99번지",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 1973,
+      "priceLevel": null,
+      "primaryType": "garden",
+      "types": [
+        "garden",
+        "cultural_landmark",
+        "historical_landmark",
+        "tourist_attraction",
+        "park",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5821721,
+      "lng": 126.9931659,
+      "googleMapsUri": "https://maps.google.com/?cid=6947141706186634015&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://royal.cha.go.kr/cdg",
+      "openNow": false,
+      "matchedQueries": [
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 84.6
+    },
+    {
+      "googlePlaceId": "ChIJ2e-pT3yjfDUR1VcUJAlrEGQ",
+      "name": "Odarijip Ganjang Gejang Savoy Hotel Branch",
+      "address": "South Korea, 2F 4F B building Myeongdong 8na-gil, 10 Savoy hotel KR 서울특별시 중구",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 4413,
+      "priceLevel": null,
+      "primaryType": "korean_restaurant",
+      "types": [
+        "korean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.561567,
+      "lng": 126.98449249999997,
+      "googleMapsUri": "https://maps.google.com/?cid=7210380690424354773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.59
+    },
+    {
+      "googlePlaceId": "ChIJMZjdxDyjfDURApJx0vbvwjQ",
+      "name": "Wiggle Wiggle Town",
+      "address": "South Korea, Seoul, Jung District, Myeongdong-gil, 14, Noon Square, 4층",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1890,
+      "priceLevel": null,
+      "primaryType": "gift_shop",
+      "types": [
+        "gift_shop",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.563412899999996,
+      "lng": 126.9828907,
+      "googleMapsUri": "https://maps.google.com/?cid=3801864878825771522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.wiggle-wiggle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.52
+    },
+    {
+      "googlePlaceId": "ChIJJwM3CsmZfDURkbyJbTCuPu0",
+      "name": "ROOT HONGDAE",
+      "address": "South Korea, Seoul, Mapo-gu, Yanghwa-ro, 140 지하 1층",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 5,
+      "reviewCount": 3040,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.554904799999996,
+      "lng": 126.92212230000001,
+      "googleMapsUri": "https://maps.google.com/?cid=17095292758564387985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": null,
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 84.51
+    },
+    {
+      "googlePlaceId": "ChIJfyIIeLeZfDURuzSsjg2Q2Bc",
+      "name": "Mibbedong",
+      "address": "33-21 Donggyo-ro 38-gil, Mapo-gu, Seoul, South Korea",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 3767,
+      "priceLevel": null,
+      "primaryType": "japanese_restaurant",
+      "types": [
+        "japanese_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.562104399999996,
+      "lng": 126.92618399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1718281645744469179&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mibbedong.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.49
+    },
+    {
+      "googlePlaceId": "ChIJix55b8ujfDURZ24Whhm-YFo",
+      "name": "Lit Lounge Itaewon",
+      "address": "34-65 Itaewon-dong, Yongsan District, Seoul, South Korea",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 192,
+      "priceLevel": null,
+      "primaryType": "hookah_bar",
+      "types": [
+        "hookah_bar",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5338687,
+      "lng": 126.98888559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6512414078010814055&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.planethustle.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "comedy shows",
+        "game night venues",
+        "luxury lounges",
+        "bottle service",
+        "adult nightlife"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "social-group-activities",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 84.48
+    },
+    {
+      "googlePlaceId": "ChIJ70ZLLpOifDUReqEQ7NGzGLw",
+      "name": "Four Seasons Hotel Seoul",
+      "address": "97 Saemunan-ro, Dangju-dong, Jongno District, Seoul, South Korea",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.6,
+      "reviewCount": 7268,
+      "priceLevel": null,
+      "primaryType": "hotel",
+      "types": [
+        "hotel",
+        "extended_stay_hotel",
+        "resort_hotel",
+        "lodging",
+        "spa",
+        "wedding_venue",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 37.57071,
+      "lng": 126.9754143,
+      "googleMapsUri": "https://maps.google.com/?cid=13553780792761557370&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fourseasons.com/seoul/?utm_source=google&utm_medium=organicsearch&utm_campaign=tor-sko-hre-mid-seo-na&utm_content=na-na&utm_term=na",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 84.36
+    },
+    {
+      "googlePlaceId": "ChIJuX60FsCifDURSCCDD2krBiA",
+      "name": "National Palace Museum of Korea",
+      "address": "12 Hyoja-ro, Jongno District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 7265,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5766084,
+      "lng": 126.974951,
+      "googleMapsUri": "https://maps.google.com/?cid=2307579589305770056&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gogung.go.kr/main.do",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 84.36
+    },
+    {
+      "googlePlaceId": "ChIJF8iSZ7GlfDURDlfgs5z2QHw",
+      "name": "Cinderella Bar",
+      "address": "South Korea, Seoul, Seongdong-gu, Seongsu-dong 2(i)-ga, 289-247 1층",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.9,
+      "reviewCount": 518,
+      "priceLevel": null,
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5461793,
+      "lng": 127.0548466,
+      "googleMapsUri": "https://maps.google.com/?cid=8953427212105701134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/cinderella.seoul/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night"
+      ],
+      "popularityScore": 84.35
+    },
+    {
+      "googlePlaceId": "ChIJQyoEXiaifDURTA2CNaCIUA4",
+      "name": "Yongsan Family Park",
+      "address": "185 Seobinggo-ro, Yongsan District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 2571,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5211389,
+      "lng": 126.98393779999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1031474536341704012&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://parks.seoul.go.kr/template/sub/yongsan.do",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJuXbaWa6jfDURi1SSQZAl794",
+      "name": "POCA SPOT Myeong-dong",
+      "address": "33 Myeongdong 8na-gil, Jung District, Seoul, South Korea",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1788,
+      "priceLevel": null,
+      "primaryType": "store",
+      "types": [
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.561184100000006,
+      "lng": 126.9830623,
+      "googleMapsUri": "https://maps.google.com/?cid=16064099697359475851&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://pocaspot.com/myeongdong",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 84.34
+    },
+    {
+      "googlePlaceId": "ChIJuzsLVjqjfDURyuJXxR74qcw",
+      "name": "Dongdaemun Special Duck",
+      "address": "12 Jong-ro 46-gil, Jongno District, Seoul, South Korea",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 2500,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "korean_restaurant",
+      "types": [
+        "korean_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5710388,
+      "lng": 127.01062789999997,
+      "googleMapsUri": "https://maps.google.com/?cid=14747591265844978378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.tiktok.com/@dddmspecialduck?_r=1&_t=ZS-946cuG8DPR2",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 84.3
+    },
+    {
+      "googlePlaceId": "ChIJJa71fv6lfDUR3ZSZrZG8zNQ",
+      "name": "스파고결 SPA GOGYEOL",
+      "address": "South Korea, Seoul, of J&C building Seolleung-ro, 132-gil J&C빌딩 4층 4th Floor KR 서울특별시 강남구 선릉로 132길 13",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 5,
+      "reviewCount": 1662,
+      "priceLevel": null,
+      "primaryType": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "spa",
+        "medical_clinic",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5182232,
+      "lng": 127.04220559999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15333838165158499549&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://link.inpock.co.kr/spa.gogyeol",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 84.11
+    },
+    {
+      "googlePlaceId": "ChIJN9jfPNaifDURz_NR6E1r4Eo",
+      "name": "Changgyeonggung Palace",
+      "address": "185 Changgyeonggung-ro, Jongno District, Seoul, South Korea",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.7,
+      "reviewCount": 4690,
+      "priceLevel": null,
+      "primaryType": null,
+      "types": [
+        "cultural_landmark",
+        "historical_landmark",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5788149,
+      "lng": 126.9949298,
+      "googleMapsUri": "https://maps.google.com/?cid=5395430335944192975&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://royal.khs.go.kr/cgg",
+      "openNow": false,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 84.08
+    },
+    {
+      "googlePlaceId": "ChIJ6QJk44KgfDUR2gX4x1hdX18",
+      "name": "Gwacheon National Science Museum",
+      "address": "110 Sanghabeol-ro, Gwacheon-si, Gyeonggi-do, South Korea",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 9105,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.438122799999995,
+      "lng": 127.00577679999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6872314192284091866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sciencecenter.go.kr/scipia/",
+      "openNow": false,
+      "matchedQueries": [
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 83.97
+    },
+    {
+      "googlePlaceId": "ChIJRfRu1VaifDURN2z4slxddQ0",
+      "name": "Namsan Dulle-gil Trail",
+      "address": "yongsan-dong 2(i)-ga, Jung District, Seoul, South Korea",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 917,
+      "priceLevel": null,
+      "primaryType": "hiking_area",
+      "types": [
+        "hiking_area",
+        "tourist_attraction",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5532916,
+      "lng": 126.9845912,
+      "googleMapsUri": "https://maps.google.com/?cid=969783947489209399&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://parks.seoul.go.kr/namsan",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks",
+        "neighborhood tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 83.94
+    },
+    {
+      "googlePlaceId": "ChIJ_cTH4vCifDURSR_FqUtyo-A",
+      "name": "Myeongdong Mud",
+      "address": "22 3F Myeongdong 8na-gil, Jung District, Seoul, South Korea",
+      "category": "wellness-relaxation",
+      "categoryLabel": "Wellness & Relaxation",
+      "rating": 4.9,
+      "reviewCount": 1277,
+      "priceLevel": null,
+      "primaryType": "massage_spa",
+      "types": [
+        "massage_spa",
+        "wellness_center",
+        "massage",
+        "beauty_salon",
+        "spa",
+        "service",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5614706,
+      "lng": 126.98373799999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16186907154996076361&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://wa.me/821056556115",
+      "openNow": false,
+      "matchedQueries": [
+        "best spas",
+        "sauna experiences"
+      ],
+      "matchedCategories": [
+        "wellness-relaxation"
+      ],
+      "popularityScore": 83.93
+    },
+    {
+      "googlePlaceId": "ChIJ7flynb6jfDURr_2yp5gZwmQ",
+      "name": "SeMA - Seoul Museum of Art",
+      "address": "61 Deoksugung-gil, Jung District, Seoul, South Korea",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 2083,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5640625,
+      "lng": 126.9738125,
+      "googleMapsUri": "https://maps.google.com/?cid=7260393692713909679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sema.seoul.go.kr/",
+      "openNow": false,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 83.92
+    },
+    {
+      "googlePlaceId": "ChIJu7dpc45FezURhLMS5U5eaJk",
+      "name": "Seoul Sky",
+      "address": "300 Olympic-ro, Songpa District, Seoul, South Korea",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 6245,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5125295,
+      "lng": 127.10230500000002,
+      "googleMapsUri": "https://maps.google.com/?cid=11054188978324550532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://seoulsky.lotteworld.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "romantic-date-night"
+      ],
+      "popularityScore": 83.88
+    },
+    {
+      "googlePlaceId": "ChIJN775wJWZfDURPZhMxakX_5A",
+      "name": "Cartoon Plus Cafe 24hour",
+      "address": "29 Yanghwa-ro 16-gil, Mapo-gu, Seoul, South Korea",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.9,
+      "reviewCount": 2168,
+      "priceLevel": null,
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "point_of_interest",
+        "food",
+        "association_or_organization",
+        "establishment"
+      ],
+      "lat": 37.5531493,
+      "lng": 126.92114269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=10448095678449883197&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://cartoonpluscafe.imweb.me/",
+      "openNow": true,
+      "matchedQueries": [
+        "board game cafes"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 83.85
+    },
+    {
+      "googlePlaceId": "ChIJ_U25gA6lfDURRrQWPfTv0UY",
+      "name": "BALBAL VINTAGE",
+      "address": "21 Myeongdong 6-gil, Jung District, Seoul, South Korea",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 5,
+      "reviewCount": 1494,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "clothing_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5624654,
+      "lng": 126.98444250000001,
+      "googleMapsUri": "https://maps.google.com/?cid=5103123685063439430&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.balbalvintage.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "vintage shops"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 83.78
+    },
+    {
+      "googlePlaceId": "ChIJY4ot2QqlfDURFzi2WmB3i6U",
+      "name": "LOTTE WORLD AQUARIUM",
+      "address": "300 Olympic-ro, Songpa District, Seoul, South Korea",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.3,
+      "reviewCount": 17131,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.513485599999996,
+      "lng": 127.1048655,
+      "googleMapsUri": "https://maps.google.com/?cid=11928759293743347735&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.lotteworld.com/aquarium/index.asp",
+      "openNow": false,
+      "matchedQueries": [
+        "aquariums"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 83.76
+    },
+    {
+      "googlePlaceId": "ChIJR8d8dq6jfDURcXHKocdhmvM",
+      "name": "Blue Square",
+      "address": "294 Itaewon-ro, Yongsan District, Seoul, South Korea",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 6936,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5407031,
+      "lng": 127.0026478,
+      "googleMapsUri": "https://maps.google.com/?cid=17553450007670714737&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bluesquare.kr",
+      "openNow": null,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events"
+      ],
+      "matchedCategories": [
+        "live-entertainment"
+      ],
+      "popularityScore": 83.76
+    },
+    {
+      "googlePlaceId": "ChIJW9rwD6SjfDURIsz0swBZILw",
+      "name": "sam sam sam",
+      "address": "25 Hangang-daero 50-gil, Yongsan District, Seoul, South Korea",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 2868,
+      "priceLevel": null,
+      "primaryType": "western_restaurant",
+      "types": [
+        "western_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5315562,
+      "lng": 126.97213130000002,
+      "googleMapsUri": "https://maps.google.com/?cid=13555932737939229730&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://instagram.com/samsamsam.kr",
+      "openNow": false,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 83.63
+    },
+    {
+      "googlePlaceId": "ChIJEadTU22ZfDUR5a0eGJIKQnA",
+      "name": "943 King's Cross",
+      "address": "24 Yanghwa-ro 16-gil, Seogyo-dong, Mapo-gu, Seoul, South Korea",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 4039,
+      "priceLevel": null,
+      "primaryType": "cafe",
+      "types": [
+        "cafe",
+        "amusement_center",
+        "amusement_park",
+        "dessert_shop",
+        "confectionery",
+        "restaurant",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 37.5529807,
+      "lng": 126.92081400000001,
+      "googleMapsUri": "https://maps.google.com/?cid=8089039503296998885&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://943kingscross.com/?utm_medium=referral&utm_source=google&utm_campaign=mm&utm_content=hp",
+      "openNow": false,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 83.61
+    },
+    {
+      "googlePlaceId": "ChIJ084dDdOjfDUR-RTWR2pa_-g",
+      "name": "gathering",
+      "address": "South Korea, Seoul, Yongsan District, Itaewon-ro 27ga-gil, 13 2층",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 504,
+      "priceLevel": null,
+      "primaryType": "night_club",
+      "types": [
+        "night_club",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 37.5349301,
+      "lng": 126.99454039999999,
+      "googleMapsUri": "https://maps.google.com/?cid=16789237348378744057&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.instagram.com/gathering_itaewon/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "sound baths",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "wellness-relaxation",
+        "adult-after-dark"
+      ],
+      "popularityScore": 83.56
+    }
+  ]
+}

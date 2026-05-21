@@ -1,0 +1,3632 @@
+{
+  "location": "Dallas, TX",
+  "generatedAt": "2026-05-17T19:17:26.102Z",
+  "source": "Google Places Text Search",
+  "scoring": "Popularity score combines rating, review volume, query/category matches, and profile completeness.",
+  "count": 100,
+  "venues": [
+    {
+      "googlePlaceId": "ChIJHXBfc-EhTIYRsAieV5t_uFI",
+      "name": "Game Show Battle Rooms - Dallas (Farmers Branch)",
+      "address": "4887 Alpha Rd # 250, Farmers Branch, TX 75244, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 22892,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "bar",
+        "sports_activity_location",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.9339795,
+      "lng": -96.8258123,
+      "googleMapsUri": "https://maps.google.com/?cid=5960654411991484592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.gameshowbattlerooms.com/dallas",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 102.19
+    },
+    {
+      "googlePlaceId": "ChIJRxtoZJqhToYRQnaLBzeSE2g",
+      "name": "The Dallas Arboretum and Botanical Garden",
+      "address": "8525 Garland Rd, Dallas, TX 75218, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 27024,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "garden",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8236184,
+      "lng": -96.71662359999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7499498569549444674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dallasarboretum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 99.44
+    },
+    {
+      "googlePlaceId": "ChIJp6b_eQGfToYRKmdCPmu_9lo",
+      "name": "Sandbox VR",
+      "address": "5321 E Mockingbird Ln Ste. 110, Dallas, TX 75206, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 10984,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "video_arcade",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.837759,
+      "lng": -96.77560899999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6554636775011280682&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/dallas",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences",
+        "arcades",
+        "barcades"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 98.66
+    },
+    {
+      "googlePlaceId": "ChIJZ5o-djyZToYRniIJlDDbb_8",
+      "name": "Perot Museum of Nature and Science",
+      "address": "2201 N Field St, Dallas, TX 75201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 20598,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7869429,
+      "lng": -96.80658439999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18406171203775046302&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.perotmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "immersive experiences",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.54
+    },
+    {
+      "googlePlaceId": "ChIJE-rQvPWZToYRe0HhJuoEHNo",
+      "name": "Kitchen + Kocktails",
+      "address": "1933 Elm St, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 20089,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "soul_food_restaurant",
+      "types": [
+        "soul_food_restaurant",
+        "brunch_restaurant",
+        "catering_service",
+        "fast_food_restaurant",
+        "live_music_venue",
+        "fine_dining_restaurant",
+        "food_delivery",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "meal_takeaway",
+        "american_restaurant",
+        "service",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.782587299999996,
+      "lng": -96.7946248,
+      "googleMapsUri": "https://maps.google.com/?cid=15716442203337343355&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kitchenkocktailsusa.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "best cocktail bars",
+        "romantic bars",
+        "viral food spots",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "adult-after-dark"
+      ],
+      "popularityScore": 98.45
+    },
+    {
+      "googlePlaceId": "ChIJ40wS9hOZToYRFzrz1GqAZTI",
+      "name": "Reunion Tower",
+      "address": "300 Reunion Blvd E, Dallas, TX 75207, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 19027,
+      "priceLevel": null,
+      "primaryType": "observation_deck",
+      "types": [
+        "observation_deck",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.775597499999996,
+      "lng": -96.8089687,
+      "googleMapsUri": "https://maps.google.com/?cid=3631449870871771671&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.reuniontower.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "kids activities",
+        "family friendly things to do",
+        "sunset date spots",
+        "things to do this weekend",
+        "neighborhood tours",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "romantic-date-night",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 98.28
+    },
+    {
+      "googlePlaceId": "ChIJZf6cwiSZToYRas-lbLGASVA",
+      "name": "Klyde Warren Park",
+      "address": "2012 Woodall Rodgers Fwy, Dallas, TX 75201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 18739,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7893644,
+      "lng": -96.8016184,
+      "googleMapsUri": "https://maps.google.com/?cid=5785296695854485354&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.klydewarrenpark.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural centers",
+        "interactive pop ups",
+        "best parks",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "food trucks",
+        "events this weekend",
+        "things to do this weekend",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "outdoor-nature",
+        "family-kids",
+        "viral-eats",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 98.23
+    },
+    {
+      "googlePlaceId": "ChIJbU01oxiZToYR7SbEzKcmmrw",
+      "name": "The Woolworth",
+      "address": "1520 Elm St #201, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 8790,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.781325599999995,
+      "lng": -96.7987239,
+      "googleMapsUri": "https://maps.google.com/?cid=13590217327680693997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thewoolworthdallas.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "food halls",
+        "chef table experiences",
+        "best cocktail bars",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "viral food spots",
+        "fine dining",
+        "private dining rooms",
+        "luxury lounges",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 97.92
+    },
+    {
+      "googlePlaceId": "ChIJe8S3giSZToYRsPXa5kCf8QY",
+      "name": "Dallas Museum of Art",
+      "address": "1717 N Harwood St, Dallas, TX 75201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 12821,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "tourist_attraction",
+        "art_gallery",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.787695899999996,
+      "lng": -96.8010444,
+      "googleMapsUri": "https://maps.google.com/?cid=500356134714668464&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dma.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "cultural centers",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.97
+    },
+    {
+      "googlePlaceId": "ChIJ_8GjDj2ZToYR4oj1dMzSWRg",
+      "name": "The Dallas World Aquarium",
+      "address": "1801 N Griffin St, Dallas, TX 75202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 28748,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "zoo",
+        "tourist_attraction",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7834737,
+      "lng": -96.805358,
+      "googleMapsUri": "https://maps.google.com/?cid=1754665305414928610&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dwazoo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "waterfront gardens",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 96.34
+    },
+    {
+      "googlePlaceId": "ChIJsVecnpEjTIYRagExOpgtBzs",
+      "name": "Activate Games",
+      "address": "5013 W Plano Pkwy, Plano, TX 75093, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4145,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "adventure_sports_center",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0174653,
+      "lng": -96.79667130000001,
+      "googleMapsUri": "https://maps.google.com/?cid=4253418504909291882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/plano?utm_source=google&utm_medium=organic&utm_campaign=gmb-plano",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "interactive pop ups",
+        "VR experiences",
+        "kids activities",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 95.44
+    },
+    {
+      "googlePlaceId": "ChIJPVNJIhaZToYR8jBVOOqU9tA",
+      "name": "3Eleven Kitchen and Cocktails",
+      "address": "311 N Market St # 100, Dallas, TX 75202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 5560,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "steak_house",
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7812264,
+      "lng": -96.80700879999999,
+      "googleMapsUri": "https://maps.google.com/?cid=15057386137848197362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://3elevendallas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "best cocktail bars",
+        "romantic bars",
+        "viral food spots",
+        "TikTok restaurants",
+        "private dining rooms",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "adult-after-dark"
+      ],
+      "popularityScore": 95.31
+    },
+    {
+      "googlePlaceId": "ChIJgaB_eJaZToYR0shi9YM_K-E",
+      "name": "Dallas Zoo",
+      "address": "650 S R.L. Thornton Fwy, Dallas, TX 75203, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 23906,
+      "priceLevel": null,
+      "primaryType": "zoo",
+      "types": [
+        "zoo",
+        "tourist_attraction",
+        "wildlife_park",
+        "park",
+        "non_profit_organization",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7409696,
+      "lng": -96.81532,
+      "googleMapsUri": "https://maps.google.com/?cid=16225131918522501330&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dallaszoo.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.08
+    },
+    {
+      "googlePlaceId": "ChIJeXiQnKOhToYRGEXOop_ichI",
+      "name": "White Rock Lake Park",
+      "address": "E Lawther Dr, Dallas, TX 75218, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5107,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8365139,
+      "lng": -96.7216119,
+      "googleMapsUri": "https://maps.google.com/?cid=1329374015286822168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dallasparks.org/235/White-Rock-Lake",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 95.03
+    },
+    {
+      "googlePlaceId": "ChIJA-5lkIeIToYR5BLrU4XVoVU",
+      "name": "Traders Village Grand Prairie",
+      "address": "2602 Mayfield Rd, Grand Prairie, TX 75052, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.5,
+      "reviewCount": 22392,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "live_music_venue",
+        "amusement_park",
+        "market",
+        "event_venue",
+        "roller_coaster",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.6953405,
+      "lng": -97.05120269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6170447733089571556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://tradersvillage.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "skating rinks",
+        "flea markets",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.86
+    },
+    {
+      "googlePlaceId": "ChIJO_4amk2ZToYRVK3lSV3WG8w",
+      "name": "Medieval Times Dinner & Tournament",
+      "address": "2021 N Stemmons Fwy, Dallas, TX 75207, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 15533,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "tourist_attraction",
+        "family_restaurant",
+        "performing_arts_theater",
+        "event_venue",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7999513,
+      "lng": -96.8234198,
+      "googleMapsUri": "https://maps.google.com/?cid=14707584704268578132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.medievaltimes.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "theater events",
+        "ticketed events",
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "immersive-experiences"
+      ],
+      "popularityScore": 94.35
+    },
+    {
+      "googlePlaceId": "ChIJ12JIoZeYToYRRJHugtx3QgY",
+      "name": "Fair Park",
+      "address": "3809 Grand Ave, Dallas, TX 75210, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 17235,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "city_park",
+      "types": [
+        "city_park",
+        "historical_landmark",
+        "park",
+        "event_venue",
+        "historical_place",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7782181,
+      "lng": -96.75927089999999,
+      "googleMapsUri": "https://maps.google.com/?cid=451054701663654212&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.fairparkdallas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "ticketed events",
+        "things to do this weekend",
+        "festivals this weekend",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.25
+    },
+    {
+      "googlePlaceId": "ChIJwfu5e-GYToYRikmj_Cz3-bw",
+      "name": "Dallas Farmers Market",
+      "address": "920 S Harwood St, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 10401,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "farmers_market",
+      "types": [
+        "farmers_market",
+        "family_restaurant",
+        "shopping_mall",
+        "restaurant",
+        "food",
+        "market",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7775406,
+      "lng": -96.79006360000001,
+      "googleMapsUri": "https://maps.google.com/?cid=13617186720920586634&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dallasfarmersmarket.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls",
+        "farmers markets",
+        "flea markets",
+        "street fairs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "shopping-markets",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 94.08
+    },
+    {
+      "googlePlaceId": "ChIJW4OxHwCZToYRlEQxoOQwBIM",
+      "name": "The Hampton Social - Dallas",
+      "address": "1520 Main St, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 3821,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.780591,
+      "lng": -96.79870249999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9440724477373662356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehamptonsocial.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "chef table experiences",
+        "date night restaurants",
+        "viral food spots",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 94.07
+    },
+    {
+      "googlePlaceId": "ChIJaS30XIiOToYRDIreuScL3No",
+      "name": "Cedar Ridge Preserve",
+      "address": "7171 Mountain Creek Pkwy, Dallas, TX 75249, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5627,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "tourist_attraction",
+        "park",
+        "hiking_area",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.6381819,
+      "lng": -96.9574724,
+      "googleMapsUri": "https://maps.google.com/?cid=15770492260394633740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://audubondallas.org/crp/",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "sunset hikes",
+        "scenic walks",
+        "waterfront gardens",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "local-exploration"
+      ],
+      "popularityScore": 93.85
+    },
+    {
+      "googlePlaceId": "ChIJCbPdwEKfToYR8JaHOW7Ym3A",
+      "name": "JOEY Dallas",
+      "address": "8687 N Central Expy Suite 307, Dallas, TX 75225, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.9,
+      "reviewCount": 9989,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "pub",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.866806,
+      "lng": -96.7736193,
+      "googleMapsUri": "https://maps.google.com/?cid=8114317121561270000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://joeyrestaurants.com/location/joey-dallas",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 93.35
+    },
+    {
+      "googlePlaceId": "ChIJhVNuwfuZToYRRc1iX8t4YGE",
+      "name": "Immersive Gamebox - Deep Ellum, Dallas",
+      "address": "2525 Elm St Suite 110, Dallas, TX 75226, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 1988,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7839133,
+      "lng": -96.78777529999999,
+      "googleMapsUri": "https://maps.google.com/?cid=7016741034317237573&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/dtx-deep-ellum-texas/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "board game cafes",
+        "game bars",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 93.01
+    },
+    {
+      "googlePlaceId": "ChIJUZEW2V-ZToYRUPceX82HbOg",
+      "name": "La Stella Cucina Verace",
+      "address": "2330 Flora St #150, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 2584,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.789528,
+      "lng": -96.7977356,
+      "googleMapsUri": "https://maps.google.com/?cid=16747910430417942352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.lastellatx.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.78
+    },
+    {
+      "googlePlaceId": "ChIJ1xQiJxaZToYRnuQRys6KY_k",
+      "name": "Y.O. Ranch Steakhouse",
+      "address": "702 Ross Ave, Dallas, TX 75202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 11545,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "fine_dining_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7812903,
+      "lng": -96.8064213,
+      "googleMapsUri": "https://maps.google.com/?cid=17970359558896477342&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.yoranchsteakhouse.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.72
+    },
+    {
+      "googlePlaceId": "ChIJPwhHFjuZToYReUmXzhxeSkg",
+      "name": "Balloon Museum | Let's Fly Dallas",
+      "address": "2901 Botham Jean Blvd, Dallas, TX 75215, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.9,
+      "reviewCount": 2827,
+      "priceLevel": null,
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7591324,
+      "lng": -96.7830396,
+      "googleMapsUri": "https://maps.google.com/?cid=5209079396825516409&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dallas.balloonmuseum.world/en/shop/biglietti/?utm_source=google&utm_medium=organic&utm_campaign=google_maps&utm_content=dallas_listing",
+      "openNow": true,
+      "matchedQueries": [
+        "cultural exhibits",
+        "immersive experiences",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids"
+      ],
+      "popularityScore": 92.42
+    },
+    {
+      "googlePlaceId": "ChIJWxJey0mfToYRL8DsVYooNn0",
+      "name": "HG Sply Co.",
+      "address": "2008 Greenville Ave, Dallas, TX 75206, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 5375,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8141738,
+      "lng": -96.76985150000002,
+      "googleMapsUri": "https://maps.google.com/?cid=9022443478095544367&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.hgsplyco.com/dallas",
+      "openNow": true,
+      "matchedQueries": [
+        "rooftop bars",
+        "sunset date spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats"
+      ],
+      "popularityScore": 92.35
+    },
+    {
+      "googlePlaceId": "ChIJJZGu-ZqZToYRfSZAvIFsp_o",
+      "name": "STK Steakhouse",
+      "address": "2000 McKinney Ave, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 5888,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "steak_house",
+      "types": [
+        "steak_house",
+        "seafood_restaurant",
+        "fine_dining_restaurant",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7910872,
+      "lng": -96.80319279999999,
+      "googleMapsUri": "https://maps.google.com/?cid=18061524135057565309&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://stksteakhouse.com/en-us/location/dallas/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 92.2
+    },
+    {
+      "googlePlaceId": "ChIJ95pjR7TXUYYREHxyoB6x5Xo",
+      "name": "Dinosaur Valley State Park",
+      "address": "Glen Rose, TX 76043, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 4725,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.2532572,
+      "lng": -97.8097244,
+      "googleMapsUri": "https://maps.google.com/?cid=8855678987392941072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tpwd.texas.gov/state-parks/dinosaur-valley",
+      "openNow": null,
+      "matchedQueries": [
+        "sunset hikes",
+        "family friendly things to do",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.92
+    },
+    {
+      "googlePlaceId": "ChIJj9MaVf4YTIYRuQBEXH_eu4M",
+      "name": "Breakout Games",
+      "address": "2301 N Central Expy # 285, Plano, TX 75075, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 12350,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.031005,
+      "lng": -96.70888599999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9492425278203625657&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.breakoutgames.com/dallas?utm_source=google&utm_medium=organic&utm_campaign=gmb-dallas-plano",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.9
+    },
+    {
+      "googlePlaceId": "ChIJY_i8sNwgTIYR3N5jfvmPuS4",
+      "name": "Galleria Dallas",
+      "address": "13350 Dallas Pkwy, Dallas, TX 75240, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.5,
+      "reviewCount": 22890,
+      "priceLevel": null,
+      "primaryType": "shopping_mall",
+      "types": [
+        "shopping_mall",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.929809,
+      "lng": -96.81988059999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3366880498166259420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://galleriadallas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "interactive pop ups",
+        "skating rinks"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation"
+      ],
+      "popularityScore": 91.69
+    },
+    {
+      "googlePlaceId": "ChIJrapeouaZToYRJnqZLbPQPL4",
+      "name": "Museum of Illusions",
+      "address": "701 Ross Ave, Dallas, TX 75202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.5,
+      "reviewCount": 4794,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7816738,
+      "lng": -96.80657959999999,
+      "googleMapsUri": "https://maps.google.com/?cid=13708060833791703590&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://moidallas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "art galleries",
+        "cultural exhibits",
+        "immersive experiences",
+        "escape rooms",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "events this weekend",
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 91.52
+    },
+    {
+      "googlePlaceId": "ChIJ90HUk4WZToYR6YzrAo6CJq4",
+      "name": "Paradiso",
+      "address": "308 N Bishop Ave, Dallas, TX 75208, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 4699,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "italian_restaurant",
+      "types": [
+        "italian_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.747548099999996,
+      "lng": -96.82797769999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12548860958160424169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://paradisodallas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "date night restaurants",
+        "romantic bars",
+        "TikTok restaurants",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 91.45
+    },
+    {
+      "googlePlaceId": "ChIJS_nmZorNRIYRTRKUiSZApUU",
+      "name": "Sandbox VR",
+      "address": "3100 Esperanza Crossing Suite 100, Austin, TX 78758, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 14953,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 30.3998629,
+      "lng": -97.72312749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5018487894035403341&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/austin",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.43
+    },
+    {
+      "googlePlaceId": "ChIJLzGrNcVzToYRP7Az4GsilC4",
+      "name": "Fort Worth Botanic Garden",
+      "address": "3220 Botanic Garden Blvd, Fort Worth, TX 76107, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 10097,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "historical_landmark",
+        "historical_place",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7403425,
+      "lng": -97.3638144,
+      "googleMapsUri": "https://maps.google.com/?cid=3356345469016191039&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fwbg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids"
+      ],
+      "popularityScore": 91.18
+    },
+    {
+      "googlePlaceId": "ChIJEWkEHYQrTIYRkDpeMRKuL48",
+      "name": "The Escape Game Grapevine",
+      "address": "3000 Grapevine Mills Pkwy Suite 604, Grapevine, TX 76051, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 9558,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.9646547,
+      "lng": -97.0437177,
+      "googleMapsUri": "https://maps.google.com/?cid=10317656664489998992&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/grapevine/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=grapevine",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 91.05
+    },
+    {
+      "googlePlaceId": "ChIJ6QFl8BmZToYRThNf5Xn_pUo",
+      "name": "Pioneer Plaza",
+      "address": "1428 Young St, Dallas, TX 75202, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.6,
+      "reviewCount": 4671,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.776632299999996,
+      "lng": -96.80119859999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5378986228968264526&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dallasparks.org/Facilities/Facility/Details/Pioneer-Plaza-624",
+      "openNow": true,
+      "matchedQueries": [
+        "things to do this weekend",
+        "local landmarks",
+        "day trips",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 91.03
+    },
+    {
+      "googlePlaceId": "ChIJ9fAt2oGeToYRkrk0DceyFdw",
+      "name": "Frontiers of Flight Museum",
+      "address": "6911 Lemmon Ave, Dallas, TX 75209, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.7,
+      "reviewCount": 3591,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "gift_shop",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.842602,
+      "lng": -96.835202,
+      "googleMapsUri": "https://maps.google.com/?cid=15858778230844864914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.flightmuseum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 91.01
+    },
+    {
+      "googlePlaceId": "ChIJc4GwkAicToYRmTUdoIBEZ6A",
+      "name": "Cidercade Dallas",
+      "address": "2777 Irving Blvd #200, Dallas, TX 75207, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 3205,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8057862,
+      "lng": -96.84579269999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11558282287902438809&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.cidercade.com/dallas/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.89
+    },
+    {
+      "googlePlaceId": "ChIJE3s7OMsrTIYRsnzFVHNoQko",
+      "name": "Meow Wolf Grapevine's The Real Unreal",
+      "address": "3000 Grapevine Mills Pkwy Suite 253, Grapevine, TX 76051, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 5367,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "art_gallery",
+        "art_museum",
+        "museum",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.966869100000004,
+      "lng": -97.040978,
+      "googleMapsUri": "https://maps.google.com/?cid=5350954151822326962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://meowwolf.com/visit/grapevine?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "immersive experiences",
+        "family friendly things to do",
+        "interactive kids museums",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 90.79
+    },
+    {
+      "googlePlaceId": "ChIJO84p6CU7TIYREnpjDNCRwyU",
+      "name": "The Escape Game The Colony",
+      "address": "5752 Grandscape Blvd suite 150, The Colony, TX 75056, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 8562,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0749855,
+      "lng": -96.860541,
+      "googleMapsUri": "https://maps.google.com/?cid=2721178922608982546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theescapegame.com/the-colony/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_id=the-colony",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 90.69
+    },
+    {
+      "googlePlaceId": "ChIJgbg_YlgeTIYRSBqwaCSdxMM",
+      "name": "Free Play Arcade - Richardson",
+      "address": "1730 E Belt Line Rd, Richardson, TX 75081, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.7,
+      "reviewCount": 2899,
+      "priceLevel": null,
+      "primaryType": "video_arcade",
+      "types": [
+        "video_arcade",
+        "amusement_center",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.9437262,
+      "lng": -96.69327109999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14106572712531991112&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://freeplayrichardson.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 90.56
+    },
+    {
+      "googlePlaceId": "ChIJzQfNJjyZToYRq5U0SkrLcqU",
+      "name": "House of Blues Dallas",
+      "address": "2200 N Lamar St, Dallas, TX 75202, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 7713,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "lounge_bar",
+        "concert_hall",
+        "auditorium",
+        "performing_arts_theater",
+        "wedding_venue",
+        "banquet_hall",
+        "event_venue",
+        "night_club",
+        "bar",
+        "service",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.7850629,
+      "lng": -96.80819319999999,
+      "googleMapsUri": "https://maps.google.com/?cid=11921814683536102827&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dallas.houseofblues.com/?utm_source=GMBlisting&utm_medium=organic",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "comedy shows",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.49
+    },
+    {
+      "googlePlaceId": "ChIJI1AZdsKZToYRN8OAdRDllk8",
+      "name": "Written by the Seasons",
+      "address": "380 Melba St, Dallas, TX 75208, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.8,
+      "reviewCount": 1287,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7471258,
+      "lng": -96.8279412,
+      "googleMapsUri": "https://maps.google.com/?cid=5735023034356515639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.writtenbytheseasons.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 90.47
+    },
+    {
+      "googlePlaceId": "ChIJu5glp92YToYR9lAI9YdR1CQ",
+      "name": "Trees",
+      "address": "2709 Elm St, Dallas, TX 75226, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.6,
+      "reviewCount": 2356,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "night_club",
+        "concert_hall",
+        "auditorium",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.784728699999995,
+      "lng": -96.7844789,
+      "googleMapsUri": "https://maps.google.com/?cid=2653835724801462518&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://treesdallas.com/",
+      "openNow": null,
+      "matchedQueries": [
+        "nightclubs",
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "events this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 90.27
+    },
+    {
+      "googlePlaceId": "ChIJIYeaPO4gTIYRVNIRcTFz_YU",
+      "name": "Terry Costa",
+      "address": "12817 Preston Rd #138, Dallas, TX 75230, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.9,
+      "reviewCount": 9889,
+      "priceLevel": null,
+      "primaryType": "clothing_store",
+      "types": [
+        "womens_clothing_store",
+        "clothing_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.9232805,
+      "lng": -96.8059713,
+      "googleMapsUri": "https://maps.google.com/?cid=9654999832339796564&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.terrycosta.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "boutiques"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 90.06
+    },
+    {
+      "googlePlaceId": "ChIJCeGMib4kTIYRI0lqACKD0cM",
+      "name": "Arbor Hills Nature Preserve",
+      "address": "6701 W Parker Rd, Plano, TX 75093, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 8014,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "city_park",
+        "hiking_area",
+        "tourist_attraction",
+        "park",
+        "sports_activity_location",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0504108,
+      "lng": -96.8529578,
+      "googleMapsUri": "https://maps.google.com/?cid=14110203289587566883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.plano.gov/1397/Arbor-Hills-Nature-Preserve",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes",
+        "scenic walks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 90.02
+    },
+    {
+      "googlePlaceId": "ChIJ7a3r1yGZToYRdUsgLzgV_MY",
+      "name": "Majestic Theater",
+      "address": "1925 Elm St, Dallas, TX 75201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 4133,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.782698100000005,
+      "lng": -96.794986,
+      "googleMapsUri": "https://maps.google.com/?cid=14338358644693814133&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://majestic.dallasculture.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "comedy shows",
+        "theater events",
+        "cultural centers"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture"
+      ],
+      "popularityScore": 89.98
+    },
+    {
+      "googlePlaceId": "ChIJUwo9A-mfToYR_no7OJdOeJQ",
+      "name": "Dave & Buster's Dallas",
+      "address": "9450 N Central Expy, Dallas, TX 75231, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.3,
+      "reviewCount": 8582,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "family_restaurant",
+        "bar_and_grill",
+        "video_arcade",
+        "amusement_center",
+        "sports_complex",
+        "sports_activity_location",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.877070499999995,
+      "lng": -96.7689595,
+      "googleMapsUri": "https://maps.google.com/?cid=10698387326209063678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.daveandbusters.com/us/en/about/locations/dallas",
+      "openNow": true,
+      "matchedQueries": [
+        "arcades",
+        "barcades",
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 89.74
+    },
+    {
+      "googlePlaceId": "ChIJH51ghJCYToYRNpUGVzRnZtI",
+      "name": "Texas Discovery Gardens at Fair Park",
+      "address": "3601 Martin Luther King Jr Blvd, Dallas, TX 75210, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1975,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "park",
+        "amusement_park",
+        "wedding_venue",
+        "event_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7751527,
+      "lng": -96.75973800000001,
+      "googleMapsUri": "https://maps.google.com/?cid=15160918670085362998&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://txdg.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens",
+        "family friendly things to do",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "family-kids",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.69
+    },
+    {
+      "googlePlaceId": "ChIJpfPYXCaZToYRVjm1dmS9fRs",
+      "name": "Moody Performance Hall",
+      "address": "2520 Flora St, Dallas, TX 75201, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 978,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "concert_hall",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7905509,
+      "lng": -96.79573839999999,
+      "googleMapsUri": "https://maps.google.com/?cid=1980947650298853718&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://moody.dallasculture.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "cultural centers",
+        "events this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "arts-culture",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.57
+    },
+    {
+      "googlePlaceId": "ChIJbfNuQzqZToYRKwLr-sZwIQA",
+      "name": "Happiest Hour",
+      "address": "2616 Olive St, Dallas, TX 75201, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.3,
+      "reviewCount": 5110,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "bar",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.791142,
+      "lng": -96.806687,
+      "googleMapsUri": "https://maps.google.com/?cid=9412674146992683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.happiesthourdallas.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "sunset date spots",
+        "bottle service"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 89.53
+    },
+    {
+      "googlePlaceId": "ChIJkc_KheeYToYRNfh-4M0T9CA",
+      "name": "The Bomb Factory",
+      "address": "2713 Canton St, Dallas, TX 75226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 4037,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.782354999999995,
+      "lng": -96.7838027,
+      "googleMapsUri": "https://maps.google.com/?cid=2374544678486734901&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://thebombfactory.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "theater events",
+        "ticketed events",
+        "events this weekend",
+        "things to do this weekend",
+        "festivals this weekend",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJN7CKLlSfToYR4tZK6VYBwcg",
+      "name": "The Balcony Club",
+      "address": "1825 Abrams Rd Suite B, Dallas, TX 75214, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1318,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "bar",
+      "types": [
+        "night_club",
+        "live_music_venue",
+        "cocktail_bar",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.8121289,
+      "lng": -96.7533346,
+      "googleMapsUri": "https://maps.google.com/?cid=14465844950883555042&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.balconyclub.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "nightclubs",
+        "live music events",
+        "jazz clubs",
+        "sunset date spots"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "live-entertainment",
+        "romantic-date-night"
+      ],
+      "popularityScore": 89.45
+    },
+    {
+      "googlePlaceId": "ChIJLdzo9T2ZToYRt2Nnta1x7fM",
+      "name": "Rj Mexican Cuisine",
+      "address": "1701 N Market St #102, Dallas, TX 75202, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.8,
+      "reviewCount": 11314,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "mexican_restaurant",
+      "types": [
+        "mexican_restaurant",
+        "tex_mex_restaurant",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7816329,
+      "lng": -96.8072558,
+      "googleMapsUri": "https://maps.google.com/?cid=17576829911583646647&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rjmexicancuisine.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 89.41
+    },
+    {
+      "googlePlaceId": "ChIJd0GlbLqZToYR5pmP1Wlo39U",
+      "name": "The Henry",
+      "address": "2301 N Akard St Suite 250, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3463,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "vegan_restaurant",
+        "vegetarian_restaurant",
+        "coffee_shop",
+        "cafe",
+        "bar",
+        "food_store",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.7892021,
+      "lng": -96.8055857,
+      "googleMapsUri": "https://maps.google.com/?cid=15411151253648939494&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.thehenryrestaurant.com/locations/the-henry-dallas/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "popular brunch spots",
+        "rooftop bars",
+        "date night restaurants",
+        "romantic bars",
+        "sunset date spots",
+        "viral food spots",
+        "private dining rooms",
+        "seasonal pop ups"
+      ],
+      "matchedCategories": [
+        "dining",
+        "drinks-nightlife",
+        "romantic-date-night",
+        "viral-eats",
+        "luxury-special-occasion",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 89.34
+    },
+    {
+      "googlePlaceId": "ChIJnTv3iySZToYRSkGiX_2wUTs",
+      "name": "Nasher Sculpture Center",
+      "address": "2001 Flora St, Dallas, TX 75201, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1763,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "museum",
+        "tourist_attraction",
+        "art_museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7881824,
+      "lng": -96.8001567,
+      "googleMapsUri": "https://maps.google.com/?cid=4274392123628994890&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.nashersculpturecenter.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "cultural centers",
+        "immersive experiences",
+        "things to do this weekend",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "immersive-experiences",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 89.31
+    },
+    {
+      "googlePlaceId": "ChIJu3YYLXqHToYRuYvzNoIQ9g0",
+      "name": "Texas Live!",
+      "address": "1650 E Randol Mill Rd, Arlington, TX 76011, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 4.6,
+      "reviewCount": 12403,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "sports_bar",
+      "types": [
+        "sports_bar",
+        "live_music_venue",
+        "bar",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.749359000000005,
+      "lng": -97.0849553,
+      "googleMapsUri": "https://maps.google.com/?cid=1006009718217608121&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://texas-live.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "game night venues",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 89.26
+    },
+    {
+      "googlePlaceId": "ChIJRcrwOnkhTIYRvZMjOkVig1Q",
+      "name": "Sherlock's Escape Rooms Dallas",
+      "address": "4887 Alpha Rd Suite 275, Farmers Branch, TX 75244, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5519,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.933733,
+      "lng": -96.82573219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6089819170602718141&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sherlocksescaperooms.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.23
+    },
+    {
+      "googlePlaceId": "ChIJb-dqJcFzToYRGq4ThnYx0is",
+      "name": "Fort Worth Museum of Science and History",
+      "address": "1600 Gendy St, Fort Worth, TX 76107, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.4,
+      "reviewCount": 5234,
+      "priceLevel": null,
+      "primaryType": "museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.744133399999996,
+      "lng": -97.36920479999999,
+      "googleMapsUri": "https://maps.google.com/?cid=3157640673865477658&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fwmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits",
+        "family friendly things to do",
+        "interactive kids museums"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids"
+      ],
+      "popularityScore": 89.21
+    },
+    {
+      "googlePlaceId": "ChIJJWETU6VlXIYROLwy-oVoshw",
+      "name": "Sandbox VR",
+      "address": "5822 Worth Pkwy Suite 102, San Antonio, TX 78257, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 5454,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.611236599999998,
+      "lng": -98.5988201,
+      "googleMapsUri": "https://maps.google.com/?cid=2067830103554047032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/sanantonio",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.2
+    },
+    {
+      "googlePlaceId": "ChIJjWmMirA7TIYRdai8zJBTQWw",
+      "name": "Immersive Gamebox - Grandscape, The Colony",
+      "address": "5752 Grandscape Blvd suite 130, The Colony, TX 75056, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4458,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0742763,
+      "lng": -96.860457,
+      "googleMapsUri": "https://maps.google.com/?cid=7800607910957721717&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.immersivegamebox.com/venues/gtx-grandscape-texas/?utm_source=Googlemaps&utm_medium=maps&utm_campaign=GTX",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 89.18
+    },
+    {
+      "googlePlaceId": "ChIJ4cPznJCYToYRTS7fzofggPA",
+      "name": "Children's Aquarium Dallas at Fair Park",
+      "address": "1462 1st Ave, Dallas, TX 75210, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.6,
+      "reviewCount": 2547,
+      "priceLevel": null,
+      "primaryType": "aquarium",
+      "types": [
+        "aquarium",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7769793,
+      "lng": -96.7602668,
+      "googleMapsUri": "https://maps.google.com/?cid=17330098240017608269&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.childrensaquarium.com/?utm_source=google&utm_medium=social&utm_campaign=1seo_gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "aquariums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 89.03
+    },
+    {
+      "googlePlaceId": "ChIJWxeJW-4gTIYRQlLX2mjITn4",
+      "name": "Maple Leaf Diner",
+      "address": "12817 Preston Rd #129, Dallas, TX 75230, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 5235,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "catering_service",
+        "brunch_restaurant",
+        "breakfast_restaurant",
+        "bakery",
+        "american_restaurant",
+        "food_delivery",
+        "confectionery",
+        "cafe",
+        "restaurant",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.923259,
+      "lng": -96.80538,
+      "googleMapsUri": "https://maps.google.com/?cid=9101432249636049474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://mldiner.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 89.01
+    },
+    {
+      "googlePlaceId": "ChIJB_3ggMJzToYREMUp1SYmeWQ",
+      "name": "Kimbell Art Museum",
+      "address": "3333 Camp Bowie Blvd, Fort Worth, TX 76107, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.8,
+      "reviewCount": 5685,
+      "priceLevel": "PRICE_LEVEL_FREE",
+      "primaryType": "art_museum",
+      "types": [
+        "art_museum",
+        "auditorium",
+        "tourist_attraction",
+        "cafe",
+        "museum",
+        "gift_shop",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7485687,
+      "lng": -97.3649208,
+      "googleMapsUri": "https://maps.google.com/?cid=7239859824201680144&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://kimbellart.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.88
+    },
+    {
+      "googlePlaceId": "ChIJuQDvm1CZToYRi-7kkz-6I8U",
+      "name": "Terry Black's Barbecue",
+      "address": "3025 Main St, Dallas, TX 75226, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 13162,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "barbecue_restaurant",
+      "types": [
+        "barbecue_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7848915,
+      "lng": -96.7799081,
+      "googleMapsUri": "https://maps.google.com/?cid=14205402431883636363&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://terryblacksbbq.com/dallas",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 88.81
+    },
+    {
+      "googlePlaceId": "ChIJjdZkOGKeToYRAB5aHUSHX6E",
+      "name": "rise soufflé - Dallas",
+      "address": "5360 W Lovers Ln #220, Dallas, TX 75209, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.7,
+      "reviewCount": 1834,
+      "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+      "primaryType": "french_restaurant",
+      "types": [
+        "french_restaurant",
+        "bistro",
+        "wine_bar",
+        "bar",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.8502004,
+      "lng": -96.8201974,
+      "googleMapsUri": "https://maps.google.com/?cid=11628161489513881088&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.risesouffle.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "date night restaurants",
+        "fine dining"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.79
+    },
+    {
+      "googlePlaceId": "ChIJwQTJ3xWZToYRjooryEPLtOw",
+      "name": "The Sixth Floor Museum at Dealey Plaza",
+      "address": "411 Elm St, Dallas, TX 75202, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 10721,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "history_museum",
+      "types": [
+        "history_museum",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7798188,
+      "lng": -96.8084842,
+      "googleMapsUri": "https://maps.google.com/?cid=17056481180740455054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.jfk.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "cultural exhibits"
+      ],
+      "matchedCategories": [
+        "arts-culture"
+      ],
+      "popularityScore": 88.78
+    },
+    {
+      "googlePlaceId": "ChIJyYi-ZpBzToYR6uyuZhTEO4Q",
+      "name": "Sandbox VR",
+      "address": "2956 Crockett St, Fort Worth, TX 76107, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 6116,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "video_arcade",
+        "tourist_attraction",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7503324,
+      "lng": -97.3597437,
+      "googleMapsUri": "https://maps.google.com/?cid=9528425028533546218&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sandboxvr.com/fortworth",
+      "openNow": true,
+      "matchedQueries": [
+        "VR experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 88.47
+    },
+    {
+      "googlePlaceId": "ChIJzVD5ES6ZToYR8mutq9bZGLY",
+      "name": "Bowen House",
+      "address": "2614 Boll St, Dallas, TX 75204, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 959,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "cocktail_bar",
+      "types": [
+        "cocktail_bar",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.797948399999996,
+      "lng": -96.8019559,
+      "googleMapsUri": "https://maps.google.com/?cid=13121477030370438130&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.bowenhousetx.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best cocktail bars",
+        "hidden speakeasies",
+        "romantic bars",
+        "luxury lounges"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 88.4
+    },
+    {
+      "googlePlaceId": "ChIJp5BvicmZToYR38gqQeVLe1U",
+      "name": "Uno Mas Tex Mex",
+      "address": "1525 Main St, Dallas, TX 75201, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 5575,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "tex_mex_restaurant",
+      "types": [
+        "tex_mex_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7810503,
+      "lng": -96.79852849999999,
+      "googleMapsUri": "https://maps.google.com/?cid=6159600363372202207&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://unomastexmex.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 88.17
+    },
+    {
+      "googlePlaceId": "ChIJMVLRFC6DToYR0OO1R54aApE",
+      "name": "Toyota Music Factory",
+      "address": "316 W Las Colinas Blvd., Irving, TX 75039, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 7867,
+      "priceLevel": null,
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "sports_bar",
+        "steak_house",
+        "ice_cream_shop",
+        "pizza_restaurant",
+        "sushi_restaurant",
+        "cajun_restaurant",
+        "dessert_shop",
+        "bar",
+        "movie_theater",
+        "confectionery",
+        "american_restaurant",
+        "japanese_restaurant",
+        "event_venue",
+        "food_store",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "lat": 32.8737816,
+      "lng": -96.9450262,
+      "googleMapsUri": "https://maps.google.com/?cid=10448943352563229648&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://toyotamusicfactory.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "live music events",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.16
+    },
+    {
+      "googlePlaceId": "ChIJq6qqqj5xToYRi3DJQOXO-Lg",
+      "name": "Fort Worth Water Gardens",
+      "address": "1502 Commerce St, Fort Worth, TX 76102, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 14668,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.747749,
+      "lng": -97.32663,
+      "googleMapsUri": "https://maps.google.com/?cid=13328630581232758923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.fortworth.com/things-to-do/attractions/fort-worth-water-gardens/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 88.07
+    },
+    {
+      "googlePlaceId": "ChIJq0BdZnKHToYRn2lY3bp9zIQ",
+      "name": "Six Flags Over Texas",
+      "address": "Arlington, TX 76011, USA",
+      "category": "festivals-seasonal",
+      "categoryLabel": "Festivals & Seasonal Events",
+      "rating": 4.3,
+      "reviewCount": 39618,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "water_park",
+        "roller_coaster",
+        "tourist_attraction",
+        "amusement_park",
+        "concert_hall",
+        "amusement_center",
+        "auditorium",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7556875,
+      "lng": -97.07256249999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9569161549786409375&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.sixflags.com/overtexas?utm_source=googlebusinessprofile&utm_medium=organic&utm_campaign=Google+Business+Profile",
+      "openNow": null,
+      "matchedQueries": [
+        "things to do this weekend"
+      ],
+      "matchedCategories": [
+        "festivals-seasonal"
+      ],
+      "popularityScore": 88.05
+    },
+    {
+      "googlePlaceId": "ChIJY47Vz1ecP4YR4hJNhlhX9AI",
+      "name": "Moody Gardens Attractions Theme Park",
+      "address": "1 Hope Blvd, Galveston, TX 77554, USA",
+      "category": "family-kids",
+      "categoryLabel": "Family & Kids",
+      "rating": 4.5,
+      "reviewCount": 19370,
+      "priceLevel": null,
+      "primaryType": "amusement_park",
+      "types": [
+        "amusement_park",
+        "tourist_attraction",
+        "zoo",
+        "movie_theater",
+        "garden",
+        "aquarium",
+        "non_profit_organization",
+        "botanical_garden",
+        "association_or_organization",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.274746,
+      "lng": -94.85169189999999,
+      "googleMapsUri": "https://maps.google.com/?cid=212891120115192546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.moodygardens.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "family friendly things to do"
+      ],
+      "matchedCategories": [
+        "family-kids"
+      ],
+      "popularityScore": 87.88
+    },
+    {
+      "googlePlaceId": "ChIJBy2oQzCZToYRnp4wUtbWw3I",
+      "name": "Sixty Vines",
+      "address": "500 Crescent Ct Suite 160, Dallas, TX 75201, USA",
+      "category": "romantic-date-night",
+      "categoryLabel": "Romantic / Date Night",
+      "rating": 4.6,
+      "reviewCount": 2850,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "wine_bar",
+        "american_restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7944628,
+      "lng": -96.8047469,
+      "googleMapsUri": "https://maps.google.com/?cid=8269689556772626078&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://sixtyvines.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "romantic bars",
+        "wine bars",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 87.65
+    },
+    {
+      "googlePlaceId": "ChIJ0Wqq-u2ZToYRdJH8zHZUg8k",
+      "name": "Glow or Go",
+      "address": "921 N Riverfront Blvd, Dallas, TX 75207, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 5,
+      "reviewCount": 1160,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "amusement_center",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7857755,
+      "lng": -96.8177739,
+      "googleMapsUri": "https://maps.google.com/?cid=14520542492794589556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://dallas.gloworgo.games/?utm_source=google&utm_medium=localcards&utm_campaign=268795_dfw",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "interactive pop ups"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.58
+    },
+    {
+      "googlePlaceId": "ChIJF8JZ85sRTIYR9sVsbO94s4Q",
+      "name": "Heard Natural Science Museum & Wildlife Sanctuary",
+      "address": "1 Nature Pl, McKinney, TX 75069, USA",
+      "category": "arts-culture",
+      "categoryLabel": "Arts & Culture",
+      "rating": 4.6,
+      "reviewCount": 1018,
+      "priceLevel": null,
+      "primaryType": "nature_preserve",
+      "types": [
+        "nature_preserve",
+        "wildlife_refuge",
+        "hiking_area",
+        "tourist_attraction",
+        "wedding_venue",
+        "non_profit_organization",
+        "summer_camp_organizer",
+        "museum",
+        "sports_activity_location",
+        "park",
+        "association_or_organization",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 33.1579212,
+      "lng": -96.6151955,
+      "googleMapsUri": "https://maps.google.com/?cid=9562119403549279734&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.heardmuseum.org/",
+      "openNow": true,
+      "matchedQueries": [
+        "best museums",
+        "kids activities",
+        "family friendly things to do",
+        "interactive kids museums",
+        "day trips"
+      ],
+      "matchedCategories": [
+        "arts-culture",
+        "family-kids",
+        "local-exploration"
+      ],
+      "popularityScore": 87.5
+    },
+    {
+      "googlePlaceId": "ChIJ4zmpUhWZToYRN1mk0hRm3oI",
+      "name": "In City Wheels",
+      "address": "3116B Commerce St, Dallas, TX 75226, USA",
+      "category": "local-exploration",
+      "categoryLabel": "Travel-Lite Local Exploration",
+      "rating": 5,
+      "reviewCount": 1916,
+      "priceLevel": null,
+      "primaryType": "tour_agency",
+      "types": [
+        "tour_agency",
+        "travel_agency",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.7840839,
+      "lng": -96.77799999999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9430086909379762487&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://incitywheels.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "neighborhood tours",
+        "walking tours"
+      ],
+      "matchedCategories": [
+        "local-exploration"
+      ],
+      "popularityScore": 87.49
+    },
+    {
+      "googlePlaceId": "ChIJ0blF4xiZToYRT7vACPe_YJs",
+      "name": "The Exchange Food Hall",
+      "address": "211 S Akard St, Dallas, TX 75202, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1399,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7794769,
+      "lng": -96.7997372,
+      "googleMapsUri": "https://maps.google.com/?cid=11196159741367728975&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://theexchangehall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "best restaurants",
+        "food halls",
+        "viral food spots",
+        "seasonal pop ups",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats",
+        "festivals-seasonal",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.45
+    },
+    {
+      "googlePlaceId": "ChIJ3ejpeB8jTIYRj_ArebHkBKc",
+      "name": "Painting with a Twist",
+      "address": "1713 Preston Rd B, Plano, TX 75093, USA",
+      "category": "social-group-activities",
+      "categoryLabel": "Social Group Activities",
+      "rating": 5,
+      "reviewCount": 3165,
+      "priceLevel": null,
+      "primaryType": "art_studio",
+      "types": [
+        "art_studio",
+        "home_goods_store",
+        "store",
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "educational_institution",
+        "establishment"
+      ],
+      "lat": 33.023536500000006,
+      "lng": -96.79716619999999,
+      "googleMapsUri": "https://maps.google.com/?cid=12034995555134075023&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.paintingwithatwist.com/studio/plano/",
+      "openNow": true,
+      "matchedQueries": [
+        "paint and sip"
+      ],
+      "matchedCategories": [
+        "social-group-activities"
+      ],
+      "popularityScore": 87.4
+    },
+    {
+      "googlePlaceId": "ChIJoQRr8C6aToYRwYcn93FzvYA",
+      "name": "The Kessler Theater",
+      "address": "1230 W Davis St, Dallas, TX 75208, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.8,
+      "reviewCount": 1278,
+      "priceLevel": null,
+      "primaryType": "performing_arts_theater",
+      "types": [
+        "performing_arts_theater",
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7493,
+      "lng": -96.842625,
+      "googleMapsUri": "https://maps.google.com/?cid=9276697740768151489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.thekessler.org/",
+      "openNow": null,
+      "matchedQueries": [
+        "live music events",
+        "theater events",
+        "burlesque shows"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "adult-after-dark"
+      ],
+      "popularityScore": 87.2
+    },
+    {
+      "googlePlaceId": "ChIJy3TGE9k8TIYR3da3JmnH9Hw",
+      "name": "Red Door Escape Room",
+      "address": "8103 Rasor Boulevard Suite #100, Plano, TX 75024, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 4140,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0887222,
+      "lng": -96.7963638,
+      "googleMapsUri": "https://maps.google.com/?cid=9004040809455539933&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.reddoorescape.com/escape-rooms/plano",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 87.18
+    },
+    {
+      "googlePlaceId": "ChIJkaqb-s5zToYRw9aflDHx3H0",
+      "name": "Japanese Garden",
+      "address": "3220 Botanic Garden Blvd, Fort Worth, TX 76107, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.8,
+      "reviewCount": 5661,
+      "priceLevel": null,
+      "primaryType": "botanical_garden",
+      "types": [
+        "botanical_garden",
+        "tourist_attraction",
+        "garden",
+        "historical_landmark",
+        "historical_place",
+        "wedding_venue",
+        "event_venue",
+        "non_profit_organization",
+        "association_or_organization",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7355017,
+      "lng": -97.366331,
+      "googleMapsUri": "https://maps.google.com/?cid=9069388944866531011&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://fwbg.org/gardens/japanese-garden/",
+      "openNow": true,
+      "matchedQueries": [
+        "waterfront gardens"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 87.12
+    },
+    {
+      "googlePlaceId": "ChIJYX4yhCSGToYRR06ElpD2PcY",
+      "name": "Mr. Sugar Rush",
+      "address": "909 Dragon St, Dallas, TX 75207, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.9,
+      "reviewCount": 2393,
+      "priceLevel": null,
+      "primaryType": "ice_cream_shop",
+      "types": [
+        "ice_cream_shop",
+        "catering_service",
+        "food_delivery",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "food",
+        "point_of_interest",
+        "store",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.785144599999995,
+      "lng": -96.81531749999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14284844693950058055&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.mrsugarrush.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular dessert spots",
+        "food trucks"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 87.12
+    },
+    {
+      "googlePlaceId": "ChIJ0ep98rs7TIYRrI8COBZrBkg",
+      "name": "PopStroke",
+      "address": "5770 Grandscape Blvd, The Colony, TX 75056, USA",
+      "category": "sports-recreation",
+      "categoryLabel": "Sports & Recreation",
+      "rating": 4.8,
+      "reviewCount": 2085,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "miniature_golf_course",
+      "types": [
+        "miniature_golf_course",
+        "ice_cream_shop",
+        "sports_bar",
+        "event_venue",
+        "bar",
+        "dessert_shop",
+        "confectionery",
+        "food_store",
+        "store",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0739027,
+      "lng": -96.8591957,
+      "googleMapsUri": "https://maps.google.com/?cid=5189953363764219820&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://popstroke.com/venues/dallas-the-colony/",
+      "openNow": true,
+      "matchedQueries": [
+        "mini golf",
+        "game night venues"
+      ],
+      "matchedCategories": [
+        "sports-recreation",
+        "social-group-activities"
+      ],
+      "popularityScore": 87.07
+    },
+    {
+      "googlePlaceId": "ChIJLcqoZqU8TIYRsjNJbQkm0yw",
+      "name": "Legacy Hall",
+      "address": "7800 Windrose Ave., Plano, TX 75024, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.6,
+      "reviewCount": 10785,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "beer_garden",
+        "food_court",
+        "live_music_venue",
+        "event_venue",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.0817364,
+      "lng": -96.8264858,
+      "googleMapsUri": "https://maps.google.com/?cid=3229967179684852658&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://legacyfoodhall.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "food halls"
+      ],
+      "matchedCategories": [
+        "dining"
+      ],
+      "popularityScore": 87.05
+    },
+    {
+      "googlePlaceId": "ChIJeU_zFuOYToYRf8w6yEOeq-w",
+      "name": "City Park",
+      "address": "1515 S Harwood St, Dallas, TX 75215, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.6,
+      "reviewCount": 1438,
+      "priceLevel": null,
+      "primaryType": "park",
+      "types": [
+        "park",
+        "tourist_attraction",
+        "museum",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7727528,
+      "lng": -96.78654399999999,
+      "googleMapsUri": "https://maps.google.com/?cid=17053898427927809151&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.dallasparks.org/Facilities/Facility/Details/City-Park-777",
+      "openNow": true,
+      "matchedQueries": [
+        "best parks",
+        "things to do this weekend",
+        "local landmarks"
+      ],
+      "matchedCategories": [
+        "outdoor-nature",
+        "festivals-seasonal",
+        "local-exploration"
+      ],
+      "popularityScore": 86.89
+    },
+    {
+      "googlePlaceId": "ChIJEVzS74GqToYRRYO27oJEtto",
+      "name": "Escapology Escape Rooms Rockwall",
+      "address": "1290 I-30, Rockwall, TX 75087, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 3690,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "tourist_attraction",
+        "amusement_center",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.91184510000001,
+      "lng": -96.4450577,
+      "googleMapsUri": "https://maps.google.com/?cid=15759859275171005253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.escapology.com/en/rockwall-tx",
+      "openNow": true,
+      "matchedQueries": [
+        "escape rooms"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.8
+    },
+    {
+      "googlePlaceId": "ChIJAQAAAOmYToYR6Cz10ou0xpE",
+      "name": "Three Links Deep Ellum",
+      "address": "2704 Elm St, Dallas, TX 75226, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.7,
+      "reviewCount": 911,
+      "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+      "primaryType": "live_music_venue",
+      "types": [
+        "live_music_venue",
+        "event_venue",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.784391299999996,
+      "lng": -96.7844901,
+      "googleMapsUri": "https://maps.google.com/?cid=10504281693520997608&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://threelinksdeepellum.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "events tonight",
+        "live music events",
+        "ticketed events",
+        "jazz clubs",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.73
+    },
+    {
+      "googlePlaceId": "ChIJE4ottMyeToYRCDf_URSXZXU",
+      "name": "The Mansion Restaurant",
+      "address": "2821 Turtle Creek Blvd, Dallas, TX 75219, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.5,
+      "reviewCount": 1084,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.8040911,
+      "lng": -96.80699519999999,
+      "googleMapsUri": "https://maps.google.com/?cid=8459333588616165128&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.rosewoodhotels.com/en/mansion-on-turtle-creek-dallas/dining/mansion-restaurant",
+      "openNow": false,
+      "matchedQueries": [
+        "chef table experiences",
+        "date night restaurants",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.61
+    },
+    {
+      "googlePlaceId": "ChIJWyyVZaqZToYRbSFl52nZbnw",
+      "name": "Local Tap & Table",
+      "address": "3333 Harry Hines Blvd Suite 100, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.4,
+      "reviewCount": 3914,
+      "priceLevel": null,
+      "primaryType": "cajun_restaurant",
+      "types": [
+        "cajun_restaurant",
+        "bar_and_grill",
+        "american_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7975096,
+      "lng": -96.8140378,
+      "googleMapsUri": "https://maps.google.com/?cid=8966342957018194285&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.localtapandtable.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "popular brunch spots",
+        "viral food spots",
+        "TikTok restaurants"
+      ],
+      "matchedCategories": [
+        "dining",
+        "viral-eats"
+      ],
+      "popularityScore": 86.5
+    },
+    {
+      "googlePlaceId": "ChIJ5QF0FZGfToYRDppE2l6RusM",
+      "name": "Activate Games",
+      "address": "5111 Greenville Ave #140, Dallas, TX 75206, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.9,
+      "reviewCount": 277,
+      "priceLevel": null,
+      "primaryType": "amusement_center",
+      "types": [
+        "amusement_center",
+        "adventure_sports_center",
+        "video_arcade",
+        "sports_complex",
+        "sports_activity_location",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.850259199999996,
+      "lng": -96.77058939999999,
+      "googleMapsUri": "https://maps.google.com/?cid=14103745019639011854&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://playactivate.com/university-park?utm_source=google&utm_medium=organic&utm_campaign=gmb-up",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences",
+        "escape rooms",
+        "VR experiences",
+        "arcades",
+        "barcades",
+        "kids activities",
+        "game night venues",
+        "board game cafes",
+        "game bars"
+      ],
+      "matchedCategories": [
+        "immersive-experiences",
+        "sports-recreation",
+        "family-kids",
+        "social-group-activities"
+      ],
+      "popularityScore": 86.5
+    },
+    {
+      "googlePlaceId": "ChIJMaduqayeToYRo1l_G4XUTII",
+      "name": "Dallas Market Hall",
+      "address": "2200 N Stemmons Fwy, Dallas, TX 75207, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.4,
+      "reviewCount": 2256,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "point_of_interest",
+        "service",
+        "establishment"
+      ],
+      "lat": 32.8032476,
+      "lng": -96.82936079999999,
+      "googleMapsUri": "https://maps.google.com/?cid=9389112991317711267&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.dallasmarketcenter.com/public",
+      "openNow": null,
+      "matchedQueries": [
+        "ticketed events",
+        "events this weekend",
+        "street fairs",
+        "holiday markets",
+        "local events"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.43
+    },
+    {
+      "googlePlaceId": "ChIJSTL4mASZToYRo8mz7e4sGMo",
+      "name": "Gilley's Dallas",
+      "address": "1135 Botham Jean Blvd, Dallas, TX 75215, USA",
+      "category": "live-entertainment",
+      "categoryLabel": "Live Entertainment",
+      "rating": 4.5,
+      "reviewCount": 2740,
+      "priceLevel": null,
+      "primaryType": "event_venue",
+      "types": [
+        "event_venue",
+        "wedding_venue",
+        "service",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7686008,
+      "lng": -96.7978445,
+      "googleMapsUri": "https://maps.google.com/?cid=14562438799804320163&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.gilleysdallas.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "events tonight",
+        "events this weekend",
+        "festivals this weekend"
+      ],
+      "matchedCategories": [
+        "live-entertainment",
+        "festivals-seasonal"
+      ],
+      "popularityScore": 86.42
+    },
+    {
+      "googlePlaceId": "ChIJO9jSWbVfXIYRSRByBA4h70o",
+      "name": "Hopscotch San Antonio",
+      "address": "711 Navarro St Ste 100, San Antonio, TX 78205, USA",
+      "category": "immersive-experiences",
+      "categoryLabel": "Immersive Experiences",
+      "rating": 4.7,
+      "reviewCount": 6358,
+      "priceLevel": null,
+      "primaryType": "tourist_attraction",
+      "types": [
+        "tourist_attraction",
+        "gift_shop",
+        "art_gallery",
+        "lounge_bar",
+        "night_club",
+        "bar",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 29.428150499999997,
+      "lng": -98.49004219999999,
+      "googleMapsUri": "https://maps.google.com/?cid=5399570822328356937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.letshopscotch.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "immersive experiences"
+      ],
+      "matchedCategories": [
+        "immersive-experiences"
+      ],
+      "popularityScore": 86.4
+    },
+    {
+      "googlePlaceId": "ChIJmZZVAzWZToYRWKTPF-3nLN0",
+      "name": "Rodeo Bar",
+      "address": "1321 Commerce St, Dallas, TX 75202, USA",
+      "category": "drinks-nightlife",
+      "categoryLabel": "Drinks & Nightlife",
+      "rating": 4.7,
+      "reviewCount": 1390,
+      "priceLevel": null,
+      "primaryType": "american_restaurant",
+      "types": [
+        "american_restaurant",
+        "hamburger_restaurant",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7799743,
+      "lng": -96.7995024,
+      "googleMapsUri": "https://maps.google.com/?cid=15937368186850092120&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://www.adolphus.com/restaurants-bars/rodeo-bar?utm_source=google-gbp&utm_medium=organic&utm_campaign=gbp",
+      "openNow": true,
+      "matchedQueries": [
+        "best cocktail bars",
+        "rooftop bars",
+        "supper clubs"
+      ],
+      "matchedCategories": [
+        "drinks-nightlife",
+        "adult-after-dark"
+      ],
+      "popularityScore": 86.38
+    },
+    {
+      "googlePlaceId": "ChIJ05jEMMVNTIYR-Txl7IV_10k",
+      "name": "Ray Roberts Lake State Park",
+      "address": "100 P W 4137, Pilot Point, TX 76258, USA",
+      "category": "outdoor-nature",
+      "categoryLabel": "Outdoor & Nature",
+      "rating": 4.7,
+      "reviewCount": 6132,
+      "priceLevel": null,
+      "primaryType": "state_park",
+      "types": [
+        "state_park",
+        "tourist_attraction",
+        "park",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 33.380758,
+      "lng": -97.0134772,
+      "googleMapsUri": "https://maps.google.com/?cid=5320861697934966009&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "https://tpwd.texas.gov/state-parks/ray-roberts-lake",
+      "openNow": true,
+      "matchedQueries": [
+        "sunset hikes"
+      ],
+      "matchedCategories": [
+        "outdoor-nature"
+      ],
+      "popularityScore": 86.28
+    },
+    {
+      "googlePlaceId": "ChIJ3aaOA06ZToYR8NFgiHe0pT4",
+      "name": "Rodeo Goat",
+      "address": "1926 Market Center Blvd, Dallas, TX 75207, USA",
+      "category": "viral-eats",
+      "categoryLabel": "Foodie / Viral Eats",
+      "rating": 4.6,
+      "reviewCount": 8481,
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "primaryType": "hamburger_restaurant",
+      "types": [
+        "hamburger_restaurant",
+        "bar",
+        "american_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.7972052,
+      "lng": -96.82391489999999,
+      "googleMapsUri": "https://maps.google.com/?cid=4514212626990944752&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://rodeogoat.com/dallas/",
+      "openNow": true,
+      "matchedQueries": [
+        "viral food spots"
+      ],
+      "matchedCategories": [
+        "viral-eats"
+      ],
+      "popularityScore": 86.25
+    },
+    {
+      "googlePlaceId": "ChIJbwZgLhkNSYYRQMqdMdUMiS4",
+      "name": "First Monday Trade Days",
+      "address": "800 First Monday Ln, Canton, TX 75103, USA",
+      "category": "shopping-markets",
+      "categoryLabel": "Shopping & Markets",
+      "rating": 4.6,
+      "reviewCount": 8296,
+      "priceLevel": null,
+      "primaryType": "flea_market",
+      "types": [
+        "flea_market",
+        "market",
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
+      "lat": 32.562706999999996,
+      "lng": -95.8658885,
+      "googleMapsUri": "https://maps.google.com/?cid=3353225507354036800&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.firstmondaycanton.com/",
+      "openNow": true,
+      "matchedQueries": [
+        "flea markets"
+      ],
+      "matchedCategories": [
+        "shopping-markets"
+      ],
+      "popularityScore": 86.18
+    },
+    {
+      "googlePlaceId": "ChIJsaYpjliZToYRD_HttJNU2m4",
+      "name": "Monarch Restaurant",
+      "address": "1401 Elm St 49th Floor, Dallas, TX 75201, USA",
+      "category": "dining",
+      "categoryLabel": "Dining",
+      "rating": 4.3,
+      "reviewCount": 1832,
+      "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+      "primaryType": "restaurant",
+      "types": [
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "lat": 32.7814389,
+      "lng": -96.8006905,
+      "googleMapsUri": "https://maps.google.com/?cid=7987789882467414287&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "websiteUri": "http://www.monarchrestaurants.com/",
+      "openNow": false,
+      "matchedQueries": [
+        "best restaurants",
+        "chef table experiences",
+        "date night restaurants",
+        "sunset date spots",
+        "fine dining",
+        "private dining rooms"
+      ],
+      "matchedCategories": [
+        "dining",
+        "romantic-date-night",
+        "luxury-special-occasion"
+      ],
+      "popularityScore": 86.14
+    }
+  ]
+}

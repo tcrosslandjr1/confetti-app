@@ -201,6 +201,33 @@ export type Database = {
         }
         Relationships: []
       }
+      admin_pins: {
+        Row: {
+          created_at: string
+          failed_attempts: number
+          locked_until: string | null
+          pin_hash: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          failed_attempts?: number
+          locked_until?: string | null
+          pin_hash: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          failed_attempts?: number
+          locked_until?: string | null
+          pin_hash?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       advertiser_confetti_balances: {
         Row: {
           advertiser_id: string
@@ -4523,6 +4550,14 @@ export type Database = {
         }
         Returns: undefined
       }
+      admin_pin_status: {
+        Args: never
+        Returns: {
+          has_pin: boolean
+          locked: boolean
+          locked_until: string
+        }[]
+      }
       award_confetti_pts: {
         Args: { _amount: number; _reason: string; _ref?: string; _user: string }
         Returns: undefined
@@ -4600,6 +4635,8 @@ export type Database = {
           user_id: string
         }[]
       }
+      set_admin_pin: { Args: { _pin: string }; Returns: undefined }
+      verify_admin_pin: { Args: { _pin: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "customer" | "business_owner"

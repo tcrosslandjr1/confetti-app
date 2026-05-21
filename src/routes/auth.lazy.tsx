@@ -24,7 +24,6 @@ import { useAuth } from "@/lib/auth-context";
 
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
-import { lovable } from "@/integrations/lovable";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
 import { getMyAdvertiser } from "@/lib/ads";
@@ -208,19 +207,19 @@ function AuthPage() {
     setError(null);
     setOauthBusy(provider);
     try {
-      const { error, redirected } = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
+      const { data, error: oauthError } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
+          queryParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
+        },
       });
-      if (error) {
-        setError(explainOAuthError(provider, error.message));
+      if (oauthError) {
+        setError(explainOAuthError(provider, oauthError.message));
         setOauthBusy(null);
         return;
       }
-      if (!redirected) {
-        // Tokens already exchanged — auth-context will pick the session up.
-        navigate({ to: safeRedirectTo as never });
-      }
-      // If redirected === true, the browser is navigating away; leave busy on.
+      // Supabase redirects the browser to the provider — leave busy spinner on.
     } catch (e: any) {
       setError(explainOAuthError(provider, e?.message ?? String(e)));
       setOauthBusy(null);

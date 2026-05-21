@@ -2,7 +2,6 @@ import { createFileRoute, Link, useNavigate, useSearch } from "@tanstack/react-r
 import { useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,15 +32,23 @@ function BusinessSignupPage() {
 
   async function handleGoogle() {
     setBusy(true);
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: `${window.location.origin}/business/claim`,
-    });
-    if (result.error) {
-      toast.error(result.error.message ?? "Google sign‑in failed");
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${window.location.origin}/business/claim`,
+          queryParams: { access_type: "offline", prompt: "consent" },
+        },
+      });
+      if (error) {
+        toast.error(error.message ?? "Google sign‑in failed");
+        setBusy(false);
+      }
+      // Browser is redirecting to Google — leave busy spinner on.
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Google sign‑in failed");
       setBusy(false);
-      return;
     }
-    if (!result.redirected) navigate({ to: "/business/claim" });
   }
 
   async function handleEmail(e: React.FormEvent) {

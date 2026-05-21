@@ -189,9 +189,11 @@ export default function AgentControlCenter() {
             ["teams", "Teams", Bot],
             ["feed", "Live Feed", MessageSquare],
             ["board", "Task Board", Columns3],
+            ["calendar", "Calendar", CalendarDays],
             ["chat", "Chat", Sparkles],
           ] as const
         ).map(([key, label, Icon]) => (
+
           <button
             key={key}
             type="button"

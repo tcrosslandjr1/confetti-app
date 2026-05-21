@@ -256,9 +256,15 @@ function AdminLayout() {
     if (isLoginRoute) {
         return <Outlet />;
     }
-    if (!allowPreview && (loading || !isAdmin || viewAs !== "admin")) {
+    // Sticky shell: once we've shown the admin shell, never fall back to the
+    // full-page skeleton on transient auth re-checks (e.g. tab refocus).
+    const shellReady = allowPreview || (!loading && isAdmin && viewAs === "admin");
+    const hasShownShell = useRef(false);
+    if (shellReady) hasShownShell.current = true;
+    if (!shellReady && !hasShownShell.current) {
         return <AdminSkeleton />;
     }
+
     if (!unlocked) {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }

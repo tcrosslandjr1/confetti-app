@@ -50,9 +50,6 @@ const FirstRunNudge = lazy(() =>
 const ViewAuditOverlay = lazy(() =>
   import("@/components/ViewAuditOverlay").then((m) => ({ default: m.ViewAuditOverlay })),
 );
-const DebugBanner = lazy(() =>
-  import("@/components/DebugBanner").then((m) => ({ default: m.DebugBanner })),
-);
 
 function NotFoundComponent() {
   return (
@@ -285,9 +282,6 @@ function RootComponent() {
               </Suspense>
               <Suspense fallback={null}>
                 <ViewAuditOverlay />
-              </Suspense>
-              <Suspense fallback={null}>
-                <DebugBanner />
               </Suspense>
               <Toaster />
             </WizardProvider>

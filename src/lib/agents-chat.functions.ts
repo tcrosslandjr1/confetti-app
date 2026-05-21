@@ -10,9 +10,18 @@ export type AgentChatInput = {
   messages: AgentChatMessage[];
 };
 
+export type AgentProposal = {
+  id: string;
+  action_type: string;
+  params: Record<string, unknown>;
+  summary: string;
+  status: string;
+};
+
 export type AgentChatResult = {
   reply: string;
   agent: { id: string; name: string } | null;
+  proposals?: AgentProposal[];
 };
 
 /** Drop-in replacement for the old server fn. Accepts `{ data }` so callers
@@ -38,5 +47,30 @@ export async function chatWithAgents(
   if (!data) throw new Error("Empty response from agent chat");
   if ((data as { error?: string }).error) throw new Error((data as { error: string }).error);
 
-  return { reply: data.reply, agent: data.agent ?? null };
+  return {
+    reply: data.reply,
+    agent: data.agent ?? null,
+    proposals: data.proposals ?? [],
+  };
 }
+
+export type ExecuteResult = {
+  ok: boolean;
+  status: string;
+  result?: unknown;
+  error?: string | null;
+};
+
+export async function decideAgentProposal(
+  actionId: string,
+  decision: "approve" | "reject",
+): Promise<ExecuteResult> {
+  const { data, error } = await supabase.functions.invoke<ExecuteResult & { error?: string }>(
+    "agents-execute-action",
+    { body: { action_id: actionId, decision } },
+  );
+  if (error) throw new Error(error.message || "Execute failed");
+  if (!data) throw new Error("Empty response");
+  return data;
+}
+

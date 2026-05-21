@@ -23,6 +23,8 @@ import {
   Sparkles,
   X,
   RotateCcw,
+  ShieldCheck,
+  Ban,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
@@ -37,7 +39,7 @@ import {
   type AgentTask,
   type TaskStatus,
 } from "../lib/agents/agent-registry";
-import { chatWithAgents } from "@/lib/agents-chat.functions";
+import { chatWithAgents, decideAgentProposal, type AgentProposal } from "@/lib/agents-chat.functions";
 
 // ── helpers ─────────────────────────────────────────────────
 
@@ -517,7 +519,11 @@ function TaskCard({ task }: { task: AgentTask }) {
 
 // ── Chat ────────────────────────────────────────────────────
 
-export type ChatMsg = { role: "user" | "assistant"; content: string };
+export type ChatMsg = {
+  role: "user" | "assistant";
+  content: string;
+  proposals?: AgentProposal[];
+};
 
 export function ChatView({
   target,
@@ -533,12 +539,15 @@ export function ChatView({
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [decidingId, setDecidingId] = useState<string | null>(null);
+  const [proposalStatus, setProposalStatus] = useState<Record<string, string>>({});
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Reset thread when target changes
   useEffect(() => {
     setMessages([]);
     setError(null);
+    setProposalStatus({});
   }, [target?.id]);
 
   useEffect(() => {
@@ -555,9 +564,9 @@ export function ChatView({
     setBusy(true);
     try {
       const res = await chat({
-        data: { targetAgentId: target?.id, messages: next },
+        data: { targetAgentId: target?.id, messages: next.map((m) => ({ role: m.role, content: m.content })) },
       });
-      setMessages([...next, { role: "assistant", content: res.reply }]);
+      setMessages([...next, { role: "assistant", content: res.reply, proposals: res.proposals ?? [] }]);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Agent failed to reply";
       setError(msg);
@@ -569,6 +578,27 @@ export function ChatView({
       setBusy(false);
     }
   };
+
+  const decide = async (p: AgentProposal, decision: "approve" | "reject") => {
+    setDecidingId(p.id);
+    try {
+      const res = await decideAgentProposal(p.id, decision);
+      const status = res.status;
+      setProposalStatus((s) => ({ ...s, [p.id]: status }));
+      if (decision === "approve" && res.ok) {
+        toast.success("Action executed", { description: p.summary });
+      } else if (decision === "approve" && !res.ok) {
+        toast.error("Action failed", { description: res.error ?? "Unknown error" });
+      } else {
+        toast.message("Proposal rejected");
+      }
+    } catch (e) {
+      toast.error("Failed", { description: e instanceof Error ? e.message : "Unknown error" });
+    } finally {
+      setDecidingId(null);
+    }
+  };
+
 
   const prompts = target
     ? [
@@ -645,17 +675,61 @@ export function ChatView({
         )}
         <div className="space-y-3">
           {messages.map((m, i) => (
-            <div
-              key={i}
-              className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
-            >
-              <div
-                className={`max-w-[85%] whitespace-pre-wrap rounded-xl border-2 border-ink px-3 py-2 text-sm shadow-brut ${
-                  m.role === "user" ? "bg-ink text-cream" : "bg-gold/40 text-ink"
-                }`}
-              >
-                {m.content}
+            <div key={i} className="space-y-2">
+              <div className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div
+                  className={`max-w-[85%] whitespace-pre-wrap rounded-xl border-2 border-ink px-3 py-2 text-sm shadow-brut ${
+                    m.role === "user" ? "bg-ink text-cream" : "bg-gold/40 text-ink"
+                  }`}
+                >
+                  {m.content}
+                </div>
               </div>
+              {m.proposals?.map((p) => {
+                const status = proposalStatus[p.id] ?? p.status;
+                const isPending = status === "pending";
+                return (
+                  <div
+                    key={p.id}
+                    className="ml-2 max-w-[90%] rounded-xl border-2 border-ink bg-cream p-3 shadow-brut"
+                  >
+                    <div className="mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
+                      Pending action · approval required
+                    </div>
+                    <div className="text-sm font-semibold text-ink">{p.summary}</div>
+                    <div className="mt-1 font-mono text-[11px] text-ink/60">
+                      {p.action_type}
+                      {p.params?.email ? ` · ${String(p.params.email)}` : ""}
+                    </div>
+                    {isPending ? (
+                      <div className="mt-2 flex gap-2">
+                        <button
+                          type="button"
+                          disabled={decidingId === p.id}
+                          onClick={() => void decide(p, "approve")}
+                          className="inline-flex items-center gap-1 rounded-lg border-2 border-ink bg-coral px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 disabled:opacity-50"
+                        >
+                          <ShieldCheck className="h-3.5 w-3.5" />
+                          Approve & run
+                        </button>
+                        <button
+                          type="button"
+                          disabled={decidingId === p.id}
+                          onClick={() => void decide(p, "reject")}
+                          className="inline-flex items-center gap-1 rounded-lg border-2 border-ink bg-cream px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 disabled:opacity-50"
+                        >
+                          <Ban className="h-3.5 w-3.5" />
+                          Reject
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="mt-2 inline-flex items-center gap-1 rounded-md border border-ink/30 bg-ink/5 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-ink/70">
+                        {status}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           ))}
           {busy && (

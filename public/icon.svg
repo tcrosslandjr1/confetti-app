@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6B6B"/>
+      <stop offset=".5" stop-color="#EE5A9D"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="100" y1="100" x2="412" y2="412" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06D6A0"/>
+      <stop offset="1" stop-color="#4CC9F0"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="116" fill="#1A1025"/>
+  <!-- Central burst / party popper cone -->
+  <path fill="url(#g1)" d="M256 380 L180 160 L332 160 Z" opacity="0.9"/>
+  <path fill="url(#g2)" d="M256 380 L200 180 L312 180 Z" opacity="0.5"/>
+  <!-- Confetti pieces bursting outward -->
+  <!-- Top-left confetti -->
+  <rect x="130" y="100" width="28" height="12" rx="3" fill="#FF6B6B" transform="rotate(-35 144 106)"/>
+  <rect x="105" y="140" width="22" height="10" rx="3" fill="#4CC9F0" transform="rotate(-50 116 145)"/>
+  <circle cx="158" cy="80" r="10" fill="#06D6A0"/>
+  <rect x="90" y="105" width="18" height="8" rx="2" fill="#EE5A9D" transform="rotate(-20 99 109)"/>
+  <!-- Top-right confetti -->
+  <rect x="354" y="100" width="28" height="12" rx="3" fill="#8B5CF6" transform="rotate(35 368 106)"/>
+  <rect x="385" y="140" width="22" height="10" rx="3" fill="#FF6B6B" transform="rotate(50 396 145)"/>
+  <circle cx="354" cy="80" r="10" fill="#EE5A9D"/>
+  <rect x="404" y="105" width="18" height="8" rx="2" fill="#06D6A0" transform="rotate(20 413 109)"/>
+  <!-- Upper confetti -->
+  <circle cx="220" cy="95" r="8" fill="#4CC9F0"/>
+  <circle cx="292" cy="95" r="8" fill="#FF6B6B"/>
+  <rect x="244" y="70" width="24" height="10" rx="3" fill="#06D6A0" transform="rotate(10 256 75)"/>
+  <!-- Side confetti -->
+  <circle cx="120" cy="200" r="7" fill="#8B5CF6"/>
+  <circle cx="392" cy="200" r="7" fill="#4CC9F0"/>
+  <rect x="80" y="180" width="20" height="8" rx="2" fill="#FF6B6B" transform="rotate(-60 90 184)"/>
+  <rect x="412" y="180" width="20" height="8" rx="2" fill="#EE5A9D" transform="rotate(60 422 184)"/>
+  <!-- Mid-level sparkle dots -->
+  <circle cx="150" cy="260" r="6" fill="#06D6A0" opacity="0.8"/>
+  <circle cx="362" cy="260" r="6" fill="#FF6B6B" opacity="0.8"/>
+  <circle cx="180" cy="310" r="5" fill="#EE5A9D" opacity="0.7"/>
+  <circle cx="332" cy="310" r="5" fill="#8B5CF6" opacity="0.7"/>
+  <!-- Star sparkles -->
+  <path fill="#FAFAF7" d="M256 120 l4 12 12 4 -12 4 -4 12 -4-12 -12-4 12-4z"/>
+  <path fill="#FFD700" d="M170 170 l3 9 9 3 -9 3 -3 9 -3-9 -9-3 9-3z"/>
+  <path fill="#FFD700" d="M342 170 l3 9 9 3 -9 3 -3 9 -3-9 -9-3 9-3z"/>
+  <path fill="#FAFAF7" d="M130 140 l2 6 6 2 -6 2 -2 6 -2-6 -6-2 6-2z" opacity="0.8"/>
+  <path fill="#FAFAF7" d="M382 140 l2 6 6 2 -6 2 -2 6 -2-6 -6-2 6-2z" opacity="0.8"/>
+</svg>

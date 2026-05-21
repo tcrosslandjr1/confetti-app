@@ -1,0 +1,20 @@
+{
+  "name": "Confetti",
+  "short_name": "Confetti",
+  "description": "Confetti — AI-powered dining, nightlife, and curated experience planning.",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "theme_color": "#EE5A9D",
+  "background_color": "#1A1025",
+  "categories": ["lifestyle", "travel", "food"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

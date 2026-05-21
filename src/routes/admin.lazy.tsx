@@ -434,20 +434,20 @@ function AdminShell({ user, pathname, onLock }: {
                         return (
                           <SidebarMenuItem key={item.to}>
                             <SidebarMenuButton asChild isActive={active} tooltip={count > 0 ? `${item.label} · ${count} pending` : item.label} className={active
-                              ? "relative border border-ink/15 bg-coral/15 font-bold text-ink shadow-sm hover:bg-coral/20 before:absolute before:left-0 before:top-1/2 before:h-5 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-coral"
-                              : "transition hover:translate-x-0.5 hover:bg-cream/60"}>
+                              ? "group/item relative border border-ink/15 bg-gradient-to-r from-coral/20 via-coral/10 to-transparent font-bold text-ink shadow-sm transition-all duration-200 hover:bg-coral/20 before:absolute before:left-0 before:top-1/2 before:h-5 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-coral before:shadow-[0_0_8px_hsl(var(--coral)/0.5)]"
+                              : "group/item relative transition-all duration-150 hover:translate-x-0.5 hover:bg-cream/60"}>
                               <Link to={item.to as string as "/"} onClick={handleNav} className="flex items-center gap-2.5">
-                                <item.icon className={`h-4 w-4 ${active ? "text-coral" : "text-ink/60"}`}/>
-                                <span className="flex-1 truncate">{item.label}</span>
+                                <item.icon className={`h-4 w-4 transition-transform duration-200 group-hover/item:scale-110 ${active ? "text-coral" : "text-ink/60 group-hover/item:text-ink"}`}/>
+                                <span className="flex-1 truncate">{renderHighlight(item.label, query)}</span>
                                 {count > 0 && !collapsed && (
-                                  <span className="rounded-full border border-coral/40 bg-coral/15 px-1.5 py-0.5 font-mono text-[9px] font-bold leading-none text-coral tabular-nums">
+                                  <span className="rounded-full border border-coral/40 bg-coral/15 px-1.5 py-0.5 font-mono text-[9px] font-bold leading-none text-coral tabular-nums shadow-[0_0_0_3px_hsl(var(--coral)/0.08)] animate-fade-in">
                                     {count > 99 ? "99+" : count}
                                   </span>
                                 )}
                                 {count > 0 && collapsed && (
-                                  <span className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full bg-coral" aria-hidden />
+                                  <span className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full bg-coral animate-pulse" aria-hidden />
                                 )}
-                                {active && count === 0 && (<span className="ml-auto h-1.5 w-1.5 rounded-full bg-coral"/>)}
+                                {active && count === 0 && (<span className="ml-auto h-1.5 w-1.5 rounded-full bg-coral animate-pulse"/>)}
                               </Link>
                             </SidebarMenuButton>
                           </SidebarMenuItem>

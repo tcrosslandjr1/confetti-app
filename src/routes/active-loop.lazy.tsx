@@ -191,36 +191,105 @@ function ActiveLoopPage() {
 
         <div className="mt-8 grid gap-2">
           <div className="rounded-2xl border border-border bg-card p-4">
-            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-2">
-              All stops
+            <div className="mb-3 flex items-baseline justify-between">
+              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                All stops
+              </div>
+              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/40">
+                {loop.stops.filter((s) => s.done).length}/{loop.stops.length} done
+              </div>
             </div>
-            <ol className="space-y-2">
+            <ol className="relative">
+              {/* Vertical rail */}
+              <div className="pointer-events-none absolute left-[15px] top-2 bottom-2 w-[2px] rounded-full bg-ink/10" aria-hidden="true" />
+              {(() => {
+                const total = loop.stops.length;
+                const doneCount = loop.stops.filter((s) => s.done).length;
+                const pct = total > 1 ? Math.min(100, (doneCount / (total - 1)) * 100) : 0;
+                return (
+                  <div
+                    className="pointer-events-none absolute left-[15px] top-2 w-[2px] rounded-full bg-gradient-to-b from-coral to-gold transition-all duration-700"
+                    style={{ height: `calc((100% - 16px) * ${pct / 100})` }}
+                    aria-hidden="true"
+                  />
+                );
+              })()}
+
               {loop.stops.map((s, i) => {
-            const sev = topSeverity(warningIndex.get(s.id));
-            const ringClass = sev === "critical"
-                ? "ring-2 ring-destructive bg-destructive/5"
-                : sev === "warn"
-                    ? "ring-2 ring-coral bg-coral/5"
-                    : sev === "info"
-                        ? "ring-1 ring-ink/30"
+                const sev = topSeverity(warningIndex.get(s.id));
+                const isCurrent = i === currentIdx;
+                const isLast = i === loop.stops.length - 1;
+                const sevPill =
+                  sev === "critical"
+                    ? "border-destructive text-destructive bg-destructive/5"
+                    : sev === "warn"
+                      ? "border-coral text-coral bg-coral/5"
+                      : sev === "info"
+                        ? "border-ink/30 text-ink/60 bg-ink/5"
                         : "";
-            return (<li key={s.id}>
-                    <button type="button" onClick={() => jumpToStop(s.id)} className={`flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left hover:bg-coral/5 ${ringClass}`}>
-                      <span className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}>
-                        {s.done ? (<Check className="h-3 w-3" strokeWidth={3}/>) : (<span className="font-mono text-[9px] font-bold">{i + 1}</span>)}
-                      </span>
-                      <div className="flex-1 text-sm font-semibold">{s.name}</div>
-                      {sev && !s.done && (<span className={`rounded-full border px-1.5 py-px font-mono text-[9px] font-bold uppercase tracking-widest ${sev === "critical"
-                        ? "border-destructive text-destructive"
-                        : sev === "warn"
-                            ? "border-coral text-coral"
-                            : "border-ink/40 text-ink/60"}`}>
-                          At risk
-                        </span>)}
-                      <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
+                return (
+                  <li key={s.id} className="relative">
+                    <button
+                      type="button"
+                      onClick={() => jumpToStop(s.id)}
+                      className={`group flex w-full items-stretch gap-3 rounded-xl px-1 py-2 text-left transition-all hover:bg-coral/5 ${isCurrent ? "bg-gold/10" : ""}`}
+                    >
+                      {/* Node */}
+                      <div className="relative z-10 flex w-8 shrink-0 justify-center pt-0.5">
+                        <span
+                          className={`grid h-8 w-8 place-items-center rounded-full border-2 border-ink shadow-[2px_2px_0_0_rgba(26,20,16,0.15)] transition-transform group-hover:-translate-y-0.5 ${
+                            s.done
+                              ? "bg-coral text-cream"
+                              : isCurrent
+                                ? "bg-gold text-ink animate-pulse"
+                                : "bg-cream text-ink"
+                          }`}
+                        >
+                          {s.done ? (
+                            <Check className="h-4 w-4" strokeWidth={3} />
+                          ) : (
+                            <span className="font-mono text-[10px] font-bold">{i + 1}</span>
+                          )}
+                        </span>
+                      </div>
+
+                      {/* Body */}
+                      <div className="flex flex-1 flex-col gap-1 border-b border-dashed border-ink/10 pb-3 last:border-b-0 last:pb-0" style={isLast ? { borderBottom: 0, paddingBottom: 0 } : undefined}>
+                        <div className="flex items-baseline justify-between gap-2">
+                          <div className="font-display text-sm font-bold leading-tight">
+                            {s.name}
+                          </div>
+                          <span className="font-mono text-[10px] font-bold text-ink/60">
+                            {s.time}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+                          {s.area && (
+                            <span className="inline-flex items-center gap-1">
+                              <MapPin className="h-3 w-3" /> {s.area}
+                            </span>
+                          )}
+                          {isCurrent && !s.done && (
+                            <span className="rounded-full bg-gold/20 px-1.5 py-px font-mono text-[9px] font-bold uppercase tracking-widest text-ink">
+                              You're here
+                            </span>
+                          )}
+                          {sev && !s.done && (
+                            <span className={`rounded-full border px-1.5 py-px font-mono text-[9px] font-bold uppercase tracking-widest ${sevPill}`}>
+                              At risk
+                            </span>
+                          )}
+                          {s.done && (
+                            <span className="rounded-full border border-coral/40 bg-coral/5 px-1.5 py-px font-mono text-[9px] font-bold uppercase tracking-widest text-coral">
+                              Checked in
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </button>
-                  </li>);
-        })}
+                  </li>
+                );
+              })}
             </ol>
           </div>
 

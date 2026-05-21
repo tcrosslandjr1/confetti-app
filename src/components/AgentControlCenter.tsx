@@ -25,7 +25,10 @@ import {
   RotateCcw,
   ShieldCheck,
   Ban,
+  CalendarDays,
 } from "lucide-react";
+import AgentCalendar from "./AgentCalendar";
+
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
@@ -86,7 +89,7 @@ function timeAgo(dateStr: string | null): string {
 
 // ── component ───────────────────────────────────────────────
 
-type Tab = "teams" | "feed" | "board" | "chat";
+type Tab = "teams" | "feed" | "board" | "calendar" | "chat";
 
 export default function AgentControlCenter() {
   const [view, setView] = useState<ControlCenterView | null>(null);
@@ -186,9 +189,11 @@ export default function AgentControlCenter() {
             ["teams", "Teams", Bot],
             ["feed", "Live Feed", MessageSquare],
             ["board", "Task Board", Columns3],
+            ["calendar", "Calendar", CalendarDays],
             ["chat", "Chat", Sparkles],
           ] as const
         ).map(([key, label, Icon]) => (
+
           <button
             key={key}
             type="button"
@@ -227,7 +232,10 @@ export default function AgentControlCenter() {
         )}
         {tab === "feed" && <FeedView messages={view.recentMessages} />}
         {tab === "board" && <BoardView board={view.taskBoard} />}
+        {tab === "calendar" && <AgentCalendar />}
         {tab === "chat" && (
+
+
           <ChatView
             target={chatTarget}
             onPickAgent={() => setTab("teams")}

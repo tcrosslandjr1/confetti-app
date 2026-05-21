@@ -3241,6 +3241,7 @@ export type Database = {
         Row: {
           created_at: string
           details: string | null
+          due_date: string | null
           id: string
           kind: string
           opened_by: string | null
@@ -3254,6 +3255,7 @@ export type Database = {
         Insert: {
           created_at?: string
           details?: string | null
+          due_date?: string | null
           id?: string
           kind: string
           opened_by?: string | null
@@ -3267,6 +3269,7 @@ export type Database = {
         Update: {
           created_at?: string
           details?: string | null
+          due_date?: string | null
           id?: string
           kind?: string
           opened_by?: string | null

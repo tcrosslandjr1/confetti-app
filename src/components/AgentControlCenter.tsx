@@ -233,6 +233,8 @@ export default function AgentControlCenter() {
         {tab === "feed" && <FeedView messages={view.recentMessages} />}
         {tab === "board" && <BoardView board={view.taskBoard} />}
         {tab === "calendar" && <AgentCalendar />}
+        {tab === "chat" && (
+
 
           <ChatView
             target={chatTarget}

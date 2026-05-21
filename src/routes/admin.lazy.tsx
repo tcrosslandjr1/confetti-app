@@ -331,21 +331,30 @@ function AdminShell({ user, pathname, onLock }: {
       <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
         <SidebarContent className="bg-cream/30">
           {/* Brand header */}
-          <div className="relative mx-2 mt-3 flex items-center gap-2.5 overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br from-coral via-orange-400 to-gold px-3 py-3 shadow-brut">
+          <div className="group relative mx-2 mt-3 flex items-center gap-2.5 overflow-hidden rounded-2xl border-2 border-ink bg-[length:200%_200%] bg-gradient-to-br from-coral via-orange-400 to-gold px-3 py-3 shadow-brut transition-all duration-500 hover:shadow-[6px_6px_0_0_hsl(var(--ink))] [animation:brand-shift_8s_ease_infinite]">
+            <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-cream/40 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-hover:[animation:brand-shine_1.2s_ease]" aria-hidden />
             <span className="pointer-events-none absolute right-2 top-2 h-1.5 w-1.5 rotate-12 bg-cream/70" aria-hidden/>
             <span className="pointer-events-none absolute bottom-2 left-10 h-1.5 w-1.5 rotate-45 bg-ink/50" aria-hidden/>
-            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
+            <div className="relative grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut transition-transform duration-300 group-hover:-rotate-6">
               <Sparkles className="h-4 w-4 text-coral"/>
+              <span className="absolute -bottom-0.5 -right-0.5 grid h-3 w-3 place-items-center rounded-full border-2 border-ink bg-cream">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              </span>
             </div>
             {!collapsed && (
-              <div className="min-w-0 text-sm">
-                <div className="font-display font-extrabold leading-none text-ink">Confetti</div>
-                <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
-                  Admin · Command
+              <div className="min-w-0 flex-1 text-sm">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-display font-extrabold leading-none text-ink">Confetti</span>
+                  <span className="rounded-full border border-ink/30 bg-cream/70 px-1 py-px font-mono text-[8px] font-bold leading-none text-ink/70">v1.0</span>
+                </div>
+                <div className="mt-1 flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
+                  <span className="h-1 w-1 rounded-full bg-ink/60" />
+                  <span>Admin · Command</span>
                 </div>
               </div>
             )}
           </div>
+          <style>{`@keyframes brand-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes brand-shine{0%{transform:translateX(0) skewX(-12deg)}100%{transform:translateX(600%) skewX(-12deg)}}`}</style>
 
           {!collapsed && (
             <div className="mx-2 mt-3">

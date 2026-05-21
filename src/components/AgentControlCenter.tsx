@@ -89,7 +89,7 @@ function timeAgo(dateStr: string | null): string {
 
 // ── component ───────────────────────────────────────────────
 
-type Tab = "teams" | "feed" | "board" | "chat";
+type Tab = "teams" | "feed" | "board" | "calendar" | "chat";
 
 export default function AgentControlCenter() {
   const [view, setView] = useState<ControlCenterView | null>(null);

@@ -47,6 +47,7 @@ function RotatingTagline({ className = "" }: { className?: string }) {
 const marketingLinks = [
   { to: "/features", label: "Features" },
   { to: "/how-it-works", label: "How" },
+  { to: "/guides", label: "City Guides" },
   { to: "/teams", label: "Team Events" },
   { to: "/about", label: "About" },
   { to: "/advertise", label: "For Business" },

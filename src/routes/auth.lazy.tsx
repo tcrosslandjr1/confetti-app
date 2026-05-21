@@ -976,6 +976,15 @@ function AuthPage() {
                 </div>
               </div>
             )}
+            {notice && (
+              <div
+                role="status"
+                className="flex items-start gap-2 rounded-xl border-2 border-ink/30 bg-cream p-3 text-xs text-ink"
+              >
+                <Check className="mt-0.5 h-4 w-4 text-coral" />
+                <p className="font-semibold">{notice}</p>
+              </div>
+            )}
             {mode === "signup" && locationBlocked && (
               <label className="flex items-start gap-2 rounded-xl border-2 border-ink/30 bg-cream/60 p-3 text-xs text-ink/70">
                 <input

@@ -2240,6 +2240,51 @@ export type Database = {
         }
         Relationships: []
       }
+      pending_admin_actions: {
+        Row: {
+          action_type: string
+          approved_by: string | null
+          created_at: string
+          error: string | null
+          executed_at: string | null
+          id: string
+          params: Json
+          proposed_by: string | null
+          result: Json | null
+          status: string
+          summary: string
+          updated_at: string
+        }
+        Insert: {
+          action_type: string
+          approved_by?: string | null
+          created_at?: string
+          error?: string | null
+          executed_at?: string | null
+          id?: string
+          params?: Json
+          proposed_by?: string | null
+          result?: Json | null
+          status?: string
+          summary: string
+          updated_at?: string
+        }
+        Update: {
+          action_type?: string
+          approved_by?: string | null
+          created_at?: string
+          error?: string | null
+          executed_at?: string | null
+          id?: string
+          params?: Json
+          proposed_by?: string | null
+          result?: Json | null
+          status?: string
+          summary?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       pick_events: {
         Row: {
           client_at: string | null
@@ -3189,6 +3234,48 @@ export type Database = {
           tier?: string | null
           updated_at?: string | null
           user_id?: string
+        }
+        Relationships: []
+      }
+      support_tickets: {
+        Row: {
+          created_at: string
+          details: string | null
+          id: string
+          kind: string
+          opened_by: string | null
+          severity: string
+          status: string
+          summary: string
+          target_email: string | null
+          target_user_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          details?: string | null
+          id?: string
+          kind: string
+          opened_by?: string | null
+          severity?: string
+          status?: string
+          summary: string
+          target_email?: string | null
+          target_user_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          details?: string | null
+          id?: string
+          kind?: string
+          opened_by?: string | null
+          severity?: string
+          status?: string
+          summary?: string
+          target_email?: string | null
+          target_user_id?: string | null
+          updated_at?: string
         }
         Relationships: []
       }

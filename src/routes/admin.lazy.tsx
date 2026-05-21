@@ -151,6 +151,7 @@ const NAV_SECTIONS: NavSection[] = [
             { to: "/admin/logs", label: "System logs", icon: ScrollText },
             { to: "/admin/wallet-debug", label: "Wallet JWT debug", icon: ShieldCheck },
             { to: "/admin/launch", label: "Launch checklist", icon: ScrollText },
+            { to: "/admin/deploy-preflight", label: "Deploy preflight", icon: ShieldCheck },
             { to: "/admin/routes-map", label: "Routes map", icon: ScrollText },
             { to: "/admin/agents", label: "Agent control", icon: Bot },
         ],

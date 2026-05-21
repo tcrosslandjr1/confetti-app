@@ -172,6 +172,7 @@ import { Route as AdminIntegrationsRouteImport } from './routes/admin.integratio
 import { Route as AdminHealthRouteImport } from './routes/admin.health'
 import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
 import { Route as AdminDiagnosticsRouteImport } from './routes/admin.diagnostics'
+import { Route as AdminDeployPreflightRouteImport } from './routes/admin.deploy-preflight'
 import { Route as AdminContractsRouteImport } from './routes/admin.contracts'
 import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business-claims'
 import { Route as AdminBriefRouteImport } from './routes/admin.brief'
@@ -1057,6 +1058,13 @@ const AdminDiagnosticsRoute = AdminDiagnosticsRouteImport.update({
 } as any).lazy(() =>
   import('./routes/admin.diagnostics.lazy').then((d) => d.Route),
 )
+const AdminDeployPreflightRoute = AdminDeployPreflightRouteImport.update({
+  id: '/deploy-preflight',
+  path: '/deploy-preflight',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.deploy-preflight.lazy').then((d) => d.Route),
+)
 const AdminContractsRoute = AdminContractsRouteImport.update({
   id: '/contracts',
   path: '/contracts',
@@ -1346,6 +1354,7 @@ export interface FileRoutesByFullPath {
   '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/contracts': typeof AdminContractsRoute
+  '/admin/deploy-preflight': typeof AdminDeployPreflightRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/health': typeof AdminHealthRoute
@@ -1539,6 +1548,7 @@ export interface FileRoutesByTo {
   '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/contracts': typeof AdminContractsRoute
+  '/admin/deploy-preflight': typeof AdminDeployPreflightRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/health': typeof AdminHealthRoute
@@ -1742,6 +1752,7 @@ export interface FileRoutesById {
   '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/contracts': typeof AdminContractsRoute
+  '/admin/deploy-preflight': typeof AdminDeployPreflightRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/health': typeof AdminHealthRoute
@@ -1946,6 +1957,7 @@ export interface FileRouteTypes {
     | '/admin/brief'
     | '/admin/business-claims'
     | '/admin/contracts'
+    | '/admin/deploy-preflight'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/health'
@@ -2139,6 +2151,7 @@ export interface FileRouteTypes {
     | '/admin/brief'
     | '/admin/business-claims'
     | '/admin/contracts'
+    | '/admin/deploy-preflight'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/health'
@@ -2341,6 +2354,7 @@ export interface FileRouteTypes {
     | '/admin/brief'
     | '/admin/business-claims'
     | '/admin/contracts'
+    | '/admin/deploy-preflight'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/health'
@@ -3724,6 +3738,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminDiagnosticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/deploy-preflight': {
+      id: '/admin/deploy-preflight'
+      path: '/deploy-preflight'
+      fullPath: '/admin/deploy-preflight'
+      preLoaderRoute: typeof AdminDeployPreflightRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/contracts': {
       id: '/admin/contracts'
       path: '/contracts'
@@ -4005,6 +4026,7 @@ interface AdminRouteChildren {
   AdminBriefRoute: typeof AdminBriefRoute
   AdminBusinessClaimsRoute: typeof AdminBusinessClaimsRoute
   AdminContractsRoute: typeof AdminContractsRoute
+  AdminDeployPreflightRoute: typeof AdminDeployPreflightRoute
   AdminDiagnosticsRoute: typeof AdminDiagnosticsRoute
   AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
   AdminHealthRoute: typeof AdminHealthRoute
@@ -4041,6 +4063,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminBriefRoute: AdminBriefRoute,
   AdminBusinessClaimsRoute: AdminBusinessClaimsRoute,
   AdminContractsRoute: AdminContractsRoute,
+  AdminDeployPreflightRoute: AdminDeployPreflightRoute,
   AdminDiagnosticsRoute: AdminDiagnosticsRoute,
   AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
   AdminHealthRoute: AdminHealthRoute,

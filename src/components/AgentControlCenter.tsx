@@ -23,6 +23,8 @@ import {
   Sparkles,
   X,
   RotateCcw,
+  ShieldCheck,
+  Ban,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
@@ -37,7 +39,7 @@ import {
   type AgentTask,
   type TaskStatus,
 } from "../lib/agents/agent-registry";
-import { chatWithAgents } from "@/lib/agents-chat.functions";
+import { chatWithAgents, decideAgentProposal, type AgentProposal } from "@/lib/agents-chat.functions";
 
 // ── helpers ─────────────────────────────────────────────────
 

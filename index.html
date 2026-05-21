@@ -938,14 +938,20 @@
         var bootDone = false;
         var bootKey = "__confetti_boot_retry__";
 
-        function finishBoot() {
-          bootDone = true;
-          try { sessionStorage.removeItem(bootKey); } catch (_) {}
-        }
-
         function dismissLoader() {
           var el = document.getElementById("initial-loader");
           if (el && el.parentNode) el.parentNode.removeChild(el);
+        }
+
+        function finishBoot() {
+          bootDone = true;
+          try { sessionStorage.removeItem(bootKey); } catch (_) {}
+          // Fade out the splash so the React app underneath is visible.
+          var el = document.getElementById("initial-loader");
+          if (!el) return;
+          el.style.transition = "opacity 220ms ease-out";
+          el.style.opacity = "0";
+          setTimeout(dismissLoader, 260);
         }
 
         var REASON_COPY = {

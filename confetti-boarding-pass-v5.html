@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Confetti — Boarding Pass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FBF5E5;
+  --dark: #140B06;
+  --coral: #FF5032;
+  --pink: #ff2f6a;
+  --gold: #FDC010;
+  --purple: #513BB2;
+  --teal: #00bec7;
+  --green: #50C878;
+  --card-bg: #ffffff;
+  --card-border: #140B06;
+  --text-dim: #5b5d69;
+  --text-dimmer: #8a8c96;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ============ AMBIENT BACKGROUND ============ */
+.ambient {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  overflow: hidden;
+}
+.orb {
+  position: absolute; border-radius: 50%; filter: blur(120px);
+  animation: float 8s ease-in-out infinite;
+}
+.orb-1 {
+  width: 300px; height: 300px; background: rgba(255,80,50,0.12);
+  top: -8%; right: -10%; animation-delay: 0s;
+}
+.orb-2 {
+  width: 250px; height: 250px; background: rgba(81,59,178,0.10);
+  bottom: 10%; left: -8%; animation-delay: -3s;
+}
+.orb-3 {
+  width: 200px; height: 200px; background: rgba(253,192,16,0.10);
+  top: 50%; left: 40%; animation-delay: -5s;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -15px) scale(1.05); }
+  66% { transform: translate(-15px, 10px) scale(0.95); }
+}
+
+/* ============ PASS CONTAINER ============ */
+.pass {
+  position: relative; z-index: 1;
+  max-width: 400px; margin: 0 auto;
+  padding: 0 16px 100px;
+}
+
+/* ============ HEADER ============ */
+.pass-header {
+  padding: 20px 0 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px; font-weight: 800; color: var(--dark);
+  letter-spacing: -0.5px;
+}
+.logo-dot { color: var(--coral); }
+.pass-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 999px;
+  border: 2px solid var(--dark);
+  background: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dim);
+}
+.pass-badge .pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--coral);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* ============ ROUTE STRIP ============ */
+.route-strip {
+  background: var(--card-bg);
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin-bottom: 12px;
+}
+.route-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 20px;
+}
+.route-codes {
+  display: flex; align-items: center; gap: 12px; flex: 1;
+}
+.route-code {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px; font-weight: 800; letter-spacing: -1px;
+  line-height: 1;
+}
+.route-code-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--text-dim); margin-top: 4px;
+  letter-spacing: 1px;
+}
+.route-line {
+  flex: 1; display: flex; align-items: center; gap: 0;
+  padding: 0 8px;
+}
+.route-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--coral); flex-shrink: 0;
+}
+.route-connector {
+  flex: 1; height: 2px;
+  background: linear-gradient(90deg, var(--coral), var(--gold));
+  opacity: 0.5;
+}
+.route-date-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--coral);
+  background: rgba(255,80,50,0.08);
+  border: 2px solid var(--dark);
+  padding: 4px 10px; border-radius: 999px;
+}
+
+/* Mood Tags */
+.mood-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 16px;
+}
+.mood-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--dark);
+  border: 2px solid var(--dark);
+  color: #ffffff;
+}
+
+.route-meta {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.route-meta-item {
+  text-align: center;
+  padding: 0 8px;
+}
+.route-meta-item:not(:last-child) {
+  border-right: 2px solid rgba(20,11,6,0.12);
+}
+.meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+  margin-bottom: 4px;
+}
+.meta-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px; font-weight: 700;
+}
+
+/* ============ PROGRESS RAIL ============ */
+.progress-rail {
+  background: var(--card-bg);
+  border: 2px solid var(--dark);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.rail-track {
+  display: flex; align-items: center; margin-bottom: 10px;
+}
+.rail-node {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid rgba(20,11,6,0.15);
+  background: white;
+  flex-shrink: 0;
+  transition: all 0.4s;
+}
+.rail-node.done {
+  background: var(--green); border-color: var(--green);
+}
+.rail-node.current {
+  background: var(--coral); border-color: var(--coral);
+  box-shadow: 0 0 0 4px rgba(255,80,50,0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+.rail-segment {
+  flex: 1; height: 3px; background: rgba(20,11,6,0.08);
+  border-radius: 2px; transition: all 0.4s;
+}
+.rail-segment.done {
+  background: var(--green);
+}
+.rail-labels {
+  display: flex; justify-content: space-between;
+}
+.rail-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-dimmer);
+  transition: all 0.4s;
+}
+.rail-label.done { color: var(--green); }
+.rail-label.current { color: var(--coral); font-weight: 700; }
+
+/* ============ TEAR LINE ============ */
+.tear {
+  display: flex; align-items: center; gap: 0;
+  margin: 4px -16px;
+  overflow: hidden;
+}
+.tear-notch {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--cream);
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 2px var(--dark);
+}
+.tear-dash {
+  flex: 1;
+  border-top: 1.5px dashed rgba(20,11,6,0.1);
+}
+
+/* ============ SECTION LABELS ============ */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 3px; color: var(--coral);
+  margin: 20px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--card-border), transparent);
+}
+
+/* ============ TRAVEL TIME CONNECTOR ============ */
+.travel-connector {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 10px 0;
+}
+.travel-line {
+  height: 24px; width: 2px;
+  background: linear-gradient(180deg, var(--card-border), rgba(20,11,6,0.05));
+  border-radius: 1px;
+}
+.travel-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 1.5px; color: var(--text-dim);
+  padding: 4px 12px; border-radius: 999px;
+  background: #ffffff;
+  border: 2px solid var(--dark);
+}
+
+/* ============ FLIP CARDS (STOPS) ============ */
+.stop-card-wrapper {
+  perspective: 800px;
+  margin-bottom: 0;
+}
+.stop-card {
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+.stop-card.flipped { transform: rotateY(180deg); }
+
+.stop-front, .stop-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  border: 2px solid var(--dark);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+.stop-back {
+  position: absolute; inset: 0;
+  transform: rotateY(180deg);
+  display: flex; flex-direction: column;
+}
+
+/* --- Front --- */
+.stop-front {
+  padding: 20px;
+}
+.stop-top-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 12px;
+}
+.stop-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+}
+.stop-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; font-weight: 600; color: var(--dark);
+}
+.stop-venue {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px; font-weight: 800; line-height: 1.15;
+  margin-bottom: 4px; letter-spacing: -0.5px;
+}
+.stop-hood {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.stop-vibe {
+  display: inline-block;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic; font-size: 13px;
+  color: var(--purple); opacity: 0.8;
+  margin-bottom: 16px;
+}
+.stop-actions {
+  display: flex; gap: 8px; align-items: center;
+  flex-wrap: wrap;
+}
+.stop-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 14px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  border: 2px solid var(--dark);
+  background: #ffffff; color: var(--dark);
+  cursor: pointer; transition: all 0.3s;
+}
+.stop-btn:hover { background: var(--cream); }
+.stop-btn.primary {
+  background: linear-gradient(135deg, var(--coral), var(--pink));
+  border-color: var(--dark);
+  color: white;
+}
+.stop-btn.primary:hover { opacity: 0.9; }
+.stop-btn.arrived {
+  background: rgba(80,200,120,0.12); border-color: #2d8a4e;
+  color: #2d8a4e;
+}
+.stop-btn.flip-btn {
+  margin-left: auto;
+  color: var(--text-dim);
+}
+
+/* GPS badge on Navigate button */
+.gps-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 14px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  background: linear-gradient(135deg, var(--coral), var(--pink));
+  border: 2px solid var(--dark);
+  color: white; text-decoration: none;
+  cursor: pointer; transition: all 0.3s;
+}
+.gps-link:hover { opacity: 0.9; }
+
+/* Crew ETA */
+.crew-eta {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 14px; padding-top: 14px;
+  border-top: 2px solid rgba(20,11,6,0.12);
+}
+.crew-dots {
+  display: flex; gap: -4px;
+}
+.crew-dot {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; margin-left: -6px;
+  border: 2px solid white;
+  background: rgba(20,11,6,0.05);
+}
+.crew-dot:first-child { margin-left: 0; }
+.crew-eta-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 500; color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+/* --- Back --- */
+.stop-back {
+  padding: 20px;
+}
+.back-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+}
+.back-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--coral);
+}
+.back-close {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--dark); background: #ffffff;
+  color: var(--dark); font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.3s;
+}
+.back-close:hover { background: var(--cream); }
+
+.back-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; flex: 1;
+}
+.back-cell {
+  background: var(--cream);
+  border: 2px solid rgba(20,11,6,0.12);
+  border-radius: 14px; padding: 14px;
+}
+.back-cell-icon { font-size: 18px; margin-bottom: 6px; }
+.back-cell-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+  margin-bottom: 6px;
+}
+.back-cell-value {
+  font-size: 12px; font-weight: 500; line-height: 1.5;
+  color: rgba(20,11,6,0.75);
+}
+.back-cell-value a {
+  color: var(--coral); text-decoration: none;
+  font-weight: 600;
+}
+.ev-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 3px 8px; border-radius: 999px;
+  background: rgba(80,200,120,0.10);
+  border: 2px solid #2d8a4e;
+  color: #2d8a4e;
+  margin-top: 8px;
+}
+
+/* ============ NIGHT INTEL ============ */
+.intel-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-bottom: 10px;
+}
+.intel-card {
+  background: var(--card-bg);
+  border: 2px solid var(--dark);
+  border-radius: 16px; padding: 14px;
+  text-align: center;
+}
+.intel-icon { font-size: 20px; margin-bottom: 6px; }
+.intel-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--text-dimmer);
+  margin-bottom: 4px;
+}
+.intel-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px; font-weight: 700;
+}
+
+/* ============ CREW MANIFEST ============ */
+.crew-card {
+  background: var(--card-bg);
+  border: 2px solid var(--dark);
+  border-radius: 20px; padding: 18px 20px;
+  margin-bottom: 10px;
+}
+.crew-list { display: flex; flex-direction: column; gap: 10px; }
+.crew-member {
+  display: flex; align-items: center; gap: 12px;
+}
+.crew-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  background: var(--cream);
+  border: 2px solid var(--dark);
+  flex-shrink: 0;
+}
+.crew-info { flex: 1; }
+.crew-name {
+  font-weight: 600; font-size: 13px; line-height: 1.3;
+}
+.crew-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 500; color: var(--text-dim);
+  letter-spacing: 1px;
+}
+.crew-status .ready { color: var(--green); }
+.crew-status .pending { color: #c59200; }
+.crew-transport {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 500; color: var(--text-dimmer);
+  letter-spacing: 1px; margin-top: 2px;
+}
+.crew-phone {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 500; color: var(--coral);
+  letter-spacing: 0.5px; margin-top: 1px;
+  text-decoration: none;
+}
+.crew-phone:hover { text-decoration: underline; }
+.crew-invite-link {
+  display: inline-block; margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; color: #fff;
+  background: linear-gradient(135deg, var(--coral), var(--pink));
+  border: 2px solid var(--dark); border-radius: 6px;
+  padding: 3px 8px; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.crew-invite-link:hover { opacity: 0.85; }
+
+/* ============ ON MY WAY ============ */
+.omw-card {
+  background: var(--card-bg);
+  border: 2px solid var(--dark);
+  border-radius: 20px; padding: 20px;
+  margin-bottom: 10px;
+  transition: all 0.4s ease;
+}
+.omw-prompt {
+  display: flex; align-items: flex-start; gap: 12px;
+  margin-bottom: 16px;
+}
+.omw-prompt-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.omw-prompt-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px; font-weight: 700; margin-bottom: 3px;
+}
+.omw-prompt-sub {
+  font-size: 11px; color: var(--text-dim); line-height: 1.4;
+}
+.omw-trigger-btn {
+  width: 100%; padding: 16px; border: 2px solid var(--dark); border-radius: 14px;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--pink) 100%);
+  color: white; cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.omw-trigger-btn:hover { transform: translateY(-2px); }
+.omw-trigger-btn:active { transform: scale(0.97); }
+.omw-trigger-btn::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  animation: omwShimmer 3s infinite;
+}
+@keyframes omwShimmer {
+  0% { transform: translateX(-100%); }
+  50%, 100% { transform: translateX(100%); }
+}
+.omw-options {
+  display: flex; gap: 12px; margin-top: 14px;
+  flex-wrap: wrap;
+}
+.omw-toggle {
+  display: flex; align-items: center; gap: 6px; cursor: pointer;
+}
+.omw-toggle input[type="checkbox"] {
+  width: 14px; height: 14px; accent-color: var(--coral);
+  border-radius: 3px;
+}
+.omw-toggle-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.2px; color: var(--text-dim);
+}
+
+/* Active State */
+.omw-live-header {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--coral);
+  margin-bottom: 16px;
+}
+.omw-live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--coral);
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+.omw-eta-display {
+  display: flex; align-items: baseline; gap: 6px;
+  margin-bottom: 12px;
+}
+.omw-eta-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 48px; font-weight: 800; line-height: 1;
+  color: var(--dark);
+}
+.omw-eta-unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px; font-weight: 600; color: var(--text-dim);
+}
+.omw-eta-dist {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500; color: var(--text-dimmer);
+  margin-left: auto;
+}
+.omw-progress-bar {
+  width: 100%; height: 6px; border-radius: 999px;
+  background: rgba(20,11,6,0.06);
+  margin-bottom: 16px; overflow: hidden;
+}
+.omw-progress-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--coral), var(--gold));
+  width: 0%; transition: width 0.8s ease;
+}
+.omw-status-pills {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 16px;
+}
+.omw-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 10px; border-radius: 999px;
+}
+.omw-pill.done {
+  background: rgba(80,200,120,0.10); color: #2d8a4e;
+  border: 2px solid #2d8a4e;
+}
+.omw-pill.pending {
+  background: rgba(253,192,16,0.10); color: #a67c00;
+  border: 2px solid #a67c00;
+}
+.omw-crew-etas {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 16px;
+}
+.omw-crew-item {
+  display: grid; grid-template-columns: 60px 1fr; gap: 4px 10px;
+  align-items: center;
+}
+.omw-crew-name {
+  font-size: 12px; font-weight: 600;
+}
+.omw-crew-eta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 500; color: var(--text-dim);
+  letter-spacing: 0.5px; text-align: right;
+}
+.omw-crew-bar {
+  grid-column: 1 / -1;
+  height: 4px; border-radius: 999px;
+  background: rgba(20,11,6,0.06);
+  overflow: hidden;
+}
+.omw-crew-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--purple), var(--coral));
+  transition: width 1s ease;
+}
+.omw-arrived-btn {
+  width: 100%; padding: 14px; border: 2px solid var(--dark); border-radius: 14px;
+  background: var(--dark); color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px; cursor: pointer; transition: all 0.3s;
+}
+.omw-arrived-btn:hover { transform: translateY(-2px); }
+
+/* Arrived State */
+.omw-arrived {
+  text-align: center; padding: 20px 0;
+}
+.omw-arrived-icon { font-size: 48px; margin-bottom: 12px; }
+.omw-arrived-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px; font-weight: 800; margin-bottom: 6px;
+}
+.omw-arrived-sub {
+  font-size: 12px; color: var(--text-dim); margin-bottom: 14px;
+}
+.omw-xp-badge {
+  display: inline-flex; padding: 6px 14px; border-radius: 999px;
+  background: linear-gradient(135deg, rgba(253,192,16,0.15), rgba(255,80,50,0.10));
+  border: 2px solid var(--dark);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700; color: #a67c00;
+  letter-spacing: 1px;
+}
+
+/* ============ PRE-ORDER PANEL ============ */
+.preorder-overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(20,11,6,0.4);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: flex-end; justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+.preorder-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.3s ease, visibility 0s 0s;
+}
+.preorder-panel {
+  width: 100%; max-width: 440px;
+  max-height: 85vh;
+  background: var(--cream);
+  border-radius: 24px 24px 0 0;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  padding-bottom: 0;
+}
+.preorder-overlay.show .preorder-panel {
+  transform: translateY(0);
+}
+.preorder-handle {
+  width: 36px; height: 4px; border-radius: 999px;
+  background: rgba(20,11,6,0.15);
+  margin: 12px auto 0;
+}
+.preorder-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 20px 20px 12px;
+}
+.preorder-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px; font-weight: 800;
+}
+.preorder-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 3px;
+}
+.preorder-close {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--dark);
+  background: #ffffff;
+  font-size: 18px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--dark);
+}
+.preorder-menu {
+  padding: 0;
+}
+/* Flip Card Carousel */
+.preorder-carousel {
+  display: flex; gap: 12px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 8px 20px 16px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.preorder-carousel::-webkit-scrollbar { display: none; }
+
+.flip-card {
+  flex: 0 0 160px; scroll-snap-align: center;
+  height: 200px; perspective: 800px;
+  cursor: pointer;
+}
+.flip-card-inner {
+  position: relative; width: 100%; height: 100%;
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 18px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 16px 12px;
+  border: 2px solid var(--dark);
+}
+.flip-card-front {
+  background: #ffffff;
+}
+.flip-card-back {
+  background: var(--cream);
+  border-color: var(--coral);
+  transform: rotateY(180deg);
+}
+.flip-card.selected .flip-card-front {
+  border-color: var(--coral);
+}
+
+/* Front face */
+.flip-emoji { font-size: 40px; margin-bottom: 10px; }
+.flip-name {
+  font-size: 13px; font-weight: 700; text-align: center;
+  line-height: 1.3; margin-bottom: 4px;
+}
+.flip-desc {
+  font-size: 9px; color: var(--text-dim); text-align: center;
+  line-height: 1.4; margin-bottom: 8px;
+}
+.flip-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; font-weight: 700; color: var(--coral);
+}
+.flip-tap-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; color: var(--text-dimmer); margin-top: 6px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+
+/* Back face */
+.flip-added-icon {
+  font-size: 32px; margin-bottom: 8px;
+}
+.flip-added-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700; color: var(--coral);
+  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;
+}
+.flip-qty-control {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 10px;
+}
+.qty-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid var(--dark);
+  background: #ffffff;
+  font-size: 18px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s;
+  color: var(--dark);
+}
+.qty-btn:active { transform: scale(0.9); border-color: var(--coral); color: var(--coral); }
+.qty-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px; font-weight: 800; min-width: 24px; text-align: center;
+}
+.flip-remove {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--text-dim); text-transform: uppercase;
+  letter-spacing: 1px; border: none; background: none;
+  cursor: pointer; padding: 6px 12px; border-radius: 8px;
+  transition: all 0.2s;
+}
+.flip-remove:active { background: rgba(255,80,50,0.08); color: var(--coral); }
+
+/* Dot indicators */
+.carousel-dots {
+  display: flex; justify-content: center; gap: 6px;
+  padding: 0 20px 8px;
+}
+.carousel-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(20,11,6,0.12); transition: all 0.3s;
+}
+.carousel-dot.active { background: var(--coral); width: 18px; border-radius: 3px; }
+
+/* Category label in carousel */
+.preorder-category-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; font-weight: 700; color: var(--text-dimmer);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 0 20px; margin-bottom: 4px;
+}
+
+/* Pre-Order Footer */
+.preorder-footer {
+  position: sticky; bottom: 0;
+  background: var(--cream);
+  border-top: 2px solid var(--dark);
+  padding: 16px 20px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+.preorder-summary {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px;
+}
+.preorder-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 600; color: var(--text-dim);
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.preorder-total {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px; font-weight: 800;
+}
+.preorder-timing {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 500; color: var(--text-dimmer);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.preorder-timing-icon { font-size: 12px; }
+.preorder-submit {
+  width: 100%; padding: 16px; border: 2px solid rgba(20,11,6,0.15); border-radius: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; cursor: pointer; transition: all 0.3s;
+  background: rgba(20,11,6,0.08); color: var(--text-dim);
+}
+.preorder-submit:disabled {
+  opacity: 0.6; cursor: not-allowed;
+}
+.preorder-submit.ready {
+  background: linear-gradient(135deg, var(--coral) 0%, var(--pink) 100%);
+  border: 2px solid var(--dark);
+  color: white; opacity: 1;
+}
+.preorder-submit.ready:hover {
+  transform: translateY(-2px);
+}
+.preorder-skip {
+  width: 100%; padding: 12px; border: none; border-radius: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; cursor: pointer;
+  background: transparent; color: var(--text-dim);
+  margin-top: 8px; transition: color 0.2s;
+}
+.preorder-skip:hover { color: var(--dark); }
+
+/* ============ QUICK ACTIONS ============ */
+.actions-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; margin-bottom: 10px;
+}
+.action-btn {
+  background: var(--card-bg);
+  border: 2px solid var(--dark);
+  border-radius: 16px; padding: 16px 8px;
+  text-align: center; cursor: pointer;
+  transition: all 0.3s;
+}
+.action-btn:hover { background: var(--cream); transform: translateY(-2px); }
+.action-btn .icon { font-size: 22px; margin-bottom: 6px; }
+.action-btn .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-dim);
+}
+
+/* ============ WALLET FOOTER ============ */
+.wallet-footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-top: 2px solid var(--dark);
+  padding: 12px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+.wallet-inner {
+  max-width: 400px; margin: 0 auto;
+  display: flex; gap: 8px;
+}
+.wallet-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 14px; border-radius: 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  border: none; cursor: pointer; transition: all 0.3s;
+}
+.wallet-btn.share {
+  background: #ffffff; border: 2px solid var(--dark);
+  color: var(--dark);
+}
+.wallet-btn.share:hover { background: var(--cream); }
+.wallet-btn.go {
+  background: linear-gradient(135deg, var(--coral), var(--pink));
+  border: 2px solid var(--dark); color: white;
+}
+.wallet-btn.go:hover { opacity: 0.9; }
+
+/* ============ TOAST ============ */
+.toast {
+  position: fixed; bottom: 90px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--dark); color: var(--cream);
+  padding: 12px 24px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-weight: 600; letter-spacing: 1px;
+  opacity: 0; pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 200;
+  border: 2px solid var(--dark);
+}
+.toast.show {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+
+/* ============ CONFETTI PARTICLES ============ */
+.confetti-canvas {
+  position: fixed; inset: 0; z-index: 300;
+  pointer-events: none;
+}
+
+/* ============ ANIMATIONS ============ */
+.fade-up {
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up-1 { animation-delay: 0.05s; }
+.fade-up-2 { animation-delay: 0.1s; }
+.fade-up-3 { animation-delay: 0.15s; }
+.fade-up-4 { animation-delay: 0.2s; }
+.fade-up-5 { animation-delay: 0.25s; }
+.fade-up-6 { animation-delay: 0.3s; }
+.fade-up-7 { animation-delay: 0.35s; }
+.fade-up-8 { animation-delay: 0.4s; }
+.fade-up-9 { animation-delay: 0.45s; }
+.fade-up-10 { animation-delay: 0.5s; }
+
+</style>
+</head>
+<body>
+
+<!-- Ambient Orbs -->
+<div class="ambient">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ====== BOARDING PASS ====== -->
+<div class="pass">
+
+  <!-- Header -->
+  <div class="pass-header fade-up fade-up-1">
+    <div class="logo">confetti<span class="logo-dot">.</span></div>
+    <div class="pass-badge"><span class="pulse"></span> Live</div>
+  </div>
+
+  <!-- Route Strip -->
+  <div class="route-strip fade-up fade-up-2">
+    <div class="route-top">
+      <div class="route-codes">
+        <div>
+          <div class="route-code">Home</div>
+          <div class="route-code-sub">7:30 PM</div>
+        </div>
+        <div class="route-line">
+          <div class="route-dot"></div>
+          <div class="route-connector"></div>
+          <div class="route-dot"></div>
+          <div class="route-connector"></div>
+          <div class="route-dot"></div>
+        </div>
+        <div>
+          <div class="route-code">AdMo</div>
+          <div class="route-code-sub">First stop</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mood Tags -->
+    <div class="mood-tags">
+      <span class="mood-tag">Date night</span>
+      <span class="mood-tag">Cocktail-forward</span>
+      <span class="mood-tag">Late night</span>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <div>
+        <div class="meta-label">Washington, DC</div>
+      </div>
+      <div class="route-date-badge">Sat · May 17</div>
+      <div style="text-align:right;">
+        <div class="meta-label">Night Out</div>
+      </div>
+    </div>
+    <div class="route-meta">
+      <div class="route-meta-item">
+        <div class="meta-label">Kickoff</div>
+        <div class="meta-value">7:30p</div>
+      </div>
+      <div class="route-meta-item">
+        <div class="meta-label">Stops</div>
+        <div class="meta-value">3</div>
+      </div>
+      <div class="route-meta-item">
+        <div class="meta-label">Crew</div>
+        <div class="meta-value">4</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Rail -->
+  <div class="progress-rail fade-up fade-up-3">
+    <div class="rail-track">
+      <div class="rail-node done" id="node1"></div>
+      <div class="rail-segment done" id="seg1"></div>
+      <div class="rail-node current" id="node2"></div>
+      <div class="rail-segment" id="seg2"></div>
+      <div class="rail-node" id="node3"></div>
+    </div>
+    <div class="rail-labels">
+      <span class="rail-label done" id="label1">Dauphine's</span>
+      <span class="rail-label current" id="label2">The Gibson</span>
+      <span class="rail-label" id="label3">Flash</span>
+    </div>
+  </div>
+
+  <!-- Tear -->
+  <div class="tear fade-up fade-up-3">
+    <div class="tear-notch"></div>
+    <div class="tear-dash"></div>
+    <div class="tear-notch"></div>
+  </div>
+
+  <!-- ====== ITINERARY ====== -->
+  <div class="section-label fade-up fade-up-3">Itinerary</div>
+
+  <!-- Stop 1 -->
+  <div class="stop-card-wrapper fade-up fade-up-4">
+    <div class="stop-card" id="stop1">
+      <div class="stop-front">
+        <div class="stop-top-row">
+          <div class="stop-num">Stop 01</div>
+          <div class="stop-time">7:30 PM</div>
+        </div>
+        <div class="stop-venue">Dauphine's</div>
+        <div class="stop-hood">Adams Morgan</div>
+        <div class="stop-vibe">"southern charm, craft cocktails"</div>
+        <div class="stop-actions">
+          <a class="gps-link" href="https://www.google.com/maps/dir/?api=1&destination=38.9215,-77.0425&travelmode=driving" target="_blank">📍 Navigate</a>
+          <button class="stop-btn" onclick="window.open('https://www.google.com/search?q=Dauphines+Adams+Morgan+DC+menu', '_blank')">📋 Menu</button>
+          <button class="stop-btn flip-btn" onclick="flip(1)">ℹ️ Info</button>
+        </div>
+        <div class="crew-eta">
+          <div class="crew-dots">
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+          </div>
+          <div class="crew-eta-text">3 confirmed · Maya arriving 7:25p</div>
+        </div>
+      </div>
+      <div class="stop-back">
+        <div class="back-header">
+          <div class="back-title">Dauphine's · Details</div>
+          <button class="back-close" onclick="flip(1)">✕</button>
+        </div>
+        <div class="back-grid">
+          <div class="back-cell">
+            <div class="back-cell-icon">🅿️</div>
+            <div class="back-cell-label">Parking</div>
+            <div class="back-cell-value">Street meters free after 6:30p · Garage on Belmont St ($12)</div>
+            <div class="ev-badge">⚡ EV · ChargePoint 0.2mi</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🚇</div>
+            <div class="back-cell-label">Transit</div>
+            <div class="back-cell-value">Woodley Park Metro → 8 min walk south on 18th</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🍽️</div>
+            <div class="back-cell-label">Must Try</div>
+            <div class="back-cell-value">Shrimp & Grits, Bourbon Old Fashioned, Beignets</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">📝</div>
+            <div class="back-cell-label">Notes</div>
+            <div class="back-cell-value">Res under <strong>Tyrone · 4 ppl</strong> · Patio available · Smart casual</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Travel Time: Stop 1 → Stop 2 -->
+  <div class="travel-connector fade-up fade-up-4">
+    <div class="travel-line"></div>
+    <div class="travel-badge">🚗 8 min · 1.2 mi</div>
+    <div class="travel-line"></div>
+  </div>
+
+  <!-- Stop 2 -->
+  <div class="stop-card-wrapper fade-up fade-up-5">
+    <div class="stop-card" id="stop2">
+      <div class="stop-front">
+        <div class="stop-top-row">
+          <div class="stop-num">Stop 02 · Now</div>
+          <div class="stop-time">9:15 PM</div>
+        </div>
+        <div class="stop-venue">The Gibson</div>
+        <div class="stop-hood">U Street Corridor</div>
+        <div class="stop-vibe">"speakeasy, intimate, bespoke drinks"</div>
+        <div class="stop-actions">
+          <a class="gps-link" href="https://www.google.com/maps/dir/?api=1&destination=38.9170,-77.0312&travelmode=driving" target="_blank">📍 Navigate</a>
+          <button class="stop-btn" onclick="window.open('https://www.google.com/search?q=The+Gibson+DC+cocktail+menu', '_blank')">🍸 Menu</button>
+          <button class="stop-btn flip-btn" onclick="flip(2)">ℹ️ Info</button>
+        </div>
+        <div class="crew-eta">
+          <div class="crew-dots">
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+          </div>
+          <div class="crew-eta-text">2 confirmed · Jordan pending</div>
+        </div>
+      </div>
+      <div class="stop-back">
+        <div class="back-header">
+          <div class="back-title">The Gibson · Details</div>
+          <button class="back-close" onclick="flip(2)">✕</button>
+        </div>
+        <div class="back-grid">
+          <div class="back-cell">
+            <div class="back-cell-icon">🅿️</div>
+            <div class="back-cell-label">Parking</div>
+            <div class="back-cell-value">Street on 14th St · ParkWhiz lot on U ($8 evening)</div>
+            <div class="ev-badge">⚡ EV · Blink 0.1mi on 14th</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🚇</div>
+            <div class="back-cell-label">Transit</div>
+            <div class="back-cell-value">U Street Metro (Green/Yellow) → 3 min walk</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🍸</div>
+            <div class="back-cell-label">Must Try</div>
+            <div class="back-cell-value">Ask bartender to make something custom · Dealer's Choice is legendary</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">📝</div>
+            <div class="back-cell-label">Notes</div>
+            <div class="back-cell-value">Ring doorbell to enter · No sign outside · Max 4 at bar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Travel Time: Stop 2 → Stop 3 -->
+  <div class="travel-connector fade-up fade-up-5">
+    <div class="travel-line"></div>
+    <div class="travel-badge">🚗 6 min · 0.9 mi</div>
+    <div class="travel-line"></div>
+  </div>
+
+  <!-- Stop 3 -->
+  <div class="stop-card-wrapper fade-up fade-up-6">
+    <div class="stop-card" id="stop3">
+      <div class="stop-front">
+        <div class="stop-top-row">
+          <div class="stop-num">Stop 03</div>
+          <div class="stop-time">11:00 PM</div>
+        </div>
+        <div class="stop-venue">Flash</div>
+        <div class="stop-hood">Shaw</div>
+        <div class="stop-vibe">"rooftop, house music, late night"</div>
+        <div class="stop-actions">
+          <a class="gps-link" href="https://www.google.com/maps/dir/?api=1&destination=38.9105,-77.0230&travelmode=driving" target="_blank">📍 Navigate</a>
+          <button class="stop-btn" onclick="window.open('https://www.google.com/search?q=Flash+DC+nightclub+DJ+tonight', '_blank')">🎧 Lineup</button>
+          <button class="stop-btn flip-btn" onclick="flip(3)">ℹ️ Info</button>
+        </div>
+        <div class="crew-eta">
+          <div class="crew-dots">
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+            <div class="crew-dot">👤</div>
+          </div>
+          <div class="crew-eta-text">All 4 confirmed</div>
+        </div>
+      </div>
+      <div class="stop-back">
+        <div class="back-header">
+          <div class="back-title">Flash · Details</div>
+          <button class="back-close" onclick="flip(3)">✕</button>
+        </div>
+        <div class="back-grid">
+          <div class="back-cell">
+            <div class="back-cell-icon">🅿️</div>
+            <div class="back-cell-label">Parking</div>
+            <div class="back-cell-value">Garage on 9th & P ($15 flat) · Rideshare recommended</div>
+            <div class="ev-badge">⚡ EV · EVgo 0.3mi on 7th St</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🚇</div>
+            <div class="back-cell-label">Transit</div>
+            <div class="back-cell-value">Shaw-Howard Metro → 5 min walk on Florida Ave</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">🎵</div>
+            <div class="back-cell-label">Tonight</div>
+            <div class="back-cell-value">DJ Manny (House) · Rooftop open til 2am · $15 cover after 11:30</div>
+          </div>
+          <div class="back-cell">
+            <div class="back-cell-icon">📝</div>
+            <div class="back-cell-label">Notes</div>
+            <div class="back-cell-value">Guest list under <strong>Confetti +4</strong> · No cover before 11:30 · ID required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== NIGHT INTEL ====== -->
+  <div class="section-label fade-up fade-up-7">Night Intel</div>
+  <div class="intel-row fade-up fade-up-7">
+    <div class="intel-card">
+      <div class="intel-icon">💰</div>
+      <div class="intel-label">Budget</div>
+      <div class="intel-value">~$180</div>
+    </div>
+    <div class="intel-card">
+      <div class="intel-icon">🌡️</div>
+      <div class="intel-label">Weather</div>
+      <div class="intel-value">72°F</div>
+    </div>
+    <div class="intel-card">
+      <div class="intel-icon">👔</div>
+      <div class="intel-label">Dress</div>
+      <div class="intel-value" style="font-size:12px;">Smart Casual</div>
+    </div>
+  </div>
+
+  <!-- ====== CREW ====== -->
+  <div class="section-label fade-up fade-up-8">Crew</div>
+  <div class="crew-card fade-up fade-up-8">
+    <div class="crew-list">
+      <div class="crew-member">
+        <div class="crew-avatar">👑</div>
+        <div class="crew-info">
+          <div class="crew-name">Tyrone</div>
+          <div class="crew-status"><span class="ready">● Ready</span> · Captain</div>
+          <a class="crew-phone" href="tel:+12025551001">📞 (202) 555-1001</a>
+          <div class="crew-transport">🔋 EV · Tesla Model 3</div>
+        </div>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar">💃</div>
+        <div class="crew-info">
+          <div class="crew-name">Maya</div>
+          <div class="crew-status"><span class="ready">● Ready</span> · ETA 7:25p</div>
+          <a class="crew-phone" href="tel:+12025551002">📞 (202) 555-1002</a>
+          <div class="crew-transport">🚇 Metro</div>
+        </div>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar">🎯</div>
+        <div class="crew-info">
+          <div class="crew-name">Jordan</div>
+          <div class="crew-status"><span class="pending">● Pending</span> · Invited</div>
+          <a class="crew-phone" href="tel:+12025551003">📞 (202) 555-1003</a>
+          <div class="crew-transport">🚗 Rideshare</div>
+          <a class="crew-invite-link" href="#" onclick="event.preventDefault(); sendInvite('Jordan')">📩 Send Plan Invite</a>
+        </div>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar">🎶</div>
+        <div class="crew-info">
+          <div class="crew-name">Alex</div>
+          <div class="crew-status"><span class="ready">● Ready</span> · ETA 7:35p</div>
+          <a class="crew-phone" href="tel:+12025551004">📞 (202) 555-1004</a>
+          <div class="crew-transport">🚗 Riding w/ Tyrone</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== ON MY WAY ====== -->
+  <div class="section-label fade-up fade-up-9">On My Way</div>
+  <div class="omw-card fade-up fade-up-9" id="omwCard">
+    <!-- Default State -->
+    <div class="omw-default" id="omwDefault">
+      <div class="omw-prompt">
+        <div class="omw-prompt-icon">🎯</div>
+        <div class="omw-prompt-text">
+          <div class="omw-prompt-title">Heading to Dauphine's?</div>
+          <div class="omw-prompt-sub">Alert your crew & the venue. Drinks can be ready when you arrive.</div>
+        </div>
+      </div>
+      <button class="omw-trigger-btn" onclick="activateOMW()">
+        <span class="omw-btn-text">🚗 On My Way</span>
+      </button>
+      <div class="omw-options">
+        <label class="omw-toggle">
+          <input type="checkbox" checked id="omwNotifyCrew">
+          <span class="omw-toggle-label">Notify crew</span>
+        </label>
+        <label class="omw-toggle">
+          <input type="checkbox" checked id="omwNotifyVenue">
+          <span class="omw-toggle-label">Alert venue</span>
+        </label>
+        <label class="omw-toggle">
+          <input type="checkbox" id="omwPreOrder">
+          <span class="omw-toggle-label">Pre-order drinks</span>
+        </label>
+      </div>
+    </div>
+    <!-- Active State (hidden by default) -->
+    <div class="omw-active" id="omwActive" style="display:none;">
+      <div class="omw-live-header">
+        <div class="omw-live-dot"></div>
+        <span>LIVE — On My Way to Dauphine's</span>
+      </div>
+      <div class="omw-eta-display">
+        <div class="omw-eta-num" id="omwEta">12</div>
+        <div class="omw-eta-unit">min</div>
+        <div class="omw-eta-dist">2.4 mi</div>
+      </div>
+      <div class="omw-progress-bar">
+        <div class="omw-progress-fill" id="omwProgress"></div>
+      </div>
+      <div class="omw-status-pills">
+        <div class="omw-pill done">✓ Crew notified</div>
+        <div class="omw-pill done">✓ Venue alerted</div>
+        <div class="omw-pill pending" id="omwPreOrderPill">🍸 Pre-order ready</div>
+      </div>
+      <div class="omw-crew-etas">
+        <div class="omw-crew-item">
+          <span class="omw-crew-name">Maya</span>
+          <span class="omw-crew-eta">ETA 8:38 · 6 min</span>
+          <div class="omw-crew-bar"><div class="omw-crew-fill" style="width:65%"></div></div>
+        </div>
+        <div class="omw-crew-item">
+          <span class="omw-crew-name">Alex</span>
+          <span class="omw-crew-eta">With you 🚗</span>
+          <div class="omw-crew-bar"><div class="omw-crew-fill" style="width:100%"></div></div>
+        </div>
+        <div class="omw-crew-item">
+          <span class="omw-crew-name">Jordan</span>
+          <span class="omw-crew-eta">ETA 8:45 · 14 min</span>
+          <div class="omw-crew-bar"><div class="omw-crew-fill" style="width:35%"></div></div>
+        </div>
+      </div>
+      <button class="omw-arrived-btn" onclick="arrivedOMW()">🎉 I've Arrived</button>
+    </div>
+    <!-- Arrived State (hidden by default) -->
+    <div class="omw-arrived" id="omwArrived" style="display:none;">
+      <div class="omw-arrived-icon">🎉</div>
+      <div class="omw-arrived-title">You're here!</div>
+      <div class="omw-arrived-sub">Your Old Fashioned is at the bar. Enjoy the night.</div>
+      <div class="omw-xp-badge">+25 XP earned</div>
+    </div>
+  </div>
+
+  <!-- ====== QUICK ACTIONS ====== -->
+  <div class="section-label fade-up fade-up-10">Quick Actions</div>
+  <div class="actions-grid fade-up fade-up-10">
+    <div class="action-btn" onclick="window.open('https://open.spotify.com/search/saturday%20night%20vibes', '_blank')">
+      <div class="icon">🎵</div>
+      <div class="label">Playlist</div>
+    </div>
+    <div class="action-btn" onclick="openGroupChat()">
+      <div class="icon">💬</div>
+      <div class="label">Group</div>
+    </div>
+    <div class="action-btn" onclick="openCamera()">
+      <div class="icon">📸</div>
+      <div class="label">Photos</div>
+    </div>
+    <div class="action-btn" onclick="window.open('https://www.uber.com', '_blank')">
+      <div class="icon">🚗</div>
+      <div class="label">Ride</div>
+    </div>
+  </div>
+
+</div><!-- /pass -->
+
+<!-- Pre-Order Slide-Up Panel -->
+<div class="preorder-overlay" id="preorderOverlay" onclick="closePreOrder(event)">
+  <div class="preorder-panel" id="preorderPanel">
+    <div class="preorder-handle"></div>
+    <div class="preorder-header">
+      <div class="preorder-header-left">
+        <div class="preorder-title">🍸 Start your night early</div>
+        <div class="preorder-subtitle">Dauphine's Quick Start — ready when you arrive</div>
+      </div>
+      <button class="preorder-close" onclick="closePreOrder()">&times;</button>
+    </div>
+
+    <div class="preorder-menu">
+      <div class="preorder-category-label">Signatures</div>
+      <div class="preorder-carousel" id="carouselDrinks">
+        <div class="flip-card" onclick="flipCard(this)" data-name="Old Fashioned" data-price="16">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">🥃</div>
+              <div class="flip-name">Old Fashioned</div>
+              <div class="flip-desc">Bourbon, demerara, angostura, orange</div>
+              <div class="flip-price">$16</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">🥃</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="flipCard(this)" data-name="Espresso Martini" data-price="18">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">☕</div>
+              <div class="flip-name">Espresso Martini</div>
+              <div class="flip-desc">Vodka, Kahlúa, fresh espresso, vanilla</div>
+              <div class="flip-price">$18</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">☕</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="flipCard(this)" data-name="Spicy Margarita" data-price="15">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">🌶️</div>
+              <div class="flip-name">Spicy Margarita</div>
+              <div class="flip-desc">Tequila, jalapeño, lime, agave, Tajín</div>
+              <div class="flip-price">$15</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">🌶️</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="flipCard(this)" data-name="French 75" data-price="17">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">🥂</div>
+              <div class="flip-name">French 75</div>
+              <div class="flip-desc">Gin, lemon, sugar, champagne top</div>
+              <div class="flip-price">$17</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">🥂</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="flipCard(this)" data-name="Virgin Mojito" data-price="10">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">🌿</div>
+              <div class="flip-name">Virgin Mojito</div>
+              <div class="flip-desc">Mint, lime, soda, cane sugar</div>
+              <div class="flip-price">$10</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">🌿</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="flipCard(this)" data-name="Sparkling Water" data-price="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">💧</div>
+              <div class="flip-name">Sparkling Water</div>
+              <div class="flip-desc">Topo Chico · complimentary</div>
+              <div class="flip-price">Free</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">💧</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="preorder-category-label">Shareables</div>
+      <div class="preorder-carousel" id="carouselFood">
+        <div class="flip-card" onclick="flipCard(this)" data-name="Truffle Fries" data-price="14">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">🍟</div>
+              <div class="flip-name">Truffle Fries</div>
+              <div class="flip-desc">Parmesan, truffle oil, herbs, aioli</div>
+              <div class="flip-price">$14</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">🍟</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="flipCard(this)" data-name="Oysters (6)" data-price="22">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">🦪</div>
+              <div class="flip-name">Oysters (6)</div>
+              <div class="flip-desc">East coast, mignonette, cocktail sauce</div>
+              <div class="flip-price">$22</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">🦪</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="flipCard(this)" data-name="Still Water" data-price="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-emoji">💧</div>
+              <div class="flip-name">Still Water</div>
+              <div class="flip-desc">Bottled · complimentary</div>
+              <div class="flip-price">Free</div>
+              <div class="flip-tap-hint">Tap to add</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-added-icon">💧</div>
+              <div class="flip-added-label">Added</div>
+              <div class="flip-qty-control">
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, -1)">−</button>
+                <span class="qty-num">1</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); changeFlipQty(this, 1)">+</button>
+              </div>
+              <button class="flip-remove" onclick="event.stopPropagation(); removeFlipCard(this)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Summary Footer -->
+    <div class="preorder-footer">
+      <div class="preorder-summary">
+        <div class="preorder-count" id="preorderCount">0 items</div>
+        <div class="preorder-total" id="preorderTotal">$0</div>
+      </div>
+      <div class="preorder-timing">
+        <span class="preorder-timing-icon">⏱️</span>
+        <span>Prep starts 4 min before you arrive</span>
+      </div>
+      <button class="preorder-submit" id="preorderSubmit" onclick="submitPreOrder()" disabled>
+        Select items to continue
+      </button>
+      <button class="preorder-skip" onclick="skipPreOrder()">Skip — I'll order there →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Wallet Footer -->
+<div class="wallet-footer">
+  <div class="wallet-inner">
+    <button class="wallet-btn share" onclick="toast('Link copied!')">📤 Share</button>
+    <button class="wallet-btn go" onclick="document.getElementById('omwCard').scrollIntoView({behavior:'smooth'}); setTimeout(activateOMW, 600)">🚗 On My Way</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Confetti Canvas -->
+<canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+<script>
+// Group Chat — opens SMS group text
+function openGroupChat() {
+  const numbers = '12025551001,12025551002,12025551003,12025551004';
+  const body = encodeURIComponent("Tonight's plan via Confetti 🎉 — heading to Dauphine's at 7:30!");
+  // Try SMS group text (works on iOS/Android)
+  window.location.href = 'sms:' + numbers + '?body=' + body;
+}
+
+// Camera — open native camera or file picker
+function openCamera() {
+  // Create a hidden input to trigger camera
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.capture = 'environment';
+  input.onchange = function(e) {
+    if (e.target.files.length) {
+      toast('Photo captured! 📸');
+    }
+  };
+  input.click();
+}
+
+// Send Plan Invite — consent to share location & view itinerary
+function sendInvite(name) {
+  const inviteLink = 'https://confetti.app/invite/abc123'; // placeholder deep link
+  const msg = encodeURIComponent(
+    "You're invited to tonight's plan on Confetti! 🎉\n\n" +
+    "By joining, you'll share your live location with the crew so everyone can coordinate arrivals.\n\n" +
+    "Tap to accept & view the itinerary:\n" + inviteLink
+  );
+  // Open SMS to that person
+  const phoneMap = { Jordan: '12025551003', Maya: '12025551002', Alex: '12025551004' };
+  const phone = phoneMap[name] || '';
+  window.location.href = 'sms:' + phone + '?body=' + msg;
+  toast('Invite sent to ' + name + '! 📩');
+}
+
+// Flip card
+function flip(n) {
+  const card = document.getElementById('stop' + n);
+  card.classList.toggle('flipped');
+}
+
+// Arrived — updates progress rail
+function arrived(n) {
+  const btn = event.target;
+  btn.classList.remove('primary');
+  btn.classList.add('arrived');
+  btn.innerHTML = '✓ Arrived';
+  btn.onclick = null;
+  toast('Checked in at Stop ' + n + '!');
+  fireConfetti();
+  updateRail(n);
+}
+
+// Update progress rail
+function updateRail(stopNum) {
+  for (let i = 1; i <= stopNum; i++) {
+    const node = document.getElementById('node' + i);
+    const label = document.getElementById('label' + i);
+    if (node) { node.classList.remove('current'); node.classList.add('done'); }
+    if (label) { label.classList.remove('current'); label.classList.add('done'); }
+    if (i < stopNum) {
+      const seg = document.getElementById('seg' + i);
+      if (seg) seg.classList.add('done');
+    }
+  }
+  const nextNode = document.getElementById('node' + (stopNum + 1));
+  const nextLabel = document.getElementById('label' + (stopNum + 1));
+  if (nextNode) nextNode.classList.add('current');
+  if (nextLabel) nextLabel.classList.add('current');
+}
+
+// Toast notification
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// Confetti
+function fireConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#FF5032','#FDC010','#513BB2','#140B06','#50C878'];
+  const particles = [];
+
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: canvas.width / 2 + (Math.random() - 0.5) * 200,
+      y: canvas.height * 0.5,
+      vx: (Math.random() - 0.5) * 16,
+      vy: Math.random() * -18 - 4,
+      size: Math.random() * 6 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 12,
+      gravity: 0.4 + Math.random() * 0.2,
+      life: 1
+    });
+  }
+
+  let frame = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let alive = false;
+    particles.forEach(p => {
+      if (p.life <= 0) return;
+      alive = true;
+      p.vy += p.gravity;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vx *= 0.98;
+      p.rotation += p.rotSpeed;
+      p.life -= 0.012;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation * Math.PI / 180);
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      ctx.restore();
+    });
+    frame++;
+    if (alive && frame < 180) requestAnimationFrame(animate);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  animate();
+}
+
+// ============ ON MY WAY ============
+function activateOMW() {
+  // Always show pre-order panel as part of the flow
+  openPreOrder();
+}
+
+function goLiveOMW() {
+  const defaultView = document.getElementById('omwDefault');
+  const activeView = document.getElementById('omwActive');
+
+  // Animate button press
+  const btn = document.querySelector('.omw-trigger-btn');
+  btn.style.transform = 'scale(0.95)';
+  btn.innerHTML = '✓ Sent!';
+
+  setTimeout(() => {
+    defaultView.style.display = 'none';
+    activeView.style.display = 'block';
+
+    // Animate progress bar
+    setTimeout(() => {
+      document.getElementById('omwProgress').style.width = '25%';
+    }, 300);
+
+    // Simulate ETA countdown
+    startETACountdown();
+
+    // Fire confetti
+    fireConfetti();
+    toast('🚗 On My Way — crew & venue notified!');
+  }, 600);
+}
+
+function startETACountdown() {
+  let eta = 12;
+  const etaEl = document.getElementById('omwEta');
+  const progressEl = document.getElementById('omwProgress');
+
+  const interval = setInterval(() => {
+    eta--;
+    if (eta <= 0) {
+      clearInterval(interval);
+      etaEl.textContent = '0';
+      progressEl.style.width = '100%';
+      // Auto-suggest arrived
+      toast('📍 Looks like you\'re here!');
+      return;
+    }
+    etaEl.textContent = eta;
+    const pct = ((12 - eta) / 12) * 100;
+    progressEl.style.width = pct + '%';
+  }, 3000); // Every 3s = simulated minute
+}
+
+function arrivedOMW() {
+  const activeView = document.getElementById('omwActive');
+  const arrivedView = document.getElementById('omwArrived');
+
+  activeView.style.display = 'none';
+  arrivedView.style.display = 'block';
+
+  fireConfetti();
+  toast('🎉 Welcome! Your drinks are ready.');
+
+  // Update progress rail
+  advanceProgress();
+}
+
+// ============ PRE-ORDER ============
+let orderItems = {};
+
+function openPreOrder() {
+  const overlay = document.getElementById('preorderOverlay');
+  // Force reflow before adding class to ensure transition fires
+  void overlay.offsetWidth;
+  overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePreOrder(e) {
+  if (e && e.target !== e.currentTarget) return; // Only close on overlay click
+  const overlay = document.getElementById('preorderOverlay');
+  overlay.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function skipPreOrder() {
+  const overlay = document.getElementById('preorderOverlay');
+  overlay.classList.remove('show');
+  document.body.style.overflow = '';
+  goLiveOMW();
+}
+
+function flipCard(card) {
+  if (card.classList.contains('flipped')) return; // Already flipped, interact via back
+  const name = card.dataset.name;
+  const price = parseFloat(card.dataset.price);
+
+  card.classList.add('flipped', 'selected');
+  orderItems[name] = { price: price, qty: 1 };
+  card.querySelector('.qty-num').textContent = '1';
+  updateOrderSummary();
+}
+
+function changeFlipQty(btn, delta) {
+  const card = btn.closest('.flip-card');
+  const name = card.dataset.name;
+  const qtyEl = card.querySelector('.qty-num');
+  let qty = parseInt(qtyEl.textContent) + delta;
+
+  if (qty <= 0) {
+    removeFlipCard(btn);
+  } else if (qty > 10) {
+    qty = 10;
+  } else {
+    qtyEl.textContent = qty;
+    orderItems[name].qty = qty;
+  }
+  updateOrderSummary();
+}
+
+function removeFlipCard(el) {
+  const card = el.closest('.flip-card');
+  const name = card.dataset.name;
+  card.classList.remove('flipped', 'selected');
+  card.querySelector('.qty-num').textContent = '1';
+  delete orderItems[name];
+  updateOrderSummary();
+}
+
+function updateOrderSummary() {
+  let totalItems = 0;
+  let totalPrice = 0;
+
+  Object.values(orderItems).forEach(item => {
+    totalItems += item.qty;
+    totalPrice += item.price * item.qty;
+  });
+
+  document.getElementById('preorderCount').textContent =
+    totalItems === 0 ? '0 items' :
+    totalItems === 1 ? '1 item' : totalItems + ' items';
+  document.getElementById('preorderTotal').textContent = '$' + totalPrice;
+
+  const submitBtn = document.getElementById('preorderSubmit');
+  if (totalItems > 0) {
+    submitBtn.disabled = false;
+    submitBtn.classList.add('ready');
+    submitBtn.textContent = '🍸 Confirm · $' + totalPrice + ' — Ready on arrival';
+  } else {
+    submitBtn.disabled = true;
+    submitBtn.classList.remove('ready');
+    submitBtn.textContent = 'Select items to continue';
+  }
+}
+
+function submitPreOrder() {
+  // Close the panel
+  closePreOrder();
+
+  // Count items for the pill
+  let totalItems = 0;
+  Object.values(orderItems).forEach(item => { totalItems += item.qty; });
+
+  // Update the pre-order pill to show confirmed
+  setTimeout(() => {
+    const pill = document.getElementById('omwPreOrderPill');
+    pill.className = 'omw-pill done';
+    pill.textContent = '✓ ' + totalItems + ' item' + (totalItems > 1 ? 's' : '') + ' pre-ordered';
+
+    // Now activate OMW
+    goLiveOMW();
+  }, 500);
+}
+</script>
+</body>
+</html>

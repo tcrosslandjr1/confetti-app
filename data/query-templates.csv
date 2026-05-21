@@ -1,0 +1,94 @@
+category,label,query_template,tags,refresh_cadence
+trending_areas,Trending Neighborhoods,"trending neighborhoods in {city}","trending,area,neighborhood",monthly
+trending_areas,Popular Districts,"popular districts to visit in {city}","popular,area,visitor",monthly
+trending_areas,Nightlife Districts,"best nightlife districts in {city}","nightlife,area,turn-up",monthly
+trending_areas,Food Districts,"best food neighborhoods in {city}","food,area,local",monthly
+trending_areas,Shopping Districts,"best shopping districts in {city}","shopping,area,daytime",monthly
+trending_areas,Arts Districts,"best arts districts in {city}","art,area,instagrammy",monthly
+things_to_do,Things To Do This Weekend,"things to do this weekend in {city}","events,weekend,activity",daily
+things_to_do,Things To Do Tonight,"things to do tonight in {city}","events,tonight,nightlife",daily
+things_to_do,Free Things To Do,"free things to do in {city}","free,budget,activity",weekly
+things_to_do,Cheap Things To Do,"cheap things to do in {city}","cheap,budget,activity",weekly
+things_to_do,Outdoor Things To Do,"outdoor things to do in {city}","outdoors,activity,daytime",weekly
+things_to_do,Indoor Things To Do,"indoor things to do in {city}","indoor,rainy-day,activity",weekly
+things_to_do,Date Night Ideas,"date night ideas in {city}","date-night,romantic,activity",weekly
+things_to_do,Group Activities,"fun group activities in {city}","group,activity,friends",weekly
+popular_places,Popular Restaurants,"popular restaurants in {city}","popular,dining,food",weekly
+popular_places,Popular Bars,"popular bars in {city}","popular,bars,nightlife",weekly
+popular_places,Popular Brunch,"popular brunch spots in {city}","popular,brunch,daytime",weekly
+popular_places,Popular Attractions,"popular attractions in {city}","popular,attractions,tourism",monthly
+popular_places,Popular Rooftops,"popular rooftop bars in {city}","popular,rooftop,views",weekly
+popular_places,Popular Cafes,"popular cafes in {city}","popular,cafe,coffee",monthly
+popular_places,Popular Dessert,"popular dessert spots in {city}","popular,dessert,food",monthly
+unique_experiences,Unique Things To Do,"unique things to do in {city}","unique,experience,activity",monthly
+unique_experiences,Immersive Experiences,"immersive experiences in {city}","immersive,unique,activity",monthly
+unique_experiences,Pop-Up Experiences,"pop up experiences in {city}","popup,unique,event",weekly
+unique_experiences,Speakeasies,"hidden speakeasies in {city}","speakeasy,hidden,nightlife",monthly
+unique_experiences,Themed Bars,"themed bars in {city}","theme,bar,unique",monthly
+unique_experiences,Themed Restaurants,"themed restaurants in {city}","theme,restaurant,unique",monthly
+unique_experiences,Secret Spots,"secret spots in {city}","secret,hidden-gem,local",monthly
+instagrammy,Instagrammable Restaurants,"instagrammable restaurants in {city}","instagrammy,photo,restaurant",weekly
+instagrammy,Instagrammable Cafes,"instagrammable cafes in {city}","instagrammy,cafe,aesthetic",weekly
+instagrammy,Photo Spots,"best photo spots in {city}","photo,instagrammy,local",weekly
+instagrammy,Murals,"best murals in {city}","murals,photo,art",monthly
+instagrammy,Flower Walls,"flower walls in {city}","flower-wall,photo,aesthetic",monthly
+instagrammy,Rooftop Photo Spots,"rooftop photo spots in {city}","rooftop,photo,views",weekly
+instagrammy,Scenic Views,"best scenic views in {city}","views,photo,scenic",monthly
+instagrammy,Aesthetic Cafes,"aesthetic cafes in {city}","aesthetic,cafe,soft-life",weekly
+themes,Brunch Baddies,"brunch baddies spots in {city}","brunch-baddies,mimosas,instagrammy",weekly
+themes,Soft Life,"soft life spots in {city}","soft-life,luxury,wellness",weekly
+themes,Guys Night,"guys night spots in {city}","guys-night,bars,activities",weekly
+themes,Girls Night,"girls night spots in {city}","girls-night,cocktails,photo",weekly
+themes,In-Laws Night,"classy quiet restaurants in {city}","in-laws,classy,conversation-friendly",monthly
+themes,Bachelor Night,"bachelor party spots in {city}","bachelor,turn-up,nightlife",weekly
+themes,Bachelorette,"bachelorette party spots in {city}","bachelorette,brunch,nightlife",weekly
+themes,Family Day,"family friendly activities in {city}","family,kids,safe",monthly
+themes,Corporate Team,"corporate team activities in {city}","corporate,team-building,professional",monthly
+locals_love,Local Favorites,"locals favorite restaurants in {city}","local,favorites,food",monthly
+locals_love,Hidden Gems,"hidden gem restaurants in {city}","hidden-gem,local,dining",monthly
+locals_love,Neighborhood Bars,"neighborhood bars in {city}","local,bars,low-key",monthly
+locals_love,Local Breakfast,"local breakfast spots in {city}","breakfast,local,low-key",monthly
+locals_love,Local Coffee,"best local coffee shops in {city}","coffee,local,chill",monthly
+locals_love,Underrated Spots,"underrated places in {city}","underrated,local,hidden-gem",monthly
+food_drink,New Restaurants,"new restaurants in {city}","new,dining,food",weekly
+food_drink,Grand Openings,"grand opening restaurants in {city}","new,opening,dining",weekly
+food_drink,Best Dinner,"best dinner restaurants in {city}","dinner,dining,popular",weekly
+food_drink,Best Seafood,"best seafood restaurants in {city}","seafood,dining",monthly
+food_drink,Best Steakhouse,"best steakhouses in {city}","steakhouse,dining",monthly
+food_drink,Best Sushi,"best sushi in {city}","sushi,dining",monthly
+food_drink,Best BBQ,"best bbq in {city}","bbq,dining,local",monthly
+food_drink,Food Trucks,"best food trucks in {city}","food-truck,budget,local",weekly
+nightlife,Best Nightclubs,"best nightclubs in {city}","club,turn-up,nightlife",weekly
+nightlife,Best Lounges,"best lounges in {city}","lounge,nightlife,soft-life",weekly
+nightlife,Best Cocktail Bars,"best cocktail bars in {city}","cocktails,bars,date-night",weekly
+nightlife,Dive Bars,"best dive bars in {city}","dive-bar,local,low-key",monthly
+nightlife,Live Music Bars,"live music bars in {city}","live-music,bars,nightlife",weekly
+nightlife,Karaoke Bars,"karaoke bars in {city}","karaoke,group,nightlife",monthly
+wellness,Best Spas,"best spas in {city}","spa,wellness,soft-life",monthly
+wellness,Massage Spots,"best massage spas in {city}","massage,wellness,relaxing",monthly
+wellness,Nail Salons,"best nail salons in {city}","nails,self-care,soft-life",monthly
+wellness,Facials,"best facial spas in {city}","facial,wellness,self-care",monthly
+wellness,Yoga Studios,"best yoga studios in {city}","yoga,wellness,chill",monthly
+shopping,Shopping Districts,"best shopping areas in {city}","shopping,area,daytime",monthly
+shopping,Local Boutiques,"local boutiques in {city}","boutique,local,shopping",monthly
+shopping,Thrift Stores,"best thrift stores in {city}","thrifting,budget,shopping",monthly
+shopping,Vintage Shops,"best vintage shops in {city}","vintage,shopping,local",monthly
+adventure,Best Hikes,"best hikes near {city}","hiking,outdoors,adventure",monthly
+adventure,Jet Ski,"jet ski rentals in {city}","jetski,waterfront,adventure",monthly
+adventure,Kayak Paddleboard,"kayak paddleboard rentals in {city}","kayak,paddleboard,waterfront",monthly
+adventure,Go Karting,"go kart racing in {city}","go-kart,action,group",monthly
+adventure,Rage Rooms,"rage rooms in {city}","rage-room,action,unique",monthly
+adventure,Arcades,"best arcades in {city}","arcade,games,group",monthly
+adventure,Golf,"golf courses and driving ranges in {city}","golf,sports,group",monthly
+culture,Museums,"best museums in {city}","museum,culture,family",monthly
+culture,Art Galleries,"art galleries in {city}","gallery,art,culture",monthly
+culture,Historical Tours,"historical tours in {city}","history,tour,culture",monthly
+culture,Architecture Tours,"architecture tours in {city}","architecture,tour,culture",monthly
+culture,Local Landmarks,"local landmarks in {city}","landmark,tourism,photo",monthly
+family,Family Activities,"family friendly things to do in {city}","family,kids,safe",monthly
+family,Aquariums Zoos,"aquariums and zoos in {city}","family,zoo,aquarium",monthly
+family,Bowling Mini Golf,"bowling and mini golf in {city}","family,games,group",monthly
+waterfront,Waterfront Restaurants,"waterfront restaurants in {city}","waterfront,dining,views",weekly
+waterfront,Boat Cruises,"boat cruises in {city}","boat,waterfront,activity",monthly
+waterfront,Beach Day,"best beaches near {city}","beach,waterfront,daytime",monthly
+waterfront,Riverwalk,"riverwalk things to do in {city}","riverwalk,waterfront,scenic",monthly

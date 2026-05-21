@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confetti — Your AI Nightlife & Dining Concierge</title>
+<meta name="description" content="Confetti plans unforgettable nights out powered by AI. Partner with us as an influencer creator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #FBF5E5;
+  --dark: #140B06;
+  --coral: #FF5032;
+  --gold: #FDC010;
+  --purple: #513BB2;
+  --light-purple: #7B6BD4;
+  --soft-coral: #FF8A75;
+  --warm-white: #FFFDF7;
+  --mid-cream: #F5ECD5;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; }
+.italic-accent { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+/* ============ NAV ============ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(251, 245, 229, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(20,11,6,0.06);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(20,11,6,0.08); }
+.nav-logo { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--dark); text-decoration: none; }
+.nav-logo span { color: var(--coral); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--dark); opacity: 0.7; transition: opacity 0.2s; font-weight: 600; }
+.nav-links a:hover { opacity: 1; }
+.nav-cta {
+  background: var(--coral); color: white; padding: 10px 24px; border-radius: 50px;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.3s;
+}
+.nav-cta:hover { background: #e8432a; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,80,50,0.3); }
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 140px 24px 80px;
+  position: relative;
+  background: var(--cream);
+  overflow: hidden;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; border: 1px solid rgba(20,11,6,0.08);
+  padding: 8px 20px; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 600; color: var(--purple);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease-out;
+}
+.hero-badge::before { content: '🎉'; }
+.hero h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  max-width: 800px;
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+.hero h1 .italic-accent { color: var(--coral); }
+.hero-sub {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: rgba(20,11,6,0.6);
+  max-width: 520px;
+  margin: 24px auto 40px;
+  line-height: 1.6;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 0.8s ease-out 0.3s both;
+}
+.btn-primary {
+  background: var(--coral); color: white; padding: 16px 36px; border-radius: 50px;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.3s; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.btn-primary:hover { background: #e8432a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,80,50,0.3); }
+.btn-secondary {
+  background: transparent; color: var(--dark); padding: 16px 36px; border-radius: 50px;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.3s; border: 2px solid rgba(20,11,6,0.15);
+  font-family: 'Inter', sans-serif; cursor: pointer;
+}
+.btn-secondary:hover { border-color: var(--dark); transform: translateY(-2px); }
+
+/* floating confetti */
+.confetti-piece {
+  position: absolute; border-radius: 3px; opacity: 0.5;
+  animation: confettiFall linear infinite;
+}
+@keyframes confettiFall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ============ BOARDING PASS HERO SECTION ============ */
+.bp-hero {
+  padding: 100px 24px;
+  background: linear-gradient(160deg, var(--purple) 0%, #3a2891 100%);
+  position: relative;
+  overflow: hidden;
+}
+.bp-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(253,192,16,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, rgba(255,80,50,0.1) 0%, transparent 50%);
+}
+.bp-hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.bp-hero-text { color: white; }
+.bp-hero-text .section-label {
+  color: var(--gold);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 16px; display: block;
+}
+.bp-hero-text h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.bp-hero-text h2 .italic-accent { color: var(--gold); }
+.bp-hero-text p {
+  font-size: 1.05rem; line-height: 1.7;
+  color: rgba(255,255,255,0.8);
+  max-width: 440px;
+}
+.bp-hero-text .bp-steps {
+  margin-top: 32px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.bp-step {
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.bp-step-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(253,192,16,0.2); color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.85rem; flex-shrink: 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.bp-step-text { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.4; }
+.bp-step-text strong { color: white; }
+
+/* Boarding Pass Card */
+.boarding-pass {
+  background: var(--cream);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+  transform: rotate(2deg);
+  transition: transform 0.4s ease;
+  max-width: 420px;
+  margin-left: auto;
+}
+.boarding-pass:hover { transform: rotate(0deg) scale(1.02); }
+.bp-header {
+  background: var(--coral);
+  padding: 16px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.bp-header-left { color: white; }
+.bp-header-left .bp-logo { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.1rem; }
+.bp-header-left .bp-type { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.85; margin-top: 2px; }
+.bp-header-right { text-align: right; color: white; }
+.bp-header-right .bp-date { font-size: 0.7rem; opacity: 0.85; }
+.bp-header-right .bp-city { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.3rem; }
+
+.bp-body { padding: 24px; }
+.bp-mood {
+  display: inline-block; background: var(--purple); color: white;
+  padding: 4px 14px; border-radius: 50px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.bp-itinerary { display: flex; flex-direction: column; gap: 0; }
+.bp-stop {
+  display: flex; gap: 16px; padding: 12px 0;
+  border-bottom: 1px dashed rgba(20,11,6,0.1);
+}
+.bp-stop:last-child { border-bottom: none; }
+.bp-time {
+  font-size: 0.75rem; font-weight: 700; color: var(--coral);
+  min-width: 60px; padding-top: 2px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.bp-venue-name { font-weight: 700; font-size: 0.9rem; color: var(--dark); }
+.bp-venue-type { font-size: 0.75rem; color: rgba(20,11,6,0.5); margin-top: 2px; }
+
+.bp-footer-bar {
+  background: var(--dark);
+  padding: 14px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.bp-footer-bar span { font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+.bp-barcode {
+  display: flex; gap: 2px;
+}
+.bp-barcode span {
+  display: block; width: 2px; background: rgba(255,255,255,0.3); border-radius: 1px;
+}
+
+/* ============ HOW IT WORKS ============ */
+.how-it-works {
+  padding: 100px 24px;
+  background: var(--warm-white);
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.section-label-dark {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--coral); margin-bottom: 12px; display: block;
+}
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+.section-header h2 .italic-accent { color: var(--coral); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  max-width: 960px; margin: 0 auto;
+}
+.step-card {
+  text-align: center;
+  padding: 40px 24px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(20,11,6,0.06);
+  transition: all 0.3s;
+}
+.step-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(20,11,6,0.08); }
+.step-number {
+  width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.3rem;
+  color: white;
+}
+.step-card:nth-child(1) .step-number { background: var(--coral); }
+.step-card:nth-child(2) .step-number { background: var(--gold); color: var(--dark); }
+.step-card:nth-child(3) .step-number { background: var(--purple); }
+.step-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.step-card p { font-size: 0.9rem; color: rgba(20,11,6,0.6); line-height: 1.6; }
+
+/* ============ MOOD SELECTOR ============ */
+.mood-section {
+  padding: 100px 24px;
+  background: var(--cream);
+}
+.mood-selector {
+  max-width: 900px; margin: 0 auto;
+}
+.mood-pills {
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  margin-bottom: 40px;
+}
+.mood-pill {
+  padding: 12px 28px; border-radius: 50px;
+  border: 2px solid rgba(20,11,6,0.1);
+  background: white;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
+  cursor: pointer; transition: all 0.3s;
+  color: var(--dark);
+}
+.mood-pill:hover { border-color: var(--coral); }
+.mood-pill.active {
+  background: var(--coral); border-color: var(--coral); color: white;
+  box-shadow: 0 4px 16px rgba(255,80,50,0.25);
+}
+.mood-result {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(20,11,6,0.06);
+  box-shadow: 0 8px 40px rgba(20,11,6,0.05);
+  text-align: center;
+  min-height: 200px;
+  transition: all 0.3s;
+}
+.mood-result-emoji { font-size: 3rem; margin-bottom: 12px; }
+.mood-result h3 { font-size: 1.5rem; margin-bottom: 8px; }
+.mood-result .mood-desc { color: rgba(20,11,6,0.6); font-size: 0.95rem; margin-bottom: 24px; }
+.mood-venues {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;
+}
+.mood-venue {
+  background: var(--cream); border-radius: 14px; padding: 20px;
+  text-align: left;
+}
+.mood-venue-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+.mood-venue-type { font-size: 0.78rem; color: rgba(20,11,6,0.5); }
+
+/* ============ CITIES MARQUEE ============ */
+.cities-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, var(--coral) 0%, #FF8A75 50%, var(--gold) 100%);
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex; gap: 48px; white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+.marquee-city {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: white; opacity: 0.9;
+  flex-shrink: 0;
+}
+.marquee-city::after { content: ' ✦'; opacity: 0.5; margin-left: 48px; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============ AI CHAT ============ */
+.chat-section {
+  padding: 100px 24px;
+  background: var(--warm-white);
+}
+.chat-container {
+  max-width: 600px; margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 8px 40px rgba(20,11,6,0.06);
+  border: 1px solid rgba(20,11,6,0.06);
+}
+.chat-header {
+  display: flex; align-items: center; gap: 12px;
+  padding-bottom: 20px; border-bottom: 1px solid rgba(20,11,6,0.06);
+  margin-bottom: 24px;
+}
+.chat-avatar {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--coral);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  color: white; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif;
+}
+.chat-header-info .chat-name { font-weight: 700; font-size: 0.95rem; }
+.chat-header-info .chat-status { font-size: 0.75rem; color: rgba(20,11,6,0.4); }
+.chat-messages { display: flex; flex-direction: column; gap: 16px; }
+.chat-msg {
+  max-width: 85%; padding: 14px 18px; border-radius: 18px;
+  font-size: 0.9rem; line-height: 1.5;
+  opacity: 0; animation: chatIn 0.4s ease-out forwards;
+}
+.chat-msg.user {
+  align-self: flex-end;
+  background: var(--coral); color: white;
+  border-bottom-right-radius: 6px;
+}
+.chat-msg.ai {
+  align-self: flex-start;
+  background: var(--cream); color: var(--dark);
+  border-bottom-left-radius: 6px;
+}
+.chat-msg:nth-child(1) { animation-delay: 0.5s; }
+.chat-msg:nth-child(2) { animation-delay: 1.2s; }
+.chat-msg:nth-child(3) { animation-delay: 2s; }
+.chat-msg:nth-child(4) { animation-delay: 2.8s; }
+@keyframes chatIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ============ STATS BAR ============ */
+.stats-bar {
+  padding: 60px 24px;
+  background: var(--dark);
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.stat-item .stat-num {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--gold);
+}
+.stat-item .stat-label {
+  font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px;
+}
+
+/* ============ PARTNERSHIP TIERS ============ */
+.tiers-section {
+  padding: 100px 24px;
+  background: var(--cream);
+}
+.tiers-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  max-width: 1060px; margin: 0 auto;
+}
+.tier-card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px 32px;
+  border: 2px solid rgba(20,11,6,0.06);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.tier-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(20,11,6,0.1); }
+.tier-card.featured {
+  border-color: var(--coral);
+  box-shadow: 0 8px 40px rgba(255,80,50,0.12);
+}
+.tier-card.featured::before {
+  content: 'MOST POPULAR';
+  position: absolute; top: 16px; right: -28px;
+  background: var(--coral); color: white;
+  font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em;
+  padding: 4px 32px;
+  transform: rotate(45deg);
+}
+.tier-emoji { font-size: 2rem; margin-bottom: 16px; }
+.tier-name {
+  font-size: 1.4rem; margin-bottom: 4px;
+}
+.tier-range {
+  font-size: 0.8rem; color: rgba(20,11,6,0.5); margin-bottom: 20px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.tier-comp {
+  background: var(--cream); border-radius: 14px; padding: 20px;
+  margin-bottom: 24px;
+}
+.tier-comp-title {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--coral); margin-bottom: 12px;
+}
+.tier-comp-item {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 6px 0; font-size: 0.88rem;
+}
+.tier-comp-item .comp-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800; font-size: 1rem; color: var(--dark);
+}
+.tier-comp-item .comp-label { color: rgba(20,11,6,0.6); }
+.tier-perks { list-style: none; margin-bottom: 28px; }
+.tier-perks li {
+  padding: 8px 0; font-size: 0.85rem; color: rgba(20,11,6,0.7);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.tier-perks li::before { content: '✓'; color: var(--coral); font-weight: 800; flex-shrink: 0; }
+.tier-cta {
+  display: block; text-align: center; padding: 14px;
+  border-radius: 50px; font-weight: 700; font-size: 0.8rem;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;
+  transition: all 0.3s;
+}
+.tier-card:nth-child(1) .tier-cta { background: var(--cream); color: var(--dark); border: 2px solid rgba(20,11,6,0.12); }
+.tier-card:nth-child(1) .tier-cta:hover { border-color: var(--dark); }
+.tier-card.featured .tier-cta { background: var(--coral); color: white; }
+.tier-card.featured .tier-cta:hover { background: #e8432a; }
+.tier-card:nth-child(3) .tier-cta { background: var(--purple); color: white; }
+.tier-card:nth-child(3) .tier-cta:hover { background: #3f2e8c; }
+
+/* ============ CONTENT IDEAS ============ */
+.content-ideas {
+  padding: 100px 24px;
+  background: var(--warm-white);
+}
+.ideas-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  max-width: 1000px; margin: 0 auto;
+}
+.idea-card {
+  background: white; border-radius: 18px; padding: 32px 24px;
+  text-align: center; border: 1px solid rgba(20,11,6,0.05);
+  transition: all 0.3s;
+}
+.idea-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(20,11,6,0.08); }
+.idea-icon { font-size: 2.2rem; margin-bottom: 14px; }
+.idea-card h3 { font-size: 1rem; margin-bottom: 8px; }
+.idea-card p { font-size: 0.82rem; color: rgba(20,11,6,0.55); line-height: 1.5; }
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 120px 24px;
+  background: linear-gradient(160deg, var(--cream) 0%, var(--mid-cream) 100%);
+  text-align: center;
+}
+.cta-section h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.cta-section h2 .italic-accent { color: var(--coral); }
+.cta-section p {
+  font-size: 1.1rem; color: rgba(20,11,6,0.6);
+  max-width: 460px; margin: 0 auto 40px; line-height: 1.6;
+}
+.cta-email {
+  display: block; margin-top: 16px;
+  font-size: 0.85rem; color: var(--purple);
+  text-decoration: none; font-weight: 600;
+}
+.cta-email:hover { text-decoration: underline; }
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 40px 48px;
+  background: var(--dark);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.2rem; color: white; }
+.footer-logo span { color: var(--coral); }
+footer small { font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ============ SCROLL REVEAL ============ */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease-out; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .bp-hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .bp-hero-text p { margin: 0 auto; }
+  .boarding-pass { margin: 40px auto 0; transform: rotate(0deg); }
+  .steps-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .tiers-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .ideas-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  nav { padding: 14px 20px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+}
+@media (max-width: 600px) {
+  .ideas-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Confetti<span>.</span></a>
+  <div class="nav-links">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#boarding-pass">The Boarding Pass</a>
+    <a href="#partner">Partner</a>
+    <a href="mailto:partnerships@confettiplan.com" class="nav-cta">Apply Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div id="confetti-container"></div>
+  <div class="hero-badge">AI-Powered Nightlife & Dining</div>
+  <h1>Every Night Out<br>Deserves <span class="italic-accent">Confetti</span></h1>
+  <p class="hero-sub">The AI concierge that plans unforgettable evenings — from first reservation to last call. Now partnering with creators who set the vibe.</p>
+  <div class="hero-ctas">
+    <a href="mailto:partnerships@confettiplan.com" class="btn-primary">Become a Partner</a>
+    <a href="#boarding-pass" class="btn-secondary">See How It Works</a>
+  </div>
+</section>
+
+<!-- BOARDING PASS HERO -->
+<section class="bp-hero" id="boarding-pass">
+  <div class="bp-hero-inner">
+    <div class="bp-hero-text reveal">
+      <span class="section-label">The Core Experience</span>
+      <h2>Your Night, Delivered as a <span class="italic-accent">Boarding Pass</span></h2>
+      <p>Every Confetti experience comes as a personalized Boarding Pass — a curated itinerary with times, venues, and vibes mapped out so you just show up and enjoy.</p>
+      <div class="bp-steps">
+        <div class="bp-step">
+          <div class="bp-step-num">1</div>
+          <div class="bp-step-text"><strong>Tell us the vibe.</strong> Romantic dinner? Wild night? Chill cocktails? Our AI listens.</div>
+        </div>
+        <div class="bp-step">
+          <div class="bp-step-num">2</div>
+          <div class="bp-step-text"><strong>Get your Boarding Pass.</strong> A full evening itinerary — restaurants, bars, experiences — timed and routed.</div>
+        </div>
+        <div class="bp-step">
+          <div class="bp-step-num">3</div>
+          <div class="bp-step-text"><strong>Live the night.</strong> Check in at each stop. Share your Boarding Pass. Earn rewards.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="boarding-pass">
+        <div class="bp-header">
+          <div class="bp-header-left">
+            <div class="bp-logo">Confetti</div>
+            <div class="bp-type">Boarding Pass</div>
+          </div>
+          <div class="bp-header-right">
+            <div class="bp-date">Sat, May 10</div>
+            <div class="bp-city">D.C.</div>
+          </div>
+        </div>
+        <div class="bp-body">
+          <div class="bp-mood">🔥 Date Night</div>
+          <div class="bp-itinerary">
+            <div class="bp-stop">
+              <div class="bp-time">7:00 PM</div>
+              <div>
+                <div class="bp-venue-name">Dauphine's</div>
+                <div class="bp-venue-type">French-Creole · Penn Quarter</div>
+              </div>
+            </div>
+            <div class="bp-stop">
+              <div class="bp-time">9:15 PM</div>
+              <div>
+                <div class="bp-venue-name">The Gibson</div>
+                <div class="bp-venue-type">Speakeasy Cocktails · U Street</div>
+              </div>
+            </div>
+            <div class="bp-stop">
+              <div class="bp-time">11:00 PM</div>
+              <div>
+                <div class="bp-venue-name">Rosebar Lounge</div>
+                <div class="bp-venue-type">Rooftop · Downtown</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bp-footer-bar">
+          <span>Curated by AI</span>
+          <div class="bp-barcode">
+            <span style="height:18px"></span><span style="height:12px"></span><span style="height:18px"></span>
+            <span style="height:8px"></span><span style="height:18px"></span><span style="height:14px"></span>
+            <span style="height:18px"></span><span style="height:10px"></span><span style="height:16px"></span>
+            <span style="height:18px"></span><span style="height:6px"></span><span style="height:18px"></span>
+            <span style="height:12px"></span><span style="height:18px"></span><span style="height:8px"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="section-header reveal">
+    <span class="section-label-dark">How It Works</span>
+    <h2>Three Steps to <span class="italic-accent">Unforgettable</span></h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <div class="step-number">1</div>
+      <h3>Set the Mood</h3>
+      <p>Tell Confetti what you're feeling — romantic, adventurous, bougie, chill. Our AI gets it.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-number">2</div>
+      <h3>Get Your Pass</h3>
+      <p>Receive a personalized Boarding Pass with curated stops, times, and insider tips for the night.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-number">3</div>
+      <h3>Live It & Share</h3>
+      <p>Experience each stop, check in, share your Boarding Pass on socials, and earn rewards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOOD SELECTOR -->
+<section class="mood-section" id="features">
+  <div class="section-header reveal">
+    <span class="section-label-dark">Try It Yourself</span>
+    <h2>Pick a Vibe, Get a <span class="italic-accent">Night</span></h2>
+  </div>
+  <div class="mood-selector reveal">
+    <div class="mood-pills">
+      <button class="mood-pill active" data-mood="romantic">💕 Romantic</button>
+      <button class="mood-pill" data-mood="wild">🔥 Wild Night</button>
+      <button class="mood-pill" data-mood="chill">🍃 Chill</button>
+      <button class="mood-pill" data-mood="foodie">🍽️ Foodie</button>
+      <button class="mood-pill" data-mood="adventure">⚡ Adventure</button>
+      <button class="mood-pill" data-mood="bougie">✨ Bougie</button>
+    </div>
+    <div class="mood-result" id="mood-result"></div>
+  </div>
+</section>
+
+<!-- CITIES MARQUEE -->
+<section class="cities-section">
+  <div class="marquee-track">
+    <span class="marquee-city">Washington DC</span>
+    <span class="marquee-city">New York</span>
+    <span class="marquee-city">Miami</span>
+    <span class="marquee-city">Los Angeles</span>
+    <span class="marquee-city">Atlanta</span>
+    <span class="marquee-city">Chicago</span>
+    <span class="marquee-city">Houston</span>
+    <span class="marquee-city">London</span>
+    <span class="marquee-city">Paris</span>
+    <span class="marquee-city">Dubai</span>
+    <span class="marquee-city">Washington DC</span>
+    <span class="marquee-city">New York</span>
+    <span class="marquee-city">Miami</span>
+    <span class="marquee-city">Los Angeles</span>
+    <span class="marquee-city">Atlanta</span>
+    <span class="marquee-city">Chicago</span>
+    <span class="marquee-city">Houston</span>
+    <span class="marquee-city">London</span>
+    <span class="marquee-city">Paris</span>
+    <span class="marquee-city">Dubai</span>
+  </div>
+</section>
+
+<!-- AI CHAT PREVIEW -->
+<section class="chat-section">
+  <div class="section-header reveal">
+    <span class="section-label-dark">Meet Your Concierge</span>
+    <h2>AI That Actually <span class="italic-accent">Gets It</span></h2>
+  </div>
+  <div class="chat-container reveal">
+    <div class="chat-header">
+      <div class="chat-avatar">C</div>
+      <div class="chat-header-info">
+        <div class="chat-name">Confetti AI</div>
+        <div class="chat-status">Your personal concierge</div>
+      </div>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-msg user">We're celebrating our anniversary — somewhere special but not too pretentious?</div>
+      <div class="chat-msg ai">Say less 💫 I found a candlelit spot in Georgetown with a chef's tasting menu, then a jazz bar with live music two blocks away. Want me to build the Boarding Pass?</div>
+      <div class="chat-msg user">Yes! And maybe a rooftop for after?</div>
+      <div class="chat-msg ai">Done. Your Boarding Pass is ready — 3 stops, all walkable, reservations held until 8pm. Tap to view 🎉</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Cities</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">50K+</div>
+      <div class="stat-label">Venues Curated</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">GPT-4o</div>
+      <div class="stat-label">AI Engine</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Concierge</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIP TIERS -->
+<section class="tiers-section" id="partner">
+  <div class="section-header reveal">
+    <span class="section-label-dark">Creator Partnerships</span>
+    <h2>Get Paid to Go <span class="italic-accent">Out</span></h2>
+  </div>
+  <div class="tiers-grid">
+    <!-- Explorer -->
+    <div class="tier-card reveal">
+      <div class="tier-emoji">🌱</div>
+      <h3 class="tier-name">Explorer</h3>
+      <div class="tier-range">5K–25K Followers</div>
+      <div class="tier-comp">
+        <div class="tier-comp-title">Compensation</div>
+        <div class="tier-comp-item">
+          <span class="comp-value">$250+</span>
+          <span class="comp-label">in free dining & nightlife</span>
+        </div>
+        <div class="tier-comp-item">
+          <span class="comp-value">$150–$400</span>
+          <span class="comp-label">per sponsored post</span>
+        </div>
+        <div class="tier-comp-item">
+          <span class="comp-value">10%</span>
+          <span class="comp-label">revenue share on referrals</span>
+        </div>
+      </div>
+      <ul class="tier-perks">
+        <li>Complimentary Boarding Pass experiences</li>
+        <li>Early access to new cities</li>
+        <li>Co-branded content templates</li>
+      </ul>
+      <a href="mailto:partnerships@confettiplan.com?subject=Explorer%20Partnership" class="tier-cta">Apply as Explorer</a>
+    </div>
+    <!-- Tastemaker -->
+    <div class="tier-card featured reveal">
+      <div class="tier-emoji">🔥</div>
+      <h3 class="tier-name">Tastemaker</h3>
+      <div class="tier-range">25K–100K Followers</div>
+      <div class="tier-comp">
+        <div class="tier-comp-title">Compensation</div>
+        <div class="tier-comp-item">
+          <span class="comp-value">$1,000+</span>
+          <span class="comp-label">in VIP experiences</span>
+        </div>
+        <div class="tier-comp-item">
+          <span class="comp-value">$500–$1,500</span>
+          <span class="comp-label">per campaign</span>
+        </div>
+        <div class="tier-comp-item">
+          <span class="comp-value">15%</span>
+          <span class="comp-label">revenue share + bonuses</span>
+        </div>
+      </div>
+      <ul class="tier-perks">
+        <li>VIP Boarding Pass with premium venues</li>
+        <li>Dedicated partnership manager</li>
+        <li>Exclusive city launch invites</li>
+        <li>Custom promo codes for your audience</li>
+      </ul>
+      <a href="mailto:partnerships@confettiplan.com?subject=Tastemaker%20Partnership" class="tier-cta">Apply as Tastemaker</a>
+    </div>
+    <!-- Headliner -->
+    <div class="tier-card reveal">
+      <div class="tier-emoji">🚀</div>
+      <h3 class="tier-name">Headliner</h3>
+      <div class="tier-range">100K+ Followers</div>
+      <div class="tier-comp">
+        <div class="tier-comp-title">Compensation</div>
+        <div class="tier-comp-item">
+          <span class="comp-value">$5,000+</span>
+          <span class="comp-label">in luxury experiences</span>
+        </div>
+        <div class="tier-comp-item">
+          <span class="comp-value">$2,000–$5,000</span>
+          <span class="comp-label">per campaign</span>
+        </div>
+        <div class="tier-comp-item">
+          <span class="comp-value">20%</span>
+          <span class="comp-label">revenue share + ambassador bonus</span>
+        </div>
+      </div>
+      <ul class="tier-perks">
+        <li>Custom luxury Boarding Pass itineraries</li>
+        <li>Brand ambassador retainer</li>
+        <li>Co-create city guides with Confetti</li>
+        <li>Revenue share on audience sign-ups</li>
+        <li>Featured on Confetti's channels</li>
+      </ul>
+      <a href="mailto:partnerships@confettiplan.com?subject=Headliner%20Partnership" class="tier-cta">Apply as Headliner</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT IDEAS -->
+<section class="content-ideas">
+  <div class="section-header reveal">
+    <span class="section-label-dark">Content Inspiration</span>
+    <h2>Content That <span class="italic-accent">Writes Itself</span></h2>
+  </div>
+  <div class="ideas-grid">
+    <div class="idea-card reveal">
+      <div class="idea-icon">🎬</div>
+      <h3>Night Out Vlogs</h3>
+      <p>Film your Confetti-curated evening from first course to last call</p>
+    </div>
+    <div class="idea-card reveal">
+      <div class="idea-icon">🎫</div>
+      <h3>Boarding Pass Reveals</h3>
+      <p>Unbox your itinerary on Stories — build hype for each stop</p>
+    </div>
+    <div class="idea-card reveal">
+      <div class="idea-icon">🎤</div>
+      <h3>City Guides</h3>
+      <p>Partner with Confetti to create the ultimate local guide</p>
+    </div>
+    <div class="idea-card reveal">
+      <div class="idea-icon">🤖</div>
+      <h3>AI vs. Human</h3>
+      <p>Challenge: Can AI plan a better night than you? Spoiler: yes</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="reveal">Ready to<br><span class="italic-accent">Party?</span></h2>
+  <p class="reveal">Apply to become a Confetti creator partner. Limited spots for our launch cohort.</p>
+  <div class="reveal">
+    <a href="mailto:partnerships@confettiplan.com?subject=Creator%20Partnership%20Application" class="btn-primary">Apply Now →</a>
+    <a href="mailto:partnerships@confettiplan.com" class="cta-email">Or email us at partnerships@confettiplan.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Confetti<span>.</span></div>
+  <small>© 2026 Confetti. All rights reserved.</small>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Floating confetti particles
+const container = document.getElementById('confetti-container');
+const colors = ['#FF5032', '#FDC010', '#513BB2', '#FF8A75', '#7B6BD4'];
+for (let i = 0; i < 30; i++) {
+  const piece = document.createElement('div');
+  piece.className = 'confetti-piece';
+  const size = Math.random() * 8 + 4;
+  piece.style.cssText = `
+    width: ${size}px; height: ${size * (Math.random() * 2 + 1)}px;
+    background: ${colors[Math.floor(Math.random() * colors.length)]};
+    left: ${Math.random() * 100}%;
+    animation-duration: ${Math.random() * 8 + 8}s;
+    animation-delay: ${Math.random() * -15}s;
+  `;
+  container.appendChild(piece);
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Mood selector
+const moods = {
+  romantic: {
+    emoji: '💕', title: 'Date Night',
+    desc: 'Intimate spots, candlelit dinners, rooftop views',
+    venues: [
+      { name: "Dauphine's", type: 'French-Creole · Penn Quarter' },
+      { name: 'The Gibson', type: 'Speakeasy · U Street' },
+      { name: 'Moon Rabbit', type: 'Vietnamese · Wharf' }
+    ]
+  },
+  wild: {
+    emoji: '🔥', title: 'Wild Night',
+    desc: 'High energy, late nights, unforgettable moments',
+    venues: [
+      { name: 'Decades', type: 'Dance Club · Dupont' },
+      { name: 'Echostage', type: 'Nightclub · Ivy City' },
+      { name: 'Flash', type: 'Underground · Shaw' }
+    ]
+  },
+  chill: {
+    emoji: '🍃', title: 'Chill Vibes',
+    desc: 'Laid-back lounges, craft cocktails, good conversation',
+    venues: [
+      { name: 'Bar Charley', type: 'Cocktail Bar · AdMo' },
+      { name: 'Calico', type: 'Wine Bar · Blagden Alley' },
+      { name: 'The Dignitary', type: 'Hotel Lounge · Downtown' }
+    ]
+  },
+  foodie: {
+    emoji: '🍽️', title: 'Foodie Tour',
+    desc: "Chef's tables, tasting menus, hidden gems",
+    venues: [
+      { name: 'Minibar', type: "Chef's Table · Penn Quarter" },
+      { name: 'Bad Saint', type: 'Filipino · Columbia Heights' },
+      { name: 'Reverie', type: 'Tasting Menu · Georgetown' }
+    ]
+  },
+  adventure: {
+    emoji: '⚡', title: 'Adventure Night',
+    desc: 'Unique experiences, surprise stops, one-of-a-kind',
+    venues: [
+      { name: 'Hank\'s Cocktail Bar', type: 'Hidden Bar · Capitol Hill' },
+      { name: 'Sauf Haus', type: 'Beer Garden · Dupont' },
+      { name: 'The Wharf', type: 'Waterfront · SW' }
+    ]
+  },
+  bougie: {
+    emoji: '✨', title: 'Bougie Night',
+    desc: 'VIP treatment, champagne, see-and-be-seen',
+    venues: [
+      { name: 'RPM Italian', type: 'Upscale Italian · Mt Vernon' },
+      { name: 'Officina', type: 'Rooftop · The Wharf' },
+      { name: 'Rosebar', type: 'VIP Lounge · Downtown' }
+    ]
+  }
+};
+
+function renderMood(key) {
+  const m = moods[key];
+  const box = document.getElementById('mood-result');
+  box.innerHTML = `
+    <div class="mood-result-emoji">${m.emoji}</div>
+    <h3>${m.title}</h3>
+    <p class="mood-desc">${m.desc}</p>
+    <div class="mood-venues">
+      ${m.venues.map(v => `<div class="mood-venue"><div class="mood-venue-name">${v.name}</div><div class="mood-venue-type">${v.type}</div></div>`).join('')}
+    </div>
+  `;
+}
+renderMood('romantic');
+
+document.querySelectorAll('.mood-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mood-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderMood(btn.dataset.mood);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confetti — Influencer Media Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF5E5;
+    --dark: #140B06;
+    --coral: #FF5032;
+    --gold: #FDC010;
+    --purple: #513BB2;
+    --text: #140B06;
+    --text-light: #5A4F42;
+    --border: #140B06;
+    --card-bg: #FBF5E5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(20,11,6,0.1);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 16px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 24px; font-weight: 800; color: var(--dark);
+    letter-spacing: -0.5px;
+  }
+  .logo-dot { color: var(--coral); }
+  .logo-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-left: 12px;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--dark); text-decoration: none; font-size: 11px;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 2px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--coral); }
+  .nav-btn {
+    display: inline-block; padding: 10px 24px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 600; color: var(--cream); background: var(--dark);
+    text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { background: var(--coral); }
+
+  /* HERO */
+  .hero {
+    background: var(--cream); padding: 140px 32px 80px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-block; padding: 6px 16px; border-radius: 999px;
+    border: 1.5px solid var(--dark); font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 2.5px; margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 72px; font-weight: 800; line-height: 1.05;
+    margin-bottom: 24px; color: var(--dark);
+  }
+  .hero h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--coral);
+  }
+  .hero p {
+    font-size: 18px; color: var(--text-light);
+    max-width: 550px; margin-bottom: 48px; line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex; gap: 48px; padding-top: 48px;
+    border-top: 1px solid rgba(20,11,6,0.12);
+  }
+  .stat-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 36px; font-weight: 800; color: var(--dark);
+  }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 2px; margin-top: 4px;
+  }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid rgba(20,11,6,0.1); margin: 0; }
+
+  /* SECTIONS */
+  section { padding: 80px 32px; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 2.5px; color: var(--text-light); margin-bottom: 16px;
+  }
+  .section-label::before { content: '✦ '; }
+  section h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 48px; font-weight: 800; margin-bottom: 12px; color: var(--dark);
+    line-height: 1.1;
+  }
+  section h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--coral);
+  }
+  section .subtitle {
+    font-size: 17px; color: var(--text-light); margin-bottom: 48px;
+    max-width: 600px; line-height: 1.7;
+  }
+
+  /* ABOUT CARDS */
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .feature-card {
+    padding: 32px;
+    border: 1px solid rgba(20,11,6,0.12);
+    border-right: none;
+    transition: background 0.3s;
+  }
+  .feature-card:nth-child(3), .feature-card:nth-child(6) { border-right: 1px solid rgba(20,11,6,0.12); }
+  .feature-card:nth-child(n+4) { border-top: none; }
+  .feature-card:hover { background: rgba(20,11,6,0.03); }
+  .feature-icon {
+    font-size: 24px; margin-bottom: 16px;
+  }
+  .feature-card h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px; font-weight: 700; margin-bottom: 10px;
+  }
+  .feature-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+  /* RATE TABLE */
+  .rate-section {
+    background: var(--dark); border-radius: 20px; padding: 64px 48px;
+    color: var(--cream); border: 3px solid var(--dark);
+    box-shadow: 8px 8px 0 rgba(20,11,6,0.15);
+  }
+  .rate-section .section-label { color: var(--gold); }
+  .rate-section .section-label::before { content: '✦ '; color: var(--gold); }
+  .rate-section h2 { color: var(--cream); }
+  .rate-section h2 em { color: var(--gold); }
+  .rate-section .subtitle { color: rgba(251,245,229,0.6); }
+  .rate-table {
+    width: 100%; border-collapse: collapse; margin-top: 8px;
+  }
+  .rate-table th {
+    padding: 14px 24px; text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 2px; color: rgba(251,245,229,0.5);
+    border-bottom: 1px solid rgba(251,245,229,0.15);
+  }
+  .rate-table td {
+    padding: 18px 24px; border-bottom: 1px solid rgba(251,245,229,0.08);
+    font-size: 15px; color: rgba(251,245,229,0.85);
+  }
+  .rate-table td strong {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: var(--cream); font-weight: 700;
+  }
+  .rate-table .price {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800; color: var(--gold); font-size: 20px;
+  }
+  .rate-note {
+    margin-top: 24px; padding: 20px 24px; border-radius: 12px;
+    border: 1px dashed rgba(251,245,229,0.2);
+  }
+  .rate-note p { color: rgba(251,245,229,0.6); font-size: 13px; line-height: 1.6; }
+  .rate-note strong { color: var(--gold); }
+
+  /* DELIVERABLES */
+  .deliverables-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .deliv-card {
+    background: var(--cream); border-radius: 20px; padding: 36px;
+    border: 2.5px solid var(--dark); position: relative;
+    box-shadow: 6px 6px 0 rgba(20,11,6,0.08);
+    transition: all 0.2s;
+  }
+  .deliv-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 rgba(20,11,6,0.12); }
+  .deliv-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 56px; font-weight: 800; color: rgba(20,11,6,0.06);
+    position: absolute; top: 16px; right: 24px; line-height: 1;
+  }
+  .deliv-card .platform {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; color: var(--coral);
+    text-transform: uppercase; letter-spacing: 2px;
+  }
+  .deliv-card h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px; font-weight: 700; margin: 8px 0 16px;
+  }
+  .deliv-card ul { list-style: none; }
+  .deliv-card li {
+    padding: 6px 0; font-size: 14px; color: var(--text-light);
+    padding-left: 22px; position: relative; line-height: 1.6;
+  }
+  .deliv-card li::before {
+    content: '✦'; position: absolute; left: 0;
+    color: var(--coral); font-size: 10px; top: 9px;
+  }
+
+  /* PROCESS TIMELINE */
+  .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+  .process-step {
+    padding: 32px 24px; border: 1px solid rgba(20,11,6,0.12);
+    border-right: none; text-align: center; position: relative;
+    transition: background 0.3s;
+  }
+  .process-step:last-child { border-right: 1px solid rgba(20,11,6,0.12); }
+  .process-step:hover { background: rgba(20,11,6,0.03); }
+  .step-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 40px; font-weight: 800; color: rgba(20,11,6,0.08);
+    margin-bottom: 12px;
+  }
+  .process-step h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px; font-weight: 700; margin-bottom: 10px;
+  }
+  .process-step p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .process-step .tag {
+    display: inline-block; padding: 4px 12px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 600; border: 1px solid var(--dark);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-top: 12px;
+  }
+
+  /* BRAND ASSETS */
+  .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .colors-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+  .color-swatch {
+    width: 72px; height: 72px; border-radius: 14px; display: flex;
+    align-items: flex-end; justify-content: center; padding-bottom: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 600; color: #fff;
+    border: 2px solid var(--dark);
+  }
+  .hashtags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hashtag {
+    padding: 8px 18px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 600; color: var(--dark);
+    border: 1.5px solid var(--dark); background: transparent;
+  }
+  .tone-card {
+    padding: 32px; border-radius: 20px;
+    border: 2.5px solid var(--dark); background: var(--cream);
+  }
+  .tone-card h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px; font-weight: 700; margin-bottom: 20px;
+  }
+  .tone-card p {
+    font-size: 14px; color: var(--text-light); margin-bottom: 14px; line-height: 1.7;
+  }
+  .tone-card strong { color: var(--dark); }
+  .brand-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--text-light); margin-bottom: 16px;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--coral); border-radius: 20px; padding: 80px 48px;
+    text-align: center; color: var(--cream); position: relative; overflow: hidden;
+  }
+  .cta-section h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 52px; font-weight: 800; margin-bottom: 16px; color: var(--cream);
+  }
+  .cta-section h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--dark);
+  }
+  .cta-section p {
+    font-size: 17px; color: rgba(251,245,229,0.85); margin-bottom: 36px;
+    max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block; padding: 16px 40px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    font-weight: 700; color: var(--coral); background: var(--cream);
+    text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+    transition: all 0.2s; border: 2px solid var(--cream);
+  }
+  .cta-btn:hover { background: var(--dark); color: var(--cream); border-color: var(--dark); }
+  .cta-contact {
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: rgba(251,245,229,0.6);
+    letter-spacing: 1px;
+  }
+  .cta-contact strong { color: var(--cream); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--text-light);
+    letter-spacing: 1px; text-transform: uppercase;
+    border-top: 1px solid rgba(20,11,6,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 42px; }
+    section h2 { font-size: 32px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card { border-right: 1px solid rgba(20,11,6,0.12) !important; }
+    .feature-card:nth-child(n+2) { border-top: none; }
+    .deliverables-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .process-step { border-right: 1px solid rgba(20,11,6,0.12) !important; }
+    .process-step:nth-child(n+2) { border-top: none; }
+    .brand-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 24px; }
+    .nav-links { display: none; }
+    .rate-section { padding: 40px 24px; }
+    section { padding: 60px 20px; }
+    .hero { padding: 120px 20px 60px; }
+    .cta-section { padding: 60px 24px; }
+    .cta-section h2 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div style="display:flex;align-items:baseline;gap:4px;">
+      <div class="logo">confetti<span class="logo-dot">.</span></div>
+      <span class="logo-sub">/ influencer kit</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#rates">Rates</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="#process">Process</a>
+      <a href="#brand">Brand</a>
+      <a href="#apply" class="nav-btn">Apply Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Influencer Partnership Program</div>
+  <h1>Create with<br><em>Confetti.</em></h1>
+  <p>Partner with the AI lifestyle concierge that's changing how people go out. Get paid to share experiences your audience will love.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">21–45</div><div class="stat-label">Target Age Range</div></div>
+    <div class="stat"><div class="stat-num">$52B</div><div class="stat-label">US Dining Out Market</div></div>
+    <div class="stat"><div class="stat-num">Global</div><div class="stat-label">City Coverage</div></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT CONFETTI -->
+<section id="about">
+  <div class="section-label">What Is Confetti</div>
+  <h2>Your AI-powered<br><em>night out.</em></h2>
+  <p class="subtitle">Confetti is a mobile app that transforms "where should we go?" into an unforgettable, fully-planned experience — anywhere in the world.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Mood-Driven Discovery</h3>
+      <p>Users pick a vibe — Date Night, Rooftop Energy, Crew Outing, Family, or Surprise Me — and Confetti's AI curates the perfect venues.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎫</div>
+      <h3>Boarding Pass Itineraries</h3>
+      <p>Every outing is styled like an airline boarding pass: Departure, Layovers (shopping, EV charging, activities), and Destination. It makes going out feel like a trip.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI Chat Concierge</h3>
+      <p>"Find me a bold date night with rooftop energy" — natural language chat that builds a complete plan with travel time, dress codes, and parking intel.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <h3>Gamification Passport</h3>
+      <p>Earn Confetti points, unlock badges (Night Owl, Rooftop Regular, Chef's Counter), track stats, and build your experience passport with every outing.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>One-Tap Booking</h3>
+      <p>Book every stop — restaurants, parking, EV charging — with a single tap. Smart departure timing from live traffic keeps you on schedule.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👥</div>
+      <h3>Social Layer</h3>
+      <p>Venue chat rooms, live wait times from verified visitors, activity feeds, and group voting on itineraries. Going out is better together.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- RATE CARD -->
+<section id="rates">
+  <div class="rate-section">
+    <div class="section-label">Compensation</div>
+    <h2>Flat fee per <em>deliverable.</em></h2>
+    <p class="subtitle">Transparent pricing. No complicated rev-share math. You know exactly what you earn.</p>
+    <table class="rate-table">
+      <thead>
+        <tr>
+          <th>Deliverable</th>
+          <th>Platform</th>
+          <th>Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Instagram / TikTok Post</strong></td>
+          <td>Instagram, TikTok</td>
+          <td class="price">$150 – $500</td>
+        </tr>
+        <tr>
+          <td><strong>YouTube / Short-Form Video</strong></td>
+          <td>YouTube, Reels, TikTok</td>
+          <td class="price">$300 – $1,500</td>
+        </tr>
+        <tr>
+          <td><strong>Story Set (3–5 slides)</strong></td>
+          <td>Instagram, TikTok Stories</td>
+          <td class="price">$100 – $300</td>
+        </tr>
+        <tr>
+          <td><strong>Collaborative Sales Video</strong></td>
+          <td>YouTube / All Platforms</td>
+          <td class="price">$500 – $3,000</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="rate-note">
+      <p><strong>Rate ranges depend on audience size and engagement.</strong> Final rates are negotiated per creator. Micro-influencers (5K–50K followers) start at the lower end; macro creators (500K+) command premium rates.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="section-label">What You'll Create</div>
+  <h2>Content <em>deliverables.</em></h2>
+  <p class="subtitle">Every partnership includes a full content package that lets your audience experience Confetti through your eyes.</p>
+  <div class="deliverables-grid">
+    <div class="deliv-card">
+      <div class="deliv-num">01</div>
+      <div class="platform">Instagram / TikTok</div>
+      <h3>Feed Posts & Carousels</h3>
+      <ul>
+        <li>High-quality photo or carousel showcasing your Confetti experience</li>
+        <li>Tag @ConfettiApp and include #ConfettiNights</li>
+        <li>Authentic caption approved by our team</li>
+        <li>Show the app UI — mood selection, Boarding Pass, or AI chat</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <div class="deliv-num">02</div>
+      <div class="platform">YouTube / Reels / TikTok</div>
+      <h3>Video Content</h3>
+      <ul>
+        <li>Minimum 60 seconds showing Confetti in real-world use</li>
+        <li>Walk through planning and experiencing an outing</li>
+        <li>Link to Confetti in description / bio</li>
+        <li>Approved script or talking points provided</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <div class="deliv-num">03</div>
+      <div class="platform">Instagram / TikTok Stories</div>
+      <h3>Stories & Ephemeral Content</h3>
+      <ul>
+        <li>3–5 slides per story set with behind-the-scenes feel</li>
+        <li>Swipe-up or link sticker directing to Confetti</li>
+        <li>Casual, authentic tone — like texting a friend</li>
+        <li>Show real-time use during an actual outing</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <div class="deliv-num">04</div>
+      <div class="platform">YouTube / All Platforms</div>
+      <h3>Collaborative Sales Video</h3>
+      <ul>
+        <li>Co-produced with the Confetti team</li>
+        <li>In-depth walkthrough + personal endorsement</li>
+        <li>Minimum 3 minutes of polished content</li>
+        <li>Premium compensation — this is the flagship piece</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-label">How It Works</div>
+  <h2>Partnership <em>process.</em></h2>
+  <p class="subtitle">From application to published content — here's what working with Confetti looks like.</p>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <h3>Apply & Connect</h3>
+      <p>Submit your application with your platforms, content style, and audience demographics. We respond within 48 hours.</p>
+      <span class="tag">Day 1</span>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <h3>Negotiate & Sign</h3>
+      <p>We agree on deliverables, rates, and timeline. You sign the partnership agreement and receive 50% upfront.</p>
+      <span class="tag">Day 3–5</span>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <h3>Brief & Create</h3>
+      <p>We send a detailed creative brief with brand guidelines, key messages, and content inspiration. You create.</p>
+      <span class="tag">Day 6–14</span>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <h3>Review & Approve</h3>
+      <p>Submit drafts for review. We provide feedback within 2 business days. Max 2 revision rounds.</p>
+      <span class="tag">Day 15–18</span>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div>
+      <h3>Publish & Get Paid</h3>
+      <p>Content goes live. Final 50% payment within 14 business days. Top performers join our Ambassador program.</p>
+      <span class="tag">Day 19+</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BRAND ASSETS -->
+<section id="brand">
+  <div class="section-label">Brand Guidelines</div>
+  <h2>Confetti <em>brand.</em></h2>
+  <p class="subtitle">Use these colors, hashtags, and guidelines to keep your content on-brand.</p>
+
+  <div class="brand-grid">
+    <div>
+      <div class="brand-sub">/ Brand Colors</div>
+      <div class="colors-row">
+        <div class="color-swatch" style="background: #140B06;">#140B06</div>
+        <div class="color-swatch" style="background: #FF5032;">#FF5032</div>
+        <div class="color-swatch" style="background: #FDC010; color: #140B06;">#FDC010</div>
+        <div class="color-swatch" style="background: #513BB2;">#513BB2</div>
+        <div class="color-swatch" style="background: #FBF5E5; color: #140B06; border-color: #140B06;">#FBF5E5</div>
+      </div>
+
+      <div class="brand-sub" style="margin-top: 32px;">/ Required Hashtags & Tags</div>
+      <div class="hashtags">
+        <span class="hashtag">#ConfettiNights</span>
+        <span class="hashtag">#ConfettiApp</span>
+        <span class="hashtag">@ConfettiApp</span>
+        <span class="hashtag">#ad</span>
+        <span class="hashtag">#sponsored</span>
+      </div>
+    </div>
+
+    <div class="tone-card">
+      <h3>Tone & Voice</h3>
+      <p><strong>Be authentic.</strong> Talk about Confetti like you'd recommend a restaurant to a friend — enthusiastic but real.</p>
+      <p><strong>Show, don't tell.</strong> Film yourself using the app. Show the Boarding Pass, the mood selector, the AI chat in action.</p>
+      <p><strong>Stay positive.</strong> No competitor bashing. Focus on what makes Confetti special.</p>
+      <p style="margin-bottom:0;"><strong>Disclose clearly.</strong> FTC compliance is required. Always include #ad or #sponsored.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CTA -->
+<section id="apply">
+  <div class="cta-section">
+    <h2>Ready to <em>partner?</em></h2>
+    <p>Join the creators who are shaping how people discover their next unforgettable night out.</p>
+    <a href="mailto:partnerships@confettiplan.com?subject=Confetti%20Influencer%20Partnership%20Application" class="cta-btn">Apply to Partner ↗</a>
+    <div class="cta-contact">
+      Questions? Email <strong>partnerships@confettiplan.com</strong>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Confetti. All rights reserved. Washington, DC.
+</footer>
+
+</body>
+</html>

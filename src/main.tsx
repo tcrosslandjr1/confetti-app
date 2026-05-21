@@ -86,6 +86,17 @@ root.render(
   </StrictMode>,
 );
 
+// Signal index.html's splash to fade out — React is mounted, BootFallback is
+// now visible underneath. Don't wait for the (large, 199-module) router graph
+// to resolve; the watchdog there would otherwise fire "PREVIEW STALLED" on
+// cold loads even though the app is healthy.
+if (typeof window !== "undefined") {
+  // Use rAF so the BootFallback paints before the splash starts fading.
+  requestAnimationFrame(() => {
+    window.dispatchEvent(new CustomEvent("confetti:app-booted"));
+  });
+}
+
 // Stale Vite module graphs (after a dev-server restart) cause
 // "Failed to fetch dynamically imported module" on the very next navigation.
 // Auto-recover once by forcing a fresh load before showing the fallback UI.

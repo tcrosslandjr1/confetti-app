@@ -48,6 +48,7 @@ function AuthPage() {
   const [refCode, setRefCode] = useState(() => getPendingReferralCode() ?? "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [oauthBusy, setOauthBusy] = useState<"google" | "apple" | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const [locationBlocked, setLocationBlocked] = useState(false);
@@ -273,22 +274,16 @@ function AuthPage() {
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+    setNotice(null);
     setLoading(true);
     try {
       if (mode === "signup") {
         if (refCode.trim()) rememberReferralCode(refCode);
-        // Require location access by default. The user can opt out with
-        // an explicit "continue without location" toggle.
-        const loc = await requestUserLocation();
-        if (!loc && !allowWithoutLocation) {
-          setLocationBlocked(true);
-          setError(
-            "Location access is required to create your account. Enable location in your browser, then try again — or choose 'Continue without location' below.",
-          );
-          setLoading(false);
-          return;
-        }
-        const { error } = await supabase.auth.signUp({
+        const loc = allowWithoutLocation
+          ? null
+          : await requestUserLocation({ enableHighAccuracy: false, timeout: 3500, maximumAge: 60_000 }).catch(() => null);
+        setLocationBlocked(!loc);
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -300,6 +295,13 @@ function AuthPage() {
           },
         });
         if (error) throw error;
+        if (data.session && data.user) {
+          await routeAfterAuth(data.user.id);
+          return;
+        }
+        setNotice("Account created. Check your email to verify your account, then sign in.");
+        setMode("signin");
+        return;
       } else {
         const { error: signErr, data } = await supabase.auth.signInWithPassword({
           email,
@@ -313,7 +315,7 @@ function AuthPage() {
           return;
         }
       }
-      navigate({ to: redirectTo as never });
+      navigate({ to: safeRedirectTo as never });
     } catch (err: any) {
       setError(err?.message ?? "Something went wrong");
     } finally {

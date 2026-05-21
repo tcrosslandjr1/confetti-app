@@ -519,7 +519,11 @@ function TaskCard({ task }: { task: AgentTask }) {
 
 // ── Chat ────────────────────────────────────────────────────
 
-export type ChatMsg = { role: "user" | "assistant"; content: string };
+export type ChatMsg = {
+  role: "user" | "assistant";
+  content: string;
+  proposals?: AgentProposal[];
+};
 
 export function ChatView({
   target,
@@ -535,12 +539,15 @@ export function ChatView({
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [decidingId, setDecidingId] = useState<string | null>(null);
+  const [proposalStatus, setProposalStatus] = useState<Record<string, string>>({});
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Reset thread when target changes
   useEffect(() => {
     setMessages([]);
     setError(null);
+    setProposalStatus({});
   }, [target?.id]);
 
   useEffect(() => {
@@ -557,9 +564,9 @@ export function ChatView({
     setBusy(true);
     try {
       const res = await chat({
-        data: { targetAgentId: target?.id, messages: next },
+        data: { targetAgentId: target?.id, messages: next.map((m) => ({ role: m.role, content: m.content })) },
       });
-      setMessages([...next, { role: "assistant", content: res.reply }]);
+      setMessages([...next, { role: "assistant", content: res.reply, proposals: res.proposals ?? [] }]);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Agent failed to reply";
       setError(msg);
@@ -571,6 +578,27 @@ export function ChatView({
       setBusy(false);
     }
   };
+
+  const decide = async (p: AgentProposal, decision: "approve" | "reject") => {
+    setDecidingId(p.id);
+    try {
+      const res = await decideAgentProposal(p.id, decision);
+      const status = res.status;
+      setProposalStatus((s) => ({ ...s, [p.id]: status }));
+      if (decision === "approve" && res.ok) {
+        toast.success("Action executed", { description: p.summary });
+      } else if (decision === "approve" && !res.ok) {
+        toast.error("Action failed", { description: res.error ?? "Unknown error" });
+      } else {
+        toast.message("Proposal rejected");
+      }
+    } catch (e) {
+      toast.error("Failed", { description: e instanceof Error ? e.message : "Unknown error" });
+    } finally {
+      setDecidingId(null);
+    }
+  };
+
 
   const prompts = target
     ? [

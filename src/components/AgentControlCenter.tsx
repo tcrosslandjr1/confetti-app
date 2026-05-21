@@ -232,7 +232,8 @@ export default function AgentControlCenter() {
         )}
         {tab === "feed" && <FeedView messages={view.recentMessages} />}
         {tab === "board" && <BoardView board={view.taskBoard} />}
-        {tab === "chat" && (
+        {tab === "calendar" && <AgentCalendar />}
+
           <ChatView
             target={chatTarget}
             onPickAgent={() => setTab("teams")}

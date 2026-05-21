@@ -675,17 +675,61 @@ export function ChatView({
         )}
         <div className="space-y-3">
           {messages.map((m, i) => (
-            <div
-              key={i}
-              className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
-            >
-              <div
-                className={`max-w-[85%] whitespace-pre-wrap rounded-xl border-2 border-ink px-3 py-2 text-sm shadow-brut ${
-                  m.role === "user" ? "bg-ink text-cream" : "bg-gold/40 text-ink"
-                }`}
-              >
-                {m.content}
+            <div key={i} className="space-y-2">
+              <div className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div
+                  className={`max-w-[85%] whitespace-pre-wrap rounded-xl border-2 border-ink px-3 py-2 text-sm shadow-brut ${
+                    m.role === "user" ? "bg-ink text-cream" : "bg-gold/40 text-ink"
+                  }`}
+                >
+                  {m.content}
+                </div>
               </div>
+              {m.proposals?.map((p) => {
+                const status = proposalStatus[p.id] ?? p.status;
+                const isPending = status === "pending";
+                return (
+                  <div
+                    key={p.id}
+                    className="ml-2 max-w-[90%] rounded-xl border-2 border-ink bg-cream p-3 shadow-brut"
+                  >
+                    <div className="mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
+                      Pending action · approval required
+                    </div>
+                    <div className="text-sm font-semibold text-ink">{p.summary}</div>
+                    <div className="mt-1 font-mono text-[11px] text-ink/60">
+                      {p.action_type}
+                      {p.params?.email ? ` · ${String(p.params.email)}` : ""}
+                    </div>
+                    {isPending ? (
+                      <div className="mt-2 flex gap-2">
+                        <button
+                          type="button"
+                          disabled={decidingId === p.id}
+                          onClick={() => void decide(p, "approve")}
+                          className="inline-flex items-center gap-1 rounded-lg border-2 border-ink bg-coral px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 disabled:opacity-50"
+                        >
+                          <ShieldCheck className="h-3.5 w-3.5" />
+                          Approve & run
+                        </button>
+                        <button
+                          type="button"
+                          disabled={decidingId === p.id}
+                          onClick={() => void decide(p, "reject")}
+                          className="inline-flex items-center gap-1 rounded-lg border-2 border-ink bg-cream px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 disabled:opacity-50"
+                        >
+                          <Ban className="h-3.5 w-3.5" />
+                          Reject
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="mt-2 inline-flex items-center gap-1 rounded-md border border-ink/30 bg-ink/5 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-ink/70">
+                        {status}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           ))}
           {busy && (

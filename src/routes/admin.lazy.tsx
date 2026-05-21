@@ -27,13 +27,10 @@ function renderHighlight(label: string, query: string) {
 export const Route = createLazyFileRoute("/admin")({
   component: AdminLayout,
   errorComponent: AdminRouteError,
-  pendingComponent: () => {
-      if (typeof window !== "undefined") {
-          // eslint-disable-next-line no-console
-          console.log("[admin] route pending…", window.location.pathname);
-      }
-      return <AdminSkeleton />;
-  },
+  // No pendingComponent: the boot fallback in main.tsx already covers initial
+  // chunk load, and sub-route navigations should preserve the current shell
+  // instead of flashing a full-page skeleton.
+
 });
 
 function AdminRouteError({ error, reset }: {

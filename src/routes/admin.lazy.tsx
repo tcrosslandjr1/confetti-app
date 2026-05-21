@@ -357,9 +357,9 @@ function AdminShell({ user, pathname, onLock }: {
           <style>{`@keyframes brand-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes brand-shine{0%{transform:translateX(0) skewX(-12deg)}100%{transform:translateX(600%) skewX(-12deg)}}`}</style>
 
           {!collapsed && (
-            <div className="mx-2 mt-3">
-              <div className="relative">
-                <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40" />
+            <div className="mx-2 mt-3 space-y-1.5">
+              <div className="relative group">
+                <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40 transition group-focus-within:text-coral" />
                 <input
                   ref={searchRef}
                   type="text"
@@ -383,6 +383,15 @@ function AdminShell({ user, pathname, onLock }: {
                   </kbd>
                 )}
               </div>
+              <button
+                type="button"
+                onClick={() => setGlobalSearchOpen(true)}
+                className="group flex w-full items-center gap-2 rounded-lg border border-ink/15 bg-gradient-to-r from-cream/60 to-cream/40 px-2.5 py-1.5 text-left text-xs font-medium text-ink/60 transition hover:border-coral/40 hover:from-coral/10 hover:to-gold/10 hover:text-ink"
+              >
+                <Sparkles className="h-3 w-3 text-coral transition group-hover:scale-110" />
+                <span className="flex-1 truncate">Quick command</span>
+                <kbd className="rounded border border-ink/15 bg-cream px-1 py-0.5 font-mono text-[9px] font-bold text-ink/50">⌘K</kbd>
+              </button>
             </div>
           )}
 

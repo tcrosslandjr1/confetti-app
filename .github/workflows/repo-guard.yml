@@ -1,0 +1,55 @@
+name: Repo Guard
+
+# Blocks any push or PR that lands in a repo other than the canonical Confetti repo.
+# Allowed: tcrosslandjr1/confettiplan (current) and tcrosslandjr1/confetti-app (post-rename).
+# Forks (PRs from anywhere into the canonical repo) are allowed — the check is on
+# the base repository, not the head.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify repository identity
+        env:
+          REPO: ${{ github.repository }}
+          REF: ${{ github.ref }}
+          EVENT: ${{ github.event_name }}
+          BASE_REPO: ${{ github.event.pull_request.base.repo.full_name }}
+        run: |
+          set -euo pipefail
+
+          ALLOWED=("tcrosslandjr1/confettiplan" "tcrosslandjr1/confetti-app")
+
+          # On PRs, check the base (target) repo — head can legitimately be a fork.
+          TARGET="$REPO"
+          if [ "$EVENT" = "pull_request" ] && [ -n "${BASE_REPO:-}" ]; then
+            TARGET="$BASE_REPO"
+          fi
+
+          echo "Event:       $EVENT"
+          echo "Repository:  $REPO"
+          echo "Target repo: $TARGET"
+          echo "Ref:         $REF"
+          echo "Allowed:     ${ALLOWED[*]}"
+
+          ok=0
+          for a in "${ALLOWED[@]}"; do
+            if [ "$TARGET" = "$a" ]; then ok=1; break; fi
+          done
+
+          if [ "$ok" -ne 1 ]; then
+            echo "::error::Repo '$TARGET' is not the canonical Confetti repository."
+            echo "::error::All code must live in tcrosslandjr1/confettiplan (or tcrosslandjr1/confetti-app after rename)."
+            echo "::error::The legacy repos TimeApp, confetti-app (pre-rename), and confetti-influencer-kit were MERGED and must not be used."
+            exit 1
+          fi
+
+          echo "✅ Repository identity verified."

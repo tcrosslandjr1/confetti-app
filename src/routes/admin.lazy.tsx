@@ -12,6 +12,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { useAdminNavCounts, ROUTE_TO_COUNT_KEY } from "@/lib/admin-nav-counts";
 
+function renderHighlight(label: string, query: string) {
+    const q = query.trim();
+    if (!q) return label;
+    const idx = label.toLowerCase().indexOf(q.toLowerCase());
+    if (idx === -1) return label;
+    return (<>
+      {label.slice(0, idx)}
+      <mark className="rounded bg-gold/40 px-0.5 text-ink">{label.slice(idx, idx + q.length)}</mark>
+      {label.slice(idx + q.length)}
+    </>);
+}
+
 export const Route = createLazyFileRoute("/admin")({
   component: AdminLayout,
   errorComponent: AdminRouteError,
@@ -331,26 +343,35 @@ function AdminShell({ user, pathname, onLock }: {
       <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
         <SidebarContent className="bg-cream/30">
           {/* Brand header */}
-          <div className="relative mx-2 mt-3 flex items-center gap-2.5 overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br from-coral via-orange-400 to-gold px-3 py-3 shadow-brut">
+          <div className="group relative mx-2 mt-3 flex items-center gap-2.5 overflow-hidden rounded-2xl border-2 border-ink bg-[length:200%_200%] bg-gradient-to-br from-coral via-orange-400 to-gold px-3 py-3 shadow-brut transition-all duration-500 hover:shadow-[6px_6px_0_0_hsl(var(--ink))] [animation:brand-shift_8s_ease_infinite]">
+            <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-cream/40 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-hover:[animation:brand-shine_1.2s_ease]" aria-hidden />
             <span className="pointer-events-none absolute right-2 top-2 h-1.5 w-1.5 rotate-12 bg-cream/70" aria-hidden/>
             <span className="pointer-events-none absolute bottom-2 left-10 h-1.5 w-1.5 rotate-45 bg-ink/50" aria-hidden/>
-            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
+            <div className="relative grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut transition-transform duration-300 group-hover:-rotate-6">
               <Sparkles className="h-4 w-4 text-coral"/>
+              <span className="absolute -bottom-0.5 -right-0.5 grid h-3 w-3 place-items-center rounded-full border-2 border-ink bg-cream">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              </span>
             </div>
             {!collapsed && (
-              <div className="min-w-0 text-sm">
-                <div className="font-display font-extrabold leading-none text-ink">Confetti</div>
-                <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
-                  Admin · Command
+              <div className="min-w-0 flex-1 text-sm">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-display font-extrabold leading-none text-ink">Confetti</span>
+                  <span className="rounded-full border border-ink/30 bg-cream/70 px-1 py-px font-mono text-[8px] font-bold leading-none text-ink/70">v1.0</span>
+                </div>
+                <div className="mt-1 flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
+                  <span className="h-1 w-1 rounded-full bg-ink/60" />
+                  <span>Admin · Command</span>
                 </div>
               </div>
             )}
           </div>
+          <style>{`@keyframes brand-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes brand-shine{0%{transform:translateX(0) skewX(-12deg)}100%{transform:translateX(600%) skewX(-12deg)}}`}</style>
 
           {!collapsed && (
-            <div className="mx-2 mt-3">
-              <div className="relative">
-                <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40" />
+            <div className="mx-2 mt-3 space-y-1.5">
+              <div className="relative group">
+                <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40 transition group-focus-within:text-coral" />
                 <input
                   ref={searchRef}
                   type="text"
@@ -374,6 +395,15 @@ function AdminShell({ user, pathname, onLock }: {
                   </kbd>
                 )}
               </div>
+              <button
+                type="button"
+                onClick={() => setGlobalSearchOpen(true)}
+                className="group flex w-full items-center gap-2 rounded-lg border border-ink/15 bg-gradient-to-r from-cream/60 to-cream/40 px-2.5 py-1.5 text-left text-xs font-medium text-ink/60 transition hover:border-coral/40 hover:from-coral/10 hover:to-gold/10 hover:text-ink"
+              >
+                <Sparkles className="h-3 w-3 text-coral transition group-hover:scale-110" />
+                <span className="flex-1 truncate">Quick command</span>
+                <kbd className="rounded border border-ink/15 bg-cream px-1 py-0.5 font-mono text-[9px] font-bold text-ink/50">⌘K</kbd>
+              </button>
             </div>
           )}
 
@@ -416,20 +446,20 @@ function AdminShell({ user, pathname, onLock }: {
                         return (
                           <SidebarMenuItem key={item.to}>
                             <SidebarMenuButton asChild isActive={active} tooltip={count > 0 ? `${item.label} · ${count} pending` : item.label} className={active
-                              ? "relative border border-ink/15 bg-coral/15 font-bold text-ink shadow-sm hover:bg-coral/20 before:absolute before:left-0 before:top-1/2 before:h-5 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-coral"
-                              : "transition hover:translate-x-0.5 hover:bg-cream/60"}>
+                              ? "group/item relative border border-ink/15 bg-gradient-to-r from-coral/20 via-coral/10 to-transparent font-bold text-ink shadow-sm transition-all duration-200 hover:bg-coral/20 before:absolute before:left-0 before:top-1/2 before:h-5 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-coral before:shadow-[0_0_8px_hsl(var(--coral)/0.5)]"
+                              : "group/item relative transition-all duration-150 hover:translate-x-0.5 hover:bg-cream/60"}>
                               <Link to={item.to as string as "/"} onClick={handleNav} className="flex items-center gap-2.5">
-                                <item.icon className={`h-4 w-4 ${active ? "text-coral" : "text-ink/60"}`}/>
-                                <span className="flex-1 truncate">{item.label}</span>
+                                <item.icon className={`h-4 w-4 transition-transform duration-200 group-hover/item:scale-110 ${active ? "text-coral" : "text-ink/60 group-hover/item:text-ink"}`}/>
+                                <span className="flex-1 truncate">{renderHighlight(item.label, query)}</span>
                                 {count > 0 && !collapsed && (
-                                  <span className="rounded-full border border-coral/40 bg-coral/15 px-1.5 py-0.5 font-mono text-[9px] font-bold leading-none text-coral tabular-nums">
+                                  <span className="rounded-full border border-coral/40 bg-coral/15 px-1.5 py-0.5 font-mono text-[9px] font-bold leading-none text-coral tabular-nums shadow-[0_0_0_3px_hsl(var(--coral)/0.08)] animate-fade-in">
                                     {count > 99 ? "99+" : count}
                                   </span>
                                 )}
                                 {count > 0 && collapsed && (
-                                  <span className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full bg-coral" aria-hidden />
+                                  <span className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full bg-coral animate-pulse" aria-hidden />
                                 )}
-                                {active && count === 0 && (<span className="ml-auto h-1.5 w-1.5 rounded-full bg-coral"/>)}
+                                {active && count === 0 && (<span className="ml-auto h-1.5 w-1.5 rounded-full bg-coral animate-pulse"/>)}
                               </Link>
                             </SidebarMenuButton>
                           </SidebarMenuItem>

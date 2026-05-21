@@ -91,12 +91,36 @@ export function ConfettiMap({
   focusStopId = null,
 }: Props) {
   if (!GOOGLE_MAPS_API_KEY) {
+    // Pick the most relevant destination: current stop → last stop → first stop.
+    const destStop =
+      (currentIdx >= 0 ? stops[currentIdx] : undefined) ??
+      stops[stops.length - 1] ??
+      stops[0];
+    const query = destStop
+      ? `${destStop.name}${destStop.area ? `, ${destStop.area}` : `, ${fallbackCity}`}`
+      : fallbackCity;
+    const heightPx = typeof height === "number" ? height : 360;
+    const src = `/api/maps/satellite?q=${encodeURIComponent(query)}&w=1200&h=${Math.round(heightPx * 2)}&zoom=17`;
     return (
       <div
-        className={`grid w-full place-items-center bg-cream text-xs text-muted-foreground ${className}`}
+        className={`relative w-full overflow-hidden bg-cream ${className}`}
         style={{ height }}
       >
-        Map unavailable
+        <img
+          src={src}
+          alt={`Satellite view of ${query}`}
+          loading="lazy"
+          className="h-full w-full object-cover"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).style.display = "none";
+          }}
+        />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/70 to-transparent p-3">
+          <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-cream/80">
+            Satellite · {destStop?.time ? `ETA ${destStop.time}` : "Destination"}
+          </div>
+          <div className="truncate text-sm font-semibold text-cream">{query}</div>
+        </div>
       </div>
     );
   }

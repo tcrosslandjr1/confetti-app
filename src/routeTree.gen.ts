@@ -189,6 +189,7 @@ import { Route as BusinessClaimPendingRouteImport } from './routes/business.clai
 import { Route as ApiQaRunRouteImport } from './routes/api.qa.run'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiPlansGenerateRouteImport } from './routes/api/plans/generate'
+import { Route as ApiMapsSatelliteRouteImport } from './routes/api/maps/satellite'
 import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
 import { Route as ApiPublicWebhooksPartnerRouteImport } from './routes/api/public/webhooks/partner'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
@@ -1154,6 +1155,11 @@ const ApiPlansGenerateRoute = ApiPlansGenerateRouteImport.update({
   path: '/api/plans/generate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiMapsSatelliteRoute = ApiMapsSatelliteRouteImport.update({
+  id: '/api/maps/satellite',
+  path: '/api/maps/satellite',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdvertiseStoriesSlugRoute = AdvertiseStoriesSlugRouteImport.update({
   id: '/stories/$slug',
   path: '/stories/$slug',
@@ -1439,6 +1445,7 @@ export interface FileRoutesByFullPath {
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
+  '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/api/qa/run': typeof ApiQaRunRoute
@@ -1630,6 +1637,7 @@ export interface FileRoutesByTo {
   '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
+  '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/api/qa/run': typeof ApiQaRunRoute
@@ -1831,6 +1839,7 @@ export interface FileRoutesById {
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
+  '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/api/qa/run': typeof ApiQaRunRoute
@@ -2033,6 +2042,7 @@ export interface FileRouteTypes {
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
+    | '/api/maps/satellite'
     | '/api/plans/generate'
     | '/api/public/pick-events'
     | '/api/qa/run'
@@ -2224,6 +2234,7 @@ export interface FileRouteTypes {
     | '/teams'
     | '/trips'
     | '/advertise/stories/$slug'
+    | '/api/maps/satellite'
     | '/api/plans/generate'
     | '/api/public/pick-events'
     | '/api/qa/run'
@@ -2424,6 +2435,7 @@ export interface FileRouteTypes {
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
+    | '/api/maps/satellite'
     | '/api/plans/generate'
     | '/api/public/pick-events'
     | '/api/qa/run'
@@ -2539,6 +2551,7 @@ export interface RootRouteChildren {
   BusinessIndexRoute: typeof BusinessIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
+  ApiMapsSatelliteRoute: typeof ApiMapsSatelliteRoute
   ApiPlansGenerateRoute: typeof ApiPlansGenerateRoute
   ApiPublicPickEventsRoute: typeof ApiPublicPickEventsRoute
   ApiQaRunRoute: typeof ApiQaRunRoute
@@ -3817,6 +3830,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPlansGenerateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/maps/satellite': {
+      id: '/api/maps/satellite'
+      path: '/api/maps/satellite'
+      fullPath: '/api/maps/satellite'
+      preLoaderRoute: typeof ApiMapsSatelliteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/advertise/stories/$slug': {
       id: '/advertise/stories/$slug'
       path: '/stories/$slug'
@@ -4338,6 +4358,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessIndexRoute: BusinessIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
+  ApiMapsSatelliteRoute: ApiMapsSatelliteRoute,
   ApiPlansGenerateRoute: ApiPlansGenerateRoute,
   ApiPublicPickEventsRoute: ApiPublicPickEventsRoute,
   ApiQaRunRoute: ApiQaRunRoute,

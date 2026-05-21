@@ -25,7 +25,10 @@ import {
   RotateCcw,
   ShieldCheck,
   Ban,
+  CalendarDays,
 } from "lucide-react";
+import AgentCalendar from "./AgentCalendar";
+
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";

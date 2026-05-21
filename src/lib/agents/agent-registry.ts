@@ -241,27 +241,30 @@ export async function sendMessage(
   }
 }
 
-export async function getRecentMessages(limit = 50): Promise<AgentMessage[]> {
-  const { data, error } = await supabase
-    .from("agent_messages")
-    .select(`
-      *,
-      from_ref:agent_registry!agent_messages_from_agent_fkey(name),
-      to_ref:agent_registry!agent_messages_to_agent_fkey(name),
-      team_ref:agent_teams!agent_messages_to_team_fkey(name)
-    `)
-    .order("created_at", { ascending: false })
-    .limit(limit);
+export async function getRecentMessages(limit = 25): Promise<AgentMessage[]> {
+  const [msgRes, agentsRes, teamsRes] = await Promise.all([
+    supabase
+      .from("agent_messages")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(limit),
+    supabase.from("agent_registry").select("id,name"),
+    supabase.from("agent_teams").select("id,name"),
+  ]);
 
-  if (error || !data) return memoryMessages.slice(0, limit);
+  if (msgRes.error || !msgRes.data) return memoryMessages.slice(0, limit);
 
-  return data.map((m: any) => ({
+  const agentNames = new Map<string, string>((agentsRes.data || []).map((a: any) => [a.id, a.name]));
+  const teamNames = new Map<string, string>((teamsRes.data || []).map((t: any) => [t.id, t.name]));
+
+  return msgRes.data.map((m: any) => ({
     ...m,
-    from_name: m.from_ref?.name,
-    to_name: m.to_ref?.name,
-    team_name: m.team_ref?.name,
+    from_name: agentNames.get(m.from_agent),
+    to_name: m.to_agent ? agentNames.get(m.to_agent) : undefined,
+    team_name: m.to_team ? teamNames.get(m.to_team) : undefined,
   }));
 }
+
 
 // ═══════════════════════════════════════════════════════════
 // Comms Bus — Tasks (Kanban Board)
@@ -308,22 +311,23 @@ export async function updateTaskStatus(taskId: string, status: TaskStatus): Prom
 }
 
 export async function getTaskBoard(): Promise<ControlCenterView["taskBoard"]> {
-  const { data, error } = await supabase
-    .from("agent_tasks")
-    .select(`
-      *,
-      assignee:agent_registry!agent_tasks_assigned_to_fkey(name),
-      creator:agent_registry!agent_tasks_created_by_fkey(name)
-    `)
-    .order("created_at", { ascending: false })
-    .limit(100);
+  const [tasksRes, agentsRes] = await Promise.all([
+    supabase
+      .from("agent_tasks")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(50),
+    supabase.from("agent_registry").select("id,name"),
+  ]);
 
-  const tasks: AgentTask[] = (error || !data)
+  const agentNames = new Map<string, string>((agentsRes.data || []).map((a: any) => [a.id, a.name]));
+
+  const tasks: AgentTask[] = (tasksRes.error || !tasksRes.data)
     ? memoryTasks
-    : data.map((t: any) => ({
+    : tasksRes.data.map((t: any) => ({
         ...t,
-        assigned_name: t.assignee?.name,
-        creator_name: t.creator?.name,
+        assigned_name: t.assigned_to ? agentNames.get(t.assigned_to) : undefined,
+        creator_name: t.created_by ? agentNames.get(t.created_by) : undefined,
       }));
 
   return {
@@ -333,6 +337,7 @@ export async function getTaskBoard(): Promise<ControlCenterView["taskBoard"]> {
     done: tasks.filter((t) => t.status === "done"),
   };
 }
+
 
 // ═══════════════════════════════════════════════════════════
 // Full Control Center View

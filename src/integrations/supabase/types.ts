@@ -4227,6 +4227,113 @@ export type Database = {
         }
         Relationships: []
       }
+      venue_suggestions: {
+        Row: {
+          approved_at: string | null
+          approved_by: string | null
+          boost_level: number
+          capacity: number | null
+          created_at: string
+          created_by: string | null
+          description: string
+          discount_pct: number | null
+          ends_at: string | null
+          id: string
+          image_url: string | null
+          metadata: Json
+          offer_price: number | null
+          original_price: number | null
+          promo_code: string | null
+          recurrence_rule: string | null
+          recurring: boolean
+          redemption_url: string | null
+          rsvp_count: number
+          starts_at: string | null
+          status: string
+          subtitle: string | null
+          tags: string[]
+          target_audience: string[]
+          target_moods: string[]
+          timezone: string
+          title: string
+          type: string
+          updated_at: string
+          venue_id: string
+        }
+        Insert: {
+          approved_at?: string | null
+          approved_by?: string | null
+          boost_level?: number
+          capacity?: number | null
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          discount_pct?: number | null
+          ends_at?: string | null
+          id?: string
+          image_url?: string | null
+          metadata?: Json
+          offer_price?: number | null
+          original_price?: number | null
+          promo_code?: string | null
+          recurrence_rule?: string | null
+          recurring?: boolean
+          redemption_url?: string | null
+          rsvp_count?: number
+          starts_at?: string | null
+          status?: string
+          subtitle?: string | null
+          tags?: string[]
+          target_audience?: string[]
+          target_moods?: string[]
+          timezone?: string
+          title: string
+          type: string
+          updated_at?: string
+          venue_id: string
+        }
+        Update: {
+          approved_at?: string | null
+          approved_by?: string | null
+          boost_level?: number
+          capacity?: number | null
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          discount_pct?: number | null
+          ends_at?: string | null
+          id?: string
+          image_url?: string | null
+          metadata?: Json
+          offer_price?: number | null
+          original_price?: number | null
+          promo_code?: string | null
+          recurrence_rule?: string | null
+          recurring?: boolean
+          redemption_url?: string | null
+          rsvp_count?: number
+          starts_at?: string | null
+          status?: string
+          subtitle?: string | null
+          tags?: string[]
+          target_audience?: string[]
+          target_moods?: string[]
+          timezone?: string
+          title?: string
+          type?: string
+          updated_at?: string
+          venue_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "venue_suggestions_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "venues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       venues: {
         Row: {
           active: boolean
@@ -4594,7 +4701,56 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      tonight_suggestions: {
+        Row: {
+          approved_at: string | null
+          approved_by: string | null
+          boost_level: number | null
+          capacity: number | null
+          created_at: string | null
+          created_by: string | null
+          description: string | null
+          discount_pct: number | null
+          ends_at: string | null
+          id: string | null
+          image_url: string | null
+          metadata: Json | null
+          offer_price: number | null
+          original_price: number | null
+          promo_code: string | null
+          recurrence_rule: string | null
+          recurring: boolean | null
+          redemption_url: string | null
+          rsvp_count: number | null
+          starts_at: string | null
+          status: string | null
+          subtitle: string | null
+          tags: string[] | null
+          target_audience: string[] | null
+          target_moods: string[] | null
+          timezone: string | null
+          title: string | null
+          type: string | null
+          updated_at: string | null
+          venue_category: string | null
+          venue_city: string | null
+          venue_id: string | null
+          venue_image: string | null
+          venue_name: string | null
+          venue_neighborhood: string | null
+          venue_price_level: number | null
+          venue_rating: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "venue_suggestions_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "venues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
       activate_boost: {

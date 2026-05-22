@@ -43,6 +43,9 @@ import {
   Users,
   Link as LinkIcon,
   Check,
+  Crosshair,
+  Send,
+  Loader2,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -532,6 +535,40 @@ function BoardingPassPlanner() {
   }
 
 
+  async function pushMyUpdate(patch?: Partial<CrewMember>) {
+    const next = { status: myStatus, travel: myTravel, eta: myEta, ...patch };
+    if (patch?.status) setMyStatus(patch.status);
+    if (patch?.travel) setMyTravel(patch.travel);
+    if (patch?.eta) setMyEta(patch.eta);
+    if (shareToken && myRowId) {
+      await supabase.from("boarding_pass_crew").update(next).eq("id", myRowId);
+    }
+  }
+
+  const [locating, setLocating] = useState(false);
+  async function useMyLocation() {
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+      window.alert("Location not available on this device");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        const label = shareEtaOnly
+          ? "Live ETA on"
+          : `Near ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`;
+        await pushMyUpdate({ status: "En Route", eta: label });
+        setLocating(false);
+      },
+      () => {
+        window.alert("Couldn't get your location");
+        setLocating(false);
+      },
+      { enableHighAccuracy: true, timeout: 8000 },
+    );
+  }
+
   function toggleFlip(index: number) {
     setFlippedCards({ ...flippedCards, [index]: !flippedCards[index] });
   }
@@ -751,6 +788,10 @@ function BoardingPassPlanner() {
               setMyEta={setMyEta}
               shareEtaOnly={shareEtaOnly}
               setShareEtaOnly={setShareEtaOnly}
+              pushMyUpdate={pushMyUpdate}
+              useMyLocation={useMyLocation}
+              locating={locating}
+              canSync={Boolean(shareToken && myRowId)}
             />
 
             <CrewPanel
@@ -881,23 +922,40 @@ function TripMemoryControls({ locationMode, setLocationMode, learnVibe, setLearn
   );
 }
 
-function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, setMyEta, shareEtaOnly, setShareEtaOnly }: {
+const etaPresets = ["5 min", "10 min", "20 min", "30 min", "Arrived"];
+
+function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, setMyEta, shareEtaOnly, setShareEtaOnly, pushMyUpdate, useMyLocation, locating, canSync }: {
   myStatus: string; setMyStatus: (v: string) => void;
   myTravel: string; setMyTravel: (v: string) => void;
   myEta: string; setMyEta: (v: string) => void;
   shareEtaOnly: boolean; setShareEtaOnly: (v: boolean) => void;
+  pushMyUpdate: (patch?: Partial<CrewMember>) => Promise<void>;
+  useMyLocation: () => Promise<void>;
+  locating: boolean;
+  canSync: boolean;
 }) {
   const TIcon = travelIcon(myTravel);
+  const [pushed, setPushed] = useState(false);
+  async function handlePush() {
+    await pushMyUpdate();
+    setPushed(true);
+    setTimeout(() => setPushed(false), 1500);
+  }
   return (
     <section className="rounded-lg border border-border bg-card p-5 shadow-sm">
       <div className="mb-4 flex items-center gap-3">
         <div className="grid h-10 w-10 place-items-center rounded-md bg-primary/10 text-primary">
           <Navigation className="h-5 w-5" />
         </div>
-        <div>
+        <div className="flex-1">
           <h3 className="font-display text-lg font-bold">How we pullin' up</h3>
           <p className="text-xs text-muted-foreground">Your status, your way</p>
         </div>
+        {canSync ? (
+          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">Live</span>
+        ) : (
+          <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Local</span>
+        )}
       </div>
 
       <div className="grid gap-3 sm:grid-cols-3">
@@ -914,6 +972,39 @@ function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, se
         </div>
       </div>
 
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {etaPresets.map((p) => (
+          <button
+            key={p}
+            onClick={() => setMyEta(p)}
+            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+              myEta === p ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40 hover:border-primary/40"
+            }`}
+          >
+            {p}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-3 grid gap-2 sm:grid-cols-2">
+        <button
+          onClick={useMyLocation}
+          disabled={locating}
+          className="flex items-center justify-center gap-2 rounded-md border border-border bg-muted/40 px-3 py-2 text-sm font-semibold transition hover:border-primary/40 disabled:opacity-60"
+        >
+          {locating ? <Loader2 className="h-4 w-4 animate-spin" /> : <Crosshair className="h-4 w-4" />}
+          <span>{locating ? "Locating…" : "Use my current location"}</span>
+        </button>
+        <button
+          onClick={handlePush}
+          disabled={!canSync}
+          className="flex items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 text-sm font-bold text-primary-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {pushed ? <Check className="h-4 w-4" /> : <Send className="h-4 w-4" />}
+          <span>{pushed ? "Sent to crew" : canSync ? "Push update to crew" : "Join a pass to share"}</span>
+        </button>
+      </div>
+
       <button
         onClick={() => setShareEtaOnly(!shareEtaOnly)}
         className={`mt-3 flex w-full items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
@@ -926,6 +1017,7 @@ function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, se
     </section>
   );
 }
+
 
 function CrewPanel({ crew, inviteName, setInviteName, inviteCrewMember, updateCrew }: {
   crew: CrewMember[];

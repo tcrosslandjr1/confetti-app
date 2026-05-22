@@ -3,6 +3,7 @@ import { Compass, Search, Plus, Award, User, LayoutDashboard, CalendarPlus, Imag
 import { motion } from "framer-motion";
 import { useId } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { trackBusinessNavClick } from "@/lib/business-analytics";
 
 type Tab = {
   to: string;
@@ -68,6 +69,7 @@ function TabItem({
   active,
   prominent,
   labelId,
+  onClick,
 }: {
   to: string;
   label: string;
@@ -75,12 +77,14 @@ function TabItem({
   active: boolean;
   prominent?: boolean;
   labelId: string;
+  onClick?: () => void;
 }) {
   if (prominent) {
     return (
       <div className="relative -top-6 flex flex-col items-center">
         <Link
           to={to}
+          onClick={onClick}
           aria-labelledby={labelId}
           aria-current={active ? "page" : undefined}
           className="block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
@@ -114,6 +118,7 @@ function TabItem({
   return (
     <Link
       to={to}
+      onClick={onClick}
       aria-current={active ? "page" : undefined}
       className="group flex w-full min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 py-1 min-h-[60px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
     >
@@ -185,6 +190,11 @@ export function TabBar() {
                   active={active}
                   prominent={prominent}
                   labelId={labelId}
+                  onClick={
+                    effectiveRole === "business"
+                      ? () => trackBusinessNavClick(label, to)
+                      : undefined
+                  }
                 />
               </div>
             );

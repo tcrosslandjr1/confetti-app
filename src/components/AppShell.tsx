@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Home, Compass, Film, Sparkles, User, LayoutDashboard, CalendarPlus, Image as ImageIcon, Link2, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/lib/auth-context";
+import { trackBusinessNavClick } from "@/lib/business-analytics";
 
 const CUSTOMER_TABS = [
   { to: "/app", label: "Tonight", icon: Home, exact: true },
@@ -34,6 +35,11 @@ export function AppShell() {
               <li key={to}>
                 <Link
                   to={to}
+                  onClick={
+                    effectiveRole === "business"
+                      ? () => trackBusinessNavClick(label, to)
+                      : undefined
+                  }
                   className={cn(
                     "flex flex-col items-center gap-1 py-2.5 text-[10px] font-medium tracking-wide uppercase",
                     active ? "text-primary" : "text-muted-foreground",

@@ -47,6 +47,11 @@ const TabBar = lazy(() =>
 const FirstRunNudge = lazy(() =>
   import("@/components/FirstRunNudge").then((m) => ({ default: m.FirstRunNudge })),
 );
+const BusinessAnalyticsTracker = lazy(() =>
+  import("@/components/BusinessAnalyticsTracker").then((m) => ({
+    default: m.BusinessAnalyticsTracker,
+  })),
+);
 
 function NotFoundComponent() {
   return (
@@ -254,6 +259,9 @@ function RootComponent() {
               </Suspense>
               <Suspense fallback={null}>
                 <RoleSwitcher />
+              </Suspense>
+              <Suspense fallback={null}>
+                <BusinessAnalyticsTracker />
               </Suspense>
               <Suspense fallback={null}>
                 <PageTransition>

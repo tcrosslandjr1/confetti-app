@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
 import { CheckCircle2, CreditCard, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { requireBusinessOwner } from "@/lib/business-guard";
 import { BusinessPageShell } from "@/components/business/BusinessTabNav";
 import { getMyBusinessSubscription } from "@/lib/business-portal.functions";
 import { Button } from "@/components/ui/button";

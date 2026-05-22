@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { EyeOff, Eye, Loader2, Star, Trash2, Upload } from "lucide-react";
 import { useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { requireBusinessOwner } from "@/lib/business-guard";
 import { BusinessPageShell } from "@/components/business/BusinessTabNav";
 import {
   NoVenueClaim,

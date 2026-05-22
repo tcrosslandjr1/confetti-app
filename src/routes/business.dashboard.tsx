@@ -27,6 +27,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { requireBusinessOwner } from "@/lib/business-guard";
 import { useAuth } from "@/lib/auth-context";
 import { listMyClaims } from "@/lib/business-onboarding.functions";
 import { Button } from "@/components/ui/button";

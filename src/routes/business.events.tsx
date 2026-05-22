@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { CalendarPlus, Pencil, Trash2, ExternalLink, Loader2 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { requireBusinessOwner } from "@/lib/business-guard";
 import { BusinessPageShell } from "@/components/business/BusinessTabNav";
 import {
   NoVenueClaim,

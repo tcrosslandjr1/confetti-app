@@ -291,6 +291,11 @@ function RootComponent() {
                   <FirstRunNudge />
                 </Suspense>
               </CustomerOnly>
+              <CustomerOnly>
+                <Suspense fallback={null}>
+                  <SalePromoToast />
+                </Suspense>
+              </CustomerOnly>
               <Suspense fallback={null}>
                 <CookieConsent />
               </Suspense>

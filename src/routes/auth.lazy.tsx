@@ -1,6 +1,7 @@
 import { createLazyFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { lovable } from "@/integrations/lovable";
 import {
   Sparkles,
   Loader2,

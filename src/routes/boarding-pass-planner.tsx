@@ -700,14 +700,46 @@ function BoardingPassPlanner() {
                   <PassField label="Fare" value={budget} small />
                   <PassField label="Crew" value={`${goingCount} going`} small />
                 </div>
-                <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">
-                  <Share2 className="h-3.5 w-3.5" /> Share
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={copyInviteLink}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/20"
+                  >
+                    {copied ? <Check className="h-3.5 w-3.5" /> : <LinkIcon className="h-3.5 w-3.5" />}
+                    {copied ? "Copied" : "Invite link"}
+                  </button>
+                  <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">
+                    <Share2 className="h-3.5 w-3.5" /> Share
+                  </button>
+                </div>
               </div>
               <div className="border-t border-border bg-primary/5 px-5 py-2 text-center font-mono text-[10px] uppercase tracking-widest text-primary">
-                Live trip ready · {enRouteCount} en route · {landedCount} landed
+                {shareToken ? `Shared pass · code ${shareToken.slice(0, 6).toUpperCase()} · ` : "Live trip ready · "}
+                {enRouteCount} en route · {landedCount} landed
               </div>
             </section>
+
+            {shareToken && !myRowId && (
+              <section className="rounded-lg border border-primary/40 bg-primary/5 p-5 shadow-sm">
+                <div className="mb-3 flex items-center gap-2">
+                  <UserPlus className="h-4 w-4 text-primary" />
+                  <h3 className="font-display text-base font-bold">Join this boarding pass</h3>
+                </div>
+                <p className="mb-3 text-xs text-muted-foreground">You opened a shared invite. Add your name to lock in your seat and post live status.</p>
+                <div className="flex gap-2">
+                  <input
+                    value={joinName}
+                    onChange={(e) => setJoinName(e.target.value)}
+                    placeholder="Your name"
+                    className="h-11 flex-1 rounded-md border border-border bg-card px-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+                  />
+                  <button onClick={joinAsMyself} className="inline-flex items-center gap-1 rounded-md bg-primary px-4 text-sm font-bold text-primary-foreground">
+                    <Check className="h-4 w-4" /> Join crew
+                  </button>
+                </div>
+              </section>
+            )}
+
 
             <FlipCards itinerary={itinerary} intel={intel} flippedCards={flippedCards} toggleFlip={toggleFlip} />
 

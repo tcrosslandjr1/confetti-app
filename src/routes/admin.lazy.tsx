@@ -277,17 +277,6 @@ function AdminLayout() {
             setUnlocked(false);
         }
     }, [user]);
-    const [showBoot, setShowBoot] = useState(true);
-    const [bootWarning, setBootWarning] = useState<string | null>(null);
-    useEffect(() => {
-        const timer = window.setTimeout(() => {
-            setShowBoot(false);
-            setBootWarning("Live signals are still syncing. Showing saved trip data.");
-        }, 1800);
-        return () => {
-            window.clearTimeout(timer);
-        };
-    }, []);
     if (isLoginRoute) {
         return <Outlet />;
     }
@@ -295,8 +284,8 @@ function AdminLayout() {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
-      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} loadWarning={!showBoot ? bootWarning : null} onDismissWarning={() => setBootWarning(null)} />
-      {showBoot && <AdminBootOverlay />}
+      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} />
+      <AdminBootOverlay />
     </SidebarProvider>);
 }
 

@@ -303,6 +303,7 @@ function IdeasPage() {
       </section>
 
       {slug === "girls-night" && <GirlsNightCulturalFlow />}
+      {slug === "guys-night" && <GuysNightCulturalFlow />}
 
 
 

@@ -260,6 +260,7 @@ function AdminLayout() {
     // syncing in the background.
     const [bootTimedOut, setBootTimedOut] = useState(false);
     const [loadWarning, setLoadWarning] = useState<string | null>(null);
+    const [hasRealError, setHasRealError] = useState(false);
     useEffect(() => {
         let mounted = true;
         const t = window.setTimeout(() => {
@@ -267,7 +268,15 @@ function AdminLayout() {
             setBootTimedOut(true);
             setLoadWarning("Live data is still syncing. Showing saved preview.");
         }, 2500);
-        return () => { mounted = false; window.clearTimeout(t); };
+        const onErr = () => { if (mounted) setHasRealError(true); };
+        window.addEventListener("error", onErr);
+        window.addEventListener("unhandledrejection", onErr);
+        return () => {
+            mounted = false;
+            window.clearTimeout(t);
+            window.removeEventListener("error", onErr);
+            window.removeEventListener("unhandledrejection", onErr);
+        };
     }, []);
     // Sticky shell: once we've shown the admin shell, never fall back to the
     // full-page skeleton on transient auth re-checks (e.g. tab refocus).
@@ -286,16 +295,17 @@ function AdminLayout() {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
-      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} loadWarning={loadWarning} onDismissWarning={() => setLoadWarning(null)} />
+      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} loadWarning={loadWarning} onDismissWarning={() => setLoadWarning(null)} hasRealError={hasRealError} />
     </SidebarProvider>);
 }
 
-function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning }: {
+function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning, hasRealError }: {
     user: ReturnType<typeof useAuth>["user"];
     pathname: string;
     onLock: () => void;
     loadWarning?: string | null;
     onDismissWarning?: () => void;
+    hasRealError?: boolean;
 }) {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";
@@ -621,6 +631,9 @@ function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning }: {
           </div>
         </header>
         <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
+          {hasRealError && (
+            <p className="mb-2 text-sm text-red-500">Preview stalled</p>
+          )}
           {loadWarning && (
             <div className="mb-4 flex items-start gap-3 rounded-md border border-amber-300/60 bg-amber-50 px-3 py-2 text-sm text-amber-900">
               <span className="flex-1">{loadWarning}</span>

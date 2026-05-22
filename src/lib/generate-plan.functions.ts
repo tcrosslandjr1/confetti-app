@@ -10,6 +10,7 @@ import { impromptuPoolPrompt } from "./agents/impromptu";
 import { buildWaterfrontPrompt, detectWaterfront } from "./agents/waterfront";
 import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
 import { buildMiamiGuysNightPrompt, isMiamiGuysNight, buildGuysNightCulturalPrompt } from "./agents/guys-night-presets";
+import { buildDateNightCulturalPrompt } from "./agents/date-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import { generateAndRankNames } from "./name-generator.server";
 import {
@@ -462,6 +463,8 @@ ${buildWaterfrontPrompt(cityCtx)}
 ${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(budget, detectWaterfront(cityCtx).hasWaterfront) : ""}
 
 ${req.occasionId === "guys" ? buildGuysNightCulturalPrompt() : ""}
+
+${req.occasionId === "date" ? buildDateNightCulturalPrompt() : ""}
 
 ${
   isMiamiGuysNight(cityCtx.city, req.occasionId, req.vibeLabel)

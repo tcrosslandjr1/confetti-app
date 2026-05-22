@@ -261,11 +261,10 @@ function RootComponent() {
                 </PageTransition>
               </Suspense>
               {/* Spacer so fixed mobile TabBar doesn't cover page content.
-                  TabBar = h-20 (80px) + Plan button overhang (~24px) + iOS safe area. */}
+                  TabBar = 80px + Plan button overhang (~24px) + iOS safe area. */}
               <div
                 aria-hidden
-                className="lg:hidden"
-                style={{ height: "calc(7rem + env(safe-area-inset-bottom))" }}
+                className="pb-[calc(7rem+env(safe-area-inset-bottom))] lg:hidden"
               />
               <Suspense fallback={null}>
                 <BuildMyNightWizard />

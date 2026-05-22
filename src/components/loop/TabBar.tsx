@@ -94,7 +94,7 @@ function TabItem({
         </Link>
         <span
           id={labelId}
-          className={`mt-1 font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${active ? "text-coral" : "text-ink"}`}
+          className={`mt-1 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-ink"}`}
         >
           {label}
         </span>
@@ -123,7 +123,7 @@ function TabItem({
       </motion.span>
       <span
         id={labelId}
-        className={`relative font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none whitespace-nowrap transition-colors ${active ? "text-coral" : "text-ink/60"}`}
+        className={`relative block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none transition-colors ${active ? "text-coral" : "text-ink/60"}`}
       >
         {label}
         {active && (
@@ -155,7 +155,7 @@ export function TabBar() {
       <div className="relative border-t-2 border-ink bg-cream/95 backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80">
         <div
           role="list"
-          className="relative mx-auto flex h-20 w-full max-w-2xl items-center justify-around overflow-x-clip px-1 sm:px-2"
+          className="relative mx-auto grid w-full max-w-2xl min-h-[80px] grid-cols-5 items-center overflow-x-hidden px-1 sm:px-2"
         >
           {TABS.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);
@@ -164,7 +164,7 @@ export function TabBar() {
               <div
                 key={to}
                 role="listitem"
-                className="flex min-w-0 flex-1 justify-center"
+                className="flex min-w-0 justify-center"
               >
                 <TabItem
                   to={to}

@@ -85,8 +85,14 @@ function AdminRouteError({ error, reset }: {
 }
 
 function AdminBootOverlay() {
+    const [visible, setVisible] = useState(true);
+    useEffect(() => {
+        const timer = window.setTimeout(() => setVisible(false), 1600);
+        return () => window.clearTimeout(timer);
+    }, []);
+    if (!visible) return null;
     return (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-ink/92 px-4 text-cream backdrop-blur-sm" role="status" aria-label="Admin console is opening">
+        <div className="pointer-events-none fixed inset-0 z-50 grid place-items-center bg-ink/92 px-4 text-cream backdrop-blur-sm" role="status" aria-label="Admin console is opening">
           <div className="w-full max-w-sm rounded-2xl border-2 border-cream/20 bg-ink/80 p-6 text-center shadow-2xl">
             <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl border-2 border-cream/30 bg-coral text-xl shadow-brut">
               <Sparkles className="h-5 w-5" />

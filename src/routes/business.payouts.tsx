@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, AlertCircle, ExternalLink, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRequireAuth } from "@/hooks/useRequireAuth";
 import {
   startVendorOnboarding,
   refreshVendorStatus,
@@ -23,10 +24,19 @@ export const Route = createFileRoute("/business/payouts")({
 });
 
 function VendorPayoutsPage() {
+  const { ready } = useRequireAuth();
   const search = Route.useSearch();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const environment = getStripeEnvironment();
+
+  if (!ready) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <Loader2 className="size-6 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
 
   const getStatus = useServerFn(getVendorStatus);
   const startOnboarding = useServerFn(startVendorOnboarding);

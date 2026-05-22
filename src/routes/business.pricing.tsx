@@ -189,7 +189,7 @@ function BusinessPricingPage() {
       return;
     }
     if (!user) {
-      window.location.href = `/business/login?next=${encodeURIComponent("/business/pricing")}`;
+      window.location.href = `/auth?redirect=${encodeURIComponent("/business/pricing")}`;
       return;
     }
     openCheckout({

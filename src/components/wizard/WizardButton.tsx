@@ -36,7 +36,7 @@ export function WizardButton({ children, className, ariaLabel, preset }: Props) 
             toast.message("Sign in to build your night", {
               description: "Your plan saves to your profile so AI can learn your taste.",
             });
-            navigate({ to: "/auth", search: { returnTo: location.pathname } as never });
+            navigate({ to: "/auth", search: { redirect: location.pathname, mode: "signin" as const } });
             return;
           }
           burst(e.clientX, e.clientY);

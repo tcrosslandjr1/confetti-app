@@ -3,11 +3,12 @@ import { KeyRound, Loader2, Lock, ShieldCheck, X } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
 import { logPinUnlockAttempt, resetPinLockout } from "@/lib/admin-audit.functions";
 
-// Hardcoded console PIN. Note: this is a UX gate on the admin shell — it is
+// Console PIN. Note: this is a UX gate on the admin shell — it is
 // NOT a security boundary. RLS + the `admin` role still gate all real data
 // access on the server. The PIN keeps the console from rendering if someone
 // walks up to an unlocked, signed-in laptop.
-const ADMIN_PIN = "236166";
+// Set VITE_ADMIN_PIN in your .env to override.
+const ADMIN_PIN = import.meta.env.VITE_ADMIN_PIN ?? "";
 const PIN_LENGTH = ADMIN_PIN.length;
 const UNLOCK_KEY = "confetti.admin.pin.unlocked.v1";
 const LOCKOUT_KEY = "confetti.admin.pin.lockout.v1";

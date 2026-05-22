@@ -38,7 +38,7 @@ export function BuyTicketButton({
 
   const onClick = () => {
     if (!user) {
-      window.location.href = `/auth?next=${encodeURIComponent(window.location.pathname)}`;
+      window.location.href = `/auth?redirect=${encodeURIComponent(window.location.pathname)}`;
       return;
     }
     openCheckout({

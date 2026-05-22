@@ -66,7 +66,7 @@ function PricingPage() {
         if (!priceId)
             return;
         if (!user) {
-            window.location.href = `/auth?next=${encodeURIComponent("/pricing")}`;
+            window.location.href = `/auth?redirect=${encodeURIComponent("/pricing")}`;
             return;
         }
         openCheckout({

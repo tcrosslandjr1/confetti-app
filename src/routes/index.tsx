@@ -1,5 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useAuth } from "@/lib/auth-context";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useMemo, useState, lazy, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -98,7 +97,7 @@ const SAMPLE_ITINERARY_SUMMARY = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Confetti — Plans with a pulse. Outings worth showing up for." },
+      { title: "Home — Confetti" },
       {
         name: "description",
         content:
@@ -255,47 +254,9 @@ const FAQS = [
 ];
 
 function Landing() {
-  // Hard-redirect signed-in roles to their home so reloads are deterministic:
-  // visitors always land here; admins/customers/business/influencers always
-  // land on their respective surfaces.
-  const { user, viewAs, effectiveRole, loading } = useAuth();
-  const navigate = useNavigate();
   usePageview("landing", "/");
   useScrollDepth("/");
   useTimeToInteraction("/");
-  useEffect(() => {
-    if (loading || typeof window === "undefined") {
-      void import("@/lib/view-audit").then(({ logViewAudit }) =>
-        logViewAudit({
-          kind: "guard", source: "Landing",
-          path: "/", role: effectiveRole ?? viewAs, viewAs,
-          decision: "wait", reason: loading ? "auth loading" : "ssr",
-        }),
-      );
-      return;
-    }
-    const role = effectiveRole ?? viewAs;
-    const target =
-      role === "admin" ? "/admin"
-      : role === "business" ? "/advertise/portal"
-      : role === "customer" ? "/portal"
-      : null;
-    void import("@/lib/view-audit").then(({ logViewAudit }) =>
-      logViewAudit({
-        kind: target ? "redirect" : "guard",
-        source: "Landing",
-        path: "/", role, viewAs,
-        target: target ?? undefined,
-        decision: target ? "redirect" : "allow",
-        reason: !user
-          ? "no session — staying on visitor page"
-          : `signed-in role=${role}`,
-      }),
-    );
-    if (target && user && window.location.pathname === "/") {
-      window.location.replace(target);
-    }
-  }, [user, viewAs, effectiveRole, loading, navigate]);
 
   const [bookingOpen, setBookingOpen] = useState(false);
 

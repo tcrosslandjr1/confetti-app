@@ -729,6 +729,26 @@ function BoardingPassPlanner() {
                 ))}
               </div>
 
+              {/* Crew on the pass */}
+              <div className="border-t border-border px-5 py-3">
+                <p className="mb-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  <Users className="h-3 w-3" /> Crew ({goingCount} going)
+                </p>
+                <div className="space-y-2">
+                  {crew.map((m, i) => (
+                    <div key={i} className="flex items-center gap-2 rounded-md border border-border bg-muted/30 p-2">
+                      <p className="w-16 text-xs font-bold truncate">{m.name}</p>
+                      <div className="grid flex-1 grid-cols-2 gap-2">
+                        <SelectField label="RSVP" value={m.rsvp} options={rsvpOptions as unknown as string[]} onChange={(v) => updateCrew(i, { rsvp: v as CrewMember["rsvp"] })} hideLabel icon={<CheckCircle2 className="h-3 w-3" />} />
+                        <SelectField label="Status" value={m.status} options={statusOptions} onChange={(v) => updateCrew(i, { status: v })} hideLabel />
+                      </div>
+                      <span className="shrink-0 rounded-full bg-card px-2 py-0.5 text-[10px] font-bold uppercase">{m.eta}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+
               <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border bg-muted/30 px-5 py-3">
                 <div className="flex flex-wrap items-center gap-3 text-[11px] text-muted-foreground">
                   <PassField label="Trip Mode" value={tripMode} small />

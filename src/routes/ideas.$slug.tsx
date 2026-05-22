@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { GirlsNightCulturalFlow } from "@/components/GirlsNightCulturalFlow";
 import { supabase } from "@/integrations/supabase/client";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 import { getOccasion, getSeedIdeas, type Idea, type IdeaFormat } from "@/lib/occasions";
@@ -299,6 +300,10 @@ function IdeasPage() {
           </div>
         </div>
       </section>
+
+      {slug === "girls-night" && <GirlsNightCulturalFlow />}
+
+
 
       {/* Stack */}
       <section className="mx-auto grid max-w-5xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-8">

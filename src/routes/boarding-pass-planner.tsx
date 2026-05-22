@@ -323,7 +323,8 @@ function BoardingPassPlanner() {
   const [myStatus, setMyStatus] = useState("Getting Ready");
   const [myTravel, setMyTravel] = useState("Uber / Lyft");
   const [myEta, setMyEta] = useState("20 min");
-  const [shareEtaOnly, setShareEtaOnly] = useState(true);
+  const [sharePickup, setSharePickup] = useState(false);
+  const [shareEtaDetails, setShareEtaDetails] = useState(false);
 
   const [locationMode, setLocationMode] = useState("Trip Mode Only");
   const [learnVibe, setLearnVibe] = useState(true);
@@ -555,9 +556,9 @@ function BoardingPassPlanner() {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         const { latitude, longitude } = pos.coords;
-        const label = shareEtaOnly
-          ? "Live ETA on"
-          : `Near ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`;
+        const label = shareEtaDetails
+          ? `Near ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`
+          : "Live ETA on";
         await pushMyUpdate({ status: "En Route", eta: label });
         setLocating(false);
       },
@@ -806,8 +807,10 @@ function BoardingPassPlanner() {
               setMyTravel={setMyTravel}
               myEta={myEta}
               setMyEta={setMyEta}
-              shareEtaOnly={shareEtaOnly}
-              setShareEtaOnly={setShareEtaOnly}
+              sharePickup={sharePickup}
+              setSharePickup={setSharePickup}
+              shareEtaDetails={shareEtaDetails}
+              setShareEtaDetails={setShareEtaDetails}
               pushMyUpdate={pushMyUpdate}
               useMyLocation={useMyLocation}
               locating={locating}
@@ -944,11 +947,12 @@ function TripMemoryControls({ locationMode, setLocationMode, learnVibe, setLearn
 
 const etaPresets = ["5 min", "10 min", "20 min", "30 min", "Arrived"];
 
-function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, setMyEta, shareEtaOnly, setShareEtaOnly, pushMyUpdate, useMyLocation, locating, canSync }: {
+function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, setMyEta, sharePickup, setSharePickup, shareEtaDetails, setShareEtaDetails, pushMyUpdate, useMyLocation, locating, canSync }: {
   myStatus: string; setMyStatus: (v: string) => void;
   myTravel: string; setMyTravel: (v: string) => void;
   myEta: string; setMyEta: (v: string) => void;
-  shareEtaOnly: boolean; setShareEtaOnly: (v: boolean) => void;
+  sharePickup: boolean; setSharePickup: (v: boolean) => void;
+  shareEtaDetails: boolean; setShareEtaDetails: (v: boolean) => void;
   pushMyUpdate: (patch?: Partial<CrewMember>) => Promise<void>;
   useMyLocation: () => Promise<void>;
   locating: boolean;
@@ -1025,15 +1029,37 @@ function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, se
         </button>
       </div>
 
-      <button
-        onClick={() => setShareEtaOnly(!shareEtaOnly)}
-        className={`mt-3 flex w-full items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
-          shareEtaOnly ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40"
-        }`}
-      >
-        <Shield className="h-4 w-4 shrink-0" />
-        <span>Share ETA only — keep my exact location private</span>
-      </button>
+      <div className="mt-3 space-y-2">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Privacy</p>
+        <button
+          onClick={() => setSharePickup(!sharePickup)}
+          className={`flex w-full items-start gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
+            sharePickup ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40"
+          }`}
+        >
+          <Car className="mt-0.5 h-4 w-4 shrink-0" />
+          <span className="flex-1">
+            <span className="block font-semibold">Carpool pickup info</span>
+            <span className={`block text-xs ${sharePickup ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+              {sharePickup ? "Crew can see your pickup spot" : "Hidden — share pickup only with driver"}
+            </span>
+          </span>
+        </button>
+        <button
+          onClick={() => setShareEtaDetails(!shareEtaDetails)}
+          className={`flex w-full items-start gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
+            shareEtaDetails ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40"
+          }`}
+        >
+          <Shield className="mt-0.5 h-4 w-4 shrink-0" />
+          <span className="flex-1">
+            <span className="block font-semibold">Precise ETA & location</span>
+            <span className={`block text-xs ${shareEtaDetails ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+              {shareEtaDetails ? "Live coordinates visible to crew" : "ETA only — exact location stays private"}
+            </span>
+          </span>
+        </button>
+      </div>
     </section>
   );
 }

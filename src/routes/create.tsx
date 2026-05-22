@@ -53,8 +53,19 @@ const SWAP_REASONS = [
 
 export const Route = createFileRoute("/create")({
   head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),
+  beforeLoad: async ({ location }) => {
+    if (typeof window === "undefined") return;
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      throw redirect({
+        to: "/auth",
+        search: { mode: "signup", redirect: location.href },
+      });
+    }
+  },
   component: CreatePage,
 });
+
 
 const GROUP = [
   {

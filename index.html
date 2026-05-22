@@ -723,7 +723,7 @@
         try {
           var p = location.pathname;
           if (/^\/admin(\/|$)/.test(p)) {
-            document.documentElement.setAttribute("data-admin-splash", "");
+            document.documentElement.setAttribute("data-no-splash", "");
           } else if (/^\/(partner|corporate|advertise\/portal|business|concierge|portal)(\/|$)/.test(p)) {
             document.documentElement.setAttribute("data-no-splash", "");
           }

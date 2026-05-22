@@ -47,9 +47,6 @@ const TabBar = lazy(() =>
 const FirstRunNudge = lazy(() =>
   import("@/components/FirstRunNudge").then((m) => ({ default: m.FirstRunNudge })),
 );
-const ViewAuditOverlay = lazy(() =>
-  import("@/components/ViewAuditOverlay").then((m) => ({ default: m.ViewAuditOverlay })),
-);
 
 function NotFoundComponent() {
   return (

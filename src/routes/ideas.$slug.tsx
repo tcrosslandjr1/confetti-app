@@ -309,6 +309,7 @@ function IdeasPage() {
       {slug === "girls-night" && <GirlsNightCulturalFlow />}
       {slug === "guys-night" && <GuysNightCulturalFlow />}
       {slug === "date-night" && <DateNightCulturalFlow />}
+      <PlanShareFlow />
 
 
 

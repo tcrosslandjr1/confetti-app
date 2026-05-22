@@ -104,7 +104,7 @@ function AdminLoginPage() {
     try {
       if (!/^[0-9]{4,8}$/.test(pin)) throw new Error("PIN must be 4–8 digits.");
       if (pin !== pinConfirm) throw new Error("PINs do not match.");
-      const { error: rpcErr } = await supabase.rpc("set_admin_pin", { _pin: pin });
+      const { error: rpcErr } = await supabase.rpc("set_admin_pin", { _new_pin: pin });
       if (rpcErr) throw rpcErr;
       navigate({ to: destination as never, replace: true });
     } catch (err: any) {

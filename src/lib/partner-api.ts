@@ -79,7 +79,9 @@ export function checkRate(venue_id: string): Response | null {
 // ---- HMAC for outbound webhooks ----
 function getWebhookSecret() {
   const env = typeof process !== "undefined" ? process.env : undefined;
-  return env?.PARTNER_WEBHOOK_SECRET || "demo_webhook_secret_change_me";
+  const secret = env?.PARTNER_WEBHOOK_SECRET;
+  if (!secret) throw new Error("PARTNER_WEBHOOK_SECRET not configured");
+  return secret;
 }
 
 function bytesToHex(bytes: ArrayBuffer): string {

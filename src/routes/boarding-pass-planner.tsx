@@ -932,8 +932,8 @@ function CrewPanel({ crew, inviteName, setInviteName, inviteCrewMember, updateCr
   crew: CrewMember[];
   inviteName: string;
   setInviteName: (v: string) => void;
-  inviteCrewMember: () => void;
-  updateCrew: (i: number, patch: Partial<CrewMember>) => void;
+  inviteCrewMember: () => void | Promise<void>;
+  updateCrew: (i: number, patch: Partial<CrewMember>) => void | Promise<void>;
 }) {
   return (
     <section className="rounded-lg border border-border bg-card p-5 shadow-sm">

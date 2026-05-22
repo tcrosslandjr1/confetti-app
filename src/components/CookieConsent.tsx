@@ -11,6 +11,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
+import { useAuth } from "@/lib/auth-context";
 
 const STORAGE_KEY = "cookie-consent";
 const PREFS_KEY = "cookie-consent-prefs";

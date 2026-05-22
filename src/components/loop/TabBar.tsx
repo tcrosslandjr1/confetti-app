@@ -190,6 +190,11 @@ export function TabBar() {
                   active={active}
                   prominent={prominent}
                   labelId={labelId}
+                  onClick={
+                    effectiveRole === "business"
+                      ? () => trackBusinessNavClick(label, to)
+                      : undefined
+                  }
                 />
               </div>
             );

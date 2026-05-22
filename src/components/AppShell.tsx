@@ -1,13 +1,22 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import { Home, Compass, Film, Sparkles, User } from "lucide-react";
+import { Home, Compass, Film, Sparkles, User, LayoutDashboard, CalendarPlus, Image as ImageIcon, Link2, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/lib/auth-context";
 
-const TABS = [
+const CUSTOMER_TABS = [
   { to: "/app", label: "Tonight", icon: Home, exact: true },
   { to: "/app/explore", label: "Explore", icon: Compass },
   { to: "/app/reels", label: "Reels", icon: Film },
   { to: "/app/plan", label: "Plan", icon: Sparkles },
   { to: "/app/profile", label: "Profile", icon: User },
+];
+
+const BUSINESS_TABS = [
+  { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { to: "/business/events", label: "Events", icon: CalendarPlus },
+  { to: "/business/media", label: "Media", icon: ImageIcon },
+  { to: "/business/social", label: "Social", icon: Link2 },
+  { to: "/business/settings", label: "Settings", icon: Settings },
 ];
 
 export function AppShell() {

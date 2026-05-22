@@ -323,7 +323,8 @@ function BoardingPassPlanner() {
   const [myStatus, setMyStatus] = useState("Getting Ready");
   const [myTravel, setMyTravel] = useState("Uber / Lyft");
   const [myEta, setMyEta] = useState("20 min");
-  const [shareEtaOnly, setShareEtaOnly] = useState(true);
+  const [sharePickup, setSharePickup] = useState(false);
+  const [shareEtaDetails, setShareEtaDetails] = useState(false);
 
   const [locationMode, setLocationMode] = useState("Trip Mode Only");
   const [learnVibe, setLearnVibe] = useState(true);

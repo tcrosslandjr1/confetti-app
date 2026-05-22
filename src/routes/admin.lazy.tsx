@@ -285,7 +285,7 @@ function AdminLayout() {
     if (isLoginRoute) {
         return <Outlet />;
     }
-    if (!unlocked && user && !allowPreview) {
+    if (!unlocked && user && !allowPreview && pathname !== "/admin") {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>

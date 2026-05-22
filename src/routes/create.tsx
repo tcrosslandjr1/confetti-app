@@ -24,7 +24,7 @@ import {
 import { makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { MOODS } from "@/lib/concierge-data";
 import { CITIES } from "@/lib/agents/city-context";
-import { generatePlan } from "@/lib/generate-plan.functions";
+import { createSkeletonItinerary, populateItinerary, type BuildPayload } from "@/lib/itineraries";
 import { toast } from "sonner";
 import { ForecastForDate } from "@/components/ForecastForDate";
 import { recordPickSignal } from "@/lib/pick-signals.functions";
@@ -180,7 +180,6 @@ const STEP_HINTS = [
 
 function CreatePage() {
   const navigate = useNavigate();
-  const generate = useServerFn(generatePlan);
   const recordSignal = useServerFn(recordPickSignal);
   const [step, setStep] = useState(0);
   usePageview("create_wizard", "/create");
@@ -257,73 +256,26 @@ function CreatePage() {
       vibe: vibe?.id,
     });
     try {
-      let tasteSummaryStr: string | undefined;
-      try {
-        const { loadPrefs, tasteSummary } = await import("@/lib/taste");
-        const prefs = await loadPrefs();
-        const s = tasteSummary(prefs);
-        if (s) tasteSummaryStr = s;
-      } catch {
-        /* anon user */
-      }
-      const plan = await generate({
-        data: {
-          city,
-          occasionId: occasion?.id,
-          occasionLabel: occasion?.label,
-          vibeId: vibe?.id,
-          vibeLabel: vibe?.label,
-          groupSize: group?.size ?? 2,
-          date,
-          startTime: time,
-          duration,
-          tasteSummary: tasteSummaryStr,
-          currentMood: currentMood ?? undefined,
-        },
-      });
-      const loop: ActiveLoop = {
-        ...makeDemoLoop({
-          passenger: "GUEST",
-          groupSize: group?.size ?? 2,
-          occasion: occasion?.label,
-          vibe: vibe?.label,
-          to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
-          boardingTime: plan.stops[0]?.time ?? time.replace(/^0/, ""),
-          stops: plan.stops.map((s) => ({
-            id: s.id,
-            name: s.name,
-            type: s.type,
-            time: s.time,
-            area: s.area,
-            venueId: s.venueId,
-            lat: s.lat,
-            lng: s.lng,
-            rationale: s.rationale,
-            slot: s.slot,
-          })),
-        }),
-        city: plan.city,
-        experienceName: plan.experienceName,
-        experienceTagline: plan.experienceTagline,
-        blueprint: plan.blueprint,
-        estimatedSpend: plan.estimatedSpend,
-        fitScore: plan.fitScore,
-        guardrailNote: plan.guardrailNote,
-        bonusMove: plan.bonus,
-        planParams: {
-          city,
-          occasionId: occasion?.id,
-          occasionLabel: occasion?.label,
-          vibeId: vibe?.id,
-          vibeLabel: vibe?.label,
-          groupSize: group?.size ?? 2,
-          date,
-          startTime: time,
-          duration,
-        },
+      const buildPayload: BuildPayload = {
+        occasion: occasion?.label ?? "Night Out",
+        vibe: vibe?.label,
+        city,
+        date,
+        startTime: time,
+        durationHours: parseInt(duration) || 3,
+        occasionSlug: occasion?.id,
+        transportMode: "auto",
       };
-      setActiveLoop(loop);
-      navigate({ to: "/boarding-pass" });
+
+      // Phase 1: create skeleton row instantly → navigate
+      const { id } = await createSkeletonItinerary(buildPayload);
+      navigate({ to: "/trips/$id", params: { id } });
+
+      // Phase 2: populate with AI-generated stops in background
+      populateItinerary(id, buildPayload).catch((err) => {
+        console.error("[create] background populate failed", err);
+        toast.error((err as Error).message ?? "Couldn't build your night — try again.");
+      });
     } catch (err) {
       console.error("[create] finish failed", err);
       void trackEvent("error", "create_finish_failed", {

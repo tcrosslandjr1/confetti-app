@@ -4,7 +4,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { EyeOff, Eye, Loader2, Star, Trash2, Upload } from "lucide-react";
 import { useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { requireBusinessOwner } from "@/lib/business-guard";
 import { BusinessPageShell } from "@/components/business/BusinessTabNav";
 import {
   NoVenueClaim,
@@ -24,7 +23,8 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/business/media")({
   beforeLoad: async () => {
-    await requireBusinessOwner();
+    const { requireBusinessAccess } = await import("@/lib/business-guards");
+    await requireBusinessAccess();
   },
   head: () => ({ meta: [{ title: "Media Manager — Confetti for Business" }] }),
   component: BusinessMediaPage,

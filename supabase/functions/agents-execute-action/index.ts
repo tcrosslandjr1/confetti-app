@@ -2,12 +2,7 @@
 // Approve & execute, or reject. All actions are audit-logged on the row.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
-
-const cors = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { getCorsHeaders } from "../_shared/cors.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -19,6 +14,7 @@ const admin = createClient(SUPABASE_URL, SERVICE_ROLE);
 type Body = { action_id: string; decision: "approve" | "reject" };
 
 Deno.serve(async (req) => {
+  const cors = getCorsHeaders(req);
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
   if (req.method !== "POST") return new Response("Method not allowed", { status: 405, headers: cors });
 
@@ -106,6 +102,7 @@ Deno.serve(async (req) => {
   }
 });
 
-function j(b: unknown, s = 200) {
-  return new Response(JSON.stringify(b), { status: s, headers: { ...cors, "Content-Type": "application/json" } });
+function j(b: unknown, s = 200, req?: Request) {
+  const hdrs = getCorsHeaders(req);
+  return new Response(JSON.stringify(b), { status: s, headers: { ...hdrs, "Content-Type": "application/json" } });
 }

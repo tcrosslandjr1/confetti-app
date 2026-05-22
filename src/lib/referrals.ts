@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { awardXP } from "@/lib/gamification";
 
 const PENDING_REF_KEY = "concierge.pendingReferralCode";
 
@@ -120,6 +121,11 @@ export async function inviteByEmail(emails: string[]): Promise<number> {
     })),
   );
 
+  // Award XP for each invite sent
+  for (let i = 0; i < cleaned.length; i++) {
+    awardXP(uid, "invite_sent");
+  }
+
   if (typeof window !== "undefined") {
     const link = buildReferralLink(code);
     const subject = encodeURIComponent("You'll love this — $25 off your first booking");
@@ -175,6 +181,11 @@ export async function consumePendingReferralOnSignup() {
       status: "signed_up",
       signed_up_at: new Date().toISOString(),
     });
+  }
+
+  // Award XP to the referrer for a successful signup
+  if (referrerId) {
+    awardXP(referrerId, "referral_signup");
   }
 
   // Issue pending first-booking discount for the referee

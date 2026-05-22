@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { Loader2, Sparkles, Clock, DollarSign, Repeat } from "lucide-react";
-import { setActiveLoop, type ActiveLoop, makeDemoLoop } from "@/lib/loop-store";
-import { generatePlan } from "@/lib/generate-plan.functions";
-import { tasteSummary, loadPrefs } from "@/lib/taste";
+import { type ActiveLoop } from "@/lib/loop-store";
+import { buildAndSaveItinerary, type BuildPayload } from "@/lib/itineraries";
 
 type RerunKind = "swap-stops" | "earlier" | "cheaper";
 
@@ -50,7 +48,6 @@ function shiftStartTime(startTime: string | undefined, minutes: number): string 
 
 export function RerunButtons({ loop }: { loop: ActiveLoop }) {
   const navigate = useNavigate();
-  const generate = useServerFn(generatePlan);
   const [busy, setBusy] = useState<RerunKind | null>(null);
 
   async function rerun(kind: RerunKind) {
@@ -66,70 +63,20 @@ export function RerunButtons({ loop }: { loop: ActiveLoop }) {
         : tweak.directive;
 
     try {
-      let tasteSummaryStr: string | undefined;
-      try {
-        const prefs = await loadPrefs();
-        const s = tasteSummary(prefs);
-        if (s) tasteSummaryStr = s;
-      } catch {
-        /* anon */
-      }
-
-      const plan = await generate({
-        data: {
-          city: params.city ?? loop.city,
-          occasionId: params.occasionId,
-          occasionLabel: params.occasionLabel ?? loop.occasion,
-          vibeId: params.vibeId,
-          vibeLabel: params.vibeLabel ?? loop.vibe,
-          groupSize: params.groupSize ?? loop.groupSize,
-          date: params.date ?? loop.date,
-          startTime: shiftStartTime(params.startTime, tweak.minutesShift),
-          duration: params.duration,
-          tasteSummary: tasteSummaryStr,
-          tweakDirective: directive,
-        },
-      });
-
-      const next: ActiveLoop = {
-        ...makeDemoLoop({
-          passenger: loop.passenger,
-          groupSize: loop.groupSize,
-          occasion: loop.occasion,
-          vibe: loop.vibe,
-          to: loop.to,
-          boardingTime: plan.stops[0]?.time ?? loop.boardingTime,
-          stops: plan.stops.map((s) => ({
-            id: s.id,
-            name: s.name,
-            type: s.type,
-            time: s.time,
-            area: s.area,
-            venueId: s.venueId,
-            lat: s.lat,
-            lng: s.lng,
-            rationale: s.rationale,
-            slot: s.slot,
-          })),
-        }),
-        city: plan.city,
-        experienceName: plan.experienceName,
-        experienceTagline: plan.experienceTagline,
-        blueprint: plan.blueprint,
-        estimatedSpend: plan.estimatedSpend,
-        fitScore: plan.fitScore,
-        guardrailNote: plan.guardrailNote,
-        bonusMove: plan.bonus,
-        planParams: {
-          ...params,
-          startTime: shiftStartTime(params.startTime, tweak.minutesShift) ?? params.startTime,
-        },
+      const payload: BuildPayload = {
+        occasion: params.occasionLabel ?? loop.occasion ?? "Night Out",
+        vibe: params.vibeLabel ?? loop.vibe,
+        city: params.city ?? loop.city,
+        date: params.date ?? loop.date,
+        startTime: shiftStartTime(params.startTime, tweak.minutesShift),
+        durationHours: params.duration ? parseInt(String(params.duration)) || 3 : 3,
+        notes: directive,
+        transportMode: "auto",
       };
-      setActiveLoop(next);
-      toast.success(`Replanned: ${tweak.label.toLowerCase()}`, {
-        description: plan.experienceName ?? "Fresh picks ready",
-      });
-      navigate({ to: "/boarding-pass" });
+
+      const { id } = await buildAndSaveItinerary(payload);
+      toast.success(`Replanned: ${tweak.label.toLowerCase()}`);
+      navigate({ to: "/trips/$id", params: { id } });
     } catch (err) {
       console.error("[RerunButtons] failed", err);
       toast.error("Couldn't replan — try again");

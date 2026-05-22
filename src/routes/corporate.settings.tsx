@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/corporate/settings")({
   component: CorporateSettingsPage,
@@ -54,7 +55,7 @@ function CorporateSettingsPage() {
             <Input value={company?.plan_tier ?? "starter"} readOnly />
           </div>
           <div className="sm:col-span-2">
-            <Button type="button">Save changes</Button>
+            <Button type="button" onClick={() => toast.success("Settings saved")}>Save changes</Button>
           </div>
         </form>
       </Card>
@@ -62,8 +63,8 @@ function CorporateSettingsPage() {
       <Card className="p-6">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">Admins</h2>
-          <Button variant="outline" size="sm">
-            Add admin
+          <Button variant="outline" size="sm" disabled title="Admin invites launching soon" className="opacity-60 cursor-not-allowed">
+            Add admin <span className="ml-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Soon</span>
           </Button>
         </div>
         {!admins || admins.length === 0 ? (

@@ -13,7 +13,9 @@ import {
   Trash2,
   Apple,
 } from "lucide-react";
+import { awardXP } from "@/lib/gamification";
 import { downloadAppleInvite } from "@/lib/apple-invite";
+import { ReservationConfirmation } from "@/components/ReservationConfirmation";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
@@ -280,6 +282,26 @@ function BookingsTabs({
   );
 }
 
+function bookingToDetails(b: Booking) {
+  const dt = new Date(b.starts_at);
+  const pad = (n: number) => n.toString().padStart(2, "0");
+  return {
+    id: b.id,
+    venueName: b.venue_name,
+    venueAddress: b.notes ?? undefined,
+    date: `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`,
+    time: `${pad(dt.getHours())}:${pad(dt.getMinutes())}`,
+    partySize: b.party_size,
+    confirmationCode: b.confirmation_code ?? b.id.slice(0, 8).toUpperCase(),
+    status: (b.cancelled_at || b.status === "cancelled"
+      ? "cancelled"
+      : b.status === "confirmed"
+        ? "confirmed"
+        : "confirmed") as "confirmed" | "modified" | "cancelled",
+    specialRequests: b.seating_preference ?? undefined,
+  };
+}
+
 function BookingCard({
   b,
   onCancel,
@@ -292,8 +314,43 @@ function BookingCard({
   const dt = new Date(b.starts_at);
   const cancelled = !!b.cancelled_at || b.status === "cancelled";
   const confirmed = !cancelled && b.status === "confirmed";
+  const isUpcoming = dt.getTime() > Date.now();
   const drinks = Array.isArray(b.pre_order_drinks) ? b.pre_order_drinks : [];
   const hasPreorder = drinks.length > 0 || !!b.seating_preference;
+
+  // Use ReservationConfirmation for confirmed upcoming bookings with a code
+  if (confirmed && isUpcoming && b.confirmation_code) {
+    return (
+      <li>
+        <ReservationConfirmation
+          booking={bookingToDetails(b)}
+          onModify={() => {
+            toast.info("To modify this reservation, please contact the venue directly.");
+          }}
+          onCancel={(id, _reason) => onCancel?.(id)}
+        />
+        <div className="mt-2 flex flex-wrap gap-2 px-1">
+          <PreorderDialog booking={b} onSaved={onUpdated} />
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              downloadAppleInvite({
+                id: b.id,
+                title: b.venue_name,
+                startsAt: b.starts_at,
+                notes: `Party of ${b.party_size}${b.notes ? ` — ${b.notes}` : ""}`,
+              })
+            }
+          >
+            <Apple className="mr-1 h-3.5 w-3.5" /> Add to Apple Invites
+          </Button>
+        </div>
+      </li>
+    );
+  }
+
+  // Fallback: past / cancelled / pending bookings use simpler card
   return (
     <li className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut">
       <div className="flex items-start justify-between gap-3">
@@ -560,6 +617,7 @@ function BookDialog({
     if (error) toast.error(error.message);
     else {
       toast.success(`Booked ${venue.name} ✓`, { icon: <CheckCircle2 className="h-4 w-4" /> });
+      awardXP(userId, "booking");
       setOpen(false);
       setVenueId("");
       setDate("");

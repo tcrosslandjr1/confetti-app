@@ -85,23 +85,31 @@ async function syncProfile(user: User) {
     console.warn("[Confetti] profile sync failed (non-fatal):", profileError.message);
   }
 
+  // Write Google/Apple identity data to linked_social_accounts (same table TikTok/Instagram use).
   if (provider === "google" || provider === "apple") {
     const identity = user.identities?.find((item) => item.provider === provider);
     const identityData = identity?.identity_data as Record<string, unknown> | undefined;
 
-    const { error: linkError } = await supabase.from("profile_social_links").upsert({
-      user_id: user.id,
-      provider,
-      provider_user_id: identity?.id ?? null,
-      provider_email: typeof identityData?.email === "string" ? identityData.email : account.email,
-      last_used_at: new Date().toISOString(),
-      metadata: {
-        name: identityData?.name ?? user.user_metadata?.name ?? null,
-        avatar_url: identityData?.avatar_url ?? user.user_metadata?.avatar_url ?? user.user_metadata?.picture ?? null
-      }
-    });
+    const providerEmail = typeof identityData?.email === "string" ? identityData.email : account.email;
+    const displayName = (identityData?.name ?? user.user_metadata?.name ?? null) as string | null;
+    const avatarUrl = (identityData?.avatar_url ?? user.user_metadata?.avatar_url ?? user.user_metadata?.picture ?? null) as string | null;
 
-    if (linkError) throw linkError;
+    const { error: linkError } = await supabase.from("linked_social_accounts").upsert(
+      {
+        user_id: user.id,
+        provider,
+        provider_user_id: identity?.id ?? "unknown",
+        username: providerEmail,
+        display_name: displayName,
+        avatar_url: avatarUrl,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id,provider" }
+    );
+
+    if (linkError) {
+      console.warn("[Confetti] social link sync failed (non-fatal):", linkError.message);
+    }
   }
 
   return account;

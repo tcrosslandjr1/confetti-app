@@ -1,7 +1,6 @@
 import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
-import { Sparkles, MapPin, Loader2, ArrowLeft, Waves, Mountain } from "lucide-react";
+import { Sparkles, MapPin, Loader2, Waves, Mountain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,15 +8,14 @@ import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { MobileHeader } from "@/components/AppShell";
 import { cn } from "@/lib/utils";
-import { generatePlan } from "@/lib/generate-plan.functions";
-import { classifyOuting } from "@/lib/classify-outing.functions";
-import { generateRankedOutingNames } from "@/lib/name-generator.functions";
+import { NotificationBell } from "@/components/NotificationBell";
+import { useAuth } from "@/lib/auth-context";
+import { toast } from "sonner";
+import { buildAndSaveItinerary, type BuildPayload } from "@/lib/itineraries";
 import { type PersonalityId, type BudgetMode, type GroupType, type TimeOfDay, type SafetyMode, type LocalFlavorLevel } from "@/lib/agents/v6-engines";
-import type { GeneratedPlan } from "@/lib/agents/types";
 import { CITIES, findCityLoose, type CityContext } from "@/lib/agents/city-context";
 import { matchState, isKnownCity } from "@/lib/agents/states";
 import { detectWaterfront } from "@/lib/agents/waterfront";
-import { setActiveLoop, makeDemoLoop, type ActiveLoop } from "@/lib/loop-store";
 import { CATEGORY_GROUPS, OUTING_CATEGORIES, CATEGORIES_BY_ID, categoriesInGroup, resolveCategories, buildCategoryDirective, type CategoryGroupId } from "@/lib/agents/outing-categories";
 
 export const Route = createLazyFileRoute("/vibe-plans")({
@@ -168,7 +166,7 @@ const BRUNCH_BADDIES_TRIGGER_IDS = new Set([
 ]);
 
 function VibePlansPage() {
-    const generate = useServerFn(generatePlan);
+    const { user } = useAuth();
     const navigate = useNavigate();
     const [cityQuery, setCityQuery] = useState("");
     const [pendingState, setPendingState] = useState<ReturnType<typeof matchState>>(null);
@@ -195,11 +193,7 @@ function VibePlansPage() {
     const [selectedCats, setSelectedCats] = useState<string[]>([]);
     const [catSearch, setCatSearch] = useState("");
     const [freeText, setFreeText] = useState("");
-    const [classifying, setClassifying] = useState(false);
-    const classify = useServerFn(classifyOuting);
-    const regenNames = useServerFn(generateRankedOutingNames);
     const [loading, setLoading] = useState(false);
-    const [plan, setPlan] = useState<GeneratedPlan | null>(null);
     const [error, setError] = useState<string | null>(null);
     // v6 engine inputs
     const [personality, setPersonality] = useState<PersonalityId | null>(null);
@@ -209,10 +203,6 @@ function VibePlansPage() {
     const [safetyModes, setSafetyModes] = useState<SafetyMode[]>([]);
     const [localFlavorLevel, setLocalFlavorLevel] = useState<LocalFlavorLevel>("medium");
     const [weatherAware, setWeatherAware] = useState(true);
-    const [selectedName, setSelectedName] = useState<string | null>(null);
-    const [renaming, setRenaming] = useState(false);
-    const [renameValue, setRenameValue] = useState("");
-    const [swappingName, setSwappingName] = useState(false);
     const waterfront = city ? detectWaterfront(city) : null;
     function handleCitySearch() {
         const q = cityQuery.trim();
@@ -248,50 +238,7 @@ function VibePlansPage() {
         setCityQuery(c.label);
     }
     function reset() {
-        setPlan(null);
         setError(null);
-        setSelectedName(null);
-        setRenaming(false);
-        setRenameValue("");
-    }
-    async function swapName() {
-        if (!plan || !city)
-            return;
-        const v = vibe ?? {
-            id: "custom",
-            label: customVibe || "Surprise me",
-            occasionId: "friends",
-            mood: "social",
-            emoji: "✨",
-        };
-        setSwappingName(true);
-        try {
-            const energyLabel = ["mellow", "easy", "social", "hyped", "wild"][energy - 1] ?? "social";
-            const res = await regenNames({
-                data: {
-                    city: city.label,
-                    category: v.label,
-                    vibe: v.label,
-                    audience: v.occasionId,
-                    energyLevel: energyLabel,
-                    count: 10,
-                },
-            });
-            if (res.ranked.length) {
-                setPlan({
-                    ...plan,
-                    nameOptions: res.ranked.slice(0, 5),
-                    experienceName: res.ranked[0].name,
-                });
-                setSelectedName(res.ranked[0].name);
-            }
-        }
-        catch (e) {
-            setError(e instanceof Error ? e.message : "Could not regenerate names.");
-        }
-        finally {
-            setSwappingName(false);
-        }
     }
     async function build() {
         if (!city)
@@ -347,32 +294,25 @@ function VibePlansPage() {
             }
             const budgetTier: 1 | 2 | 3 | 4 = budget < 40 ? 1 : budget < 100 ? 2 : budget < 200 ? 3 : 4;
             const adultOk = includeAdult && ageConfirmed && vibe ? ADULT_TRIGGER_IDS.has(vibe.id) : false;
-            const result = await generate({
-                data: {
-                    city: city.city,
-                    occasionId: v.occasionId,
-                    occasionLabel: v.label,
-                    vibeId: v.id,
-                    vibeLabel: v.label,
-                    currentMood: v.mood,
-                    groupSize,
-                    budget: budgetTier,
-                    tweakDirective: tweaks.join("; "),
-                    includeYacht: includeYacht && (waterfront?.hasWaterfront ?? false),
-                    includeCasino,
-                    includeAdultEntertainment: adultOk,
-                    personality: personality ?? undefined,
-                    budgetMode,
-                    perPersonBudgetUsd: budget,
-                    groupType: groupType ?? undefined,
-                    timeOfDay: timeOfDay ?? undefined,
-                    safetyModes,
-                    localFlavorLevel,
-                    weatherAware,
-                },
-            });
-            setPlan(result);
-            setSelectedName(result.nameOptions?.[0]?.name ?? result.experienceName);
+
+            // Add special directives
+            if (includeYacht && (waterfront?.hasWaterfront ?? false)) tweaks.push("include a yacht or boat experience");
+            if (includeCasino) tweaks.push("include a casino stop");
+            if (adultOk) tweaks.push("include adult entertainment options (21+ confirmed)");
+
+            const payload: BuildPayload = {
+                occasion: v.label,
+                vibe: v.label,
+                city: city.city,
+                durationHours: 3,
+                notes: tweaks.join("; "),
+                occasionSlug: v.occasionId,
+                transportMode: "auto",
+            };
+
+            const { id } = await buildAndSaveItinerary(payload);
+            toast.success("Your night is ready!");
+            navigate({ to: "/trips/$id", params: { id } });
         }
         catch (e) {
             setError(e instanceof Error ? e.message : "Could not generate a plan. Try again.");
@@ -381,234 +321,9 @@ function VibePlansPage() {
             setLoading(false);
         }
     }
-    function lockIn() {
-        if (!plan || !city)
-            return;
-        const v = vibe ?? {
-            id: "custom",
-            label: customVibe || "Surprise me",
-            occasionId: "friends",
-            mood: "social",
-            emoji: "✨",
-        };
-        const loop: ActiveLoop = {
-            ...makeDemoLoop({
-                passenger: "GUEST",
-                groupSize,
-                occasion: v.label,
-                vibe: v.label,
-                to: v.label.toUpperCase(),
-                boardingTime: plan.stops[0]?.time ?? "6:00 PM",
-                stops: plan.stops.map((s) => ({
-                    id: s.id,
-                    name: s.name,
-                    type: s.type,
-                    time: s.time,
-                    area: s.area,
-                    venueId: s.venueId,
-                    lat: s.lat,
-                    lng: s.lng,
-                    rationale: s.rationale,
-                    slot: s.slot,
-                })),
-            }),
-            city: plan.city,
-            experienceName: selectedName ?? plan.experienceName,
-            experienceTagline: plan.experienceTagline,
-            blueprint: plan.blueprint,
-            estimatedSpend: plan.estimatedSpend,
-            fitScore: plan.fitScore,
-            guardrailNote: plan.guardrailNote,
-            bonusMove: plan.bonus,
-            planParams: {
-                city: city.city,
-                occasionId: v.occasionId,
-                occasionLabel: v.label,
-                vibeId: v.id,
-                vibeLabel: v.label,
-                groupSize,
-            },
-        };
-        setActiveLoop(loop);
-        navigate({ to: "/boarding-pass" });
-    }
-    // ── Render: plan view ─────────────────────────────────────────────
-    if (plan) {
-        const stopCount = plan.stops.length;
-        const displayName = selectedName ?? plan.experienceName;
-        const altNames = (plan.nameOptions ?? [])
-            .map((o) => o.name)
-            .filter((n) => n !== displayName)
-            .slice(0, 2);
-        return (<div className="min-h-screen bg-background pb-12">
-        <MobileHeader eyebrow="Vibe Plans" title={displayName}/>
-        <div className="space-y-4 px-5">
-          <Button variant="ghost" size="sm" onClick={reset}>
-            <ArrowLeft className="mr-1 h-4 w-4"/> New plan
-          </Button>
-
-          {/* Name section */}
-          <Card className="space-y-3 p-4">
-            <div className="flex items-center justify-between">
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Itinerary Name
-              </label>
-              <div className="flex gap-1">
-                <Button size="sm" variant="ghost" onClick={() => {
-                setRenaming((r) => !r);
-                setRenameValue(displayName);
-            }}>
-                  Rename
-                </Button>
-                <Button size="sm" variant="outline" onClick={() => void swapName()} disabled={swappingName}>
-                  {swappingName ? <Loader2 className="h-3 w-3 animate-spin"/> : "Swap Name"}
-                </Button>
-              </div>
-            </div>
-            {renaming ? (<div className="flex gap-2">
-                <Input value={renameValue} maxLength={60} onChange={(e) => setRenameValue(e.target.value)} placeholder="Name this outing…"/>
-                <Button size="sm" onClick={() => {
-                    const v = renameValue.trim();
-                    if (v)
-                        setSelectedName(v);
-                    setRenaming(false);
-                }}>
-                  Save
-                </Button>
-              </div>) : (<h2 className="text-xl font-bold leading-tight">{displayName}</h2>)}
-            {altNames.length ? (<div className="flex flex-wrap gap-2">
-                {altNames.map((n) => (<button key={n} onClick={() => setSelectedName(n)} className="rounded-full border bg-card px-3 py-1 text-xs hover:bg-accent">
-                    {n}
-                  </button>))}
-              </div>) : null}
-          </Card>
-
-          <Card className="p-4">
-            <p className="text-sm text-muted-foreground">{plan.experienceTagline}</p>
-            <div className="mt-2 flex flex-wrap gap-2 text-xs">
-              <Badge variant="secondary">{plan.city}</Badge>
-              <Badge variant="secondary">{plan.vibeLabel}</Badge>
-              <Badge variant="secondary">{plan.estimatedSpend}</Badge>
-              {plan.perPersonEstimate ? (<Badge variant="outline">{plan.perPersonEstimate}</Badge>) : null}
-              {plan.groupTotalEstimate ? (<Badge variant="outline">{plan.groupTotalEstimate}</Badge>) : null}
-              {plan.reservationRecommended ? (<Badge variant="outline">Reservation rec.</Badge>) : null}
-            </div>
-            {plan.budgetWarning ? (<p className="mt-2 text-xs text-destructive">⚠️ {plan.budgetWarning}</p>) : null}
-            {(plan.personalityTone ||
-                plan.weatherNotes ||
-                plan.safetyNotes ||
-                plan.localFlavorNotes ||
-                plan.transportationNote) && (<div className="mt-3 space-y-1 border-t pt-3 text-xs text-muted-foreground">
-                {plan.personalityTone ? <p>🎭 {plan.personalityTone}</p> : null}
-                {plan.weatherNotes ? <p>☁️ {plan.weatherNotes}</p> : null}
-                {plan.safetyNotes ? <p>🛡️ {plan.safetyNotes}</p> : null}
-                {plan.localFlavorNotes ? <p>📍 {plan.localFlavorNotes}</p> : null}
-                {plan.transportationNote ? <p>🚗 {plan.transportationNote}</p> : null}
-              </div>)}
-            {plan.localFlavorTags?.length ? (<div className="mt-2 flex flex-wrap gap-1">
-                {plan.localFlavorTags.map((t) => (<Badge key={t} variant="secondary" className="text-[10px]">
-                    {t}
-                  </Badge>))}
-              </div>) : null}
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Button size="sm" variant="outline" disabled={loading} onClick={() => {
-                setBudgetMode("save");
-                void build();
-            }}>
-                💸 Swap Cheaper
-              </Button>
-              <Button size="sm" variant="outline" disabled={loading} onClick={() => {
-                setBudgetMode("upgrade");
-                void build();
-            }}>
-                ✨ Upgrade
-              </Button>
-              <Button size="sm" variant="outline" disabled={loading} onClick={() => {
-                setSafetyModes((s) => Array.from(new Set([...s, "first_date"])) as SafetyMode[]);
-                void build();
-            }}>
-                🛡️ Make Safer
-              </Button>
-              <Button size="sm" variant="outline" disabled={loading} onClick={() => {
-                setLocalFlavorLevel("heavy");
-                void build();
-            }}>
-                📍 More Local
-              </Button>
-              <Button size="sm" variant="outline" disabled={loading} onClick={() => {
-                setIndoorOnly(true);
-                setWeatherAware(true);
-                void build();
-            }}>
-                🌧️ Rain-Proof
-              </Button>
-            </div>
-          </Card>
-
-          {plan.cheaperSwaps?.length || plan.luxuryUpgrades?.length ? (<Card className="p-4">
-              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Swap options
-              </div>
-              {plan.cheaperSwaps?.length ? (<div className="mt-2">
-                  <div className="text-xs font-semibold">Cheaper</div>
-                  <ul className="mt-1 space-y-1 text-sm">
-                    {plan.cheaperSwaps.map((s, i) => (<li key={`c${i}`}>
-                        <span className="font-medium">{s.slot}:</span> {s.name} —{" "}
-                        <span className="text-muted-foreground">{s.reason}</span>
-                      </li>))}
-                  </ul>
-                </div>) : null}
-              {plan.luxuryUpgrades?.length ? (<div className="mt-2">
-                  <div className="text-xs font-semibold">Upgrade</div>
-                  <ul className="mt-1 space-y-1 text-sm">
-                    {plan.luxuryUpgrades.map((s, i) => (<li key={`u${i}`}>
-                        <span className="font-medium">{s.slot}:</span> {s.name} —{" "}
-                        <span className="text-muted-foreground">{s.reason}</span>
-                      </li>))}
-                  </ul>
-                </div>) : null}
-            </Card>) : null}
-
-          {plan.stops.map((stop, i) => (<Card key={stop.id} className="p-4">
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                    {stop.time} · {stop.slot}
-                  </div>
-                  <h3 className="mt-1 text-base font-semibold">{stop.name}</h3>
-                  <p className="text-xs text-muted-foreground">
-                    {stop.type}
-                    {stop.area ? ` · ${stop.area}` : ""}
-                  </p>
-                  <p className="mt-2 text-sm">{stop.rationale}</p>
-                </div>
-                <Button size="sm" variant="outline" onClick={() => void build()} disabled={loading}>
-                  Swap
-                </Button>
-              </div>
-              {i < plan.stops.length - 1 ? <div className="mt-3 h-px w-full bg-border"/> : null}
-            </Card>))}
-
-          {plan.bonus ? (<Card className="border-dashed p-4">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Bonus</div>
-              <div className="text-sm font-semibold">{plan.bonus.name}</div>
-              <p className="text-xs text-muted-foreground">{plan.bonus.reason}</p>
-            </Card>) : null}
-
-          <div className="flex gap-2">
-            <Button className="flex-1" onClick={() => void build()} disabled={loading}>
-              {loading ? <Loader2 className="h-4 w-4 animate-spin"/> : "Regenerate"}
-            </Button>
-            <Button variant="secondary" className="flex-1" onClick={lockIn}>
-              Lock in {stopCount} stop{stopCount === 1 ? "" : "s"}
-            </Button>
-          </div>
-        </div>
-      </div>);
-    }
     // ── Render: builder ──────────────────────────────────────────────
     return (<div className="min-h-screen bg-background pb-16">
-      <MobileHeader eyebrow="Vibe Plans" title="Plan a night that fits the city."/>
+      <MobileHeader eyebrow="Vibe Plans" title="Plan a night that fits the city." right={<NotificationBell userId={user?.id} />}/>
       <div className="space-y-5 px-5">
         {/* City */}
         <Card className="p-4">
@@ -660,25 +375,21 @@ function VibePlansPage() {
           {/* Free-text classifier */}
           <div className="flex gap-2">
             <Input placeholder='Tell Confetti what you’re trying to do — e.g. "spa day + brunch"' value={freeText} onChange={(e) => setFreeText(e.target.value)}/>
-            <Button size="sm" variant="outline" disabled={!freeText.trim() || classifying} onClick={async () => {
-            setClassifying(true);
-            try {
-                const res = await classify({
-                    data: { text: freeText.trim(), city: city?.label },
-                });
-                setSelectedCats((prev) => Array.from(new Set([...prev, ...res.categoryIds])));
-                const firstGroup = CATEGORIES_BY_ID[res.categoryIds[0]]?.group;
-                if (firstGroup)
-                    setActiveGroup(firstGroup);
-            }
-            catch {
-                /* swallow — categories optional */
-            }
-            finally {
-                setClassifying(false);
+            <Button size="sm" variant="outline" disabled={!freeText.trim()} onClick={() => {
+            // Auto-match: search categories by keyword from freeText
+            const q = freeText.trim().toLowerCase();
+            const matched = OUTING_CATEGORIES.filter((c) =>
+              c.name.toLowerCase().includes(q) || (c.description ?? "").toLowerCase().includes(q)
+            ).map((c) => c.id);
+            if (matched.length) {
+              setSelectedCats((prev) => Array.from(new Set([...prev, ...matched])));
+              const firstGroup = CATEGORIES_BY_ID[matched[0]]?.group;
+              if (firstGroup) setActiveGroup(firstGroup);
+            } else {
+              toast("No exact category match — your text will be passed to the AI as a custom directive.");
             }
         }}>
-              {classifying ? <Loader2 className="h-4 w-4 animate-spin"/> : "Match"}
+              Match
             </Button>
           </div>
 

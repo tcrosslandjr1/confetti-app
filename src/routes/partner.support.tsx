@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, BookOpen, Lightbulb, CheckCircle2 } from "lucide-react";
@@ -27,6 +28,7 @@ const REQUESTS = [
 ];
 
 function SupportPage() {
+  const navigate = useNavigate();
   const done = CHECKLIST.filter((c) => c.done).length;
   const pct = Math.round((done / CHECKLIST.length) * 100);
 
@@ -81,8 +83,8 @@ function SupportPage() {
           <p className="text-sm text-muted-foreground">
             Book a 15-min sync to review your week's analytics and unblock anything.
           </p>
-          <Button className="w-full mt-3">Book a call</Button>
-          <Button variant="outline" className="w-full mt-2">
+          <Button className="w-full mt-3" onClick={() => navigate({ to: "/partner/support" })}>Book a call</Button>
+          <Button variant="outline" className="w-full mt-2" onClick={() => navigate({ to: "/partner/support" })}>
             <MessageCircle className="h-4 w-4 mr-1.5" />
             Live chat
           </Button>
@@ -126,6 +128,7 @@ function SupportPage() {
                   variant="outline"
                   size="sm"
                   className="flex-col h-auto py-1.5 px-3 leading-tight"
+                  onClick={() => navigate({ to: "/partner/support" })}
                 >
                   <span className="text-[10px] text-muted-foreground">▲</span>
                   <span className="font-semibold text-sm">{r.votes}</span>
@@ -133,7 +136,7 @@ function SupportPage() {
                 <div className="flex-1 text-sm font-medium">{r.title}</div>
               </div>
             ))}
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={() => navigate({ to: "/partner/support" })}>
               Submit a request
             </Button>
           </div>

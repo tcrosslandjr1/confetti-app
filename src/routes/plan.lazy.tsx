@@ -1,11 +1,34 @@
 import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CalendarPlus, Loader2, Sparkles, MapPin } from "lucide-react";
+import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { logAccessDenial } from "@/lib/access-denials";
 import { OCCASIONS } from "@/lib/occasions";
-import { buildAndSaveItinerary } from "@/lib/itineraries";
+import { createSkeletonItinerary, populateItinerary } from "@/lib/itineraries";
+
+/* ── Rotating progress messages ─────────────────────────────── */
+const PROGRESS_MSGS = [
+  "Scouting the best spots in town...",
+  "Checking real reviews & ratings...",
+  "Mapping out your perfect route...",
+  "Verifying hours & availability...",
+  "Picking hidden gems just for you...",
+  "Syncing with your taste profile...",
+  "Calculating timing between stops...",
+  "Almost there — polishing your day...",
+];
+
+function useRotatingMessage(active: boolean, intervalMs = 2800) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    if (!active) { setIdx(0); return; }
+    const id = setInterval(() => setIdx((i) => (i + 1) % PROGRESS_MSGS.length), intervalMs);
+    return () => clearInterval(id);
+  }, [active, intervalMs]);
+  return PROGRESS_MSGS[idx];
+}
 
 export const Route = createLazyFileRoute("/plan")({
   component: PlanPage,
@@ -31,6 +54,18 @@ function PlanPage() {
     const [err, setErr] = useState<string | null>(null);
     const [locating, setLocating] = useState(false);
     const [locErr, setLocErr] = useState<string | null>(null);
+    const progressMsg = useRotatingMessage(busy);
+
+    /* ── Pre-load heavy modules on mount so submit is faster ── */
+    const preloaded = useRef(false);
+    useEffect(() => {
+        if (preloaded.current) return;
+        preloaded.current = true;
+        // Fire-and-forget — warm the dynamic import cache
+        import("@/lib/taste").catch(() => {});
+        import("@/lib/cities").catch(() => {});
+    }, []);
+
     const detectLocation = () => {
         setLocErr(null);
         if (typeof navigator === "undefined" || !navigator.geolocation) {
@@ -129,8 +164,7 @@ function PlanPage() {
                 titles.push(customText);
                 taglines.push(customText);
             }
-            console.log("[plan] calling buildAndSaveItinerary…");
-            const { id } = await buildAndSaveItinerary({
+            const buildPayload = {
                 occasion: titles.join(" + "),
                 vibe: taglines.join(" · "),
                 occasionSlug: selected[0]?.slug ?? "spontaneous",
@@ -142,9 +176,19 @@ function PlanPage() {
                 budget,
                 notes: notes || undefined,
                 transportMode,
-            });
-            console.log("[plan] itinerary built", id);
+            };
+
+            // Phase 1: create skeleton row instantly → navigate
+            console.log("[plan] creating skeleton itinerary…");
+            const { id } = await createSkeletonItinerary(buildPayload);
+            console.log("[plan] skeleton created", id, "— navigating now");
             nav({ to: "/trips/$id", params: { id } });
+
+            // Phase 2: populate in background (non-blocking)
+            populateItinerary(id, buildPayload).catch((err) => {
+              console.error("[plan] background populate failed", err);
+              toast.error((err as Error).message ?? "Failed to build your day — try again.");
+            });
         }
         catch (err) {
             console.error("[plan] submit failed", err);
@@ -274,12 +318,18 @@ function PlanPage() {
 
           {err && (<p className="rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{err}</p>)}
 
-          <button type="submit" disabled={busy} className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-pop transition-pop hover:scale-[1.02] disabled:opacity-60">
+          <button type="submit" disabled={busy} className="relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-pop transition-pop hover:scale-[1.02] disabled:opacity-60">
             {busy ? (<>
-                <Loader2 className="h-4 w-4 animate-spin"/> Building your day...
+                <Loader2 className="h-4 w-4 animate-spin"/>
+                <span key={progressMsg} className="animate-fade-in">{progressMsg}</span>
               </>) : (<>
                 <CalendarPlus className="h-4 w-4"/> Build my day
               </>)}
+            {busy && (
+              <span className="absolute bottom-0 left-0 h-0.5 w-full">
+                <span className="block h-full animate-progress-bar rounded-full bg-primary-foreground/40" />
+              </span>
+            )}
           </button>
         </form>
       </div>

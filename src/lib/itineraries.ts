@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { awardXP } from "@/lib/gamification";
 
 export type Stop = {
   id?: string;
@@ -178,7 +179,116 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
   const { error: stopsErr } = await supabase.from("itinerary_stops").insert(stops);
   if (stopsErr) throw new Error(stopsErr.message);
 
+  // Award XP for creating an itinerary
+  awardXP(user.id, "create_itinerary");
+
   return { id: ins.id };
+}
+
+/* ── Two-phase build: navigate early, populate in background ── */
+
+/**
+ * Phase 1: Insert a skeleton itinerary row instantly and return its ID.
+ * The caller navigates to /trips/:id immediately while Phase 2 runs.
+ */
+export async function createSkeletonItinerary(payload: BuildPayload): Promise<{ id: string }> {
+  const { data: userRes } = await supabase.auth.getUser();
+  const user = userRes.user;
+  if (!user) throw new Error("Sign in required to save itineraries.");
+
+  const { data: ins, error: insErr } = await supabase
+    .from("itineraries")
+    .insert({
+      user_id: user.id,
+      title: payload.occasion || "Building your day…",
+      occasion_slug: payload.occasionSlug ?? null,
+      vibe: payload.vibe ?? null,
+      summary: null,
+      date: payload.date ?? null,
+      start_time: payload.startTime ? `${payload.startTime}:00` : null,
+      city: payload.city ?? null,
+      est_total_cost: null,
+      source: "building" as string,
+      transport_mode: payload.transportMode ?? "auto",
+    })
+    .select("id")
+    .single();
+  if (insErr || !ins) throw new Error(insErr?.message ?? "Failed to create plan");
+  return { id: ins.id };
+}
+
+/**
+ * Phase 2: Call the edge function, verify venues, insert stops,
+ * then update the itinerary row with real data.
+ * Returns true on success, throws on failure.
+ */
+export async function populateItinerary(
+  itineraryId: string,
+  payload: BuildPayload,
+): Promise<boolean> {
+  const { loadPrefs, tasteSummary } = await import("@/lib/taste");
+  const prefs = await loadPrefs();
+
+  const { getSelectedCity } = await import("@/lib/cities");
+  const sel = getSelectedCity();
+  const enriched: BuildPayload = {
+    ...payload,
+    city: payload.city ?? sel?.name,
+    region: payload.region ?? sel?.region,
+    lat: payload.lat ?? sel?.lat ?? null,
+    lng: payload.lng ?? sel?.lng ?? null,
+  };
+
+  const { data, error } = await supabase.functions.invoke("build-itinerary", {
+    body: { ...enriched, tasteSummary: tasteSummary(prefs) },
+  });
+  if (error) throw new Error(error.message);
+  const it = data?.itinerary as AiItinerary & { _unverified?: boolean };
+  if (!it?.stops?.length) {
+    // Clean up the skeleton row on failure
+    await supabase.from("itineraries").delete().eq("id", itineraryId);
+    throw new Error(
+      "Couldn't verify any real venues for this plan in your selected city. Try a different vibe or change your city.",
+    );
+  }
+
+  // Update itinerary with real data
+  const { error: updErr } = await supabase
+    .from("itineraries")
+    .update({
+      title: it.title,
+      summary: it.summary,
+      est_total_cost: it.estTotalCost,
+      source: payload.seedIdea ? "card" : "planner",
+    })
+    .eq("id", itineraryId);
+  if (updErr) throw new Error(updErr.message);
+
+  // Insert stops
+  const stops = it.stops.map((s, idx) => ({
+    itinerary_id: itineraryId,
+    position: idx,
+    name: s.name,
+    category: s.category,
+    description: s.description,
+    address: s.address,
+    start_time: s.startTime ? `${s.startTime}:00` : null,
+    duration_minutes: s.durationMinutes,
+    est_cost: s.estCost,
+    what_to_do: s.whatToDo,
+    booking_url: s.bookingUrl,
+    booking_provider: s.bookingProvider,
+    review_snippets: s.reviewSnippets ?? [],
+    parking: s.parking ?? null,
+    tips: s.tips ?? [],
+    travel_from_prev: idx === 0 ? null : (s.travelFromPrev ?? null),
+    dress_code: s.dressCode ?? null,
+  }));
+  const { error: stopsErr } = await supabase.from("itinerary_stops").insert(stops);
+  if (stopsErr) throw new Error(stopsErr.message);
+
+  emitItineraryChanged();
+  return true;
 }
 
 export async function listItineraries(): Promise<Itinerary[]> {

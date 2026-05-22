@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Fragment } from "react";
 import { useState } from "react";
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -46,6 +47,7 @@ function statusFor(d: number, h: number): Status {
 }
 
 function CalendarPage() {
+  const navigate = useNavigate();
   const [view, setView] = useState<"day" | "week" | "month">("week");
 
   return (
@@ -76,11 +78,11 @@ function CalendarPage() {
       <Card className="p-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" onClick={() => navigate({ to: "/partner/calendar" })}>
               <ChevronLeft className="h-4 w-4" />
             </Button>
             <div className="font-medium">May 19 — May 25, 2026</div>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" onClick={() => navigate({ to: "/partner/calendar" })}>
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
@@ -111,7 +113,8 @@ function CalendarPage() {
                     <button
                       key={`${di}-${hi}`}
                       className={`h-10 rounded border transition-colors ${STATUS_COLOR[s]}`}
-                      title={`${DAYS[di]} ${HOURS[hi]} — ${s}`}
+                      title={`${DAYS[di]} ${HOURS[hi]} — ${s} · Slot editor launching soon`}
+                      onClick={() => {}}
                     />
                   );
                 })}
@@ -189,7 +192,7 @@ function BlockDialog() {
               </SelectContent>
             </Select>
           </div>
-          <Button className="w-full">Create block</Button>
+          <Button className="w-full" onClick={() => {}}>Create block</Button>
         </div>
       </DialogContent>
     </Dialog>

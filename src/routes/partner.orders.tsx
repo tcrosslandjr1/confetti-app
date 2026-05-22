@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -85,6 +85,7 @@ const ORDERS: Array<{
 ];
 
 function OrdersPage() {
+  const navigate = useNavigate();
   const [tab, setTab] = useState<"list" | "kds">("list");
 
   return (
@@ -139,7 +140,7 @@ function OrdersPage() {
                     </TableCell>
                     <TableCell className="text-muted-foreground text-xs">{o.link || "—"}</TableCell>
                     <TableCell className="text-right">
-                      <Button size="sm" variant="ghost">
+                      <Button size="sm" variant="ghost" onClick={() => navigate({ to: "/partner/orders" })}>
                         Advance <ChevronRight className="h-3 w-3 ml-1" />
                       </Button>
                     </TableCell>
@@ -168,7 +169,7 @@ function OrdersPage() {
                   <div className="mt-3 text-base leading-snug flex-1">{o.items}</div>
                   <div className="mt-3 font-semibold">{o.total}</div>
                   {next && (
-                    <Button size="lg" className="mt-3 w-full text-base">
+                    <Button size="lg" className="mt-3 w-full text-base" onClick={() => navigate({ to: "/partner/orders" })}>
                       Mark {next}
                     </Button>
                   )}

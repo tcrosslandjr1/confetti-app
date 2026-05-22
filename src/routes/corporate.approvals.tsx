@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/corporate/approvals")({
   component: CorporateApprovalsPage,
@@ -12,6 +13,20 @@ export const Route = createFileRoute("/corporate/approvals")({
 function CorporateApprovalsPage() {
   const { data: company } = useActiveCorporateCompany();
   const companyId = company?.id;
+  const queryClient = useQueryClient();
+
+  const updateStatus = async (outingId: string, status: string) => {
+    const { error } = await supabase
+      .from("corporate_outings")
+      .update({ status })
+      .eq("id", outingId);
+    if (error) {
+      toast.error("Failed to update outing");
+      return;
+    }
+    toast.success(`Outing ${status === "approved" ? "approved" : status === "rejected" ? "rejected" : "sent back for changes"}`);
+    queryClient.invalidateQueries({ queryKey: ["corporate", "approvals", companyId] });
+  };
 
   const { data: outings } = useQuery({
     enabled: !!companyId,
@@ -51,13 +66,13 @@ function CorporateApprovalsPage() {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => updateStatus(o.id, "changes_requested")}>
                     Request changes
                   </Button>
-                  <Button variant="destructive" size="sm">
+                  <Button variant="destructive" size="sm" onClick={() => updateStatus(o.id, "rejected")}>
                     Reject
                   </Button>
-                  <Button size="sm">Approve</Button>
+                  <Button size="sm" onClick={() => updateStatus(o.id, "approved")}>Approve</Button>
                 </div>
               </li>
             ))}

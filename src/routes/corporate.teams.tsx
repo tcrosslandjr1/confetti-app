@@ -1,10 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Users } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
+
 
 export const Route = createFileRoute("/corporate/teams")({
   component: CorporateTeamsPage,
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/corporate/teams")({
 function CorporateTeamsPage() {
   const { data: company } = useActiveCorporateCompany();
   const companyId = company?.id;
+  const navigate = useNavigate();
 
   const { data: teams } = useQuery({
     enabled: !!companyId,
@@ -42,7 +44,7 @@ function CorporateTeamsPage() {
         eyebrow="People"
         title="Teams"
         description="Group employees, set per-team budgets, and review outing history."
-        actions={<Button>New team</Button>}
+        actions={<Button disabled title="Team creation launching soon" variant="outline" className="opacity-60 cursor-not-allowed">New team <span className="ml-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Soon</span></Button>}
       />
       {(!teams || teams.length === 0) && (
         <Card className="p-8 text-center text-sm text-muted-foreground">No teams yet.</Card>
@@ -62,10 +64,10 @@ function CorporateTeamsPage() {
             </div>
             {t.description && <p className="mt-3 text-sm text-muted-foreground">{t.description}</p>}
             <div className="mt-4 flex gap-2">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={() => navigate({ to: "/corporate/settings" })}>
                 Manage
               </Button>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/corporate/bookings" })}>
                 History
               </Button>
             </div>

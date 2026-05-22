@@ -86,6 +86,7 @@ export function itineraryToActiveLoop(
     done: !!s.completed_at,
     checkedInAt: s.completed_at ?? undefined,
     category: s.category,
+    dressCode: s.dress_code ?? undefined,
   }));
 
   return {

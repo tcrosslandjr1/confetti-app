@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -43,6 +43,7 @@ const PROMOS = [
 ];
 
 function PromotionsPage() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -52,7 +53,7 @@ function PromotionsPage() {
             Run Confetti-powered promos that drive bookings.
           </p>
         </div>
-        <Button>
+        <Button onClick={() => navigate({ to: "/partner/promotions" })}>
           <Plus className="h-4 w-4 mr-1.5" />
           New promotion
         </Button>
@@ -99,7 +100,7 @@ function PromotionsPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Switch defaultChecked={p.active} />
-                  <Button variant="ghost" size="sm">
+                  <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/partner/promotions" })}>
                     Edit
                   </Button>
                 </div>
@@ -121,7 +122,7 @@ function PromotionsPage() {
               DJ shoutout. You absorb the cost; Confetti boosts your Score and visibility.
             </p>
             <div className="mt-3 flex items-center gap-3">
-              <Button>Set up a Moment</Button>
+              <Button onClick={() => navigate({ to: "/partner/promotions" })}>Set up a Moment</Button>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Switch /> Currently off
               </div>

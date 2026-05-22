@@ -3,15 +3,19 @@ import { useQuery } from "@tanstack/react-query";
 import { ChevronRight, Heart, Bookmark, Trophy, Sparkles, Settings, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
+import { xpToNextLevel, levelTitle } from "@/lib/gamification";
 import { MobileHeader } from "@/components/AppShell";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { NotificationBell } from "@/components/NotificationBell";
+import { usePageview, trackEngagement, trackCta } from "@/lib/analytics";
 
 export const Route = createFileRoute("/app/profile")({
   component: ProfilePage,
 });
 
 function ProfilePage() {
+  usePageview("app_profile", "/app/profile");
   const { user } = useAuth();
   const userId = user?.id;
 
@@ -70,7 +74,7 @@ function ProfilePage() {
 
   return (
     <div className="pb-6">
-      <MobileHeader eyebrow="Profile" title="You" />
+      <MobileHeader eyebrow="Profile" title="You" right={<NotificationBell userId={user?.id} />} />
 
       <section className="px-5">
         <Card className="flex items-center gap-4 p-5">
@@ -81,8 +85,21 @@ function ProfilePage() {
             <div className="truncate text-lg font-semibold">
               {profile?.display_name ?? user.email?.split("@")[0]}
             </div>
-            <div className="text-xs text-muted-foreground">
-              Level {profile?.level ?? 1} · {profile?.xp ?? 0} Confetti
+            <div className="text-xs font-medium text-primary">
+              {levelTitle(profile?.level ?? 1)}
+            </div>
+            <div className="mt-1.5 flex items-center gap-2">
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
+                <div
+                  className="h-full rounded-full bg-primary transition-all"
+                  style={{
+                    width: `${Math.min(100, ((profile?.xp ?? 0) / ((profile?.xp ?? 0) + xpToNextLevel(profile?.xp ?? 0))) * 100)}%`,
+                  }}
+                />
+              </div>
+              <span className="shrink-0 text-[10px] text-muted-foreground">
+                Lv {profile?.level ?? 1} · {profile?.xp ?? 0} XP
+              </span>
             </div>
           </div>
         </Card>
@@ -106,6 +123,7 @@ function ProfilePage() {
           variant="ghost"
           className="mt-4 w-full text-muted-foreground"
           onClick={async () => {
+            trackCta("sign_out");
             await supabase.auth.signOut();
             window.location.href = "/";
           }}
@@ -138,6 +156,7 @@ function Row({
   return (
     <Link
       to={to}
+      onClick={() => trackEngagement("profile_nav", { label })}
       className="flex items-center gap-3 border-b border-border px-4 py-3 last:border-b-0 hover:bg-muted/40"
     >
       <Icon className="size-4 text-primary" />

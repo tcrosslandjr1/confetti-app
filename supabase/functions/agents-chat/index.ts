@@ -5,11 +5,8 @@
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { getCorsHeaders } from "../_shared/cors.ts";
+// Dynamic CORS — call getCorsHeaders(req) per-request for origin checking
 
 type Msg = { role: "user" | "assistant" | "tool"; content: string; tool_call_id?: string };
 type Body = { targetAgentId?: string; messages: { role: "user" | "assistant"; content: string }[] };
@@ -297,8 +294,9 @@ async function analyticsQuery(sql: string) {
 }
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
-  if (req.method !== "POST") return new Response("Method not allowed", { status: 405, headers: corsHeaders });
+  const cors = getCorsHeaders(req);
+  if (req.method === "OPTIONS") return new Response(null, { headers: cors });
+  if (req.method !== "POST") return new Response("Method not allowed", { status: 405, headers: cors });
 
   try {
     const authHeader = req.headers.get("Authorization");
@@ -421,9 +419,10 @@ Capabilities:
   }
 });
 
-function j(body: unknown, status = 200) {
+function j(body: unknown, status = 200, req?: Request) {
+  const hdrs = req ? getCorsHeaders(req) : getCorsHeaders();
   return new Response(JSON.stringify(body), {
     status,
-    headers: { ...corsHeaders, "Content-Type": "application/json" },
+    headers: { ...hdrs, "Content-Type": "application/json" },
   });
 }

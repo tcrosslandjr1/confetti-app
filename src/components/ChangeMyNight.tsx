@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
+import { useNavigate } from "@tanstack/react-router";
 import { Sparkles, Loader2, Wand2 } from "lucide-react";
 import { toast } from "sonner";
-import { generatePlan } from "@/lib/generate-plan.functions";
-import { getActiveLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import { getActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import { buildAndSaveItinerary, type BuildPayload } from "@/lib/itineraries";
 
 const TWEAKS: { id: string; label: string; emoji: string; directive: string }[] = [
   {
@@ -56,7 +56,7 @@ const TWEAKS: { id: string; label: string; emoji: string; directive: string }[] 
  * active loop in place.
  */
 export function ChangeMyNight() {
-  const generate = useServerFn(generatePlan);
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
 
@@ -69,48 +69,21 @@ export function ChangeMyNight() {
     setBusy(tweakId);
     try {
       const params = loop.planParams ?? {};
-      const plan = await generate({
-        data: {
-          city: params.city ?? loop.city,
-          occasionId: params.occasionId,
-          occasionLabel: params.occasionLabel ?? loop.occasion,
-          vibeId: params.vibeId,
-          vibeLabel: params.vibeLabel ?? loop.vibe,
-          groupSize: params.groupSize ?? loop.groupSize,
-          date: params.date ?? loop.date,
-          startTime: params.startTime,
-          duration: params.duration,
-          tweakDirective: directive,
-        },
-      });
-      const next: ActiveLoop = {
-        ...loop,
-        experienceName: plan.experienceName,
-        experienceTagline: plan.experienceTagline,
-        blueprint: plan.blueprint,
-        estimatedSpend: plan.estimatedSpend,
-        fitScore: plan.fitScore,
-        guardrailNote: plan.guardrailNote,
-        bonusMove: plan.bonus,
-        boardingTime: plan.stops[0]?.time ?? loop.boardingTime,
-        stops: plan.stops.map((s) => ({
-          id: s.id,
-          name: s.name,
-          type: s.type,
-          time: s.time,
-          area: s.area,
-          venueId: s.venueId,
-          lat: s.lat,
-          lng: s.lng,
-          rationale: s.rationale,
-          slot: s.slot,
-        })),
-        // Reset booking + check-in state — it's a different night now.
-        booking: undefined,
+      const payload: BuildPayload = {
+        occasion: params.occasionLabel ?? loop.occasion ?? "Night Out",
+        vibe: params.vibeLabel ?? loop.vibe,
+        city: params.city ?? loop.city,
+        date: params.date ?? loop.date,
+        startTime: params.startTime,
+        durationHours: params.duration ? parseInt(String(params.duration)) || 3 : 3,
+        notes: directive,
+        transportMode: "auto",
       };
-      setActiveLoop(next);
-      toast.success(`Rerouted: ${plan.experienceName}`);
+
+      const { id } = await buildAndSaveItinerary(payload);
+      toast.success("Rerouted your night!");
       setOpen(false);
+      navigate({ to: "/trips/$id", params: { id } });
     } catch (err) {
       console.error("[ChangeMyNight] reroute failed", err);
       toast.error("Couldn't reroute the night. Try again.");

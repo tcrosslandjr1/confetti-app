@@ -12,7 +12,7 @@ import { AuthProvider } from "@/lib/auth-context";
 import { Toaster } from "@/components/ui/sonner";
 import { WizardProvider } from "@/components/wizard/wizard-context";
 import { preloadFallbackImages } from "@/lib/venue-images";
-import { installErrorTracking } from "@/lib/analytics";
+import { installErrorTracking, RouteAnalytics } from "@/lib/analytics";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { CustomerOnly } from "@/components/CustomerOnly";
 
@@ -252,6 +252,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <RouteAnalytics />
         <Suspense fallback={null}>
           <MapProvider>
             <WizardProvider>

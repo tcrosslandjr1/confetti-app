@@ -1,5 +1,4 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { requireBusinessOwner } from "@/lib/business-guard";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
@@ -19,7 +18,8 @@ import { getStripeEnvironment } from "@/lib/stripe-env";
 
 export const Route = createFileRoute("/business/payouts")({
   beforeLoad: async () => {
-    await requireBusinessOwner();
+    const { requireBusinessAccess } = await import("@/lib/business-guards");
+    await requireBusinessAccess();
   },
   component: VendorPayoutsPage,
   validateSearch: (s: Record<string, unknown>): { onboarded?: boolean } => ({

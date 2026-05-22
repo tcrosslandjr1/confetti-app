@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -119,6 +119,7 @@ const ROWS: Array<{
 ];
 
 function ReservationsPage() {
+  const navigate = useNavigate();
   const [selected, setSelected] = useState<string[]>([]);
   const toggle = (id: string) =>
     setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
@@ -134,11 +135,11 @@ function ReservationsPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline">
+          <Button variant="outline" onClick={() => navigate({ to: "/partner/reservations" })}>
             <Download className="h-4 w-4 mr-1.5" />
             Export CSV
           </Button>
-          <Button>Confirm all pending ({pendingCount})</Button>
+          <Button onClick={() => navigate({ to: "/partner/reservations" })}>Confirm all pending ({pendingCount})</Button>
         </div>
       </div>
 
@@ -220,15 +221,15 @@ function ReservationsPage() {
                   <TableCell className="text-right">
                     {r.status === "Pending" ? (
                       <div className="flex gap-1 justify-end">
-                        <Button size="sm" variant="default">
+                        <Button size="sm" variant="default" onClick={() => navigate({ to: "/partner/reservations" })}>
                           Confirm
                         </Button>
-                        <Button size="sm" variant="ghost">
+                        <Button size="sm" variant="ghost" onClick={() => navigate({ to: "/partner/reservations" })}>
                           Decline
                         </Button>
                       </div>
                     ) : (
-                      <Button size="sm" variant="ghost">
+                      <Button size="sm" variant="ghost" onClick={() => navigate({ to: "/partner/reservations" })}>
                         Details
                       </Button>
                     )}

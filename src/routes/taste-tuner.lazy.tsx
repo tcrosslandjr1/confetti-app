@@ -1,7 +1,10 @@
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
-import { useState, useRef } from "react";
-import { Heart, X, Sparkles } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Heart, X, Sparkles, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { saveTasteProfile, type TasteProfile } from "@/lib/taste";
+import { awardXP } from "@/lib/gamification";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createLazyFileRoute("/taste-tuner")({
   component: TasteTuner,
@@ -85,17 +88,74 @@ function TasteTuner() {
     const done = idx >= CARDS.length;
     const likes = results.filter((r) => r === "like").length;
     const passes = results.filter((r) => r === "pass").length;
+    const [saving, setSaving] = useState(false);
+    const [saved, setSaved] = useState(false);
+
+    useEffect(() => {
+        if (!done || saved || saving) return;
+        const persist = async () => {
+            setSaving(true);
+            try {
+                const likedCards = CARDS.filter((_, i) => results[i] === "like");
+                const allTags = likedCards.flatMap((c) => c.tags.map((t) => t.toLowerCase()));
+                const uniqueTags = [...new Set(allTags)];
+
+                // Derive energy level from liked cards
+                const highEnergyTags = ["nightlife", "dance", "high energy"];
+                const chillTags = ["casual", "intimate", "brunch", "outdoor"];
+                const hasHigh = uniqueTags.some((t) => highEnergyTags.includes(t));
+                const hasChill = uniqueTags.some((t) => chillTags.includes(t));
+                const energy: TasteProfile["energy"] = hasHigh && !hasChill
+                    ? "high_energy"
+                    : hasChill && !hasHigh
+                        ? "chill"
+                        : "balanced";
+
+                // Extract music taste
+                const musicTags = ["jazz", "live music", "dance"];
+                const music_taste = uniqueTags.filter((t) => musicTags.includes(t));
+
+                // Food/drink loves
+                const loveTags = ["fine dining", "cocktails", "brunch", "mimosas", "foodie", "asian", "ramen", "wine"];
+                const loves = uniqueTags.filter((t) => loveTags.includes(t));
+
+                const profile: TasteProfile = {
+                    energy,
+                    scene_keywords: uniqueTags,
+                    music_taste: music_taste.length ? music_taste : undefined,
+                    loves: loves.length ? loves : undefined,
+                };
+
+                await saveTasteProfile(profile);
+                // Award XP for completing taste tuner
+                const { data: u } = await supabase.auth.getUser();
+                if (u.user) {
+                  awardXP(u.user.id, "taste_tuner_complete");
+                }
+                setSaved(true);
+            } catch (err) {
+                console.error("Failed to save taste profile:", err);
+                setSaved(true); // Still show completion so user isn't stuck
+            } finally {
+                setSaving(false);
+            }
+        };
+        void persist();
+    }, [done, saved, saving, results]);
+
     if (done) {
         return (<div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-md flex-col items-center justify-center gap-6 p-6 text-center">
         <div className="grid h-24 w-24 place-items-center rounded-full bg-gradient-vibe text-primary-foreground">
-          <Sparkles className="h-12 w-12"/>
+          {saving ? <Loader2 className="h-12 w-12 animate-spin"/> : <Sparkles className="h-12 w-12"/>}
         </div>
-        <h1 className="font-display text-3xl font-bold">Taste profile updated!</h1>
+        <h1 className="font-display text-3xl font-bold">
+          {saving ? "Saving your vibe..." : "Taste profile updated!"}
+        </h1>
         <p className="text-muted-foreground">
           {likes} liked · {passes} passed
         </p>
         <Link to="/quick-generate" className="w-full">
-          <Button className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop">
+          <Button disabled={saving} className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop">
             <Sparkles className="h-5 w-5"/> Generate a plan
           </Button>
         </Link>

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Fragment } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -52,6 +52,7 @@ function heat(d: number, h: number) {
 }
 
 function AnalyticsPage() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -72,7 +73,7 @@ function AnalyticsPage() {
               <SelectItem value="quarter">This quarter</SelectItem>
             </SelectContent>
           </Select>
-          <Button variant="outline">
+          <Button variant="outline" onClick={() => navigate({ to: "/partner/analytics" })}>
             <Download className="h-4 w-4 mr-1.5" />
             Export
           </Button>

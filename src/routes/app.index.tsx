@@ -1,16 +1,21 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Bell, Sparkles, MapPin, Flame } from "lucide-react";
+import { Sparkles, MapPin, Flame } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { MobileHeader } from "@/components/AppShell";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { NotificationBell } from "@/components/NotificationBell";
+import { useAuth } from "@/lib/auth-context";
+import { usePageview, trackEngagement } from "@/lib/analytics";
 
 export const Route = createFileRoute("/app/")({
   component: TonightFeedPage,
 });
 
 function TonightFeedPage() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const { data: venues } = useQuery({
     queryKey: ["app", "tonight", "venues"],
     queryFn: async () => {
@@ -50,19 +55,14 @@ function TonightFeedPage() {
     },
   });
 
+  usePageview("app_tonight", "/app");
+
   return (
     <div className="pb-6">
       <MobileHeader
         eyebrow="Tonight in your city"
         title="Looking good."
-        right={
-          <button
-            className="grid size-10 place-items-center rounded-full bg-muted text-foreground"
-            aria-label="Notifications"
-          >
-            <Bell className="size-4" />
-          </button>
-        }
+        right={<NotificationBell userId={user?.id} />}
       />
 
       <section className="px-5">
@@ -82,7 +82,7 @@ function TonightFeedPage() {
         <SectionHeading icon={Flame} title="Trending venues" />
         <div className="-mx-1 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2">
           {(venues ?? []).map((v) => (
-            <Link key={v.id} to="/venue/$id" params={{ id: v.id }} className="snap-start">
+            <Link key={v.id} to="/venue/$id" params={{ id: v.id }} className="snap-start" onClick={() => trackEngagement("venue_tap", { venueId: v.id, venueName: v.name, source: "tonight_trending" })}>
               <div className="h-44 w-40 overflow-hidden rounded-2xl border border-border bg-muted">
                 {(v.hero_image_url || v.image_url) && (
                   <img

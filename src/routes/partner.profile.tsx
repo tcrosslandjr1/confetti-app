@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -49,6 +50,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 function ProfilePage() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -59,8 +61,8 @@ function ProfilePage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline">Cancel</Button>
-          <Button>Save changes</Button>
+          <Button variant="outline" onClick={() => navigate({ to: "/partner" })}>Cancel</Button>
+          <Button onClick={() => navigate({ to: "/partner/profile" })}>Save changes</Button>
         </div>
       </div>
 
@@ -150,7 +152,7 @@ function ProfilePage() {
               <div key={d} className="flex items-center gap-3">
                 <div className="w-12 text-sm font-medium">{d}</div>
                 <Input className="flex-1" defaultValue="5:00 PM – 1:00 AM" />
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/partner/profile" })}>
                   + Split
                 </Button>
               </div>
@@ -175,13 +177,13 @@ function ProfilePage() {
                   className="aspect-square rounded-md bg-gradient-to-br from-orange-200 to-pink-200"
                 />
               ))}
-              <button className="aspect-square rounded-md border-2 border-dashed border-border grid place-items-center text-muted-foreground hover:bg-accent/30">
+              <button className="aspect-square rounded-md border-2 border-dashed border-border grid place-items-center text-muted-foreground hover:bg-accent/30" onClick={() => navigate({ to: "/partner/profile" })}>
                 <Upload className="h-5 w-5" />
               </button>
             </div>
           </Field>
           <Field label="Vibe video (15–30s loop)">
-            <Button variant="outline" className="w-full justify-start">
+            <Button variant="outline" className="w-full justify-start" onClick={() => navigate({ to: "/partner/profile" })}>
               <Video className="h-4 w-4 mr-2" />
               Upload vibe video
             </Button>

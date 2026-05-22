@@ -32,6 +32,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { requestUserLocation } from "@/lib/location";
 import { getActiveLocation, getSelectedCity } from "@/lib/cities";
 import { useAuth } from "@/lib/auth-context";
+import { awardXP } from "@/lib/gamification";
 import {
   Dialog,
   DialogContent,
@@ -635,6 +636,7 @@ export function BuildMyNightWizard() {
         return;
       }
       setBookedSlots((p) => ({ ...p, [key]: startsAt }));
+      awardXP(user.id, "booking");
       burst(window.innerWidth / 2, window.innerHeight / 3);
 
       // Continuously update peak hour + "your usual" venue from this reservation.
@@ -909,23 +911,55 @@ export function BuildMyNightWizard() {
     return () => clearTimeout(t);
   }, [open]);
 
-  // Loading text rotation
+  // Loading text rotation (animation only — step advance handled by the data effect below)
   useEffect(() => {
     if (step !== 6) return;
     setLoadingIdx(0);
     const interval = setInterval(() => setLoadingIdx((i) => i + 1), 700);
-    const done = setTimeout(() => setStep(7), 3600);
-    return () => {
-      clearInterval(interval);
-      clearTimeout(done);
-    };
+    return () => clearInterval(interval);
   }, [step]);
 
   // Build a real itinerary from Google Places using the user's location + selected vibes.
-  // Skips when a curated preset is in play.
+  // Controls the step 6→7 transition: waits for the API call to finish (with a minimum
+  // animation time so the loading screen doesn't flash), and a safety-net max timeout.
   useEffect(() => {
-    if (step !== 6 || (preset && preset.stops?.length)) return;
+    if (step !== 6) return;
+
+    // If a curated preset is active, skip the API call and advance after a short animation.
+    if (preset && preset.stops?.length) {
+      const t = setTimeout(() => setStep(7), 1800);
+      return () => clearTimeout(t);
+    }
+
     let cancelled = false;
+    const startedAt = Date.now();
+    const MIN_LOADING_MS = 2400; // keep the animation visible for at least this long
+    const MAX_LOADING_MS = 15000; // safety-net: force-advance after 15 s
+
+    /** Advance to step 7, respecting the minimum animation time. */
+    const advanceToResults = () => {
+      if (cancelled) return;
+      const remaining = MIN_LOADING_MS - (Date.now() - startedAt);
+      if (remaining <= 0) {
+        setStep(7);
+      } else {
+        setTimeout(() => {
+          if (!cancelled) setStep(7);
+        }, remaining);
+      }
+    };
+
+    // Safety-net timeout — if the edge function hangs, force-advance with an error.
+    const safetyTimer = setTimeout(() => {
+      if (!cancelled) {
+        cancelled = true;
+        setDynamicLoading(false);
+        setDynamicError({ city: null, reason: "error" });
+        toast.error("Venue search timed out. Showing sample picks instead.");
+        setStep(7);
+      }
+    }, MAX_LOADING_MS);
+
     (async () => {
       setDynamicLoading(true);
       setDynamicError(null);
@@ -975,11 +1009,15 @@ export function BuildMyNightWizard() {
           toast.error("Something went wrong fetching venues. Try again.");
         }
       } finally {
-        if (!cancelled) setDynamicLoading(false);
+        if (!cancelled) {
+          setDynamicLoading(false);
+          advanceToResults();
+        }
       }
     })();
     return () => {
       cancelled = true;
+      clearTimeout(safetyTimer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, variant]);
@@ -1100,7 +1138,10 @@ export function BuildMyNightWizard() {
         });
         if (error && !error.message.includes("duplicate")) {
           toast.error("Couldn't save favorite");
-        } else toast.success(`Saved ${s.venue} ★`);
+        } else {
+          toast.success(`Saved ${s.venue} ★`);
+          awardXP(user.id, "favorite_venue");
+        }
       }
     },
     [user, favorites],
@@ -1834,7 +1875,7 @@ export function BuildMyNightWizard() {
                 </span>
               </div>
 
-              {dynamicError && !preset && (!stops || stops.length === 0) && (
+              {dynamicError && !preset && !dynamicStops && (
                 <div
                   role="alert"
                   className="mt-4 rounded-2xl border-2 border-ink bg-coral/15 p-4 shadow-brut"
@@ -1865,9 +1906,10 @@ export function BuildMyNightWizard() {
                           type="button"
                           onClick={() => {
                             setDynamicError(null);
-                            // re-trigger by toggling step
-                            setStep(6);
-                            setTimeout(() => setStep(7), 0);
+                            setDynamicStops(null);
+                            // Briefly leave step 6 so the useEffect re-triggers on re-entry
+                            setStep(5);
+                            setTimeout(() => setStep(6), 50);
                           }}
                           className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
                         >

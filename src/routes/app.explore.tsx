@@ -6,6 +6,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { MobileHeader } from "@/components/AppShell";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { NotificationBell } from "@/components/NotificationBell";
+import { useAuth } from "@/lib/auth-context";
+import { usePageview, trackEngagement } from "@/lib/analytics";
 
 export const Route = createFileRoute("/app/explore")({
   component: ExplorePage,
@@ -21,6 +24,8 @@ const CATEGORIES = [
 ];
 
 function ExplorePage() {
+  const { user } = useAuth();
+  usePageview("app_explore", "/app/explore");
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string | null>(null);
   const [mapView, setMapView] = useState(false);
@@ -41,7 +46,7 @@ function ExplorePage() {
 
   return (
     <div className="pb-6">
-      <MobileHeader eyebrow="Explore" title="Find your spot" />
+      <MobileHeader eyebrow="Explore" title="Find your spot" right={<NotificationBell userId={user?.id} />} />
 
       <div className="px-5">
         <div className="relative">

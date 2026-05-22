@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -44,6 +44,7 @@ const PAYOUTS = [
 ];
 
 function BillingPage() {
+  const navigate = useNavigate();
   const current = 3;
 
   return (
@@ -116,7 +117,7 @@ function BillingPage() {
               <span className="font-medium">May 24</span>
             </div>
           </div>
-          <Button variant="outline" className="mt-4">
+          <Button variant="outline" className="mt-4" onClick={() => navigate({ to: "/partner/billing" })}>
             Update bank account
           </Button>
 
@@ -139,7 +140,7 @@ function BillingPage() {
                     <Badge variant="secondary">{p.status}</Badge>
                   </TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="sm">
+                    <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/partner/billing" })}>
                       PDF
                     </Button>
                   </TableCell>
@@ -160,7 +161,7 @@ function BillingPage() {
                   value="cf_live_••••••••••••••••3a72"
                   className="font-mono text-xs"
                 />
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" onClick={() => navigator.clipboard.writeText("cf_live_3a72")}>
                   <Copy className="h-4 w-4" />
                 </Button>
               </div>
@@ -174,9 +175,11 @@ function BillingPage() {
                 <div className="text-sm font-medium">POS: Toast</div>
                 <div className="text-xs text-muted-foreground">Connected · last sync 2m ago</div>
               </div>
-              <Button variant="outline" size="sm">
-                <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
-                Manage
+              <Button asChild variant="outline" size="sm">
+                <Link to="/partner/api">
+                  <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
+                  Manage
+                </Link>
               </Button>
             </div>
             <div className="text-xs text-muted-foreground flex justify-between">

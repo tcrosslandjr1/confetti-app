@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
 
+
 export const Route = createFileRoute("/corporate/policies")({
   component: CorporatePoliciesPage,
 });
@@ -33,7 +34,7 @@ function CorporatePoliciesPage() {
         eyebrow="Governance"
         title="Policies"
         description="Budget rules, alcohol rules, allowed categories, and approval thresholds."
-        actions={<Button>New policy</Button>}
+        actions={<Button disabled title="Policy editor launching soon" variant="outline" className="opacity-60 cursor-not-allowed">New policy <span className="ml-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Soon</span></Button>}
       />
       {(!policies || policies.length === 0) && (
         <Card className="p-8 text-center text-sm text-muted-foreground">
@@ -52,7 +53,7 @@ function CorporatePoliciesPage() {
                   </Badge>
                 )}
               </div>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" disabled title="Policy editor launching soon" className="opacity-60 cursor-not-allowed">
                 Edit
               </Button>
             </div>

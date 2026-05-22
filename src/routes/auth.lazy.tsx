@@ -1,7 +1,6 @@
 import { createLazyFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
 import {
   Sparkles,
   Loader2,
@@ -22,15 +21,12 @@ import {
   Gift,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { acceptAllCookiesSilently } from "@/components/CookieConsent";
+import { trackConversion, usePageview } from "@/lib/analytics";
 
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
-import { requestUserLocation } from "@/lib/location";
 import { getMyAdvertiser } from "@/lib/ads";
-import { decidePostAuthDestination } from "@/lib/auth-redirect";
-void getMyAdvertiser; // kept for backwards compat; routing uses decidePostAuthDestination
 import { getTonightsPick, liveSeatsRemaining, formatEventDate } from "@/lib/events";
 import { getSelectedCity, subscribeSelectedCity } from "@/lib/cities";
 
@@ -39,6 +35,7 @@ export const Route = createLazyFileRoute("/auth")({
 });
 
 function AuthPage() {
+  usePageview("auth", "/auth");
   const navigate = useNavigate();
   const { user } = useAuth();
   const { redirect: redirectTo, mode: initialMode } = Route.useSearch();
@@ -54,11 +51,83 @@ function AuthPage() {
   const [notice, setNotice] = useState<string | null>(null);
   const [oauthBusy, setOauthBusy] = useState<"google" | "apple" | null>(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [locationBlocked, setLocationBlocked] = useState(false);
-  const [allowWithoutLocation, setAllowWithoutLocation] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [seedMsg, setSeedMsg] = useState<string | null>(null);
+
+  // Username availability check (debounced)
+  const [username, setUsername] = useState("");
+  const [usernameStatus, setUsernameStatus] = useState<"idle" | "checking" | "available" | "taken" | "invalid">("idle");
+  const usernameTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Referral code validation (debounced)
+  const [refStatus, setRefStatus] = useState<"idle" | "checking" | "valid" | "invalid">("idle");
+  const [refReferrer, setRefReferrer] = useState<string | null>(null);
+  const refTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const seedFn = useServerFn(seedDemoAccounts);
+
+  // Debounced username availability check
+  const checkUsername = (value: string) => {
+    const normalized = value.trim().replace(/\s+/g, "_").replace(/[^\w]/g, "").slice(0, 24);
+    setUsername(normalized);
+
+    if (usernameTimerRef.current) clearTimeout(usernameTimerRef.current);
+
+    if (normalized.length < 3) {
+      setUsernameStatus(normalized.length === 0 ? "idle" : "invalid");
+      return;
+    }
+    if (!/^[A-Za-z0-9_]{3,24}$/.test(normalized)) {
+      setUsernameStatus("invalid");
+      return;
+    }
+
+    setUsernameStatus("checking");
+    usernameTimerRef.current = setTimeout(async () => {
+      try {
+        const { data, error: rpcErr } = await (supabase.rpc as any)("check_username_available", {
+          desired_username: normalized,
+        });
+        if (rpcErr) throw rpcErr;
+        setUsernameStatus(data ? "available" : "taken");
+      } catch {
+        setUsernameStatus("idle");
+      }
+    }, 400);
+  };
+
+  // Debounced referral code validation
+  const checkRefCode = (value: string) => {
+    const upper = value.toUpperCase();
+    setRefCode(upper);
+    setRefReferrer(null);
+
+    if (refTimerRef.current) clearTimeout(refTimerRef.current);
+
+    if (!upper.trim()) {
+      setRefStatus("idle");
+      return;
+    }
+
+    setRefStatus("checking");
+    refTimerRef.current = setTimeout(async () => {
+      try {
+        const { data, error: rpcErr } = await (supabase.rpc as any)("check_referral_code", {
+          code_input: upper.trim(),
+        });
+        if (rpcErr) throw rpcErr;
+        const result = data as { valid: boolean; referrer?: string; reason?: string };
+        if (result.valid) {
+          setRefStatus("valid");
+          setRefReferrer(result.referrer ?? null);
+        } else {
+          setRefStatus("invalid");
+        }
+      } catch {
+        setRefStatus("idle");
+      }
+    }, 500);
+  };
 
   // "Tonight's pick" preview — derives from the EVENTS registry + selected city.
   // We re-resolve the pick when the user changes city, and tick a live
@@ -211,22 +280,19 @@ function AuthPage() {
     setError(null);
     setOauthBusy(provider);
     try {
-      const result = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
-        extraParams:
-          provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
+      const { data, error: oauthError } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
+          queryParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
+        },
       });
-      if (result.error) {
-        setError(explainOAuthError(provider, result.error.message ?? String(result.error)));
+      if (oauthError) {
+        setError(explainOAuthError(provider, oauthError.message));
         setOauthBusy(null);
         return;
       }
-      if (result.redirected) {
-        // Browser is redirecting to the provider — leave busy spinner on.
-        return;
-      }
-      // Session already set by the broker — navigate to the intended destination.
-      navigate({ to: safeRedirectTo });
+      // Supabase redirects the browser to the provider — leave busy spinner on.
     } catch (e: any) {
       setError(explainOAuthError(provider, e?.message ?? String(e)));
       setOauthBusy(null);
@@ -252,12 +318,38 @@ function AuthPage() {
     }
   };
 
-  // After sign-in, route business owners to their business dashboard when the
-  // caller didn't request a specific (non-generic) destination. Falls back to
-  // redirectTo (defaults to "/") for everyone else.
+  // After sign-in, route business owners to their advertiser portal when the
+  // caller didn't request a specific destination. Falls back to redirectTo
+  // (defaults to "/") for everyone else.
   async function routeAfterAuth(uid: string) {
-    const { to } = await decidePostAuthDestination(uid, redirectTo);
-    navigate({ to: to as never });
+    if (redirectTo && redirectTo !== "/") {
+      navigate({ to: redirectTo as never });
+      return;
+    }
+    try {
+      const advertiser = await getMyAdvertiser(uid);
+      if (advertiser) {
+        navigate({ to: "/advertise/portal" });
+        return;
+      }
+    } catch {
+      // Ignore — fall through to default redirect.
+    }
+    // Check if user has completed taste onboarding
+    try {
+      const { data: prefs } = await supabase
+        .from("user_preferences")
+        .select("id")
+        .eq("user_id", uid)
+        .maybeSingle();
+      if (!prefs) {
+        navigate({ to: "/taste-tuner" as never });
+        return;
+      }
+    } catch {
+      // If check fails, continue to default route
+    }
+    navigate({ to: safeRedirectTo as never });
   }
 
   useEffect(() => {
@@ -272,11 +364,22 @@ function AuthPage() {
     setLoading(true);
     try {
       if (mode === "signup") {
+        // Block submission if username is taken or invalid
+        if (username && usernameStatus === "taken") {
+          setError("That username is already taken. Try another.");
+          return;
+        }
+        if (username && usernameStatus === "invalid") {
+          setError("Username must be 3-24 characters (letters, numbers, underscores).");
+          return;
+        }
+        // Block if referral code is explicitly invalid
+        if (refCode.trim() && refStatus === "invalid") {
+          setError("That referral code wasn't recognized. Double-check it or leave it blank.");
+          return;
+        }
         if (refCode.trim()) rememberReferralCode(refCode);
-        const loc = allowWithoutLocation
-          ? null
-          : await requestUserLocation({ enableHighAccuracy: false, timeout: 3500, maximumAge: 60_000 }).catch(() => null);
-        setLocationBlocked(!loc);
+        const normalizedUsername = username || (name || email.split("@")[0]).trim().replace(/\s+/g, "_").replace(/[^\w]/g, "").slice(0, 24);
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
@@ -284,17 +387,17 @@ function AuthPage() {
             emailRedirectTo: `${window.location.origin}/`,
             data: {
               display_name: name || email.split("@")[0],
-              ...(loc ? { signup_lat: loc.lat, signup_lng: loc.lng } : {}),
+              username: normalizedUsername,
             },
           },
         });
         if (error) throw error;
-        // Account exists — implicit consent to cookies + terms, no banner needed.
-        acceptAllCookiesSilently();
         if (data.session && data.user) {
+          trackConversion("signup", { method: "email" });
           await routeAfterAuth(data.user.id);
           return;
         }
+        trackConversion("signup", { method: "email", needsVerification: true });
         setNotice("Account created. Check your email to verify your account, then sign in.");
         setMode("signin");
         return;
@@ -304,9 +407,9 @@ function AuthPage() {
           password,
         });
         if (signErr) throw signErr;
-        // Refresh location opportunistically on sign-in too.
-        void requestUserLocation();
+        // Location is now deferred to first recommendation request.
         if (data.user) {
+          trackConversion("login", { method: "email" });
           await routeAfterAuth(data.user.id);
           return;
         }
@@ -857,19 +960,61 @@ function AuthPage() {
 
           <form onSubmit={onSubmit} className="space-y-3">
             {mode === "signup" && (
-              <div className="relative">
-                <UserIcon
-                  className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
-                  aria-hidden
-                />
-                <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
-                  required
-                  className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
-                />
-              </div>
+              <>
+                <div className="relative">
+                  <UserIcon
+                    className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                    aria-hidden
+                  />
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your name"
+                    required
+                    className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
+                  />
+                </div>
+                <div className="relative">
+                  <span className="pointer-events-none absolute inset-y-0 left-4 my-auto flex h-4 items-center text-xs font-bold text-ink/40">
+                    @
+                  </span>
+                  <input
+                    value={username}
+                    onChange={(e) => checkUsername(e.target.value)}
+                    placeholder="Pick a username"
+                    required
+                    maxLength={24}
+                    className={`w-full rounded-2xl border-2 bg-cream pl-9 pr-11 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus:ring-2 focus:ring-coral/40 ${
+                      usernameStatus === "available"
+                        ? "border-emerald-500"
+                        : usernameStatus === "taken" || usernameStatus === "invalid"
+                          ? "border-red-400"
+                          : "border-ink"
+                    }`}
+                  />
+                  <span className="pointer-events-none absolute inset-y-0 right-4 my-auto flex h-4 items-center">
+                    {usernameStatus === "checking" && (
+                      <Loader2 className="h-4 w-4 animate-spin text-ink/40" />
+                    )}
+                    {usernameStatus === "available" && (
+                      <Check className="h-4 w-4 text-emerald-500" />
+                    )}
+                    {(usernameStatus === "taken" || usernameStatus === "invalid") && (
+                      <span className="text-xs font-bold text-red-400">✕</span>
+                    )}
+                  </span>
+                  {usernameStatus === "taken" && (
+                    <p className="mt-1 ml-1 text-[10px] font-semibold text-red-400">
+                      That username is taken — try another
+                    </p>
+                  )}
+                  {usernameStatus === "invalid" && username.length > 0 && (
+                    <p className="mt-1 ml-1 text-[10px] font-semibold text-red-400">
+                      3-24 chars, letters/numbers/underscores only
+                    </p>
+                  )}
+                </div>
+              </>
             )}
             <div className="relative">
               <Mail
@@ -951,12 +1096,45 @@ function AuthPage() {
               </div>
             )}
             {mode === "signup" && (
-              <input
-                value={refCode}
-                onChange={(e) => setRefCode(e.target.value.toUpperCase())}
-                placeholder="Referral code (optional) — get $25 off your first booking"
-                className="w-full rounded-2xl border-2 border-ink/40 bg-cream/60 px-4 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-ink placeholder:text-ink/40 outline-none focus:border-ink focus:bg-cream focus:ring-2 focus:ring-coral/40 transition"
-              />
+              <div className="relative">
+                <Ticket
+                  className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                  aria-hidden
+                />
+                <input
+                  value={refCode}
+                  onChange={(e) => checkRefCode(e.target.value)}
+                  placeholder="Referral code (optional)"
+                  className={`w-full rounded-2xl border-2 bg-cream/60 pl-11 pr-11 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-ink placeholder:text-ink/40 outline-none transition focus:bg-cream focus:ring-2 focus:ring-coral/40 ${
+                    refStatus === "valid"
+                      ? "border-emerald-500"
+                      : refStatus === "invalid"
+                        ? "border-red-400"
+                        : "border-ink/40 focus:border-ink"
+                  }`}
+                />
+                <span className="pointer-events-none absolute inset-y-0 right-4 my-auto flex h-4 items-center">
+                  {refStatus === "checking" && (
+                    <Loader2 className="h-4 w-4 animate-spin text-ink/40" />
+                  )}
+                  {refStatus === "valid" && (
+                    <Check className="h-4 w-4 text-emerald-500" />
+                  )}
+                  {refStatus === "invalid" && (
+                    <span className="text-xs font-bold text-red-400">✕</span>
+                  )}
+                </span>
+                {refStatus === "valid" && refReferrer && (
+                  <p className="mt-1 ml-1 flex items-center gap-1 text-[10px] font-semibold text-emerald-600">
+                    <Gift className="h-3 w-3" /> Referred by {refReferrer} — $25 off your first booking!
+                  </p>
+                )}
+                {refStatus === "invalid" && (
+                  <p className="mt-1 ml-1 text-[10px] font-semibold text-red-400">
+                    Code not recognized — double-check it
+                  </p>
+                )}
+              </div>
             )}
             {error && (
               <div
@@ -980,20 +1158,6 @@ function AuthPage() {
                 <Check className="mt-0.5 h-4 w-4 text-coral" />
                 <p className="font-semibold">{notice}</p>
               </div>
-            )}
-            {mode === "signup" && locationBlocked && (
-              <label className="flex items-start gap-2 rounded-xl border-2 border-ink/30 bg-cream/60 p-3 text-xs text-ink/70">
-                <input
-                  type="checkbox"
-                  checked={allowWithoutLocation}
-                  onChange={(e) => setAllowWithoutLocation(e.target.checked)}
-                  className="mt-0.5 accent-coral"
-                />
-                <span>
-                  Continue without location. Recommendations won't be tailored to your area until
-                  you enable it later.
-                </span>
-              </label>
             )}
             <button
               disabled={loading}
@@ -1026,14 +1190,7 @@ function AuthPage() {
                 >
                   Data sharing terms
                 </Link>
-                ,{" "}
-                <Link
-                  to="/cookies"
-                  className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
-                >
-                  Cookie Policy
-                </Link>
-                , and consent to functional + analytics cookies — no more banner.
+                .
               </p>
             )}
           </form>

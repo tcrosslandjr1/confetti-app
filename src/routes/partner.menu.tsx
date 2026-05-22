@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -102,6 +102,7 @@ const MENU: Category[] = [
 ];
 
 function MenuPage() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState<string>("Brunch");
 
   return (
@@ -118,7 +119,7 @@ function MenuPage() {
             <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
             POS synced 2m ago
           </div>
-          <Button>
+          <Button onClick={() => navigate({ to: "/partner/menu" })}>
             <Plus className="h-4 w-4 mr-1.5" />
             Add category
           </Button>
@@ -172,13 +173,13 @@ function MenuPage() {
                         <span>{item.available ? "Available" : "86'd"}</span>
                         <Switch defaultChecked={item.available} />
                       </div>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/partner/menu" })}>
                         Edit
                       </Button>
                     </div>
                   ))}
                   <div className="px-5 py-3">
-                    <Button variant="ghost" size="sm">
+                    <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/partner/menu" })}>
                       <Plus className="h-4 w-4 mr-1.5" />
                       Add item
                     </Button>

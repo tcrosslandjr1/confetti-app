@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
@@ -38,6 +38,7 @@ function Row({
 }
 
 function OrderSettings() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -45,7 +46,7 @@ function OrderSettings() {
           <h1 className="text-2xl md:text-3xl font-semibold">Order-ahead settings</h1>
           <p className="text-muted-foreground text-sm mt-1">Pickup, pre-order, and menu sync.</p>
         </div>
-        <Button>Save changes</Button>
+        <Button onClick={() => navigate({ to: "/partner/order-settings" })}>Save changes</Button>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
@@ -111,8 +112,8 @@ function OrderSettings() {
             <span className="text-sm text-muted-foreground">2h ago</span>
           </Row>
           <Row label="Per-item availability (86)" hint="Manage in Menu Editor">
-            <Button variant="outline" size="sm">
-              Open
+            <Button asChild variant="outline" size="sm">
+              <Link to="/partner/menu">Open</Link>
             </Button>
           </Row>
           <Row label="Confetti price override">
@@ -123,7 +124,7 @@ function OrderSettings() {
             <AlertCircle className="h-4 w-4 text-amber-600 mt-0.5 shrink-0" />
             <div>
               3 items have price mismatches between Toast and Confetti.{" "}
-              <button className="underline">Review</button>
+              <button className="underline" onClick={() => navigate({ to: "/partner/menu" })}>Review</button>
             </div>
           </div>
         </Card>

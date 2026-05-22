@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   CalendarCheck,
   Clock,
@@ -54,6 +54,7 @@ const TIMELINE = [
 ];
 
 function PartnerHome() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-6">
       <div className="flex items-start justify-between flex-wrap gap-4">
@@ -138,13 +139,13 @@ function PartnerHome() {
         <Card className="p-5">
           <h2 className="font-semibold mb-4">Quick actions</h2>
           <div className="space-y-2">
-            <Button className="w-full justify-start" variant="default">
+            <Button className="w-full justify-start" variant="default" onClick={() => navigate({ to: "/partner/reservations" })}>
               <CheckCircle2 className="h-4 w-4 mr-2" /> Confirm all pending (4)
             </Button>
-            <Button className="w-full justify-start" variant="outline">
+            <Button className="w-full justify-start" variant="outline" onClick={() => navigate({ to: "/partner/calendar" })}>
               <Ban className="h-4 w-4 mr-2" /> Block a time slot
             </Button>
-            <Button className="w-full justify-start" variant="outline">
+            <Button className="w-full justify-start" variant="outline" onClick={() => navigate({ to: "/partner/menu" })}>
               <XCircle className="h-4 w-4 mr-2" /> Mark item unavailable
             </Button>
             <Button asChild className="w-full justify-start" variant="outline">

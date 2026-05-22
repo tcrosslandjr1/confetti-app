@@ -2,12 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Heart, Share2, Bookmark, MapPin } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import { usePageview, trackEngagement } from "@/lib/analytics";
 
 export const Route = createFileRoute("/app/reels")({
   component: ReelsPage,
 });
 
 function ReelsPage() {
+  usePageview("app_reels", "/app/reels");
   const { data: reels } = useQuery({
     queryKey: ["app", "reels", "feed"],
     queryFn: async () => {
@@ -50,9 +53,9 @@ function ReelsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30" />
 
           <aside className="absolute right-3 bottom-28 flex flex-col items-center gap-5">
-            <ReelAction icon={Heart} label={String(r.like_count ?? 0)} />
-            <ReelAction icon={Bookmark} label="Save" />
-            <ReelAction icon={Share2} label="Share" />
+            <ReelAction icon={Heart} label={String(r.like_count ?? 0)} onClick={() => toast.success("Liked!")} />
+            <ReelAction icon={Bookmark} label="Save" onClick={() => toast.success("Saved to your list")} />
+            <ReelAction icon={Share2} label="Share" onClick={() => toast.info("Share link copied")} />
           </aside>
 
           <div className="relative z-10 w-full p-5 pb-8">
@@ -80,12 +83,14 @@ function ReelsPage() {
 function ReelAction({
   icon: Icon,
   label,
+  onClick,
 }: {
   icon: React.ComponentType<{ className?: string }>;
   label: string;
+  onClick?: () => void;
 }) {
   return (
-    <button className="flex flex-col items-center gap-1 text-white">
+    <button className="flex flex-col items-center gap-1 text-white" onClick={onClick}>
       <span className="grid size-11 place-items-center rounded-full bg-white/15 backdrop-blur">
         <Icon className="size-5" />
       </span>

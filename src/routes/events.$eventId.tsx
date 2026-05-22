@@ -5,6 +5,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { formatEventDate, getEvent, EVENTS } from "@/lib/events";
 import { EventCard } from "@/components/EventCard";
 import { EventSaveActions } from "@/components/EventSaveActions";
+import { TicketTierSelector } from "@/components/TicketTierSelector";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/events/$eventId")({
   loader: ({ params }) => {
@@ -129,20 +131,7 @@ function EventDetail() {
             {/* Sticky ticket card */}
             <aside className="lg:sticky lg:top-24 lg:self-start">
               <div className="rounded-3xl bg-card p-6 shadow-pop">
-                <div className="flex items-baseline justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    From
-                  </span>
-                  <span className="font-display text-3xl font-bold">
-                    {event.price === 0 ? (
-                      <span className="text-gradient">Free</span>
-                    ) : (
-                      <>${event.price}</>
-                    )}
-                  </span>
-                </div>
-
-                <div className="mt-5 flex items-center gap-3 rounded-2xl bg-muted p-3">
+                <div className="mb-4 flex items-center gap-3 rounded-2xl bg-muted p-3">
                   <div className="flex h-14 w-14 flex-col items-center justify-center rounded-xl bg-background">
                     <span className="text-[10px] font-bold uppercase text-primary">{d.month}</span>
                     <span className="text-xl font-bold leading-none">{d.day}</span>
@@ -153,7 +142,42 @@ function EventDetail() {
                   </div>
                 </div>
 
-                <EventSaveActions event={event} />
+                <TicketTierSelector
+                  tiers={[
+                    {
+                      id: `${event.id}-ga`,
+                      name: "General Admission",
+                      description: "Standard entry with full access to the event",
+                      price: event.price,
+                      capacity: 200,
+                      sold: 142,
+                    },
+                    {
+                      id: `${event.id}-vip`,
+                      name: "VIP",
+                      description: "Priority entry, premium bar, reserved seating",
+                      price: event.price > 0 ? Math.round(event.price * 2) : 50,
+                      capacity: 50,
+                      sold: 38,
+                    },
+                    {
+                      id: `${event.id}-table`,
+                      name: "Table Service",
+                      description: "Private table for 4, bottle service included",
+                      price: event.price > 0 ? Math.round(event.price * 5) : 200,
+                      capacity: 10,
+                      sold: 7,
+                    },
+                  ]}
+                  onPurchase={(selections) => {
+                    const total = selections.reduce((sum, s) => sum + s.quantity, 0);
+                    toast.success(`${total} ticket${total !== 1 ? "s" : ""} reserved — redirecting to checkout`);
+                  }}
+                />
+
+                <div className="mt-4">
+                  <EventSaveActions event={event} />
+                </div>
 
                 <div className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
                   <Calendar className="h-3.5 w-3.5" />

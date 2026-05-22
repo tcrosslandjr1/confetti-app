@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   ExternalLink,
@@ -58,6 +58,7 @@ import {
 import { LateRescheduleFab } from "@/components/LateRescheduleFab";
 import { LiveElapsed } from "@/components/LiveElapsed";
 import { BoardingPass } from "@/components/BoardingPass";
+import { TripBuildingSkeleton } from "@/components/BoardingPassSkeleton";
 import { PromotedSlot } from "@/components/PromotedSlot";
 import {
   clearNotifications,
@@ -95,6 +96,15 @@ export const Route = createFileRoute("/trips/$id")({
   ),
 });
 
+const BUILDING_MSGS = [
+  "Scouting the best spots in town…",
+  "Checking real reviews & ratings…",
+  "Mapping out your perfect route…",
+  "Verifying hours & availability…",
+  "Picking hidden gems just for you…",
+  "Almost there — polishing your day…",
+];
+
 const CAT_ICONS: Record<string, typeof Utensils> = {
   meal: Utensils,
   drinks: Wine,
@@ -121,17 +131,42 @@ function TripDetail() {
     saveVibePrefs(next);
   }
 
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const fetchTrip = useCallback(() => {
+    return getItinerary(id)
+      .then((d) => {
+        setData(d);
+        // If the itinerary was being built and is now ready, stop polling
+        if (d.itinerary.source !== "building" && pollRef.current) {
+          clearInterval(pollRef.current);
+          pollRef.current = null;
+        }
+        return d;
+      });
+  }, [id]);
+
   useEffect(() => {
     if (authLoading) return;
     if (!user) {
       nav({ to: "/auth" });
       return;
     }
-    getItinerary(id)
-      .then(setData)
+    fetchTrip()
+      .then((d) => {
+        // Start polling if still building
+        if (d.itinerary.source === "building") {
+          pollRef.current = setInterval(() => {
+            fetchTrip().catch(() => {}); // silently retry
+          }, 2500);
+        }
+      })
       .catch((e) => setErr(e.message))
       .finally(() => setLoading(false));
-  }, [id, user, authLoading, nav]);
+    return () => {
+      if (pollRef.current) { clearInterval(pollRef.current); pollRef.current = null; }
+    };
+  }, [id, user, authLoading, nav, fetchTrip]);
 
   useEffect(() => {
     setTripStatus(loadStatus(id));
@@ -199,10 +234,19 @@ function TripDetail() {
     }
   }
 
+  const [buildMsgIdx, setBuildMsgIdx] = useState(0);
+  const isBuilding = data?.itinerary.source === "building";
+  useEffect(() => {
+    if (!isBuilding) return;
+    const id2 = setInterval(() => setBuildMsgIdx((i) => (i + 1) % BUILDING_MSGS.length), 2800);
+    return () => clearInterval(id2);
+  }, [isBuilding]);
+
   if (loading)
     return (
-      <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
-        Loading...
+      <div className="min-h-screen bg-background">
+        <SiteHeader />
+        <TripBuildingSkeleton message="Loading your trip…" />
       </div>
     );
   if (err)
@@ -212,6 +256,16 @@ function TripDetail() {
       </div>
     );
   if (!data) return null;
+
+  // Show skeleton while the background build is still running
+  if (isBuilding) {
+    return (
+      <div className="min-h-screen bg-background">
+        <SiteHeader />
+        <TripBuildingSkeleton message={BUILDING_MSGS[buildMsgIdx]} />
+      </div>
+    );
+  }
 
   const { itinerary: it, stops } = data;
 

@@ -1,10 +1,5 @@
 // Google Places lookup — returns live rating, price_level, open_now, photos, address per venue.
-const corsHeaders = {
-  "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.lovable.app",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { getCorsHeaders } from "../_shared/cors.ts";
 
 type Query = { venue: string; address?: string; neighborhood?: string };
 type Body = { queries: Query[] };
@@ -254,7 +249,8 @@ async function placeDetails(placeId: string, key: string, sessionToken?: string)
 }
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+  const cors = getCorsHeaders(req);
+  if (req.method === "OPTIONS") return new Response(null, { headers: cors });
   try {
     const key = Deno.env.get("GOOGLE_PLACES_API_KEY");
     const body = (await req.json().catch(() => ({}))) as Body & {
@@ -262,25 +258,25 @@ Deno.serve(async (req) => {
       autocomplete?: { input: string; sessionToken?: string; types?: string[]; country?: string };
       details?: { placeId: string; sessionToken?: string };
     };
-    if (body?.diag) return json(await diagnose(key));
-    if (!key) return json({ error: "missing GOOGLE_PLACES_API_KEY" }, 500);
+    if (body?.diag) return json(await diagnose(key), 200, cors);
+    if (!key) return json({ error: "missing GOOGLE_PLACES_API_KEY" }, 500, cors);
     if (body?.autocomplete?.input !== undefined) {
-      return json(await autocomplete(body.autocomplete.input, key, body.autocomplete));
+      return json(await autocomplete(body.autocomplete.input, key, body.autocomplete), 200, cors);
     }
     if (body?.details?.placeId) {
-      return json(await placeDetails(body.details.placeId, key, body.details.sessionToken));
+      return json(await placeDetails(body.details.placeId, key, body.details.sessionToken), 200, cors);
     }
-    if (!body?.queries?.length) return json({ results: [] });
+    if (!body?.queries?.length) return json({ results: [] }, 200, cors);
     const results = await Promise.all(body.queries.slice(0, 12).map((q) => lookup(q, key)));
-    return json({ results });
+    return json({ results }, 200, cors);
   } catch (e) {
-    return json({ error: (e as Error).message }, 500);
+    return json({ error: (e as Error).message }, 500, cors);
   }
 });
 
-function json(body: unknown, status = 200) {
+function json(body: unknown, status = 200, headers: Record<string, string> = {}) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json", ...corsHeaders },
+    headers: { "Content-Type": "application/json", ...headers },
   });
 }

@@ -1,10 +1,5 @@
 // Lovable AI Gateway — build a full-day itinerary
-const corsHeaders = {
-  "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.lovable.app",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { getCorsHeaders } from "../_shared/cors.ts";
 
 type SeedIdea = {
   title: string;
@@ -331,20 +326,131 @@ async function verifyItinerary(
       : undefined;
   // Seed `used` with reported place_ids so they're never picked again.
   const used = await fetchBlockedPlaceIds(ctx.userId, body.city ?? null);
-  const out: Array<Record<string, unknown>> = [];
   const audit: AuditRow[] = [];
   const auditCtx = { userId: ctx.userId, city: body.city ?? null };
-  for (const s of stops) {
-    const { stop, verified } = await verifyStop(s, cityLabel, bias, used, key, audit, auditCtx);
-    if (verified) out.push(stop);
-    // Drop unverifiable stops entirely — never falsely advertise a venue.
+
+  // ── Parallel fetch, sequential dedup ──────────────────────────
+  // Fire all Google Places API searches concurrently (the expensive I/O),
+  // then sequentially pick winners while checking the shared `used` Set.
+  type PreFetched = {
+    stop: Record<string, unknown>;
+    name: string;
+    category: string;
+    directHits: PlaceHit[];
+    fallbackHits: PlaceHit[];
+    fallbackQuery: string;
+  };
+
+  const preFetches: Promise<PreFetched>[] = stops.map(async (s) => {
+    const name = String(s.name ?? "").trim();
+    const category = String(s.category ?? "other");
+    const cityForQuery = cityLabel || "";
+
+    // Fire both searches concurrently per stop
+    const directQuery = name ? (cityForQuery ? `${name} ${cityForQuery}` : name) : "";
+    const fallbackQ = `${CATEGORY_QUERY[category] ?? "popular spot"} ${cityForQuery}`.trim();
+
+    const [directHits, fallbackHits] = await Promise.all([
+      directQuery ? placesSearch(directQuery, key, bias) : Promise.resolve([] as PlaceHit[]),
+      placesSearch(fallbackQ, key, bias),
+    ]);
+
+    return {
+      stop: s,
+      name,
+      category,
+      directHits: operational(directHits),
+      fallbackHits: operational(fallbackHits),
+      fallbackQuery: fallbackQ,
+    };
+  });
+
+  const allPre = await Promise.all(preFetches);
+
+  // Sequential winner selection — preserves `used` Set correctness
+  const out: Array<Record<string, unknown>> = [];
+  for (const pf of allPre) {
+    // 1) Try exact name match from pre-fetched direct hits
+    if (pf.name) {
+      const match = pf.directHits.find(
+        (h) => nameSimilar(h.displayName?.text ?? "", pf.name) && !used.has(h.id),
+      );
+      if (match) {
+        used.add(match.id);
+        audit.push({
+          source: "build-itinerary",
+          user_id: auditCtx.userId,
+          city: auditCtx.city,
+          requested_name: pf.name,
+          query: pf.name,
+          place_id: match.id,
+          matched_name: match.displayName?.text ?? null,
+          status: "matched",
+          score: placeScore(match.rating, match.userRatingCount),
+          rating: match.rating ?? null,
+          user_rating_count: match.userRatingCount ?? null,
+          business_status: match.businessStatus ?? null,
+          meta: { category: pf.category, candidates: pf.directHits.length },
+        });
+        out.push(applyHit(pf.stop, match));
+        continue;
+      }
+    }
+
+    // 2) Fallback: pick best-rated from category search, excluding used
+    const fb = pf.fallbackHits.filter((h) => !used.has(h.id));
+    fb.sort((a, b) => {
+      const ar = (a.rating ?? 0) * Math.log10((a.userRatingCount ?? 0) + 10);
+      const br = (b.rating ?? 0) * Math.log10((b.userRatingCount ?? 0) + 10);
+      return br - ar;
+    });
+    const pick = fb[0];
+    if (pick) {
+      used.add(pick.id);
+      audit.push({
+        source: "build-itinerary",
+        user_id: auditCtx.userId,
+        city: auditCtx.city,
+        requested_name: pf.name || null,
+        query: pf.fallbackQuery,
+        place_id: pick.id,
+        matched_name: pick.displayName?.text ?? null,
+        status: "fallback",
+        score: placeScore(pick.rating, pick.userRatingCount),
+        rating: pick.rating ?? null,
+        user_rating_count: pick.userRatingCount ?? null,
+        business_status: pick.businessStatus ?? null,
+        meta: { category: pf.category, candidates: fb.length },
+      });
+      out.push(applyHit(pf.stop, pick));
+      continue;
+    }
+
+    // 3) Unverifiable — drop the stop
+    audit.push({
+      source: "build-itinerary",
+      user_id: auditCtx.userId,
+      city: auditCtx.city,
+      requested_name: pf.name || null,
+      query: pf.fallbackQuery,
+      place_id: null,
+      matched_name: null,
+      status: "unmatched",
+      score: 0,
+      rating: null,
+      user_rating_count: null,
+      business_status: null,
+      meta: { category: pf.category },
+    });
   }
+
   await logAuditRows(audit);
   return { ...itinerary, stops: out };
 }
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+  _currentReq = req;
+  if (req.method === "OPTIONS") return new Response(null, { headers: getCorsHeaders(req) });
 
   try {
     const b = (await req.json()) as Body;
@@ -573,9 +679,11 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
   }
 });
 
+let _currentReq: Request | undefined;
+
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json", ...corsHeaders },
+    headers: { "Content-Type": "application/json", ...getCorsHeaders(_currentReq) },
   });
 }

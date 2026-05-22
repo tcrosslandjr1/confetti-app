@@ -5,6 +5,9 @@ import { MobileHeader } from "@/components/AppShell";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { NotificationBell } from "@/components/NotificationBell";
+import { useAuth } from "@/lib/auth-context";
+import { usePageview, trackCta, trackEngagement, trackConversion } from "@/lib/analytics";
 
 export const Route = createFileRoute("/app/plan")({
   component: PlanMyNightPage,
@@ -16,6 +19,8 @@ const BUDGETS = ["$", "$$", "$$$", "$$$$"];
 const TIMES = ["Now", "Tonight", "This weekend", "Pick a date"];
 
 function PlanMyNightPage() {
+  usePageview("app_plan", "/app/plan");
+  const { user } = useAuth();
   const [step, setStep] = useState(0);
   const [occasion, setOccasion] = useState<string | null>(null);
   const [vibe, setVibe] = useState<string | null>(null);
@@ -39,7 +44,7 @@ function PlanMyNightPage() {
 
   return (
     <div className="pb-6">
-      <MobileHeader eyebrow="AI Planner" title="Let me cook." />
+      <MobileHeader eyebrow="AI Planner" title="Let me cook." right={<NotificationBell userId={user?.id} />} />
       <div className="px-5">
         <div className="mb-4 flex items-center gap-1.5">
           {steps.map((_, i) => (
@@ -57,7 +62,7 @@ function PlanMyNightPage() {
               {current.choices.map((c) => (
                 <button
                   key={c}
-                  onClick={() => current.set(c)}
+                  onClick={() => { current.set(c); trackEngagement("plan_choice", { step: current.title, choice: c }); }}
                   className={cn(
                     "rounded-full border px-4 py-2 text-sm font-medium",
                     current.value === c
@@ -95,7 +100,7 @@ function PlanMyNightPage() {
               <Button variant="ghost" disabled={step === 0} onClick={() => setStep((s) => s - 1)}>
                 Back
               </Button>
-              <Button disabled={!current.value} onClick={() => setStep((s) => s + 1)}>
+              <Button disabled={!current.value} onClick={() => { trackCta("plan_next", { step }); setStep((s) => s + 1); if (step === steps.length - 1) trackConversion("plan_completed", { occasion, vibe, budget, groupSize, when }); }}>
                 Next
               </Button>
             </div>

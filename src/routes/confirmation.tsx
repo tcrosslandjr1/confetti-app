@@ -202,16 +202,20 @@ function ConfirmationPage() {
 
         <div className="mt-4 grid gap-2 sm:grid-cols-2">
           <button
-            onClick={() => toast.success("Apple Wallet pass coming soon")}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+            disabled
+            title="Apple Wallet integration launching soon"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-muted bg-muted px-4 py-3 text-sm font-bold text-muted-foreground opacity-60 cursor-not-allowed"
           >
             <Apple className="h-4 w-4" /> Apple Wallet
+            <span className="ml-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Soon</span>
           </button>
           <button
-            onClick={() => toast.success("Google Wallet pass coming soon")}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+            disabled
+            title="Google Wallet integration launching soon"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-muted bg-muted px-4 py-3 text-sm font-bold text-muted-foreground opacity-60 cursor-not-allowed"
           >
             <Wallet className="h-4 w-4" /> Google Wallet
+            <span className="ml-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Soon</span>
           </button>
         </div>
 

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -47,6 +47,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 function BookingSettings() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -54,7 +55,7 @@ function BookingSettings() {
           <h1 className="text-2xl md:text-3xl font-semibold">Booking settings</h1>
           <p className="text-muted-foreground text-sm mt-1">Reservations, deposits, capacity.</p>
         </div>
-        <Button>Save changes</Button>
+        <Button onClick={() => navigate({ to: "/partner/booking-settings" })}>Save changes</Button>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">

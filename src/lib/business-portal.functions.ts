@@ -422,3 +422,485 @@ export const getMyBusinessSubscription = createServerFn({ method: "GET" })
       ) ?? null;
     return { subscription: active, history: data ?? [] };
   });
+
+/* ----------------------------- BOOKINGS ----------------------------- */
+
+export const listVenueBookings = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      status: z.enum(["upcoming", "confirmed", "completed", "cancelled", "all"]).default("all"),
+      page: z.number().int().min(1).default(1),
+      limit: z.number().int().min(1).max(50).default(20),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    let q = supabase
+      .from("bookings")
+      .select(
+        "id, user_id, confirmation_code, party_size, booking_time, status, special_requests, created_at, cancelled_at, cancellation_reason",
+        { count: "exact" },
+      )
+      .eq("venue_id", input.venueId)
+      .order("booking_time", { ascending: false });
+
+    if (input.status !== "all") {
+      q = q.eq("status", input.status);
+    }
+
+    const from = (input.page - 1) * input.limit;
+    q = q.range(from, from + input.limit - 1);
+
+    const { data, error, count } = await q;
+    if (error) throw new Error(error.message);
+
+    // Fetch passenger profiles for the bookings
+    const userIds = [...new Set((data ?? []).map((b) => b.user_id))];
+    let profiles: Record<string, { display_name: string | null; avatar_url: string | null }> = {};
+    if (userIds.length) {
+      const { data: profileData } = await supabase
+        .from("profiles")
+        .select("id, display_name, avatar_url")
+        .in("id", userIds);
+      profiles = Object.fromEntries(
+        (profileData ?? []).map((p) => [p.id, { display_name: p.display_name, avatar_url: p.avatar_url }]),
+      );
+    }
+
+    return {
+      bookings: (data ?? []).map((b) => ({
+        ...b,
+        passenger: profiles[b.user_id] ?? { display_name: null, avatar_url: null },
+      })),
+      total: count ?? 0,
+      page: input.page,
+      totalPages: Math.ceil((count ?? 0) / input.limit),
+    };
+  });
+
+export const getVenueBookingStats = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(z.object({ venueId: z.string().uuid() }))
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const now = new Date().toISOString();
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000).toISOString();
+
+    // Get counts by status
+    const { data: all } = await supabase
+      .from("bookings")
+      .select("status, party_size, booking_time")
+      .eq("venue_id", input.venueId)
+      .gte("created_at", thirtyDaysAgo);
+
+    const bookings = all ?? [];
+    const upcoming = bookings.filter((b) => b.status === "upcoming" || b.status === "confirmed");
+    const completed = bookings.filter((b) => b.status === "completed");
+    const cancelled = bookings.filter((b) => b.status === "cancelled");
+    const totalGuests = bookings.reduce((sum, b) => sum + (b.party_size ?? 0), 0);
+
+    return {
+      total30d: bookings.length,
+      upcoming: upcoming.length,
+      completed: completed.length,
+      cancelled: cancelled.length,
+      totalGuests30d: totalGuests,
+      avgPartySize: bookings.length ? +(totalGuests / bookings.length).toFixed(1) : 0,
+    };
+  });
+
+export const updateBookingStatus = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      bookingId: z.string().uuid(),
+      status: z.enum(["confirmed", "completed", "cancelled"]),
+      reason: z.string().optional(),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const updates: Record<string, unknown> = { status: input.status };
+    if (input.status === "cancelled") {
+      updates.cancelled_at = new Date().toISOString();
+      updates.cancellation_reason = input.reason ?? "Cancelled by venue";
+    }
+
+    const { error } = await supabase
+      .from("bookings")
+      .update(updates)
+      .eq("id", input.bookingId)
+      .eq("venue_id", input.venueId);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+/* ----------------------------- VENUE NOTIFICATIONS ----------------------------- */
+
+export const listVenueNotifications = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      unreadOnly: z.boolean().default(false),
+      limit: z.number().int().min(1).max(50).default(20),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    let q = supabase
+      .from("venue_notifications")
+      .select("*")
+      .eq("venue_id", input.venueId)
+      .order("created_at", { ascending: false })
+      .limit(input.limit);
+
+    if (input.unreadOnly) q = q.eq("is_read", false);
+
+    const { data, error } = await q;
+    if (error) throw new Error(error.message);
+
+    // Count unread
+    const { count } = await supabase
+      .from("venue_notifications")
+      .select("id", { count: "exact", head: true })
+      .eq("venue_id", input.venueId)
+      .eq("is_read", false);
+
+    return { notifications: data ?? [], unreadCount: count ?? 0 };
+  });
+
+export const markNotificationsRead = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      notificationIds: z.array(z.string().uuid()).optional(),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    let q = supabase
+      .from("venue_notifications")
+      .update({ is_read: true, read_at: new Date().toISOString() })
+      .eq("venue_id", input.venueId)
+      .eq("is_read", false);
+
+    if (input.notificationIds?.length) {
+      q = q.in("id", input.notificationIds);
+    }
+
+    const { error } = await q;
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+// ═══════════════════════════════════════════════════════════════
+// MENU MANAGEMENT
+// ═══════════════════════════════════════════════════════════════
+
+export const listVenueMenu = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(z.object({ venueId: z.string().uuid() }))
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const { data: categories } = await supabase
+      .from("venue_menu_categories")
+      .select("*")
+      .eq("venue_id", input.venueId)
+      .order("sort_order");
+
+    const { data: items } = await supabase
+      .from("venue_menu_items")
+      .select("*")
+      .eq("venue_id", input.venueId)
+      .order("sort_order");
+
+    return { categories: categories ?? [], items: items ?? [] };
+  });
+
+export const upsertMenuCategory = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      id: z.string().uuid().optional(),
+      name: z.string().min(1).max(100),
+      sort_order: z.number().int().optional(),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    if (input.id) {
+      const { error } = await supabase
+        .from("venue_menu_categories")
+        .update({ name: input.name, sort_order: input.sort_order ?? 0 })
+        .eq("id", input.id)
+        .eq("venue_id", input.venueId);
+      if (error) throw new Error(error.message);
+      return { ok: true, id: input.id };
+    }
+
+    const { data, error } = await supabase
+      .from("venue_menu_categories")
+      .insert({ venue_id: input.venueId, name: input.name, sort_order: input.sort_order ?? 0 })
+      .select("id")
+      .single();
+    if (error) throw new Error(error.message);
+    return { ok: true, id: data.id };
+  });
+
+export const deleteMenuCategory = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(z.object({ venueId: z.string().uuid(), categoryId: z.string().uuid() }))
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const { error } = await supabase
+      .from("venue_menu_categories")
+      .delete()
+      .eq("id", input.categoryId)
+      .eq("venue_id", input.venueId);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+export const upsertMenuItem = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      id: z.string().uuid().optional(),
+      category_id: z.string().uuid().nullable().optional(),
+      name: z.string().min(1).max(200),
+      description: z.string().max(500).optional(),
+      price_cents: z.number().int().min(0),
+      image_url: z.string().url().optional().nullable(),
+      is_available: z.boolean().optional(),
+      dietary_tags: z.array(z.string()).optional(),
+      sort_order: z.number().int().optional(),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const row = {
+      venue_id: input.venueId,
+      category_id: input.category_id ?? null,
+      name: input.name,
+      description: input.description ?? null,
+      price_cents: input.price_cents,
+      image_url: input.image_url ?? null,
+      is_available: input.is_available ?? true,
+      dietary_tags: input.dietary_tags ?? [],
+      sort_order: input.sort_order ?? 0,
+      updated_at: new Date().toISOString(),
+    };
+
+    if (input.id) {
+      const { error } = await supabase
+        .from("venue_menu_items")
+        .update(row)
+        .eq("id", input.id)
+        .eq("venue_id", input.venueId);
+      if (error) throw new Error(error.message);
+      return { ok: true, id: input.id };
+    }
+
+    const { data, error } = await supabase
+      .from("venue_menu_items")
+      .insert(row)
+      .select("id")
+      .single();
+    if (error) throw new Error(error.message);
+    return { ok: true, id: data.id };
+  });
+
+export const deleteMenuItem = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(z.object({ venueId: z.string().uuid(), itemId: z.string().uuid() }))
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const { error } = await supabase
+      .from("venue_menu_items")
+      .delete()
+      .eq("id", input.itemId)
+      .eq("venue_id", input.venueId);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+// ═══════════════════════════════════════════════════════════════
+// PRE-ORDERS (venue-side view)
+// ═══════════════════════════════════════════════════════════════
+
+export const listVenuePreOrders = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      status: z.enum(["pending", "sent", "confirmed", "cancelled", "all"]).optional(),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    let q = supabase
+      .from("booking_pre_orders")
+      .select(`
+        *,
+        booking:bookings(id, booking_time, party_size, confirmation_code),
+        items:pre_order_items(*, menu_item:venue_menu_items(name, price_cents))
+      `)
+      .eq("venue_id", input.venueId)
+      .order("created_at", { ascending: false })
+      .limit(50);
+
+    if (input.status && input.status !== "all") {
+      q = q.eq("status", input.status);
+    }
+
+    const { data, error } = await q;
+    if (error) throw new Error(error.message);
+    return { preOrders: data ?? [] };
+  });
+
+export const updatePreOrderStatus = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      preOrderId: z.string().uuid(),
+      status: z.enum(["confirmed", "cancelled"]),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const { error } = await supabase
+      .from("booking_pre_orders")
+      .update({ status: input.status, updated_at: new Date().toISOString() })
+      .eq("id", input.preOrderId)
+      .eq("venue_id", input.venueId);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+// ═══════════════════════════════════════════════════════════════
+// CORPORATE BOOKINGS (venue-side view)
+// ═══════════════════════════════════════════════════════════════
+
+export const listVenueCorporateBookings = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      status: z.enum(["pending", "approved", "completed", "cancelled", "all"]).optional(),
+      page: z.number().int().min(1).optional(),
+      limit: z.number().int().min(1).max(50).optional(),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const limit = input.limit ?? 20;
+    const page = input.page ?? 1;
+    const offset = (page - 1) * limit;
+
+    let q = supabase
+      .from("corporate_bookings")
+      .select("*, company:corporate_companies(name, logo_url)", { count: "exact" })
+      .eq("venue_id", input.venueId)
+      .order("scheduled_date", { ascending: false })
+      .range(offset, offset + limit - 1);
+
+    if (input.status && input.status !== "all") {
+      q = q.eq("status", input.status);
+    }
+
+    const { data, count, error } = await q;
+    if (error) throw new Error(error.message);
+
+    return {
+      bookings: data ?? [],
+      totalPages: Math.ceil((count ?? 0) / limit),
+      total: count ?? 0,
+    };
+  });
+
+// ═══════════════════════════════════════════════════════════════
+// REAL ANALYTICS
+// ═══════════════════════════════════════════════════════════════
+
+export const getVenueAnalytics = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      venueId: z.string().uuid(),
+      days: z.number().int().min(1).max(90).optional(),
+    }),
+  )
+  .handler(async ({ context, input }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, input.venueId);
+
+    const days = input.days ?? 30;
+    const since = new Date(Date.now() - days * 86_400_000).toISOString().slice(0, 10);
+
+    const { data: daily } = await supabase
+      .from("venue_analytics_daily")
+      .select("*")
+      .eq("venue_id", input.venueId)
+      .gte("date", since)
+      .order("date", { ascending: true });
+
+    const rows = daily ?? [];
+    const totals = rows.reduce(
+      (acc, r) => ({
+        impressions: acc.impressions + (r.impressions ?? 0),
+        profile_views: acc.profile_views + (r.profile_views ?? 0),
+        clicks: acc.clicks + (r.clicks ?? 0),
+        bookings_count: acc.bookings_count + (r.bookings_count ?? 0),
+        cancellations: acc.cancellations + (r.cancellations ?? 0),
+        pre_orders_count: acc.pre_orders_count + (r.pre_orders_count ?? 0),
+        revenue_cents: acc.revenue_cents + Number(r.revenue_cents ?? 0),
+        unique_visitors: acc.unique_visitors + (r.unique_visitors ?? 0),
+      }),
+      {
+        impressions: 0,
+        profile_views: 0,
+        clicks: 0,
+        bookings_count: 0,
+        cancellations: 0,
+        pre_orders_count: 0,
+        revenue_cents: 0,
+        unique_visitors: 0,
+      },
+    );
+
+    return { daily: rows, totals, days };
+  });

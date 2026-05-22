@@ -1,4 +1,4 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -21,15 +21,15 @@ import {
   TrendingUp,
   Lock,
   ChevronRight,
-  Hourglass,
-  Mail,
-  Store,
-  ArrowRight,
+  Users,
+  ShoppingBag,
+  DollarSign,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { requireBusinessOwner } from "@/lib/business-guard";
 import { useAuth } from "@/lib/auth-context";
 import { listMyClaims } from "@/lib/business-onboarding.functions";
+import { getVenueAnalytics } from "@/lib/business-portal.functions";
+import { useManagedVenues } from "@/components/business/useManagedVenue";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -39,7 +39,8 @@ import { PromoStorefront } from "@/components/business/PromoStorefront";
 
 export const Route = createFileRoute("/business/dashboard")({
   beforeLoad: async () => {
-    await requireBusinessOwner();
+    const { requireBusinessAccess } = await import("@/lib/business-guards");
+    await requireBusinessAccess();
   },
   component: BusinessDashboardPage,
   head: () => ({
@@ -56,276 +57,61 @@ export const Route = createFileRoute("/business/dashboard")({
 
 function BusinessDashboardPage() {
   const { user } = useAuth();
+  const { venues, activeId } = useManagedVenues();
   const fetchClaims = useServerFn(listMyClaims);
+  const fetchAnalytics = useServerFn(getVenueAnalytics);
   const { data: claimsData } = useQuery({
     queryKey: ["my-venue-claims"],
     queryFn: () => fetchClaims(),
   });
 
-  const claims = claimsData?.claims ?? [];
-  const claim = claims[0] ?? null;
+  const { data: analyticsData } = useQuery({
+    queryKey: ["venue-analytics-dashboard", activeId],
+    queryFn: () => fetchAnalytics({ venueId: activeId!, days: 30 }),
+    enabled: !!activeId,
+    staleTime: 60_000,
+  });
+
+  const claim = claimsData?.claims?.[0] ?? null;
   const venueName = (claim as any)?.proposed_name || (claim as any)?.venue_name || "Your Venue";
   const claimStatus = (claim?.status as string) ?? "pending";
   const promotionUnlocked = claimStatus === "approved";
-  const hasPendingClaim = claim?.status === "pending";
-  const hasClaim = claims.length > 0;
-  const hasAdvertisers = claims.some((c: any) => c.advertiser_id);
-  const isApproved = claimStatus === "approved";
-  const showOnboarding = !hasAdvertisers;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 md:px-6 md:py-14">
-        {hasPendingClaim && <PendingApprovalBanner venueName={venueName} />}
-        {showOnboarding ? (
-          <FirstAdvertiserOnboarding
-            hasClaim={hasClaim}
-            isApproved={isApproved}
-            venueName={hasClaim ? venueName : null}
-          />
-        ) : (
-          <>
-            <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-              <span className="font-semibold">Demo dashboard.</span> Performance numbers, AI insights,
-              events, social activity, and refresh history below are sample data to preview the layout.
-              Your real metrics will appear here once your venue is approved and analytics start
-              flowing.
-            </div>
-            <DashboardHero
-              venueName={venueName}
-              status={claimStatus}
-              boostLevel={promotionUnlocked ? 1 : 0}
-              promotionUnlocked={promotionUnlocked}
-              lastRefresh="—"
-            />
-            <KPIStats />
-            <AIInsights />
-            <QuickActions promotionUnlocked={promotionUnlocked} />
-            <div className="grid gap-6 lg:grid-cols-2">
-              <EventsPreview />
-              <MediaPreview />
-            </div>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <SocialPanel />
-              <PromotionPanel unlocked={promotionUnlocked} />
-            </div>
-            <AnalyticsPreview />
-            <BusinessUpgradePanel />
-            <section className="space-y-3">
-              <h2 className="text-2xl font-bold">Promo Marketplace</h2>
-              <p className="text-muted-foreground text-sm">
-                Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page
-                to target a specific one.
-              </p>
-              <PromoStorefront />
-            </section>
-            <AIRefreshStatus />
-            <DashboardFooter />
-          </>
-        )}
+        <DashboardHero
+          venueName={venueName}
+          status={claimStatus}
+          boostLevel={promotionUnlocked ? 1 : 0}
+          promotionUnlocked={promotionUnlocked}
+          lastRefresh="—"
+        />
+        <KPIStats totals={analyticsData?.totals} daily={analyticsData?.daily} />
+        <AIInsights />
+        <QuickActions promotionUnlocked={promotionUnlocked} />
+        <div className="grid gap-6 lg:grid-cols-2">
+          <EventsPreview />
+          <MediaPreview />
+        </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <SocialPanel />
+          <PromotionPanel unlocked={promotionUnlocked} />
+        </div>
+        <AnalyticsPreview daily={analyticsData?.daily} />
+        <BusinessUpgradePanel />
+        <section className="space-y-3">
+          <h2 className="text-2xl font-bold">Promo Marketplace</h2>
+          <p className="text-muted-foreground text-sm">
+            Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page
+            to target a specific one.
+          </p>
+          <PromoStorefront />
+        </section>
+        <AIRefreshStatus />
+        <DashboardFooter />
       </div>
     </div>
-  );
-}
-
-/* ---------------- PENDING APPROVAL BANNER ---------------- */
-
-function PendingApprovalBanner({ venueName }: { venueName: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: -8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="relative overflow-hidden rounded-2xl border-2 border-coral/40 bg-gradient-to-r from-coral/10 via-orange-50 to-cream p-5 shadow-sm"
-    >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-start gap-4">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-coral/15 text-coral">
-            <Hourglass className="h-6 w-6" strokeWidth={2} />
-          </div>
-          <div>
-            <h3 className="text-base font-bold text-ink">
-              {venueName} is pending review
-            </h3>
-            <p className="mt-1 max-w-xl text-sm leading-relaxed text-ink/70">
-              We&apos;re verifying your venue ownership claim. This usually takes{" "}
-              <span className="font-semibold text-coral">24–48 hours</span>. You can
-              preview your dashboard below, but some features will unlock once you&apos;re
-              approved.
-            </p>
-            <div className="mt-2 flex items-center gap-2 text-xs text-ink/50">
-              <Clock className="h-3.5 w-3.5" />
-              <span>We&apos;ll email you when your application is approved or if we need more info.</span>
-            </div>
-          </div>
-        </div>
-        <div className="flex shrink-0 items-center gap-3">
-          <Button
-            asChild
-            variant="outline"
-            size="sm"
-            className="border-coral/30 text-coral hover:bg-coral/10"
-          >
-            <Link to="/business/claim/pending">
-              <Mail className="mr-1.5 h-3.5 w-3.5" />
-              Check status
-            </Link>
-          </Button>
-          <Button
-            asChild
-            size="sm"
-            className="bg-coral text-white hover:bg-coral/90"
-          >
-            <Link to="/business/claim">
-              Add more info
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-/* ---------------- NO ADVERTISERS EMPTY STATE ---------------- */
-
-/* ---------------- FIRST ADVERTISER ONBOARDING ---------------- */
-
-function FirstAdvertiserOnboarding({
-  hasClaim,
-  isApproved,
-  venueName,
-}: {
-  hasClaim: boolean;
-  isApproved: boolean;
-  venueName: string | null;
-}) {
-  // Step 1 (claim) auto-completes once a claim row exists.
-  // Step 2 (approval) flips when the claim is approved.
-  // Step 3 (create advertiser listing) is the active CTA — this is the
-  // promised "next thing to do" after landing on /business/dashboard.
-  const steps = [
-    {
-      n: 1,
-      title: "Claim your venue",
-      desc: "Tell us which venue you own so we can verify it.",
-      done: hasClaim,
-      active: !hasClaim,
-      cta: hasClaim ? "View claim" : "Claim venue",
-      href: "/business/claim",
-    },
-    {
-      n: 2,
-      title: "Get approved",
-      desc: "Our team reviews ownership within 24–48 hours.",
-      done: isApproved,
-      active: hasClaim && !isApproved,
-      cta: "Check status",
-      href: "/business/claim/pending",
-    },
-    {
-      n: 3,
-      title: "Create your first advertiser listing",
-      desc: "Set up your advertiser profile so you can run campaigns, boost reach, and earn from the marketplace.",
-      done: false,
-      active: isApproved,
-      cta: "Create listing",
-      href: "/business/register",
-      primary: true,
-    },
-  ];
-
-  const activeStep = steps.find((s) => s.active) ?? steps[2];
-
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="overflow-hidden rounded-3xl border bg-card shadow-sm"
-    >
-      <div className="relative bg-gradient-to-br from-primary/15 via-orange-50 to-background px-6 py-8 md:px-10 md:py-10">
-        <div className="flex items-start gap-4">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-primary">
-            <Store className="h-6 w-6" strokeWidth={1.75} />
-          </div>
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-primary">
-              Welcome to Confetti for Business
-            </div>
-            <h2 className="mt-1 text-2xl font-bold text-foreground md:text-3xl">
-              {venueName ? `Let's get ${venueName} live` : "Let's get your venue live"}
-            </h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Three quick steps to unlock your dashboard, promotion tools, and the Confetti
-              marketplace.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <ol className="divide-y">
-        {steps.map((s) => (
-          <li
-            key={s.n}
-            className={cn(
-              "flex flex-col gap-4 px-6 py-5 md:flex-row md:items-center md:justify-between md:px-10",
-              s.active && "bg-primary/5",
-            )}
-          >
-            <div className="flex items-start gap-4">
-              <div
-                className={cn(
-                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-sm font-bold",
-                  s.done && "border-emerald-500 bg-emerald-500 text-white",
-                  !s.done && s.active && "border-primary bg-primary text-white",
-                  !s.done && !s.active && "border-border bg-muted text-muted-foreground",
-                )}
-                aria-hidden
-              >
-                {s.done ? "✓" : s.n}
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h3 className="text-base font-semibold text-foreground">{s.title}</h3>
-                  {s.done && (
-                    <Badge variant="secondary" className="text-[10px]">
-                      Done
-                    </Badge>
-                  )}
-                  {s.active && !s.done && (
-                    <Badge className="bg-primary text-[10px] text-white">Next up</Badge>
-                  )}
-                </div>
-                <p className="mt-1 max-w-lg text-sm text-muted-foreground">{s.desc}</p>
-              </div>
-            </div>
-            {!s.done && (
-              <Button
-                asChild
-                size="sm"
-                variant={s.active ? "default" : "outline"}
-                disabled={!s.active && s.n !== activeStep.n}
-                className={cn("shrink-0", s.primary && s.active && "shadow-md")}
-              >
-                <Link to={s.href as never}>
-                  {s.cta}
-                  <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                </Link>
-              </Button>
-            )}
-          </li>
-        ))}
-      </ol>
-
-      <div className="border-t bg-muted/30 px-6 py-4 text-xs text-muted-foreground md:px-10">
-        Stuck? <Link to="/business" className="font-medium text-primary hover:underline">Learn how Confetti for Business works</Link>{" "}
-        or email{" "}
-        <a href="mailto:business@confetti.com" className="font-medium text-primary hover:underline">
-          business@confetti.com
-        </a>
-        .
-      </div>
-    </motion.section>
   );
 }
 
@@ -431,26 +217,45 @@ function HeroStat({
 
 /* ---------------- KPI ---------------- */
 
-const KPI = [
-  { icon: Eye, label: "Profile Views", value: "1,284", delta: "+14%", hint: "this week" },
-  { icon: Film, label: "Reels Views", value: "3,912", delta: "Boosted", hint: "Tier 2+" },
-  {
-    icon: MousePointerClick,
-    label: "Website Clicks",
-    value: "482",
-    delta: "+7%",
-    hint: "intent to visit",
-  },
-  { icon: Music2, label: "TikTok Clicks", value: "1,102", delta: "+22%", hint: "nightlife signal" },
-  { icon: Instagram, label: "Instagram Clicks", value: "876", delta: "+9%", hint: "this week" },
-];
+function formatNum(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+  return n.toLocaleString();
+}
 
-function KPIStats() {
+function KPIStats({ totals, daily }: { totals?: any; daily?: any[] }) {
+  const t = totals ?? {
+    impressions: 0,
+    profile_views: 0,
+    clicks: 0,
+    bookings_count: 0,
+    cancellations: 0,
+    pre_orders_count: 0,
+    revenue_cents: 0,
+    unique_visitors: 0,
+  };
+
+  const kpis = [
+    { icon: Eye, label: "Profile Views", value: formatNum(t.profile_views), hint: "last 30 days" },
+    { icon: MousePointerClick, label: "Clicks", value: formatNum(t.clicks), hint: "tap-throughs" },
+    { icon: CalendarPlus, label: "Bookings", value: formatNum(t.bookings_count), hint: "confirmed" },
+    { icon: ShoppingBag, label: "Pre-Orders", value: formatNum(t.pre_orders_count), hint: "received" },
+    { icon: Users, label: "Visitors", value: formatNum(t.unique_visitors), hint: "unique" },
+    { icon: DollarSign, label: "Revenue", value: `$${(t.revenue_cents / 100).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, hint: "total" },
+  ];
+
+  const hasData = totals && (t.profile_views > 0 || t.clicks > 0 || t.bookings_count > 0);
+
   return (
     <section>
       <SectionHeader title="Performance" />
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5">
-        {KPI.map((k, i) => (
+      {!hasData && (
+        <div className="mb-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2 text-xs text-amber-800">
+          Analytics will populate here once your venue is approved and visitors start discovering you.
+        </div>
+      )}
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+        {kpis.map((k, i) => (
           <motion.div
             key={k.label}
             initial={{ opacity: 0, y: 10 }}
@@ -464,7 +269,6 @@ function KPIStats() {
                 <div className="rounded-lg bg-primary/10 p-2 text-primary">
                   <k.icon className="h-4 w-4" />
                 </div>
-                <span className="text-[10px] font-semibold text-emerald-600">{k.delta}</span>
               </div>
               <div className="mt-3 text-2xl font-bold tracking-tight">{k.value}</div>
               <div className="text-xs text-muted-foreground">{k.label}</div>
@@ -493,8 +297,8 @@ function AIInsights() {
         title="AI Insights for your venue"
         icon={<Sparkles className="h-4 w-4 text-primary" />}
         action={
-          <Button variant="ghost" size="sm" className="text-xs">
-            View all <ChevronRight className="ml-1 h-3 w-3" />
+          <Button variant="ghost" size="sm" className="text-xs" asChild>
+            <Link to="/business/notifications">View all <ChevronRight className="ml-1 h-3 w-3" /></Link>
           </Button>
         }
       />
@@ -522,13 +326,14 @@ function AIInsights() {
 /* ---------------- QUICK ACTIONS ---------------- */
 
 function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
+  const navigate = useNavigate();
   const actions = [
-    { icon: CalendarPlus, label: "Add Event" },
-    { icon: ImageIcon, label: "Upload Photos" },
-    { icon: Pencil, label: "Edit Venue" },
-    { icon: Link2, label: "Social Links" },
-    { icon: BarChart3, label: "Analytics" },
-    ...(promotionUnlocked ? [{ icon: Megaphone, label: "Promote" }] : []),
+    { icon: CalendarPlus, label: "Add Event", to: "/business/events" },
+    { icon: ImageIcon, label: "Upload Photos", to: "/business/media" },
+    { icon: Pencil, label: "Edit Venue", to: "/business/settings" },
+    { icon: Link2, label: "Social Links", to: "/business/social" },
+    { icon: BarChart3, label: "Analytics", to: "/business/notifications" },
+    ...(promotionUnlocked ? [{ icon: Megaphone, label: "Promote", to: "/business/promoters" }] : []),
   ];
   return (
     <section>
@@ -537,6 +342,7 @@ function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
         {actions.map((a) => (
           <button
             key={a.label}
+            onClick={() => navigate({ to: a.to })}
             className="group flex items-center gap-2 rounded-xl border bg-card px-4 py-3 text-sm font-medium shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
           >
             <a.icon className="h-4 w-4 text-primary transition-transform group-hover:scale-110" />
@@ -578,12 +384,14 @@ function EventsPreview() {
         title="Upcoming events"
         action={
           <div className="flex gap-2">
-            <Button size="sm" variant="outline">
-              Manage all
+            <Button size="sm" variant="outline" asChild>
+              <Link to="/business/events">Manage all</Link>
             </Button>
-            <Button size="sm">
-              <CalendarPlus className="mr-1.5 h-3.5 w-3.5" />
-              Add
+            <Button size="sm" asChild>
+              <Link to="/business/events">
+                <CalendarPlus className="mr-1.5 h-3.5 w-3.5" />
+                Add
+              </Link>
             </Button>
           </div>
         }
@@ -632,12 +440,14 @@ function MediaPreview() {
         title="Your photos & media"
         action={
           <div className="flex gap-2">
-            <Button size="sm" variant="outline">
-              Gallery
+            <Button size="sm" variant="outline" asChild>
+              <Link to="/business/media">Gallery</Link>
             </Button>
-            <Button size="sm">
-              <ImageIcon className="mr-1.5 h-3.5 w-3.5" />
-              Upload
+            <Button size="sm" asChild>
+              <Link to="/business/media">
+                <ImageIcon className="mr-1.5 h-3.5 w-3.5" />
+                Upload
+              </Link>
             </Button>
           </div>
         }
@@ -666,8 +476,8 @@ function SocialPanel() {
       <SectionHeader
         title="Social accounts"
         action={
-          <Button size="sm" variant="outline">
-            Settings
+          <Button size="sm" variant="outline" asChild>
+            <Link to="/business/social">Settings</Link>
           </Button>
         }
       />
@@ -709,8 +519,8 @@ function SocialRow({
           </div>
         </div>
       </div>
-      <Button size="sm" variant={connected ? "outline" : "default"}>
-        {connected ? "Edit" : "Connect"}
+      <Button size="sm" variant={connected ? "outline" : "default"} asChild>
+        <Link to="/business/social">{connected ? "Edit" : "Connect"}</Link>
       </Button>
     </div>
   );
@@ -746,7 +556,7 @@ function PromotionPanel({ unlocked }: { unlocked: boolean }) {
       <SectionHeader
         title="Promotion tools"
         icon={<Megaphone className="h-4 w-4 text-primary" />}
-        action={<Button size="sm">Manage</Button>}
+        action={<Button size="sm" asChild><Link to="/business/promoters">Manage</Link></Button>}
       />
       <div className="mb-3 flex items-baseline gap-2">
         <span className="text-2xl font-bold">Boost Level 2</span>
@@ -766,63 +576,50 @@ function PromotionPanel({ unlocked }: { unlocked: boolean }) {
 
 /* ---------------- ANALYTICS PREVIEW ---------------- */
 
-function AnalyticsPreview() {
+function AnalyticsPreview({ daily }: { daily?: any[] }) {
+  const rows = daily ?? [];
+  const last7 = rows.slice(-7);
+
   return (
     <Card className="p-5">
       <SectionHeader
         title="Performance overview"
         action={
-          <Button size="sm" variant="outline">
-            Full analytics
+          <Button size="sm" variant="outline" asChild>
+            <Link to="/business/notifications">Full analytics</Link>
           </Button>
         }
       />
       <div className="grid gap-4 md:grid-cols-3">
-        <ChartCard label="Profile views" sparkline="line" />
-        <ChartCard label="Reels views" sparkline="bar" />
-        <ChartCard label="Clicks" sparkline="stack" />
+        <SparkChart label="Profile views" data={last7.map((r) => r.profile_views ?? 0)} color="primary" />
+        <SparkChart label="Bookings" data={last7.map((r) => r.bookings_count ?? 0)} color="emerald" />
+        <SparkChart label="Clicks" data={last7.map((r) => r.clicks ?? 0)} color="orange" />
       </div>
     </Card>
   );
 }
 
-function ChartCard({ label, sparkline }: { label: string; sparkline: "line" | "bar" | "stack" }) {
+function SparkChart({ label, data, color }: { label: string; data: number[]; color: string }) {
+  const max = Math.max(...data, 1);
+  const colorClass = color === "primary" ? "bg-primary/70" : color === "emerald" ? "bg-emerald-500/70" : "bg-orange-400/70";
+
   return (
     <div className="rounded-xl border bg-background/50 p-4">
       <div className="text-xs font-medium text-muted-foreground">{label}</div>
-      <div className="mt-3 h-20">
-        {sparkline === "line" && (
-          <svg viewBox="0 0 100 40" className="h-full w-full text-primary">
-            <polyline
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              points="0,30 15,25 30,28 45,18 60,22 75,10 100,14"
-            />
-          </svg>
-        )}
-        {sparkline === "bar" && (
-          <div className="flex h-full items-end gap-1">
-            {[40, 65, 30, 80, 55, 90, 70].map((h, i) => (
-              <div
-                key={i}
-                className="flex-1 rounded-sm bg-primary/70"
-                style={{ height: `${h}%` }}
-              />
-            ))}
-          </div>
-        )}
-        {sparkline === "stack" && (
-          <div className="flex h-full items-end gap-1">
-            {[50, 70, 45, 85, 60].map((h, i) => (
-              <div key={i} className="flex flex-1 flex-col gap-0.5" style={{ height: `${h}%` }}>
-                <div className="flex-1 rounded-sm bg-primary" />
-                <div className="h-1/3 rounded-sm bg-orange-300" />
-              </div>
-            ))}
-          </div>
-        )}
+      <div className="mt-3 flex h-20 items-end gap-1">
+        {(data.length > 0 ? data : [0, 0, 0, 0, 0, 0, 0]).map((v, i) => (
+          <div
+            key={i}
+            className={`flex-1 rounded-sm ${colorClass}`}
+            style={{ height: `${Math.max((v / max) * 100, 4)}%` }}
+          />
+        ))}
       </div>
+      {data.length > 0 && (
+        <div className="mt-2 text-right text-[10px] text-muted-foreground">
+          Last 7 days
+        </div>
+      )}
     </div>
   );
 }
@@ -836,9 +633,11 @@ function AIRefreshStatus() {
         title="AI monthly refresh"
         icon={<RefreshCw className="h-4 w-4 text-primary" />}
         action={
-          <Button size="sm" variant="outline">
-            <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
-            Run refresh
+          <Button size="sm" variant="outline" asChild>
+            <Link to="/business/ai-refresh">
+              <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
+              Run refresh
+            </Link>
           </Button>
         }
       />

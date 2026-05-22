@@ -3,7 +3,6 @@ import { useServerFn } from "@tanstack/react-start";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Clock, Loader2, RefreshCw, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { requireBusinessOwner } from "@/lib/business-guard";
 import { BusinessPageShell } from "@/components/business/BusinessTabNav";
 import {
   NoVenueClaim,
@@ -17,7 +16,8 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/business/ai-refresh")({
   beforeLoad: async () => {
-    await requireBusinessOwner();
+    const { requireBusinessAccess } = await import("@/lib/business-guards");
+    await requireBusinessAccess();
   },
   head: () => ({ meta: [{ title: "AI Refresh — Confetti for Business" }] }),
   component: BusinessAIRefreshPage,

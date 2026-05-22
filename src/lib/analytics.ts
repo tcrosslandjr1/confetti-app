@@ -27,7 +27,17 @@ async function getUserId(): Promise<string | null> {
   }
 }
 
-export type EventType = "pageview" | "cta_click" | "scroll_depth" | "time_to_interaction" | "error";
+export type EventType =
+  | "pageview"
+  | "cta_click"
+  | "scroll_depth"
+  | "time_to_interaction"
+  | "error"
+  | "navigation"
+  | "feature_use"
+  | "engagement"
+  | "conversion"
+  | "onboarding";
 
 export async function trackEvent(
   type: EventType,
@@ -145,4 +155,88 @@ export function installErrorTracking() {
       metadata: { reason: reason.slice(0, 500) },
     });
   });
+}
+
+// ─── Feature & conversion helpers ───────────────────────────────────
+/** Track a feature being used (boarding pass view, check-in, share, etc). */
+export function trackFeature(name: string, metadata: Record<string, unknown> = {}) {
+  void trackEvent("feature_use", name, { metadata });
+}
+
+/** Track a conversion event (signup, booking, itinerary_created, etc). */
+export function trackConversion(name: string, metadata: Record<string, unknown> = {}) {
+  void trackEvent("conversion", name, { metadata });
+}
+
+/** Track an onboarding step (taste_quiz, city_select, etc). */
+export function trackOnboarding(step: string, metadata: Record<string, unknown> = {}) {
+  void trackEvent("onboarding", step, { metadata });
+}
+
+/** Track engagement (venue_tap, reel_view, stop_expand, etc). */
+export function trackEngagement(name: string, metadata: Record<string, unknown> = {}) {
+  void trackEvent("engagement", name, { metadata });
+}
+
+// ─── Automatic route-change tracker ─────────────────────────────────
+// Drop <RouteAnalytics /> into __root.tsx to auto-track every navigation.
+let _prevPath: string | null = null;
+
+/**
+ * React component that fires a `navigation` event on every TanStack Router
+ * route change. Must be placed inside the Router context.
+ * Uses `useRouter` to subscribe to router events.
+ */
+export function RouteAnalytics() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    // Fire for the initial page load
+    const initial = window.location.pathname;
+    if (initial !== _prevPath) {
+      _prevPath = initial;
+      void trackEvent("navigation", pathToName(initial), { path: initial });
+    }
+
+    // MutationObserver on <title> is the cheapest route-agnostic signal
+    // that a navigation happened (TanStack Router updates <title> on nav).
+    const observer = new MutationObserver(() => {
+      const current = window.location.pathname;
+      if (current !== _prevPath) {
+        _prevPath = current;
+        void trackEvent("navigation", pathToName(current), { path: current });
+      }
+    });
+
+    const titleEl = document.querySelector("title");
+    if (titleEl) {
+      observer.observe(titleEl, { childList: true, characterData: true, subtree: true });
+    }
+
+    // Also listen to popstate for back/forward
+    const onPop = () => {
+      const current = window.location.pathname;
+      if (current !== _prevPath) {
+        _prevPath = current;
+        void trackEvent("navigation", pathToName(current), { path: current });
+      }
+    };
+    window.addEventListener("popstate", onPop);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("popstate", onPop);
+    };
+  }, []);
+
+  return null;
+}
+
+/** Convert a pathname like /app/explore to a snake_case name like "app_explore". */
+function pathToName(p: string): string {
+  return (
+    p
+      .replace(/^\//, "")
+      .replace(/\/$/, "")
+      .replace(/[/.-]/g, "_") || "home"
+  );
 }

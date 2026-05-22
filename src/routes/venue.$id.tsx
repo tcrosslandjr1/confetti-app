@@ -28,6 +28,11 @@ import { FavoriteVenueButton } from "@/components/FavoriteVenueButton";
 import { VenueSocialButtons } from "@/components/venue/VenueSocialButtons";
 import { VenueGallery, type GalleryItem } from "@/components/venue/VenueGallery";
 import { ReelsDrawer } from "@/components/venue/ReelsDrawer";
+import { VenueHours } from "@/components/VenueHours";
+import { VenueMenu, type MenuSection } from "@/components/VenueMenu";
+import { VenueReviews } from "@/components/VenueReviews";
+import { WaitlistButton } from "@/components/WaitlistButton";
+import { PriceLevel } from "@/components/PriceLevel";
 
 const SITE_ORIGIN = "https://confettiplan.lovable.app";
 
@@ -93,11 +98,31 @@ type Venue = {
 const FALLBACK_PHOTO =
   "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&auto=format&fit=crop";
 
-const MENU_HIGHLIGHTS = [
-  { name: "Truffle Burrata", desc: "house focaccia, hot honey", price: "$24" },
-  { name: "Wagyu Sliders (3)", desc: "smoked gouda, pickles", price: "$32" },
-  { name: "Spicy Margarita Flight", desc: "jalapeño, mezcal, blanco", price: "$28" },
-  { name: "Chocolate Soufflé", desc: "20-min wait, worth it", price: "$16" },
+const SAMPLE_MENU: MenuSection[] = [
+  {
+    id: "starters",
+    sectionName: "Starters",
+    items: [
+      { id: "1", name: "Truffle Burrata", description: "House focaccia, hot honey", price: 24, dietaryTags: ["vegetarian"], isPopular: true, isAvailable: true },
+      { id: "2", name: "Tuna Tartare", description: "Avocado, sesame, wonton chips", price: 22, dietaryTags: ["seafood", "gluten-free"], isPopular: false, isAvailable: true },
+    ],
+  },
+  {
+    id: "mains",
+    sectionName: "Mains",
+    items: [
+      { id: "3", name: "Wagyu Sliders (3)", description: "Smoked gouda, pickles, brioche", price: 32, dietaryTags: [], isPopular: true, isAvailable: true },
+      { id: "4", name: "Pan-Seared Branzino", description: "Lemon caper butter, fingerlings", price: 38, dietaryTags: ["seafood", "gluten-free"], isPopular: false, isAvailable: true },
+    ],
+  },
+  {
+    id: "drinks",
+    sectionName: "Cocktails",
+    items: [
+      { id: "5", name: "Spicy Margarita Flight", description: "Jalapeño, mezcal, blanco", price: 28, dietaryTags: ["spicy"], isPopular: true, isAvailable: true },
+      { id: "6", name: "Chocolate Soufflé", description: "20-min wait, worth it", price: 16, dietaryTags: ["vegetarian"], isPopular: false, isAvailable: true },
+    ],
+  },
 ];
 
 const DETAILS = [
@@ -805,26 +830,42 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         ))}
       </div>
 
-      {/* Menu highlights */}
+      {/* Price level */}
+      <PriceLevel level={(venue.price_level || 3) as 1 | 2 | 3 | 4} />
+
+      {/* Hours */}
+      <VenueHours
+        hours={[
+          { dayOfWeek: 0, openTime: "10:00", closeTime: "22:00", isClosed: false },
+          { dayOfWeek: 1, openTime: "11:00", closeTime: "23:00", isClosed: false },
+          { dayOfWeek: 2, openTime: "11:00", closeTime: "23:00", isClosed: false },
+          { dayOfWeek: 3, openTime: "11:00", closeTime: "00:00", isClosed: false },
+          { dayOfWeek: 4, openTime: "11:00", closeTime: "00:00", isClosed: false },
+          { dayOfWeek: 5, openTime: "11:00", closeTime: "02:00", isClosed: false },
+          { dayOfWeek: 6, openTime: "10:00", closeTime: "02:00", isClosed: false },
+        ]}
+      />
+
+      {/* Menu */}
       <div className="rounded-2xl border-2 border-ink bg-white p-5 shadow-brut">
-        <div className="flex items-center justify-between">
-          <h2 className="font-display text-xl font-extrabold">Menu highlights</h2>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
-            chef's picks
-          </span>
-        </div>
-        <ul className="mt-3 divide-y divide-ink/10">
-          {MENU_HIGHLIGHTS.map((m) => (
-            <li key={m.name} className="flex items-start justify-between gap-3 py-3">
-              <div>
-                <p className="font-semibold text-ink">{m.name}</p>
-                <p className="text-sm text-ink/60">{m.desc}</p>
-              </div>
-              <span className="shrink-0 font-mono text-sm font-bold text-coral">{m.price}</span>
-            </li>
-          ))}
-        </ul>
+        <VenueMenu sections={SAMPLE_MENU} />
       </div>
+
+      {/* Waitlist */}
+      <WaitlistButton
+        venueId={venue.id}
+        venueName={venue.name}
+        onJoin={(data) => toast.success(`On the waitlist for ${data.partySize} — we'll notify you!`)}
+      />
+
+      {/* Reviews */}
+      <VenueReviews
+        venueId={venue.id}
+        venueName={venue.name}
+        averageRating={venue.rating ?? 4.8}
+        reviewCount={842}
+        reviews={[]}
+      />
 
       <div className="flex flex-wrap items-center gap-2">
         <FavoriteVenueButton

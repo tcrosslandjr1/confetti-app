@@ -1,6 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   BarChart3,
+  Bell,
+  Building2,
+  CalendarCheck,
   CalendarPlus,
   CreditCard,
   Image as ImageIcon,
@@ -8,11 +11,18 @@ import {
   Link2,
   RefreshCw,
   Settings,
+  ShoppingBag,
+  UtensilsCrossed,
 } from "lucide-react";
 import type { ReactNode } from "react";
 
 const TABS = [
   { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { to: "/business/bookings", label: "Bookings", icon: CalendarCheck },
+  { to: "/business/corporate", label: "Corporate", icon: Building2 },
+  { to: "/business/menu", label: "Menu", icon: UtensilsCrossed },
+  { to: "/business/preorders", label: "Pre-Orders", icon: ShoppingBag },
+  { to: "/business/notifications", label: "Notifications", icon: Bell },
   { to: "/business/events", label: "Events", icon: CalendarPlus },
   { to: "/business/media", label: "Media", icon: ImageIcon },
   { to: "/business/social", label: "Social", icon: Link2 },

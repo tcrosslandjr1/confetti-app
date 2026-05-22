@@ -44,6 +44,8 @@ import {
   ConciergeQuickAsk,
   SpendBudgetTracker,
 } from "@/components/widgets/AppWidgets";
+import { NotificationPreferences, type NotifPrefs } from "@/components/NotificationPreferences";
+import { loadNotificationPreferences, saveNotificationPreferences } from "@/lib/notification-preferences";
 
 export const Route = createFileRoute("/portal/profile")({
   component: ProfilePage,
@@ -76,6 +78,11 @@ function ProfilePage() {
   });
   const [achTotals, setAchTotals] = useState({ unlocked: 0, total: 0, xpEarned: 0 });
   const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const [notifPrefs, setNotifPrefs] = useState<NotifPrefs | null>(null);
+
+  useEffect(() => {
+    loadNotificationPreferences().then(setNotifPrefs);
+  }, []);
 
   useEffect(() => {
     setLocation(getStoredLocation());
@@ -442,7 +449,9 @@ function ProfilePage() {
                     ].map((s) => (
                       <button
                         key={s.key}
-                        className="flex items-center gap-3 rounded-2xl border-2 border-ink bg-background p-3 text-left hover:bg-muted"
+                        disabled
+                        title={`${s.label} integration launching soon`}
+                        className="flex items-center gap-3 rounded-2xl border-2 border-muted bg-background p-3 text-left opacity-60 cursor-not-allowed"
                         style={{ borderLeft: `4px solid ${s.color}` }}
                       >
                         <span className="text-2xl">{s.icon}</span>
@@ -497,6 +506,29 @@ function ProfilePage() {
                     </Link>
                   </div>
                 </section>
+              ),
+            },
+            {
+              id: "notifications",
+              title: "Notifications",
+              node: (
+                <NotificationPreferences
+                  initial={notifPrefs ?? {
+                    emailConfirmations: true,
+                    emailReminders: true,
+                    smsReminders: false,
+                    pushEnabled: false,
+                  }}
+                  onSave={async (prefs) => {
+                    try {
+                      await saveNotificationPreferences(prefs);
+                      setNotifPrefs(prefs);
+                    } catch (err) {
+                      console.error("Failed to save notification prefs:", err);
+                      toast.error("Failed to save preferences — try again");
+                    }
+                  }}
+                />
               ),
             },
             {

@@ -2,8 +2,6 @@ import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Sparkles,
-  Users,
-  Heart,
   Flame,
   Utensils,
   Wallet,
@@ -12,8 +10,6 @@ import {
   Share2,
   Plane,
   Martini,
-  Dice5,
-  Mic2,
   Music,
   Waves,
   Cloud,
@@ -26,17 +22,24 @@ import {
   Car,
   Train,
   UserPlus,
-  Navigation,
-  CheckCircle2,
-  Timer,
   Shield,
+  Star,
+  MessageCircle,
+  ReceiptText,
+  Camera,
+  RotateCcw,
+  Database,
+  ThumbsUp,
+  ThumbsDown,
+  Heart,
+  CheckCircle2,
 } from "lucide-react";
 
 export const Route = createFileRoute("/boarding-pass-planner")({
   head: () => ({
     meta: [
       { title: "Boarding Pass Planner — Confetti" },
-      { name: "description", content: "Plan your night out with a live boarding pass and trip crew." },
+      { name: "description", content: "Plan, invite crew, and learn the vibe before you go." },
     ],
   }),
   component: BoardingPassPlanner,
@@ -44,7 +47,6 @@ export const Route = createFileRoute("/boarding-pass-planner")({
 
 const occasions = ["Girls Night", "Guys Night", "Date Night", "Group Hangout"];
 const moods = ["Chill", "Romantic", "Turn Up", "Luxe", "Competitive", "Foodie"];
-const groupTypes = ["Shared Culture", "Multiracial / Mixed", "Open To Anything"];
 const budgets = ["$", "$$", "$$$", "$$$$"];
 const times = ["Morning", "Early Evening", "Late Night", "All Night"];
 
@@ -63,21 +65,7 @@ const destinationTypes = [
   "Seafood / Crab",
   "Hookah",
   "Lounge",
-  "Casino Night",
-  "Karaoke",
   "Rooftop",
-  "Steakhouse",
-];
-
-const quickPicks = [
-  { type: "Coffee Date", destination: "The Latte Stop", icon: Coffee },
-  { type: "Breakfast Date", destination: "Sunrise Table", icon: Croissant },
-  { type: "Champagne Brunch", destination: "Bubbles & Brunch", icon: Martini },
-  { type: "Library Date", destination: "The Reading Room", icon: Library },
-  { type: "Museum Date", destination: "Gallery Walk", icon: Landmark },
-  { type: "Seafood / Crab", destination: "Crab House Cove", icon: Waves },
-  { type: "Hookah", destination: "Velvet Smoke", icon: Cloud },
-  { type: "Casino Night", destination: "Jackpot After Dark", icon: Dice5 },
 ];
 
 const destinationMap: Record<string, string[]> = {
@@ -89,50 +77,129 @@ const destinationMap: Record<string, string[]> = {
   "Seafood / Crab": ["Crab House Cove", "Butter Bay", "Seafood Social"],
   Hookah: ["Velvet Smoke", "Cloud Lounge", "Midnight Mirage"],
   Lounge: ["The Velvet Room", "Luxe Lounge", "After Dark"],
-  "Casino Night": ["Jackpot After Dark", "Lucky Table", "Velvet Casino"],
-  Karaoke: ["Mic Drop", "Midnight Karaoke", "The Singalong Suite"],
   Rooftop: ["Golden Hour", "Skyline Social", "Rooftop Reserve"],
-  Steakhouse: ["The High Table", "Prime Night", "Reservations Only"],
 };
 
-type CrewMember = {
-  name: string;
-  rsvp: string;
-  status: string;
-  travel: string;
-  eta: string;
-  location: string;
+type VenueIntel = {
+  venue: string;
+  photo: string;
+  ordered: string[];
+  talkedAbout: string[];
+  watchOut: string;
+  bestFor: string;
 };
 
-const initialCrew: CrewMember[] = [
-  { name: "Maya", rsvp: "Going", status: "En Route", travel: "Uber / Lyft", eta: "12 min", location: "To Stop 1" },
-  { name: "Tasha", rsvp: "Going", status: "Getting Ready", travel: "Carpool", eta: "Not started", location: "Pickup pending" },
-  { name: "Bri", rsvp: "Going", status: "Landed", travel: "Driving", eta: "Arrived", location: "At Stop 1" },
-  { name: "Nia", rsvp: "Maybe", status: "Running Late", travel: "Public Transit", eta: "22 min", location: "Green Line" },
+const venueIntel: Record<string, VenueIntel> = {
+  "Champagne Brunch": {
+    venue: "Brunch House Social",
+    photo: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Mimosa tower", "Chicken & waffles", "Shrimp & grits"],
+    talkedAbout: ["Birthday brunch energy", "Loud music", "Photo-friendly plates"],
+    watchOut: "Reservations run behind after 1 PM.",
+    bestFor: "Groups, celebrations, luxe daytime plans",
+  },
+  "Coffee Date": {
+    venue: "The Corner Cafe",
+    photo: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Lavender latte", "Cold brew", "Almond croissant"],
+    talkedAbout: ["Cozy seating", "First-date friendly", "Quiet morning vibe"],
+    watchOut: "Limited seating during weekend rush.",
+    bestFor: "Low-pressure dates and soft starts",
+  },
+  "Breakfast Date": {
+    venue: "Sunrise Kitchen",
+    photo: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Pancake stack", "Breakfast tacos", "Fresh juice"],
+    talkedAbout: ["Fast service", "Casual vibe", "Good early meetups"],
+    watchOut: "Best before 10:30 AM.",
+    bestFor: "Morning dates and easy plans",
+  },
+  "Library Date": {
+    venue: "City Reading Room",
+    photo: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Coffee nearby", "Tea nearby", "Bookstore stop after"],
+    talkedAbout: ["Quiet chemistry", "Study-date vibe", "Cute walking route"],
+    watchOut: "Keep the plan short if conversation is flowing.",
+    bestFor: "Soft dates, introverts, book lovers",
+  },
+  "Museum Date": {
+    venue: "Modern Gallery Walk",
+    photo: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Cafe latte", "Museum cafe pastry", "Wine bar after"],
+    talkedAbout: ["Conversation starters", "Cute photos", "Easy second stop"],
+    watchOut: "Some exhibits require timed entry.",
+    bestFor: "Dates with built-in conversation",
+  },
+  "Seafood / Crab": {
+    venue: "Crab House Cove",
+    photo: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Snow crab legs", "Garlic butter shrimp", "Seafood boil bag"],
+    talkedAbout: ["Messy but fun", "Big group tables", "Strong sauces"],
+    watchOut: "Not ideal before an upscale lounge unless you plan time to reset.",
+    bestFor: "Groups, loud dinners, casual fun",
+  },
+  Hookah: {
+    venue: "Velvet Smoke Lounge",
+    photo: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Mint hookah", "Lemon drop mocktail", "Wings"],
+    talkedAbout: ["Good couches", "Late-night music", "Chill group energy"],
+    watchOut: "Crowd changes after midnight.",
+    bestFor: "Late-night linkups and long conversations",
+  },
+  Lounge: {
+    venue: "The Velvet Room",
+    photo: "https://images.unsplash.com/photo-1575444758702-4a6b9222336e?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Signature cocktail", "Small plates", "Bottle service"],
+    talkedAbout: ["Dressy crowd", "Music gets better late", "Good lighting"],
+    watchOut: "Check dress code before going.",
+    bestFor: "Luxe dates, girls night, grown vibe",
+  },
+  Rooftop: {
+    venue: "Skyline Social",
+    photo: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Rosé", "Sliders", "Spritz"],
+    talkedAbout: ["Views", "Golden hour", "Photos"],
+    watchOut: "Weather can change the whole vibe.",
+    bestFor: "Photo-ready plans and pre-lounge stops",
+  },
+};
+
+const quickPicks = [
+  { type: "Coffee Date", destination: "The Latte Stop", icon: Coffee },
+  { type: "Breakfast Date", destination: "Sunrise Table", icon: Croissant },
+  { type: "Champagne Brunch", destination: "Bubbles & Brunch", icon: Martini },
+  { type: "Library Date", destination: "The Reading Room", icon: Library },
+  { type: "Museum Date", destination: "Gallery Walk", icon: Landmark },
+  { type: "Seafood / Crab", destination: "Crab House Cove", icon: Waves },
+  { type: "Hookah", destination: "Velvet Smoke", icon: Cloud },
 ];
 
-const travelModes = ["Uber / Lyft", "Public Transit", "Driving", "Carpool", "Walking"];
-const statuses = ["Getting Ready", "En Route", "Landed", "Running Late", "Leaving Soon"];
-const rsvps = ["Going", "Maybe", "Can't Make It"];
+type CrewMember = { name: string; status: string; travel: string; eta: string };
+
+const initialCrew: CrewMember[] = [
+  { name: "Maya", status: "En Route", travel: "Uber / Lyft", eta: "12 min" },
+  { name: "Tasha", status: "Getting Ready", travel: "Carpool", eta: "Not started" },
+  { name: "Bri", status: "Landed", travel: "Driving", eta: "Arrived" },
+];
 
 function BoardingPassPlanner() {
-  const [occasion, setOccasion] = useState("Girls Night");
-  const [mood, setMood] = useState("Luxe");
-  const [destinationType, setDestinationType] = useState("Champagne Brunch");
-  const [groupType, setGroupType] = useState("Multiracial / Mixed");
-  const [budget, setBudget] = useState("$$$");
-  const [time, setTime] = useState("Early Evening");
+  const [occasion, setOccasion] = useState("Date Night");
+  const [mood, setMood] = useState("Romantic");
+  const [destinationType, setDestinationType] = useState("Coffee Date");
+  const [budget, setBudget] = useState("$$");
+  const [time, setTime] = useState("Morning");
   const [city, setCity] = useState("Washington, DC");
-  const [tripMode, setTripMode] = useState("Oh We Outside");
+  const [tripMode, setTripMode] = useState("A Lil' Plan");
   const [customSpot, setCustomSpot] = useState("");
   const [addedSpots, setAddedSpots] = useState<string[]>([]);
   const [crew, setCrew] = useState<CrewMember[]>(initialCrew);
   const [inviteName, setInviteName] = useState("");
-  const [myStatus, setMyStatus] = useState("Getting Ready");
-  const [myTravel, setMyTravel] = useState("Uber / Lyft");
-  const [shareEtaOnly, setShareEtaOnly] = useState(true);
+  const [locationMode, setLocationMode] = useState("Trip Mode Only");
+  const [learnVibe, setLearnVibe] = useState(true);
+  const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
 
   const selectedTrip = tripModes.find((m) => m.name === tripMode) || tripModes[1];
+  const intel = venueIntel[destinationType] || venueIntel["Coffee Date"];
 
   const destination = useMemo(() => {
     const names = destinationMap[destinationType] || ["The Night Out"];
@@ -142,80 +209,27 @@ function BoardingPassPlanner() {
   }, [destinationType, mood, occasion]);
 
   const baseStops = useMemo(() => {
-    const mixed = groupType.includes("Multiracial");
     const stopSets: Record<string, string[]> = {
-      "Coffee Date": [
-        "Coffee shop, latte flight, or cozy cafe table",
-        "Bookstore walk, park stroll, or quick dessert",
-        "Museum, gallery, or scenic photo stop",
-        "Dinner, lounge, or late-night tea",
-      ],
-      "Breakfast Date": [
-        "Breakfast spot, pancakes, chicken and waffles, or bakery",
-        "Morning walk, market, bookstore, or coffee refill",
-        "Museum, park, or low-pressure activity",
-        "Dessert, smoothie, or second cafe stop",
-      ],
-      "Library Date": [
-        "Library visit, reading room, or quiet study-style date",
-        "Coffee or tea nearby",
-        "Bookstore, museum, or park walk",
-        "Casual dinner or dessert after",
-      ],
-      "Museum Date": [
-        "Museum or gallery walk",
-        "Coffee, tea, or brunch nearby",
-        "Bookstore, park, or scenic photo stop",
-        "Dinner, jazz, lounge, or dessert",
-      ],
-      "Champagne Brunch": [
-        "Champagne brunch or mimosa tower reservation",
-        "Golden-hour photos, shopping, spa, or rooftop stop",
-        mixed ? "Passport playlist: everyone adds five songs" : "Music and conversation that match the group's vibe",
-        "Dessert lounge, tea, or late-afternoon cocktails",
-      ],
-      "Seafood / Crab": [
-        "Crab house, seafood boil, or waterfront dinner",
-        "Fit check and group photo before the table gets messy",
-        "Rooftop, lounge, dancing, or hookah after",
-        "Late-night bites or one final drink stop",
-      ],
-      Hookah: [
-        "Dinner first: tapas, wings, seafood, or Mediterranean",
-        "Hookah lounge with music, mocktails, and couches",
-        "Playlist rotation or group-voted music stop",
-        "Late-night food run before heading home",
-      ],
-      "Casino Night": [
-        "Steak, seafood, or dressed-up dinner",
-        "Casino night, game lounge, cards, or table games",
-        "Celebrate wins with a lounge, dessert, or cigar bar",
-        "End with late-night diner food, tacos, or pizza",
-      ],
+      "Coffee Date": ["Coffee shop, latte flight, or cozy cafe table", "Bookstore walk, park stroll, or quick dessert", "Museum, gallery, or scenic photo stop", "Dinner, lounge, or late-night tea"],
+      "Breakfast Date": ["Breakfast spot, pancakes, chicken and waffles, or bakery", "Morning walk, market, bookstore, or coffee refill", "Museum, park, or low-pressure activity", "Dessert, smoothie, or second cafe stop"],
+      "Library Date": ["Library visit, reading room, or quiet study-style date", "Coffee or tea nearby", "Bookstore, museum, or park walk", "Casual dinner or dessert after"],
+      "Museum Date": ["Museum or gallery walk", "Coffee, tea, or brunch nearby", "Bookstore, park, or scenic photo stop", "Dinner, jazz, lounge, or dessert"],
+      "Champagne Brunch": ["Champagne brunch or mimosa tower reservation", "Golden-hour photos, shopping, spa, or rooftop stop", "Passport playlist: everyone adds five songs", "Dessert lounge, tea, or late-afternoon cocktails"],
+      "Seafood / Crab": ["Crab house, seafood boil, or waterfront dinner", "Fit check and group photo before the table gets messy", "Rooftop, lounge, dancing, or hookah after", "Late-night bites or one final drink stop"],
+      Hookah: ["Dinner first: tapas, wings, seafood, or Mediterranean", "Hookah lounge with music, mocktails, and couches", "Playlist rotation or group-voted music stop", "Late-night food run before heading home"],
+      Lounge: ["Dinner or small plates nearby", "Lounge with music, drinks, and dress-code energy", "Rooftop or photo stop after", "Late-night food or dessert"],
+      Rooftop: ["Golden-hour rooftop reservation", "Small plates, drinks, or mocktails", "Lounge, dancing, or hookah after", "Dessert or late-night food"],
     };
+    return stopSets[destinationType] || [`Start with ${destinationType}`, "Add one activity", "Close with dessert or late-night food"];
+  }, [destinationType]);
 
-    return (
-      stopSets[destinationType] || [
-        `Start with a ${destinationType.toLowerCase()} anchor`,
-        occasion === "Date Night" ? "Add a romantic activity or scenic walk" : "Add one group activity everyone can join",
-        mixed ? "Let each person contribute one song, dish, or stop" : "Build around the group's shared style",
-        "Close with dessert, lounge, hookah, or late-night food",
-      ]
-    );
-  }, [destinationType, occasion, groupType]);
-
-  const itinerary = [
-    ...baseStops.slice(0, selectedTrip.stops),
-    ...addedSpots.map((s) => `Added spot: ${s}`),
-  ];
+  const itinerary = [...baseStops.slice(0, selectedTrip.stops), ...addedSpots.map((s) => `Added spot: ${s}`)];
 
   const Icon =
     destinationType === "Coffee Date" ? Coffee :
     destinationType === "Library Date" ? Library :
     destinationType === "Museum Date" ? Landmark :
     destinationType === "Breakfast Date" ? Croissant :
-    destinationType === "Casino Night" ? Dice5 :
-    destinationType === "Karaoke" ? Mic2 :
     destinationType === "Lounge" ? Martini :
     destinationType === "Seafood / Crab" ? Waves :
     destinationType === "Hookah" ? Cloud :
@@ -229,32 +243,19 @@ function BoardingPassPlanner() {
 
   function inviteCrewMember() {
     if (!inviteName.trim()) return;
-    setCrew([
-      ...crew,
-      {
-        name: inviteName.trim(),
-        rsvp: "Invited",
-        status: "Waiting",
-        travel: "Not picked",
-        eta: "Pending",
-        location: "Invite sent",
-      },
-    ]);
+    setCrew([...crew, { name: inviteName.trim(), status: "Invited", travel: "Not picked", eta: "Pending" }]);
     setInviteName("");
   }
 
-  function updateCrew(index: number, field: keyof CrewMember, value: string) {
-    setCrew(crew.map((m, i) => (i === index ? { ...m, [field]: value } : m)));
+  function toggleFlip(index: number) {
+    setFlippedCards({ ...flippedCards, [index]: !flippedCards[index] });
   }
-
-  const enRouteCount = crew.filter((m) => m.status === "En Route").length;
-  const landedCount = crew.filter((m) => m.status === "Landed").length;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-6xl px-4 py-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-          {/* LEFT: Planner */}
+          {/* LEFT */}
           <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
             <div className="mb-5 flex items-center gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
@@ -270,7 +271,6 @@ function BoardingPassPlanner() {
               <Picker title="Occasion" icon={<Heart className="h-3.5 w-3.5" />} options={occasions} value={occasion} onChange={setOccasion} />
               <Picker title="Mood" icon={<Flame className="h-3.5 w-3.5" />} options={moods} value={mood} onChange={setMood} />
               <Picker title="Destination type" icon={<Utensils className="h-3.5 w-3.5" />} options={destinationTypes} value={destinationType} onChange={setDestinationType} />
-              <Picker title="Group type" icon={<Users className="h-3.5 w-3.5" />} options={groupTypes} value={groupType} onChange={setGroupType} />
 
               <div>
                 <p className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
@@ -284,7 +284,7 @@ function BoardingPassPlanner() {
                       className={`rounded-md border p-3 text-left transition ${
                         tripMode === m.name
                           ? "border-primary bg-primary text-primary-foreground"
-                          : "border-border bg-muted/40 text-foreground hover:border-primary/50"
+                          : "border-border bg-muted/40 hover:border-primary/50"
                       }`}
                     >
                       <p className="text-sm font-bold">{m.name}</p>
@@ -340,18 +340,22 @@ function BoardingPassPlanner() {
                       className="h-11 w-full rounded-md border border-border bg-muted/40 pl-9 pr-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
                     />
                   </div>
-                  <button
-                    onClick={addCustomSpot}
-                    className="inline-flex items-center gap-1 rounded-md bg-primary px-3 text-sm font-bold text-primary-foreground"
-                  >
+                  <button onClick={addCustomSpot} className="inline-flex items-center gap-1 rounded-md bg-primary px-3 text-sm font-bold text-primary-foreground">
                     <Plus className="h-4 w-4" /> Add
                   </button>
                 </div>
               </div>
+
+              <TripMemoryControls
+                locationMode={locationMode}
+                setLocationMode={setLocationMode}
+                learnVibe={learnVibe}
+                setLearnVibe={setLearnVibe}
+              />
             </div>
           </section>
 
-          {/* RIGHT: Boarding Pass + Crew */}
+          {/* RIGHT */}
           <div className="space-y-6">
             <section className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
               <div className="bg-gradient-to-br from-primary to-primary/80 p-6 text-primary-foreground">
@@ -395,96 +399,134 @@ function BoardingPassPlanner() {
                   <Share2 className="h-3.5 w-3.5" /> Share
                 </button>
               </div>
-
               <div className="border-t border-border bg-primary/5 px-5 py-2 text-center font-mono text-[10px] uppercase tracking-widest text-primary">
                 Live trip ready
               </div>
             </section>
 
-            {/* Crew status summary */}
+            <FlipCards itinerary={itinerary} intel={intel} flippedCards={flippedCards} toggleFlip={toggleFlip} />
+
+            <CrewPanel crew={crew} inviteName={inviteName} setInviteName={setInviteName} inviteCrewMember={inviteCrewMember} />
+
             <section className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-              <div className="mb-4 flex items-center justify-between">
-                <div>
-                  <h3 className="font-display text-lg font-bold">Live crew status</h3>
-                  <p className="text-xs text-muted-foreground">Who's pulling up?</p>
+              <div className="mb-4 flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
+                  <Star className="h-5 w-5" />
                 </div>
-                <div className="flex gap-2 text-[11px]">
-                  <span className="rounded-full bg-primary/10 px-2 py-1 font-bold text-primary">{enRouteCount} en route</span>
-                  <span className="rounded-full bg-emerald-500/10 px-2 py-1 font-bold text-emerald-600">{landedCount} landed</span>
+                <div>
+                  <h3 className="font-display text-lg font-bold">Vibe Report</h3>
+                  <p className="text-xs text-muted-foreground">Save what the crew learned</p>
                 </div>
               </div>
-
-              <div className="space-y-2">
-                {crew.map((m) => (
-                  <div key={m.name} className="rounded-md border border-border bg-muted/30 p-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-bold">{m.name}</p>
-                        <p className="text-[11px] text-muted-foreground">{m.location}</p>
-                      </div>
-                      <span className="rounded-full bg-card px-2 py-0.5 text-[10px] font-bold uppercase">{m.rsvp}</span>
-                    </div>
-                    <div className="mt-2 grid grid-cols-3 gap-2">
-                      <MiniStat icon={<CheckCircle2 className="h-3 w-3" />} label="Status" value={m.status} />
-                      <MiniStat
-                        icon={m.travel === "Public Transit" ? <Train className="h-3 w-3" /> : <Car className="h-3 w-3" />}
-                        label="Travel"
-                        value={m.travel}
-                      />
-                      <MiniStat icon={<Timer className="h-3 w-3" />} label="ETA" value={m.eta} />
-                    </div>
-                  </div>
-                ))}
+              <div className="grid gap-2 sm:grid-cols-3">
+                {["Food", "Music", "Crowd"].map((item) => <FeedbackCard key={item} label={item} />)}
               </div>
             </section>
           </div>
-        </div>
-
-        {/* Bottom: Crew controls */}
-        <div className="mt-6">
-          <CrewPanel
-            crew={crew}
-            inviteName={inviteName}
-            setInviteName={setInviteName}
-            inviteCrewMember={inviteCrewMember}
-            updateCrew={updateCrew}
-            myStatus={myStatus}
-            setMyStatus={setMyStatus}
-            myTravel={myTravel}
-            setMyTravel={setMyTravel}
-            shareEtaOnly={shareEtaOnly}
-            setShareEtaOnly={setShareEtaOnly}
-          />
         </div>
       </div>
     </div>
   );
 }
 
-function CrewPanel({
-  crew,
-  inviteName,
-  setInviteName,
-  inviteCrewMember,
-  updateCrew,
-  myStatus,
-  setMyStatus,
-  myTravel,
-  setMyTravel,
-  shareEtaOnly,
-  setShareEtaOnly,
-}: {
-  crew: CrewMember[];
-  inviteName: string;
-  setInviteName: (v: string) => void;
-  inviteCrewMember: () => void;
-  updateCrew: (i: number, f: keyof CrewMember, v: string) => void;
-  myStatus: string;
-  setMyStatus: (v: string) => void;
-  myTravel: string;
-  setMyTravel: (v: string) => void;
-  shareEtaOnly: boolean;
-  setShareEtaOnly: (v: boolean) => void;
+function FlipCards({ itinerary, intel, flippedCards, toggleFlip }: {
+  itinerary: string[]; intel: VenueIntel; flippedCards: Record<number, boolean>; toggleFlip: (i: number) => void;
+}) {
+  return (
+    <section className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+      <div className="mb-4 flex items-center justify-between">
+        <div>
+          <h3 className="font-display text-lg font-bold">Pre-event cards</h3>
+          <p className="text-xs text-muted-foreground">Tap a stop to flip for venue intel</p>
+        </div>
+        <RotateCcw className="h-4 w-4 text-muted-foreground" />
+      </div>
+
+      <div className="flex gap-3 overflow-x-auto pb-2">
+        {itinerary.map((stop, index) => {
+          const flipped = flippedCards[index];
+          return (
+            <button
+              key={index}
+              onClick={() => toggleFlip(index)}
+              className="min-h-[340px] min-w-[260px] shrink-0 overflow-hidden rounded-lg border border-border bg-muted/30 text-left transition hover:border-primary"
+            >
+              {!flipped ? (
+                <div>
+                  <img src={intel.photo} alt={intel.venue} className="h-36 w-full object-cover" />
+                  <div className="p-3">
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Stop {index + 1}</p>
+                    <p className="mt-1 text-sm font-bold">{intel.venue}</p>
+                    <p className="mt-2 text-xs text-muted-foreground">{stop}</p>
+                    <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-primary">Tap to flip for highlights</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-3">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Social + Review Buzz</p>
+                  <p className="mt-1 text-sm font-bold">{intel.venue}</p>
+                  <div className="mt-3 space-y-3">
+                    <InfoList icon={<ReceiptText className="h-3 w-3" />} title="People order" items={intel.ordered} />
+                    <InfoList icon={<MessageCircle className="h-3 w-3" />} title="People talk about" items={intel.talkedAbout} />
+                    <div className="rounded-md border border-primary/30 bg-primary/5 p-2">
+                      <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-primary">
+                        <Camera className="h-3 w-3" /> Best for
+                      </p>
+                      <p className="mt-0.5 text-xs">{intel.bestFor}</p>
+                    </div>
+                    <div className="rounded-md border border-amber-500/30 bg-amber-500/10 p-2">
+                      <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
+                        <Shield className="h-3 w-3" /> Heads up
+                      </p>
+                      <p className="mt-0.5 text-xs">{intel.watchOut}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function TripMemoryControls({ locationMode, setLocationMode, learnVibe, setLearnVibe }: {
+  locationMode: string; setLocationMode: (v: string) => void; learnVibe: boolean; setLearnVibe: (v: boolean) => void;
+}) {
+  return (
+    <div className="rounded-xl border border-border bg-muted/30 p-4">
+      <p className="mb-3 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+        <Database className="h-3.5 w-3.5" /> Trip Memory
+      </p>
+      <div className="grid gap-2 sm:grid-cols-3">
+        {["Off", "ETA Only", "Trip Mode Only"].map((mode) => (
+          <button
+            key={mode}
+            onClick={() => setLocationMode(mode)}
+            className={`rounded-md border px-3 py-2 text-left text-sm transition ${
+              locationMode === mode ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card"
+            }`}
+          >
+            {mode}
+          </button>
+        ))}
+      </div>
+      <button
+        onClick={() => setLearnVibe(!learnVibe)}
+        className={`mt-3 flex w-full items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
+          learnVibe ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card"
+        }`}
+      >
+        <Sparkles className="h-4 w-4" />
+        Learn my vibe anonymously for better future suggestions
+      </button>
+    </div>
+  );
+}
+
+function CrewPanel({ crew, inviteName, setInviteName, inviteCrewMember }: {
+  crew: CrewMember[]; inviteName: string; setInviteName: (v: string) => void; inviteCrewMember: () => void;
 }) {
   return (
     <section className="rounded-2xl border border-border bg-card p-5 shadow-sm">
@@ -505,47 +547,21 @@ function CrewPanel({
           placeholder="Invite by name, phone, or @handle"
           className="h-11 flex-1 rounded-md border border-border bg-muted/40 px-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
         />
-        <button
-          onClick={inviteCrewMember}
-          className="inline-flex items-center gap-1 rounded-md bg-primary px-4 text-sm font-bold text-primary-foreground"
-        >
+        <button onClick={inviteCrewMember} className="inline-flex items-center gap-1 rounded-md bg-primary px-4 text-sm font-bold text-primary-foreground">
           <Plus className="h-4 w-4" /> Invite
         </button>
       </div>
 
-      <div className="mt-5 rounded-xl border border-border bg-muted/30 p-4">
-        <p className="mb-3 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-          <Navigation className="h-3.5 w-3.5" /> How we pullin' up
-        </p>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <SelectField label="My status" value={myStatus} options={statuses} onChange={setMyStatus} />
-          <SelectField label="My travel" value={myTravel} options={travelModes} onChange={setMyTravel} />
-        </div>
-
-        <button
-          onClick={() => setShareEtaOnly(!shareEtaOnly)}
-          className={`mt-3 flex w-full items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
-            shareEtaOnly
-              ? "border-primary bg-primary text-primary-foreground"
-              : "border-border bg-card text-foreground"
-          }`}
-        >
-          <Shield className="h-4 w-4" />
-          Share ETA only, not exact location
-        </button>
-      </div>
-
-      <div className="mt-5 space-y-2">
+      <div className="mt-4 space-y-2">
         {crew.map((m, i) => (
-          <div key={m.name + i} className="rounded-md border border-border bg-muted/30 p-3">
+          <div key={i} className="rounded-md border border-border bg-muted/30 p-3">
             <div className="mb-2 flex items-center justify-between">
               <p className="text-sm font-bold">{m.name}</p>
               <span className="rounded-full bg-card px-2 py-0.5 text-[10px] font-bold uppercase">{m.eta}</span>
             </div>
-            <div className="grid gap-2 sm:grid-cols-3">
-              <SelectField label="RSVP" value={m.rsvp} options={rsvps} onChange={(v) => updateCrew(i, "rsvp", v)} />
-              <SelectField label="Status" value={m.status} options={statuses} onChange={(v) => updateCrew(i, "status", v)} />
-              <SelectField label="Travel" value={m.travel} options={travelModes} onChange={(v) => updateCrew(i, "travel", v)} />
+            <div className="grid grid-cols-2 gap-2">
+              <MiniStat icon={<CheckCircle2 className="h-3 w-3" />} label="Status" value={m.status} />
+              <MiniStat icon={m.travel === "Public Transit" ? <Train className="h-3 w-3" /> : <Car className="h-3 w-3" />} label="Travel" value={m.travel} />
             </div>
           </div>
         ))}
@@ -554,20 +570,8 @@ function CrewPanel({
   );
 }
 
-function Picker({
-  title,
-  icon,
-  options,
-  value,
-  onChange,
-  compact = false,
-}: {
-  title: string;
-  icon: React.ReactNode;
-  options: string[];
-  value: string;
-  onChange: (v: string) => void;
-  compact?: boolean;
+function Picker({ title, icon, options, value, onChange, compact = false }: {
+  title: string; icon: React.ReactNode; options: string[]; value: string; onChange: (v: string) => void; compact?: boolean;
 }) {
   return (
     <div>
@@ -582,7 +586,7 @@ function Picker({
             className={`min-h-11 rounded-md border px-3 py-2 text-left text-sm transition ${
               value === option
                 ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-muted/40 text-foreground hover:border-primary/50"
+                : "border-border bg-muted/40 hover:border-primary/50"
             }`}
           >
             {option}
@@ -593,37 +597,44 @@ function Picker({
   );
 }
 
-function SelectField({
-  label,
-  value,
-  options,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  options: string[];
-  onChange: (v: string) => void;
-}) {
+function InfoList({ icon, title, items }: { icon: React.ReactNode; title: string; items: string[] }) {
   return (
-    <label className="block">
-      <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{label}</span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="h-10 w-full rounded-md border border-border bg-card px-2 text-sm outline-none focus:ring-2 focus:ring-primary/40"
-      >
-        {options.map((o) => (
-          <option key={o} value={o}>{o}</option>
+    <div>
+      <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+        {icon} {title}
+      </p>
+      <ul className="mt-1 space-y-0.5">
+        {items.map((item) => (
+          <li key={item} className="text-xs">• {item}</li>
         ))}
-      </select>
-    </label>
+      </ul>
+    </div>
+  );
+}
+
+function FeedbackCard({ label }: { label: string }) {
+  return (
+    <div className="rounded-md border border-border bg-muted/30 p-3">
+      <p className="text-sm font-bold">{label}</p>
+      <div className="mt-2 flex gap-2">
+        <button className="inline-flex flex-1 items-center justify-center gap-1 rounded-md border border-border bg-card px-2 py-1.5 text-xs hover:border-primary">
+          <ThumbsUp className="h-3 w-3" /> Loved
+        </button>
+        <button className="inline-flex flex-1 items-center justify-center gap-1 rounded-md border border-border bg-card px-2 py-1.5 text-xs hover:border-primary">
+          <ThumbsDown className="h-3 w-3" /> Skip
+        </button>
+      </div>
+    </div>
   );
 }
 
 function MiniStat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <div className="rounded-md bg-card p-2">
-      <div className="flex items-center gap-1 text-muted-foreground">{icon}<span className="text-[9px] font-bold uppercase tracking-wider">{label}</span></div>
+      <div className="flex items-center gap-1 text-muted-foreground">
+        {icon}
+        <span className="text-[9px] font-bold uppercase tracking-wider">{label}</span>
+      </div>
       <p className="mt-0.5 text-[11px] font-bold">{value}</p>
     </div>
   );

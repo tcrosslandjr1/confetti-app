@@ -1026,7 +1026,14 @@ function AuthPage() {
                 >
                   Data sharing terms
                 </Link>
-                .
+                ,{" "}
+                <Link
+                  to="/cookies"
+                  className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
+                >
+                  Cookie Policy
+                </Link>
+                , and consent to functional + analytics cookies — no more banner.
               </p>
             )}
           </form>

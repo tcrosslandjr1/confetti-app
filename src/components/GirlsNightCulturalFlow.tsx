@@ -1,4 +1,4 @@
-import { Sparkles, Users, Globe2, Camera, Utensils, Music, PartyPopper } from "lucide-react";
+import { Sparkles, Users, Camera, Utensils, PartyPopper } from "lucide-react";
 
 /**
  * Girls Night — 4-step planning framework. Mirrors the agent prompt in

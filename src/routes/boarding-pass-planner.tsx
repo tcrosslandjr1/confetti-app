@@ -1029,15 +1029,37 @@ function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, se
         </button>
       </div>
 
-      <button
-        onClick={() => setShareEtaOnly(!shareEtaOnly)}
-        className={`mt-3 flex w-full items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
-          shareEtaOnly ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40"
-        }`}
-      >
-        <Shield className="h-4 w-4 shrink-0" />
-        <span>Share ETA only — keep my exact location private</span>
-      </button>
+      <div className="mt-3 space-y-2">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Privacy</p>
+        <button
+          onClick={() => setSharePickup(!sharePickup)}
+          className={`flex w-full items-start gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
+            sharePickup ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40"
+          }`}
+        >
+          <Car className="mt-0.5 h-4 w-4 shrink-0" />
+          <span className="flex-1">
+            <span className="block font-semibold">Carpool pickup info</span>
+            <span className={`block text-xs ${sharePickup ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+              {sharePickup ? "Crew can see your pickup spot" : "Hidden — share pickup only with driver"}
+            </span>
+          </span>
+        </button>
+        <button
+          onClick={() => setShareEtaDetails(!shareEtaDetails)}
+          className={`flex w-full items-start gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
+            shareEtaDetails ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40"
+          }`}
+        >
+          <Shield className="mt-0.5 h-4 w-4 shrink-0" />
+          <span className="flex-1">
+            <span className="block font-semibold">Precise ETA & location</span>
+            <span className={`block text-xs ${shareEtaDetails ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+              {shareEtaDetails ? "Live coordinates visible to crew" : "ETA only — exact location stays private"}
+            </span>
+          </span>
+        </button>
+      </div>
     </section>
   );
 }

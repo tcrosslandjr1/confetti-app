@@ -535,6 +535,40 @@ function BoardingPassPlanner() {
   }
 
 
+  async function pushMyUpdate(patch?: Partial<CrewMember>) {
+    const next = { status: myStatus, travel: myTravel, eta: myEta, ...patch };
+    if (patch?.status) setMyStatus(patch.status);
+    if (patch?.travel) setMyTravel(patch.travel);
+    if (patch?.eta) setMyEta(patch.eta);
+    if (shareToken && myRowId) {
+      await supabase.from("boarding_pass_crew").update(next).eq("id", myRowId);
+    }
+  }
+
+  const [locating, setLocating] = useState(false);
+  async function useMyLocation() {
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+      window.alert("Location not available on this device");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        const label = shareEtaOnly
+          ? "Live ETA on"
+          : `Near ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`;
+        await pushMyUpdate({ status: "En Route", eta: label });
+        setLocating(false);
+      },
+      () => {
+        window.alert("Couldn't get your location");
+        setLocating(false);
+      },
+      { enableHighAccuracy: true, timeout: 8000 },
+    );
+  }
+
   function toggleFlip(index: number) {
     setFlippedCards({ ...flippedCards, [index]: !flippedCards[index] });
   }

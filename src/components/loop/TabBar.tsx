@@ -148,8 +148,11 @@ function TabItem({
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { effectiveRole } = useAuth();
   const baseId = useId();
   if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
+
+  const tabs = effectiveRole === "business" ? BUSINESS_TABS : CUSTOMER_TABS;
 
   return (
     <nav
@@ -166,7 +169,7 @@ export function TabBar() {
           role="list"
           className="relative mx-auto grid w-full max-w-2xl min-h-[80px] grid-cols-5 items-center overflow-x-hidden px-1 sm:px-2"
         >
-          {TABS.map(({ to, label, icon, match, prominent }, i) => {
+          {tabs.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
             return (

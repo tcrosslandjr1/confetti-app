@@ -80,7 +80,7 @@ function useActivityFeed() {
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
-function AdminDashboard() {
+export function AdminDashboard() {
     const { data: kpis, isLoading } = useOverviewKpis();
     const { data: feed } = useActivityFeed();
     const audit = useAuditLog();

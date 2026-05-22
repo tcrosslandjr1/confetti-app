@@ -62,19 +62,27 @@ function BusinessDashboardPage() {
     queryFn: () => fetchClaims(),
   });
 
-  const claim = claimsData?.claims?.[0] ?? null;
+  const claims = claimsData?.claims ?? [];
+  const claim = claims[0] ?? null;
   const venueName = (claim as any)?.proposed_name || (claim as any)?.venue_name || "Your Venue";
   const claimStatus = (claim?.status as string) ?? "pending";
   const promotionUnlocked = claimStatus === "approved";
   const hasPendingClaim = claim?.status === "pending";
-  const hasAdvertisers = (claimsData?.claims ?? []).some((c: any) => c.advertiser_id);
+  const hasClaim = claims.length > 0;
+  const hasAdvertisers = claims.some((c: any) => c.advertiser_id);
+  const isApproved = claimStatus === "approved";
+  const showOnboarding = !hasAdvertisers;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         {hasPendingClaim && <PendingApprovalBanner venueName={venueName} />}
-        {!hasAdvertisers ? (
-          <NoAdvertisersEmptyState />
+        {showOnboarding ? (
+          <FirstAdvertiserOnboarding
+            hasClaim={hasClaim}
+            isApproved={isApproved}
+            venueName={hasClaim ? venueName : null}
+          />
         ) : (
           <>
             <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">

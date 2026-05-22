@@ -22,6 +22,7 @@ import {
   Gift,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import { acceptAllCookiesSilently } from "@/components/CookieConsent";
 
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";

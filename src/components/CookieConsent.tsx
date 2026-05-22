@@ -113,7 +113,7 @@ export function CookieConsent() {
       window.removeEventListener("open-cookie-settings", onOpen);
       mo.disconnect();
     };
-  }, []);
+  }, [user]);
 
   const acceptAll = () => {
     const next: CookiePrefs = { necessary: true, analytics: true, functional: true };

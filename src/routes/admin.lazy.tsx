@@ -10,6 +10,7 @@ import { AdminGlobalSearch } from "@/components/AdminGlobalSearch";
 import { supabase } from "@/integrations/supabase/client";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { useAdminNavCounts, ROUTE_TO_COUNT_KEY } from "@/lib/admin-nav-counts";
+import { AdminDashboard } from "./admin.index.lazy";
 
 function renderHighlight(label: string, query: string) {
     const q = query.trim();
@@ -284,7 +285,7 @@ function AdminLayout() {
     if (isLoginRoute) {
         return <Outlet />;
     }
-    if (!unlocked && user) {
+    if (!unlocked && user && !allowPreview) {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
@@ -640,7 +641,7 @@ function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning, has
               </button>
             </div>
           )}
-          <Outlet />
+          {pathname === "/admin" ? <AdminDashboard /> : <Outlet />}
         </main>
       </div>
       <AdminIdleLock onLock={onLock} email={user?.email ?? null} />

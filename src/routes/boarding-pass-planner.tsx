@@ -19,9 +19,13 @@ import {
   Croissant,
   Search,
   Plus,
+  Shuffle,
   Car,
   Train,
+  Bus,
+  Footprints,
   UserPlus,
+  Navigation,
   Shield,
   Star,
   MessageCircle,
@@ -33,6 +37,10 @@ import {
   ThumbsDown,
   Heart,
   CheckCircle2,
+  Dice5,
+  Mic2,
+  Beef,
+  Users,
 } from "lucide-react";
 
 export const Route = createFileRoute("/boarding-pass-planner")({
@@ -45,10 +53,38 @@ export const Route = createFileRoute("/boarding-pass-planner")({
   component: BoardingPassPlanner,
 });
 
+// ---------- Types ----------
+type VenueIntel = {
+  venue: string;
+  photo: string;
+  ordered: string[];
+  talkedAbout: string[];
+  watchOut: string;
+  bestFor: string;
+};
+
+type Stop = { label: string; custom?: boolean };
+
+type CrewMember = {
+  name: string;
+  rsvp: "Going" | "Maybe" | "Can't Make It" | "Invited";
+  status: string;
+  travel: string;
+  eta: string;
+};
+
+type TripMemoryFeedback = Record<string, "loved" | "skip" | null>;
+
+// ---------- Constants ----------
 const occasions = ["Girls Night", "Guys Night", "Date Night", "Group Hangout"];
 const moods = ["Chill", "Romantic", "Turn Up", "Luxe", "Competitive", "Foodie"];
+const groupStyles = ["Shared Culture", "Multiracial / Mixed", "Open To Anything"];
 const budgets = ["$", "$$", "$$$", "$$$$"];
 const times = ["Morning", "Early Evening", "Late Night", "All Night"];
+const rsvpOptions: CrewMember["rsvp"][] = ["Going", "Maybe", "Can't Make It", "Invited"];
+const statusOptions = ["Getting Ready", "En Route", "Landed", "Running Late", "Leaving Soon", "Waiting"];
+const travelOptions = ["Uber / Lyft", "Public Transit", "Driving", "Carpool", "Walking", "Not picked"];
+const placementOptions = ["Start", "After current stop", "End of night"] as const;
 
 const tripModes = [
   { name: "One Move", stops: 1, detail: "One stop, no pressure" },
@@ -64,6 +100,9 @@ const destinationTypes = [
   "Museum Date",
   "Seafood / Crab",
   "Hookah",
+  "Casino Night",
+  "Karaoke",
+  "Steakhouse",
   "Lounge",
   "Rooftop",
 ];
@@ -76,17 +115,11 @@ const destinationMap: Record<string, string[]> = {
   "Museum Date": ["Gallery Walk", "Museum Mile", "The Art Stop"],
   "Seafood / Crab": ["Crab House Cove", "Butter Bay", "Seafood Social"],
   Hookah: ["Velvet Smoke", "Cloud Lounge", "Midnight Mirage"],
+  "Casino Night": ["Jackpot After Dark", "Lucky Table", "Velvet Casino"],
+  Karaoke: ["Mic Drop", "Midnight Karaoke", "The Singalong Suite"],
+  Steakhouse: ["The High Table", "Prime Night", "Reservations Only"],
   Lounge: ["The Velvet Room", "Luxe Lounge", "After Dark"],
   Rooftop: ["Golden Hour", "Skyline Social", "Rooftop Reserve"],
-};
-
-type VenueIntel = {
-  venue: string;
-  photo: string;
-  ordered: string[];
-  talkedAbout: string[];
-  watchOut: string;
-  bestFor: string;
 };
 
 const venueIntel: Record<string, VenueIntel> = {
@@ -146,6 +179,30 @@ const venueIntel: Record<string, VenueIntel> = {
     watchOut: "Crowd changes after midnight.",
     bestFor: "Late-night linkups and long conversations",
   },
+  "Casino Night": {
+    venue: "Jackpot After Dark",
+    photo: "https://images.unsplash.com/photo-1606167668584-78701c57f13d?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Blackjack table", "Old fashioned", "Steak bites"],
+    talkedAbout: ["High-energy floor", "Easy walkable bar", "Good for groups"],
+    watchOut: "Set a budget before you sit down.",
+    bestFor: "Competitive crews and birthday nights",
+  },
+  Karaoke: {
+    venue: "Mic Drop Lounge",
+    photo: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Pitcher of margs", "Private room", "Fried bites"],
+    talkedAbout: ["Private rooms book fast", "Long playlist", "Loud and fun"],
+    watchOut: "Tip the host when you request back-to-back songs.",
+    bestFor: "Groups, birthdays, shy crews",
+  },
+  Steakhouse: {
+    venue: "The High Table",
+    photo: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=900&q=80",
+    ordered: ["Ribeye", "Creamed spinach", "Old fashioned"],
+    talkedAbout: ["Dress code", "Slow paced", "Power dinner energy"],
+    watchOut: "Plan 2+ hours at the table.",
+    bestFor: "Date nights, milestones, grown vibes",
+  },
   Lounge: {
     venue: "The Velvet Room",
     photo: "https://images.unsplash.com/photo-1575444758702-4a6b9222336e?auto=format&fit=crop&w=900&q=80",
@@ -172,34 +229,83 @@ const quickPicks = [
   { type: "Museum Date", destination: "Gallery Walk", icon: Landmark },
   { type: "Seafood / Crab", destination: "Crab House Cove", icon: Waves },
   { type: "Hookah", destination: "Velvet Smoke", icon: Cloud },
+  { type: "Casino Night", destination: "Jackpot After Dark", icon: Dice5 },
+  { type: "Karaoke", destination: "Mic Drop", icon: Mic2 },
+  { type: "Steakhouse", destination: "The High Table", icon: Beef },
+  { type: "Lounge", destination: "The Velvet Room", icon: Martini },
+  { type: "Rooftop", destination: "Golden Hour", icon: Cloud },
 ];
 
-type CrewMember = { name: string; status: string; travel: string; eta: string };
+const iconFor = (type: string) => {
+  switch (type) {
+    case "Coffee Date": return Coffee;
+    case "Library Date": return Library;
+    case "Museum Date": return Landmark;
+    case "Breakfast Date": return Croissant;
+    case "Lounge": return Martini;
+    case "Seafood / Crab": return Waves;
+    case "Hookah": return Cloud;
+    case "Casino Night": return Dice5;
+    case "Karaoke": return Mic2;
+    case "Steakhouse": return Beef;
+    case "Rooftop": return Cloud;
+    default: return Music;
+  }
+};
+
+const travelIcon = (mode: string) => {
+  switch (mode) {
+    case "Uber / Lyft": return Car;
+    case "Public Transit": return Train;
+    case "Driving": return Car;
+    case "Carpool": return Bus;
+    case "Walking": return Footprints;
+    default: return Navigation;
+  }
+};
 
 const initialCrew: CrewMember[] = [
-  { name: "Maya", status: "En Route", travel: "Uber / Lyft", eta: "12 min" },
-  { name: "Tasha", status: "Getting Ready", travel: "Carpool", eta: "Not started" },
-  { name: "Bri", status: "Landed", travel: "Driving", eta: "Arrived" },
+  { name: "Maya", rsvp: "Going", status: "En Route", travel: "Uber / Lyft", eta: "12 min" },
+  { name: "Tasha", rsvp: "Going", status: "Getting Ready", travel: "Carpool", eta: "Not started" },
+  { name: "Bri", rsvp: "Maybe", status: "Landed", travel: "Driving", eta: "Arrived" },
 ];
 
+const feedbackCategories = ["Food", "Music", "Crowd", "Service", "Photos", "Drinks"];
+
+// ---------- Component ----------
 function BoardingPassPlanner() {
   const [occasion, setOccasion] = useState("Date Night");
   const [mood, setMood] = useState("Romantic");
   const [destinationType, setDestinationType] = useState("Coffee Date");
+  const [groupStyle, setGroupStyle] = useState("Open To Anything");
   const [budget, setBudget] = useState("$$");
   const [time, setTime] = useState("Morning");
   const [city, setCity] = useState("Washington, DC");
   const [tripMode, setTripMode] = useState("A Lil' Plan");
+
   const [customSpot, setCustomSpot] = useState("");
-  const [addedSpots, setAddedSpots] = useState<string[]>([]);
+  const [placement, setPlacement] = useState<typeof placementOptions[number]>("End of night");
+  const [addedSpots, setAddedSpots] = useState<{ label: string; placement: string }[]>([]);
+
   const [crew, setCrew] = useState<CrewMember[]>(initialCrew);
   const [inviteName, setInviteName] = useState("");
+
+  const [myStatus, setMyStatus] = useState("Getting Ready");
+  const [myTravel, setMyTravel] = useState("Uber / Lyft");
+  const [myEta, setMyEta] = useState("20 min");
+  const [shareEtaOnly, setShareEtaOnly] = useState(true);
+
   const [locationMode, setLocationMode] = useState("Trip Mode Only");
   const [learnVibe, setLearnVibe] = useState(true);
+
   const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
+  const [feedback, setFeedback] = useState<TripMemoryFeedback>(
+    Object.fromEntries(feedbackCategories.map((k) => [k, null])) as TripMemoryFeedback,
+  );
 
   const selectedTrip = tripModes.find((m) => m.name === tripMode) || tripModes[1];
   const intel = venueIntel[destinationType] || venueIntel["Coffee Date"];
+  const Icon = iconFor(destinationType);
 
   const destination = useMemo(() => {
     const names = destinationMap[destinationType] || ["The Night Out"];
@@ -217,48 +323,80 @@ function BoardingPassPlanner() {
       "Champagne Brunch": ["Champagne brunch or mimosa tower reservation", "Golden-hour photos, shopping, spa, or rooftop stop", "Passport playlist: everyone adds five songs", "Dessert lounge, tea, or late-afternoon cocktails"],
       "Seafood / Crab": ["Crab house, seafood boil, or waterfront dinner", "Fit check and group photo before the table gets messy", "Rooftop, lounge, dancing, or hookah after", "Late-night bites or one final drink stop"],
       Hookah: ["Dinner first: tapas, wings, seafood, or Mediterranean", "Hookah lounge with music, mocktails, and couches", "Playlist rotation or group-voted music stop", "Late-night food run before heading home"],
+      "Casino Night": ["Dinner with a view before the floor", "Casino floor: blackjack, roulette, or slots", "Cocktail bar reset between sessions", "Late-night diner or dessert lounge"],
+      Karaoke: ["Quick dinner or shareable plates", "Karaoke private room with the crew", "Drinks and song rotation", "Late-night food run"],
+      Steakhouse: ["Pre-dinner cocktail at the bar", "Steakhouse reservation, ribeye and sides", "Dessert and digestif", "Lounge or late-night espresso martini"],
       Lounge: ["Dinner or small plates nearby", "Lounge with music, drinks, and dress-code energy", "Rooftop or photo stop after", "Late-night food or dessert"],
       Rooftop: ["Golden-hour rooftop reservation", "Small plates, drinks, or mocktails", "Lounge, dancing, or hookah after", "Dessert or late-night food"],
     };
     return stopSets[destinationType] || [`Start with ${destinationType}`, "Add one activity", "Close with dessert or late-night food"];
   }, [destinationType]);
 
-  const itinerary = [...baseStops.slice(0, selectedTrip.stops), ...addedSpots.map((s) => `Added spot: ${s}`)];
+  const itinerary: Stop[] = useMemo(() => {
+    const base: Stop[] = baseStops.slice(0, selectedTrip.stops).map((label) => ({ label }));
+    const start = addedSpots.filter((s) => s.placement === "Start").map((s) => ({ label: `Added: ${s.label}`, custom: true }));
+    const after = addedSpots.filter((s) => s.placement === "After current stop").map((s) => ({ label: `Added: ${s.label}`, custom: true }));
+    const end = addedSpots.filter((s) => s.placement === "End of night").map((s) => ({ label: `Added: ${s.label}`, custom: true }));
+    const insertAt = Math.min(1, base.length);
+    return [...start, ...base.slice(0, insertAt), ...after, ...base.slice(insertAt), ...end];
+  }, [baseStops, selectedTrip.stops, addedSpots]);
 
-  const Icon =
-    destinationType === "Coffee Date" ? Coffee :
-    destinationType === "Library Date" ? Library :
-    destinationType === "Museum Date" ? Landmark :
-    destinationType === "Breakfast Date" ? Croissant :
-    destinationType === "Lounge" ? Martini :
-    destinationType === "Seafood / Crab" ? Waves :
-    destinationType === "Hookah" ? Cloud :
-    Music;
+  const enRouteCount = crew.filter((c) => c.status === "En Route" || c.status === "Leaving Soon" || c.status === "Running Late").length;
+  const landedCount = crew.filter((c) => c.status === "Landed").length;
+  const goingCount = crew.filter((c) => c.rsvp === "Going").length;
 
   function addCustomSpot() {
     if (!customSpot.trim()) return;
-    setAddedSpots([...addedSpots, customSpot.trim()]);
+    setAddedSpots([...addedSpots, { label: customSpot.trim(), placement }]);
+    setCustomSpot("");
+  }
+
+  function swapCurrentSpot() {
+    if (!customSpot.trim()) return;
+    // Replace the most recent added spot, or rotate destination if none added
+    if (addedSpots.length > 0) {
+      const next = [...addedSpots];
+      next[next.length - 1] = { label: customSpot.trim(), placement: next[next.length - 1].placement };
+      setAddedSpots(next);
+    } else {
+      // Cycle to a different destination name in the map for the current type
+      const names = destinationMap[destinationType] || [];
+      const idx = names.indexOf(destination);
+      const nextName = names[(idx + 1) % names.length];
+      // No state to set destination directly — we just push a custom replacement spot
+      setAddedSpots([{ label: `${customSpot.trim()} (swapped for ${nextName})`, placement: "After current stop" }]);
+    }
     setCustomSpot("");
   }
 
   function inviteCrewMember() {
     if (!inviteName.trim()) return;
-    setCrew([...crew, { name: inviteName.trim(), status: "Invited", travel: "Not picked", eta: "Pending" }]);
+    setCrew([...crew, { name: inviteName.trim(), rsvp: "Invited", status: "Waiting", travel: "Not picked", eta: "Pending" }]);
     setInviteName("");
+  }
+
+  function updateCrew(index: number, patch: Partial<CrewMember>) {
+    const next = [...crew];
+    next[index] = { ...next[index], ...patch };
+    setCrew(next);
   }
 
   function toggleFlip(index: number) {
     setFlippedCards({ ...flippedCards, [index]: !flippedCards[index] });
   }
 
+  function setFeedbackFor(label: string, value: "loved" | "skip") {
+    setFeedback({ ...feedback, [label]: feedback[label] === value ? null : value });
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-6xl px-4 py-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-          {/* LEFT */}
-          <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+          {/* LEFT — INTAKE */}
+          <section className="rounded-lg border border-border bg-card p-6 shadow-sm">
             <div className="mb-5 flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
+              <div className="grid h-10 w-10 place-items-center rounded-md bg-primary/10 text-primary">
                 <Sparkles className="h-5 w-5" />
               </div>
               <div>
@@ -268,9 +406,10 @@ function BoardingPassPlanner() {
             </div>
 
             <div className="space-y-4">
-              <Picker title="Occasion" icon={<Heart className="h-3.5 w-3.5" />} options={occasions} value={occasion} onChange={setOccasion} />
+              <Picker title="Boarding Group" icon={<Heart className="h-3.5 w-3.5" />} options={occasions} value={occasion} onChange={setOccasion} />
               <Picker title="Mood" icon={<Flame className="h-3.5 w-3.5" />} options={moods} value={mood} onChange={setMood} />
               <Picker title="Destination type" icon={<Utensils className="h-3.5 w-3.5" />} options={destinationTypes} value={destinationType} onChange={setDestinationType} />
+              <Picker title="Group Style" icon={<Users className="h-3.5 w-3.5" />} options={groupStyles} value={groupStyle} onChange={setGroupStyle} />
 
               <div>
                 <p className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
@@ -295,11 +434,11 @@ function BoardingPassPlanner() {
               </div>
 
               <div className="grid gap-3 sm:grid-cols-3">
-                <Picker title="Budget" icon={<Wallet className="h-3.5 w-3.5" />} options={budgets} value={budget} onChange={setBudget} compact />
-                <Picker title="Time" icon={<Clock className="h-3.5 w-3.5" />} options={times} value={time} onChange={setTime} compact />
+                <Picker title="Fare" icon={<Wallet className="h-3.5 w-3.5" />} options={budgets} value={budget} onChange={setBudget} compact />
+                <Picker title="Boarding Time" icon={<Clock className="h-3.5 w-3.5" />} options={times} value={time} onChange={setTime} compact />
                 <div>
                   <p className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                    <MapPin className="h-3.5 w-3.5" /> City
+                    <MapPin className="h-3.5 w-3.5" /> Departure City
                   </p>
                   <input
                     value={city}
@@ -330,19 +469,33 @@ function BoardingPassPlanner() {
                   })}
                 </div>
 
-                <div className="mt-3 flex gap-2">
-                  <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                    <input
-                      value={customSpot}
-                      onChange={(e) => setCustomSpot(e.target.value)}
-                      placeholder="Look up a spot to add..."
-                      className="h-11 w-full rounded-md border border-border bg-muted/40 pl-9 pr-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
-                    />
+                <div className="mt-3 space-y-2">
+                  <div className="flex gap-2">
+                    <div className="relative flex-1">
+                      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                      <input
+                        value={customSpot}
+                        onChange={(e) => setCustomSpot(e.target.value)}
+                        placeholder="Look up a spot..."
+                        className="h-11 w-full rounded-md border border-border bg-muted/40 pl-9 pr-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+                      />
+                    </div>
+                    <select
+                      value={placement}
+                      onChange={(e) => setPlacement(e.target.value as typeof placementOptions[number])}
+                      className="h-11 rounded-md border border-border bg-muted/40 px-2 text-xs outline-none"
+                    >
+                      {placementOptions.map((p) => <option key={p} value={p}>{p}</option>)}
+                    </select>
                   </div>
-                  <button onClick={addCustomSpot} className="inline-flex items-center gap-1 rounded-md bg-primary px-3 text-sm font-bold text-primary-foreground">
-                    <Plus className="h-4 w-4" /> Add
-                  </button>
+                  <div className="flex gap-2">
+                    <button onClick={addCustomSpot} className="inline-flex flex-1 items-center justify-center gap-1 rounded-md bg-primary px-3 py-2 text-sm font-bold text-primary-foreground">
+                      <Plus className="h-4 w-4" /> Add To Route
+                    </button>
+                    <button onClick={swapCurrentSpot} className="inline-flex flex-1 items-center justify-center gap-1 rounded-md border border-border bg-muted/40 px-3 py-2 text-sm font-bold hover:border-primary">
+                      <Shuffle className="h-4 w-4" /> Swap This Spot
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -355,62 +508,79 @@ function BoardingPassPlanner() {
             </div>
           </section>
 
-          {/* RIGHT */}
+          {/* RIGHT — PASS + CREW + REPORT */}
           <div className="space-y-6">
-            <section className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <section className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
               <div className="bg-gradient-to-br from-primary to-primary/80 p-6 text-primary-foreground">
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-80">Boarding Pass</p>
                     <h2 className="mt-1 font-display text-2xl font-bold">{destination}</h2>
                   </div>
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/15 backdrop-blur">
+                  <div className="grid h-12 w-12 place-items-center rounded-md bg-white/15 backdrop-blur">
                     <Icon className="h-6 w-6" />
                   </div>
                 </div>
 
                 <div className="mt-5 grid grid-cols-4 gap-3 border-t border-white/20 pt-4">
-                  <PassField label="Occasion" value={occasion} />
+                  <PassField label="Boarding Group" value={occasion} />
                   <PassField label="Mood" value={mood} />
                   <PassField label="City" value={city} />
-                  <PassField label="Time" value={time} />
+                  <PassField label="Boarding Time" value={time} />
                 </div>
               </div>
 
               <div className="space-y-2 p-5">
                 {itinerary.map((item, i) => (
-                  <div key={i} className="flex gap-3 rounded-md border border-border bg-muted/30 p-3">
+                  <div key={i} className={`flex gap-3 rounded-md border p-3 ${item.custom ? "border-primary/40 bg-primary/5" : "border-border bg-muted/30"}`}>
                     <div className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
                       {i + 1}
                     </div>
-                    <p className="text-sm">{item}</p>
+                    <p className="text-sm break-words">{item.label}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between border-t border-border bg-muted/30 px-5 py-3">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border bg-muted/30 px-5 py-3">
                 <div className="flex flex-wrap items-center gap-3 text-[11px] text-muted-foreground">
-                  <span className="flex items-center gap-1"><Sparkles className="h-3 w-3" /> Gate VIBE</span>
-                  <PassField label="Trip" value={tripMode} small />
+                  <PassField label="Trip Mode" value={tripMode} small />
                   <PassField label="Stops" value={String(itinerary.length)} small />
-                  <PassField label="Budget" value={budget} small />
+                  <PassField label="Fare" value={budget} small />
+                  <PassField label="Crew" value={`${goingCount} going`} small />
                 </div>
                 <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">
                   <Share2 className="h-3.5 w-3.5" /> Share
                 </button>
               </div>
               <div className="border-t border-border bg-primary/5 px-5 py-2 text-center font-mono text-[10px] uppercase tracking-widest text-primary">
-                Live trip ready
+                Live trip ready · {enRouteCount} en route · {landedCount} landed
               </div>
             </section>
 
             <FlipCards itinerary={itinerary} intel={intel} flippedCards={flippedCards} toggleFlip={toggleFlip} />
 
-            <CrewPanel crew={crew} inviteName={inviteName} setInviteName={setInviteName} inviteCrewMember={inviteCrewMember} />
+            <HowWePullinUp
+              myStatus={myStatus}
+              setMyStatus={setMyStatus}
+              myTravel={myTravel}
+              setMyTravel={setMyTravel}
+              myEta={myEta}
+              setMyEta={setMyEta}
+              shareEtaOnly={shareEtaOnly}
+              setShareEtaOnly={setShareEtaOnly}
+            />
 
-            <section className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <CrewPanel
+              crew={crew}
+              inviteName={inviteName}
+              setInviteName={setInviteName}
+              inviteCrewMember={inviteCrewMember}
+              updateCrew={updateCrew}
+            />
+
+            <section className="rounded-lg border border-border bg-card p-5 shadow-sm">
               <div className="mb-4 flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
+                <div className="grid h-10 w-10 place-items-center rounded-md bg-primary/10 text-primary">
                   <Star className="h-5 w-5" />
                 </div>
                 <div>
@@ -419,7 +589,9 @@ function BoardingPassPlanner() {
                 </div>
               </div>
               <div className="grid gap-2 sm:grid-cols-3">
-                {["Food", "Music", "Crowd"].map((item) => <FeedbackCard key={item} label={item} />)}
+                {feedbackCategories.map((item) => (
+                  <FeedbackCard key={item} label={item} value={feedback[item]} onChange={(v) => setFeedbackFor(item, v)} />
+                ))}
               </div>
             </section>
           </div>
@@ -429,11 +601,12 @@ function BoardingPassPlanner() {
   );
 }
 
+// ---------- Subcomponents ----------
 function FlipCards({ itinerary, intel, flippedCards, toggleFlip }: {
-  itinerary: string[]; intel: VenueIntel; flippedCards: Record<number, boolean>; toggleFlip: (i: number) => void;
+  itinerary: Stop[]; intel: VenueIntel; flippedCards: Record<number, boolean>; toggleFlip: (i: number) => void;
 }) {
   return (
-    <section className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+    <section className="rounded-lg border border-border bg-card p-5 shadow-sm">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <h3 className="font-display text-lg font-bold">Pre-event cards</h3>
@@ -449,7 +622,7 @@ function FlipCards({ itinerary, intel, flippedCards, toggleFlip }: {
             <button
               key={index}
               onClick={() => toggleFlip(index)}
-              className="min-h-[340px] min-w-[260px] shrink-0 overflow-hidden rounded-lg border border-border bg-muted/30 text-left transition hover:border-primary"
+              className="min-h-[340px] min-w-[260px] max-w-[280px] shrink-0 overflow-hidden rounded-md border border-border bg-muted/30 text-left transition hover:border-primary"
             >
               {!flipped ? (
                 <div>
@@ -457,7 +630,7 @@ function FlipCards({ itinerary, intel, flippedCards, toggleFlip }: {
                   <div className="p-3">
                     <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Stop {index + 1}</p>
                     <p className="mt-1 text-sm font-bold">{intel.venue}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">{stop}</p>
+                    <p className="mt-2 text-xs text-muted-foreground line-clamp-3">{stop.label}</p>
                     <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-primary">Tap to flip for highlights</p>
                   </div>
                 </div>
@@ -495,7 +668,7 @@ function TripMemoryControls({ locationMode, setLocationMode, learnVibe, setLearn
   locationMode: string; setLocationMode: (v: string) => void; learnVibe: boolean; setLearnVibe: (v: boolean) => void;
 }) {
   return (
-    <div className="rounded-xl border border-border bg-muted/30 p-4">
+    <div className="rounded-md border border-border bg-muted/30 p-4">
       <p className="mb-3 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
         <Database className="h-3.5 w-3.5" /> Trip Memory
       </p>
@@ -518,20 +691,70 @@ function TripMemoryControls({ locationMode, setLocationMode, learnVibe, setLearn
           learnVibe ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card"
         }`}
       >
-        <Sparkles className="h-4 w-4" />
-        Learn my vibe anonymously for better future suggestions
+        <Sparkles className="h-4 w-4 shrink-0" />
+        <span>Learn my vibe anonymously for better suggestions</span>
       </button>
     </div>
   );
 }
 
-function CrewPanel({ crew, inviteName, setInviteName, inviteCrewMember }: {
-  crew: CrewMember[]; inviteName: string; setInviteName: (v: string) => void; inviteCrewMember: () => void;
+function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, setMyEta, shareEtaOnly, setShareEtaOnly }: {
+  myStatus: string; setMyStatus: (v: string) => void;
+  myTravel: string; setMyTravel: (v: string) => void;
+  myEta: string; setMyEta: (v: string) => void;
+  shareEtaOnly: boolean; setShareEtaOnly: (v: boolean) => void;
+}) {
+  const TIcon = travelIcon(myTravel);
+  return (
+    <section className="rounded-lg border border-border bg-card p-5 shadow-sm">
+      <div className="mb-4 flex items-center gap-3">
+        <div className="grid h-10 w-10 place-items-center rounded-md bg-primary/10 text-primary">
+          <Navigation className="h-5 w-5" />
+        </div>
+        <div>
+          <h3 className="font-display text-lg font-bold">How we pullin' up</h3>
+          <p className="text-xs text-muted-foreground">Your status, your way</p>
+        </div>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        <SelectField label="Status" value={myStatus} options={statusOptions} onChange={setMyStatus} />
+        <SelectField label="Travel mode" value={myTravel} options={travelOptions} onChange={setMyTravel} icon={<TIcon className="h-3.5 w-3.5" />} />
+        <div>
+          <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">ETA</p>
+          <input
+            value={myEta}
+            onChange={(e) => setMyEta(e.target.value)}
+            placeholder="e.g. 20 min"
+            className="h-10 w-full rounded-md border border-border bg-muted/40 px-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+          />
+        </div>
+      </div>
+
+      <button
+        onClick={() => setShareEtaOnly(!shareEtaOnly)}
+        className={`mt-3 flex w-full items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition ${
+          shareEtaOnly ? "border-primary bg-primary text-primary-foreground" : "border-border bg-muted/40"
+        }`}
+      >
+        <Shield className="h-4 w-4 shrink-0" />
+        <span>Share ETA only — keep my exact location private</span>
+      </button>
+    </section>
+  );
+}
+
+function CrewPanel({ crew, inviteName, setInviteName, inviteCrewMember, updateCrew }: {
+  crew: CrewMember[];
+  inviteName: string;
+  setInviteName: (v: string) => void;
+  inviteCrewMember: () => void;
+  updateCrew: (i: number, patch: Partial<CrewMember>) => void;
 }) {
   return (
-    <section className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+    <section className="rounded-lg border border-border bg-card p-5 shadow-sm">
       <div className="mb-4 flex items-center gap-3">
-        <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
+        <div className="grid h-10 w-10 place-items-center rounded-md bg-primary/10 text-primary">
           <UserPlus className="h-5 w-5" />
         </div>
         <div>
@@ -553,18 +776,22 @@ function CrewPanel({ crew, inviteName, setInviteName, inviteCrewMember }: {
       </div>
 
       <div className="mt-4 space-y-2">
-        {crew.map((m, i) => (
-          <div key={i} className="rounded-md border border-border bg-muted/30 p-3">
-            <div className="mb-2 flex items-center justify-between">
-              <p className="text-sm font-bold">{m.name}</p>
-              <span className="rounded-full bg-card px-2 py-0.5 text-[10px] font-bold uppercase">{m.eta}</span>
+        {crew.map((m, i) => {
+          const TIcon = travelIcon(m.travel);
+          return (
+            <div key={i} className="rounded-md border border-border bg-muted/30 p-3">
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <p className="text-sm font-bold truncate">{m.name}</p>
+                <span className="shrink-0 rounded-full bg-card px-2 py-0.5 text-[10px] font-bold uppercase">{m.eta}</span>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-3">
+                <SelectField label="RSVP" value={m.rsvp} options={rsvpOptions as unknown as string[]} onChange={(v) => updateCrew(i, { rsvp: v as CrewMember["rsvp"] })} icon={<CheckCircle2 className="h-3 w-3" />} />
+                <SelectField label="Status" value={m.status} options={statusOptions} onChange={(v) => updateCrew(i, { status: v })} />
+                <SelectField label="Travel" value={m.travel} options={travelOptions} onChange={(v) => updateCrew(i, { travel: v })} icon={<TIcon className="h-3 w-3" />} />
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <MiniStat icon={<CheckCircle2 className="h-3 w-3" />} label="Status" value={m.status} />
-              <MiniStat icon={m.travel === "Public Transit" ? <Train className="h-3 w-3" /> : <Car className="h-3 w-3" />} label="Travel" value={m.travel} />
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
@@ -597,6 +824,25 @@ function Picker({ title, icon, options, value, onChange, compact = false }: {
   );
 }
 
+function SelectField({ label, value, options, onChange, icon }: {
+  label: string; value: string; options: string[]; onChange: (v: string) => void; icon?: React.ReactNode;
+}) {
+  return (
+    <div>
+      <p className="mb-1.5 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+        {icon} {label}
+      </p>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="h-10 w-full rounded-md border border-border bg-muted/40 px-2 text-xs outline-none focus:ring-2 focus:ring-primary/40"
+      >
+        {options.map((option) => <option key={option} value={option}>{option}</option>)}
+      </select>
+    </div>
+  );
+}
+
 function InfoList({ icon, title, items }: { icon: React.ReactNode; title: string; items: string[] }) {
   return (
     <div>
@@ -612,30 +858,28 @@ function InfoList({ icon, title, items }: { icon: React.ReactNode; title: string
   );
 }
 
-function FeedbackCard({ label }: { label: string }) {
+function FeedbackCard({ label, value, onChange }: { label: string; value: "loved" | "skip" | null; onChange: (v: "loved" | "skip") => void }) {
   return (
     <div className="rounded-md border border-border bg-muted/30 p-3">
       <p className="text-sm font-bold">{label}</p>
       <div className="mt-2 flex gap-2">
-        <button className="inline-flex flex-1 items-center justify-center gap-1 rounded-md border border-border bg-card px-2 py-1.5 text-xs hover:border-primary">
+        <button
+          onClick={() => onChange("loved")}
+          className={`inline-flex flex-1 items-center justify-center gap-1 rounded-md border px-2 py-1.5 text-xs transition ${
+            value === "loved" ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card hover:border-primary"
+          }`}
+        >
           <ThumbsUp className="h-3 w-3" /> Loved
         </button>
-        <button className="inline-flex flex-1 items-center justify-center gap-1 rounded-md border border-border bg-card px-2 py-1.5 text-xs hover:border-primary">
+        <button
+          onClick={() => onChange("skip")}
+          className={`inline-flex flex-1 items-center justify-center gap-1 rounded-md border px-2 py-1.5 text-xs transition ${
+            value === "skip" ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card hover:border-primary"
+          }`}
+        >
           <ThumbsDown className="h-3 w-3" /> Skip
         </button>
       </div>
-    </div>
-  );
-}
-
-function MiniStat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
-  return (
-    <div className="rounded-md bg-card p-2">
-      <div className="flex items-center gap-1 text-muted-foreground">
-        {icon}
-        <span className="text-[9px] font-bold uppercase tracking-wider">{label}</span>
-      </div>
-      <p className="mt-0.5 text-[11px] font-bold">{value}</p>
     </div>
   );
 }

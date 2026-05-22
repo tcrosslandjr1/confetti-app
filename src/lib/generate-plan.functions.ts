@@ -294,8 +294,9 @@ const PlanOutputSchema = z.object({
     .describe("Set when total estimate would exceed the user's budget ceiling."),
 });
 
+// Public — guests can build a night without an account. The handler
+// only needs the AI gateway key + anonymous candidate fetches.
 export const generatePlan = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => PlanRequestSchema.parse(input))
   .handler(async ({ data: req }): Promise<GeneratedPlan> => {
     const apiKey = process.env.LOVABLE_API_KEY;

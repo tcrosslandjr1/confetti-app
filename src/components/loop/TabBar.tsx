@@ -69,6 +69,7 @@ function TabItem({
   active,
   prominent,
   labelId,
+  onClick,
 }: {
   to: string;
   label: string;
@@ -76,6 +77,7 @@ function TabItem({
   active: boolean;
   prominent?: boolean;
   labelId: string;
+  onClick?: () => void;
 }) {
   if (prominent) {
     return (

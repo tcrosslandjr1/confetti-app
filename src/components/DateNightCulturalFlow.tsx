@@ -36,22 +36,22 @@ export function DateNightCulturalFlow() {
           />
           <Step
             n={3}
-            title="Mixed: shared exchange"
+            title="Shared exchange"
             icon={<Music className="h-4 w-4" />}
             rows={[
-              ["Person A", "Picks dinner"],
+              ["Person A", "Picks the food"],
               ["Person B", "Picks the activity"],
-              ["Both", "Add songs for the ride/walk"],
-              ["Close", "Dessert or late-night drinks"],
+              ["Both", "Add 5 songs to the date-night playlist"],
+              ["End", "Somewhere cozy for dessert or tea"],
             ]}
           />
           <Step
             n={4}
-            title="Choose the final plan"
+            title="Final plan"
             icon={<Cake className="h-4 w-4" />}
             rows={[
-              ["Shared", "Cultural dinner + romantic activity + dessert"],
-              ["Mixed", "Two-culture dinner/activity swap + dessert"],
+              ["Shared culture", "Cultural dinner + romantic activity + dessert"],
+              ["Mixed", "Two-culture dinner/activity swap + cozy close"],
             ]}
           />
         </div>

@@ -38,6 +38,7 @@ import { Route as PassportRouteImport } from './routes/passport'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as NightPlannerRouteImport } from './routes/night-planner'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as InvestorsRouteImport } from './routes/investors'
@@ -358,6 +359,11 @@ const PartnerRoute = PartnerRouteImport.update({
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NightPlannerRoute = NightPlannerRouteImport.update({
+  id: '/night-planner',
+  path: '/night-planner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MeRoute = MeRouteImport.update({
@@ -1364,6 +1370,7 @@ export interface FileRoutesByFullPath {
   '/investors': typeof InvestorsRoute
   '/login': typeof LoginRoute
   '/me': typeof MeRoute
+  '/night-planner': typeof NightPlannerRoute
   '/onboarding': typeof OnboardingRoute
   '/partner': typeof PartnerRouteWithChildren
   '/partners': typeof PartnersRoute
@@ -1569,6 +1576,7 @@ export interface FileRoutesByTo {
   '/investors': typeof InvestorsRoute
   '/login': typeof LoginRoute
   '/me': typeof MeRoute
+  '/night-planner': typeof NightPlannerRoute
   '/onboarding': typeof OnboardingRoute
   '/partners': typeof PartnersRoute
   '/passport': typeof PassportRoute
@@ -1776,6 +1784,7 @@ export interface FileRoutesById {
   '/investors': typeof InvestorsRoute
   '/login': typeof LoginRoute
   '/me': typeof MeRoute
+  '/night-planner': typeof NightPlannerRoute
   '/onboarding': typeof OnboardingRoute
   '/partner': typeof PartnerRouteWithChildren
   '/partners': typeof PartnersRoute
@@ -1988,6 +1997,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/login'
     | '/me'
+    | '/night-planner'
     | '/onboarding'
     | '/partner'
     | '/partners'
@@ -2193,6 +2203,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/login'
     | '/me'
+    | '/night-planner'
     | '/onboarding'
     | '/partners'
     | '/passport'
@@ -2399,6 +2410,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/login'
     | '/me'
+    | '/night-planner'
     | '/onboarding'
     | '/partner'
     | '/partners'
@@ -2610,6 +2622,7 @@ export interface RootRouteChildren {
   InvestorsRoute: typeof InvestorsRoute
   LoginRoute: typeof LoginRoute
   MeRoute: typeof MeRoute
+  NightPlannerRoute: typeof NightPlannerRoute
   OnboardingRoute: typeof OnboardingRoute
   PartnerRoute: typeof PartnerRouteWithChildren
   PartnersRoute: typeof PartnersRoute
@@ -2881,6 +2894,13 @@ declare module '@tanstack/react-router' {
       path: '/onboarding'
       fullPath: '/onboarding'
       preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/night-planner': {
+      id: '/night-planner'
+      path: '/night-planner'
+      fullPath: '/night-planner'
+      preLoaderRoute: typeof NightPlannerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/me': {
@@ -4491,6 +4511,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvestorsRoute: InvestorsRoute,
   LoginRoute: LoginRoute,
   MeRoute: MeRoute,
+  NightPlannerRoute: NightPlannerRoute,
   OnboardingRoute: OnboardingRoute,
   PartnerRoute: PartnerRouteWithChildren,
   PartnersRoute: PartnersRoute,

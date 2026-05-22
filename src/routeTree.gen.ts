@@ -63,6 +63,7 @@ import { Route as ConciergeRouteImport } from './routes/concierge'
 import { Route as CityGuidesRouteImport } from './routes/city-guides'
 import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
+import { Route as BoardingPassPlannerRouteImport } from './routes/boarding-pass-planner'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AskRouteImport } from './routes/ask'
@@ -484,6 +485,11 @@ const CheckInRoute = CheckInRouteImport.update({
 const ChatRoute = ChatRouteImport.update({
   id: '/chat',
   path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoardingPassPlannerRoute = BoardingPassPlannerRouteImport.update({
+  id: '/boarding-pass-planner',
+  path: '/boarding-pass-planner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BoardingPassRoute = BoardingPassRouteImport.update({
@@ -1346,6 +1352,7 @@ export interface FileRoutesByFullPath {
   '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
+  '/boarding-pass-planner': typeof BoardingPassPlannerRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
   '/city-guides': typeof CityGuidesRoute
@@ -1554,6 +1561,7 @@ export interface FileRoutesByTo {
   '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
+  '/boarding-pass-planner': typeof BoardingPassPlannerRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
   '/city-guides': typeof CityGuidesRoute
@@ -1760,6 +1768,7 @@ export interface FileRoutesById {
   '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
+  '/boarding-pass-planner': typeof BoardingPassPlannerRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
   '/city-guides': typeof CityGuidesRoute
@@ -1973,6 +1982,7 @@ export interface FileRouteTypes {
     | '/ask'
     | '/auth'
     | '/boarding-pass'
+    | '/boarding-pass-planner'
     | '/chat'
     | '/check-in'
     | '/city-guides'
@@ -2181,6 +2191,7 @@ export interface FileRouteTypes {
     | '/ask'
     | '/auth'
     | '/boarding-pass'
+    | '/boarding-pass-planner'
     | '/chat'
     | '/check-in'
     | '/city-guides'
@@ -2386,6 +2397,7 @@ export interface FileRouteTypes {
     | '/ask'
     | '/auth'
     | '/boarding-pass'
+    | '/boarding-pass-planner'
     | '/chat'
     | '/check-in'
     | '/city-guides'
@@ -2598,6 +2610,7 @@ export interface RootRouteChildren {
   AskRoute: typeof AskRoute
   AuthRoute: typeof AuthRoute
   BoardingPassRoute: typeof BoardingPassRoute
+  BoardingPassPlannerRoute: typeof BoardingPassPlannerRoute
   ChatRoute: typeof ChatRoute
   CheckInRoute: typeof CheckInRoute
   CityGuidesRoute: typeof CityGuidesRoute
@@ -3069,6 +3082,13 @@ declare module '@tanstack/react-router' {
       path: '/chat'
       fullPath: '/chat'
       preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/boarding-pass-planner': {
+      id: '/boarding-pass-planner'
+      path: '/boarding-pass-planner'
+      fullPath: '/boarding-pass-planner'
+      preLoaderRoute: typeof BoardingPassPlannerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/boarding-pass': {
@@ -4487,6 +4507,7 @@ const rootRouteChildren: RootRouteChildren = {
   AskRoute: AskRoute,
   AuthRoute: AuthRoute,
   BoardingPassRoute: BoardingPassRoute,
+  BoardingPassPlannerRoute: BoardingPassPlannerRoute,
   ChatRoute: ChatRoute,
   CheckInRoute: CheckInRoute,
   CityGuidesRoute: CityGuidesRoute,

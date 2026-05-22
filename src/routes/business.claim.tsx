@@ -1,13 +1,7 @@
 import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  searchVenuesForClaim,
-  listMyClaims,
-  submitVenueClaim,
-} from "@/lib/business-onboarding.functions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -46,8 +40,6 @@ type SearchHit = {
 
 function ClaimPage() {
   const navigate = useNavigate();
-  const search = useServerFn(searchVenuesForClaim);
-  const myClaimsFn = useServerFn(listMyClaims);
 
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
@@ -56,12 +48,32 @@ function ClaimPage() {
 
   const claims = useQuery({
     queryKey: ["my-business-claims"],
-    queryFn: () => myClaimsFn(),
+    queryFn: async () => {
+      const { data: u } = await supabase.auth.getUser();
+      if (!u.user) return { claims: [] as Array<{ id: string; proposed_name: string | null; venue_id: string | null; status: string }> };
+      const { data, error } = await supabase
+        .from("venue_claims")
+        .select("*")
+        .eq("user_id", u.user.id)
+        .order("created_at", { ascending: false });
+      if (error) throw new Error(error.message);
+      return { claims: data ?? [] };
+    },
   });
 
   const results = useQuery({
     queryKey: ["venue-claim-search", submittedQuery],
-    queryFn: () => search({ data: { q: submittedQuery } }),
+    queryFn: async () => {
+      const q = submittedQuery.replace(/[%,]/g, " ").trim();
+      const { data, error } = await supabase
+        .from("venues")
+        .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website")
+        .or(`name.ilike.%${q}%,city.ilike.%${q}%,neighborhood.ilike.%${q}%`)
+        .order("name")
+        .limit(20);
+      if (error) throw new Error(error.message);
+      return { venues: (data ?? []) as SearchHit[] };
+    },
     enabled: submittedQuery.length > 0,
   });
 
@@ -185,7 +197,6 @@ function VerifyForm({
   onCancel: () => void;
   onSubmitted: () => void;
 }) {
-  const submit = useServerFn(submitVenueClaim);
   const [method, setMethod] = useState<"social_tiktok" | "social_instagram">("social_instagram");
   const [handle, setHandle] = useState("");
   const [notes, setNotes] = useState("");
@@ -194,18 +205,29 @@ function VerifyForm({
   const [proposedWebsite, setProposedWebsite] = useState("");
 
   const mutation = useMutation({
-    mutationFn: async () =>
-      submit({
-        data: {
-          venueId: selected?.id,
-          proposedName: selected ? undefined : proposedName,
-          proposedCity: selected ? undefined : proposedCity || undefined,
-          proposedWebsite: selected ? undefined : proposedWebsite || undefined,
+    mutationFn: async () => {
+      const { data: u } = await supabase.auth.getUser();
+      if (!u.user) throw new Error("You must be signed in");
+      const evidenceHandle = handle.replace(/^@/, "");
+      if (!evidenceHandle) throw new Error("Social handle is required");
+      const { data, error } = await supabase
+        .from("venue_claims")
+        .insert({
+          user_id: u.user.id,
+          venue_id: selected?.id ?? null,
+          proposed_name: selected ? null : (proposedName ?? null),
+          proposed_city: selected ? null : (proposedCity || null),
+          proposed_website: selected ? null : (proposedWebsite || null),
           method,
-          evidenceHandle: handle.replace(/^@/, ""),
-          notes: notes || undefined,
-        },
-      }),
+          evidence_handle: evidenceHandle,
+          notes: notes || null,
+          status: "pending",
+        })
+        .select("*")
+        .single();
+      if (error) throw new Error(error.message);
+      return { claim: data };
+    },
     onSuccess: () => {
       toast.success("Claim submitted — we'll review within 24–48 hours.");
       onSubmitted();

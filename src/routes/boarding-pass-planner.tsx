@@ -469,17 +469,69 @@ function BoardingPassPlanner() {
     setCustomSpot("");
   }
 
-  function inviteCrewMember() {
-    if (!inviteName.trim()) return;
-    setCrew([...crew, { name: inviteName.trim(), rsvp: "Invited", status: "Waiting", travel: "Not picked", eta: "Pending" }]);
+  async function inviteCrewMember() {
+    const name = inviteName.trim();
+    if (!name) return;
+    if (shareToken) {
+      await supabase.from("boarding_pass_crew").insert({
+        share_token: shareToken, name, rsvp: "Invited", status: "Waiting", travel: "Not picked", eta: "Pending",
+      });
+    } else {
+      setCrew([...crew, { name, rsvp: "Invited", status: "Waiting", travel: "Not picked", eta: "Pending" }]);
+    }
     setInviteName("");
   }
 
-  function updateCrew(index: number, patch: Partial<CrewMember>) {
-    const next = [...crew];
-    next[index] = { ...next[index], ...patch };
-    setCrew(next);
+  async function updateCrew(index: number, patch: Partial<CrewMember>) {
+    const target = crew[index];
+    if (shareToken && target?.id) {
+      await supabase.from("boarding_pass_crew").update(patch).eq("id", target.id);
+    } else {
+      const next = [...crew];
+      next[index] = { ...next[index], ...patch };
+      setCrew(next);
+    }
   }
+
+  function currentConfig() {
+    return { occasion, mood, destinationType, groupStyle, budget, time, city, tripMode, addedSpots };
+  }
+
+  async function copyInviteLink() {
+    let token = shareToken;
+    if (!token) {
+      token = randomToken();
+      setShareToken(token);
+    }
+    const url = `${window.location.origin}/boarding-pass-planner?t=${token}&c=${encodeConfig(currentConfig())}`;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      params.set("t", token);
+      params.set("c", encodeConfig(currentConfig()));
+      window.history.replaceState({}, "", `${window.location.pathname}?${params.toString()}`);
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.prompt("Copy this invite link", url);
+    }
+  }
+
+  async function joinAsMyself() {
+    const name = joinName.trim();
+    if (!name || !shareToken) return;
+    const { data } = await supabase
+      .from("boarding_pass_crew")
+      .insert({ share_token: shareToken, name, rsvp: "Going", status: myStatus, travel: myTravel, eta: myEta })
+      .select("id")
+      .single();
+    if (data?.id) {
+      setMyRowId(data.id);
+      window.localStorage.setItem(`bp_crew_id_${shareToken}`, data.id);
+    }
+    setJoinName("");
+  }
+
 
   function toggleFlip(index: number) {
     setFlippedCards({ ...flippedCards, [index]: !flippedCards[index] });

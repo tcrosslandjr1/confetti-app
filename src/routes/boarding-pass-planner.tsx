@@ -330,6 +330,78 @@ function BoardingPassPlanner() {
     Object.fromEntries(feedbackCategories.map((k) => [k, null])) as TripMemoryFeedback,
   );
 
+  // ---------- Invite link state ----------
+  const [shareToken, setShareToken] = useState<string>("");
+  const [copied, setCopied] = useState(false);
+  const [joinName, setJoinName] = useState("");
+  const [myRowId, setMyRowId] = useState<string | null>(null);
+  const hydratedRef = useRef(false);
+
+  // Hydrate config + token from URL on mount
+  useEffect(() => {
+    if (typeof window === "undefined" || hydratedRef.current) return;
+    hydratedRef.current = true;
+    const params = new URLSearchParams(window.location.search);
+    const t = params.get("t");
+    const c = params.get("c");
+    if (c) {
+      const cfg = decodeConfig(c);
+      if (cfg) {
+        if (typeof cfg.occasion === "string") setOccasion(cfg.occasion);
+        if (typeof cfg.mood === "string") setMood(cfg.mood);
+        if (typeof cfg.destinationType === "string") setDestinationType(cfg.destinationType);
+        if (typeof cfg.groupStyle === "string") setGroupStyle(cfg.groupStyle);
+        if (typeof cfg.budget === "string") setBudget(cfg.budget);
+        if (typeof cfg.time === "string") setTime(cfg.time);
+        if (typeof cfg.city === "string") setCity(cfg.city);
+        if (typeof cfg.tripMode === "string") setTripMode(cfg.tripMode);
+        if (Array.isArray(cfg.addedSpots)) setAddedSpots(cfg.addedSpots as { label: string; placement: string }[]);
+      }
+    }
+    if (t) {
+      setShareToken(t);
+      setCrew([]); // wait for DB
+      const savedId = window.localStorage.getItem(`bp_crew_id_${t}`);
+      if (savedId) setMyRowId(savedId);
+    }
+  }, []);
+
+  // Load + subscribe to crew when token is active
+  useEffect(() => {
+    if (!shareToken) return;
+    let cancelled = false;
+    (async () => {
+      const { data } = await supabase
+        .from("boarding_pass_crew")
+        .select("id, name, rsvp, status, travel, eta")
+        .eq("share_token", shareToken)
+        .order("created_at", { ascending: true });
+      if (!cancelled && data) {
+        setCrew(data.map((r) => ({ id: r.id, name: r.name, rsvp: r.rsvp as CrewMember["rsvp"], status: r.status, travel: r.travel, eta: r.eta })));
+      }
+    })();
+    const ch = supabase
+      .channel(`bp-crew-${shareToken}`)
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "boarding_pass_crew", filter: `share_token=eq.${shareToken}` },
+        async () => {
+          const { data } = await supabase
+            .from("boarding_pass_crew")
+            .select("id, name, rsvp, status, travel, eta")
+            .eq("share_token", shareToken)
+            .order("created_at", { ascending: true });
+          if (data) setCrew(data.map((r) => ({ id: r.id, name: r.name, rsvp: r.rsvp as CrewMember["rsvp"], status: r.status, travel: r.travel, eta: r.eta })));
+        },
+      )
+      .subscribe();
+    return () => {
+      cancelled = true;
+      supabase.removeChannel(ch);
+    };
+  }, [shareToken]);
+
+
   const selectedTrip = tripModes.find((m) => m.name === tripMode) || tripModes[1];
   const intel = venueIntel[destinationType] || venueIntel["Coffee Date"];
   const Icon = iconFor(destinationType);

@@ -255,39 +255,8 @@ function AuthPage() {
   // caller didn't request a specific (non-generic) destination. Falls back to
   // redirectTo (defaults to "/") for everyone else.
   async function routeAfterAuth(uid: string) {
-    const genericRedirect = !redirectTo || redirectTo === "/" || redirectTo === "/auth";
-
-    // Detect business owner: either has the business_owner role or owns an advertiser row.
-    let isBusinessOwner = false;
-    try {
-      const { data: roleRow } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", uid)
-        .eq("role", "business_owner")
-        .maybeSingle();
-      if (roleRow) isBusinessOwner = true;
-    } catch {
-      // Ignore — fall through to advertiser check.
-    }
-    if (!isBusinessOwner) {
-      try {
-        const advertiser = await getMyAdvertiser(uid);
-        if (advertiser) isBusinessOwner = true;
-      } catch {
-        // Ignore.
-      }
-    }
-
-    if (isBusinessOwner && genericRedirect) {
-      navigate({ to: "/business/dashboard" });
-      return;
-    }
-    if (!genericRedirect) {
-      navigate({ to: redirectTo as never });
-      return;
-    }
-    navigate({ to: safeRedirectTo as never });
+    const { to } = await decidePostAuthDestination(uid, redirectTo);
+    navigate({ to: to as never });
   }
 
   useEffect(() => {

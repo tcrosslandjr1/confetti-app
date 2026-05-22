@@ -1575,11 +1575,22 @@ function Landing() {
           </Suspense>
         </div>
 
-        {/* FAQ accordion */}
+        {/* FAQ CTA */}
         <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-          <Suspense fallback={null}>
-            <PartnerFaqAccordion />
-          </Suspense>
+          <div className="mx-auto max-w-3xl rounded-2xl border-2 border-ink bg-cream p-8 text-center shadow-brut sm:p-12">
+            <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
+              Got questions?
+            </h3>
+            <p className="mx-auto mt-3 max-w-md text-ink/70">
+              Straight answers about how Confetti works, pricing, bookings, and everything else.
+            </p>
+            <Link
+              to="/faq"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+            >
+              Read the FAQ <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

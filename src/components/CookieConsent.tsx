@@ -57,6 +57,15 @@ export function openCookieSettings() {
   window.dispatchEvent(new Event("open-cookie-settings"));
 }
 
+/**
+ * Silently accept-all cookies + terms. Called from the signup form so the
+ * floating banner never bothers an authenticated user.
+ */
+export function acceptAllCookiesSilently() {
+  if (typeof window === "undefined") return;
+  savePrefs({ necessary: true, analytics: true, functional: true });
+}
+
 export function CookieConsent() {
   const [bannerVisible, setBannerVisible] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);

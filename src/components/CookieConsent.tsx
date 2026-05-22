@@ -71,6 +71,16 @@ export function CookieConsent() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [prefs, setPrefs] = useState<CookiePrefs>(DEFAULT_PREFS);
   const [overlayOpen, setOverlayOpen] = useState(false);
+  const { user } = useAuth();
+
+  // Signed-in users implicitly agreed at signup — never bother them with the banner.
+  useEffect(() => {
+    if (typeof window === "undefined" || !user) return;
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      savePrefs({ necessary: true, analytics: true, functional: true });
+    }
+    setBannerVisible(false);
+  }, [user]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

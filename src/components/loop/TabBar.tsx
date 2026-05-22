@@ -84,6 +84,7 @@ function TabItem({
       <div className="relative -top-6 flex flex-col items-center">
         <Link
           to={to}
+          onClick={onClick}
           aria-labelledby={labelId}
           aria-current={active ? "page" : undefined}
           className="block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
@@ -117,6 +118,7 @@ function TabItem({
   return (
     <Link
       to={to}
+      onClick={onClick}
       aria-current={active ? "page" : undefined}
       className="group flex w-full min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 py-1 min-h-[60px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
     >

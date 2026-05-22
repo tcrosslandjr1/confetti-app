@@ -788,6 +788,10 @@ function BoardingPassPlanner() {
               setMyEta={setMyEta}
               shareEtaOnly={shareEtaOnly}
               setShareEtaOnly={setShareEtaOnly}
+              pushMyUpdate={pushMyUpdate}
+              useMyLocation={useMyLocation}
+              locating={locating}
+              canSync={Boolean(shareToken && myRowId)}
             />
 
             <CrewPanel

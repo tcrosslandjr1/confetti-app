@@ -17,6 +17,7 @@ import { GirlsNightCulturalFlow } from "@/components/GirlsNightCulturalFlow";
 import { GuysNightCulturalFlow } from "@/components/GuysNightCulturalFlow";
 import { DateNightCulturalFlow } from "@/components/DateNightCulturalFlow";
 import { UniversalPlanFlow } from "@/components/UniversalPlanFlow";
+import { PlanShareFlow } from "@/components/PlanShareFlow";
 import { supabase } from "@/integrations/supabase/client";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 import { getOccasion, getSeedIdeas, type Idea, type IdeaFormat } from "@/lib/occasions";

@@ -21,7 +21,7 @@ const TABS: Tab[] = [
   },
   {
     to: "/create",
-    label: "Create",
+    label: "Plan",
     icon: Plus,
     prominent: true,
     match: (p) => p.startsWith("/create") || p.startsWith("/quick-generate"),

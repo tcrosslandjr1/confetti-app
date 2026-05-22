@@ -93,6 +93,7 @@ type VenueIntel = {
 type Stop = { label: string; custom?: boolean };
 
 type CrewMember = {
+  id?: string;
   name: string;
   rsvp: "Going" | "Maybe" | "Can't Make It" | "Invited";
   status: string;

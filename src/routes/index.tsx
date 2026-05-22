@@ -97,7 +97,7 @@ const SAMPLE_ITINERARY_SUMMARY = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Confetti — Plans with a pulse. Outings worth showing up for." },
+      { title: "Home — Confetti" },
       {
         name: "description",
         content:

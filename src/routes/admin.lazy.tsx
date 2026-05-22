@@ -260,6 +260,7 @@ function AdminLayout() {
     // syncing in the background.
     const [bootTimedOut, setBootTimedOut] = useState(false);
     const [loadWarning, setLoadWarning] = useState<string | null>(null);
+    const [hasRealError, setHasRealError] = useState(false);
     useEffect(() => {
         let mounted = true;
         const t = window.setTimeout(() => {
@@ -267,7 +268,15 @@ function AdminLayout() {
             setBootTimedOut(true);
             setLoadWarning("Live data is still syncing. Showing saved preview.");
         }, 2500);
-        return () => { mounted = false; window.clearTimeout(t); };
+        const onErr = () => { if (mounted) setHasRealError(true); };
+        window.addEventListener("error", onErr);
+        window.addEventListener("unhandledrejection", onErr);
+        return () => {
+            mounted = false;
+            window.clearTimeout(t);
+            window.removeEventListener("error", onErr);
+            window.removeEventListener("unhandledrejection", onErr);
+        };
     }, []);
     // Sticky shell: once we've shown the admin shell, never fall back to the
     // full-page skeleton on transient auth re-checks (e.g. tab refocus).

@@ -67,47 +67,54 @@ function BusinessDashboardPage() {
   const claimStatus = (claim?.status as string) ?? "pending";
   const promotionUnlocked = claimStatus === "approved";
   const hasPendingClaim = claim?.status === "pending";
+  const hasAdvertisers = (claimsData?.claims ?? []).some((c: any) => c.advertiser_id);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         {hasPendingClaim && <PendingApprovalBanner venueName={venueName} />}
-        <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-          <span className="font-semibold">Demo dashboard.</span> Performance numbers, AI insights,
-          events, social activity, and refresh history below are sample data to preview the layout.
-          Your real metrics will appear here once your venue is approved and analytics start
-          flowing.
-        </div>
-        <DashboardHero
-          venueName={venueName}
-          status={claimStatus}
-          boostLevel={promotionUnlocked ? 1 : 0}
-          promotionUnlocked={promotionUnlocked}
-          lastRefresh="—"
-        />
-        <KPIStats />
-        <AIInsights />
-        <QuickActions promotionUnlocked={promotionUnlocked} />
-        <div className="grid gap-6 lg:grid-cols-2">
-          <EventsPreview />
-          <MediaPreview />
-        </div>
-        <div className="grid gap-6 lg:grid-cols-2">
-          <SocialPanel />
-          <PromotionPanel unlocked={promotionUnlocked} />
-        </div>
-        <AnalyticsPreview />
-        <BusinessUpgradePanel />
-        <section className="space-y-3">
-          <h2 className="text-2xl font-bold">Promo Marketplace</h2>
-          <p className="text-muted-foreground text-sm">
-            Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page
-            to target a specific one.
-          </p>
-          <PromoStorefront />
-        </section>
-        <AIRefreshStatus />
-        <DashboardFooter />
+        {!hasAdvertisers ? (
+          <NoAdvertisersEmptyState />
+        ) : (
+          <>
+            <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+              <span className="font-semibold">Demo dashboard.</span> Performance numbers, AI insights,
+              events, social activity, and refresh history below are sample data to preview the layout.
+              Your real metrics will appear here once your venue is approved and analytics start
+              flowing.
+            </div>
+            <DashboardHero
+              venueName={venueName}
+              status={claimStatus}
+              boostLevel={promotionUnlocked ? 1 : 0}
+              promotionUnlocked={promotionUnlocked}
+              lastRefresh="—"
+            />
+            <KPIStats />
+            <AIInsights />
+            <QuickActions promotionUnlocked={promotionUnlocked} />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <EventsPreview />
+              <MediaPreview />
+            </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <SocialPanel />
+              <PromotionPanel unlocked={promotionUnlocked} />
+            </div>
+            <AnalyticsPreview />
+            <BusinessUpgradePanel />
+            <section className="space-y-3">
+              <h2 className="text-2xl font-bold">Promo Marketplace</h2>
+              <p className="text-muted-foreground text-sm">
+                Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page
+                to target a specific one.
+              </p>
+              <PromoStorefront />
+            </section>
+            <AIRefreshStatus />
+            <DashboardFooter />
+          </>
+        )}
       </div>
     </div>
   );

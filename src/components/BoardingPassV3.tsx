@@ -16,10 +16,11 @@
  * by the parent route.
  */
 
-import { type CSSProperties, useEffect, useMemo, useState } from "react";
+import { type CSSProperties, useCallback, useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { awardXP } from "@/lib/gamification";
 import {
   Camera,
   Car,
@@ -42,14 +43,9 @@ import {
   Wifi,
   X,
 } from "lucide-react";
-import {
-  getStopMenu,
-  placeStopOrder,
-  listStopOrders,
-  listVerifiedStopNames,
-  type MenuItem,
-} from "@/lib/stop-menu.functions";
+import { type MenuItem } from "@/lib/stop-menu.functions";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
+import { trackFeature, trackEngagement, trackConversion } from "@/lib/analytics";
 
 /* -------------------------------------------------------------------------- */
 /*  Helpers                                                                    */
@@ -63,6 +59,123 @@ const code3 = (s: string | undefined, fallback: string) => {
 
 const CREW_AVATARS = ["👑", "💃", "🎯", "🎶", "🕺", "🪩", "🌟", "🎨"];
 
+/* -------------------------------------------------------------------------- */
+/*  Client-side replacements for server functions (SPA mode)                   */
+/* -------------------------------------------------------------------------- */
+
+const FALLBACK_MENUS: Record<string, MenuItem[]> = {
+  drinks: [
+    { id: "old-fashioned", emoji: "🥃", name: "Old Fashioned", desc: "Bourbon, demerara, angostura, orange", price: 16 },
+    { id: "spritz", emoji: "🥂", name: "Aperol Spritz", desc: "Aperol, prosecco, soda, orange", price: 14 },
+    { id: "negroni", emoji: "🍹", name: "Negroni", desc: "Gin, Campari, sweet vermouth", price: 15 },
+    { id: "house-lager", emoji: "🍺", name: "House Lager", desc: "Local craft, 16oz draft", price: 8 },
+  ],
+  meal: [
+    { id: "burger", emoji: "🍔", name: "Smash Burger", desc: "Double patty, american, pickles, special sauce", price: 18 },
+    { id: "caesar", emoji: "🥗", name: "Little Gem Caesar", desc: "Anchovy, parmesan, sourdough crumbs", price: 14 },
+    { id: "pasta", emoji: "🍝", name: "Cacio e Pepe", desc: "Tonnarelli, pecorino, black pepper", price: 22 },
+    { id: "tiramisu", emoji: "🍰", name: "Tiramisu", desc: "Espresso-soaked savoiardi, mascarpone", price: 12 },
+  ],
+  activity: [
+    { id: "entry", emoji: "🎟️", name: "General Entry", desc: "One adult ticket, valid today", price: 25 },
+    { id: "guide", emoji: "📖", name: "Guided Add-on", desc: "45-min expert walkthrough", price: 15 },
+  ],
+  scenic: [
+    { id: "skip", emoji: "⚡", name: "Skip-the-Line", desc: "Priority entry, valid today", price: 20 },
+    { id: "audio", emoji: "🎧", name: "Audio Guide", desc: "Self-paced narrated tour", price: 8 },
+  ],
+};
+
+async function clientFetchMenu(args: {
+  stopId: string;
+  stopName: string;
+  category?: string;
+}): Promise<{ items: MenuItem[]; cached: boolean }> {
+  const { stopId, category } = args;
+  // Check cache
+  // @ts-expect-error — stop_menus table not in generated types
+  const { data: cached } = await supabase
+    .from("stop_menus")
+    .select("items, generated_at")
+    .eq("stop_id", stopId)
+    .maybeSingle();
+  if (cached?.items && Array.isArray(cached.items) && (cached.items as unknown[]).length) {
+    return { items: cached.items as MenuItem[], cached: true };
+  }
+  const key = (category ?? "drinks").toLowerCase();
+  return { items: FALLBACK_MENUS[key] ?? FALLBACK_MENUS.drinks, cached: false };
+}
+
+async function clientPlaceOrder(args: {
+  itineraryId: string;
+  stopId: string;
+  items: { id: string; name: string; qty: number; price: number }[];
+  note?: string;
+}): Promise<{ id: string; totalCents: number; createdAt: string }> {
+  // Verify the venue is a Confetti-verified business
+  // @ts-expect-error — itinerary_stops may not be in generated types
+  const { data: stopRow } = await supabase
+    .from("itinerary_stops")
+    .select("name")
+    .eq("id", args.stopId)
+    .maybeSingle();
+  if (!stopRow?.name) throw new Error("Stop not found");
+  // @ts-expect-error — venues table may not be in generated types
+  const { data: verifiedMatch } = await supabase
+    .from("venues")
+    .select("id")
+    .eq("verified", true)
+    .ilike("name", stopRow.name)
+    .limit(1)
+    .maybeSingle();
+  if (!verifiedMatch) {
+    throw new Error("This venue isn't verified with Confetti — pre-orders unavailable.");
+  }
+  const { data: user } = await supabase.auth.getUser();
+  if (!user.user) throw new Error("Not signed in");
+  const totalCents = Math.round(args.items.reduce((acc, it) => acc + it.price * it.qty, 0) * 100);
+  // @ts-expect-error — stop_orders table may not be in generated types
+  const { data: inserted, error } = await supabase
+    .from("stop_orders")
+    .insert({
+      user_id: user.user.id,
+      itinerary_id: args.itineraryId,
+      stop_id: args.stopId,
+      items: args.items as unknown as never,
+      total_cents: totalCents,
+      note: args.note ?? null,
+      status: "placed",
+    })
+    .select("id, total_cents, created_at")
+    .single();
+  if (error) throw new Error(error.message);
+  return { id: inserted.id, totalCents: inserted.total_cents, createdAt: inserted.created_at };
+}
+
+async function clientListOrders(stopId: string): Promise<{ orders: unknown[] }> {
+  // @ts-expect-error — stop_orders table may not be in generated types
+  const { data: rows, error } = await supabase
+    .from("stop_orders")
+    .select("id, items, total_cents, status, note, created_at")
+    .eq("stop_id", stopId)
+    .order("created_at", { ascending: false });
+  if (error) throw new Error(error.message);
+  return { orders: rows ?? [] };
+}
+
+async function clientCheckVerifiedNames(names: string[]): Promise<{ verified: string[] }> {
+  const uniq = Array.from(new Set(names.map((n) => n.trim()).filter(Boolean)));
+  if (!uniq.length) return { verified: [] };
+  // @ts-expect-error — venues table may not be in generated types
+  const { data: rows, error } = await supabase
+    .from("venues")
+    .select("name")
+    .eq("verified", true);
+  if (error || !rows) return { verified: [] };
+  const set = new Set((rows as { name: string }[]).map((r) => (r.name ?? "").toLowerCase()));
+  return { verified: uniq.filter((n) => set.has(n.toLowerCase())) };
+}
+
 type CrewMember = {
   name: string;
   role: string;
@@ -72,30 +185,57 @@ type CrewMember = {
   avatar: string;
 };
 
-function deriveCrew(loop: ActiveLoop): CrewMember[] {
-  const size = Math.max(1, Math.min(loop.groupSize ?? 1, 8));
-  const captain = loop.passenger?.split("@")[0] || "Captain";
-  const seeds = [
+function deriveCrew(
+  loop: ActiveLoop,
+  groupMembers?: GroupMemberRow[],
+): CrewMember[] {
+  const captain = loop.passenger?.split("@")[0] || "You";
+
+  // If we have real group members from the DB, use them
+  if (groupMembers && groupMembers.length > 0) {
+    return groupMembers.map((m, i) => ({
+      name: m.display_name || m.email?.split("@")[0] || `Guest ${i + 1}`,
+      role: m.role === "host" ? "Captain" : m.role === "co-host" ? "Co-host" : "Crew",
+      status: (m.status === "accepted" ? "ready" : "pending") as "ready" | "pending",
+      transport: "",
+      avatar: CREW_AVATARS[i % CREW_AVATARS.length],
+      phone: m.phone || "",
+    }));
+  }
+
+  // Fallback: just show the captain with group size indicator
+  const size = Math.max(1, loop.groupSize ?? 1);
+  const crew: CrewMember[] = [
     {
       name: captain,
       role: "Captain",
-      status: "ready" as const,
-      transport: "Driving · Tesla Model 3",
+      status: "ready",
+      transport: "",
+      avatar: CREW_AVATARS[0],
+      phone: "",
     },
-    { name: "Maya", role: "ETA 7:25p", status: "ready" as const, transport: "Metro" },
-    { name: "Jordan", role: "Invited", status: "pending" as const, transport: "Rideshare" },
-    { name: "Alex", role: "ETA 7:35p", status: "ready" as const, transport: "Riding w/ Captain" },
-    { name: "Sam", role: "ETA 7:40p", status: "ready" as const, transport: "Walking" },
-    { name: "Rio", role: "Invited", status: "pending" as const, transport: "Bike" },
-    { name: "Quinn", role: "ETA 7:45p", status: "ready" as const, transport: "Rideshare" },
-    { name: "Ash", role: "Invited", status: "pending" as const, transport: "Metro" },
   ];
-  return seeds.slice(0, size).map((m, i) => ({
-    ...m,
-    avatar: CREW_AVATARS[i % CREW_AVATARS.length],
-    phone: `(202) 555-${String(1001 + i).padStart(4, "0")}`,
-  }));
+  // Show placeholder slots for remaining group members
+  for (let i = 1; i < Math.min(size, 8); i++) {
+    crew.push({
+      name: `Guest ${i}`,
+      role: "Invite to join",
+      status: "pending",
+      transport: "",
+      avatar: CREW_AVATARS[i % CREW_AVATARS.length],
+      phone: "",
+    });
+  }
+  return crew;
 }
+
+type GroupMemberRow = {
+  display_name?: string | null;
+  email?: string | null;
+  role: string;
+  status: string;
+  phone?: string | null;
+};
 
 const STOP_EMOJI_DEFAULT = "📍";
 
@@ -386,7 +526,7 @@ function StopCard({
             )}
             <button
               type="button"
-              onClick={() => setFlipped(true)}
+              onClick={() => { setFlipped(true); trackEngagement("stop_detail_view", { stopName: stop.name }); }}
               className="ml-auto inline-flex items-center gap-1.5 rounded-full border-2 border-ink/20 bg-transparent px-3.5 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink/60 transition hover:border-ink"
             >
               <Info className="h-3 w-3" /> Details
@@ -500,11 +640,29 @@ function TravelConnector({ minutes, to }: { minutes: number; to?: string }) {
 
 function NightIntel({ loop }: { loop: ActiveLoop }) {
   const budget = loop.estimatedSpend || `~$${60 * (loop.groupSize ?? 1)}`;
+
+  // Derive dress code from the most common dress code across stops
+  const dressCode = useMemo(() => {
+    const codes = loop.stops.map((s) => s.dressCode).filter(Boolean) as string[];
+    if (codes.length === 0) return "Casual";
+    const freq: Record<string, number> = {};
+    for (const c of codes) {
+      const key = c.toLowerCase().trim();
+      freq[key] = (freq[key] || 0) + 1;
+    }
+    const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0];
+    // Capitalize first letter
+    return top.charAt(0).toUpperCase() + top.slice(1);
+  }, [loop.stops]);
+
+  // Show city name for weather context when no live weather is available
+  const weatherLabel = loop.city ? `${loop.city}` : "Check app";
+
   return (
     <div className="mb-3 grid grid-cols-3 gap-2">
       <IntelCard icon="💰" label="Budget" value={budget} />
-      <IntelCard icon="🌡️" label="Weather" value="72°F" />
-      <IntelCard icon="👔" label="Dress" value="Smart" />
+      <IntelCard icon="📍" label="City" value={weatherLabel} />
+      <IntelCard icon="👔" label="Dress" value={dressCode} />
     </div>
   );
 }
@@ -546,13 +704,17 @@ function CrewManifest({ crew }: { crew: CrewMember[] }) {
                 {m.transport}
               </div>
             </div>
-            <a
-              href={`tel:${m.phone.replace(/\D/g, "")}`}
-              className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-white text-ink/70"
-              aria-label={`Call ${m.name}`}
-            >
-              <Phone className="h-3.5 w-3.5" />
-            </a>
+            {m.phone ? (
+              <a
+                href={`tel:${m.phone.replace(/\D/g, "")}`}
+                className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-white text-ink/70"
+                aria-label={`Call ${m.name}`}
+              >
+                <Phone className="h-3.5 w-3.5" />
+              </a>
+            ) : (
+              <div className="h-8 w-8" />
+            )}
           </div>
         ))}
       </div>
@@ -657,7 +819,7 @@ function OnMyWay({ targetName }: { targetName: string }) {
       </div>
       <button
         type="button"
-        onClick={() => setState("live")}
+        onClick={() => { setState("live"); trackFeature("on_my_way", { target: targetName }); }}
         className="relative w-full overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br from-coral to-pink-500 px-3 py-4 font-mono text-[12px] font-bold uppercase tracking-[0.2em] text-white"
       >
         🚗 On My Way
@@ -684,12 +846,49 @@ function Pill({ kind, children }: { kind: "done" | "pending"; children: React.Re
 /*  Section: Quick actions                                                     */
 /* -------------------------------------------------------------------------- */
 
-function QuickActions() {
+function QuickActions({ loop }: { loop: ActiveLoop }) {
+  const handlePlaylist = useCallback(() => {
+    // Deep-link to Spotify/Apple Music search for the vibe
+    const query = encodeURIComponent(
+      `${loop.vibe ?? "night out"} ${loop.city ?? ""} playlist`.trim(),
+    );
+    window.open(`https://open.spotify.com/search/${query}`, "_blank");
+  }, [loop.vibe, loop.city]);
+
+  const handleGroup = useCallback(() => {
+    // Share invite link for this trip
+    const url = `${window.location.origin}/boarding-pass?trip=${loop.id}`;
+    if (navigator.share) {
+      navigator.share({ title: "Join my Confetti night!", url }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(url).then(() => {
+        toast.success("Invite link copied!");
+      });
+    }
+  }, [loop.id]);
+
+  const handlePhotos = useCallback(() => {
+    toast("Photo album coming soon!", { description: "Share night pics with your crew." });
+  }, []);
+
+  const handleRide = useCallback(() => {
+    // Deep-link to ride-hailing with first upcoming stop as destination
+    const nextStop = loop.stops.find((s) => !s.done);
+    const addr = nextStop?.address;
+    if (addr) {
+      const q = encodeURIComponent(addr);
+      // Uber universal link works on mobile and web
+      window.open(`https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=${q}`, "_blank");
+    } else {
+      window.open("https://m.uber.com", "_blank");
+    }
+  }, [loop.stops]);
+
   const items = [
-    { icon: <Music className="h-5 w-5" />, label: "Playlist" },
-    { icon: <MessageCircle className="h-5 w-5" />, label: "Group" },
-    { icon: <Camera className="h-5 w-5" />, label: "Photos" },
-    { icon: <Car className="h-5 w-5" />, label: "Ride" },
+    { icon: <Music className="h-5 w-5" />, label: "Playlist", onClick: handlePlaylist },
+    { icon: <MessageCircle className="h-5 w-5" />, label: "Group", onClick: handleGroup },
+    { icon: <Camera className="h-5 w-5" />, label: "Photos", onClick: handlePhotos },
+    { icon: <Car className="h-5 w-5" />, label: "Ride", onClick: handleRide },
   ];
   return (
     <div className="mb-3 grid grid-cols-4 gap-2">
@@ -697,6 +896,7 @@ function QuickActions() {
         <button
           key={it.label}
           type="button"
+          onClick={() => { trackEngagement("quick_action", { action: it.label }); it.onClick(); }}
           className="rounded-2xl border-2 border-ink bg-white px-2 py-4 text-center transition hover:-translate-y-0.5 hover:bg-cream"
         >
           <div className="mb-1.5 grid place-items-center text-ink">{it.icon}</div>
@@ -727,9 +927,6 @@ function PreorderDrawer({
   const open = !!stop;
   const persistable = !!stop && isUuid(stop.id) && isUuid(loop.id);
 
-  const fetchMenu = useServerFn(getStopMenu);
-  const sendOrder = useServerFn(placeStopOrder);
-  const fetchOrders = useServerFn(listStopOrders);
   const queryClient = useQueryClient();
 
   const category = useMemo(() => {
@@ -750,13 +947,10 @@ function PreorderDrawer({
   const menuQuery = useQuery({
     queryKey: ["stop-menu", stop?.id ?? "none"],
     queryFn: () =>
-      fetchMenu({
-        data: {
-          stopId: stop!.id,
-          stopName: stop!.name,
-          category,
-          city: loop.city ?? loop.fromName,
-        },
+      clientFetchMenu({
+        stopId: stop!.id,
+        stopName: stop!.name,
+        category,
       }),
     enabled: open,
     staleTime: 1000 * 60 * 60,
@@ -765,7 +959,7 @@ function PreorderDrawer({
 
   const ordersQuery = useQuery({
     queryKey: ["stop-orders", stop?.id ?? "none"],
-    queryFn: () => fetchOrders({ data: { stopId: stop!.id } }),
+    queryFn: () => clientListOrders(stop!.id),
     enabled: open && persistable,
   });
   const existingOrders = ordersQuery.data?.orders ?? [];
@@ -774,6 +968,8 @@ function PreorderDrawer({
     if (!stop) {
       setQty({});
       setNote("");
+    } else {
+      trackFeature("preorder_opened", { stopName: stop.name });
     }
   }, [stop]);
 
@@ -789,16 +985,18 @@ function PreorderDrawer({
       const items = menu
         .filter((m) => (qty[m.id] || 0) > 0)
         .map((m) => ({ id: m.id, name: m.name, qty: qty[m.id]!, price: m.price }));
-      return sendOrder({
-        data: {
-          itineraryId: loop.id,
-          stopId: stop.id,
-          items,
-          note: note.trim() || undefined,
-        },
+      return clientPlaceOrder({
+        itineraryId: loop.id,
+        stopId: stop.id,
+        items,
+        note: note.trim() || undefined,
       });
     },
-    onSuccess: () => {
+    onSuccess: async () => {
+      trackConversion("preorder_placed", { stopName: stop?.name, total, itemCount: count });
+      // Award XP for pre-order
+      const { data: u } = await supabase.auth.getUser();
+      if (u.user) awardXP(u.user.id, "preorder_placed");
       toast.success(`Pre-order sent — $${total.toFixed(2)}`, {
         description: stop ? `Ready for you at ${stop.name}` : undefined,
         position: "bottom-center",
@@ -1005,19 +1203,48 @@ export function BoardingPassV3({
   containerRef?: React.RefObject<HTMLDivElement | null>;
 }) {
   const [preorderStop, setPreorderStop] = useState<LoopStop | null>(null);
-  const crew = useMemo(() => deriveCrew(loop), [loop]);
+
+  // Track boarding pass view once on mount
+  useEffect(() => { trackFeature("boarding_pass_view", { loopId: loop.id, title: loop.experienceName ?? loop.occasion }); }, [loop.id, loop.experienceName, loop.occasion]);
+
+  // Query real group members if the itinerary has an associated group
+  const { data: groupMembers } = useQuery({
+    queryKey: ["boarding-pass-crew", loop.id],
+    queryFn: async () => {
+      // Check if this itinerary has a linked group
+      // @ts-expect-error — groups table exists in DB but not in generated types
+      const { data: group } = await supabase
+        .from("groups")
+        .select("id")
+        .eq("itinerary_id", loop.id)
+        .maybeSingle();
+      if (!group) return null;
+      // @ts-expect-error — group_members table exists in DB but not in generated types
+      const { data: members } = await supabase
+        .from("group_members")
+        .select("display_name,email,role,status,phone")
+        .eq("group_id", group.id)
+        .order("role");
+      return (members ?? []) as GroupMemberRow[];
+    },
+    staleTime: 1000 * 60 * 5,
+  });
+
+  const crew = useMemo(
+    () => deriveCrew(loop, groupMembers ?? undefined),
+    [loop, groupMembers],
+  );
   const currentIdx = loop.stops.findIndex((s) => !s.done);
   const targetStop = loop.stops[currentIdx >= 0 ? currentIdx : 0];
 
   // Which stop names are at Confetti-verified business venues?
-  const checkVerified = useServerFn(listVerifiedStopNames);
   const stopNames = useMemo(
     () => Array.from(new Set(loop.stops.map((s) => s.name).filter(Boolean))).slice(0, 30),
     [loop.stops],
   );
   const verifiedQuery = useQuery({
     queryKey: ["verified-stops", stopNames.join("|")],
-    queryFn: () => checkVerified({ data: { names: stopNames } }),
+    queryFn: () => clientCheckVerifiedNames(stopNames),
     enabled: stopNames.length > 0,
     staleTime: 1000 * 60 * 10,
   });
@@ -1070,7 +1297,7 @@ export function BoardingPassV3({
       <OnMyWay targetName={targetStop?.name || "your first stop"} />
 
       <SectionLabel>Quick Actions</SectionLabel>
-      <QuickActions />
+      <QuickActions loop={loop} />
 
       <PreorderDrawer stop={preorderStop} loop={loop} onClose={() => setPreorderStop(null)} />
     </div>

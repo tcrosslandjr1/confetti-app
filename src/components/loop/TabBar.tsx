@@ -106,7 +106,7 @@ function TabItem({
     <Link
       to={to}
       aria-current={active ? "page" : undefined}
-      className="group flex flex-col items-center justify-center gap-0.5 rounded-lg py-1 min-h-[60px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+      className="group flex w-full min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 py-1 min-h-[60px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
     >
       <motion.span
         whileTap={{ scale: 0.88 }}

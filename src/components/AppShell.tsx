@@ -12,11 +12,11 @@ const CUSTOMER_TABS = [
 ];
 
 const BUSINESS_TABS = [
-  { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/business/events", label: "Events", icon: CalendarPlus },
-  { to: "/business/media", label: "Media", icon: ImageIcon },
-  { to: "/business/social", label: "Social", icon: Link2 },
-  { to: "/business/settings", label: "Settings", icon: Settings },
+  { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard, exact: false },
+  { to: "/business/events", label: "Events", icon: CalendarPlus, exact: false },
+  { to: "/business/media", label: "Media", icon: ImageIcon, exact: false },
+  { to: "/business/social", label: "Social", icon: Link2, exact: false },
+  { to: "/business/settings", label: "Settings", icon: Settings, exact: false },
 ];
 
 export function AppShell() {

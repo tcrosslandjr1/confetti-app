@@ -55,6 +55,27 @@ export function DateNightCulturalFlow() {
             ]}
           />
         </div>
+
+        <div className="mt-4 rounded-xl bg-card p-4 text-xs">
+          <p className="font-display text-sm font-bold text-foreground">Example timeline</p>
+          <ul className="mt-2 space-y-1 text-muted-foreground">
+            <li>
+              <strong className="text-foreground">7:00 PM</strong> — Shareable dinner
+            </li>
+            <li>
+              <strong className="text-foreground">8:30 PM</strong> — Activity: karaoke, dancing,
+              comedy, art gallery, bowling, or lounge
+            </li>
+            <li>
+              <strong className="text-foreground">10:00 PM</strong> — Dessert, tea, drinks, or
+              scenic walk
+            </li>
+            <li>
+              <strong className="text-foreground">10:30 PM</strong> — Photo/memory moment before
+              heading home
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   );

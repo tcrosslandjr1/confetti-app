@@ -43,6 +43,9 @@ import {
   Users,
   Link as LinkIcon,
   Check,
+  Crosshair,
+  Send,
+  Loader2,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 

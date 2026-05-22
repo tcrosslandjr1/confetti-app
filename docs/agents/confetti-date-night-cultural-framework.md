@@ -13,15 +13,15 @@ Branching framework the Itinerary Concierge consults when building date-night pl
 - Music, dancing, comedy, art, or lounge
 - Dessert, tea, drinks, or walk
 
-**Step 3 — Shared-exchange format (mixed branch)**
-- Person A picks dinner
-- Person B picks activity
-- Both pick songs for the ride / walk
-- End with dessert or late-night drinks
+**Step 3 — Shared exchange (mixed branch)**
+- Person A picks the food
+- Person B picks the activity
+- Both add 5 songs to the date-night playlist
+- End somewhere cozy for dessert or tea
 
 **Step 4 — Final plan shape**
-- Shared culture → cultural dinner + romantic activity + dessert
-- Mixed → two-culture dinner/activity swap + dessert
+- Shared culture → cultural dinner + romantic activity + cozy close
+- Mixed → two-culture dinner/activity swap + cozy close
 
 ## Agent rules
 

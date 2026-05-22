@@ -106,7 +106,7 @@ function TabItem({
     <Link
       to={to}
       aria-current={active ? "page" : undefined}
-      className="group flex flex-col items-center justify-center gap-0.5 rounded-lg py-1 min-h-[60px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+      className="group flex w-full min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 py-1 min-h-[60px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
     >
       <motion.span
         whileTap={{ scale: 0.88 }}
@@ -152,16 +152,20 @@ export function TabBar() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 -top-8 h-8 bg-gradient-to-t from-cream/95 to-transparent"
       />
-      <div className="relative border-t-2 border-ink bg-cream/95 backdrop-blur-xl">
+      <div className="relative border-t-2 border-ink bg-cream/95 backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80">
         <div
           role="list"
-          className="relative mx-auto flex h-20 max-w-2xl items-center justify-around px-2"
+          className="relative mx-auto flex h-20 w-full max-w-2xl items-center justify-around overflow-x-clip px-1 sm:px-2"
         >
           {TABS.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
             return (
-              <div key={to} role="listitem" className="flex flex-1 min-w-0 justify-center">
+              <div
+                key={to}
+                role="listitem"
+                className="flex min-w-0 flex-1 justify-center"
+              >
                 <TabItem
                   to={to}
                   label={label}

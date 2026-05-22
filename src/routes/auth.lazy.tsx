@@ -249,22 +249,41 @@ function AuthPage() {
     }
   };
 
-  // After sign-in, route business owners to their advertiser portal when the
-  // caller didn't request a specific destination. Falls back to redirectTo
-  // (defaults to "/") for everyone else.
+  // After sign-in, route business owners to their business dashboard when the
+  // caller didn't request a specific (non-generic) destination. Falls back to
+  // redirectTo (defaults to "/") for everyone else.
   async function routeAfterAuth(uid: string) {
-    if (redirectTo && redirectTo !== "/") {
-      navigate({ to: redirectTo as never });
+    const genericRedirect = !redirectTo || redirectTo === "/" || redirectTo === "/auth";
+
+    // Detect business owner: either has the business_owner role or owns an advertiser row.
+    let isBusinessOwner = false;
+    try {
+      const { data: roleRow } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", uid)
+        .eq("role", "business_owner")
+        .maybeSingle();
+      if (roleRow) isBusinessOwner = true;
+    } catch {
+      // Ignore — fall through to advertiser check.
+    }
+    if (!isBusinessOwner) {
+      try {
+        const advertiser = await getMyAdvertiser(uid);
+        if (advertiser) isBusinessOwner = true;
+      } catch {
+        // Ignore.
+      }
+    }
+
+    if (isBusinessOwner && genericRedirect) {
+      navigate({ to: "/business/dashboard" });
       return;
     }
-    try {
-      const advertiser = await getMyAdvertiser(uid);
-      if (advertiser) {
-        navigate({ to: "/advertise/portal" });
-        return;
-      }
-    } catch {
-      // Ignore — fall through to default redirect.
+    if (!genericRedirect) {
+      navigate({ to: redirectTo as never });
+      return;
     }
     navigate({ to: safeRedirectTo as never });
   }

@@ -193,10 +193,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<AuthCtx>(() => {
     const loading = sessionLoading || roleLoading || !viewAsLoaded;
-    const realRole: ViewAs = !session?.user ? "visitor" : isAdmin ? "admin" : "customer";
+    const realRole: ViewAs = !session?.user
+      ? "visitor"
+      : isAdmin
+        ? "admin"
+        : isBusinessOwner
+          ? "business"
+          : "customer";
 
     // Only real admins can preview other views. Everyone else is locked to
-    // their real visitor/customer role even if an old tab has sessionStorage.
+    // their real visitor/customer/business role even if an old tab has sessionStorage.
     const effective: ViewAs = isAdmin ? (viewAsState ?? realRole) : realRole;
     const impersonating = effective !== realRole;
     const preview = false;
@@ -209,6 +215,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       roleLoading,
       viewAsLoaded,
       isAdmin,
+      isBusinessOwner,
       viewAs: effective,
       isImpersonating: impersonating,
       isPreview: preview,
@@ -223,6 +230,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     roleLoading,
     viewAsLoaded,
     isAdmin,
+    isBusinessOwner,
     viewAsState,
     setViewAs,
     exitImpersonation,

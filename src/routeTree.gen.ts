@@ -14,6 +14,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ViralRouteImport } from './routes/viral'
 import { Route as VibePlansRouteImport } from './routes/vibe-plans'
+import { Route as VibePickerRouteImport } from './routes/vibe-picker'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as TonightRouteImport } from './routes/tonight'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
@@ -235,6 +236,11 @@ const VibePlansRoute = VibePlansRouteImport.update({
   path: '/vibe-plans',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/vibe-plans.lazy').then((d) => d.Route))
+const VibePickerRoute = VibePickerRouteImport.update({
+  id: '/vibe-picker',
+  path: '/vibe-picker',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TranslateRoute = TranslateRouteImport.update({
   id: '/translate',
   path: '/translate',
@@ -1381,6 +1387,7 @@ export interface FileRoutesByFullPath {
   '/testimonials': typeof TestimonialsRoute
   '/tonight': typeof TonightRoute
   '/translate': typeof TranslateRoute
+  '/vibe-picker': typeof VibePickerRoute
   '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -1581,6 +1588,7 @@ export interface FileRoutesByTo {
   '/testimonials': typeof TestimonialsRoute
   '/tonight': typeof TonightRoute
   '/translate': typeof TranslateRoute
+  '/vibe-picker': typeof VibePickerRoute
   '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -1791,6 +1799,7 @@ export interface FileRoutesById {
   '/testimonials': typeof TestimonialsRoute
   '/tonight': typeof TonightRoute
   '/translate': typeof TranslateRoute
+  '/vibe-picker': typeof VibePickerRoute
   '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -2002,6 +2011,7 @@ export interface FileRouteTypes {
     | '/testimonials'
     | '/tonight'
     | '/translate'
+    | '/vibe-picker'
     | '/vibe-plans'
     | '/viral'
     | '/weather'
@@ -2202,6 +2212,7 @@ export interface FileRouteTypes {
     | '/testimonials'
     | '/tonight'
     | '/translate'
+    | '/vibe-picker'
     | '/vibe-plans'
     | '/viral'
     | '/weather'
@@ -2411,6 +2422,7 @@ export interface FileRouteTypes {
     | '/testimonials'
     | '/tonight'
     | '/translate'
+    | '/vibe-picker'
     | '/vibe-plans'
     | '/viral'
     | '/weather'
@@ -2621,6 +2633,7 @@ export interface RootRouteChildren {
   TestimonialsRoute: typeof TestimonialsRoute
   TonightRoute: typeof TonightRoute
   TranslateRoute: typeof TranslateRoute
+  VibePickerRoute: typeof VibePickerRoute
   VibePlansRoute: typeof VibePlansRoute
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
@@ -2700,6 +2713,13 @@ declare module '@tanstack/react-router' {
       path: '/vibe-plans'
       fullPath: '/vibe-plans'
       preLoaderRoute: typeof VibePlansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vibe-picker': {
+      id: '/vibe-picker'
+      path: '/vibe-picker'
+      fullPath: '/vibe-picker'
+      preLoaderRoute: typeof VibePickerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/translate': {
@@ -4494,6 +4514,7 @@ const rootRouteChildren: RootRouteChildren = {
   TestimonialsRoute: TestimonialsRoute,
   TonightRoute: TonightRoute,
   TranslateRoute: TranslateRoute,
+  VibePickerRoute: VibePickerRoute,
   VibePlansRoute: VibePlansRoute,
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,

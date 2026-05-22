@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Sparkles,
@@ -41,7 +41,33 @@ import {
   Mic2,
   Beef,
   Users,
+  Link as LinkIcon,
+  Check,
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+
+// ---------- Share helpers ----------
+function randomToken(): string {
+  const bytes = new Uint8Array(9);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, (b) => b.toString(36).padStart(2, "0")).join("").slice(0, 12);
+}
+
+function encodeConfig(cfg: Record<string, unknown>): string {
+  try {
+    return btoa(unescape(encodeURIComponent(JSON.stringify(cfg))));
+  } catch {
+    return "";
+  }
+}
+
+function decodeConfig(s: string): Record<string, unknown> | null {
+  try {
+    return JSON.parse(decodeURIComponent(escape(atob(s))));
+  } catch {
+    return null;
+  }
+}
 
 export const Route = createFileRoute("/boarding-pass-planner")({
   head: () => ({
@@ -66,6 +92,7 @@ type VenueIntel = {
 type Stop = { label: string; custom?: boolean };
 
 type CrewMember = {
+  id?: string;
   name: string;
   rsvp: "Going" | "Maybe" | "Can't Make It" | "Invited";
   status: string;
@@ -303,6 +330,78 @@ function BoardingPassPlanner() {
     Object.fromEntries(feedbackCategories.map((k) => [k, null])) as TripMemoryFeedback,
   );
 
+  // ---------- Invite link state ----------
+  const [shareToken, setShareToken] = useState<string>("");
+  const [copied, setCopied] = useState(false);
+  const [joinName, setJoinName] = useState("");
+  const [myRowId, setMyRowId] = useState<string | null>(null);
+  const hydratedRef = useRef(false);
+
+  // Hydrate config + token from URL on mount
+  useEffect(() => {
+    if (typeof window === "undefined" || hydratedRef.current) return;
+    hydratedRef.current = true;
+    const params = new URLSearchParams(window.location.search);
+    const t = params.get("t");
+    const c = params.get("c");
+    if (c) {
+      const cfg = decodeConfig(c);
+      if (cfg) {
+        if (typeof cfg.occasion === "string") setOccasion(cfg.occasion);
+        if (typeof cfg.mood === "string") setMood(cfg.mood);
+        if (typeof cfg.destinationType === "string") setDestinationType(cfg.destinationType);
+        if (typeof cfg.groupStyle === "string") setGroupStyle(cfg.groupStyle);
+        if (typeof cfg.budget === "string") setBudget(cfg.budget);
+        if (typeof cfg.time === "string") setTime(cfg.time);
+        if (typeof cfg.city === "string") setCity(cfg.city);
+        if (typeof cfg.tripMode === "string") setTripMode(cfg.tripMode);
+        if (Array.isArray(cfg.addedSpots)) setAddedSpots(cfg.addedSpots as { label: string; placement: string }[]);
+      }
+    }
+    if (t) {
+      setShareToken(t);
+      setCrew([]); // wait for DB
+      const savedId = window.localStorage.getItem(`bp_crew_id_${t}`);
+      if (savedId) setMyRowId(savedId);
+    }
+  }, []);
+
+  // Load + subscribe to crew when token is active
+  useEffect(() => {
+    if (!shareToken) return;
+    let cancelled = false;
+    (async () => {
+      const { data } = await supabase
+        .from("boarding_pass_crew")
+        .select("id, name, rsvp, status, travel, eta")
+        .eq("share_token", shareToken)
+        .order("created_at", { ascending: true });
+      if (!cancelled && data) {
+        setCrew(data.map((r) => ({ id: r.id, name: r.name, rsvp: r.rsvp as CrewMember["rsvp"], status: r.status, travel: r.travel, eta: r.eta })));
+      }
+    })();
+    const ch = supabase
+      .channel(`bp-crew-${shareToken}`)
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "boarding_pass_crew", filter: `share_token=eq.${shareToken}` },
+        async () => {
+          const { data } = await supabase
+            .from("boarding_pass_crew")
+            .select("id, name, rsvp, status, travel, eta")
+            .eq("share_token", shareToken)
+            .order("created_at", { ascending: true });
+          if (data) setCrew(data.map((r) => ({ id: r.id, name: r.name, rsvp: r.rsvp as CrewMember["rsvp"], status: r.status, travel: r.travel, eta: r.eta })));
+        },
+      )
+      .subscribe();
+    return () => {
+      cancelled = true;
+      supabase.removeChannel(ch);
+    };
+  }, [shareToken]);
+
+
   const selectedTrip = tripModes.find((m) => m.name === tripMode) || tripModes[1];
   const intel = venueIntel[destinationType] || venueIntel["Coffee Date"];
   const Icon = iconFor(destinationType);
@@ -369,17 +468,69 @@ function BoardingPassPlanner() {
     setCustomSpot("");
   }
 
-  function inviteCrewMember() {
-    if (!inviteName.trim()) return;
-    setCrew([...crew, { name: inviteName.trim(), rsvp: "Invited", status: "Waiting", travel: "Not picked", eta: "Pending" }]);
+  async function inviteCrewMember() {
+    const name = inviteName.trim();
+    if (!name) return;
+    if (shareToken) {
+      await supabase.from("boarding_pass_crew").insert({
+        share_token: shareToken, name, rsvp: "Invited", status: "Waiting", travel: "Not picked", eta: "Pending",
+      });
+    } else {
+      setCrew([...crew, { name, rsvp: "Invited", status: "Waiting", travel: "Not picked", eta: "Pending" }]);
+    }
     setInviteName("");
   }
 
-  function updateCrew(index: number, patch: Partial<CrewMember>) {
-    const next = [...crew];
-    next[index] = { ...next[index], ...patch };
-    setCrew(next);
+  async function updateCrew(index: number, patch: Partial<CrewMember>) {
+    const target = crew[index];
+    if (shareToken && target?.id) {
+      await supabase.from("boarding_pass_crew").update(patch).eq("id", target.id);
+    } else {
+      const next = [...crew];
+      next[index] = { ...next[index], ...patch };
+      setCrew(next);
+    }
   }
+
+  function currentConfig() {
+    return { occasion, mood, destinationType, groupStyle, budget, time, city, tripMode, addedSpots };
+  }
+
+  async function copyInviteLink() {
+    let token = shareToken;
+    if (!token) {
+      token = randomToken();
+      setShareToken(token);
+    }
+    const url = `${window.location.origin}/boarding-pass-planner?t=${token}&c=${encodeConfig(currentConfig())}`;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      params.set("t", token);
+      params.set("c", encodeConfig(currentConfig()));
+      window.history.replaceState({}, "", `${window.location.pathname}?${params.toString()}`);
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.prompt("Copy this invite link", url);
+    }
+  }
+
+  async function joinAsMyself() {
+    const name = joinName.trim();
+    if (!name || !shareToken) return;
+    const { data } = await supabase
+      .from("boarding_pass_crew")
+      .insert({ share_token: shareToken, name, rsvp: "Going", status: myStatus, travel: myTravel, eta: myEta })
+      .select("id")
+      .single();
+    if (data?.id) {
+      setMyRowId(data.id);
+      window.localStorage.setItem(`bp_crew_id_${shareToken}`, data.id);
+    }
+    setJoinName("");
+  }
+
 
   function toggleFlip(index: number) {
     setFlippedCards({ ...flippedCards, [index]: !flippedCards[index] });
@@ -548,14 +699,46 @@ function BoardingPassPlanner() {
                   <PassField label="Fare" value={budget} small />
                   <PassField label="Crew" value={`${goingCount} going`} small />
                 </div>
-                <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">
-                  <Share2 className="h-3.5 w-3.5" /> Share
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={copyInviteLink}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/20"
+                  >
+                    {copied ? <Check className="h-3.5 w-3.5" /> : <LinkIcon className="h-3.5 w-3.5" />}
+                    {copied ? "Copied" : "Invite link"}
+                  </button>
+                  <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">
+                    <Share2 className="h-3.5 w-3.5" /> Share
+                  </button>
+                </div>
               </div>
               <div className="border-t border-border bg-primary/5 px-5 py-2 text-center font-mono text-[10px] uppercase tracking-widest text-primary">
-                Live trip ready · {enRouteCount} en route · {landedCount} landed
+                {shareToken ? `Shared pass · code ${shareToken.slice(0, 6).toUpperCase()} · ` : "Live trip ready · "}
+                {enRouteCount} en route · {landedCount} landed
               </div>
             </section>
+
+            {shareToken && !myRowId && (
+              <section className="rounded-lg border border-primary/40 bg-primary/5 p-5 shadow-sm">
+                <div className="mb-3 flex items-center gap-2">
+                  <UserPlus className="h-4 w-4 text-primary" />
+                  <h3 className="font-display text-base font-bold">Join this boarding pass</h3>
+                </div>
+                <p className="mb-3 text-xs text-muted-foreground">You opened a shared invite. Add your name to lock in your seat and post live status.</p>
+                <div className="flex gap-2">
+                  <input
+                    value={joinName}
+                    onChange={(e) => setJoinName(e.target.value)}
+                    placeholder="Your name"
+                    className="h-11 flex-1 rounded-md border border-border bg-card px-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+                  />
+                  <button onClick={joinAsMyself} className="inline-flex items-center gap-1 rounded-md bg-primary px-4 text-sm font-bold text-primary-foreground">
+                    <Check className="h-4 w-4" /> Join crew
+                  </button>
+                </div>
+              </section>
+            )}
+
 
             <FlipCards itinerary={itinerary} intel={intel} flippedCards={flippedCards} toggleFlip={toggleFlip} />
 
@@ -748,8 +931,8 @@ function CrewPanel({ crew, inviteName, setInviteName, inviteCrewMember, updateCr
   crew: CrewMember[];
   inviteName: string;
   setInviteName: (v: string) => void;
-  inviteCrewMember: () => void;
-  updateCrew: (i: number, patch: Partial<CrewMember>) => void;
+  inviteCrewMember: () => void | Promise<void>;
+  updateCrew: (i: number, patch: Partial<CrewMember>) => void | Promise<void>;
 }) {
   return (
     <section className="rounded-lg border border-border bg-card p-5 shadow-sm">

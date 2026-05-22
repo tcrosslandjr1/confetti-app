@@ -640,6 +640,42 @@ export type Database = {
         }
         Relationships: []
       }
+      boarding_pass_crew: {
+        Row: {
+          created_at: string
+          eta: string
+          id: string
+          name: string
+          rsvp: string
+          share_token: string
+          status: string
+          travel: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          eta?: string
+          id?: string
+          name: string
+          rsvp?: string
+          share_token: string
+          status?: string
+          travel?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          eta?: string
+          id?: string
+          name?: string
+          rsvp?: string
+          share_token?: string
+          status?: string
+          travel?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       booking_notification_deliveries: {
         Row: {
           body: string | null

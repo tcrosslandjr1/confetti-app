@@ -22,19 +22,21 @@ export interface VoteSwap {
 export const MAYA_INPUTS: PlannerInputs = {
   city: "Washington, DC",
   occasion: "girls-night",
-  groupType: "multiracial",
-  budgetUsd: { min: 40, max: 80 },
-  musicTaste: ["afrobeats", "rnb", "reggaeton"],
-  foodPreferences: ["caribbean", "latin"],
-  ageRange: { min: 21, max: 32 },
+  cultureType: "mixed",
+  culturalAnchors: ["caribbean", "latin", "west-african"],
+  budget: { min: 40, max: 80, tier: "$$" },
   groupSize: 4,
-  safetyPreferences: {
-    verifiedProfilesOnly: true,
-    publicMeetupOnly: true,
-    genderPolicy: "women-only",
+  vibe: "turn-up",
+  musicTaste: ["afrobeats", "rnb", "reggaeton"],
+  foodPreferences: { cuisines: ["caribbean", "latin"] },
+  ageRange: { min: 21, max: 32 },
+  safety: {
+    wellLit: true,
+    womenFriendly: true,
+    rideshareSafe: true,
   },
-  vibes: ["foodie", "turn-up"],
 };
+
 
 const MAYA_STOPS: PlanStop[] = [
   { kind: "food", label: "Caribbean-Latin dinner" },

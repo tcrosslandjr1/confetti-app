@@ -368,7 +368,35 @@ function BoardingPassPlanner() {
       const savedId = window.localStorage.getItem(`bp_crew_id_${t}`);
       if (savedId) setMyRowId(savedId);
     }
+    // Hydrate local (non-shared) state from localStorage if no share token
+    if (!t) {
+      try {
+        const raw = window.localStorage.getItem("bp_local_state_v1");
+        if (raw) {
+          const s = JSON.parse(raw);
+          if (Array.isArray(s.crew)) setCrew(s.crew);
+          if (typeof s.myStatus === "string") setMyStatus(s.myStatus);
+          if (typeof s.myTravel === "string") setMyTravel(s.myTravel);
+          if (typeof s.myEta === "string") setMyEta(s.myEta);
+        }
+      } catch {
+        // ignore corrupted state
+      }
+    }
   }, []);
+
+  // Persist local state across refreshes (only when not in a shared session)
+  useEffect(() => {
+    if (typeof window === "undefined" || !hydratedRef.current || shareToken) return;
+    try {
+      window.localStorage.setItem(
+        "bp_local_state_v1",
+        JSON.stringify({ crew, myStatus, myTravel, myEta }),
+      );
+    } catch {
+      // storage may be full or disabled
+    }
+  }, [crew, myStatus, myTravel, myEta, shareToken]);
 
   // Load + subscribe to crew when token is active
   useEffect(() => {

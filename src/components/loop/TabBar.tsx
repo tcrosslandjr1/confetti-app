@@ -3,6 +3,7 @@ import { Compass, Search, Plus, Award, User, LayoutDashboard, CalendarPlus, Imag
 import { motion } from "framer-motion";
 import { useId } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { trackBusinessNavClick } from "@/lib/business-analytics";
 
 type Tab = {
   to: string;

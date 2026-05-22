@@ -299,12 +299,13 @@ function AdminLayout() {
     </SidebarProvider>);
 }
 
-function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning }: {
+function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning, hasRealError }: {
     user: ReturnType<typeof useAuth>["user"];
     pathname: string;
     onLock: () => void;
     loadWarning?: string | null;
     onDismissWarning?: () => void;
+    hasRealError?: boolean;
 }) {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";

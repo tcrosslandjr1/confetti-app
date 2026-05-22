@@ -807,8 +807,11 @@ function BoardingPassPlanner() {
               setMyTravel={setMyTravel}
               myEta={myEta}
               setMyEta={setMyEta}
-              shareEtaOnly={shareEtaOnly}
-              setShareEtaOnly={setShareEtaOnly}
+              sharePickup={sharePickup}
+              setSharePickup={setSharePickup}
+              shareEtaDetails={shareEtaDetails}
+              setShareEtaDetails={setShareEtaDetails}
+              myTravel={myTravel}
               pushMyUpdate={pushMyUpdate}
               useMyLocation={useMyLocation}
               locating={locating}

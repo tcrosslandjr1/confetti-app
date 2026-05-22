@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { GirlsNightCulturalFlow } from "@/components/GirlsNightCulturalFlow";
+import { GuysNightCulturalFlow } from "@/components/GuysNightCulturalFlow";
 import { supabase } from "@/integrations/supabase/client";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 import { getOccasion, getSeedIdeas, type Idea, type IdeaFormat } from "@/lib/occasions";
@@ -302,6 +303,7 @@ function IdeasPage() {
       </section>
 
       {slug === "girls-night" && <GirlsNightCulturalFlow />}
+      {slug === "guys-night" && <GuysNightCulturalFlow />}
 
 
 

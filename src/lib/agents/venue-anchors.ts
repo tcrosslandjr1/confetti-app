@@ -24,6 +24,7 @@ export const FOOD_ANCHORS: VenueAnchor[] = [
   { id: "soul-food",      label: "Soul food",                    category: "food", vibeTags: ["foodie", "comfort"],           slot: "early" },
   { id: "caribbean",      label: "Caribbean food",               category: "food", vibeTags: ["foodie", "turn-up"],           slot: "early" },
   { id: "global-indian-me-african", label: "Indian / Middle Eastern / African", category: "food", vibeTags: ["foodie", "cultural"], slot: "early" },
+  { id: "wings-bbq",      label: "Wings / BBQ",                  category: "food", vibeTags: ["foodie", "group", "casual"],   slot: "early" },
 ];
 
 export const SOCIAL_ANCHORS: VenueAnchor[] = [
@@ -34,6 +35,8 @@ export const SOCIAL_ANCHORS: VenueAnchor[] = [
   { id: "comedy-show",    label: "Comedy show",     category: "social", vibeTags: ["date", "group", "playful"],   slot: "mid" },
   { id: "live-music",     label: "Live music",      category: "social", vibeTags: ["artsy", "date", "turn-up"],   slot: "mid" },
   { id: "dance-club",     label: "Dance club",      category: "social", vibeTags: ["turn-up"],                    slot: "late" },
+  { id: "cigar-lounge",   label: "Cigar lounge",    category: "social", vibeTags: ["chill", "upscale"],           slot: "late" },
+  { id: "late-night-food",label: "Late-night food", category: "social", vibeTags: ["chill", "foodie"],            slot: "late" },
 ];
 
 export const ACTIVITY_ANCHORS: VenueAnchor[] = [
@@ -44,6 +47,8 @@ export const ACTIVITY_ANCHORS: VenueAnchor[] = [
   { id: "paint-and-sip",  label: "Paint-and-sip",   category: "activity", vibeTags: ["artsy", "date", "chill"],   slot: "early" },
   { id: "go-karts",       label: "Go-karts",        category: "activity", vibeTags: ["competitive", "turn-up"],   slot: "mid" },
   { id: "game-night",     label: "Game night",      category: "activity", vibeTags: ["chill", "group", "playful"],slot: "mid" },
+  { id: "darts",          label: "Darts",           category: "activity", vibeTags: ["competitive", "chill"],     slot: "mid" },
+  { id: "sports-bar",     label: "Sports bar",      category: "activity", vibeTags: ["competitive", "group", "casual"], slot: "mid" },
 ];
 
 export const VENUE_ANCHORS: VenueAnchor[] = [

@@ -254,9 +254,24 @@ function AdminLayout() {
             setUnlocked(false);
         }
     }, [user]);
+    // Hard fallback: never let the admin console sit on a skeleton forever.
+    // If auth + role checks haven't resolved within 2.5s, force the shell to
+    // render with a non-blocking warning banner. Live data can still finish
+    // syncing in the background.
+    const [bootTimedOut, setBootTimedOut] = useState(false);
+    const [loadWarning, setLoadWarning] = useState<string | null>(null);
+    useEffect(() => {
+        let mounted = true;
+        const t = window.setTimeout(() => {
+            if (!mounted) return;
+            setBootTimedOut(true);
+            setLoadWarning("Live data is still syncing. Showing saved preview.");
+        }, 2500);
+        return () => { mounted = false; window.clearTimeout(t); };
+    }, []);
     // Sticky shell: once we've shown the admin shell, never fall back to the
     // full-page skeleton on transient auth re-checks (e.g. tab refocus).
-    const shellReady = allowPreview || (!loading && isAdmin && viewAs === "admin");
+    const shellReady = allowPreview || (!loading && isAdmin && viewAs === "admin") || bootTimedOut;
     const hasShownShell = useRef(false);
     if (shellReady) hasShownShell.current = true;
     if (isLoginRoute) {
@@ -267,11 +282,11 @@ function AdminLayout() {
     }
 
 
-    if (!unlocked) {
+    if (!unlocked && user) {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
-      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} />
+      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} loadWarning={loadWarning} onDismissWarning={() => setLoadWarning(null)} />
     </SidebarProvider>);
 }
 

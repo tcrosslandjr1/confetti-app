@@ -85,8 +85,14 @@ function AdminRouteError({ error, reset }: {
 }
 
 function AdminBootOverlay() {
+    const [visible, setVisible] = useState(true);
+    useEffect(() => {
+        const timer = window.setTimeout(() => setVisible(false), 1600);
+        return () => window.clearTimeout(timer);
+    }, []);
+    if (!visible) return null;
     return (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-ink/92 px-4 text-cream backdrop-blur-sm" role="status" aria-label="Admin console is opening">
+        <div className="pointer-events-none fixed inset-0 z-50 grid place-items-center bg-ink/92 px-4 text-cream backdrop-blur-sm" role="status" aria-label="Admin console is opening">
           <div className="w-full max-w-sm rounded-2xl border-2 border-cream/20 bg-ink/80 p-6 text-center shadow-2xl">
             <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl border-2 border-cream/30 bg-coral text-xl shadow-brut">
               <Sparkles className="h-5 w-5" />
@@ -271,17 +277,6 @@ function AdminLayout() {
             setUnlocked(false);
         }
     }, [user]);
-    const [showBoot, setShowBoot] = useState(true);
-    const [bootWarning, setBootWarning] = useState<string | null>(null);
-    useEffect(() => {
-        const timer = window.setTimeout(() => {
-            setShowBoot(false);
-            setBootWarning("Live signals are still syncing. Showing saved trip data.");
-        }, 1800);
-        return () => {
-            window.clearTimeout(timer);
-        };
-    }, []);
     if (isLoginRoute) {
         return <Outlet />;
     }
@@ -289,18 +284,15 @@ function AdminLayout() {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
-      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} loadWarning={!showBoot ? bootWarning : null} onDismissWarning={() => setBootWarning(null)} />
-      {showBoot && <AdminBootOverlay />}
+      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} />
+      <AdminBootOverlay />
     </SidebarProvider>);
 }
 
-function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning, hasRealError }: {
+function AdminShell({ user, pathname, onLock }: {
     user: ReturnType<typeof useAuth>["user"];
     pathname: string;
     onLock: () => void;
-    loadWarning?: string | null;
-    onDismissWarning?: () => void;
-    hasRealError?: boolean;
 }) {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";
@@ -626,21 +618,6 @@ function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning, has
           </div>
         </header>
         <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
-          {hasRealError && (
-            <p className="mb-2 text-sm text-red-500">Preview stalled</p>
-          )}
-          {loadWarning && (
-            <div className="mb-4 flex items-start gap-3 rounded-md border border-amber-300/60 bg-amber-50 px-3 py-2 text-sm text-amber-900">
-              <span className="flex-1">{loadWarning}</span>
-              <button
-                type="button"
-                onClick={onDismissWarning}
-                className="rounded px-2 py-0.5 text-xs font-semibold text-amber-900/70 hover:text-amber-900"
-              >
-                Dismiss
-              </button>
-            </div>
-          )}
           {pathname === "/admin" ? <AdminDashboard /> : <Outlet />}
         </main>
       </div>

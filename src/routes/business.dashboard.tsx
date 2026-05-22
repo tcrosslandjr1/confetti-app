@@ -21,8 +21,13 @@ import {
   TrendingUp,
   Lock,
   ChevronRight,
+  Hourglass,
+  Mail,
+  Store,
+  ArrowRight,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { requireBusinessOwner } from "@/lib/business-guard";
 import { useAuth } from "@/lib/auth-context";
 import { listMyClaims } from "@/lib/business-onboarding.functions";
 import { Button } from "@/components/ui/button";
@@ -34,8 +39,7 @@ import { PromoStorefront } from "@/components/business/PromoStorefront";
 
 export const Route = createFileRoute("/business/dashboard")({
   beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) throw redirect({ to: "/business/login" });
+    await requireBusinessOwner();
   },
   component: BusinessDashboardPage,
   head: () => ({
@@ -58,52 +62,270 @@ function BusinessDashboardPage() {
     queryFn: () => fetchClaims(),
   });
 
-  const claim = claimsData?.claims?.[0] ?? null;
+  const claims = claimsData?.claims ?? [];
+  const claim = claims[0] ?? null;
   const venueName = (claim as any)?.proposed_name || (claim as any)?.venue_name || "Your Venue";
   const claimStatus = (claim?.status as string) ?? "pending";
   const promotionUnlocked = claimStatus === "approved";
+  const hasPendingClaim = claim?.status === "pending";
+  const hasClaim = claims.length > 0;
+  const hasAdvertisers = claims.some((c: any) => c.advertiser_id);
+  const isApproved = claimStatus === "approved";
+  const showOnboarding = !hasAdvertisers;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 md:px-6 md:py-14">
-        <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-          <span className="font-semibold">Demo dashboard.</span> Performance numbers, AI insights,
-          events, social activity, and refresh history below are sample data to preview the layout.
-          Your real metrics will appear here once your venue is approved and analytics start
-          flowing.
-        </div>
-        <DashboardHero
-          venueName={venueName}
-          status={claimStatus}
-          boostLevel={promotionUnlocked ? 1 : 0}
-          promotionUnlocked={promotionUnlocked}
-          lastRefresh="—"
-        />
-        <KPIStats />
-        <AIInsights />
-        <QuickActions promotionUnlocked={promotionUnlocked} />
-        <div className="grid gap-6 lg:grid-cols-2">
-          <EventsPreview />
-          <MediaPreview />
-        </div>
-        <div className="grid gap-6 lg:grid-cols-2">
-          <SocialPanel />
-          <PromotionPanel unlocked={promotionUnlocked} />
-        </div>
-        <AnalyticsPreview />
-        <BusinessUpgradePanel />
-        <section className="space-y-3">
-          <h2 className="text-2xl font-bold">Promo Marketplace</h2>
-          <p className="text-muted-foreground text-sm">
-            Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page
-            to target a specific one.
-          </p>
-          <PromoStorefront />
-        </section>
-        <AIRefreshStatus />
-        <DashboardFooter />
+        {hasPendingClaim && <PendingApprovalBanner venueName={venueName} />}
+        {showOnboarding ? (
+          <FirstAdvertiserOnboarding
+            hasClaim={hasClaim}
+            isApproved={isApproved}
+            venueName={hasClaim ? venueName : null}
+          />
+        ) : (
+          <>
+            <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+              <span className="font-semibold">Demo dashboard.</span> Performance numbers, AI insights,
+              events, social activity, and refresh history below are sample data to preview the layout.
+              Your real metrics will appear here once your venue is approved and analytics start
+              flowing.
+            </div>
+            <DashboardHero
+              venueName={venueName}
+              status={claimStatus}
+              boostLevel={promotionUnlocked ? 1 : 0}
+              promotionUnlocked={promotionUnlocked}
+              lastRefresh="—"
+            />
+            <KPIStats />
+            <AIInsights />
+            <QuickActions promotionUnlocked={promotionUnlocked} />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <EventsPreview />
+              <MediaPreview />
+            </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <SocialPanel />
+              <PromotionPanel unlocked={promotionUnlocked} />
+            </div>
+            <AnalyticsPreview />
+            <BusinessUpgradePanel />
+            <section className="space-y-3">
+              <h2 className="text-2xl font-bold">Promo Marketplace</h2>
+              <p className="text-muted-foreground text-sm">
+                Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page
+                to target a specific one.
+              </p>
+              <PromoStorefront />
+            </section>
+            <AIRefreshStatus />
+            <DashboardFooter />
+          </>
+        )}
       </div>
     </div>
+  );
+}
+
+/* ---------------- PENDING APPROVAL BANNER ---------------- */
+
+function PendingApprovalBanner({ venueName }: { venueName: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative overflow-hidden rounded-2xl border-2 border-coral/40 bg-gradient-to-r from-coral/10 via-orange-50 to-cream p-5 shadow-sm"
+    >
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-coral/15 text-coral">
+            <Hourglass className="h-6 w-6" strokeWidth={2} />
+          </div>
+          <div>
+            <h3 className="text-base font-bold text-ink">
+              {venueName} is pending review
+            </h3>
+            <p className="mt-1 max-w-xl text-sm leading-relaxed text-ink/70">
+              We&apos;re verifying your venue ownership claim. This usually takes{" "}
+              <span className="font-semibold text-coral">24–48 hours</span>. You can
+              preview your dashboard below, but some features will unlock once you&apos;re
+              approved.
+            </p>
+            <div className="mt-2 flex items-center gap-2 text-xs text-ink/50">
+              <Clock className="h-3.5 w-3.5" />
+              <span>We&apos;ll email you when your application is approved or if we need more info.</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex shrink-0 items-center gap-3">
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="border-coral/30 text-coral hover:bg-coral/10"
+          >
+            <Link to="/business/claim/pending">
+              <Mail className="mr-1.5 h-3.5 w-3.5" />
+              Check status
+            </Link>
+          </Button>
+          <Button
+            asChild
+            size="sm"
+            className="bg-coral text-white hover:bg-coral/90"
+          >
+            <Link to="/business/claim">
+              Add more info
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ---------------- NO ADVERTISERS EMPTY STATE ---------------- */
+
+/* ---------------- FIRST ADVERTISER ONBOARDING ---------------- */
+
+function FirstAdvertiserOnboarding({
+  hasClaim,
+  isApproved,
+  venueName,
+}: {
+  hasClaim: boolean;
+  isApproved: boolean;
+  venueName: string | null;
+}) {
+  // Step 1 (claim) auto-completes once a claim row exists.
+  // Step 2 (approval) flips when the claim is approved.
+  // Step 3 (create advertiser listing) is the active CTA — this is the
+  // promised "next thing to do" after landing on /business/dashboard.
+  const steps = [
+    {
+      n: 1,
+      title: "Claim your venue",
+      desc: "Tell us which venue you own so we can verify it.",
+      done: hasClaim,
+      active: !hasClaim,
+      cta: hasClaim ? "View claim" : "Claim venue",
+      href: "/business/claim",
+    },
+    {
+      n: 2,
+      title: "Get approved",
+      desc: "Our team reviews ownership within 24–48 hours.",
+      done: isApproved,
+      active: hasClaim && !isApproved,
+      cta: "Check status",
+      href: "/business/claim/pending",
+    },
+    {
+      n: 3,
+      title: "Create your first advertiser listing",
+      desc: "Set up your advertiser profile so you can run campaigns, boost reach, and earn from the marketplace.",
+      done: false,
+      active: isApproved,
+      cta: "Create listing",
+      href: "/business/register",
+      primary: true,
+    },
+  ];
+
+  const activeStep = steps.find((s) => s.active) ?? steps[2];
+
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="overflow-hidden rounded-3xl border bg-card shadow-sm"
+    >
+      <div className="relative bg-gradient-to-br from-primary/15 via-orange-50 to-background px-6 py-8 md:px-10 md:py-10">
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+            <Store className="h-6 w-6" strokeWidth={1.75} />
+          </div>
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Welcome to Confetti for Business
+            </div>
+            <h2 className="mt-1 text-2xl font-bold text-foreground md:text-3xl">
+              {venueName ? `Let's get ${venueName} live` : "Let's get your venue live"}
+            </h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              Three quick steps to unlock your dashboard, promotion tools, and the Confetti
+              marketplace.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <ol className="divide-y">
+        {steps.map((s) => (
+          <li
+            key={s.n}
+            className={cn(
+              "flex flex-col gap-4 px-6 py-5 md:flex-row md:items-center md:justify-between md:px-10",
+              s.active && "bg-primary/5",
+            )}
+          >
+            <div className="flex items-start gap-4">
+              <div
+                className={cn(
+                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-sm font-bold",
+                  s.done && "border-emerald-500 bg-emerald-500 text-white",
+                  !s.done && s.active && "border-primary bg-primary text-white",
+                  !s.done && !s.active && "border-border bg-muted text-muted-foreground",
+                )}
+                aria-hidden
+              >
+                {s.done ? "✓" : s.n}
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-base font-semibold text-foreground">{s.title}</h3>
+                  {s.done && (
+                    <Badge variant="secondary" className="text-[10px]">
+                      Done
+                    </Badge>
+                  )}
+                  {s.active && !s.done && (
+                    <Badge className="bg-primary text-[10px] text-white">Next up</Badge>
+                  )}
+                </div>
+                <p className="mt-1 max-w-lg text-sm text-muted-foreground">{s.desc}</p>
+              </div>
+            </div>
+            {!s.done && (
+              <Button
+                asChild
+                size="sm"
+                variant={s.active ? "default" : "outline"}
+                disabled={!s.active && s.n !== activeStep.n}
+                className={cn("shrink-0", s.primary && s.active && "shadow-md")}
+              >
+                <Link to={s.href as never}>
+                  {s.cta}
+                  <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                </Link>
+              </Button>
+            )}
+          </li>
+        ))}
+      </ol>
+
+      <div className="border-t bg-muted/30 px-6 py-4 text-xs text-muted-foreground md:px-10">
+        Stuck? <Link to="/business" className="font-medium text-primary hover:underline">Learn how Confetti for Business works</Link>{" "}
+        or email{" "}
+        <a href="mailto:business@confetti.com" className="font-medium text-primary hover:underline">
+          business@confetti.com
+        </a>
+        .
+      </div>
+    </motion.section>
   );
 }
 

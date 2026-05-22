@@ -1,7 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Compass, Search, Plus, Award, User } from "lucide-react";
+import { Compass, Search, Plus, Award, User, LayoutDashboard, CalendarPlus, Image as ImageIcon, Link2, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { useId } from "react";
+import { useAuth } from "@/lib/auth-context";
+import { trackBusinessNavClick } from "@/lib/business-analytics";
 
 type Tab = {
   to: string;
@@ -11,7 +13,7 @@ type Tab = {
   prominent?: boolean;
 };
 
-const TABS: Tab[] = [
+const CUSTOMER_TABS: Tab[] = [
   { to: "/", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/portal" },
   {
     to: "/discover",
@@ -21,7 +23,7 @@ const TABS: Tab[] = [
   },
   {
     to: "/create",
-    label: "Create",
+    label: "Plan",
     icon: Plus,
     prominent: true,
     match: (p) => p.startsWith("/create") || p.startsWith("/quick-generate"),
@@ -33,6 +35,14 @@ const TABS: Tab[] = [
     icon: User,
     match: (p) => p.startsWith("/me") || p.startsWith("/portal/profile"),
   },
+];
+
+const BUSINESS_TABS: Tab[] = [
+  { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard, match: (p) => p.startsWith("/business/dashboard") },
+  { to: "/business/events", label: "Events", icon: CalendarPlus, match: (p) => p.startsWith("/business/events") },
+  { to: "/business/media", label: "Media", icon: ImageIcon, match: (p) => p.startsWith("/business/media") },
+  { to: "/business/social", label: "Social", icon: Link2, match: (p) => p.startsWith("/business/social") },
+  { to: "/business/settings", label: "Settings", icon: Settings, match: (p) => p.startsWith("/business/settings") },
 ];
 
 const HIDE_PREFIXES = [
@@ -59,6 +69,7 @@ function TabItem({
   active,
   prominent,
   labelId,
+  onClick,
 }: {
   to: string;
   label: string;
@@ -66,12 +77,14 @@ function TabItem({
   active: boolean;
   prominent?: boolean;
   labelId: string;
+  onClick?: () => void;
 }) {
   if (prominent) {
     return (
       <div className="relative -top-6 flex flex-col items-center">
         <Link
           to={to}
+          onClick={onClick}
           aria-labelledby={labelId}
           aria-current={active ? "page" : undefined}
           className="block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
@@ -94,7 +107,7 @@ function TabItem({
         </Link>
         <span
           id={labelId}
-          className={`mt-1 font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${active ? "text-coral" : "text-ink"}`}
+          className={`mt-1 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-ink"}`}
         >
           {label}
         </span>
@@ -105,8 +118,9 @@ function TabItem({
   return (
     <Link
       to={to}
+      onClick={onClick}
       aria-current={active ? "page" : undefined}
-      className="group flex flex-col items-center justify-center gap-0.5 rounded-lg py-1 min-h-[60px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+      className="group flex w-full min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 py-1 min-h-[60px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
     >
       <motion.span
         whileTap={{ scale: 0.88 }}
@@ -123,7 +137,7 @@ function TabItem({
       </motion.span>
       <span
         id={labelId}
-        className={`relative font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none whitespace-nowrap transition-colors ${active ? "text-coral" : "text-ink/60"}`}
+        className={`relative block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none transition-colors ${active ? "text-coral" : "text-ink/60"}`}
       >
         {label}
         {active && (
@@ -139,8 +153,11 @@ function TabItem({
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { effectiveRole } = useAuth();
   const baseId = useId();
   if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
+
+  const tabs = effectiveRole === "business" ? BUSINESS_TABS : CUSTOMER_TABS;
 
   return (
     <nav
@@ -152,16 +169,20 @@ export function TabBar() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 -top-8 h-8 bg-gradient-to-t from-cream/95 to-transparent"
       />
-      <div className="relative border-t-2 border-ink bg-cream/95 backdrop-blur-xl">
+      <div className="relative border-t-2 border-ink bg-cream/95 backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80">
         <div
           role="list"
-          className="relative mx-auto flex h-20 max-w-2xl items-center justify-around px-2"
+          className="relative mx-auto grid w-full max-w-2xl min-h-[80px] grid-cols-5 place-items-center px-2 sm:px-4"
         >
-          {TABS.map(({ to, label, icon, match, prominent }, i) => {
+          {tabs.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
             return (
-              <div key={to} role="listitem" className="flex flex-1 min-w-0 justify-center">
+              <div
+                key={to}
+                role="listitem"
+                className="flex min-w-0 justify-center"
+              >
                 <TabItem
                   to={to}
                   label={label}
@@ -169,6 +190,11 @@ export function TabBar() {
                   active={active}
                   prominent={prominent}
                   labelId={labelId}
+                  onClick={
+                    effectiveRole === "business"
+                      ? () => trackBusinessNavClick(label, to)
+                      : undefined
+                  }
                 />
               </div>
             );

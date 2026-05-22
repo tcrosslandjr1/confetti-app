@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+
 import { z } from "zod";
 import { generateText, Output } from "ai";
 import { createLovableAiGatewayProvider } from "./ai-gateway.server";
@@ -9,7 +9,8 @@ import { findTemplate } from "./agents/templates";
 import { impromptuPoolPrompt } from "./agents/impromptu";
 import { buildWaterfrontPrompt, detectWaterfront } from "./agents/waterfront";
 import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
-import { buildMiamiGuysNightPrompt, isMiamiGuysNight } from "./agents/guys-night-presets";
+import { buildMiamiGuysNightPrompt, isMiamiGuysNight, buildGuysNightCulturalPrompt } from "./agents/guys-night-presets";
+import { buildDateNightCulturalPrompt } from "./agents/date-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import { generateAndRankNames } from "./name-generator.server";
 import {
@@ -293,8 +294,9 @@ const PlanOutputSchema = z.object({
     .describe("Set when total estimate would exceed the user's budget ceiling."),
 });
 
+// Public — guests can build a night without an account. The handler
+// only needs the AI gateway key + anonymous candidate fetches.
 export const generatePlan = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => PlanRequestSchema.parse(input))
   .handler(async ({ data: req }): Promise<GeneratedPlan> => {
     const apiKey = process.env.LOVABLE_API_KEY;
@@ -460,6 +462,10 @@ ${impromptuPoolPrompt(cityCtx.slug, req.occasionId)}
 ${buildWaterfrontPrompt(cityCtx)}
 
 ${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(budget, detectWaterfront(cityCtx).hasWaterfront) : ""}
+
+${req.occasionId === "guys" ? buildGuysNightCulturalPrompt() : ""}
+
+${req.occasionId === "date" ? buildDateNightCulturalPrompt() : ""}
 
 ${
   isMiamiGuysNight(cityCtx.city, req.occasionId, req.vibeLabel)

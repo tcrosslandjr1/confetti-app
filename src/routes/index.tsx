@@ -1,5 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useAuth } from "@/lib/auth-context";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useMemo, useState, lazy, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -41,9 +40,6 @@ const AdDebugPanel = lazy(() =>
 );
 const PartnerTestimonials = lazy(() =>
   import("@/components/PartnerTestimonials").then((m) => ({ default: m.PartnerTestimonials })),
-);
-const PartnerFaqAccordion = lazy(() =>
-  import("@/components/PartnerFaqAccordion").then((m) => ({ default: m.PartnerFaqAccordion })),
 );
 import { TapToGoBookingModal } from "@/components/TapToGoBookingModal";
 
@@ -98,7 +94,7 @@ const SAMPLE_ITINERARY_SUMMARY = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Confetti — Plans with a pulse. Outings worth showing up for." },
+      { title: "Home — Confetti" },
       {
         name: "description",
         content:
@@ -106,20 +102,6 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Confetti — Plans with a pulse." },
       { property: "og:description", content: "From vibe to door-to-door plan in under a minute." },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: FAQS.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        }),
-      },
     ],
   }),
   component: Landing,
@@ -231,71 +213,11 @@ const PROOF = [
   },
 ];
 
-const FAQS = [
-  {
-    q: "What does “free, no signup to try” actually include?",
-    a: "Build a full plan end-to-end without making an account: pick your vibe, get a timed itinerary with real venues open tonight, walking + Lyft routes between stops, and one-tap booking links. You can preview everything before you ever hand over an email.",
-  },
-  {
-    q: "What happens after the free trial?",
-    a: "Nothing breaks. You keep three full plans every month on the free tier — forever. To save plans, unlock the reservations vault, earn Confetti rewards faster, and get unlimited plans, upgrade to Plus for $8/mo. No auto-charge, no surprise paywall mid-night.",
-  },
-  {
-    q: "Is this just a list of restaurants?",
-    a: "Nope. It’s a full timed plan — first stop, second stop, how you get between them, what to wear, what to book. The list-of-restaurants era is over.",
-  },
-  {
-    q: "Does it actually book stuff?",
-    a: "It hands you straight-to-checkout links for OpenTable, Resy, Eventbrite, and rideshare deep links. One-tap, no copy/paste.",
-  },
-  {
-    q: "How does it know what we like?",
-    a: "Tell the concierge in plain English, or paste in a Spotify playlist link, IG handle, anything. The taste profile gets sharper every plan.",
-  },
-];
 
 function Landing() {
-  // Hard-redirect signed-in roles to their home so reloads are deterministic:
-  // visitors always land here; admins/customers/business/influencers always
-  // land on their respective surfaces.
-  const { user, viewAs, effectiveRole, loading } = useAuth();
-  const navigate = useNavigate();
   usePageview("landing", "/");
   useScrollDepth("/");
   useTimeToInteraction("/");
-  useEffect(() => {
-    if (loading || typeof window === "undefined") {
-      void import("@/lib/view-audit").then(({ logViewAudit }) =>
-        logViewAudit({
-          kind: "guard", source: "Landing",
-          path: "/", role: effectiveRole ?? viewAs, viewAs,
-          decision: "wait", reason: loading ? "auth loading" : "ssr",
-        }),
-      );
-      return;
-    }
-    const role = effectiveRole ?? viewAs;
-    const target =
-      role === "admin" ? "/admin"
-      : role === "business" ? "/advertise/portal"
-      : role === "customer" ? "/portal"
-      : null;
-    void import("@/lib/view-audit").then(({ logViewAudit }) =>
-      logViewAudit({
-        kind: target ? "redirect" : "guard",
-        source: "Landing",
-        path: "/", role, viewAs,
-        target: target ?? undefined,
-        decision: target ? "redirect" : "allow",
-        reason: !user
-          ? "no session — staying on visitor page"
-          : `signed-in role=${role}`,
-      }),
-    );
-    if (target && user && window.location.pathname === "/") {
-      window.location.replace(target);
-    }
-  }, [user, viewAs, effectiveRole, loading, navigate]);
 
   const [bookingOpen, setBookingOpen] = useState(false);
 
@@ -1278,39 +1200,6 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============================ FAQ ============================ */}
-      <section className="border-b-2 border-ink">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
-          <div className="lg:col-span-4">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ FAQ</span>
-            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight">
-              Quick
-              <br />
-              questions.
-            </h2>
-          </div>
-          <div className="space-y-3 lg:col-span-8">
-            {FAQS.map((f, i) => (
-              <div key={f.q} className="rise-in" style={{ ["--d" as string]: `${i * 70}ms` }}>
-                <details className="faq-item group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold open:-translate-y-0.5 open:shadow-brut-lg [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
-                    {f.q}
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-lg transition-transform duration-300 group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <p
-                    className="mt-4 text-base leading-relaxed"
-                    style={{ animation: "faq-open 0.32s cubic-bezier(0.22,1,0.36,1) both" }}
-                  >
-                    {f.a}
-                  </p>
-                </details>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============================ BIG CTA ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink bg-coral text-cream">
@@ -1653,11 +1542,22 @@ function Landing() {
           </Suspense>
         </div>
 
-        {/* FAQ accordion */}
+        {/* FAQ CTA */}
         <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-          <Suspense fallback={null}>
-            <PartnerFaqAccordion />
-          </Suspense>
+          <div className="mx-auto max-w-3xl rounded-2xl border-2 border-ink bg-cream p-8 text-center shadow-brut sm:p-12">
+            <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
+              Got questions?
+            </h3>
+            <p className="mx-auto mt-3 max-w-md text-ink/70">
+              Straight answers about how Confetti works, pricing, bookings, and everything else.
+            </p>
+            <Link
+              to="/faq"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+            >
+              Read the FAQ <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

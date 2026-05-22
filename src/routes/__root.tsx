@@ -14,6 +14,7 @@ import { WizardProvider } from "@/components/wizard/wizard-context";
 import { preloadFallbackImages } from "@/lib/venue-images";
 import { installErrorTracking } from "@/lib/analytics";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
+import { CustomerOnly } from "@/components/CustomerOnly";
 
 const RoleSwitcher = lazy(() =>
   import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),
@@ -47,8 +48,13 @@ const TabBar = lazy(() =>
 const FirstRunNudge = lazy(() =>
   import("@/components/FirstRunNudge").then((m) => ({ default: m.FirstRunNudge })),
 );
-const ViewAuditOverlay = lazy(() =>
-  import("@/components/ViewAuditOverlay").then((m) => ({ default: m.ViewAuditOverlay })),
+const SalePromoToast = lazy(() =>
+  import("@/components/SalePromoToast").then((m) => ({ default: m.SalePromoToast })),
+);
+const BusinessAnalyticsTracker = lazy(() =>
+  import("@/components/BusinessAnalyticsTracker").then((m) => ({
+    default: m.BusinessAnalyticsTracker,
+  })),
 );
 
 function NotFoundComponent() {
@@ -259,29 +265,42 @@ function RootComponent() {
                 <RoleSwitcher />
               </Suspense>
               <Suspense fallback={null}>
+                <BusinessAnalyticsTracker />
+              </Suspense>
+              <Suspense fallback={null}>
                 <PageTransition>
                   <Outlet />
                 </PageTransition>
               </Suspense>
-              {/* Spacer so fixed mobile TabBar doesn't cover page content */}
-              <div aria-hidden className="h-24 lg:hidden" />
-              <Suspense fallback={null}>
-                <BuildMyNightWizard />
-              </Suspense>
+              {/* Spacer so fixed mobile TabBar doesn't cover page content.
+                  TabBar = 80px + Plan button overhang (~24px) + iOS safe area. */}
+              <div
+                aria-hidden
+                className="pb-[calc(7rem+env(safe-area-inset-bottom))] lg:hidden"
+              />
+              <CustomerOnly>
+                <Suspense fallback={null}>
+                  <BuildMyNightWizard />
+                </Suspense>
+              </CustomerOnly>
               <Suspense fallback={null}>
                 <TabBar />
               </Suspense>
-              <Suspense fallback={null}>
-                <FirstRunNudge />
-              </Suspense>
+              <CustomerOnly>
+                <Suspense fallback={null}>
+                  <FirstRunNudge />
+                </Suspense>
+              </CustomerOnly>
+              <CustomerOnly>
+                <Suspense fallback={null}>
+                  <SalePromoToast />
+                </Suspense>
+              </CustomerOnly>
               <Suspense fallback={null}>
                 <CookieConsent />
               </Suspense>
               <Suspense fallback={null}>
                 <AuthDebugPanel />
-              </Suspense>
-              <Suspense fallback={null}>
-                <ViewAuditOverlay />
               </Suspense>
               <Toaster />
             </WizardProvider>

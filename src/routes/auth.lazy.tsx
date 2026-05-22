@@ -1,6 +1,7 @@
 import { createLazyFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { lovable } from "@/integrations/lovable";
 import {
   Sparkles,
   Loader2,
@@ -21,12 +22,15 @@ import {
   Gift,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import { acceptAllCookiesSilently } from "@/components/CookieConsent";
 
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
 import { getMyAdvertiser } from "@/lib/ads";
+import { decidePostAuthDestination } from "@/lib/auth-redirect";
+void getMyAdvertiser; // kept for backwards compat; routing uses decidePostAuthDestination
 import { getTonightsPick, liveSeatsRemaining, formatEventDate } from "@/lib/events";
 import { getSelectedCity, subscribeSelectedCity } from "@/lib/cities";
 
@@ -207,19 +211,22 @@ function AuthPage() {
     setError(null);
     setOauthBusy(provider);
     try {
-      const { data, error: oauthError } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-          redirectTo: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
-          queryParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
-        },
+      const result = await lovable.auth.signInWithOAuth(provider, {
+        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
+        extraParams:
+          provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
       });
-      if (oauthError) {
-        setError(explainOAuthError(provider, oauthError.message));
+      if (result.error) {
+        setError(explainOAuthError(provider, result.error.message ?? String(result.error)));
         setOauthBusy(null);
         return;
       }
-      // Supabase redirects the browser to the provider — leave busy spinner on.
+      if (result.redirected) {
+        // Browser is redirecting to the provider — leave busy spinner on.
+        return;
+      }
+      // Session already set by the broker — navigate to the intended destination.
+      navigate({ to: safeRedirectTo });
     } catch (e: any) {
       setError(explainOAuthError(provider, e?.message ?? String(e)));
       setOauthBusy(null);
@@ -245,24 +252,12 @@ function AuthPage() {
     }
   };
 
-  // After sign-in, route business owners to their advertiser portal when the
-  // caller didn't request a specific destination. Falls back to redirectTo
-  // (defaults to "/") for everyone else.
+  // After sign-in, route business owners to their business dashboard when the
+  // caller didn't request a specific (non-generic) destination. Falls back to
+  // redirectTo (defaults to "/") for everyone else.
   async function routeAfterAuth(uid: string) {
-    if (redirectTo && redirectTo !== "/") {
-      navigate({ to: redirectTo as never });
-      return;
-    }
-    try {
-      const advertiser = await getMyAdvertiser(uid);
-      if (advertiser) {
-        navigate({ to: "/advertise/portal" });
-        return;
-      }
-    } catch {
-      // Ignore — fall through to default redirect.
-    }
-    navigate({ to: safeRedirectTo as never });
+    const { to } = await decidePostAuthDestination(uid, redirectTo);
+    navigate({ to: to as never });
   }
 
   useEffect(() => {
@@ -294,6 +289,8 @@ function AuthPage() {
           },
         });
         if (error) throw error;
+        // Account exists — implicit consent to cookies + terms, no banner needed.
+        acceptAllCookiesSilently();
         if (data.session && data.user) {
           await routeAfterAuth(data.user.id);
           return;
@@ -1029,7 +1026,14 @@ function AuthPage() {
                 >
                   Data sharing terms
                 </Link>
-                .
+                ,{" "}
+                <Link
+                  to="/cookies"
+                  className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
+                >
+                  Cookie Policy
+                </Link>
+                , and consent to functional + analytics cookies — no more banner.
               </p>
             )}
           </form>

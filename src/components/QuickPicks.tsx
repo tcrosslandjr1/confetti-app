@@ -244,7 +244,7 @@ export function QuickPicks() {
           </div>
         </Reveal>
 
-        <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 sm:-mx-6 sm:px-6 [scrollbar-width:thin]">
+        <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 sm:-mx-6 sm:px-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {PICKS.map((p, i) => (
             <Reveal key={p.title} delay={i * 70} variant="scale" className="snap-start">
               <PickCard pick={p} isCurated={isCurated} city={city} />

@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Loader2, Save } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { requireBusinessOwner } from "@/lib/business-guard";
 import { BusinessPageShell } from "@/components/business/BusinessTabNav";
 import {
   NoVenueClaim,
@@ -17,8 +18,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/business/settings")({
   beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) throw redirect({ to: "/business/login" });
+    await requireBusinessOwner();
   },
   head: () => ({ meta: [{ title: "Venue Settings — Confetti for Business" }] }),
   component: BusinessSettingsPage,

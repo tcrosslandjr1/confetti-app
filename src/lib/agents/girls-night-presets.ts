@@ -174,5 +174,32 @@ export function buildGirlsNightPresetsPrompt(
     `Tier: ${tier} · Waterfront mode: ${hasWaterfront ? "ON" : "OFF"}`,
     "Treat these as on-brand reference flows. You may adopt a preset name verbatim when the venues genuinely match its beats, or remix beats across presets — never force-fit a name that doesn't match the actual stops.",
     ...lines,
+    "",
+    buildGirlsNightCulturalPrompt(),
+  ].join("\n");
+}
+
+/**
+ * Cultural framework appended to every Girls Night plan. Full spec at
+ * docs/agents/confetti-girls-night-cultural-framework.md
+ */
+export function buildGirlsNightCulturalPrompt(): string {
+  return [
+    "# Girls Night — 4-step framework (apply on top of presets)",
+    "",
+    "Step 1 — Know the group. Read the taste graph. If 60%+ of music_taste / scene_keywords / cities cluster around one culture, treat as SHARED CULTURE. Otherwise MIXED.",
+    "",
+    "Step 2 — Pick the anchor:",
+    "  • Food: shareable dinner.",
+    "  • Music: playlist or live DJ.",
+    "  • Activity: karaoke, dancing, lounge, bowling, paint-and-sip, comedy.",
+    "",
+    "Step 3 — Make it social-media friendly. Every plan must include: fit check, group photo, short video moment, dessert or late-night food.",
+    "",
+    "Step 4 — Final plan shape:",
+    "  • SHARED CULTURE → cultural dinner + karaoke/dance/music lounge + dessert.",
+    "  • MIXED → culture-swap dinner (each contributes one food/song/drink/outfit/tradition) + passport playlist (each adds 5 songs) + group-voted activity.",
+    "",
+    "Rules: never make one member represent a whole culture (default MIXED when unsure). Reflect the chosen branch in experienceTagline. Cultural anchor only REPLACES a beat when the venue genuinely covers it; otherwise ADD a stop.",
   ].join("\n");
 }

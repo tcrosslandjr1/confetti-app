@@ -4,13 +4,13 @@ import { BarChart3, Bell, Bot, CalendarCheck, ChevronDown, LayoutDashboard, LogO
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/lib/auth-context";
 import { NotificationsBell } from "@/components/NotificationsBell";
-import { AdminSkeleton } from "@/components/AdminSkeleton";
 import { AdminPinLock, isAdminUnlocked, lockAdmin } from "@/components/AdminPinLock";
 import { AdminIdleLock } from "@/components/AdminIdleLock";
 import { AdminGlobalSearch } from "@/components/AdminGlobalSearch";
 import { supabase } from "@/integrations/supabase/client";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { useAdminNavCounts, ROUTE_TO_COUNT_KEY } from "@/lib/admin-nav-counts";
+import { AdminDashboard } from "./admin.index.lazy";
 
 function renderHighlight(label: string, query: string) {
     const q = query.trim();
@@ -82,6 +82,29 @@ function AdminRouteError({ error, reset }: {
         </div>
       </div>
     </div>);
+}
+
+function AdminBootOverlay() {
+    const [visible, setVisible] = useState(true);
+    useEffect(() => {
+        const timer = window.setTimeout(() => setVisible(false), 1600);
+        return () => window.clearTimeout(timer);
+    }, []);
+    if (!visible) return null;
+    return (
+        <div className="pointer-events-none fixed inset-0 z-50 grid place-items-center bg-ink/92 px-4 text-cream backdrop-blur-sm" role="status" aria-label="Admin console is opening">
+          <div className="w-full max-w-sm rounded-2xl border-2 border-cream/20 bg-ink/80 p-6 text-center shadow-2xl">
+            <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl border-2 border-cream/30 bg-coral text-xl shadow-brut">
+              <Sparkles className="h-5 w-5" />
+            </div>
+            <h1 className="mt-4 font-display text-2xl font-extrabold text-cream">Confetti</h1>
+            <p className="mt-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/65">Admin console</p>
+            <div className="mt-5 h-2 overflow-hidden rounded-full border border-cream/20 bg-cream/10">
+              <div className="h-full w-2/3 animate-pulse rounded-full bg-coral" />
+            </div>
+          </div>
+        </div>
+    );
 }
 
 type NavItem = {
@@ -254,24 +277,15 @@ function AdminLayout() {
             setUnlocked(false);
         }
     }, [user]);
-    // Sticky shell: once we've shown the admin shell, never fall back to the
-    // full-page skeleton on transient auth re-checks (e.g. tab refocus).
-    const shellReady = allowPreview || (!loading && isAdmin && viewAs === "admin");
-    const hasShownShell = useRef(false);
-    if (shellReady) hasShownShell.current = true;
     if (isLoginRoute) {
         return <Outlet />;
     }
-    if (!shellReady && !hasShownShell.current) {
-        return <AdminSkeleton />;
-    }
-
-
-    if (!unlocked) {
+    if (!unlocked && user && !allowPreview && pathname !== "/admin") {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
       <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} />
+      <AdminBootOverlay />
     </SidebarProvider>);
 }
 
@@ -604,7 +618,7 @@ function AdminShell({ user, pathname, onLock }: {
           </div>
         </header>
         <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
-          <Outlet />
+          {pathname === "/admin" ? <AdminDashboard /> : <Outlet />}
         </main>
       </div>
       <AdminIdleLock onLock={onLock} email={user?.email ?? null} />

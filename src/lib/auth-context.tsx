@@ -22,7 +22,8 @@ type AuthCtx = {
   roleLoading: boolean;
   viewAsLoaded: boolean;
   isAdmin: boolean;
-  /** "admin" | "customer" | "visitor" — what the user is currently viewing the app AS */
+  isBusinessOwner: boolean;
+  /** "admin" | "business" | "customer" | "visitor" — what the user is currently viewing the app AS */
   viewAs: ViewAs;
   /** True when an admin is impersonating another role */
   isImpersonating: boolean;
@@ -48,6 +49,7 @@ const Ctx = createContext<AuthCtx>({
   roleLoading: false,
   viewAsLoaded: false,
   isAdmin: false,
+  isBusinessOwner: false,
   viewAs: "visitor",
   isImpersonating: false,
   isPreview: false,
@@ -65,6 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [sessionLoading, setSessionLoading] = useState(isBrowser);
   const [roleLoading, setRoleLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isBusinessOwner, setIsBusinessOwner] = useState(false);
   const [viewAsState, setViewAsState] = useState<ViewAs | null>(null);
   const [viewAsLoaded, setViewAsLoaded] = useState(!isBrowser);
 
@@ -122,12 +125,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  // Look up admin role whenever the user changes
+  // Look up roles whenever the user changes
   useEffect(() => {
     let cancelled = false;
     const uid = session?.user?.id;
     if (!uid) {
       setIsAdmin(false);
+      setIsBusinessOwner(false);
       setRoleLoading(false);
       return;
     }
@@ -136,16 +140,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .from("user_roles")
       .select("role")
       .eq("user_id", uid)
-      .eq("role", "admin")
-      .maybeSingle()
+      .in("role", ["admin", "business_owner"])
       .then(
         ({ data }) => {
-          if (!cancelled) setIsAdmin(!!data);
+          const roles = data?.map((r) => r.role) ?? [];
+          if (!cancelled) setIsAdmin(roles.includes("admin"));
+          if (!cancelled) setIsBusinessOwner(roles.includes("business_owner"));
           if (!cancelled) setRoleLoading(false);
         },
         () => {
           if (!cancelled) {
             setIsAdmin(false);
+            setIsBusinessOwner(false);
             setRoleLoading(false);
           }
         },
@@ -187,10 +193,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<AuthCtx>(() => {
     const loading = sessionLoading || roleLoading || !viewAsLoaded;
-    const realRole: ViewAs = !session?.user ? "visitor" : isAdmin ? "admin" : "customer";
+    const realRole: ViewAs = !session?.user
+      ? "visitor"
+      : isAdmin
+        ? "admin"
+        : isBusinessOwner
+          ? "business"
+          : "customer";
 
     // Only real admins can preview other views. Everyone else is locked to
-    // their real visitor/customer role even if an old tab has sessionStorage.
+    // their real visitor/customer/business role even if an old tab has sessionStorage.
     const effective: ViewAs = isAdmin ? (viewAsState ?? realRole) : realRole;
     const impersonating = effective !== realRole;
     const preview = false;
@@ -203,6 +215,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       roleLoading,
       viewAsLoaded,
       isAdmin,
+      isBusinessOwner,
       viewAs: effective,
       isImpersonating: impersonating,
       isPreview: preview,
@@ -217,6 +230,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     roleLoading,
     viewAsLoaded,
     isAdmin,
+    isBusinessOwner,
     viewAsState,
     setViewAs,
     exitImpersonation,

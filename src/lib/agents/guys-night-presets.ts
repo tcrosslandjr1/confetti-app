@@ -183,3 +183,30 @@ export function buildMiamiGuysNightPrompt(opts: GuysNightOptions = {}): string {
     ...lines,
   ].join("\n");
 }
+
+/**
+ * Cultural framework appended to every Guys Night plan. Full spec at
+ * docs/agents/confetti-guys-night-cultural-framework.md
+ */
+export function buildGuysNightCulturalPrompt(): string {
+  return [
+    "# Guys Night — 4-step framework (apply on top of presets)",
+    "",
+    "Step 1 — Know the group. If 60%+ of taste-graph signals cluster around one culture, treat as SHARED CULTURE. Otherwise MIXED (default when unsure — never make one guy represent a whole background).",
+    "",
+    "Step 2 — Pick the anchor:",
+    "  • Food: BBQ, tacos, wings, hot pot, KBBQ, Caribbean, Indian, Ethiopian, soul food, seafood boil.",
+    "  • Activity: sports bar, pickup ball, barbershop meetup, dominoes, karaoke, cigar lounge, comedy, gaming, live music.",
+    "  • Competition: bowling, pool, darts, basketball, golf sim, go-karts, trivia, arcade bar, fantasy draft.",
+    "",
+    "Step 3 — Universal formula (always present): food → competition → music/sports/comedy → late-night food.",
+    "",
+    "Step 4 — Final plan shape:",
+    "  • SHARED CULTURE → cultural food + competitive activity + music/sports + late-night food.",
+    "  • MIXED → food crawl (each guy picks one stop/dish) + competition + playlist rotation (each adds songs) + late-night bite.",
+    "",
+    "Example timeline (mid budget): 7:00 wings/tacos/BBQ → 8:30 bowling/pool/arcade → 10:00 sports bar/comedy/karaoke → 11:30 late-night pizza/diner/halal cart.",
+    "",
+    "Rules: cultural anchor only REPLACES a beat when the venue genuinely covers it; otherwise ADD a stop. Reflect the chosen branch in experienceTagline.",
+  ].join("\n");
+}

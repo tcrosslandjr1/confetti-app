@@ -2,6 +2,27 @@
 
 Branching framework the Itinerary Concierge consults when building girls-night plans. Pairs with `GIRLS_NIGHT_PRESETS` in `src/lib/agents/girls-night-presets.ts`.
 
+## The 4-step plan
+
+**Step 1 — Know the group**
+- Shared culture: build around that culture's food, music, and social style.
+- Mixed culture: build around everyone contributing something.
+
+**Step 2 — Pick the anchor**
+- Food: shareable dinner
+- Music: playlist or live DJ
+- Activity: karaoke, dancing, lounge, bowling, paint-and-sip, comedy
+
+**Step 3 — Make it social-media friendly**
+- Fit check
+- Group photo
+- Short video moment
+- Dessert or late-night food
+
+**Step 4 — Choose the final plan**
+- Shared culture → cultural dinner + karaoke/dance/music lounge + dessert
+- Multiracial → culture-swap dinner + passport playlist + group-voted activity
+
 ## Decision tree
 
 ```

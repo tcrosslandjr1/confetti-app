@@ -1200,39 +1200,6 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============================ FAQ ============================ */}
-      <section className="border-b-2 border-ink">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
-          <div className="lg:col-span-4">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ FAQ</span>
-            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight">
-              Quick
-              <br />
-              questions.
-            </h2>
-          </div>
-          <div className="space-y-3 lg:col-span-8">
-            {FAQS.map((f, i) => (
-              <div key={f.q} className="rise-in" style={{ ["--d" as string]: `${i * 70}ms` }}>
-                <details className="faq-item group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold open:-translate-y-0.5 open:shadow-brut-lg [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
-                    {f.q}
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-lg transition-transform duration-300 group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <p
-                    className="mt-4 text-base leading-relaxed"
-                    style={{ animation: "faq-open 0.32s cubic-bezier(0.22,1,0.36,1) both" }}
-                  >
-                    {f.a}
-                  </p>
-                </details>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============================ BIG CTA ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink bg-coral text-cream">

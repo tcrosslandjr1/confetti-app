@@ -25,6 +25,9 @@ export const FOOD_ANCHORS: VenueAnchor[] = [
   { id: "caribbean",      label: "Caribbean food",               category: "food", vibeTags: ["foodie", "turn-up"],           slot: "early" },
   { id: "global-indian-me-african", label: "Indian / Middle Eastern / African", category: "food", vibeTags: ["foodie", "cultural"], slot: "early" },
   { id: "wings-bbq",      label: "Wings / BBQ",                  category: "food", vibeTags: ["foodie", "group", "casual"],   slot: "early" },
+  { id: "sushi",          label: "Sushi",                        category: "food", vibeTags: ["foodie", "date", "upscale"],   slot: "early" },
+  { id: "dessert",        label: "Dessert",                      category: "food", vibeTags: ["date", "playful", "sweet"],    slot: "late" },
+  { id: "tea-house",      label: "Tea house",                    category: "food", vibeTags: ["chill", "date"],               slot: "late" },
 ];
 
 export const SOCIAL_ANCHORS: VenueAnchor[] = [
@@ -37,6 +40,7 @@ export const SOCIAL_ANCHORS: VenueAnchor[] = [
   { id: "dance-club",     label: "Dance club",      category: "social", vibeTags: ["turn-up"],                    slot: "late" },
   { id: "cigar-lounge",   label: "Cigar lounge",    category: "social", vibeTags: ["chill", "upscale"],           slot: "late" },
   { id: "late-night-food",label: "Late-night food", category: "social", vibeTags: ["chill", "foodie"],            slot: "late" },
+  { id: "cocktail-bar",   label: "Cocktail bar",    category: "social", vibeTags: ["date", "chill", "upscale"],   slot: "late" },
 ];
 
 export const ACTIVITY_ANCHORS: VenueAnchor[] = [
@@ -49,6 +53,7 @@ export const ACTIVITY_ANCHORS: VenueAnchor[] = [
   { id: "game-night",     label: "Game night",      category: "activity", vibeTags: ["chill", "group", "playful"],slot: "mid" },
   { id: "darts",          label: "Darts",           category: "activity", vibeTags: ["competitive", "chill"],     slot: "mid" },
   { id: "sports-bar",     label: "Sports bar",      category: "activity", vibeTags: ["competitive", "group", "casual"], slot: "mid" },
+  { id: "scenic-walk",    label: "Scenic walk",     category: "activity", vibeTags: ["date", "chill", "scenic"],  slot: "late" },
 ];
 
 export const VENUE_ANCHORS: VenueAnchor[] = [

@@ -40,8 +40,6 @@ type SearchHit = {
 
 function ClaimPage() {
   const navigate = useNavigate();
-  const search = useServerFn(searchVenuesForClaim);
-  const myClaimsFn = useServerFn(listMyClaims);
 
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
@@ -50,21 +48,31 @@ function ClaimPage() {
 
   const claims = useQuery({
     queryKey: ["my-business-claims"],
-    queryFn: () => myClaimsFn(),
+    queryFn: async () => {
+      const { data: u } = await supabase.auth.getUser();
+      if (!u.user) return { claims: [] as Array<{ id: string; proposed_name: string | null; venue_id: string | null; status: string }> };
+      const { data, error } = await supabase
+        .from("venue_claims")
+        .select("*")
+        .eq("user_id", u.user.id)
+        .order("created_at", { ascending: false });
+      if (error) throw new Error(error.message);
+      return { claims: data ?? [] };
+    },
   });
 
   const results = useQuery({
     queryKey: ["venue-claim-search", submittedQuery],
     queryFn: async () => {
-      console.log("[claim] queryFn start", submittedQuery);
-      try {
-        const r = await search({ data: { q: submittedQuery } });
-        console.log("[claim] queryFn ok", r);
-        return r;
-      } catch (e) {
-        console.error("[claim] queryFn err", e);
-        throw e;
-      }
+      const q = submittedQuery.replace(/[%,]/g, " ").trim();
+      const { data, error } = await supabase
+        .from("venues")
+        .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website")
+        .or(`name.ilike.%${q}%,city.ilike.%${q}%,neighborhood.ilike.%${q}%`)
+        .order("name")
+        .limit(20);
+      if (error) throw new Error(error.message);
+      return { venues: (data ?? []) as SearchHit[] };
     },
     enabled: submittedQuery.length > 0,
   });

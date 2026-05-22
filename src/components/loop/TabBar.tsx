@@ -177,12 +177,6 @@ export function TabBar() {
           {tabs.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
-            // Gate plan creation behind auth for non-business users
-            const needsAuth =
-              effectiveRole !== "business" && to === "/create" && !user;
-            const effectiveTo = needsAuth
-              ? `/auth?redirect=${encodeURIComponent("/create")}`
-              : to;
             return (
               <div
                 key={to}

@@ -17,8 +17,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/business/ai-refresh")({
   beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) throw redirect({ to: "/business/login" });
+    await requireBusinessOwner();
   },
   head: () => ({ meta: [{ title: "AI Refresh — Confetti for Business" }] }),
   component: BusinessAIRefreshPage,

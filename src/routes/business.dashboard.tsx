@@ -39,8 +39,7 @@ import { PromoStorefront } from "@/components/business/PromoStorefront";
 
 export const Route = createFileRoute("/business/dashboard")({
   beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) throw redirect({ to: "/business/login" });
+    await requireBusinessOwner();
   },
   component: BusinessDashboardPage,
   head: () => ({

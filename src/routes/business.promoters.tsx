@@ -16,8 +16,7 @@ import { listMyClaims } from "@/lib/business-onboarding.functions";
 
 export const Route = createFileRoute("/business/promoters")({
   beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) throw redirect({ to: "/business/login" });
+    await requireBusinessOwner();
   },
   component: BusinessPromotersPage,
   head: () => ({

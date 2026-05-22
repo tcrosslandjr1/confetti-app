@@ -11,8 +11,7 @@ import { Card } from "@/components/ui/card";
 
 export const Route = createFileRoute("/business/billing")({
   beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) throw redirect({ to: "/business/login" });
+    await requireBusinessOwner();
   },
   head: () => ({ meta: [{ title: "Billing — Confetti for Business" }] }),
   component: BusinessBillingPage,

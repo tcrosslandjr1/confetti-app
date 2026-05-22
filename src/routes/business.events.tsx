@@ -36,8 +36,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/business/events")({
   beforeLoad: async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) throw redirect({ to: "/business/login" });
+    await requireBusinessOwner();
   },
   head: () => ({ meta: [{ title: "Events Manager — Confetti for Business" }] }),
   component: BusinessEventsPage,

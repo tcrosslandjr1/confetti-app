@@ -556,9 +556,9 @@ function BoardingPassPlanner() {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         const { latitude, longitude } = pos.coords;
-        const label = shareEtaOnly
-          ? "Live ETA on"
-          : `Near ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`;
+        const label = shareEtaDetails
+          ? `Near ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`
+          : "Live ETA on";
         await pushMyUpdate({ status: "En Route", eta: label });
         setLocating(false);
       },

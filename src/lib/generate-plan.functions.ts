@@ -464,6 +464,8 @@ ${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(budget, detectWaterf
 
 ${req.occasionId === "guys" ? buildGuysNightCulturalPrompt() : ""}
 
+${req.occasionId === "date" ? buildDateNightCulturalPrompt() : ""}
+
 ${
   isMiamiGuysNight(cityCtx.city, req.occasionId, req.vibeLabel)
     ? buildMiamiGuysNightPrompt({

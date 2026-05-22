@@ -61,7 +61,17 @@ function ClaimPage() {
 
   const results = useQuery({
     queryKey: ["venue-claim-search", submittedQuery],
-    queryFn: () => search({ data: { q: submittedQuery } }),
+    queryFn: async () => {
+      console.log("[claim] queryFn start", submittedQuery);
+      try {
+        const r = await search({ data: { q: submittedQuery } });
+        console.log("[claim] queryFn ok", r);
+        return r;
+      } catch (e) {
+        console.error("[claim] queryFn err", e);
+        throw e;
+      }
+    },
     enabled: submittedQuery.length > 0,
   });
 

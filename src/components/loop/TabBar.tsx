@@ -153,7 +153,7 @@ function TabItem({
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const { effectiveRole } = useAuth();
+  const { effectiveRole, user } = useAuth();
   const baseId = useId();
   if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
 
@@ -177,6 +177,12 @@ export function TabBar() {
           {tabs.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
+            // Gate plan creation behind auth for non-business users
+            const needsAuth =
+              effectiveRole !== "business" && to === "/create" && !user;
+            const effectiveTo = needsAuth
+              ? `/auth?redirect=${encodeURIComponent("/create")}`
+              : to;
             return (
               <div
                 key={to}
@@ -184,7 +190,7 @@ export function TabBar() {
                 className="flex min-w-0 justify-center"
               >
                 <TabItem
-                  to={to}
+                  to={effectiveTo}
                   label={label}
                   icon={icon}
                   active={active}

@@ -289,6 +289,8 @@ function AuthPage() {
           },
         });
         if (error) throw error;
+        // Account exists — implicit consent to cookies + terms, no banner needed.
+        acceptAllCookiesSilently();
         if (data.session && data.user) {
           await routeAfterAuth(data.user.id);
           return;

@@ -254,9 +254,24 @@ function AdminLayout() {
             setUnlocked(false);
         }
     }, [user]);
+    // Hard fallback: never let the admin console sit on a skeleton forever.
+    // If auth + role checks haven't resolved within 2.5s, force the shell to
+    // render with a non-blocking warning banner. Live data can still finish
+    // syncing in the background.
+    const [bootTimedOut, setBootTimedOut] = useState(false);
+    const [loadWarning, setLoadWarning] = useState<string | null>(null);
+    useEffect(() => {
+        let mounted = true;
+        const t = window.setTimeout(() => {
+            if (!mounted) return;
+            setBootTimedOut(true);
+            setLoadWarning("Live data is still syncing. Showing saved preview.");
+        }, 2500);
+        return () => { mounted = false; window.clearTimeout(t); };
+    }, []);
     // Sticky shell: once we've shown the admin shell, never fall back to the
     // full-page skeleton on transient auth re-checks (e.g. tab refocus).
-    const shellReady = allowPreview || (!loading && isAdmin && viewAs === "admin");
+    const shellReady = allowPreview || (!loading && isAdmin && viewAs === "admin") || bootTimedOut;
     const hasShownShell = useRef(false);
     if (shellReady) hasShownShell.current = true;
     if (isLoginRoute) {
@@ -267,18 +282,20 @@ function AdminLayout() {
     }
 
 
-    if (!unlocked) {
+    if (!unlocked && user) {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
-      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} />
+      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} loadWarning={loadWarning} onDismissWarning={() => setLoadWarning(null)} />
     </SidebarProvider>);
 }
 
-function AdminShell({ user, pathname, onLock }: {
+function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning }: {
     user: ReturnType<typeof useAuth>["user"];
     pathname: string;
     onLock: () => void;
+    loadWarning?: string | null;
+    onDismissWarning?: () => void;
 }) {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";
@@ -604,6 +621,18 @@ function AdminShell({ user, pathname, onLock }: {
           </div>
         </header>
         <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
+          {loadWarning && (
+            <div className="mb-4 flex items-start gap-3 rounded-md border border-amber-300/60 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+              <span className="flex-1">{loadWarning}</span>
+              <button
+                type="button"
+                onClick={onDismissWarning}
+                className="rounded px-2 py-0.5 text-xs font-semibold text-amber-900/70 hover:text-amber-900"
+              >
+                Dismiss
+              </button>
+            </div>
+          )}
           <Outlet />
         </main>
       </div>

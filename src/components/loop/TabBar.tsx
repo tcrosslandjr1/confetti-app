@@ -94,7 +94,7 @@ function TabItem({
         </Link>
         <span
           id={labelId}
-          className={`mt-1 font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${active ? "text-coral" : "text-ink"}`}
+          className={`mt-1 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-ink"}`}
         >
           {label}
         </span>

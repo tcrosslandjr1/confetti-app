@@ -41,7 +41,6 @@ import {
   Mic2,
   Beef,
   Users,
-  Copy,
   Link as LinkIcon,
   Check,
 } from "lucide-react";

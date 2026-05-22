@@ -153,7 +153,7 @@ function TabItem({
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const { effectiveRole, user } = useAuth();
+  const { effectiveRole } = useAuth();
   const baseId = useId();
   if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
 

@@ -22,7 +22,8 @@ type AuthCtx = {
   roleLoading: boolean;
   viewAsLoaded: boolean;
   isAdmin: boolean;
-  /** "admin" | "customer" | "visitor" — what the user is currently viewing the app AS */
+  isBusinessOwner: boolean;
+  /** "admin" | "business" | "customer" | "visitor" — what the user is currently viewing the app AS */
   viewAs: ViewAs;
   /** True when an admin is impersonating another role */
   isImpersonating: boolean;
@@ -48,6 +49,7 @@ const Ctx = createContext<AuthCtx>({
   roleLoading: false,
   viewAsLoaded: false,
   isAdmin: false,
+  isBusinessOwner: false,
   viewAs: "visitor",
   isImpersonating: false,
   isPreview: false,

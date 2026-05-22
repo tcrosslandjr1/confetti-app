@@ -174,5 +174,33 @@ export function buildGirlsNightPresetsPrompt(
     `Tier: ${tier} · Waterfront mode: ${hasWaterfront ? "ON" : "OFF"}`,
     "Treat these as on-brand reference flows. You may adopt a preset name verbatim when the venues genuinely match its beats, or remix beats across presets — never force-fit a name that doesn't match the actual stops.",
     ...lines,
+    "",
+    buildGirlsNightCulturalPrompt(),
+  ].join("\n");
+}
+
+/**
+ * Cultural framework appended to every Girls Night plan. Full spec at
+ * docs/agents/confetti-girls-night-cultural-framework.md
+ */
+export function buildGirlsNightCulturalPrompt(): string {
+  return [
+    "# Girls Night Cultural Framework (apply on top of presets)",
+    "Step 1 — Read the taste graph. If 60%+ of music_taste / scene_keywords / cities signals cluster around one culture, take the SHARED-VIBE branch. Otherwise default to MIXED.",
+    "",
+    "SHARED-VIBE branch — pick ONE cultural anchor:",
+    "  • Food anchors: KBBQ, tacos, soul food, mezze, Indian street food, Caribbean, hot pot, dim sum, Ethiopian, Persian.",
+    "  • Music/activity anchors: karaoke, salsa/bachata, Afrobeats, Bollywood, R&B lounge, dancehall, K-pop, reggaeton.",
+    "  Then layer the universal formula: dinner → fit check/photos → one fun activity → dessert or late-night bites.",
+    "  Target shape: \"Cultural dinner + music/dance/karaoke + dessert\".",
+    "",
+    "MIXED branch — never make one member represent a whole culture. Pick a shared format:",
+    "  • Culture-swap dinner (each contributes one food/song/drink/outfit/tradition).",
+    "  • Passport playlist (each adds 5 songs from her taste).",
+    "  • Group-vote activity (karaoke, bowling, rooftop, dance class, paint-and-sip, comedy, spa).",
+    "  Layer universal formula: shareable dinner → glam/get-ready → one interactive activity → playlist rotation → dessert / late-night bites.",
+    "  Target shape: \"Culture-swap dinner + passport playlist + karaoke/dancing\".",
+    "",
+    "Rules: cultural anchor only REPLACES a formula beat when the venue genuinely covers it (e.g. KBBQ = dinner + interactive). Otherwise ADD a stop, don't drop one. Reflect the chosen branch in the experienceTagline.",
   ].join("\n");
 }

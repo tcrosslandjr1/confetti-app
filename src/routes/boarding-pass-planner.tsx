@@ -1099,18 +1099,20 @@ function Picker({ title, icon, options, value, onChange, compact = false }: {
   );
 }
 
-function SelectField({ label, value, options, onChange, icon }: {
-  label: string; value: string; options: string[]; onChange: (v: string) => void; icon?: React.ReactNode;
+function SelectField({ label, value, options, onChange, icon, hideLabel }: {
+  label: string; value: string; options: string[]; onChange: (v: string) => void; icon?: React.ReactNode; hideLabel?: boolean;
 }) {
   return (
     <div>
-      <p className="mb-1.5 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-        {icon} {label}
-      </p>
+      {!hideLabel && (
+        <p className="mb-1.5 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+          {icon} {label}
+        </p>
+      )}
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-10 w-full rounded-md border border-border bg-muted/40 px-2 text-xs outline-none focus:ring-2 focus:ring-primary/40"
+        className={`w-full rounded-md border border-border bg-muted/40 px-2 text-xs outline-none focus:ring-2 focus:ring-primary/40 ${hideLabel ? "h-8" : "h-10"}`}
       >
         {options.map((option) => <option key={option} value={option}>{option}</option>)}
       </select>

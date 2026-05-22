@@ -197,7 +197,6 @@ function VerifyForm({
   onCancel: () => void;
   onSubmitted: () => void;
 }) {
-  const submit = useServerFn(submitVenueClaim);
   const [method, setMethod] = useState<"social_tiktok" | "social_instagram">("social_instagram");
   const [handle, setHandle] = useState("");
   const [notes, setNotes] = useState("");
@@ -206,18 +205,29 @@ function VerifyForm({
   const [proposedWebsite, setProposedWebsite] = useState("");
 
   const mutation = useMutation({
-    mutationFn: async () =>
-      submit({
-        data: {
-          venueId: selected?.id,
-          proposedName: selected ? undefined : proposedName,
-          proposedCity: selected ? undefined : proposedCity || undefined,
-          proposedWebsite: selected ? undefined : proposedWebsite || undefined,
+    mutationFn: async () => {
+      const { data: u } = await supabase.auth.getUser();
+      if (!u.user) throw new Error("You must be signed in");
+      const evidenceHandle = handle.replace(/^@/, "");
+      if (!evidenceHandle) throw new Error("Social handle is required");
+      const { data, error } = await supabase
+        .from("venue_claims")
+        .insert({
+          user_id: u.user.id,
+          venue_id: selected?.id ?? null,
+          proposed_name: selected ? null : (proposedName ?? null),
+          proposed_city: selected ? null : (proposedCity || null),
+          proposed_website: selected ? null : (proposedWebsite || null),
           method,
-          evidenceHandle: handle.replace(/^@/, ""),
-          notes: notes || undefined,
-        },
-      }),
+          evidence_handle: evidenceHandle,
+          notes: notes || null,
+          status: "pending",
+        })
+        .select("*")
+        .single();
+      if (error) throw new Error(error.message);
+      return { claim: data };
+    },
     onSuccess: () => {
       toast.success("Claim submitted — we'll review within 24–48 hours.");
       onSubmitted();

@@ -23,6 +23,8 @@ export function buildDateNightCulturalPrompt(): string {
     "  • SHARED CULTURE → cultural dinner + romantic activity + dessert.",
     "  • MIXED → two-culture dinner/activity swap + dessert.",
     "",
+    "Example timeline: 7:00 shareable dinner → 8:30 activity (karaoke, dancing, comedy, art gallery, bowling, or lounge) → 10:00 dessert/tea/drinks/scenic walk → 10:30 photo or memory moment before heading home.",
+    "",
     "Rules: always include a soft/romantic close (dessert, tea, walk, nightcap). Cultural anchor only REPLACES a beat when the venue genuinely covers it; otherwise ADD a stop. Reflect the branch in experienceTagline.",
   ].join("\n");
 }

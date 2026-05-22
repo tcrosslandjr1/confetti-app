@@ -21,6 +21,8 @@ import {
   TrendingUp,
   Lock,
   ChevronRight,
+  Hourglass,
+  Mail,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
@@ -62,10 +64,12 @@ function BusinessDashboardPage() {
   const venueName = (claim as any)?.proposed_name || (claim as any)?.venue_name || "Your Venue";
   const claimStatus = (claim?.status as string) ?? "pending";
   const promotionUnlocked = claimStatus === "approved";
+  const hasPendingClaim = claim?.status === "pending";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 md:px-6 md:py-14">
+        {hasPendingClaim && <PendingApprovalBanner venueName={venueName} />}
         <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
           <span className="font-semibold">Demo dashboard.</span> Performance numbers, AI insights,
           events, social activity, and refresh history below are sample data to preview the layout.
@@ -104,6 +108,64 @@ function BusinessDashboardPage() {
         <DashboardFooter />
       </div>
     </div>
+  );
+}
+
+/* ---------------- PENDING APPROVAL BANNER ---------------- */
+
+function PendingApprovalBanner({ venueName }: { venueName: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative overflow-hidden rounded-2xl border-2 border-coral/40 bg-gradient-to-r from-coral/10 via-orange-50 to-cream p-5 shadow-sm"
+    >
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-coral/15 text-coral">
+            <Hourglass className="h-6 w-6" strokeWidth={2} />
+          </div>
+          <div>
+            <h3 className="text-base font-bold text-ink">
+              {venueName} is pending review
+            </h3>
+            <p className="mt-1 max-w-xl text-sm leading-relaxed text-ink/70">
+              We&apos;re verifying your venue ownership claim. This usually takes{" "}
+              <span className="font-semibold text-coral">24–48 hours</span>. You can
+              preview your dashboard below, but some features will unlock once you&apos;re
+              approved.
+            </p>
+            <div className="mt-2 flex items-center gap-2 text-xs text-ink/50">
+              <Clock className="h-3.5 w-3.5" />
+              <span>We&apos;ll email you when your application is approved or if we need more info.</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex shrink-0 items-center gap-3">
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="border-coral/30 text-coral hover:bg-coral/10"
+          >
+            <Link to="/business/claim/pending">
+              <Mail className="mr-1.5 h-3.5 w-3.5" />
+              Check status
+            </Link>
+          </Button>
+          <Button
+            asChild
+            size="sm"
+            className="bg-coral text-white hover:bg-coral/90"
+          >
+            <Link to="/business/claim">
+              Add more info
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 

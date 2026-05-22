@@ -178,6 +178,41 @@ function PendingApprovalBanner({ venueName }: { venueName: string }) {
   );
 }
 
+/* ---------------- NO ADVERTISERS EMPTY STATE ---------------- */
+
+function NoAdvertisersEmptyState() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-border bg-card/50 px-6 py-20 text-center"
+    >
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+        <Store className="h-8 w-8" strokeWidth={1.5} />
+      </div>
+      <h2 className="mt-6 text-xl font-bold text-foreground">
+        Welcome to Confetti for Business
+      </h2>
+      <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+        You haven&apos;t claimed a venue yet. Once you find and claim your venue, your dashboard
+        will light up with performance metrics, AI insights, and promotion tools.
+      </p>
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <Button asChild size="lg" className="min-w-40">
+          <Link to="/business/claim">
+            Claim your venue
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+        <Button asChild variant="outline" size="lg" className="min-w-40">
+          <Link to="/business">Learn more</Link>
+        </Button>
+      </div>
+    </motion.div>
+  );
+}
+
 /* ---------------- HERO ---------------- */
 
 function DashboardHero({

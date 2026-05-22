@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Sparkles,
@@ -41,7 +41,34 @@ import {
   Mic2,
   Beef,
   Users,
+  Copy,
+  Link as LinkIcon,
+  Check,
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+
+// ---------- Share helpers ----------
+function randomToken(): string {
+  const bytes = new Uint8Array(9);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, (b) => b.toString(36).padStart(2, "0")).join("").slice(0, 12);
+}
+
+function encodeConfig(cfg: Record<string, unknown>): string {
+  try {
+    return btoa(unescape(encodeURIComponent(JSON.stringify(cfg))));
+  } catch {
+    return "";
+  }
+}
+
+function decodeConfig(s: string): Record<string, unknown> | null {
+  try {
+    return JSON.parse(decodeURIComponent(escape(atob(s))));
+  } catch {
+    return null;
+  }
+}
 
 export const Route = createFileRoute("/boarding-pass-planner")({
   head: () => ({

@@ -301,7 +301,7 @@ function PortalDiscoverPage() {
             </Link>
           </div>
           <Link
-            to="/onboarding"
+            to="/taste-tuner"
             className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground"
           >
             <Sliders className="h-3 w-3" /> Tune what you like

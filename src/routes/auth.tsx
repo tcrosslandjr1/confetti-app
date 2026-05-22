@@ -7,5 +7,5 @@ export const Route = createFileRoute("/auth")({
     const m = search.mode === "signin" || search.mode === "signup" ? search.mode : undefined;
     return { redirect: safe, mode: m };
   },
-  head: () => ({ meta: [{ title: "Sign in — Confetti" }] }),
+  head: () => ({ meta: [{ title: "Welcome — Confetti" }] }),
 });

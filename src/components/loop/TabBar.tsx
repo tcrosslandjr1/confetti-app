@@ -49,6 +49,7 @@ const HIDE_PREFIXES = [
   "/admin",
   "/auth",
   "/onboarding",
+  "/taste-tuner",
   "/about",
   "/pricing",
   "/features",

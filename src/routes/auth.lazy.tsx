@@ -42,6 +42,11 @@ function AuthPage() {
   const safeRedirectTo = redirectTo ?? "/";
   const [mode, setMode] = useState<"signin" | "signup">(initialMode ?? "signup");
 
+  // Keep document title in sync with auth mode
+  useEffect(() => {
+    document.title = mode === "signup" ? "Sign up — Confetti" : "Sign in — Confetti";
+  }, [mode]);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -332,8 +337,8 @@ function AuthPage() {
         navigate({ to: "/advertise/portal" });
         return;
       }
-    } catch {
-      // Ignore — fall through to default redirect.
+    } catch (err) {
+      console.error("[routeAfterAuth] advertiser check failed:", err);
     }
     // Check if user has completed taste onboarding
     try {
@@ -346,8 +351,8 @@ function AuthPage() {
         navigate({ to: "/taste-tuner" as never });
         return;
       }
-    } catch {
-      // If check fails, continue to default route
+    } catch (err) {
+      console.error("[routeAfterAuth] preferences check failed:", err);
     }
     navigate({ to: safeRedirectTo as never });
   }
@@ -844,7 +849,7 @@ function AuthPage() {
                 ))}
               </div>
               <span key={activityIdx} className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/65 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_both]">
-                <span className="font-bold text-ink">12,438</span> joined ·{" "}
+                <span className="font-bold text-ink">Join us</span> ·{" "}
                 <span className="text-coral font-bold">{liveItem.who}</span> {liveItem.what}
               </span>
             </div>
@@ -1177,7 +1182,7 @@ function AuthPage() {
 
             {/* Tonight counter */}
             <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-ink/55">
-              <span className="text-coral font-bold">214</span> joined tonight
+              People are joining <span className="text-coral font-bold">tonight</span>
             </p>
 
 

@@ -22,6 +22,7 @@ import {
   Gift,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import { acceptAllCookiesSilently } from "@/components/CookieConsent";
 
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
@@ -288,6 +289,8 @@ function AuthPage() {
           },
         });
         if (error) throw error;
+        // Account exists — implicit consent to cookies + terms, no banner needed.
+        acceptAllCookiesSilently();
         if (data.session && data.user) {
           await routeAfterAuth(data.user.id);
           return;
@@ -1023,7 +1026,14 @@ function AuthPage() {
                 >
                   Data sharing terms
                 </Link>
-                .
+                ,{" "}
+                <Link
+                  to="/cookies"
+                  className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
+                >
+                  Cookie Policy
+                </Link>
+                , and consent to functional + analytics cookies — no more banner.
               </p>
             )}
           </form>

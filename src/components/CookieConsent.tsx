@@ -11,6 +11,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
+import { useAuth } from "@/lib/auth-context";
 
 const STORAGE_KEY = "cookie-consent";
 const PREFS_KEY = "cookie-consent-prefs";
@@ -56,11 +57,30 @@ export function openCookieSettings() {
   window.dispatchEvent(new Event("open-cookie-settings"));
 }
 
+/**
+ * Silently accept-all cookies + terms. Called from the signup form so the
+ * floating banner never bothers an authenticated user.
+ */
+export function acceptAllCookiesSilently() {
+  if (typeof window === "undefined") return;
+  savePrefs({ necessary: true, analytics: true, functional: true });
+}
+
 export function CookieConsent() {
   const [bannerVisible, setBannerVisible] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [prefs, setPrefs] = useState<CookiePrefs>(DEFAULT_PREFS);
   const [overlayOpen, setOverlayOpen] = useState(false);
+  const { user } = useAuth();
+
+  // Signed-in users implicitly agreed at signup — never bother them with the banner.
+  useEffect(() => {
+    if (typeof window === "undefined" || !user) return;
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      savePrefs({ necessary: true, analytics: true, functional: true });
+    }
+    setBannerVisible(false);
+  }, [user]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -73,8 +93,8 @@ export function CookieConsent() {
       termsCurrent = false;
     }
     if (existing) setPrefs(existing);
-    // Show banner if no prior consent OR if terms version changed.
-    if (!localStorage.getItem(STORAGE_KEY) || !termsCurrent) {
+    // Show banner only for anonymous visitors with no prior consent.
+    if (!user && (!localStorage.getItem(STORAGE_KEY) || !termsCurrent)) {
       setBannerVisible(true);
     }
     const onOpen = () => {
@@ -93,7 +113,7 @@ export function CookieConsent() {
       window.removeEventListener("open-cookie-settings", onOpen);
       mo.disconnect();
     };
-  }, []);
+  }, [user]);
 
   const acceptAll = () => {
     const next: CookiePrefs = { necessary: true, analytics: true, functional: true };

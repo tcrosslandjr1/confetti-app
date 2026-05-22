@@ -48,6 +48,9 @@ const TabBar = lazy(() =>
 const FirstRunNudge = lazy(() =>
   import("@/components/FirstRunNudge").then((m) => ({ default: m.FirstRunNudge })),
 );
+const SalePromoToast = lazy(() =>
+  import("@/components/SalePromoToast").then((m) => ({ default: m.SalePromoToast })),
+);
 const BusinessAnalyticsTracker = lazy(() =>
   import("@/components/BusinessAnalyticsTracker").then((m) => ({
     default: m.BusinessAnalyticsTracker,
@@ -286,6 +289,11 @@ function RootComponent() {
               <CustomerOnly>
                 <Suspense fallback={null}>
                   <FirstRunNudge />
+                </Suspense>
+              </CustomerOnly>
+              <CustomerOnly>
+                <Suspense fallback={null}>
+                  <SalePromoToast />
                 </Suspense>
               </CustomerOnly>
               <Suspense fallback={null}>

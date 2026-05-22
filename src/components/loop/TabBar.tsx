@@ -184,7 +184,7 @@ export function TabBar() {
                 className="flex min-w-0 justify-center"
               >
                 <TabItem
-                  to={effectiveTo}
+                  to={to}
                   label={label}
                   icon={icon}
                   active={active}

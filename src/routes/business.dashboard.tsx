@@ -62,19 +62,27 @@ function BusinessDashboardPage() {
     queryFn: () => fetchClaims(),
   });
 
-  const claim = claimsData?.claims?.[0] ?? null;
+  const claims = claimsData?.claims ?? [];
+  const claim = claims[0] ?? null;
   const venueName = (claim as any)?.proposed_name || (claim as any)?.venue_name || "Your Venue";
   const claimStatus = (claim?.status as string) ?? "pending";
   const promotionUnlocked = claimStatus === "approved";
   const hasPendingClaim = claim?.status === "pending";
-  const hasAdvertisers = (claimsData?.claims ?? []).some((c: any) => c.advertiser_id);
+  const hasClaim = claims.length > 0;
+  const hasAdvertisers = claims.some((c: any) => c.advertiser_id);
+  const isApproved = claimStatus === "approved";
+  const showOnboarding = !hasAdvertisers;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         {hasPendingClaim && <PendingApprovalBanner venueName={venueName} />}
-        {!hasAdvertisers ? (
-          <NoAdvertisersEmptyState />
+        {showOnboarding ? (
+          <FirstAdvertiserOnboarding
+            hasClaim={hasClaim}
+            isApproved={isApproved}
+            venueName={hasClaim ? venueName : null}
+          />
         ) : (
           <>
             <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
@@ -180,36 +188,144 @@ function PendingApprovalBanner({ venueName }: { venueName: string }) {
 
 /* ---------------- NO ADVERTISERS EMPTY STATE ---------------- */
 
-function NoAdvertisersEmptyState() {
+/* ---------------- FIRST ADVERTISER ONBOARDING ---------------- */
+
+function FirstAdvertiserOnboarding({
+  hasClaim,
+  isApproved,
+  venueName,
+}: {
+  hasClaim: boolean;
+  isApproved: boolean;
+  venueName: string | null;
+}) {
+  // Step 1 (claim) auto-completes once a claim row exists.
+  // Step 2 (approval) flips when the claim is approved.
+  // Step 3 (create advertiser listing) is the active CTA — this is the
+  // promised "next thing to do" after landing on /business/dashboard.
+  const steps = [
+    {
+      n: 1,
+      title: "Claim your venue",
+      desc: "Tell us which venue you own so we can verify it.",
+      done: hasClaim,
+      active: !hasClaim,
+      cta: hasClaim ? "View claim" : "Claim venue",
+      href: "/business/claim",
+    },
+    {
+      n: 2,
+      title: "Get approved",
+      desc: "Our team reviews ownership within 24–48 hours.",
+      done: isApproved,
+      active: hasClaim && !isApproved,
+      cta: "Check status",
+      href: "/business/claim/pending",
+    },
+    {
+      n: 3,
+      title: "Create your first advertiser listing",
+      desc: "Set up your advertiser profile so you can run campaigns, boost reach, and earn from the marketplace.",
+      done: false,
+      active: isApproved,
+      cta: "Create listing",
+      href: "/business/register",
+      primary: true,
+    },
+  ];
+
+  const activeStep = steps.find((s) => s.active) ?? steps[2];
+
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-border bg-card/50 px-6 py-20 text-center"
+      className="overflow-hidden rounded-3xl border bg-card shadow-sm"
     >
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-        <Store className="h-8 w-8" strokeWidth={1.5} />
+      <div className="relative bg-gradient-to-br from-primary/15 via-orange-50 to-background px-6 py-8 md:px-10 md:py-10">
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+            <Store className="h-6 w-6" strokeWidth={1.75} />
+          </div>
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Welcome to Confetti for Business
+            </div>
+            <h2 className="mt-1 text-2xl font-bold text-foreground md:text-3xl">
+              {venueName ? `Let's get ${venueName} live` : "Let's get your venue live"}
+            </h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              Three quick steps to unlock your dashboard, promotion tools, and the Confetti
+              marketplace.
+            </p>
+          </div>
+        </div>
       </div>
-      <h2 className="mt-6 text-xl font-bold text-foreground">
-        Welcome to Confetti for Business
-      </h2>
-      <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-        You haven&apos;t claimed a venue yet. Once you find and claim your venue, your dashboard
-        will light up with performance metrics, AI insights, and promotion tools.
-      </p>
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <Button asChild size="lg" className="min-w-40">
-          <Link to="/business/claim">
-            Claim your venue
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg" className="min-w-40">
-          <Link to="/business">Learn more</Link>
-        </Button>
+
+      <ol className="divide-y">
+        {steps.map((s) => (
+          <li
+            key={s.n}
+            className={cn(
+              "flex flex-col gap-4 px-6 py-5 md:flex-row md:items-center md:justify-between md:px-10",
+              s.active && "bg-primary/5",
+            )}
+          >
+            <div className="flex items-start gap-4">
+              <div
+                className={cn(
+                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-sm font-bold",
+                  s.done && "border-emerald-500 bg-emerald-500 text-white",
+                  !s.done && s.active && "border-primary bg-primary text-white",
+                  !s.done && !s.active && "border-border bg-muted text-muted-foreground",
+                )}
+                aria-hidden
+              >
+                {s.done ? "✓" : s.n}
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-base font-semibold text-foreground">{s.title}</h3>
+                  {s.done && (
+                    <Badge variant="secondary" className="text-[10px]">
+                      Done
+                    </Badge>
+                  )}
+                  {s.active && !s.done && (
+                    <Badge className="bg-primary text-[10px] text-white">Next up</Badge>
+                  )}
+                </div>
+                <p className="mt-1 max-w-lg text-sm text-muted-foreground">{s.desc}</p>
+              </div>
+            </div>
+            {!s.done && (
+              <Button
+                asChild
+                size="sm"
+                variant={s.active ? "default" : "outline"}
+                disabled={!s.active && s.n !== activeStep.n}
+                className={cn("shrink-0", s.primary && s.active && "shadow-md")}
+              >
+                <Link to={s.href as never}>
+                  {s.cta}
+                  <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                </Link>
+              </Button>
+            )}
+          </li>
+        ))}
+      </ol>
+
+      <div className="border-t bg-muted/30 px-6 py-4 text-xs text-muted-foreground md:px-10">
+        Stuck? <Link to="/business" className="font-medium text-primary hover:underline">Learn how Confetti for Business works</Link>{" "}
+        or email{" "}
+        <a href="mailto:business@confetti.com" className="font-medium text-primary hover:underline">
+          business@confetti.com
+        </a>
+        .
       </div>
-    </motion.div>
+    </motion.section>
   );
 }
 

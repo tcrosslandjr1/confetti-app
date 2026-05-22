@@ -125,12 +125,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  // Look up admin role whenever the user changes
+  // Look up roles whenever the user changes
   useEffect(() => {
     let cancelled = false;
     const uid = session?.user?.id;
     if (!uid) {
       setIsAdmin(false);
+      setIsBusinessOwner(false);
       setRoleLoading(false);
       return;
     }
@@ -139,16 +140,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .from("user_roles")
       .select("role")
       .eq("user_id", uid)
-      .eq("role", "admin")
-      .maybeSingle()
+      .in("role", ["admin", "business_owner"])
       .then(
         ({ data }) => {
-          if (!cancelled) setIsAdmin(!!data);
+          const roles = data?.map((r) => r.role) ?? [];
+          if (!cancelled) setIsAdmin(roles.includes("admin"));
+          if (!cancelled) setIsBusinessOwner(roles.includes("business_owner"));
           if (!cancelled) setRoleLoading(false);
         },
         () => {
           if (!cancelled) {
             setIsAdmin(false);
+            setIsBusinessOwner(false);
             setRoleLoading(false);
           }
         },

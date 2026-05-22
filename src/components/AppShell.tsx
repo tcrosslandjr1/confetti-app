@@ -21,12 +21,14 @@ const BUSINESS_TABS = [
 
 export function AppShell() {
   const location = useLocation();
+  const { effectiveRole } = useAuth();
+  const tabs = effectiveRole === "business" ? BUSINESS_TABS : CUSTOMER_TABS;
   return (
     <div className="relative mx-auto min-h-screen w-full max-w-md bg-background pb-24">
       <Outlet />
       <nav className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md border-t border-border bg-background/95 backdrop-blur">
         <ul className="grid grid-cols-5">
-          {TABS.map(({ to, label, icon: Icon, exact }) => {
+          {tabs.map(({ to, label, icon: Icon, exact }) => {
             const active = exact ? location.pathname === to : location.pathname.startsWith(to);
             return (
               <li key={to}>

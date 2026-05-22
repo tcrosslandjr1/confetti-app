@@ -93,8 +93,8 @@ export function CookieConsent() {
       termsCurrent = false;
     }
     if (existing) setPrefs(existing);
-    // Show banner if no prior consent OR if terms version changed.
-    if (!localStorage.getItem(STORAGE_KEY) || !termsCurrent) {
+    // Show banner only for anonymous visitors with no prior consent.
+    if (!user && (!localStorage.getItem(STORAGE_KEY) || !termsCurrent)) {
       setBannerVisible(true);
     }
     const onOpen = () => {

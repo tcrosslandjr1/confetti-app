@@ -172,7 +172,7 @@ export function TabBar() {
       <div className="relative border-t-2 border-ink bg-cream/95 backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80">
         <div
           role="list"
-          className="relative mx-auto grid w-full max-w-2xl min-h-[80px] grid-cols-5 items-center overflow-x-hidden px-1 sm:px-2"
+          className="relative mx-auto grid w-full max-w-2xl min-h-[80px] grid-cols-5 place-items-center px-2 sm:px-4"
         >
           {tabs.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);

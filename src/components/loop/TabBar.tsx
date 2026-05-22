@@ -1,7 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Compass, Search, Plus, Award, User } from "lucide-react";
+import { Compass, Search, Plus, Award, User, LayoutDashboard, CalendarPlus, Image as ImageIcon, Link2, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { useId } from "react";
+import { useAuth } from "@/lib/auth-context";
 
 type Tab = {
   to: string;
@@ -11,7 +12,7 @@ type Tab = {
   prominent?: boolean;
 };
 
-const TABS: Tab[] = [
+const CUSTOMER_TABS: Tab[] = [
   { to: "/", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/portal" },
   {
     to: "/discover",
@@ -33,6 +34,14 @@ const TABS: Tab[] = [
     icon: User,
     match: (p) => p.startsWith("/me") || p.startsWith("/portal/profile"),
   },
+];
+
+const BUSINESS_TABS: Tab[] = [
+  { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard, match: (p) => p.startsWith("/business/dashboard") },
+  { to: "/business/events", label: "Events", icon: CalendarPlus, match: (p) => p.startsWith("/business/events") },
+  { to: "/business/media", label: "Media", icon: ImageIcon, match: (p) => p.startsWith("/business/media") },
+  { to: "/business/social", label: "Social", icon: Link2, match: (p) => p.startsWith("/business/social") },
+  { to: "/business/settings", label: "Settings", icon: Settings, match: (p) => p.startsWith("/business/settings") },
 ];
 
 const HIDE_PREFIXES = [
@@ -139,8 +148,11 @@ function TabItem({
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { effectiveRole } = useAuth();
   const baseId = useId();
   if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
+
+  const tabs = effectiveRole === "business" ? BUSINESS_TABS : CUSTOMER_TABS;
 
   return (
     <nav
@@ -157,7 +169,7 @@ export function TabBar() {
           role="list"
           className="relative mx-auto grid w-full max-w-2xl min-h-[80px] grid-cols-5 items-center overflow-x-hidden px-1 sm:px-2"
         >
-          {TABS.map(({ to, label, icon, match, prominent }, i) => {
+          {tabs.map(({ to, label, icon, match, prominent }, i) => {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
             return (

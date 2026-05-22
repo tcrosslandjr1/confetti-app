@@ -947,11 +947,12 @@ function TripMemoryControls({ locationMode, setLocationMode, learnVibe, setLearn
 
 const etaPresets = ["5 min", "10 min", "20 min", "30 min", "Arrived"];
 
-function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, setMyEta, shareEtaOnly, setShareEtaOnly, pushMyUpdate, useMyLocation, locating, canSync }: {
+function HowWePullinUp({ myStatus, setMyStatus, myTravel, setMyTravel, myEta, setMyEta, sharePickup, setSharePickup, shareEtaDetails, setShareEtaDetails, pushMyUpdate, useMyLocation, locating, canSync }: {
   myStatus: string; setMyStatus: (v: string) => void;
   myTravel: string; setMyTravel: (v: string) => void;
   myEta: string; setMyEta: (v: string) => void;
-  shareEtaOnly: boolean; setShareEtaOnly: (v: boolean) => void;
+  sharePickup: boolean; setSharePickup: (v: boolean) => void;
+  shareEtaDetails: boolean; setShareEtaDetails: (v: boolean) => void;
   pushMyUpdate: (patch?: Partial<CrewMember>) => Promise<void>;
   useMyLocation: () => Promise<void>;
   locating: boolean;

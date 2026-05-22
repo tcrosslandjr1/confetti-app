@@ -15,12 +15,14 @@ import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ViralRouteImport } from './routes/viral'
 import { Route as VibePlansRouteImport } from './routes/vibe-plans'
 import { Route as TranslateRouteImport } from './routes/translate'
+import { Route as TonightRouteImport } from './routes/tonight'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TeamEventsRouteImport } from './routes/team-events'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ScanRouteImport } from './routes/scan'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ReservationsRouteImport } from './routes/reservations'
@@ -36,6 +38,7 @@ import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
@@ -55,6 +58,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfirmationRouteImport } from './routes/confirmation'
 import { Route as ConciergeRouteImport } from './routes/concierge'
+import { Route as CityGuidesRouteImport } from './routes/city-guides'
 import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
@@ -67,6 +71,7 @@ import { Route as ActiveLoopRouteImport } from './routes/active-loop'
 import { Route as ActiveConfettiRouteImport } from './routes/active-confetti'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as TeamsIndexRouteImport } from './routes/teams.index'
@@ -103,6 +108,7 @@ import { Route as PortalAchievementsRouteImport } from './routes/portal.achievem
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as PartnerSupportRouteImport } from './routes/partner.support'
+import { Route as PartnerSuggestionsRouteImport } from './routes/partner.suggestions'
 import { Route as PartnerReservationsRouteImport } from './routes/partner.reservations'
 import { Route as PartnerPromotionsRouteImport } from './routes/partner.promotions'
 import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
@@ -234,6 +240,11 @@ const TranslateRoute = TranslateRouteImport.update({
   path: '/translate',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/translate.lazy').then((d) => d.Route))
+const TonightRoute = TonightRouteImport.update({
+  id: '/tonight',
+  path: '/tonight',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -262,6 +273,11 @@ const TasteTunerRoute = TasteTunerRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScanRoute = ScanRouteImport.update({
@@ -341,6 +357,11 @@ const OnboardingRoute = OnboardingRouteImport.update({
 const MeRoute = MeRouteImport.update({
   id: '/me',
   path: '/me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InvestorsRoute = InvestorsRouteImport.update({
@@ -438,6 +459,11 @@ const ConciergeRoute = ConciergeRouteImport.update({
   path: '/concierge',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CityGuidesRoute = CityGuidesRouteImport.update({
+  id: '/city-guides',
+  path: '/city-guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CheckInRoute = CheckInRouteImport.update({
   id: '/check-in',
   path: '/check-in',
@@ -500,6 +526,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -685,6 +716,11 @@ const PlanPreviewRoute = PlanPreviewRouteImport.update({
 const PartnerSupportRoute = PartnerSupportRouteImport.update({
   id: '/support',
   path: '/support',
+  getParentRoute: () => PartnerRoute,
+} as any)
+const PartnerSuggestionsRoute = PartnerSuggestionsRouteImport.update({
+  id: '/suggestions',
+  path: '/suggestions',
   getParentRoute: () => PartnerRoute,
 } as any)
 const PartnerReservationsRoute = PartnerReservationsRouteImport.update({
@@ -1287,6 +1323,7 @@ const ApiPublicPartnerV1OrdersIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/active-confetti': typeof ActiveConfettiRoute
@@ -1299,6 +1336,7 @@ export interface FileRoutesByFullPath {
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
+  '/city-guides': typeof CityGuidesRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
@@ -1318,6 +1356,7 @@ export interface FileRoutesByFullPath {
   '/how-it-works': typeof HowItWorksRoute
   '/influencer': typeof InfluencerRoute
   '/investors': typeof InvestorsRoute
+  '/login': typeof LoginRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/partner': typeof PartnerRouteWithChildren
@@ -1333,12 +1372,14 @@ export interface FileRoutesByFullPath {
   '/reservations': typeof ReservationsRoute
   '/reset-password': typeof ResetPasswordRoute
   '/scan': typeof ScanRoute
+  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/team-events': typeof TeamEventsRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/tonight': typeof TonightRoute
   '/translate': typeof TranslateRoute
   '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
@@ -1424,6 +1465,7 @@ export interface FileRoutesByFullPath {
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
+  '/partner/suggestions': typeof PartnerSuggestionsRoute
   '/partner/support': typeof PartnerSupportRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1490,6 +1532,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/active-confetti': typeof ActiveConfettiRoute
@@ -1499,6 +1542,7 @@ export interface FileRoutesByTo {
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
+  '/city-guides': typeof CityGuidesRoute
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -1516,6 +1560,7 @@ export interface FileRoutesByTo {
   '/how-it-works': typeof HowItWorksRoute
   '/influencer': typeof InfluencerRoute
   '/investors': typeof InvestorsRoute
+  '/login': typeof LoginRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/partners': typeof PartnersRoute
@@ -1528,11 +1573,13 @@ export interface FileRoutesByTo {
   '/reservations': typeof ReservationsRoute
   '/reset-password': typeof ResetPasswordRoute
   '/scan': typeof ScanRoute
+  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/team-events': typeof TeamEventsRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/tonight': typeof TonightRoute
   '/translate': typeof TranslateRoute
   '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
@@ -1618,6 +1665,7 @@ export interface FileRoutesByTo {
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
+  '/partner/suggestions': typeof PartnerSuggestionsRoute
   '/partner/support': typeof PartnerSupportRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1685,6 +1733,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/active-confetti': typeof ActiveConfettiRoute
@@ -1697,6 +1746,7 @@ export interface FileRoutesById {
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
+  '/city-guides': typeof CityGuidesRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
@@ -1716,6 +1766,7 @@ export interface FileRoutesById {
   '/how-it-works': typeof HowItWorksRoute
   '/influencer': typeof InfluencerRoute
   '/investors': typeof InvestorsRoute
+  '/login': typeof LoginRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/partner': typeof PartnerRouteWithChildren
@@ -1731,12 +1782,14 @@ export interface FileRoutesById {
   '/reservations': typeof ReservationsRoute
   '/reset-password': typeof ResetPasswordRoute
   '/scan': typeof ScanRoute
+  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/team-events': typeof TeamEventsRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/tonight': typeof TonightRoute
   '/translate': typeof TranslateRoute
   '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
@@ -1822,6 +1875,7 @@ export interface FileRoutesById {
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
+  '/partner/suggestions': typeof PartnerSuggestionsRoute
   '/partner/support': typeof PartnerSupportRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1890,6 +1944,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$'
     | '/about'
     | '/accessibility'
     | '/active-confetti'
@@ -1902,6 +1957,7 @@ export interface FileRouteTypes {
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
+    | '/city-guides'
     | '/concierge'
     | '/confirmation'
     | '/contact'
@@ -1921,6 +1977,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/influencer'
     | '/investors'
+    | '/login'
     | '/me'
     | '/onboarding'
     | '/partner'
@@ -1936,12 +1993,14 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/reset-password'
     | '/scan'
+    | '/signup'
     | '/sitemap.xml'
     | '/taste-tuner'
     | '/team-events'
     | '/teams'
     | '/terms'
     | '/testimonials'
+    | '/tonight'
     | '/translate'
     | '/vibe-plans'
     | '/viral'
@@ -2027,6 +2086,7 @@ export interface FileRouteTypes {
     | '/partner/profile'
     | '/partner/promotions'
     | '/partner/reservations'
+    | '/partner/suggestions'
     | '/partner/support'
     | '/plan/preview'
     | '/plan/ready'
@@ -2093,6 +2153,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$'
     | '/about'
     | '/accessibility'
     | '/active-confetti'
@@ -2102,6 +2163,7 @@ export interface FileRouteTypes {
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
+    | '/city-guides'
     | '/confirmation'
     | '/contact'
     | '/cookies'
@@ -2119,6 +2181,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/influencer'
     | '/investors'
+    | '/login'
     | '/me'
     | '/onboarding'
     | '/partners'
@@ -2131,11 +2194,13 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/reset-password'
     | '/scan'
+    | '/signup'
     | '/sitemap.xml'
     | '/taste-tuner'
     | '/team-events'
     | '/terms'
     | '/testimonials'
+    | '/tonight'
     | '/translate'
     | '/vibe-plans'
     | '/viral'
@@ -2221,6 +2286,7 @@ export interface FileRouteTypes {
     | '/partner/profile'
     | '/partner/promotions'
     | '/partner/reservations'
+    | '/partner/suggestions'
     | '/partner/support'
     | '/plan/preview'
     | '/plan/ready'
@@ -2287,6 +2353,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/$'
     | '/about'
     | '/accessibility'
     | '/active-confetti'
@@ -2299,6 +2366,7 @@ export interface FileRouteTypes {
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
+    | '/city-guides'
     | '/concierge'
     | '/confirmation'
     | '/contact'
@@ -2318,6 +2386,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/influencer'
     | '/investors'
+    | '/login'
     | '/me'
     | '/onboarding'
     | '/partner'
@@ -2333,12 +2402,14 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/reset-password'
     | '/scan'
+    | '/signup'
     | '/sitemap.xml'
     | '/taste-tuner'
     | '/team-events'
     | '/teams'
     | '/terms'
     | '/testimonials'
+    | '/tonight'
     | '/translate'
     | '/vibe-plans'
     | '/viral'
@@ -2424,6 +2495,7 @@ export interface FileRouteTypes {
     | '/partner/profile'
     | '/partner/promotions'
     | '/partner/reservations'
+    | '/partner/suggestions'
     | '/partner/support'
     | '/plan/preview'
     | '/plan/ready'
@@ -2491,6 +2563,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
   ActiveConfettiRoute: typeof ActiveConfettiRoute
@@ -2503,6 +2576,7 @@ export interface RootRouteChildren {
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
   CheckInRoute: typeof CheckInRoute
+  CityGuidesRoute: typeof CityGuidesRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ConfirmationRoute: typeof ConfirmationRoute
   ContactRoute: typeof ContactRoute
@@ -2522,6 +2596,7 @@ export interface RootRouteChildren {
   HowItWorksRoute: typeof HowItWorksRoute
   InfluencerRoute: typeof InfluencerRoute
   InvestorsRoute: typeof InvestorsRoute
+  LoginRoute: typeof LoginRoute
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
   PartnerRoute: typeof PartnerRouteWithChildren
@@ -2537,12 +2612,14 @@ export interface RootRouteChildren {
   ReservationsRoute: typeof ReservationsRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   ScanRoute: typeof ScanRoute
+  SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TeamEventsRoute: typeof TeamEventsRoute
   TeamsRoute: typeof TeamsRouteWithChildren
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  TonightRoute: typeof TonightRoute
   TranslateRoute: typeof TranslateRoute
   VibePlansRoute: typeof VibePlansRoute
   ViralRoute: typeof ViralRoute
@@ -2632,6 +2709,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TranslateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tonight': {
+      id: '/tonight'
+      path: '/tonight'
+      fullPath: '/tonight'
+      preLoaderRoute: typeof TonightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -2672,6 +2756,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scan': {
@@ -2777,6 +2868,13 @@ declare module '@tanstack/react-router' {
       path: '/me'
       fullPath: '/me'
       preLoaderRoute: typeof MeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/investors': {
@@ -2912,6 +3010,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/city-guides': {
+      id: '/city-guides'
+      path: '/city-guides'
+      fullPath: '/city-guides'
+      preLoaderRoute: typeof CityGuidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/check-in': {
       id: '/check-in'
       path: '/check-in'
@@ -2994,6 +3099,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -3253,6 +3365,13 @@ declare module '@tanstack/react-router' {
       path: '/support'
       fullPath: '/partner/support'
       preLoaderRoute: typeof PartnerSupportRouteImport
+      parentRoute: typeof PartnerRoute
+    }
+    '/partner/suggestions': {
+      id: '/partner/suggestions'
+      path: '/suggestions'
+      fullPath: '/partner/suggestions'
+      preLoaderRoute: typeof PartnerSuggestionsRouteImport
       parentRoute: typeof PartnerRoute
     }
     '/partner/reservations': {
@@ -4186,6 +4305,7 @@ interface PartnerRouteChildren {
   PartnerProfileRoute: typeof PartnerProfileRoute
   PartnerPromotionsRoute: typeof PartnerPromotionsRoute
   PartnerReservationsRoute: typeof PartnerReservationsRoute
+  PartnerSuggestionsRoute: typeof PartnerSuggestionsRoute
   PartnerSupportRoute: typeof PartnerSupportRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
 }
@@ -4202,6 +4322,7 @@ const PartnerRouteChildren: PartnerRouteChildren = {
   PartnerProfileRoute: PartnerProfileRoute,
   PartnerPromotionsRoute: PartnerPromotionsRoute,
   PartnerReservationsRoute: PartnerReservationsRoute,
+  PartnerSuggestionsRoute: PartnerSuggestionsRoute,
   PartnerSupportRoute: PartnerSupportRoute,
   PartnerIndexRoute: PartnerIndexRoute,
 }
@@ -4315,6 +4436,7 @@ const TripsIdRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   ActiveConfettiRoute: ActiveConfettiRoute,
@@ -4327,6 +4449,7 @@ const rootRouteChildren: RootRouteChildren = {
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,
   CheckInRoute: CheckInRoute,
+  CityGuidesRoute: CityGuidesRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
   ConfirmationRoute: ConfirmationRoute,
   ContactRoute: ContactRoute,
@@ -4346,6 +4469,7 @@ const rootRouteChildren: RootRouteChildren = {
   HowItWorksRoute: HowItWorksRoute,
   InfluencerRoute: InfluencerRoute,
   InvestorsRoute: InvestorsRoute,
+  LoginRoute: LoginRoute,
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
   PartnerRoute: PartnerRouteWithChildren,
@@ -4361,12 +4485,14 @@ const rootRouteChildren: RootRouteChildren = {
   ReservationsRoute: ReservationsRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   ScanRoute: ScanRoute,
+  SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TasteTunerRoute: TasteTunerRoute,
   TeamEventsRoute: TeamEventsRoute,
   TeamsRoute: TeamsRouteWithChildren,
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
+  TonightRoute: TonightRoute,
   TranslateRoute: TranslateRoute,
   VibePlansRoute: VibePlansRoute,
   ViralRoute: ViralRoute,

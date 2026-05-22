@@ -228,6 +228,27 @@ export type Database = {
         }
         Relationships: []
       }
+      admin_settings: {
+        Row: {
+          created_at: string
+          id: boolean
+          pin_hash: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: boolean
+          pin_hash: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: boolean
+          pin_hash?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       advertiser_confetti_balances: {
         Row: {
           advertiser_id: string
@@ -4635,7 +4656,7 @@ export type Database = {
           user_id: string
         }[]
       }
-      set_admin_pin: { Args: { _pin: string }; Returns: undefined }
+      set_admin_pin: { Args: { _new_pin: string }; Returns: boolean }
       verify_admin_pin: { Args: { _pin: string }; Returns: boolean }
     }
     Enums: {

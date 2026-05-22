@@ -618,21 +618,6 @@ function AdminShell({ user, pathname, onLock }: {
           </div>
         </header>
         <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
-          {hasRealError && (
-            <p className="mb-2 text-sm text-red-500">Preview stalled</p>
-          )}
-          {loadWarning && (
-            <div className="mb-4 flex items-start gap-3 rounded-md border border-amber-300/60 bg-amber-50 px-3 py-2 text-sm text-amber-900">
-              <span className="flex-1">{loadWarning}</span>
-              <button
-                type="button"
-                onClick={onDismissWarning}
-                className="rounded px-2 py-0.5 text-xs font-semibold text-amber-900/70 hover:text-amber-900"
-              >
-                Dismiss
-              </button>
-            </div>
-          )}
           {pathname === "/admin" ? <AdminDashboard /> : <Outlet />}
         </main>
       </div>

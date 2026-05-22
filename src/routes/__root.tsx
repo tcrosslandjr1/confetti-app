@@ -14,6 +14,7 @@ import { WizardProvider } from "@/components/wizard/wizard-context";
 import { preloadFallbackImages } from "@/lib/venue-images";
 import { installErrorTracking } from "@/lib/analytics";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
+import { CustomerOnly } from "@/components/CustomerOnly";
 
 const RoleSwitcher = lazy(() =>
   import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),
@@ -274,15 +275,19 @@ function RootComponent() {
                 aria-hidden
                 className="pb-[calc(7rem+env(safe-area-inset-bottom))] lg:hidden"
               />
-              <Suspense fallback={null}>
-                <BuildMyNightWizard />
-              </Suspense>
+              <CustomerOnly>
+                <Suspense fallback={null}>
+                  <BuildMyNightWizard />
+                </Suspense>
+              </CustomerOnly>
               <Suspense fallback={null}>
                 <TabBar />
               </Suspense>
-              <Suspense fallback={null}>
-                <FirstRunNudge />
-              </Suspense>
+              <CustomerOnly>
+                <Suspense fallback={null}>
+                  <FirstRunNudge />
+                </Suspense>
+              </CustomerOnly>
               <Suspense fallback={null}>
                 <CookieConsent />
               </Suspense>

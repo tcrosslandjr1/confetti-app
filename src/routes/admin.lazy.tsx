@@ -631,6 +631,9 @@ function AdminShell({ user, pathname, onLock, loadWarning, onDismissWarning, has
           </div>
         </header>
         <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
+          {hasRealError && (
+            <p className="mb-2 text-sm text-red-500">Preview stalled</p>
+          )}
           {loadWarning && (
             <div className="mb-4 flex items-start gap-3 rounded-md border border-amber-300/60 bg-amber-50 px-3 py-2 text-sm text-amber-900">
               <span className="flex-1">{loadWarning}</span>

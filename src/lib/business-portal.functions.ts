@@ -563,7 +563,7 @@ export const listVenueNotifications = createServerFn({ method: "GET" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     let q = supabase
@@ -597,7 +597,7 @@ export const markNotificationsRead = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     let q = supabase

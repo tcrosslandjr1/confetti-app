@@ -346,7 +346,7 @@ export const decideAdvertiserFn = createServerFn({ method: "POST" })
         kind: data.decision === "approve" ? "business_approved" : "business_rejected",
         title,
         body,
-        link: data.decision === "approve" ? "/advertise/portal" : "/advertise#signup",
+        link: data.decision === "approve" ? "/business/dashboard" : "/for-business",
       } as never);
     } catch {
       /* non-fatal */
@@ -422,7 +422,7 @@ export const resubmitAdvertiserFn = createServerFn({ method: "POST" })
         kind: "business_resubmitted",
         title: "Business application resubmitted",
         body: `${data.business_name} updated their application and is awaiting review.`,
-        link: "/admin/advertisers",
+        link: "/business/dashboard",
       }));
       if (rows.length) await supabase.from("notifications").insert(rows as never);
     } catch {

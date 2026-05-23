@@ -13,17 +13,10 @@ interface SitemapEntry {
 const STATIC_ROUTES: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/about", changefreq: "monthly", priority: "0.7" },
-  { path: "/how-it-works", changefreq: "monthly", priority: "0.8" },
-  { path: "/features", changefreq: "monthly", priority: "0.7" },
-  { path: "/pricing", changefreq: "monthly", priority: "0.8" },
-  { path: "/discover", changefreq: "daily", priority: "0.8" },
-  { path: "/contact", changefreq: "yearly", priority: "0.5" },
-  { path: "/investors", changefreq: "yearly", priority: "0.4" },
-  { path: "/testimonials", changefreq: "monthly", priority: "0.5" },
+  { path: "/app/explore", changefreq: "daily", priority: "0.8" },
+  { path: "/events", changefreq: "daily", priority: "0.8" },
+  { path: "/for-business", changefreq: "monthly", priority: "0.7" },
   { path: "/privacy", changefreq: "yearly", priority: "0.3" },
-  { path: "/terms", changefreq: "yearly", priority: "0.3" },
-  { path: "/cookies", changefreq: "yearly", priority: "0.3" },
-  { path: "/data-terms", changefreq: "yearly", priority: "0.3" },
   { path: "/accessibility", changefreq: "yearly", priority: "0.3" },
 ];
 

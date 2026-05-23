@@ -45,13 +45,10 @@ function RotatingTagline({ className = "" }: { className?: string }) {
 }
 
 const marketingLinks = [
-  { to: "/features", label: "Features" },
-  { to: "/how-it-works", label: "How" },
-  { to: "/guides", label: "City Guides" },
-  { to: "/teams", label: "Team Events" },
   { to: "/about", label: "About" },
-  { to: "/advertise", label: "For Business" },
-  { to: "/contact", label: "Contact" },
+  { to: "/app/explore", label: "Explore" },
+  { to: "/events", label: "Events" },
+  { to: "/for-business", label: "For Business" },
 ] as const;
 
 export function SiteHeader() {
@@ -107,20 +104,20 @@ export function SiteHeader() {
           ))}
           {showPortal && (
             <Link
-              to="/portal"
+              to="/app/profile"
               className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
-              Portal
+              Profile
             </Link>
           )}
           {showAdmin && (
             <Link
-              to="/admin"
+              to="/business/dashboard"
               className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-coral hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
-              Admin
+              Business
             </Link>
           )}
         </nav>
@@ -268,12 +265,12 @@ function MobileMenu({
           {showPortal && (
             <li>
               <Link
-                to="/portal"
+                to="/app/profile"
                 onClick={close}
                 className="flex items-center justify-between rounded-2xl border-2 border-transparent px-3 py-3 font-display text-lg font-bold text-ink transition-colors hover:border-ink hover:bg-white"
                 activeProps={{ className: "border-ink bg-white" }}
               >
-                <span>Portal</span>
+                <span>Profile</span>
                 <span className="font-mono text-xs text-coral">↗</span>
               </Link>
             </li>
@@ -281,12 +278,12 @@ function MobileMenu({
           {showAdmin && (
             <li>
               <Link
-                to="/admin"
+                to="/business/dashboard"
                 onClick={close}
                 className="flex items-center justify-between rounded-2xl border-2 border-transparent px-3 py-3 font-display text-lg font-bold text-coral transition-colors hover:border-ink hover:bg-white"
                 activeProps={{ className: "border-ink bg-white" }}
               >
-                <span>Admin</span>
+                <span>Business</span>
                 <span className="font-mono text-xs text-coral">↗</span>
               </Link>
             </li>

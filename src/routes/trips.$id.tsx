@@ -602,7 +602,7 @@ function TripDetail() {
 }
 
 function formatTimeLabel(t?: string | null): string {
-  if (!t) return "12:00 PM";
+  if (!t) return "TBD";
   const m = t.match(/^(\d{1,2}):(\d{2})/);
   if (!m) return t;
   let h = parseInt(m[1], 10);

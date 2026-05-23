@@ -40,11 +40,11 @@ function AuthPage() {
   const { user } = useAuth();
   const { redirect: redirectTo, mode: initialMode } = Route.useSearch();
   const safeRedirectTo = redirectTo ?? "/";
-  const [mode, setMode] = useState<"signin" | "signup">(initialMode ?? "signup");
+  const [mode, setMode] = useState<"signin" | "signup" | "reset">(initialMode ?? "signup");
 
   // Keep document title in sync with auth mode
   useEffect(() => {
-    document.title = mode === "signup" ? "Sign up — Confetti" : "Sign in — Confetti";
+    document.title = mode === "signup" ? "Sign up — Confetti" : mode === "reset" ? "Reset password — Confetti" : "Sign in — Confetti";
   }, [mode]);
 
   const [email, setEmail] = useState("");
@@ -334,7 +334,7 @@ function AuthPage() {
     try {
       const advertiser = await getMyAdvertiser(uid);
       if (advertiser) {
-        navigate({ to: "/advertise/portal" });
+        navigate({ to: "/business/dashboard" });
         return;
       }
     } catch (err) {
@@ -368,7 +368,14 @@ function AuthPage() {
     setNotice(null);
     setLoading(true);
     try {
-      if (mode === "signup") {
+      if (mode === "reset") {
+        const { error: resetErr } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/auth?mode=signin`,
+        });
+        if (resetErr) throw resetErr;
+        setNotice("Password reset link sent! Check your email.");
+        return;
+      } else if (mode === "signup") {
         // Block submission if username is taken or invalid
         if (username && usernameStatus === "taken") {
           setError("That username is already taken. Try another.");
@@ -1043,6 +1050,7 @@ function AuthPage() {
                 </span>
               )}
             </div>
+            {mode !== "reset" && (
             <div className="relative">
               <Lock
                 className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
@@ -1066,6 +1074,12 @@ function AuthPage() {
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
+            )}
+            {mode === "reset" && (
+              <p className="px-1 text-xs text-ink/60">
+                Enter your email and we'll send a link to reset your password.
+              </p>
+            )}
             {/* Password strength meter — signup only, appears once user types. */}
             {mode === "signup" && password.length > 0 && (
               <div className="flex items-center gap-2 px-1 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_forwards]">
@@ -1093,7 +1107,8 @@ function AuthPage() {
             {mode === "signin" && (
               <div className="flex justify-end px-1">
                 <Link
-                  to="/reset-password"
+                  to="/auth"
+                  search={{ mode: "reset" }}
                   className="text-xs font-medium text-muted-foreground hover:text-coral transition-colors underline-offset-4 hover:underline"
                 >
                   Forgot password?
@@ -1170,7 +1185,7 @@ function AuthPage() {
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
               <span className="relative z-10">
-                {mode === "signup" ? "Create account" : "Sign in"}
+                {mode === "signup" ? "Create account" : mode === "reset" ? "Send reset link" : "Sign in"}
               </span>
               <span
                 aria-hidden
@@ -1190,7 +1205,7 @@ function AuthPage() {
               <p className="text-center text-[11px] leading-relaxed text-ink/60">
                 By creating an account you accept our{" "}
                 <Link
-                  to="/data-terms"
+                  to="/privacy"
                   className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
                 >
                   Data sharing terms
@@ -1206,9 +1221,9 @@ function AuthPage() {
             className="group mt-6 inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 px-4 py-3 text-left transition-all hover:border-ink hover:bg-cream hover:shadow-brut"
           >
             <span className="text-sm text-ink/70">
-              {mode === "signin" ? "Don't have an account? " : "Already have one? "}
+              {mode === "reset" ? "Remember your password? " : mode === "signin" ? "Don't have an account? " : "Already have one? "}
               <span className="font-display font-extrabold text-ink">
-                {mode === "signin" ? "Sign up" : "Sign in"}
+                {mode === "reset" ? "Sign in" : mode === "signin" ? "Sign up" : "Sign in"}
               </span>
             </span>
             <ArrowRight className="h-4 w-4 text-ink/40 transition-transform group-hover:translate-x-1 group-hover:text-coral" />
@@ -1255,7 +1270,7 @@ function AuthPage() {
           )}
 
           <div className="mt-auto pt-8 text-center text-[11px] text-ink/55">
-            <Link to="/data-terms" className="underline underline-offset-2 hover:text-coral">
+            <Link to="/privacy" className="underline underline-offset-2 hover:text-coral">
               Terms &amp; data policy
             </Link>
             <span className="mx-2 text-ink/30">·</span>
@@ -1263,8 +1278,8 @@ function AuthPage() {
               Browse events
             </Link>
             <span className="mx-2 text-ink/30">·</span>
-            <Link to="/admin/login" className="underline underline-offset-2 hover:text-coral">
-              Admin sign in
+            <Link to="/business/login" className="underline underline-offset-2 hover:text-coral">
+              Business sign in
             </Link>
           </div>
         </div>

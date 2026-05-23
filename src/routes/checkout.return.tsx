@@ -189,7 +189,7 @@ function SuccessState({ data }: { data: Awaited<ReturnType<typeof getCheckoutSes
 
       <div className="px-8 py-6 border-t flex flex-col gap-2 sm:flex-row sm:justify-end">
         <Button asChild>
-          <Link to="/passport">Go to my Passport</Link>
+          <Link to="/app/profile">Go to my Passport</Link>
         </Button>
       </div>
     </Card>

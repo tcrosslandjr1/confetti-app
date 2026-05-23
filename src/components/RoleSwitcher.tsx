@@ -18,7 +18,7 @@ type Option = {
   label: string;
   Icon: typeof Shield;
   blurb: string;
-  home: "/" | "/portal" | "/admin" | "/advertise/portal";
+  home: "/" | "/app/profile" | "/business/dashboard";
   tone: string; // tailwind classes for active chip
 };
 
@@ -28,7 +28,7 @@ const OPTIONS: Option[] = [
     label: "Admin",
     Icon: Shield,
     blurb: "Full console + moderation",
-    home: "/admin",
+    home: "/business/dashboard",
     tone: "bg-ink text-cream",
   },
   {
@@ -36,7 +36,7 @@ const OPTIONS: Option[] = [
     label: "Business",
     Icon: Briefcase,
     blurb: "Advertiser portal & venues",
-    home: "/advertise/portal",
+    home: "/business/dashboard",
     tone: "bg-purple text-cream",
   },
   {
@@ -44,7 +44,7 @@ const OPTIONS: Option[] = [
     label: "Customer",
     Icon: UserIcon,
     blurb: "Portal, planning & bookings",
-    home: "/portal",
+    home: "/app/profile",
     tone: "bg-coral text-cream",
   },
   {
@@ -114,10 +114,10 @@ export function RoleSwitcher() {
       userEmail: user?.email ?? null,
       fromRole: previous,
       toRole: "admin",
-      path: "/admin",
+      path: "/business/dashboard",
       note: `Exited impersonation (${previous})`,
     });
-    navigate({ to: "/admin" });
+    navigate({ to: "/business/dashboard" });
   };
 
   if (!mounted) return null;

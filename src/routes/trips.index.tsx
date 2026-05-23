@@ -38,11 +38,11 @@ function TripsList() {
       return;
     }
     if (viewAs === "admin") {
-      nav({ to: "/admin" });
+      nav({ to: "/business/dashboard" });
       return;
     }
     if (viewAs === "business") {
-      nav({ to: "/advertise/portal" });
+      nav({ to: "/business/dashboard" });
       return;
     }
     if (viewAs === "visitor") {
@@ -63,7 +63,7 @@ function TripsList() {
               <p className="mt-1 text-muted-foreground">Saved day plans, ready when you are.</p>
             </div>
             <Link
-              to="/create"
+              to="/app/plan"
               className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-pop"
             >
               <CalendarPlus className="h-4 w-4" /> Plan a new day
@@ -84,7 +84,7 @@ function TripsList() {
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-3">
                 <Link
-                  to="/create"
+                  to="/app/plan"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
                 >
                   <CalendarPlus className="h-4 w-4" /> Plan a day

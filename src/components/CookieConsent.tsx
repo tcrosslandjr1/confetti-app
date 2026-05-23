@@ -158,7 +158,7 @@ export function CookieConsent() {
                 <p className="text-xs leading-relaxed text-ink/75">
                   Confetti uses cookies to keep you signed in, remember your taste, and learn what
                   picks land. By tapping <strong>Accept</strong> you also agree to our{" "}
-                  <Link to="/terms" className="font-bold underline underline-offset-2">
+                  <Link to="/privacy" hash="terms-note" className="font-bold underline underline-offset-2">
                     Terms
                   </Link>
                   ,{" "}
@@ -166,7 +166,7 @@ export function CookieConsent() {
                     Privacy Policy
                   </Link>
                   , and{" "}
-                  <Link to="/cookies" className="font-bold underline underline-offset-2">
+                  <Link to="/privacy" hash="cookies-note" className="font-bold underline underline-offset-2">
                     Cookie Policy
                   </Link>
                   .
@@ -256,7 +256,7 @@ export function CookieConsent() {
 
             <p className="rounded-lg bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
               Saving any choice below also confirms you've read and accepted our{" "}
-              <Link to="/terms" className="font-semibold underline underline-offset-2">
+              <Link to="/privacy" hash="terms-note" className="font-semibold underline underline-offset-2">
                 Terms
               </Link>
               ,{" "}
@@ -264,7 +264,7 @@ export function CookieConsent() {
                 Privacy Policy
               </Link>
               , and{" "}
-              <Link to="/cookies" className="font-semibold underline underline-offset-2">
+              <Link to="/privacy" hash="cookies-note" className="font-semibold underline underline-offset-2">
                 Cookie Policy
               </Link>
               .

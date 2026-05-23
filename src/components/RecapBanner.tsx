@@ -44,8 +44,8 @@ export function RecapBanner() {
           </div>
         </div>
         <Link
-          to="/recap/$itineraryId"
-          params={{ itineraryId: pending.id }}
+          to="/trips/$id"
+          params={{ id: pending.id }}
           className="inline-flex items-center rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream"
         >
           Rate

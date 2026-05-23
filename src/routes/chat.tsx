@@ -67,7 +67,7 @@ function ChatPage() {
       <header className="sticky top-0 z-10 border-b-2 border-ink bg-cream/95 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-md items-center gap-3 px-4">
           <Link
-            to="/portal"
+            to="/app"
             className="grid h-8 w-8 place-items-center rounded-full hover:bg-muted"
           >
             <ArrowLeft className="h-4 w-4" />

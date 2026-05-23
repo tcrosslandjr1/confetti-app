@@ -17,6 +17,13 @@
   </head>
   <body>
     <div id="root">
+      <div style="display:flex;align-items:center;justify-content:center;min-height:100dvh;background:#faf9f6">
+        <style>
+          @keyframes cfspin{to{transform:rotate(360deg)}}
+          .cf-loader{width:36px;height:36px;border:3px solid #f0e6e0;border-top-color:#EE5A9D;border-radius:50%;animation:cfspin .7s linear infinite}
+        </style>
+        <div class="cf-loader"></div>
+      </div>
     </div>
     <script>
       // SPA redirect recovery: if the user hit a non-root URL directly and

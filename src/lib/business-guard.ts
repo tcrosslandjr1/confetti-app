@@ -16,6 +16,6 @@ export async function requireBusinessOwner() {
     (r) => r.role === "admin" || r.role === "business_owner"
   );
   if (!hasRole) {
-    throw redirect({ to: "/portal" });
+    throw redirect({ to: "/" });
   }
 }

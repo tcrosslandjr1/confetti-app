@@ -12,7 +12,7 @@ const StopSchema = z.object({
 });
 
 const PayloadSchema = z.object({
-  loopId: z.string().min(1).max(64),
+  planId: z.string().min(1).max(64),
   passenger: z.string().min(1).max(80),
   from: z.string().min(1).max(80),
   to: z.string().min(1).max(80),
@@ -95,7 +95,7 @@ export const Route = createFileRoute("/api/admin/wallet/google-debug")({
         }
         const data = parsed.data;
 
-        const objectSuffix = `${data.loopId}`.replace(/[^a-zA-Z0-9_-]/g, "_");
+        const objectSuffix = `${data.planId}`.replace(/[^a-zA-Z0-9_-]/g, "_");
         const objectId = issuerId ? `${issuerId}.${objectSuffix}` : `<issuerId>.${objectSuffix}`;
         const itinerary = data.stops
           .map(
@@ -106,8 +106,8 @@ export const Route = createFileRoute("/api/admin/wallet/google-debug")({
 
         const barcode = {
           type: "QR_CODE" as const,
-          value: `${origin}/active-confetti?loop=${encodeURIComponent(data.loopId)}`,
-          alternateText: data.loopId,
+          value: `${origin}/active-confetti?plan=${encodeURIComponent(data.planId)}`,
+          alternateText: data.planId,
         };
 
         const genericObject = {

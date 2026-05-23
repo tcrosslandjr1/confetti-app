@@ -14,7 +14,7 @@ export const Route = createFileRoute("/business/claim")({
   beforeLoad: async () => {
     const { data } = await supabase.auth.getUser();
     if (!data.user) {
-      throw redirect({ to: "/business/signup" });
+      throw redirect({ to: "/business/login" });
     }
   },
   component: ClaimPage,

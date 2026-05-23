@@ -12,14 +12,15 @@ type Props = {
   preset?: WizardPreset;
 };
 
-/** Opens the Build-My-Night wizard. Requires a signed-in user.
+/** Opens the Build-My-Night wizard. Requires a signed-in customer.
  *  Without auth, every wizard run produces venues that can't be saved
  *  to a profile, booked, or learned-from — so we redirect to /auth and
- *  return the user here after sign-in. */
+ *  return the user here after sign-in.
+ *  Admin/business/visitor roles are blocked. */
 export function WizardButton({ children, className, ariaLabel, preset }: Props) {
   const { openWizard } = useWizard();
   const { burst, layer } = useConfettiBurst();
-  const { user, loading } = useAuth();
+  const { user, loading, effectiveRole } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,6 +38,13 @@ export function WizardButton({ children, className, ariaLabel, preset }: Props) 
               description: "Your plan saves to your profile so AI can learn your taste.",
             });
             navigate({ to: "/auth", search: { redirect: location.pathname, mode: "signin" as const } });
+            return;
+          }
+          // Only customers can use the wizard — admin/business/visitor get a toast
+          if (effectiveRole !== "customer") {
+            toast.message("Switch to Customer view to plan a night", {
+              description: "The wizard is only available in customer mode.",
+            });
             return;
           }
           burst(e.clientX, e.clientY);

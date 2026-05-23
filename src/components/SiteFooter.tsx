@@ -8,18 +8,18 @@ const navCols = [
   {
     title: "Plan",
     items: [
-      { to: "/create", label: "Build my night" },
-      { to: "/discover", label: "Discover venues" },
+      { to: "/app/plan", label: "Build my night" },
+      { to: "/app/explore", label: "Discover venues" },
       { to: "/events", label: "What's on" },
-      { to: "/portal/bookings", label: "My bookings" },
+      { to: "/app/profile", label: "My bookings" },
     ],
   },
   {
     title: "Product",
     items: [
-      { to: "/features", label: "Features" },
-      { to: "/how-it-works", label: "How it works" },
-      { to: "/pricing", label: "Pricing" },
+      { to: "/about", label: "Features" },
+      { to: "/about", label: "How it works" },
+      { to: "/about", label: "Pricing" },
       { to: "/auth", label: "Sign in" },
     ],
   },
@@ -27,16 +27,16 @@ const navCols = [
     title: "Company",
     items: [
       { to: "/about", label: "About" },
-      { to: "/contact", label: "Contact" },
-      { to: "/advertise", label: "For venues" },
+      { to: "/about", label: "Contact" },
+      { to: "/for-business", label: "For venues" },
     ],
   },
 ] as const;
 
 const legalLinks = [
   { to: "/privacy", label: "Privacy" },
-  { to: "/terms", label: "Terms" },
-  { to: "/data-terms", label: "Data terms" },
+  { to: "/privacy", label: "Terms" },
+  { to: "/privacy", label: "Data terms" },
 ] as const;
 
 const socials = [

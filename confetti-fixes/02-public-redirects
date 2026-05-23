@@ -1,0 +1,12 @@
+# FIX: SPA Fallback
+# CREATE this file at: public/_redirects
+#
+# Problem: Direct URL navigation (typing a URL or refreshing) returns
+# a server 404 because the server doesn't know about client-side routes.
+# This rule tells the hosting platform to serve index.html for ALL paths,
+# letting TanStack Router handle routing on the client.
+#
+# Lovable may already handle this automatically, but having this file
+# is a harmless safety net that works on Netlify, Cloudflare Pages, etc.
+
+/*    /index.html   200

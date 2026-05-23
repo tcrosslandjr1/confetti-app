@@ -224,7 +224,7 @@ function AboutPage() {
           <p className="mx-auto mt-5 max-w-xl text-lg text-cream/80">
             We're building this in the open and we read everything.
           </p>
-          <Link to="/contact" className="mt-8 inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-coral px-7 text-base font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg">
+          <Link to="/about" className="mt-8 inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-coral px-7 text-base font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg">
             Say hi <ArrowUpRight className="h-5 w-5"/>
           </Link>
         </div>

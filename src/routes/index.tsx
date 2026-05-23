@@ -840,7 +840,7 @@ function Landing() {
               <span className="font-serif italic font-normal">Zero spirals.</span>
             </h2>
             <Link
-              to="/how-it-works"
+              to="/about"
               className="hidden items-center gap-1 font-mono text-xs uppercase tracking-widest underline underline-offset-4 sm:inline-flex"
             >
               full walkthrough <ArrowUpRight className="h-3 w-3" />
@@ -890,7 +890,7 @@ function Landing() {
               </p>
             </div>
             <GatedAction
-              to="/create"
+              to="/chat"
               feature="planning"
               className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
             >
@@ -906,7 +906,7 @@ function Landing() {
               return (
                 <Link
                   key={o.slug}
-                  to="/ideas/$slug"
+                  to="/app/explore"
                   params={{ slug: o.slug }}
                   className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut`}
                 >
@@ -954,7 +954,7 @@ function Landing() {
               return (
                 <Reveal key={o.slug} delay={i * 50} className={`${span} sm:col-span-2 lg:col-auto`}>
                   <Link
-                    to="/ideas/$slug"
+                    to="/app/explore"
                     params={{ slug: o.slug }}
                     style={{ transform: `rotate(${tilt}deg)` }}
                     className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:shadow-brut-lg`}
@@ -1138,10 +1138,10 @@ function Landing() {
               and a taste profile that gets sharper every week.
             </p>
             <Link
-              to="/pricing"
+              to="/auth"
               className="mt-7 inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-bold text-cream shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg"
             >
-              See the tiers <ArrowUpRight className="h-4 w-4" />
+              Get started free <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
@@ -1277,10 +1277,10 @@ function Landing() {
                 <ArrowUpRight className="h-5 w-5 transition-transform group-hover:rotate-45" />
               </WizardButton>
               <Link
-                to="/features"
+                to="/about"
                 className="inline-flex h-16 items-center rounded-full border-2 border-cream px-10 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink"
               >
-                Tour the features
+                Learn more
               </Link>
             </div>
 
@@ -1389,14 +1389,14 @@ function Landing() {
             </ul>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
-                to="/advertise"
+                to="/business"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
               >
                 See packages{" "}
                 <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-45" />
               </Link>
               <Link
-                to="/advertise/portal"
+                to="/business/login"
                 className="inline-flex h-12 items-center justify-center rounded-full border-2 border-cream/60 px-6 text-sm font-bold text-cream transition-pop hover:bg-cream/10"
               >
                 Already a partner? Sign in
@@ -1552,10 +1552,10 @@ function Landing() {
               Straight answers about how Confetti works, pricing, bookings, and everything else.
             </p>
             <Link
-              to="/faq"
+              to="/about"
               className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
             >
-              Read the FAQ <ArrowUpRight className="h-4 w-4" />
+              Learn more <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

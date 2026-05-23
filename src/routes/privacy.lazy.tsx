@@ -174,18 +174,43 @@ function PrivacyPage() {
               privacy@confettiplan.app
             </a>
             . See also our{" "}
-            <Link to="/cookies" className="text-foreground underline">
+            <a href="#cookies-note" className="text-foreground underline">
               Cookie Policy
-            </Link>
+            </a>
             ,{" "}
-            <Link to="/terms" className="text-foreground underline">
+            <a href="#terms-note" className="text-foreground underline">
               Terms of Service
-            </Link>
+            </a>
             , and{" "}
             <Link to="/accessibility" className="text-foreground underline">
               Accessibility Statement
             </Link>
             .
+          </p>
+        </Section>
+      </div>
+
+      <div className="mt-10 space-y-10">
+        <Section id="cookies-note" title="Cookie Policy">
+          <p>
+            Confettiplan uses only essential cookies required for authentication and session
+            management. We do not use third-party advertising cookies. If we add optional analytics
+            cookies in the future you will be prompted for consent before they are set. You can
+            manage your analytics preference using the toggle at the top of this page.
+          </p>
+        </Section>
+
+        <Section id="terms-note" title="Terms of Service (Summary)">
+          <p>
+            By using Confettiplan you agree to use the service lawfully and respect other users. We
+            provide the platform "as is" and are not liable for venue availability, pricing, or
+            third-party content. You retain ownership of content you create; we need a limited
+            licence to display it within the app. Full terms will be published at a dedicated URL
+            before public launch — contact{" "}
+            <a className="text-foreground underline" href="mailto:legal@confettiplan.app">
+              legal@confettiplan.app
+            </a>{" "}
+            with questions.
           </p>
         </Section>
       </div>

@@ -1,4 +1,4 @@
-import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -298,7 +298,7 @@ function AIInsights() {
         icon={<Sparkles className="h-4 w-4 text-primary" />}
         action={
           <Button variant="ghost" size="sm" className="text-xs" asChild>
-            <Link to="/business/notifications">View all <ChevronRight className="ml-1 h-3 w-3" /></Link>
+            <span className="inline-flex items-center">View all <ChevronRight className="ml-1 h-3 w-3" /></span>
           </Button>
         }
       />
@@ -384,14 +384,12 @@ function EventsPreview() {
         title="Upcoming events"
         action={
           <div className="flex gap-2">
-            <Button size="sm" variant="outline" asChild>
-              <Link to="/business/events">Manage all</Link>
+            <Button size="sm" variant="outline" disabled>
+              Manage all
             </Button>
-            <Button size="sm" asChild>
-              <Link to="/business/events">
-                <CalendarPlus className="mr-1.5 h-3.5 w-3.5" />
-                Add
-              </Link>
+            <Button size="sm" disabled>
+              <CalendarPlus className="mr-1.5 h-3.5 w-3.5" />
+              Add
             </Button>
           </div>
         }
@@ -440,14 +438,12 @@ function MediaPreview() {
         title="Your photos & media"
         action={
           <div className="flex gap-2">
-            <Button size="sm" variant="outline" asChild>
-              <Link to="/business/media">Gallery</Link>
+            <Button size="sm" variant="outline" disabled>
+              Gallery
             </Button>
-            <Button size="sm" asChild>
-              <Link to="/business/media">
-                <ImageIcon className="mr-1.5 h-3.5 w-3.5" />
-                Upload
-              </Link>
+            <Button size="sm" disabled>
+              <ImageIcon className="mr-1.5 h-3.5 w-3.5" />
+              Upload
             </Button>
           </div>
         }
@@ -476,8 +472,8 @@ function SocialPanel() {
       <SectionHeader
         title="Social accounts"
         action={
-          <Button size="sm" variant="outline" asChild>
-            <Link to="/business/social">Settings</Link>
+          <Button size="sm" variant="outline" disabled>
+            Settings
           </Button>
         }
       />
@@ -519,8 +515,8 @@ function SocialRow({
           </div>
         </div>
       </div>
-      <Button size="sm" variant={connected ? "outline" : "default"} asChild>
-        <Link to="/business/social">{connected ? "Edit" : "Connect"}</Link>
+      <Button size="sm" variant={connected ? "outline" : "default"} disabled>
+        {connected ? "Edit" : "Connect"}
       </Button>
     </div>
   );
@@ -541,8 +537,8 @@ function PromotionPanel({ unlocked }: { unlocked: boolean }) {
           Promotion tools are invite-only. Request access and our team will reach out within 24
           hours.
         </p>
-        <Button className="mt-4" size="sm" asChild>
-          <Link to="/business/pricing">Request access</Link>
+        <Button className="mt-4" size="sm" disabled>
+          Request access
         </Button>
       </Card>
     );
@@ -556,7 +552,7 @@ function PromotionPanel({ unlocked }: { unlocked: boolean }) {
       <SectionHeader
         title="Promotion tools"
         icon={<Megaphone className="h-4 w-4 text-primary" />}
-        action={<Button size="sm" asChild><Link to="/business/promoters">Manage</Link></Button>}
+        action={<Button size="sm" disabled>Manage</Button>}
       />
       <div className="mb-3 flex items-baseline gap-2">
         <span className="text-2xl font-bold">Boost Level 2</span>
@@ -585,8 +581,8 @@ function AnalyticsPreview({ daily }: { daily?: any[] }) {
       <SectionHeader
         title="Performance overview"
         action={
-          <Button size="sm" variant="outline" asChild>
-            <Link to="/business/notifications">Full analytics</Link>
+          <Button size="sm" variant="outline" disabled>
+            Full analytics
           </Button>
         }
       />
@@ -633,11 +629,9 @@ function AIRefreshStatus() {
         title="AI monthly refresh"
         icon={<RefreshCw className="h-4 w-4 text-primary" />}
         action={
-          <Button size="sm" variant="outline" asChild>
-            <Link to="/business/ai-refresh">
-              <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
-              Run refresh
-            </Link>
+          <Button size="sm" variant="outline" disabled>
+            <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
+            Run refresh
           </Button>
         }
       />
@@ -676,9 +670,9 @@ function DashboardFooter() {
           <a href="mailto:support@confetti.app" className="hover:text-foreground">
             Support
           </a>
-          <Link to="/business/pricing" className="hover:text-foreground">
+          <a href="#" className="hover:text-foreground">
             Pricing
-          </Link>
+          </a>
           <a href="#" className="hover:text-foreground">
             Terms
           </a>

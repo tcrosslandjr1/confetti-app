@@ -14,53 +14,42 @@ type Tab = {
 };
 
 const CUSTOMER_TABS: Tab[] = [
-  { to: "/", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/portal" },
+  { to: "/app", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/app" },
   {
-    to: "/discover",
-    label: "Discover",
+    to: "/app/explore",
+    label: "Explore",
     icon: Search,
-    match: (p) => p.startsWith("/discover") || p.startsWith("/viral") || p.startsWith("/venue"),
+    match: (p) => p.startsWith("/app/explore") || p.startsWith("/venue"),
   },
   {
-    to: "/create",
+    to: "/app/plan",
     label: "Plan",
     icon: Plus,
     prominent: true,
-    match: (p) => p.startsWith("/create") || p.startsWith("/quick-generate"),
+    match: (p) => p.startsWith("/app/plan") || p.startsWith("/trips"),
   },
-  { to: "/passport", label: "Passport", icon: Award, match: (p) => p.startsWith("/passport") },
+  { to: "/chat", label: "Chat", icon: Award, match: (p) => p.startsWith("/chat") },
   {
-    to: "/me",
+    to: "/app/profile",
     label: "Profile",
     icon: User,
-    match: (p) => p.startsWith("/me") || p.startsWith("/portal/profile"),
+    match: (p) => p.startsWith("/app/profile"),
   },
 ];
 
 const BUSINESS_TABS: Tab[] = [
   { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard, match: (p) => p.startsWith("/business/dashboard") },
-  { to: "/business/events", label: "Events", icon: CalendarPlus, match: (p) => p.startsWith("/business/events") },
-  { to: "/business/media", label: "Media", icon: ImageIcon, match: (p) => p.startsWith("/business/media") },
-  { to: "/business/social", label: "Social", icon: Link2, match: (p) => p.startsWith("/business/social") },
-  { to: "/business/settings", label: "Settings", icon: Settings, match: (p) => p.startsWith("/business/settings") },
+  { to: "/business/claim", label: "Claim", icon: CalendarPlus, match: (p) => p.startsWith("/business/claim") },
+  { to: "/business", label: "Home", icon: ImageIcon, match: (p) => p === "/business" },
 ];
 
 const HIDE_PREFIXES = [
-  "/admin",
   "/auth",
-  "/onboarding",
-  "/taste-tuner",
   "/about",
-  "/pricing",
-  "/features",
-  "/how-it-works",
-  "/contact",
-  "/investors",
-  "/advertise",
-  "/data-terms",
+  "/privacy",
+  "/influencer",
   "/api",
-  "/concierge",
-  "/taste-tuner",
+  "/health",
 ];
 
 function TabItem({

@@ -286,19 +286,21 @@ function AuthPage() {
     setError(null);
     setOauthBusy(provider);
     try {
-      const { data, error: oauthError } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-          redirectTo: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
-          queryParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
-        },
+      const result = await lovable.auth.signInWithOAuth(provider, {
+        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
+        extraParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
       });
-      if (oauthError) {
-        setError(explainOAuthError(provider, oauthError.message));
+      if (result.error) {
+        setError(explainOAuthError(provider, (result.error as Error)?.message ?? String(result.error)));
         setOauthBusy(null);
         return;
       }
-      // Supabase redirects the browser to the provider — leave busy spinner on.
+      if (result.redirected) {
+        // Browser is being redirected to the provider — leave spinner on.
+        return;
+      }
+      // Tokens received and session set — navigate to destination.
+      navigate({ to: safeRedirectTo as any });
     } catch (e: any) {
       setError(explainOAuthError(provider, e?.message ?? String(e)));
       setOauthBusy(null);

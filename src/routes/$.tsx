@@ -6,6 +6,10 @@ import { createFileRoute, Link, Navigate } from "@tanstack/react-router";
  * Prefix-matched: "/admin/anything" matches the "/admin" key.
  */
 const REDIRECTS: Record<string, string> = {
+  // ── Preview / static-host aliases ────────────────────────
+  "/index": "/",
+  "/index.html": "/",
+
   // ── Discovery (merged into Home) ─────────────────────────
   "/tonight": "/app",
   "/discover": "/app",

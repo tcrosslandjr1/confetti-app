@@ -442,18 +442,18 @@ export const listVenueBookings = createServerFn({ method: "GET" })
       limit: z.number().int().min(1).max(50).default(20),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     let q = supabase
       .from("bookings")
       .select(
-        "id, user_id, confirmation_code, party_size, booking_time, status, special_requests, created_at, cancelled_at, cancellation_reason",
+        "id, user_id, confirmation_code, party_size, starts_at, status, notes, created_at, cancelled_at, admin_notes",
         { count: "exact" },
       )
       .eq("venue_id", input.venueId)
-      .order("booking_time", { ascending: false });
+      .order("starts_at", { ascending: false });
 
     if (input.status !== "all") {
       q = q.eq("status", input.status);
@@ -467,14 +467,14 @@ export const listVenueBookings = createServerFn({ method: "GET" })
 
     // Fetch passenger profiles for the bookings
     const userIds = [...new Set((data ?? []).map((b) => b.user_id))];
-    let profiles: Record<string, { display_name: string | null; avatar_url: string | null }> = {};
+    let profiles: Record<string, { display_name: string | null; avatar_url?: string | null }> = {};
     if (userIds.length) {
       const { data: profileData } = await supabase
         .from("profiles")
-        .select("id, display_name, avatar_url")
+        .select("id, display_name")
         .in("id", userIds);
       profiles = Object.fromEntries(
-        (profileData ?? []).map((p) => [p.id, { display_name: p.display_name, avatar_url: p.avatar_url }]),
+        (profileData ?? []).map((p) => [p.id, { display_name: p.display_name, avatar_url: null }]),
       );
     }
 
@@ -492,7 +492,7 @@ export const listVenueBookings = createServerFn({ method: "GET" })
 export const getVenueBookingStats = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid() }))
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -502,7 +502,7 @@ export const getVenueBookingStats = createServerFn({ method: "GET" })
     // Get counts by status
     const { data: all } = await supabase
       .from("bookings")
-      .select("status, party_size, booking_time")
+      .select("status, party_size, starts_at")
       .eq("venue_id", input.venueId)
       .gte("created_at", thirtyDaysAgo);
 
@@ -532,14 +532,14 @@ export const updateBookingStatus = createServerFn({ method: "POST" })
       reason: z.string().optional(),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const updates: Record<string, unknown> = { status: input.status };
     if (input.status === "cancelled") {
       updates.cancelled_at = new Date().toISOString();
-      updates.cancellation_reason = input.reason ?? "Cancelled by venue";
+      updates.admin_notes = input.reason ?? "Cancelled by venue";
     }
 
     const { error } = await supabase
@@ -562,7 +562,7 @@ export const listVenueNotifications = createServerFn({ method: "GET" })
       limit: z.number().int().min(1).max(50).default(20),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -596,7 +596,7 @@ export const markNotificationsRead = createServerFn({ method: "POST" })
       notificationIds: z.array(z.string().uuid()).optional(),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -622,7 +622,7 @@ export const markNotificationsRead = createServerFn({ method: "POST" })
 export const listVenueMenu = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid() }))
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -651,7 +651,7 @@ export const upsertMenuCategory = createServerFn({ method: "POST" })
       sort_order: z.number().int().optional(),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -677,7 +677,7 @@ export const upsertMenuCategory = createServerFn({ method: "POST" })
 export const deleteMenuCategory = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid(), categoryId: z.string().uuid() }))
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -706,7 +706,7 @@ export const upsertMenuItem = createServerFn({ method: "POST" })
       sort_order: z.number().int().optional(),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -745,7 +745,7 @@ export const upsertMenuItem = createServerFn({ method: "POST" })
 export const deleteMenuItem = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid(), itemId: z.string().uuid() }))
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -770,7 +770,7 @@ export const listVenuePreOrders = createServerFn({ method: "POST" })
       status: z.enum(["pending", "sent", "confirmed", "cancelled", "all"]).optional(),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -778,7 +778,7 @@ export const listVenuePreOrders = createServerFn({ method: "POST" })
       .from("booking_pre_orders")
       .select(`
         *,
-        booking:bookings(id, booking_time, party_size, confirmation_code),
+        booking:bookings(id, starts_at, party_size, confirmation_code),
         items:pre_order_items(*, menu_item:venue_menu_items(name, price_cents))
       `)
       .eq("venue_id", input.venueId)
@@ -803,7 +803,7 @@ export const updatePreOrderStatus = createServerFn({ method: "POST" })
       status: z.enum(["confirmed", "cancelled"]),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -830,7 +830,7 @@ export const listVenueCorporateBookings = createServerFn({ method: "POST" })
       limit: z.number().int().min(1).max(50).optional(),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
@@ -871,7 +871,7 @@ export const getVenueAnalytics = createServerFn({ method: "POST" })
       days: z.number().int().min(1).max(90).optional(),
     }),
   )
-  .handler(async ({ context, input }) => {
+  .handler(async ({ context, data: input }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 

@@ -12,7 +12,14 @@ function adminClient() {
   });
 }
 
-async function isAdmin(supabase: ReturnType<typeof adminClient>, userId: string) {
+type AdminDb = ReturnType<typeof adminClient>;
+type UntypedAdminDb = AdminDb & { from: (table: string) => any };
+
+function untypedDb(db: AdminDb): UntypedAdminDb {
+  return db as UntypedAdminDb;
+}
+
+async function isAdmin(supabase: AdminDb, userId: string) {
   const { data } = await supabase
     .from("user_roles")
     .select("role")
@@ -23,7 +30,7 @@ async function isAdmin(supabase: ReturnType<typeof adminClient>, userId: string)
 }
 
 async function assertCanManageVenue(
-  supabase: ReturnType<typeof adminClient>,
+  supabase: AdminDb,
   userId: string,
   venueId: string,
 ) {

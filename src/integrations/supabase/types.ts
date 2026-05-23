@@ -2141,6 +2141,39 @@ export type Database = {
           },
         ]
       }
+      notification_preferences: {
+        Row: {
+          created_at: string
+          email_confirmations: boolean
+          email_reminders: boolean
+          phone_number: string | null
+          push_enabled: boolean
+          sms_reminders: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email_confirmations?: boolean
+          email_reminders?: boolean
+          phone_number?: string | null
+          push_enabled?: boolean
+          sms_reminders?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email_confirmations?: boolean
+          email_reminders?: boolean
+          phone_number?: string | null
+          push_enabled?: boolean
+          sms_reminders?: boolean
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       notifications: {
         Row: {
           body: string | null
@@ -2500,6 +2533,7 @@ export type Database = {
           onboarding_complete: boolean
           preferred_ride: string
           preferred_vehicle: string | null
+          selected_plan: string
           updated_at: string
           vip_until: string | null
           xp: number
@@ -2514,6 +2548,7 @@ export type Database = {
           onboarding_complete?: boolean
           preferred_ride?: string
           preferred_vehicle?: string | null
+          selected_plan?: string
           updated_at?: string
           vip_until?: string | null
           xp?: number
@@ -2528,6 +2563,7 @@ export type Database = {
           onboarding_complete?: boolean
           preferred_ride?: string
           preferred_vehicle?: string | null
+          selected_plan?: string
           updated_at?: string
           vip_until?: string | null
           xp?: number
@@ -2857,6 +2893,36 @@ export type Database = {
           updated_at?: string
           user_id?: string
           verified_at?: string | null
+        }
+        Relationships: []
+      }
+      push_subscriptions: {
+        Row: {
+          auth_key: string
+          created_at: string
+          endpoint: string
+          id: string
+          p256dh: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          auth_key: string
+          created_at?: string
+          endpoint: string
+          id?: string
+          p256dh: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          auth_key?: string
+          created_at?: string
+          endpoint?: string
+          id?: string
+          p256dh?: string
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
@@ -3508,6 +3574,36 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      trip_status_events: {
+        Row: {
+          actor_id: string
+          created_at: string
+          group_id: string
+          id: string
+          kind: string
+          payload: Json
+          plan_id: string
+        }
+        Insert: {
+          actor_id: string
+          created_at?: string
+          group_id: string
+          id?: string
+          kind: string
+          payload?: Json
+          plan_id: string
+        }
+        Update: {
+          actor_id?: string
+          created_at?: string
+          group_id?: string
+          id?: string
+          kind?: string
+          payload?: Json
+          plan_id?: string
+        }
+        Relationships: []
       }
       trips: {
         Row: {

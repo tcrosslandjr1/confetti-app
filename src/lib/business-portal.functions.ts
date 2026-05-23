@@ -13,10 +13,8 @@ function adminClient() {
 }
 
 type AdminDb = ReturnType<typeof adminClient>;
-type UntypedAdminDb = AdminDb & { from: (table: string) => any };
-
-function untypedDb(db: AdminDb): UntypedAdminDb {
-  return db as UntypedAdminDb;
+function untypedDb(db: AdminDb): any {
+  return db as any;
 }
 
 async function isAdmin(supabase: AdminDb, userId: string) {

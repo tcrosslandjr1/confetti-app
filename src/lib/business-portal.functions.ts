@@ -47,7 +47,7 @@ async function assertCanManageVenue(
 export const listMyManagedVenues = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     const admin = await isAdmin(supabase, context.userId);
     let q = supabase
       .from("venues")
@@ -64,7 +64,7 @@ export const getManagedVenue = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid() }))
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const { data: row, error } = await supabase
       .from("venues")
@@ -90,7 +90,7 @@ export const uploadOfficialPhoto = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(UploadInput)
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
 
     const safe = data.filename.replace(/[^a-zA-Z0-9._-]/g, "_");
@@ -127,7 +127,7 @@ export const removeOfficialPhoto = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid(), url: z.string().url() }))
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
 
     const { data: row } = await supabase
@@ -156,7 +156,7 @@ export const setHeroImage = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid(), url: z.string().url() }))
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const { error } = await supabase
       .from("venues")
@@ -170,7 +170,7 @@ export const toggleMediaHidden = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid(), url: z.string().url() }))
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const { data: row } = await supabase
       .from("venues")
@@ -207,7 +207,7 @@ export const updateVenueSocial = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(SocialInput)
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
 
     const normTag = (s: string) => s.trim().replace(/^#/, "").toLowerCase();
@@ -238,7 +238,7 @@ export const disconnectSocial = createServerFn({ method: "POST" })
     z.object({ venueId: z.string().uuid(), platform: z.enum(["tiktok", "instagram"]) }),
   )
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const update =
       data.platform === "tiktok"
@@ -270,7 +270,7 @@ export const requestVenueRefresh = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid() }))
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const { refreshOneVenue } = await import("./venue-media.functions");
     return refreshOneVenue(data.venueId);
@@ -281,7 +281,7 @@ export const requestVenueRefresh = createServerFn({ method: "POST" })
 export const listMyVenueEvents = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     const admin = await isAdmin(supabase, context.userId);
     let vq = supabase.from("venues").select("id, name");
     if (!admin) vq = vq.eq("claimed_by", context.userId);
@@ -304,7 +304,7 @@ export const deleteVenueEvent = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ eventId: z.string().uuid() }))
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     const { data: ev } = await supabase
       .from("events")
       .select("venue_id")
@@ -338,7 +338,7 @@ export const createVenueEvent = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(CreateEventInput)
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const { data: venue } = await supabase
       .from("venues")
@@ -387,7 +387,7 @@ export const updateVenueSettings = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(SettingsInput)
   .handler(async ({ data, context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const { venueId, ...rest } = data;
     const update: Record<string, unknown> = {};
@@ -409,7 +409,7 @@ export const updateVenueSettings = createServerFn({ method: "POST" })
 export const getMyBusinessSubscription = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     const { data, error } = await supabase
       .from("subscriptions")
       .select(
@@ -441,7 +441,7 @@ export const listVenueBookings = createServerFn({ method: "GET" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     let q = supabase
@@ -491,7 +491,7 @@ export const getVenueBookingStats = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid() }))
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const now = new Date().toISOString();
@@ -531,7 +531,7 @@ export const updateBookingStatus = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const updates: Record<string, unknown> = { status: input.status };
@@ -621,7 +621,7 @@ export const listVenueMenu = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid() }))
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const { data: categories } = await supabase
@@ -650,7 +650,7 @@ export const upsertMenuCategory = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     if (input.id) {
@@ -676,7 +676,7 @@ export const deleteMenuCategory = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid(), categoryId: z.string().uuid() }))
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const { error } = await supabase
@@ -705,7 +705,7 @@ export const upsertMenuItem = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const row = {
@@ -744,7 +744,7 @@ export const deleteMenuItem = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(z.object({ venueId: z.string().uuid(), itemId: z.string().uuid() }))
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const { error } = await supabase
@@ -769,7 +769,7 @@ export const listVenuePreOrders = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     let q = supabase
@@ -802,7 +802,7 @@ export const updatePreOrderStatus = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const { error } = await supabase
@@ -829,7 +829,7 @@ export const listVenueCorporateBookings = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const limit = input.limit ?? 20;
@@ -870,7 +870,7 @@ export const getVenueAnalytics = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ context, data: input }) => {
-    const supabase = adminClient();
+    const supabase = untypedDb(adminClient());
     await assertCanManageVenue(supabase, context.userId, input.venueId);
 
     const days = input.days ?? 30;

@@ -295,6 +295,26 @@ export function replaceStop(
   return updated;
 }
 
+/** Reorder the stops array in-place to the given id sequence and persist. */
+export function reorderStops(orderedIds: string[]): ActiveLoop | null {
+  const loop = getActiveLoop();
+  if (!loop) return null;
+  const byId = new Map(loop.stops.map((s) => [s.id, s]));
+  const next: LoopStop[] = [];
+  for (const id of orderedIds) {
+    const s = byId.get(id);
+    if (s) {
+      next.push(s);
+      byId.delete(id);
+    }
+  }
+  // Append any leftovers that weren't named (defensive — shouldn't happen).
+  for (const s of byId.values()) next.push(s);
+  const updated: ActiveLoop = { ...loop, stops: next };
+  setActiveLoop(updated);
+  return updated;
+}
+
 /** Append a stop to the end of the loop (or insert at a given index). */
 export function addStop(
   stop: LoopStop,

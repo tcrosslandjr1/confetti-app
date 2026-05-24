@@ -376,6 +376,28 @@ export async function insertStop(
 }
 
 /**
+ * Persist a new order for all stops on an itinerary.
+ * `orderedStopIds` is the new sequence; positions are renumbered 0..N-1.
+ */
+export async function reorderItineraryStops(
+  itineraryId: string,
+  orderedStopIds: string[],
+): Promise<void> {
+  // Issue updates in parallel — each row is keyed by id so order doesn't matter.
+  const updates = orderedStopIds.map((stopId, idx) =>
+    supabase
+      .from("itinerary_stops")
+      .update({ position: idx })
+      .eq("id", stopId)
+      .eq("itinerary_id", itineraryId),
+  );
+  const results = await Promise.all(updates);
+  const failed = results.find((r) => r.error);
+  if (failed?.error) throw new Error(failed.error.message);
+  emitItineraryChanged();
+}
+
+/**
  * Remove a stop and renumber the remaining positions to keep them contiguous.
  */
 export async function deleteStop(stopId: string): Promise<void> {

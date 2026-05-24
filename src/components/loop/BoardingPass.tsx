@@ -21,16 +21,36 @@ import {
   MoreVertical,
   ArrowLeftRight,
   Trash2,
+  GripVertical,
 } from "lucide-react";
 import {
   checkInStop,
   removeStop,
+  reorderStops,
   replaceStop,
   setActiveLoop,
   type ActiveLoop,
   type LoopStop,
   type StopKind,
 } from "@/lib/loop-store";
+import {
+  DndContext,
+  PointerSensor,
+  TouchSensor,
+  KeyboardSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  arrayMove,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,7 +68,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { VenuePickerModal, venueToStopPayload } from "@/components/loop/VenuePickerModal";
+import { VenuePickerModal, venueToStopPayload, type PickedVenue } from "@/components/loop/VenuePickerModal";
 import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
 import { fetchVenueIntel, type VenueIntel, type FetchStatus } from "@/lib/agents/venue-intel";
@@ -129,6 +149,34 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [qrPending, setQrPending] = useState(false);
   const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
   const [bookingOpen, setBookingOpen] = useState(false);
+
+  // Drag-to-reorder sensors. Use a small activation distance so a tap on
+  // any card button still works without accidentally starting a drag.
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 180, tolerance: 8 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
+  );
+
+  function handleDragEnd(e: DragEndEvent) {
+    const { active, over } = e;
+    if (!over || active.id === over.id) return;
+    const ids = loop.stops.map((s) => s.id);
+    const oldIndex = ids.indexOf(String(active.id));
+    const newIndex = ids.indexOf(String(over.id));
+    if (oldIndex < 0 || newIndex < 0) return;
+    const next = arrayMove(ids, oldIndex, newIndex);
+    reorderStops(next);
+    const stop = loop.stops.find((s) => s.id === active.id);
+    if (stop) {
+      logActivity({
+        tripId: loop.id,
+        actor: "You",
+        kind: "rescheduled",
+        message: `Moved ${stop.name} (${oldIndex + 1} → ${newIndex + 1})`,
+      });
+    }
+  }
 
   // Selected stop drives the "Get Directions" action. Defaults to the next
   // un-checked-in stop; user can switch by tapping any stop in the legend.
@@ -662,29 +710,33 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-3">
             Flight Plan · {loop.stops.length} stops
           </div>
-          <div>
-            {loop.stops.map((stop, i) => {
-              const kind = stopKind(stop, i, loop.stops.length);
-              return (
-                <div key={stop.id}>
-                  <StopCard
-                    loopId={loop.id}
-                    stop={stop}
-                    kind={kind}
-                    index={i}
-                    isLast={i === loop.stops.length - 1}
-                    city={loop.toName ?? loop.to ?? null}
-                  />
-                  {stop.driveAfter && (
-                    <DriveTimeChip
-                      minutes={stop.driveAfter.minutes}
-                      destination={stop.driveAfter.destination}
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+            <SortableContext items={loop.stops.map((s) => s.id)} strategy={verticalListSortingStrategy}>
+              <div>
+                {loop.stops.map((stop, i) => {
+                  const kind = stopKind(stop, i, loop.stops.length);
+                  return (
+                    <div key={stop.id}>
+                      <StopCard
+                        loopId={loop.id}
+                        stop={stop}
+                        kind={kind}
+                        index={i}
+                        isLast={i === loop.stops.length - 1}
+                        city={loop.toName ?? loop.to ?? null}
+                      />
+                      {stop.driveAfter && (
+                        <DriveTimeChip
+                          minutes={stop.driveAfter.minutes}
+                          destination={stop.driveAfter.destination}
+                        />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </SortableContext>
+          </DndContext>
         </div>
 
         {/* Compact map strip with numbered stop markers */}
@@ -1106,8 +1158,16 @@ function StopCard({
   const [swapOpen, setSwapOpen] = useState(false);
   const [confirmRemoveOpen, setConfirmRemoveOpen] = useState(false);
 
-  function handlePickSwap(v: { id: string; name: string; cuisine: string; neighborhood: string; address: string; lat: number; lng: number; price: string; priceLevel: number }) {
-    const payload = venueToStopPayload(v as Parameters<typeof venueToStopPayload>[0], {
+  const sortable = useSortable({ id: stop.id });
+  const dragStyle: React.CSSProperties = {
+    transform: CSS.Transform.toString(sortable.transform),
+    transition: sortable.transition,
+    opacity: sortable.isDragging ? 0.6 : 1,
+    zIndex: sortable.isDragging ? 20 : undefined,
+  };
+
+  function handlePickSwap(v: PickedVenue) {
+    const payload = venueToStopPayload(v, {
       time: stop.time,
       kind: kind,
     });
@@ -1120,7 +1180,7 @@ function StopCard({
       tripId: loopId,
       actor: "You",
       kind: "stop_swapped",
-      message: `Swapped stop to ${v.name}`,
+      message: `Swapped stop to ${v.name}${v.source === "ai" ? " (AI pick)" : ""}`,
       detail: v.neighborhood ? `${v.cuisine} · ${v.neighborhood}` : v.cuisine,
     });
     toast.success(`Swapped to ${v.name}`);
@@ -1217,6 +1277,8 @@ function StopCard({
 
   return (
     <div
+      ref={sortable.setNodeRef}
+      style={dragStyle}
       className={`relative flex gap-3 transition-all duration-500 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
       }`}
@@ -1244,6 +1306,16 @@ function StopCard({
           <div className={`font-mono text-[10px] font-bold uppercase tracking-widest ${tone.label}`}>
             {typeLabel} — {stop.time}
           </div>
+          <div className="flex items-center gap-0.5">
+          <button
+            type="button"
+            aria-label="Drag to reorder"
+            {...sortable.attributes}
+            {...sortable.listeners}
+            className="touch-none cursor-grab active:cursor-grabbing -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-ink/40 hover:bg-ink/8 hover:text-ink transition-colors"
+          >
+            <GripVertical className="h-4 w-4" />
+          </button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
@@ -1270,6 +1342,7 @@ function StopCard({
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          </div>
         </div>
         {stop.venueId ? (
           <Link

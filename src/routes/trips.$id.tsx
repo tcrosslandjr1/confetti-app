@@ -53,12 +53,32 @@ import {
   deleteItinerary,
   getItinerary,
   insertStop,
+  reorderItineraryStops,
   updateStop,
   type Itinerary,
   type Stop,
   type TravelLeg,
 } from "@/lib/itineraries";
-import { VenuePickerModal } from "@/components/loop/VenuePickerModal";
+import { VenuePickerModal, type PickedVenue } from "@/components/loop/VenuePickerModal";
+import {
+  DndContext,
+  PointerSensor,
+  TouchSensor,
+  KeyboardSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  arrayMove,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { GripVertical } from "lucide-react";
 import { LateRescheduleFab } from "@/components/LateRescheduleFab";
 import { LiveElapsed } from "@/components/LiveElapsed";
 import { BoardingPass } from "@/components/BoardingPass";
@@ -118,6 +138,42 @@ const CAT_ICONS: Record<string, typeof Utensils> = {
   other: Sparkles,
 };
 
+/** Wrapper that makes a single `<li>` sortable while exposing handle props. */
+function SortableStopLi({
+  id,
+  children,
+}: {
+  id: string;
+  children: (handle: {
+    handleProps: React.HTMLAttributes<HTMLButtonElement>;
+    isDragging: boolean;
+  }) => React.ReactNode;
+}) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
+  const style: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.6 : 1,
+    zIndex: isDragging ? 20 : undefined,
+  };
+  const handleProps = {
+    ...(attributes as React.HTMLAttributes<HTMLButtonElement>),
+    ...(listeners as React.HTMLAttributes<HTMLButtonElement>),
+  };
+  return (
+    <li ref={setNodeRef} style={style} className="relative">
+      {children({ handleProps, isDragging })}
+    </li>
+  );
+}
+
 /** Map a venue cuisine string to one of the Stop.category buckets. */
 function inferCategory(cuisine: string): Stop["category"] {
   const c = (cuisine || "").toLowerCase();
@@ -141,6 +197,38 @@ function TripDetail() {
   const [vibePrefs, setVibePrefs] = useState<VibePrefs>(() => loadVibePrefs());
   const [addStopOpen, setAddStopOpen] = useState(false);
   const [addingStop, setAddingStop] = useState(false);
+
+  const dndSensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 180, tolerance: 8 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
+  );
+
+  async function handleStopsReorder(e: DragEndEvent) {
+    const { active, over } = e;
+    if (!data || !over || active.id === over.id) return;
+    const ids = data.stops.map((s) => s.id).filter(Boolean) as string[];
+    const oldIndex = ids.indexOf(String(active.id));
+    const newIndex = ids.indexOf(String(over.id));
+    if (oldIndex < 0 || newIndex < 0) return;
+    const nextIds = arrayMove(ids, oldIndex, newIndex);
+    // Optimistic UI: reorder in-memory immediately, persist in background.
+    const byId = new Map(data.stops.map((s) => [s.id!, s]));
+    const nextStops: Stop[] = nextIds
+      .map((id, idx) => {
+        const s = byId.get(id);
+        return s ? { ...s, position: idx } : null;
+      })
+      .filter(Boolean) as Stop[];
+    setData({ ...data, stops: nextStops });
+    try {
+      await reorderItineraryStops(data.itinerary.id, nextIds);
+    } catch (err) {
+      toast.error("Couldn't save new order", { description: (err as Error).message });
+      // Refetch to recover the canonical order on failure.
+      fetchTrip();
+    }
+  }
 
   function updateVibePrefs(next: VibePrefs) {
     setVibePrefs(next);
@@ -231,20 +319,16 @@ function TripDetail() {
     }
   }
 
-  async function handleAddStop(v: {
-    id: string;
-    name: string;
-    cuisine: string;
-    neighborhood: string;
-    address: string;
-    price: string;
-  }) {
+  async function handleAddStop(v: PickedVenue) {
     if (!data || addingStop) return;
     setAddingStop(true);
     const category = inferCategory(v.cuisine);
-    const description = v.neighborhood
+    const baseDescription = v.neighborhood
       ? `${v.cuisine} · ${v.neighborhood}`
       : v.cuisine;
+    const description = v.source === "ai" && v.reason
+      ? `${baseDescription}\n\n${v.reason}`
+      : baseDescription;
     try {
       await insertStop(data.itinerary.id, {
         name: v.name,
@@ -255,7 +339,9 @@ function TripDetail() {
         booking_status: "unbooked",
       });
       await fetchTrip();
-      toast.success(`Added ${v.name}`, { icon: "📍" });
+      toast.success(`Added ${v.name}`, {
+        icon: v.source === "ai" ? "✨" : "📍",
+      });
       setAddStopOpen(false);
     } catch (e) {
       toast.error("Couldn't add stop", { description: (e as Error).message });
@@ -410,26 +496,54 @@ function TripDetail() {
         <div className="mb-6">
           <VibeFilter prefs={vibePrefs} onChange={updateVibePrefs} />
         </div>
+        <DndContext sensors={dndSensors} collisionDetection={closestCenter} onDragEnd={handleStopsReorder}>
+        <SortableContext items={stops.map((s) => s.id).filter(Boolean) as string[]} strategy={verticalListSortingStrategy}>
         <ol className="relative space-y-6 border-l-2 border-dashed border-border pl-6">
           {stops.map((s, i) => {
             const Icon = CAT_ICONS[s.category as string] ?? Sparkles;
             const leg = (s.travel_from_prev ?? null) as TravelLeg | null;
             const prev = i > 0 ? stops[i - 1] : null;
+            if (!s.id) {
+              // Skeleton stop with no id can't be sortable; render plain.
+              return (
+                <li key={`pending-${i}`} className="relative">
+                  <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <article className="rounded-2xl border border-border bg-card p-5 shadow-card opacity-60">
+                    <h3 className="font-display text-xl font-bold">{s.name}</h3>
+                    <p className="text-xs text-muted-foreground">Saving…</p>
+                  </article>
+                </li>
+              );
+            }
             return (
-              <li key={s.id} className="relative">
+              <SortableStopLi key={s.id} id={s.id}>
+                {({ handleProps }) => (
+                  <>
                 {leg && prev && <TravelLegCard leg={leg} from={prev} to={s} />}
                 <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
                   <Icon className="h-5 w-5" />
                 </span>
                 <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
+                    <div className="flex items-start gap-2">
+                      <button
+                        type="button"
+                        aria-label="Drag to reorder"
+                        {...handleProps}
+                        className="touch-none cursor-grab active:cursor-grabbing -ml-1 mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                      >
+                        <GripVertical className="h-4 w-4" />
+                      </button>
+                      <div>
                       <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                         Stop {i + 1} · {s.category}
                         {s.start_time && ` · ${s.start_time.slice(0, 5)}`}
                         {s.duration_minutes && ` · ${s.duration_minutes} min`}
                       </p>
                       <h3 className="mt-1 font-display text-xl font-bold">{s.name}</h3>
+                      </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <button
@@ -560,10 +674,14 @@ function TripDetail() {
                     onSave={(v) => s.id && saveNotes(s.id, v)}
                   />
                 </article>
-              </li>
+                  </>
+                )}
+              </SortableStopLi>
             );
           })}
         </ol>
+        </SortableContext>
+        </DndContext>
 
         {/* Add stop */}
         <div className="mt-6 flex justify-center">
@@ -680,6 +798,7 @@ function TripDetail() {
         city={it.city ?? null}
         title="Add a stop"
         description={it.city ? `Find a new spot in ${it.city}.` : "Pick a new spot to add."}
+        existingStopNames={stops.map((s) => s.name)}
         onPick={handleAddStop}
       />
     </div>

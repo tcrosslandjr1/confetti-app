@@ -190,6 +190,68 @@ async function fetchPromotedBoosts(city: string): Promise<CandidateVenue[]> {
   });
 }
 
+// ── Curated Venue Knowledge (local Excel-sourced data) ──────────────
+async function fetchCuratedVenues(
+  city: string,
+  occasionId?: string,
+  vibeLabel?: string,
+): Promise<CandidateVenue[]> {
+  // Query our curated `venues` table (1,074 hand-picked venues from local guides).
+  // Filter by city, then optionally by occasion and vibe tags for relevance.
+  let query = supabaseAdmin
+    .from("venues")
+    .select(
+      "id, name, city, neighborhood, rating, price_level, cuisine_tags, vibe_tags, occasion_tags, vibe_notes, lat, lng, popularity_score",
+    )
+    .ilike("city", city)
+    .order("popularity_score", { ascending: false })
+    .limit(40);
+
+  // If occasion is provided, prefer venues tagged for it
+  if (occasionId) {
+    query = query.contains("occasion_tags", [occasionId]);
+  }
+
+  const { data: rows, error } = await query;
+  if (error) {
+    console.error("[generatePlan] curated venues query failed", error);
+    return [];
+  }
+
+  // If occasion filter was too strict (< 10 results), re-query without it
+  let finalRows = rows ?? [];
+  if (finalRows.length < 10 && occasionId) {
+    const { data: fallbackRows } = await supabaseAdmin
+      .from("venues")
+      .select(
+        "id, name, city, neighborhood, rating, price_level, cuisine_tags, vibe_tags, occasion_tags, vibe_notes, lat, lng, popularity_score",
+      )
+      .ilike("city", city)
+      .order("popularity_score", { ascending: false })
+      .limit(40);
+    if (fallbackRows?.length) finalRows = fallbackRows;
+  }
+
+  return finalRows.map((r) => ({
+    id: `curated:${r.id}`,
+    name: r.name,
+    category: (r.cuisine_tags?.[0] as string | undefined) ?? "venue",
+    neighborhood: r.neighborhood,
+    rating: r.rating !== null ? Number(r.rating) : 4.3,
+    trendScore: r.popularity_score !== null ? Number(r.popularity_score) : 0.7,
+    mentionCount: null,
+    tags: [
+      ...(r.vibe_tags as string[] ?? []),
+      ...(r.occasion_tags as string[] ?? []),
+      ...(r.cuisine_tags as string[] ?? []),
+    ],
+    summary: r.vibe_notes,
+    placeId: null,
+    lat: r.lat !== null ? Number(r.lat) : null,
+    lng: r.lng !== null ? Number(r.lng) : null,
+  }));
+}
+
 // ── Quality Guardrail (deterministic) ─────────────────────────────
 async function fetchQualifiedVenues(city: string): Promise<CandidateVenue[]> {
   // Load up to 60 candidate venues from the discovered viral_venues pool.
@@ -309,7 +371,22 @@ export const generatePlan = createServerFn({ method: "POST" })
     const template = findTemplate(req.occasionId);
 
     // 3. Quality Guardrail — pull candidate venues for the city
-    let candidates = await fetchQualifiedVenues(cityCtx.city);
+    //    Merge curated local knowledge (Excel guides) + viral_venues (discovered)
+    const [viralCandidates, curatedCandidates] = await Promise.all([
+      fetchQualifiedVenues(cityCtx.city),
+      fetchCuratedVenues(cityCtx.city, req.occasionId, req.vibeLabel),
+    ]);
+
+    // Merge: curated first (higher trust), then viral, deduplicated by name
+    const seenNames = new Set<string>();
+    let candidates: CandidateVenue[] = [];
+    for (const c of [...curatedCandidates, ...viralCandidates]) {
+      const key = c.name.toLowerCase().trim();
+      if (!seenNames.has(key)) {
+        seenNames.add(key);
+        candidates.push(c);
+      }
+    }
 
     // Filter out categories the template forbids (e.g. no club for in-laws).
     const avoid = template.constraints.avoidCategories ?? [];

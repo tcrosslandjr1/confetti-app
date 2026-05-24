@@ -27,6 +27,7 @@ import {
   geocodeCity,
 } from "./venue-discovery";
 import type { DiscoveredVenue, GeoLocation } from "./venue-discovery";
+import { queryLocalVenues, hasLocalKnowledge } from "./venue-knowledge";
 import { buildItinerary, parseItineraryRequest } from "./itinerary-orchestrator";
 import type { OrchestratorResult } from "./itinerary-orchestrator";
 import { trackInteraction } from "./interaction-tracker";
@@ -584,8 +585,75 @@ async function searchVenuesForChat(
       limit: 5,
     });
 
+    // If discoverVenues returned results, use them (it already checks local knowledge first).
+    // If few results and we have local data, supplement with curated venues.
+    if (venues.length < 3 && context.location?.city) {
+      const cityName = context.location.city;
+      if (hasLocalKnowledge(cityName)) {
+        const localVenues = queryLocalVenues({
+          city: cityName,
+          vibes: params.category ? [params.category] : context.vibeFilter,
+          occasion: context.occasion ?? undefined,
+          limit: 5,
+        });
+        // Convert local venues to DiscoveredVenue format and merge
+        const existing = new Set(venues.map(v => v.name.toLowerCase()));
+        for (const lv of localVenues) {
+          if (!existing.has(lv.name.toLowerCase()) && venues.length < 5) {
+            venues.push({
+              id: `local:${lv.slug}`,
+              name: lv.name,
+              category: lv.cuisine || "venue",
+              address: lv.address || "",
+              city: lv.city,
+              state: lv.state,
+              country: "US",
+              lat: lv.lat ?? 0,
+              lng: lv.lng ?? 0,
+              priceLevel: lv.priceLevel ?? 2,
+              rating: 4.3,
+              photoUrls: [],
+              cuisineTags: lv.cuisineTags || [],
+              vibeTags: lv.vibeTags || [],
+              occasionTags: lv.occasionTags || [],
+              source: "merged",
+              matchScore: 85,
+            });
+          }
+        }
+      }
+    }
+
     return venues;
   } catch {
+    // If main discovery fails but we have local knowledge, use that
+    if (context.location?.city && hasLocalKnowledge(context.location.city)) {
+      const localVenues = queryLocalVenues({
+        city: context.location.city,
+        vibes: params.category ? [params.category] : context.vibeFilter,
+        occasion: context.occasion ?? undefined,
+        limit: 5,
+      });
+      return localVenues.map(lv => ({
+        id: `local:${lv.slug}`,
+        name: lv.name,
+        category: lv.cuisine || "venue",
+        address: lv.address || "",
+        city: lv.city,
+        state: lv.state,
+        country: "US",
+        lat: lv.lat ?? 0,
+        lng: lv.lng ?? 0,
+        priceLevel: lv.priceLevel ?? 2,
+        rating: 4.3,
+        photoUrls: [],
+        cuisineTags: lv.cuisineTags || [],
+        vibeTags: lv.vibeTags || [],
+        occasionTags: lv.occasionTags || [],
+        source: "merged",
+        matchScore: 85,
+      }));
+    }
     return discoverVenuesMock();
   }
 }

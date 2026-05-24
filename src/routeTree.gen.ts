@@ -33,6 +33,7 @@ import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
+import { Route as BusinessVerifyRouteImport } from './routes/business.verify'
 import { Route as BusinessSocialRouteImport } from './routes/business.social'
 import { Route as BusinessSettingsRouteImport } from './routes/business.settings'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
@@ -192,6 +193,11 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   id: '/checkout/return',
   path: '/checkout/return',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessVerifyRoute = BusinessVerifyRouteImport.update({
+  id: '/business/verify',
+  path: '/business/verify',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessSocialRoute = BusinessSocialRouteImport.update({
@@ -445,6 +451,7 @@ export interface FileRoutesByFullPath {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
@@ -510,6 +517,7 @@ export interface FileRoutesByTo {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
@@ -577,6 +585,7 @@ export interface FileRoutesById {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
@@ -645,6 +654,7 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
     | '/events/$eventId'
     | '/p/$code'
@@ -710,6 +720,7 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
     | '/events/$eventId'
     | '/p/$code'
@@ -776,6 +787,7 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
     | '/events/$eventId'
     | '/p/$code'
@@ -839,6 +851,7 @@ export interface RootRouteChildren {
   BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSettingsRoute: typeof BusinessSettingsRoute
   BusinessSocialRoute: typeof BusinessSocialRoute
+  BusinessVerifyRoute: typeof BusinessVerifyRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   PCodeRoute: typeof PCodeRoute
@@ -1037,6 +1050,13 @@ declare module '@tanstack/react-router' {
       path: '/checkout/return'
       fullPath: '/checkout/return'
       preLoaderRoute: typeof CheckoutReturnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/verify': {
+      id: '/business/verify'
+      path: '/business/verify'
+      fullPath: '/business/verify'
+      preLoaderRoute: typeof BusinessVerifyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/social': {
@@ -1382,6 +1402,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSettingsRoute: BusinessSettingsRoute,
   BusinessSocialRoute: BusinessSocialRoute,
+  BusinessVerifyRoute: BusinessVerifyRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   PCodeRoute: PCodeRoute,

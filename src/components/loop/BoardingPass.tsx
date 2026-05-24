@@ -69,6 +69,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { VenuePickerModal, venueToStopPayload, type PickedVenue } from "@/components/loop/VenuePickerModal";
+import { PartnerPickBadge } from "@/components/PartnerPickBadge";
 import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
 import { fetchVenueIntel, type VenueIntel, type FetchStatus } from "@/lib/agents/venue-intel";
@@ -1358,6 +1359,11 @@ function StopCard({
         <div className="mt-0.5 text-xs text-ink/70">
           {stop.detail ?? `${stop.type}${stop.area ? ` · ${stop.area}` : ""}`}
         </div>
+        {stop.sponsored && (
+          <div className="mt-1.5">
+            <PartnerPickBadge label={stop.partnerLabel} />
+          </div>
+        )}
 
         {/* EV */}
         {stop.ev && (

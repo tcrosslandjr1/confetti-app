@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { trackEngagement } from "@/lib/analytics";
+import { PartnerPickBadge } from "@/components/PartnerPickBadge";
+import { trackPartnerClick } from "@/lib/partner-attribution";
 
 /* ------------------------------------------------------------------ */
 /*  Flip-card venue tile for the Tonight feed.                        */
@@ -34,6 +36,12 @@ export interface FlipVenue {
   address?: string | null;
   /** AI-pick tone class, e.g. "bg-purple" */
   tone?: string | null;
+  /** Whether this card is a paid Partner Pick (shown with badge). */
+  sponsored?: boolean;
+  /** Optional override label — defaults to "Partner Pick · Matches your vibe". */
+  partnerLabel?: string;
+  /** Boost campaign id — used for click attribution on tap. */
+  boostCampaignId?: string;
 }
 
 interface VenueFlipCardProps {
@@ -61,13 +69,18 @@ export function VenueFlipCard({
   function handleFlip(e: React.MouseEvent | React.TouchEvent) {
     e.preventDefault();
     e.stopPropagation();
+    const willFlip = !flipped;
     setFlipped((f) => !f);
     trackEngagement("venue_card_flip", {
       venueId: venue.id,
       venueName: venue.name,
-      flipped: !flipped,
+      flipped: willFlip,
       source,
+      sponsored: venue.sponsored ?? false,
     });
+    if (willFlip && venue.sponsored && venue.boostCampaignId) {
+      void trackPartnerClick(venue.boostCampaignId);
+    }
   }
 
   const priceDollars = venue.priceLevel
@@ -138,6 +151,9 @@ export function VenueFlipCard({
           <div className="absolute bottom-2 right-2 rounded-full bg-ink/60 px-2 py-0.5 text-[8px] font-bold uppercase tracking-widest text-cream backdrop-blur">
             Tap for details
           </div>
+          {venue.sponsored && (
+            <PartnerPickBadge variant="corner" label={venue.partnerLabel} />
+          )}
         </div>
 
         {/* ── BACK ── */}

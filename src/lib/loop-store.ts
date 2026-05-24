@@ -53,6 +53,12 @@ export type LoopStop = {
   bestFor?: string;
   /** Typical wait window if walk-in, e.g. "15–30 min after 9pm". */
   waitTime?: string;
+  /** True when this stop was inserted via a sponsored partner campaign. */
+  sponsored?: boolean;
+  /** Customer-facing label, e.g. "Partner Pick · Matches your vibe". */
+  partnerLabel?: string;
+  /** Boost campaign id for click/booking attribution. */
+  boostCampaignId?: string;
 };
 
 export type LoopBonusMove = {

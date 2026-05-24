@@ -158,6 +158,9 @@ function TonightFeedPage() {
                 vibe: v.vibe,
                 reason: v.reason,
                 address: v.address,
+                sponsored: v.sponsored,
+                partnerLabel: v.partnerLabel,
+                boostCampaignId: v.boostCampaignId,
               }}
               widthClass="w-44"
               source="tonight_for_you"

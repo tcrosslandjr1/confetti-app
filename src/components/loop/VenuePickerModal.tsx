@@ -4,6 +4,8 @@ import {
   VENUE_KNOWLEDGE,
   type VenueKnowledge,
 } from "@/lib/agents/venue-knowledge";
+import { PartnerPickBadge } from "@/components/PartnerPickBadge";
+import { trackPartnerClick } from "@/lib/partner-attribution";
 import {
   Dialog,
   DialogContent,
@@ -32,6 +34,12 @@ export interface PickedVenue {
   photo?: string | null;
   vibe?: string | null;
   rating?: number | null;
+  /** True when this AI pick was a sponsored placement. */
+  sponsored?: boolean;
+  /** Partner Pick badge label. */
+  partnerLabel?: string;
+  /** Boost campaign id for click attribution downstream. */
+  boostCampaignId?: string;
 }
 
 interface AiRec {
@@ -47,6 +55,9 @@ interface AiRec {
   photo?: string | null;
   lat?: number;
   lng?: number;
+  sponsored?: boolean;
+  partnerLabel?: string;
+  boostCampaignId?: string;
 }
 
 interface VenuePickerModalProps {
@@ -107,6 +118,9 @@ function aiToPicked(rec: AiRec): PickedVenue {
     photo: rec.photo ?? null,
     vibe: rec.vibe,
     rating: rec.rating ?? null,
+    sponsored: rec.sponsored ?? false,
+    partnerLabel: rec.partnerLabel,
+    boostCampaignId: rec.boostCampaignId,
   };
 }
 
@@ -230,6 +244,9 @@ export function VenuePickerModal({
     onPick(kbToPicked(v));
   }
   function handlePickAi(rec: AiRec) {
+    if (rec.sponsored && rec.boostCampaignId) {
+      void trackPartnerClick(rec.boostCampaignId);
+    }
     onPick(aiToPicked(rec));
   }
 
@@ -434,9 +451,14 @@ export function VenuePickerModal({
                               "{rec.reason}"
                             </p>
                           )}
-                          <div className="mt-1.5 inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-purple">
-                            <Sparkles className="h-2.5 w-2.5" />
-                            AI suggested
+                          <div className="mt-1.5 flex items-center gap-2">
+                            <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-purple">
+                              <Sparkles className="h-2.5 w-2.5" />
+                              AI suggested
+                            </span>
+                            {rec.sponsored && (
+                              <PartnerPickBadge variant="inline" label={rec.partnerLabel} />
+                            )}
                           </div>
                         </div>
                       </div>
@@ -477,5 +499,8 @@ export function venueToStopPayload(
     time: opts.time,
     kind: opts.kind,
     rationale: v.reason,
+    sponsored: v.sponsored ?? undefined,
+    partnerLabel: v.partnerLabel,
+    boostCampaignId: v.boostCampaignId,
   };
 }

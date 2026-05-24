@@ -22,6 +22,12 @@ export interface FeedVenue {
   lat?: number;
   lng?: number;
   tone: string;
+  /** True when this venue was injected from an active boost_campaign. */
+  sponsored?: boolean;
+  /** Customer-facing label, e.g. "Partner Pick · Matches your vibe". */
+  partnerLabel?: string;
+  /** Which campaign drove the placement — used for click attribution. */
+  boostCampaignId?: string;
 }
 
 export interface FeedEvent {

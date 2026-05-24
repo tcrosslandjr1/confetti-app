@@ -53,6 +53,12 @@ interface VenueRecommendation {
   lat?: number;
   lng?: number;
   tone: string;
+  /** True when this venue was injected from an active boost_campaign. */
+  sponsored?: boolean;
+  /** Customer-facing label, e.g. "Partner Pick · Matches your vibe". */
+  partnerLabel?: string;
+  /** Which campaign drove the placement — used for click/booking attribution. */
+  boostCampaignId?: string;
 }
 
 interface EventRecommendation {
@@ -71,6 +77,18 @@ interface FeedResponse {
   surprise?: VenueRecommendation[];
   generated_at: string;
   model: string;
+}
+
+interface SponsoredCampaign {
+  id: string;
+  venue_id: string;
+  business_id: string;
+  boost_strength: number;
+  target_cities: string[] | null;
+  target_vibes: string[] | null;
+  target_categories: string[] | null;
+  target_occasions: string[] | null;
+  target_price_range: string | null;
 }
 
 // Shape of a row read from the `venues` table.
@@ -155,6 +173,119 @@ const SECTION_BIAS: Record<string, { tagAny?: string[]; cuisineLike?: string[]; 
   family:     { tagAny: ["family", "kid-friendly"], cuisineLike: ["family"], tone: "bg-green-300" },
   coffee:     { tagAny: ["coffee", "cafe"], cuisineLike: ["coffee", "cafe"], tone: "bg-brown-300" },
 };
+
+/**
+ * Pull active boost_campaigns relevant to this request. Matches on:
+ *   • city loose (case-insensitive substring)
+ *   • vibe overlap with section bias or user keywords
+ *   • budget ceiling (if user provided one)
+ *   • active status + within start/end window
+ *   • daily budget not exhausted
+ * Returns campaigns paired with their venue row so we can inject directly.
+ */
+async function fetchSponsoredCampaigns(
+  city: string | null | undefined,
+  sectionTagAny: string[] | undefined,
+  budgetCap: string | null | undefined,
+  limit: number,
+): Promise<Array<{ campaign: SponsoredCampaign; venue: VenueRow }>> {
+  let query = supabaseAdmin
+    .from("boost_campaigns")
+    .select(
+      "id,venue_id,business_id,boost_strength,target_cities,target_vibes,target_categories,target_occasions,target_price_range,daily_credit_budget,total_credits_spent,start_date,end_date,status",
+    )
+    .eq("status", "active")
+    .lte("start_date", new Date().toISOString())
+    .or(`end_date.is.null,end_date.gte.${new Date().toISOString()}`)
+    .order("boost_strength", { ascending: false })
+    .limit(limit * 3);
+
+  const { data: campaigns, error } = await query;
+  if (error) {
+    console.warn("[ai-recommend] boost_campaigns query error:", error.message);
+    return [];
+  }
+  if (!campaigns || campaigns.length === 0) return [];
+
+  const cityLower = (city ?? "").toLowerCase();
+  const matches = (campaigns as Array<SponsoredCampaign & {
+    daily_credit_budget: number;
+    total_credits_spent: number;
+  }>).filter((c) => {
+    // Budget exhaustion check (loose — daily reset isn't tracked here).
+    if (c.daily_credit_budget > 0 && c.total_credits_spent >= c.daily_credit_budget * 7) {
+      return false;
+    }
+    // City filter
+    if (city && c.target_cities && c.target_cities.length > 0) {
+      const hit = c.target_cities.some((tc) =>
+        tc.toLowerCase().includes(cityLower) || cityLower.includes(tc.toLowerCase()),
+      );
+      if (!hit) return false;
+    }
+    // Vibe overlap with section bias
+    if (
+      sectionTagAny &&
+      sectionTagAny.length > 0 &&
+      c.target_vibes &&
+      c.target_vibes.length > 0
+    ) {
+      const hit = c.target_vibes.some((tv) =>
+        sectionTagAny.some((s) => tv.toLowerCase().includes(s.toLowerCase())),
+      );
+      if (!hit) return false;
+    }
+    // Budget ceiling — user $$ shouldn't see $$$$ partners
+    if (budgetCap && c.target_price_range) {
+      const userTier = budgetCap.length; // "$" → 1, "$$" → 2…
+      const partnerTier = c.target_price_range.length;
+      if (partnerTier > userTier + 1) return false; // tolerate 1 step over
+    }
+    return true;
+  });
+
+  if (matches.length === 0) return [];
+
+  // Look up venue rows for the matched campaigns.
+  const venueIds = matches.map((m) => m.venue_id);
+  const { data: venues } = await supabaseAdmin
+    .from("venues")
+    .select(
+      "id,name,city,neighborhood,address,lat,lng,cuisine,cuisine_tags,vibe_tags,occasion_tags,price,price_level,rating,rating_count,photo_url,vibe_notes,popularity_score",
+    )
+    .in("id", venueIds);
+
+  const byId = new Map<string, VenueRow>(((venues as VenueRow[]) ?? []).map((v) => [v.id, v]));
+  const paired: Array<{ campaign: SponsoredCampaign; venue: VenueRow }> = [];
+  for (const c of matches) {
+    const v = byId.get(c.venue_id);
+    if (v) paired.push({ campaign: c, venue: v });
+  }
+  return paired.slice(0, limit);
+}
+
+/**
+ * Increment per-campaign impression counters. Best-effort — failures here
+ * don't surface to the caller. Uses simple read-modify-write (acceptable
+ * for low concurrency; swap to an RPC if we hit contention).
+ */
+async function trackImpressions(campaignIds: string[]): Promise<void> {
+  if (campaignIds.length === 0) return;
+  // Fetch current counts, increment, write back. Done in parallel.
+  const { data, error } = await supabaseAdmin
+    .from("boost_campaigns")
+    .select("id,impressions")
+    .in("id", campaignIds);
+  if (error || !data) return;
+  await Promise.all(
+    (data as Array<{ id: string; impressions: number }>).map((row) =>
+      supabaseAdmin
+        .from("boost_campaigns")
+        .update({ impressions: (row.impressions ?? 0) + 1 })
+        .eq("id", row.id),
+    ),
+  );
+}
 
 function popScore(v: VenueRow): number {
   const r = v.rating ?? 0;
@@ -319,11 +450,12 @@ Pick from the provided candidates only — never invent venues. Skip any in the 
 async function rankSection(
   section: "trending" | "picks" | "surprise",
   candidates: VenueRow[],
+  sponsoredPairs: Array<{ campaign: SponsoredCampaign; venue: VenueRow }>,
   systemPrompt: string,
   anthropicKey: string,
   limit: number,
 ): Promise<VenueRecommendation[]> {
-  if (candidates.length === 0) return [];
+  if (candidates.length === 0 && sponsoredPairs.length === 0) return [];
   const tone = SECTION_BIAS[section].tone;
   const sectionHeader = section === "trending"
     ? `Pick the top ${limit} BUZZIEST venues. Trending means popular + currently talked-about.`
@@ -331,7 +463,54 @@ async function rankSection(
     ? `Pick the top ${limit} PERSONALIZED matches for the user's taste. Lean into their loves / scene keywords / energy.`
     : `Pick ${limit} SURPRISE venues — outside the user's usual pattern but ones they'd unexpectedly love. Be creative.`;
 
-  const userMsg = `${sectionHeader}\n\nCandidates (${candidates.length}):\n${JSON.stringify(candidates.map(simplifyForClaude))}`;
+  // Merge sponsored venues into the candidate pool (deduped). Sponsored
+  // get a +1 visibility bump in Claude's prompt by listing them first.
+  const sponsoredById = new Map(sponsoredPairs.map((p) => [p.venue.id, p.campaign]));
+  const seenIds = new Set<string>();
+  const merged: VenueRow[] = [];
+  for (const p of sponsoredPairs) {
+    if (!seenIds.has(p.venue.id)) {
+      merged.push(p.venue);
+      seenIds.add(p.venue.id);
+    }
+  }
+  for (const v of candidates) {
+    if (!seenIds.has(v.id)) {
+      merged.push(v);
+      seenIds.add(v.id);
+    }
+  }
+
+  const sponsoredNote = sponsoredPairs.length > 0
+    ? `\n\nNOTE: The first ${sponsoredPairs.length} candidates are Confetti partner venues. Only include them in your picks IF they're a genuine fit — never force a sponsored pick into a list where it doesn't match the user. Sponsorship affects placement order, never relevance.`
+    : "";
+  const userMsg = `${sectionHeader}${sponsoredNote}\n\nCandidates (${merged.length}):\n${JSON.stringify(merged.map(simplifyForClaude))}`;
+
+  function shapeRec(v: VenueRow, override: { venue: string; category: string; vibe: string; reason: string }): VenueRecommendation {
+    const campaign = sponsoredById.get(v.id);
+    return {
+      id: v.id,
+      venue: override.venue || v.name,
+      category: override.category,
+      vibe: override.vibe,
+      reason: override.reason,
+      address: v.address ?? undefined,
+      neighborhood: v.neighborhood ?? undefined,
+      rating: v.rating ?? undefined,
+      priceLevel: v.price_level ?? null,
+      photo: v.photo_url ?? null,
+      lat: v.lat ?? undefined,
+      lng: v.lng ?? undefined,
+      tone,
+      ...(campaign
+        ? {
+            sponsored: true,
+            partnerLabel: "Partner Pick · Matches your vibe",
+            boostCampaignId: campaign.id,
+          }
+        : {}),
+    };
+  }
 
   try {
     const raw = await callClaude(systemPrompt, userMsg, anthropicKey);
@@ -344,47 +523,33 @@ async function rankSection(
         reason: string;
       }>;
     };
-    const byId = new Map(candidates.map((c) => [c.id, c]));
+    const byId = new Map(merged.map((c) => [c.id, c]));
     const out: VenueRecommendation[] = [];
     for (const r of parsed.recommendations ?? []) {
       const v = byId.get(r.place_id);
       if (!v) continue;
-      out.push({
-        id: v.id,
-        venue: r.venue || v.name,
-        category: r.category,
-        vibe: r.vibe,
-        reason: r.reason,
-        address: v.address ?? undefined,
-        neighborhood: v.neighborhood ?? undefined,
-        rating: v.rating ?? undefined,
-        priceLevel: v.price_level ?? null,
-        photo: v.photo_url ?? null,
-        lat: v.lat ?? undefined,
-        lng: v.lng ?? undefined,
-        tone,
-      });
+      out.push(shapeRec(v, r));
       if (out.length >= limit) break;
     }
+    // Track impressions for sponsored venues that actually surfaced.
+    const surfacedCampaigns = out
+      .filter((r) => r.sponsored && r.boostCampaignId)
+      .map((r) => r.boostCampaignId as string);
+    void trackImpressions(surfacedCampaigns);
     return out;
   } catch (e) {
     console.warn(`[ai-recommend] Claude ${section} failed:`, (e as Error).message);
     // Fallback: top-N by popularity score with a generic reason.
-    return candidates.slice(0, limit).map((v) => ({
-      id: v.id,
+    const fallback = merged.slice(0, limit).map((v) => shapeRec(v, {
       venue: v.name,
       category: v.cuisine ?? "venue",
       vibe: v.vibe_notes?.slice(0, 60) ?? "Popular spot",
       reason: "Highly rated and popular in your area",
-      address: v.address ?? undefined,
-      neighborhood: v.neighborhood ?? undefined,
-      rating: v.rating ?? undefined,
-      priceLevel: v.price_level ?? null,
-      photo: v.photo_url ?? null,
-      lat: v.lat ?? undefined,
-      lng: v.lng ?? undefined,
-      tone,
     }));
+    void trackImpressions(
+      fallback.filter((r) => r.sponsored && r.boostCampaignId).map((r) => r.boostCampaignId!),
+    );
+    return fallback;
   }
 }
 
@@ -524,21 +689,62 @@ serve(async (req: Request) => {
     return all.slice(0, Math.max(limit * 2, 8));
   }
 
+  // Helper: pick the dominant vibe tag for the section so we can match
+  // boost_campaigns.target_vibes against something concrete.
+  function sectionVibes(section: "trending" | "picks" | "surprise"): string[] {
+    const keys = pickSectionKeys(profile, timeOfDay, section);
+    const vibes: string[] = [];
+    for (const k of keys) {
+      const bias = SECTION_BIAS[k];
+      if (bias?.tagAny) vibes.push(...bias.tagAny);
+    }
+    return [...new Set(vibes)];
+  }
+
+  // Sponsored campaigns are gathered ONCE up front and partitioned by
+  // section based on their target_vibes overlap so a single budget isn't
+  // double-spent across trending / picks / surprise in the same response.
+  const allSponsored = await fetchSponsoredCampaigns(
+    body.city,
+    undefined, // section filter applied below
+    body.taste_profile ? undefined : null, // budget cap from profile if available
+    Math.max(limit, 4),
+  );
+  const sponsoredAssigned = new Set<string>();
+
+  function sponsoredFor(section: "trending" | "picks" | "surprise"): Array<{ campaign: SponsoredCampaign; venue: VenueRow }> {
+    const wantVibes = sectionVibes(section).map((v) => v.toLowerCase());
+    const out: Array<{ campaign: SponsoredCampaign; venue: VenueRow }> = [];
+    for (const pair of allSponsored) {
+      if (sponsoredAssigned.has(pair.campaign.id)) continue;
+      const tv = (pair.campaign.target_vibes ?? []).map((s) => s.toLowerCase());
+      if (wantVibes.length === 0 || tv.length === 0 || tv.some((v) => wantVibes.some((w) => v.includes(w) || w.includes(v)))) {
+        out.push(pair);
+        sponsoredAssigned.add(pair.campaign.id);
+      }
+      if (out.length >= 2) break; // cap at 2 sponsored per section
+    }
+    return out;
+  }
+
   if (sections.includes("trending")) {
     const cands = await candidatesFor("trending");
-    const ranked = await rankSection("trending", cands, systemPrompt, anthropicKey, limit);
+    const sponsored = sponsoredFor("trending");
+    const ranked = await rankSection("trending", cands, sponsored, systemPrompt, anthropicKey, limit);
     for (const r of ranked) seen.add(r.id);
     result.trending = ranked;
   }
   if (sections.includes("picks")) {
     const cands = await candidatesFor("picks");
-    const ranked = await rankSection("picks", cands, systemPrompt, anthropicKey, limit);
+    const sponsored = sponsoredFor("picks");
+    const ranked = await rankSection("picks", cands, sponsored, systemPrompt, anthropicKey, limit);
     for (const r of ranked) seen.add(r.id);
     result.picks = ranked;
   }
   if (sections.includes("surprise")) {
     const cands = await candidatesFor("surprise");
-    const ranked = await rankSection("surprise", cands, systemPrompt, anthropicKey, limit);
+    const sponsored = sponsoredFor("surprise");
+    const ranked = await rankSection("surprise", cands, sponsored, systemPrompt, anthropicKey, limit);
     for (const r of ranked) seen.add(r.id);
     result.surprise = ranked;
   }

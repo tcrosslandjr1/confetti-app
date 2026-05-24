@@ -15,6 +15,11 @@ import { createLovableAiGatewayProvider } from "../ai-gateway.server";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { CITIES, type CityContext } from "./city-context";
 import { OCCASIONS, type Idea, type IdeaStep } from "../occasions";
+import {
+  loadSocialContext,
+  formatSocialContextBlock,
+  type SocialContext,
+} from "./social-signal-collector";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -73,6 +78,7 @@ function buildIdeaPrompt(
   city: CityContext | null,
   count: number,
   tasteSignals?: TasteSignals,
+  socialContext?: SocialContext | null,
 ): string {
   const cityBlock = city
     ? `
@@ -96,12 +102,17 @@ Lean INTO the favorite vibes and AWAY from disliked tags.
 `
     : "";
 
+  const socialBlock = socialContext
+    ? formatSocialContextBlock(socialContext)
+    : "";
+
   return `You are the Confetti Content Engine — a world-class lifestyle concierge.
 
 Generate ${count} unique, actionable occasion ideas for "${occasion.title}" (${occasion.tagline}).
 
 ${cityBlock}
 ${tasteBlock}
+${socialBlock}
 
 RULES:
 - Each idea must feel like a REAL plan someone could follow tonight or this weekend
@@ -136,6 +147,7 @@ function buildVenuePrompt(
   categories: string[],
   count: number,
   tasteSignals?: TasteSignals,
+  socialContext?: SocialContext | null,
 ): string {
   const tasteBlock = tasteSignals
     ? `
@@ -147,6 +159,10 @@ Prioritize venues matching these signals.
 `
     : "";
 
+  const socialBlock = socialContext
+    ? formatSocialContextBlock(socialContext)
+    : "";
+
   return `You are the Confetti Venue Discovery Engine — you find the best dining, nightlife, and experience spots.
 
 Discover ${count} venues in ${city.label} across these categories: ${categories.join(", ")}.
@@ -156,6 +172,7 @@ NEIGHBORHOODS: ${city.neighborhoods.map((n) => `${n.name} (${n.vibe})`).join("; 
 ENVIRONMENT: ${city.environmentFeatures.join(", ")}
 ALLOWED ACTIVITIES: ${city.allowedActivities.join(", ")}
 ${tasteBlock}
+${socialBlock}
 
 RULES:
 - Venues must feel REAL and specific to ${city.label} — name plausible venues with real neighborhoods
@@ -273,7 +290,17 @@ export async function generateIdeasForOccasion(
     ? CITIES.find((c) => c.slug === citySlug) ?? null
     : null;
 
-  const prompt = buildIdeaPrompt(occasion, city, count, tasteSignals);
+  // Load social context for this city if available
+  let socialCtx: SocialContext | null = null;
+  if (citySlug) {
+    try {
+      socialCtx = await loadSocialContext(citySlug);
+    } catch (err) {
+      console.warn("[idea-generator] Social context load failed, continuing without:", err);
+    }
+  }
+
+  const prompt = buildIdeaPrompt(occasion, city, count, tasteSignals, socialCtx);
   const raw = await callAI(prompt);
   const ideas = parseJsonArray<GeneratedIdea>(raw);
 
@@ -317,7 +344,16 @@ export async function discoverVenuesForCity(
   if (!city) throw new Error(`Unknown city: ${citySlug}`);
 
   const categories = ["Dining", "Nightlife", "Rooftops", "Live Music", "Cocktails", "Experiences"];
-  const prompt = buildVenuePrompt(city, categories, count, tasteSignals);
+
+  // Load social context for this city if available
+  let socialCtx: SocialContext | null = null;
+  try {
+    socialCtx = await loadSocialContext(citySlug);
+  } catch (err) {
+    console.warn("[idea-generator] Social context load failed for venues, continuing without:", err);
+  }
+
+  const prompt = buildVenuePrompt(city, categories, count, tasteSignals, socialCtx);
   const raw = await callAI(prompt);
   const venues = parseJsonArray<DiscoveredVenue>(raw);
 

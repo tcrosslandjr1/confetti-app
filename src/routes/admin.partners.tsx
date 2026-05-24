@@ -3,9 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 import {
   ArrowLeft,
   CheckCircle2,
-  Eye,
-  EyeOff,
-  Lock,
   Megaphone,
   Pause,
   Play,
@@ -28,79 +25,15 @@ import {
 } from "@/lib/admin/partner-ads";
 import { BadgeCheck, Loader2 } from "lucide-react";
 
-const ADMIN_PIN = "236166";
-const PIN_KEY = "confetti.admin.pinOk";
-const PIN_VALUE_KEY = "confetti.admin.pin";
-
 export const Route = createFileRoute("/admin/partners")({
+  beforeLoad: async () => {
+    const { requireAdminAccess } = await import("@/lib/admin-guards");
+    await requireAdminAccess();
+  },
   component: AdminPartners,
 });
 
-function PinGate({ onUnlock }: { onUnlock: () => void }) {
-  const [pin, setPin] = useState("");
-  const [error, setError] = useState(false);
-  const [show, setShow] = useState(false);
-
-  const submit = () => {
-    if (pin === ADMIN_PIN) {
-      sessionStorage.setItem(PIN_KEY, "1");
-      sessionStorage.setItem(PIN_VALUE_KEY, pin);
-      onUnlock();
-    } else {
-      setError(true);
-      setPin("");
-    }
-  };
-
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-ink px-4">
-      <div className="w-full max-w-sm space-y-6 rounded-2xl border-2 border-cream/20 bg-ink p-8 text-center shadow-brut">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-coral bg-coral/10">
-          <Lock className="h-7 w-7 text-coral" />
-        </div>
-        <div>
-          <h1 className="font-display text-2xl font-black tracking-tight text-cream">Partner Ads</h1>
-          <p className="mt-1 font-mono text-xs uppercase tracking-widest text-cream/50">
-            Enter your PIN to continue
-          </p>
-        </div>
-        <div className="space-y-3 text-left">
-          <div className="relative">
-            <input
-              type={show ? "text" : "password"}
-              value={pin}
-              onChange={(e) => {
-                setPin(e.target.value);
-                setError(false);
-              }}
-              onKeyDown={(e) => e.key === "Enter" && submit()}
-              placeholder="••••••"
-              className="w-full rounded-xl border-2 border-cream/20 bg-cream/5 px-4 py-3 text-center font-mono text-2xl tracking-widest text-cream focus:border-coral focus:outline-none"
-              autoFocus
-            />
-            <button
-              type="button"
-              onClick={() => setShow((s) => !s)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-cream/40"
-            >
-              {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-            </button>
-          </div>
-          {error && (
-            <p className="text-center text-xs text-coral">Wrong PIN. Try again.</p>
-          )}
-          <button
-            type="button"
-            onClick={submit}
-            className="w-full rounded-xl bg-coral px-4 py-3 font-mono text-sm font-black uppercase tracking-widest text-ink hover:bg-coral/90"
-          >
-            Unlock
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+/* PIN Gate removed — admin access enforced via beforeLoad + Supabase user_roles */
 
 const TABS: { key: CampaignStatus | "all"; label: string }[] = [
   { key: "pending", label: "Pending review" },
@@ -112,9 +45,7 @@ const TABS: { key: CampaignStatus | "all"; label: string }[] = [
 ];
 
 function AdminPartners() {
-  const [unlocked, setUnlocked] = useState(() =>
-    typeof sessionStorage !== "undefined" && sessionStorage.getItem(PIN_KEY) === "1",
-  );
+  // Auth + admin role enforced by beforeLoad guard.
   const [tab, setTab] = useState<CampaignStatus | "all">("pending");
   const [campaigns, setCampaigns] = useState<PartnerCampaign[]>([]);
   const [loading, setLoading] = useState(false);
@@ -127,14 +58,12 @@ function AdminPartners() {
     remaining: number | null;
   }>({ running: false, processed: 0, verified: 0, remaining: null });
 
-  // Fetch current verify status once on unlock so the badge has a count.
+  // Fetch current verify status once on mount so the badge has a count.
   useEffect(() => {
-    if (!unlocked) return;
     getVerifyStatus()
       .then((s) => setVerifyState((v) => ({ ...v, remaining: s.remaining })))
       .catch(() => null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [unlocked]);
+  }, []);
 
   async function handleRunBackfill() {
     if (verifyState.running) return;
@@ -186,10 +115,9 @@ function AdminPartners() {
   }
 
   useEffect(() => {
-    if (!unlocked) return;
     refresh();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [unlocked, tab]);
+  }, [tab]);
 
   async function handleApprove(c: PartnerCampaign) {
     try {
@@ -253,8 +181,6 @@ function AdminPartners() {
     for (const c of campaigns) m[c.status] = (m[c.status] ?? 0) + 1;
     return m;
   }, [campaigns]);
-
-  if (!unlocked) return <PinGate onUnlock={() => setUnlocked(true)} />;
 
   return (
     <div className="min-h-screen bg-cream">

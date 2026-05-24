@@ -285,7 +285,7 @@ function SectionHeading({
   icon: Icon,
 }: {
   title: string;
-  icon?: React.ComponentType<{ className?: string }>;
+  icon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
 }) {
   return (
     <div className="flex items-center gap-2 px-5">

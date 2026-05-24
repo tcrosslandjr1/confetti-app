@@ -43,6 +43,7 @@ import { Route as BusinessEventsRouteImport } from './routes/business.events'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
 import { Route as BusinessAnalyticsRouteImport } from './routes/business.analytics'
+import { Route as BusinessAdsRouteImport } from './routes/business.ads'
 import { Route as AppReelsRouteImport } from './routes/app.reels'
 import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppPlanRouteImport } from './routes/app.plan'
@@ -245,6 +246,11 @@ const BusinessAnalyticsRoute = BusinessAnalyticsRouteImport.update({
   path: '/business/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessAdsRoute = BusinessAdsRouteImport.update({
+  id: '/business/ads',
+  path: '/business/ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppReelsRoute = AppReelsRouteImport.update({
   id: '/reels',
   path: '/reels',
@@ -442,6 +448,7 @@ export interface FileRoutesByFullPath {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -508,6 +515,7 @@ export interface FileRoutesByTo {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -576,6 +584,7 @@ export interface FileRoutesById {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -645,6 +654,7 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -711,6 +721,7 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -778,6 +789,7 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -842,6 +854,7 @@ export interface RootRouteChildren {
   AdminTrendRadarRoute: typeof AdminTrendRadarRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiPlanRoute: typeof ApiPlanRoute
+  BusinessAdsRoute: typeof BusinessAdsRoute
   BusinessAnalyticsRoute: typeof BusinessAnalyticsRoute
   BusinessClaimRoute: typeof BusinessClaimRoute
   BusinessDashboardRoute: typeof BusinessDashboardRoute
@@ -1122,6 +1135,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/ads': {
+      id: '/business/ads'
+      path: '/business/ads'
+      fullPath: '/business/ads'
+      preLoaderRoute: typeof BusinessAdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app/reels': {
       id: '/app/reels'
       path: '/reels'
@@ -1393,6 +1413,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminTrendRadarRoute: AdminTrendRadarRoute,
   ApiChatRoute: ApiChatRoute,
   ApiPlanRoute: ApiPlanRoute,
+  BusinessAdsRoute: BusinessAdsRoute,
   BusinessAnalyticsRoute: BusinessAnalyticsRoute,
   BusinessClaimRoute: BusinessClaimRoute,
   BusinessDashboardRoute: BusinessDashboardRoute,

@@ -1,31 +1,30 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
-import { Sparkles, Send, ArrowLeft } from "lucide-react";
+import { Sparkles, Send, ArrowLeft, MapPin, Star } from "lucide-react";
+import { sendMessageLocal } from "../lib/agents/chat-agent";
+import type { ChatResponse } from "../lib/agents/chat-agent";
+import type { DiscoveredVenue } from "../lib/agents/venue-discovery";
 
 export const Route = createFileRoute("/chat")({
   head: () => ({ meta: [{ title: "Confetti AI Chat — Confetti" }] }),
   component: ChatPage,
 });
 
-type Msg = { id: number; role: "user" | "ai"; text: string; reveal?: boolean };
-
-const SUGGESTIONS = ["Find me a rooftop", "Date night ideas", "What's trending"];
-
-const REPLIES: Record<string, string> = {
-  rooftop:
-    "Aera Rooftop is having a moment — sunset cocktails, low waits before 7pm. Want me to add it to a plan?",
-  date: "I'd start at Lila's Patio (small plates), walk to Mason St. Records for nat wine, end at Aera. Romantic, walkable, ~3hrs.",
-  trending:
-    "This week: Aera Rooftop, Mason St. Records, and the new Ethiopian spot in Shaw — all spiking on TikTok.",
+type Msg = {
+  id: number;
+  role: "user" | "ai";
+  text: string;
+  reveal?: boolean;
+  venues?: DiscoveredVenue[];
+  chips?: string[];
 };
 
-function pickReply(text: string) {
-  const t = text.toLowerCase();
-  if (t.includes("rooftop")) return REPLIES.rooftop;
-  if (t.includes("date") || t.includes("romantic")) return REPLIES.date;
-  if (t.includes("trend") || t.includes("viral")) return REPLIES.trending;
-  return "I can build you a plan for that. Tell me when, who's coming, and your budget.";
-}
+const DEFAULT_CHIPS = [
+  "Find me a rooftop",
+  "Date night ideas",
+  "What's trending",
+  "Surprise me",
+];
 
 function ChatPage() {
   const [messages, setMessages] = useState<Msg[]>([
@@ -34,32 +33,54 @@ function ChatPage() {
       role: "ai",
       text: "Hey — I'm your Confetti concierge. What's the vibe tonight?",
       reveal: true,
+      chips: DEFAULT_CHIPS,
     },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
+  const [chips, setChips] = useState<string[]>(DEFAULT_CHIPS);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, typing]);
 
-  function send(text: string) {
-    if (!text.trim()) return;
+  async function send(text: string) {
+    if (!text.trim() || typing) return;
     const userMsg: Msg = { id: Date.now(), role: "user", text };
     setMessages((m) => [...m, userMsg]);
     setInput("");
     setTyping(true);
-    setTimeout(
-      () => {
-        setTyping(false);
-        setMessages((m) => [
-          ...m,
-          { id: Date.now() + 1, role: "ai", text: pickReply(text), reveal: true },
-        ]);
-      },
-      900 + Math.random() * 600,
-    );
+
+    try {
+      const response: ChatResponse = await sendMessageLocal(text);
+      setTyping(false);
+      setMessages((m) => [
+        ...m,
+        {
+          id: Date.now() + 1,
+          role: "ai",
+          text: response.message,
+          reveal: true,
+          venues: response.venues,
+          chips: response.suggestedChips,
+        },
+      ]);
+      if (response.suggestedChips?.length) {
+        setChips(response.suggestedChips);
+      }
+    } catch {
+      setTyping(false);
+      setMessages((m) => [
+        ...m,
+        {
+          id: Date.now() + 1,
+          role: "ai",
+          text: "I'm having a moment — let me try that again. What kind of vibe are you feeling tonight?",
+          reveal: true,
+        },
+      ]);
+    }
   }
 
   return (
@@ -102,6 +123,39 @@ function ChatPage() {
                 } ${m.reveal ? "animate-[reveal-up_0.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
               >
                 <Typewriter text={m.text} animate={Boolean(m.reveal && m.role === "ai")} />
+                {m.venues && m.venues.length > 0 && (
+                  <div className="mt-2 flex flex-col gap-1.5">
+                    {m.venues.map((v, vi) => (
+                      <div
+                        key={vi}
+                        className="rounded-lg border border-ink/20 bg-cream/50 px-2.5 py-2"
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="h-3 w-3 text-coral" />
+                          <span className="font-display text-xs font-bold">{v.name}</span>
+                          {v.rating && (
+                            <span className="ml-auto flex items-center gap-0.5 text-[10px] text-ink/60">
+                              <Star className="h-2.5 w-2.5 fill-gold text-gold" />
+                              {v.rating}
+                            </span>
+                          )}
+                        </div>
+                        {v.vibeTags?.length > 0 && (
+                          <div className="mt-1 flex flex-wrap gap-1">
+                            {v.vibeTags.slice(0, 3).map((tag) => (
+                              <span
+                                key={tag}
+                                className="rounded-full bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -121,11 +175,12 @@ function ChatPage() {
       <div className="border-t-2 border-ink bg-cream px-4 pt-3 pb-3">
         <div className="mx-auto max-w-md">
           <div className="mb-2 flex flex-wrap gap-1.5">
-            {SUGGESTIONS.map((s) => (
+            {chips.map((s) => (
               <button
                 key={s}
                 onClick={() => send(s)}
-                className="rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink hover:bg-gold"
+                disabled={typing}
+                className="rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink hover:bg-gold disabled:opacity-40"
               >
                 {s}
               </button>

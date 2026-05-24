@@ -31,19 +31,68 @@ function ExplorePage() {
   const [cat, setCat] = useState<string | null>(null);
   const [mapView, setMapView] = useState(false);
 
+  // Best-effort default city for discovery — falls back to Washington if
+  // we can't read one from the active loop / user prefs.
+  const cityHint = "Washington";
+
+  // Explore reads through the venue-discovery-agent edge function so it
+  // (a) uses service-role internally (anon RLS on venues is restrictive)
+  // and (b) lazily ingests fresh venues via Claude when the city is sparse.
   const { data: venues } = useQuery({
-    queryKey: ["app", "explore", q, cat],
+    queryKey: ["app", "explore", q, cat, cityHint],
     queryFn: async () => {
-      let query = supabase
-        .from("venues")
-        .select("id,name,category,neighborhood,city,hero_image_url,image_url,price_level")
-        .limit(30);
-      if (q) query = query.ilike("name", `%${q}%`);
-      if (cat) query = query.ilike("category", `%${cat}%`);
-      const { data } = await query;
-      return data ?? [];
+      const url = import.meta.env.VITE_SUPABASE_URL;
+      const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+      if (!url || !key) return [];
+      const res = await fetch(`${url}/functions/v1/venue-discovery-agent`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: key,
+          Authorization: `Bearer ${key}`,
+        },
+        body: JSON.stringify({ city: cityHint, minThreshold: 20, requestCount: 25 }),
+      });
+      if (!res.ok) return [];
+      const data = (await res.json()) as {
+        venues?: Array<{
+          id: string;
+          name: string;
+          cuisine: string | null;
+          neighborhood: string | null;
+          city: string;
+          photo_url: string | null;
+          price_level: number | null;
+          price: string | null;
+          vibe_tags: string[] | null;
+        }>;
+      };
+      let list = data.venues ?? [];
+      // Hide partial-seed placeholder rows.
+      list = list.filter((v) => v.name && !v.name.startsWith("(") && !v.name.includes("Pinned"));
+      // Client-side filter for search + category since the agent doesn't
+      // know about them yet — keeps the query stable while sparse.
+      const qLower = q.toLowerCase();
+      if (qLower) {
+        list = list.filter(
+          (v) =>
+            v.name.toLowerCase().includes(qLower) ||
+            (v.cuisine ?? "").toLowerCase().includes(qLower) ||
+            (v.neighborhood ?? "").toLowerCase().includes(qLower),
+        );
+      }
+      if (cat) {
+        const c = cat.toLowerCase();
+        list = list.filter((v) =>
+          (v.vibe_tags ?? []).some((t) => t.toLowerCase().includes(c)) ||
+          (v.cuisine ?? "").toLowerCase().includes(c),
+        );
+      }
+      return list.slice(0, 60);
     },
+    staleTime: 60_000,
   });
+
 
   return (
     <div className="pb-6">
@@ -125,9 +174,9 @@ function ExplorePage() {
                 className="flex gap-3.5 rounded-2xl border-2 border-ink/8 bg-surface-1 p-3 shadow-card transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover"
               >
                 <div className="size-16 shrink-0 overflow-hidden rounded-xl bg-ink/[0.04]">
-                  {(v.hero_image_url || v.image_url) && (
+                  {v.photo_url && (
                     <img
-                      src={v.hero_image_url || v.image_url || ""}
+                      src={v.photo_url}
                       alt={v.name}
                       className="size-full object-cover"
                       loading="lazy"
@@ -138,12 +187,12 @@ function ExplorePage() {
                 <div className="min-w-0 flex-1">
                   <div className="line-clamp-1 font-display text-[14px] font-bold tracking-tight text-ink">{v.name}</div>
                   <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/45">
-                    {v.category}
+                    {v.cuisine}
                     {v.neighborhood ? ` · ${v.neighborhood}` : ""}
                     {v.city ? ` · ${v.city}` : ""}
                   </div>
                   <div className="mt-1 font-mono text-[11px] font-bold tracking-wider text-ink/35">
-                    {"$".repeat(Math.max(1, Math.min(4, v.price_level ?? 2)))}
+                    {v.price ?? "$".repeat(Math.max(1, Math.min(4, v.price_level ?? 2)))}
                   </div>
                 </div>
               </Link>

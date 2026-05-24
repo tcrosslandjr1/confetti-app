@@ -21,9 +21,12 @@ import {
   pauseCampaign,
   resumeCampaign,
   createDemoSponsorship,
+  runVerifyBackfillBatch,
+  getVerifyStatus,
   type CampaignStatus,
   type PartnerCampaign,
 } from "@/lib/admin/partner-ads";
+import { BadgeCheck, Loader2 } from "lucide-react";
 
 const ADMIN_PIN = "236166";
 const PIN_KEY = "confetti.admin.pinOk";
@@ -117,6 +120,57 @@ function AdminPartners() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
+  const [verifyState, setVerifyState] = useState<{
+    running: boolean;
+    processed: number;
+    verified: number;
+    remaining: number | null;
+  }>({ running: false, processed: 0, verified: 0, remaining: null });
+
+  // Fetch current verify status once on unlock so the badge has a count.
+  useEffect(() => {
+    if (!unlocked) return;
+    getVerifyStatus()
+      .then((s) => setVerifyState((v) => ({ ...v, remaining: s.remaining })))
+      .catch(() => null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [unlocked]);
+
+  async function handleRunBackfill() {
+    if (verifyState.running) return;
+    setVerifyState({ running: true, processed: 0, verified: 0, remaining: null });
+    const MAX_BATCHES = 30; // safety cap (~1,200 venues)
+    let totalProcessed = 0;
+    let totalVerified = 0;
+    let lastRemaining = 0;
+    for (let i = 0; i < MAX_BATCHES; i++) {
+      try {
+        const r = await runVerifyBackfillBatch(40);
+        totalProcessed += r.processed;
+        totalVerified += r.verified;
+        lastRemaining = r.remaining;
+        setVerifyState({
+          running: true,
+          processed: totalProcessed,
+          verified: totalVerified,
+          remaining: r.remaining,
+        });
+        if (r.processed === 0 || r.remaining === 0) break;
+      } catch (e) {
+        toast.error("Backfill batch failed", { description: (e as Error).message });
+        break;
+      }
+    }
+    setVerifyState({
+      running: false,
+      processed: totalProcessed,
+      verified: totalVerified,
+      remaining: lastRemaining,
+    });
+    toast.success(
+      `Backfill complete — ${totalVerified} verified in this run, ${lastRemaining} unverified left`,
+    );
+  }
 
   async function refresh() {
     setLoading(true);
@@ -220,7 +274,24 @@ function AdminPartners() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={handleRunBackfill}
+              disabled={verifyState.running}
+              className="inline-flex items-center gap-2 rounded-full border-2 border-emerald-600 bg-emerald-600/10 px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-700 hover:bg-emerald-600 hover:text-cream disabled:opacity-50"
+            >
+              {verifyState.running ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              ) : (
+                <BadgeCheck className="h-3.5 w-3.5" />
+              )}
+              {verifyState.running
+                ? `Verifying ${verifyState.processed} (${verifyState.remaining ?? "?"} left)`
+                : verifyState.remaining !== null
+                  ? `Verify backfill (${verifyState.remaining} unverified)`
+                  : "Verify backfill"}
+            </button>
             <button
               type="button"
               onClick={handleCreateDemo}

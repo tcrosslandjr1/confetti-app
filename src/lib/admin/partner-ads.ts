@@ -92,3 +92,13 @@ export async function createDemoSponsorship(opts: {
 }): Promise<{ campaignId: string; businessId: string; venueId: string; venueName: string }> {
   return invoke("create_demo_sponsor", opts);
 }
+
+export async function runVerifyBackfillBatch(
+  batchSize = 25,
+): Promise<{ processed: number; verified: number; remaining: number }> {
+  return invoke("verify_backfill", { batchSize });
+}
+
+export async function getVerifyStatus(): Promise<{ remaining: number; verified: number }> {
+  return invoke("verify_status", {});
+}

@@ -13,6 +13,7 @@
 
 import { serve } from "../_shared/server.ts";
 import { jsonResponse, errorResponse, supabaseAdmin } from "../_shared/supabase-client.ts";
+import { backfillVerifyVenues } from "../_shared/venue-discovery.ts";
 
 interface Body {
   action: string;
@@ -22,6 +23,8 @@ interface Body {
   city?: string;
   campaignName?: string;
   targetVibes?: string[];
+  /** verify_backfill: how many rows to process per call (default 25, max 50). */
+  batchSize?: number;
 }
 
 function isAdminAuthorized(req: Request): boolean {
@@ -208,6 +211,23 @@ serve(async (req: Request) => {
         if (!body.id) return errorResponse("id required");
         await updateStatus(body.id, "active");
         return jsonResponse({ ok: true });
+      case "verify_backfill": {
+        const result = await backfillVerifyVenues(
+          Math.max(1, Math.min(body.batchSize ?? 25, 50)),
+        );
+        return jsonResponse(result);
+      }
+      case "verify_status": {
+        const { count: remaining } = await supabaseAdmin
+          .from("venues")
+          .select("id", { count: "exact", head: true })
+          .or("is_verified.is.null,is_verified.eq.false");
+        const { count: verified } = await supabaseAdmin
+          .from("venues")
+          .select("id", { count: "exact", head: true })
+          .eq("is_verified", true);
+        return jsonResponse({ remaining: remaining ?? 0, verified: verified ?? 0 });
+      }
       case "create_demo_sponsor": {
         if (!body.venueId && !body.city) return errorResponse("venueId or city required");
         const result = await createDemoSponsor({

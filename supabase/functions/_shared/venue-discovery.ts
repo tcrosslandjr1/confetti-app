@@ -24,6 +24,10 @@ interface ClaudeVenue {
   vibe_tags: string[];
   cuisine_tags: string[];
   occasion_tags: string[];
+  /** Official venue website (e.g. https://thegibsondc.com) — used for HEAD-verify. */
+  website?: string | null;
+  /** Instagram handle (no @, no URL) — e.g. "thegibsondc". Fallback verify. */
+  instagram_handle?: string | null;
 }
 
 function slugify(s: string): string {
@@ -76,6 +80,9 @@ Rules:
 - cuisine_tags describe food/drink type: "Italian", "Steakhouse", "Cocktail Bar", "Brewery", "Coffee", "Brunch", "Wine Bar", "Hookah Lounge", "Comedy Club", "Gaming Lounge", etc.
 - occasion_tags from: "date-night", "girls-night", "guys-night", "bachelor", "bachelorette", "anniversary", "family", "birthday", "in-laws".
 - vibe_notes: one warm sentence, 20–35 words.
+- website: ALWAYS provide your best-guess official website URL with full https:// prefix (e.g. "https://thegibsondc.com"). For a famous venue use the URL you'd type into a browser. We HEAD-check it server-side — wrong guesses fail harmlessly, blanks mean we can't verify at all. So GUESS even when uncertain. Examples: "https://pizzeriabianco.com", "https://www.shake-shack.com", "https://omniaclubs.com".
+- instagram_handle: ALWAYS provide your best-guess Instagram handle (no @ or URL — just the handle, e.g. "thegibsondc", "pizzeriabianco"). Same rule: guess freely, we verify.
+- These two fields are used for web-presence verification — better to guess wrong than leave blank.
 - DO NOT repeat any of these (already in our DB): ${known || "none"}
 - Return ONLY valid JSON in the exact shape below — no markdown, no explanation.${nicheBlock}`;
 
@@ -94,7 +101,9 @@ Return:
       "vibe_notes": "one sentence",
       "vibe_tags": ["..."],
       "cuisine_tags": ["..."],
-      "occasion_tags": ["..."]
+      "occasion_tags": ["..."],
+      "website": "https://... or empty if unsure",
+      "instagram_handle": "handle without @ or empty if unsure"
     }
   ]
 }`;
@@ -121,6 +130,85 @@ Return:
   return parsed.venues ?? [];
 }
 
+/**
+ * Confirm a URL is live by issuing a quick GET with a short timeout.
+ * HEAD often returns 405 from web stacks; GET with a tiny range is robust.
+ * Returns true on 2xx or 3xx (real businesses often redirect www → bare).
+ */
+async function urlIsLive(url: string, timeoutMs = 4000): Promise<boolean> {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(url, {
+      method: "GET",
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; Confetti-VenueVerify/1.0; +https://confetti.app)",
+        "Accept": "text/html,application/xhtml+xml",
+        // Tiny range so we don't actually download the page.
+        "Range": "bytes=0-1024",
+      },
+      redirect: "follow",
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    return res.status >= 200 && res.status < 400;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Instagram presence check. Public profiles render at instagram.com/{handle}/.
+ * Instagram redirects unauthenticated viewers but the public URL itself
+ * resolves with 200; nonexistent handles return 404.
+ */
+async function instagramIsLive(handle: string): Promise<boolean> {
+  const cleaned = handle.replace(/^@/, "").replace(/[^\w._]/g, "");
+  if (!cleaned) return false;
+  return urlIsLive(`https://www.instagram.com/${cleaned}/`);
+}
+
+/** Verify a single venue by web/social presence. Picks the strongest signal. */
+async function verifyVenue(
+  v: { name: string; website?: string | null; instagram_handle?: string | null },
+): Promise<{ verified: boolean; source: "website" | "instagram" | "none" }> {
+  if (v.website && /^https?:\/\//i.test(v.website)) {
+    if (await urlIsLive(v.website)) return { verified: true, source: "website" };
+  }
+  if (v.instagram_handle) {
+    if (await instagramIsLive(v.instagram_handle)) {
+      return { verified: true, source: "instagram" };
+    }
+  }
+  return { verified: false, source: "none" };
+}
+
+/** Run web-presence verification across many venues with bounded concurrency. */
+async function verifyBatch(
+  rows: Array<{
+    name: string;
+    website?: string | null;
+    instagram_handle?: string | null;
+    is_verified?: boolean;
+    source_credit?: string;
+  }>,
+  concurrency = 6,
+): Promise<void> {
+  const queue = [...rows];
+  async function worker() {
+    while (queue.length > 0) {
+      const r = queue.shift();
+      if (!r) return;
+      const { verified, source } = await verifyVenue(r);
+      r.is_verified = verified;
+      if (verified) {
+        r.source_credit = `ai-discovery+${source}`;
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, worker));
+}
+
 async function persist(
   city: string,
   fresh: ClaudeVenue[],
@@ -136,8 +224,8 @@ async function persist(
       state: null,
       neighborhood: v.neighborhood || null,
       address: v.address || null,
-      lat: null,
-      lng: null,
+      lat: null as number | null,
+      lng: null as number | null,
       cuisine: v.cuisine || null,
       cuisine_tags: v.cuisine_tags ?? [],
       vibe_tags: v.vibe_tags ?? [],
@@ -150,10 +238,28 @@ async function persist(
       vibe_notes: v.vibe_notes || null,
       popularity_score: 5,
       source_credit: "ai-discovery",
+      is_verified: false,
+      website: v.website || null,
+      // We don't have a column for IG yet, but we keep it on the row so
+      // the verifier can use it. It's stripped before insert if the
+      // schema doesn't include it.
+      instagram_handle: v.instagram_handle || null,
     }))
     .filter((r) => !knownSlugs.has(r.slug));
   if (rows.length === 0) return 0;
-  const { data, error } = await supabaseAdmin.from("venues").insert(rows).select("id");
+
+  // Web/social presence verification: HEAD-check website, fall back to
+  // Instagram handle. Real operating businesses respond; ghosts don't.
+  await verifyBatch(rows, 6);
+
+  // Drop instagram_handle before insert (no DB column for it yet).
+  const cleaned = rows.map((r) => {
+    const copy = { ...r };
+    delete (copy as { instagram_handle?: unknown }).instagram_handle;
+    return copy;
+  });
+
+  const { data, error } = await supabaseAdmin.from("venues").insert(cleaned).select("id");
   if (error) {
     console.warn("[ensureCityVenues] insert error:", error.message);
     return 0;

@@ -13,11 +13,11 @@ const TABS = [
 
 export function AppShell() {
   const location = useLocation();
-  useLocationTracking(); // sends location pings when user has upcoming bookings
+  useLocationTracking();
   return (
-    <div className="relative mx-auto min-h-screen w-full max-w-md bg-background pb-24">
+    <div className="relative mx-auto min-h-screen w-full max-w-md bg-cream text-ink pb-24">
       <Outlet />
-      <nav className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md border-t border-border bg-background/95 backdrop-blur">
+      <nav className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-md border-t-2 border-ink bg-cream/95 backdrop-blur">
         <ul className="grid grid-cols-5">
           {TABS.map(({ to, label, icon: Icon, exact }) => {
             const active = exact ? location.pathname === to : location.pathname.startsWith(to);
@@ -26,11 +26,20 @@ export function AppShell() {
                 <Link
                   to={to}
                   className={cn(
-                    "flex flex-col items-center gap-1 py-2.5 text-[10px] font-medium tracking-wide uppercase",
-                    active ? "text-primary" : "text-muted-foreground",
+                    "flex flex-col items-center gap-1 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-colors",
+                    active ? "text-ink" : "text-ink/60 hover:text-ink",
                   )}
                 >
-                  <Icon className="size-5" />
+                  <span
+                    className={cn(
+                      "grid size-9 place-items-center rounded-full transition-all",
+                      active
+                        ? "border-2 border-ink bg-gold text-ink shadow-brut"
+                        : "border-2 border-transparent",
+                    )}
+                  >
+                    <Icon className="size-4" />
+                  </span>
                   {label}
                 </Link>
               </li>
@@ -54,16 +63,18 @@ export function MobileHeader({
   left?: React.ReactNode;
 }) {
   return (
-    <header className="sticky top-0 z-20 flex items-end justify-between gap-3 bg-gradient-to-b from-background via-background to-background/0 px-5 pb-3 pt-6">
+    <header className="sticky top-0 z-20 flex items-end justify-between gap-3 border-b-2 border-ink bg-cream px-5 pb-3 pt-6">
       <div className="flex items-end gap-3">
         {left}
         <div>
           {eyebrow && (
-            <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
               {eyebrow}
             </div>
           )}
-          <h1 className="mt-0.5 text-2xl font-bold tracking-tight">{title}</h1>
+          <h1 className="mt-1 font-display text-2xl font-extrabold tracking-[-0.02em] text-ink">
+            {title}
+          </h1>
         </div>
       </div>
       {right}

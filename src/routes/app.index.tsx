@@ -92,7 +92,7 @@ function TonightFeedPage() {
       />
 
       <Reveal delay={80}>
-      <section className="px-5 pt-1">
+      <section className="px-5 pt-1 space-y-3">
         <Card className="relative overflow-hidden border-2 border-ink bg-ink p-5 text-cream shadow-brut-lg">
           <div className="absolute -right-6 -top-6 size-28 rounded-full bg-gold/15 blur-2xl" />
           <div className="relative">
@@ -103,6 +103,22 @@ function TonightFeedPage() {
             <p className="mt-1 text-[13px] leading-relaxed text-cream/70">Two-tap itinerary, perfectly your vibe.</p>
             <Button asChild variant="gold" size="sm" className="mt-4">
               <Link to="/app/plan">Plan my night</Link>
+            </Button>
+          </div>
+        </Card>
+
+        <Card className="relative overflow-hidden border-2 border-ink bg-cream p-5 shadow-brut">
+          <div className="absolute -right-10 -bottom-10 size-32 rounded-full bg-coral/20 blur-2xl" />
+          <div className="relative">
+            <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
+              <Sparkles className="size-3.5" /> Stay In · Host · Outdoor
+            </div>
+            <h2 className="mt-2.5 font-display text-xl font-extrabold tracking-tight text-ink">Plan a hangout.</h2>
+            <p className="mt-1 text-[13px] leading-relaxed text-ink/70">
+              Crabs in the backyard, game night, cookout, picnic — menu, supplies, timeline, all sorted.
+            </p>
+            <Button asChild variant="default" size="sm" className="mt-4">
+              <Link to="/app/plan">Plan a hangout</Link>
             </Button>
           </div>
         </Card>

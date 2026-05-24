@@ -282,6 +282,36 @@ function PlanMyNightPage() {
 
         {planType && isHangoutMode(planType) ? (
           <BrandCard className="p-6">
+            <div className="mb-5 rounded-2xl border-2 border-dashed border-ink/20 bg-cream/40 p-3">
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+                Or try a demo
+              </div>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {[
+                  { label: "🦀 Crabs in Baltimore", o: HANGOUT_OCCASIONS[0], city: "Baltimore", guests: 8, budget: "$$", start: "14:00", notes: "" },
+                  { label: "🎲 Game night DC", o: HANGOUT_OCCASIONS[8], city: "Washington", guests: 6, budget: "$", start: "19:30", notes: "close friends, competitive" },
+                  { label: "🔥 Cookout backyard", o: HANGOUT_OCCASIONS[1], city: "Washington", guests: 10, budget: "$$", start: "15:00", notes: "" },
+                  { label: "🧺 Park picnic", o: HANGOUT_OCCASIONS[4], city: "Washington", guests: 4, budget: "$", start: "12:30", notes: "" },
+                ].map((d) => (
+                  <button
+                    key={d.label}
+                    type="button"
+                    onClick={() => {
+                      setHangoutOccasion(d.o);
+                      setHangoutCity(d.city);
+                      setHangoutGuests(d.guests);
+                      setHangoutBudget(d.budget);
+                      setHangoutStart(d.start);
+                      setHangoutNotes(d.notes);
+                    }}
+                    className="rounded-full border-2 border-ink/30 bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:border-ink hover:bg-gold/40"
+                  >
+                    {d.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
               Pick the hangout
             </div>

@@ -5,9 +5,17 @@
  * Supports radius-based search, trip corridor discovery,
  * multi-state route scanning, and venue deduplication.
  *
+ * Data strategy (priority order):
+ *   1. LOCAL KNOWLEDGE — 1,074 curated venues from Excel guides (20 cities)
+ *   2. Venue cache (Supabase) — previously fetched API results
+ *   3. Live APIs (Google Places + Foursquare) — fresh discovery
+ *   4. Mock venues — last resort for development
+ *
  * When user location is on, silently searches everything within
  * a configurable radius — especially for trip planning.
  */
+
+import { queryLocalVenues, hasLocalKnowledge, type VenueKnowledge } from "./venue-knowledge";
 
 export interface GeoLocation {
   lat: number;
@@ -213,6 +221,88 @@ async function searchFoursquare(
       distanceMiles: place.distance ? Number(place.distance) / 1609.34 : undefined,
     };
   });
+}
+
+// ─── Local Knowledge Layer (curated Excel guides) ─────────────
+
+function convertLocalToDiscovered(local: VenueKnowledge, params: VenueSearchParams): DiscoveredVenue {
+  return {
+    id: `local_${local.id}`,
+    name: local.name,
+    category: local.cuisine || "Venue",
+    subcategory: local.cuisineTags[0],
+    address: local.address,
+    city: local.city,
+    state: local.state,
+    country: "US",
+    lat: local.lat,
+    lng: local.lng,
+    priceLevel: local.price,
+    rating: undefined,
+    ratingCount: undefined,
+    photoUrls: [],
+    cuisineTags: local.cuisineTags,
+    vibeTags: local.vibeTags,
+    occasionTags: local.occasionTags,
+    source: "merged" as const,
+    distanceMiles: calculateDistance(params.location.lat, params.location.lng, local.lat, local.lng),
+    matchScore: calculateLocalMatchScore(local, params),
+  };
+}
+
+function calculateLocalMatchScore(venue: VenueKnowledge, params: VenueSearchParams): number {
+  let score = 70; // Base score for curated venues
+
+  // Occasion match: +15
+  if (params.occasion) {
+    const occ = params.occasion.toLowerCase();
+    if (venue.occasionTags.some(t => t.includes(occ) || occ.includes(t))) {
+      score += 15;
+    }
+  }
+
+  // Vibe match: +5 per match, max +15
+  if (params.vibes?.length) {
+    const vibeSet = new Set(params.vibes.map(v => v.toLowerCase()));
+    const matches = venue.vibeTags.filter(t => vibeSet.has(t)).length;
+    score += Math.min(matches * 5, 15);
+  }
+
+  // Price match: +5
+  if (params.priceLevel) {
+    const targetLevel = params.priceLevel.length; // $ = 1, $$ = 2, etc.
+    if (venue.priceLevel <= targetLevel) score += 5;
+  }
+
+  // Cuisine match: +10
+  if (params.cuisines?.length) {
+    const cuisineSet = new Set(params.cuisines.map(c => c.toLowerCase()));
+    if (venue.cuisineTags.some(t => cuisineSet.has(t.toLowerCase()))) {
+      score += 10;
+    }
+  }
+
+  return Math.min(score, 100);
+}
+
+/**
+ * Query local curated knowledge base for venues.
+ * Returns DiscoveredVenue[] from the 1,074 Excel-sourced venues.
+ */
+function getLocalKnowledgeVenues(params: VenueSearchParams): DiscoveredVenue[] {
+  const city = params.location.city;
+  if (!city || !hasLocalKnowledge(city)) return [];
+
+  const localResults = queryLocalVenues({
+    city,
+    occasion: params.occasion,
+    vibes: params.vibes,
+    priceLevel: params.priceLevel ? params.priceLevel.length : undefined,
+    cuisine: params.cuisines?.[0],
+    limit: params.limit ?? 20,
+  });
+
+  return localResults.map(v => convertLocalToDiscovered(v, params));
 }
 
 // ─── Mock venue discovery (development) ─────────────────────
@@ -591,25 +681,36 @@ async function triggerIngest(
 /**
  * Search for venues near a location.
  *
- * Strategy (cache-first):
- *   1. Query venue_cache in Supabase for fresh cached venues
- *   2. If cache has results → return them (zero API cost)
- *   3. If cache is empty → trigger venue-ingest to populate,
- *      then fall back to live Google Places while cache builds
- *   4. If everything fails → return mock venues
+ * Strategy (local-knowledge-first):
+ *   1. LOCAL KNOWLEDGE — curated venues from Excel guides (1,074 across 20 cities)
+ *   2. Venue cache (Supabase) — previously fetched API results
+ *   3. Live APIs (Google Places + Foursquare) — fresh discovery
+ *   4. Mock venues — last resort for development
  *
- * This means Google Places is only called when a city is seen
- * for the first time. Every subsequent request is free.
+ * Local knowledge is always blended in when available.
+ * The system LEARNS over time via venue_feedback table +
+ * popularity_score auto-updates.
  */
 export async function discoverVenues(params: VenueSearchParams): Promise<DiscoveredVenue[]> {
   const config = getConfig();
   const hasSupabase = Boolean(config.supabaseUrl && config.supabaseAnonKey);
 
-  if (!hasSupabase) {
-    return getMockVenues(params);
+  // ── Step 0: Always check local curated knowledge ───────
+  const localVenues = getLocalKnowledgeVenues(params);
+
+  if (localVenues.length > 0) {
+    console.log(`[Confetti] 🎊 Local knowledge: ${localVenues.length} curated venues for ${params.location.city}`);
   }
 
-  // ── Step 1: Try cache first ────────────────────────────
+  if (!hasSupabase) {
+    // No Supabase configured — use local knowledge or mocks
+    if (localVenues.length >= 3) {
+      return localVenues;
+    }
+    return [...localVenues, ...getMockVenues(params)].slice(0, params.limit ?? 20);
+  }
+
+  // ── Step 1: Try cache ──────────────────────────────────
   const cached = await queryVenueCache(
     params,
     config.supabaseUrl!,
@@ -619,21 +720,23 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
   if (cached.length > 0) {
     console.log(`[Confetti] Serving ${cached.length} venues from cache for ${params.location.city}`);
 
-    // Filter by query if provided
-    let results = cached;
+    // Filter cache by query if provided
+    let cacheResults = cached;
     if (params.query) {
       const q = params.query.toLowerCase();
-      results = cached.filter((v) =>
+      cacheResults = cached.filter((v) =>
         v.name.toLowerCase().includes(q) ||
         v.cuisineTags.some((t) => t.toLowerCase().includes(q)) ||
         v.vibeTags.some((t) => t.toLowerCase().includes(q)) ||
         v.category.toLowerCase().includes(q)
       );
-      // If filter narrows too much, return all cached
-      if (results.length < 3) results = cached;
+      if (cacheResults.length < 3) cacheResults = cached;
     }
 
-    return results.map((v) => ({
+    // Blend local knowledge with cache — local gets priority via higher matchScore
+    const blended = deduplicateVenues([...localVenues, ...cacheResults]);
+
+    return blended.map((v) => ({
       ...v,
       distanceMiles: calculateDistance(params.location.lat, params.location.lng, v.lat, v.lng),
     })).sort((a, b) => (b.matchScore ?? b.rating ?? 0) - (a.matchScore ?? a.rating ?? 0));
@@ -650,7 +753,7 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
     config.supabaseAnonKey!
   );
 
-  // ── Step 3: Meanwhile, do a live search for immediate results
+  // ── Step 3: Live API search ────────────────────────────
   const hasGoogle = Boolean(config.supabaseUrl && config.supabaseAnonKey);
   const hasFoursquare = Boolean(config.foursquareKey);
 
@@ -661,17 +764,19 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
     hasFoursquare ? searchFoursquare(params, config.foursquareKey!) : Promise.resolve([]),
   ]);
 
-  const venues: DiscoveredVenue[] = [];
+  const apiVenues: DiscoveredVenue[] = [];
   for (const result of results) {
-    if (result.status === "fulfilled") venues.push(...result.value);
+    if (result.status === "fulfilled") apiVenues.push(...result.value);
   }
 
-  const deduped = deduplicateVenues(venues);
+  // Blend local + API results
+  const allVenues = [...localVenues, ...apiVenues];
+  const deduped = deduplicateVenues(allVenues);
 
-  // ── Step 4: Last resort — mock venues ──────────────────
+  // ── Step 4: If still nothing, use local knowledge or mocks
   if (deduped.length === 0) {
     console.warn("[Confetti] All sources returned 0 venues — falling back to curated picks");
-    return getMockVenues(params);
+    return localVenues.length > 0 ? localVenues : getMockVenues(params);
   }
 
   return deduped.map((v) => ({

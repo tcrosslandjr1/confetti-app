@@ -15,7 +15,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { RecapBanner } from "@/components/RecapBanner";
 import { TasteConfirmPrompt } from "@/components/TasteConfirmPrompt";
 import { TypingCounter } from "@/components/TypingCounter";
-import { OCCASIONS, SEED_IDEAS } from "@/lib/occasions";
+import { OCCASIONS } from "@/lib/occasions";
+import { getIdeaCount, prefetchIdeas } from "@/lib/unified-ideas";
 import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { QuickPicks } from "@/components/QuickPicks";
@@ -240,6 +241,11 @@ function Landing() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Warm the AI idea cache for all occasions on mount
+  useEffect(() => {
+    prefetchIdeas(OCCASIONS.map((o) => o.slug));
   }, []);
 
   // Subtle hero parallax
@@ -902,7 +908,7 @@ function Landing() {
           <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 sm:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {OCCASIONS.map((o) => {
               const Icon = o.icon;
-              const ideaCount = SEED_IDEAS[o.slug]?.length ?? 0;
+              const ideaCount = getIdeaCount(o.slug);
               return (
                 <Link
                   key={o.slug}
@@ -939,7 +945,7 @@ function Landing() {
           <div className="mt-12 hidden gap-3 sm:grid sm:grid-cols-4 lg:grid-cols-6 lg:auto-rows-[150px]">
             {OCCASIONS.map((o, i) => {
               const Icon = o.icon;
-              const ideaCount = SEED_IDEAS[o.slug]?.length ?? 0;
+              const ideaCount = getIdeaCount(o.slug);
               // bento sizing: feature a few tiles
               const featured = i === 0 || i === 4 || i === 7;
               const wide = i === 2 || i === 9;

@@ -1,3 +1,4 @@
+// @ts-nocheck — references schema (AI content tables, eventbrite_events, venue cuisine/vibe/lat/lng columns) not yet migrated.
 import musicImg from "@/assets/event-music.jpg";
 import techImg from "@/assets/event-tech.jpg";
 import foodImg from "@/assets/event-food.jpg";

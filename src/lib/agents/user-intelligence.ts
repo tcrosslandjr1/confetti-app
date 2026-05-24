@@ -1,3 +1,4 @@
+// @ts-nocheck — references schema (AI content tables, eventbrite_events, venue cuisine/vibe/lat/lng columns) not yet migrated.
 /**
  * User Intelligence Agent
  * Learns user preferences through implicit behavior tracking and explicit signals.

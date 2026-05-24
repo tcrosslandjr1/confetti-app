@@ -876,10 +876,22 @@ function ConnectedAccountsCard() {
 }
 
 
-function StatCard({ label, value }: { label: string; value: number }) {
+function StatCard({
+  label,
+  value,
+  icon: Icon,
+}: {
+  label: string;
+  value: number;
+  icon?: React.ComponentType<{ className?: string }>;
+}) {
   return (
-    <Card className="p-3 text-center">
-      <div className="text-xl font-bold">{value}</div>
+    <Card className="group relative overflow-hidden p-3 text-center transition-all hover:-translate-y-0.5 hover:shadow-md">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+      {Icon && (
+        <Icon className="mx-auto mb-1 size-3.5 text-primary/70" />
+      )}
+      <div className="text-xl font-bold tracking-tight">{value}</div>
       <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
         {label}
       </div>

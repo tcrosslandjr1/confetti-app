@@ -168,51 +168,15 @@ function ProfilePage() {
       {/* ─── Tabs ───────────────────────────────────────────────────────── */}
       <section className="mt-6 px-5">
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger
-              value="overview"
-              onClick={() => trackEngagement("profile_tab", { tab: "overview" })}
-            >
-              Overview
-            </TabsTrigger>
-            <TabsTrigger
-              value="bookings"
-              onClick={() => trackEngagement("profile_tab", { tab: "bookings" })}
-            >
-              Bookings
-            </TabsTrigger>
-            <TabsTrigger
-              value="saved"
-              onClick={() => trackEngagement("profile_tab", { tab: "saved" })}
-            >
-              Saved
-            </TabsTrigger>
+          <TabsList className="grid w-full grid-cols-6 gap-1 rounded-2xl bg-muted/60 p-1">
+            <TabsTrigger value="overview" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "overview" })}>Overview</TabsTrigger>
+            <TabsTrigger value="bookings" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "bookings" })}>Bookings</TabsTrigger>
+            <TabsTrigger value="saved" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "saved" })}>Saved</TabsTrigger>
+            <TabsTrigger value="passport" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "passport" })}>Passport</TabsTrigger>
+            <TabsTrigger value="wallet" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "wallet" })}>Wallet</TabsTrigger>
+            <TabsTrigger value="settings" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "settings" })}>Settings</TabsTrigger>
           </TabsList>
 
-          <TabsList className="mt-2 grid w-full grid-cols-3">
-            <TabsTrigger
-              value="passport"
-              onClick={() =>
-                trackEngagement("profile_tab", { tab: "passport" })
-              }
-            >
-              Passport
-            </TabsTrigger>
-            <TabsTrigger
-              value="wallet"
-              onClick={() => trackEngagement("profile_tab", { tab: "wallet" })}
-            >
-              Wallet
-            </TabsTrigger>
-            <TabsTrigger
-              value="settings"
-              onClick={() =>
-                trackEngagement("profile_tab", { tab: "settings" })
-              }
-            >
-              Settings
-            </TabsTrigger>
-          </TabsList>
 
           <TabsContent value="overview">
             <OverviewTab userId={userId!} level={level} xp={xp} />

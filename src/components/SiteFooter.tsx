@@ -3,6 +3,7 @@ import { Instagram, Twitter, Youtube, Music2, Github, ChevronDown } from "lucide
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { openCookieSettings } from "@/components/CookieConsent";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 const navCols = [
   {
@@ -43,31 +44,26 @@ const socials = [
   {
     Icon: Instagram,
     label: "Instagram",
-    href: "https://instagram.com",
     hover: "hover:bg-coral  hover:text-cream hover:border-coral",
   },
   {
     Icon: Twitter,
     label: "Twitter",
-    href: "https://twitter.com",
     hover: "hover:bg-teal   hover:text-ink   hover:border-teal",
   },
   {
     Icon: Music2,
     label: "TikTok",
-    href: "https://tiktok.com",
     hover: "hover:bg-pink   hover:text-cream hover:border-pink",
   },
   {
     Icon: Youtube,
     label: "YouTube",
-    href: "https://youtube.com",
     hover: "hover:bg-gold   hover:text-ink   hover:border-gold",
   },
   {
     Icon: Github,
     label: "GitHub",
-    href: "https://github.com",
     hover: "hover:bg-purple hover:text-cream hover:border-purple",
   },
 ];
@@ -152,17 +148,16 @@ export function SiteFooter() {
               The loud, opinionated planner for outings worth showing up for.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {socials.map(({ Icon, label, href, hover }) => (
-                <a
+              {socials.map(({ Icon, label, hover }) => (
+                <button
+                  type="button"
                   key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={(e) => { e.preventDefault(); toast("Follow us — coming soon!"); }}
                   aria-label={label}
                   className={`inline-grid h-11 w-11 place-items-center rounded-full border-2 border-cream/30 text-cream transition-pop hover:-translate-y-0.5 ${hover}`}
                 >
                   <Icon className="h-5 w-5" />
-                </a>
+                </button>
               ))}
             </div>
           </div>

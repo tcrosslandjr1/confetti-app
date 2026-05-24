@@ -1,37 +1,30 @@
-import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
+import { toast } from "sonner";
 import { motion } from "framer-motion";
 import {
-  Sparkles,
   Eye,
-  Film,
   MousePointerClick,
-  Instagram,
-  Music2,
   CalendarPlus,
   Image as ImageIcon,
   Pencil,
   Link2,
   BarChart3,
   Megaphone,
-  RefreshCw,
   ShieldCheck,
   Clock,
   TrendingUp,
   Lock,
-  ChevronRight,
   Users,
   ShoppingBag,
   DollarSign,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { listMyClaims } from "@/lib/business-onboarding.functions";
 import { getVenueAnalytics } from "@/lib/business-portal.functions";
 import { useManagedVenues } from "@/components/business/useManagedVenue";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { BusinessUpgradePanel } from "@/components/business/BusinessUpgradePanel";
@@ -56,8 +49,8 @@ export const Route = createFileRoute("/business/dashboard")({
 });
 
 function BusinessDashboardPage() {
-  const { user } = useAuth();
-  const { venues, activeId } = useManagedVenues();
+  useAuth();
+  const { activeId } = useManagedVenues();
   const fetchClaims = useServerFn(listMyClaims);
   const fetchAnalytics = useServerFn(getVenueAnalytics);
   const { data: claimsData } = useQuery({
@@ -88,16 +81,7 @@ function BusinessDashboardPage() {
           lastRefresh="—"
         />
         <KPIStats totals={analyticsData?.totals} daily={analyticsData?.daily} />
-        <AIInsights />
         <QuickActions promotionUnlocked={promotionUnlocked} />
-        <div className="grid gap-6 lg:grid-cols-2">
-          <EventsPreview />
-          <MediaPreview />
-        </div>
-        <div className="grid gap-6 lg:grid-cols-2">
-          <SocialPanel />
-          <PromotionPanel unlocked={promotionUnlocked} />
-        </div>
         <AnalyticsPreview daily={analyticsData?.daily} />
         <BusinessUpgradePanel />
         <section className="space-y-3">
@@ -108,7 +92,6 @@ function BusinessDashboardPage() {
           </p>
           <PromoStorefront />
         </section>
-        <AIRefreshStatus />
         <DashboardFooter />
       </div>
     </div>
@@ -281,52 +264,9 @@ function KPIStats({ totals, daily }: { totals?: any; daily?: any[] }) {
   );
 }
 
-/* ---------------- AI INSIGHTS ---------------- */
-
-const INSIGHTS = [
-  "Your venue performs best with Afrobeats audiences.",
-  "Peak engagement time: Fridays at 10:30 PM.",
-  "Trending hashtags: #RooftopDC, #LateNightVibes.",
-  "Your TikTok engagement is 2.4× higher than similar venues.",
-];
-
-function AIInsights() {
-  return (
-    <section>
-      <SectionHeader
-        title="AI Insights for your venue"
-        icon={<Sparkles className="h-4 w-4 text-primary" />}
-        action={
-          <Button variant="ghost" size="sm" className="text-xs" asChild>
-            <span className="inline-flex items-center">View all <ChevronRight className="ml-1 h-3 w-3" /></span>
-          </Button>
-        }
-      />
-      <div className="grid gap-3 md:grid-cols-2">
-        {INSIGHTS.map((tip, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -8 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: i * 0.05 }}
-            className="flex items-start gap-3 rounded-2xl border bg-gradient-to-br from-primary/5 to-transparent p-4"
-          >
-            <div className="mt-0.5 rounded-md bg-primary/15 p-1.5 text-primary">
-              <Sparkles className="h-3.5 w-3.5" />
-            </div>
-            <p className="text-sm">{tip}</p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 /* ---------------- QUICK ACTIONS ---------------- */
 
 function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
-  const navigate = useNavigate();
   const actions = [
     { icon: CalendarPlus, label: "Add Event", to: "/business/events" },
     { icon: ImageIcon, label: "Upload Photos", to: "/business/media" },
@@ -342,7 +282,7 @@ function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
         {actions.map((a) => (
           <button
             key={a.label}
-            onClick={() => navigate({ to: a.to })}
+            onClick={() => toast(`${a.label} — coming soon!`)}
             className="group flex items-center gap-2 rounded-xl border bg-card px-4 py-3 text-sm font-medium shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
           >
             <a.icon className="h-4 w-4 text-primary transition-transform group-hover:scale-110" />
@@ -351,222 +291,6 @@ function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
         ))}
       </div>
     </section>
-  );
-}
-
-/* ---------------- EVENTS ---------------- */
-
-const EVENTS = [
-  {
-    title: "Afrobeats Friday",
-    date: "Fri · 10:00 PM",
-    status: "Published",
-    gradient: "from-orange-300 to-pink-300",
-  },
-  {
-    title: "Rooftop Sessions",
-    date: "Sat · 9:00 PM",
-    status: "Published",
-    gradient: "from-primary/50 to-orange-200",
-  },
-  {
-    title: "Sunday Brunch DJ",
-    date: "Sun · 12:00 PM",
-    status: "Draft",
-    gradient: "from-amber-200 to-yellow-200",
-  },
-];
-
-function EventsPreview() {
-  return (
-    <Card className="p-5">
-      <SectionHeader
-        title="Upcoming events"
-        action={
-          <div className="flex gap-2">
-            <Button size="sm" variant="outline" disabled>
-              Manage all
-            </Button>
-            <Button size="sm" disabled>
-              <CalendarPlus className="mr-1.5 h-3.5 w-3.5" />
-              Add
-            </Button>
-          </div>
-        }
-      />
-      <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-1">
-        {EVENTS.map((e) => (
-          <div
-            key={e.title}
-            className="group min-w-[220px] overflow-hidden rounded-xl border bg-card transition-shadow hover:shadow-md"
-          >
-            <div className={cn("h-24 bg-gradient-to-br", e.gradient)} />
-            <div className="p-3">
-              <div className="flex items-center justify-between gap-2">
-                <div className="truncate text-sm font-semibold">{e.title}</div>
-                <Badge
-                  variant={e.status === "Published" ? "default" : "secondary"}
-                  className="text-[10px]"
-                >
-                  {e.status}
-                </Badge>
-              </div>
-              <div className="mt-0.5 text-xs text-muted-foreground">{e.date}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Card>
-  );
-}
-
-/* ---------------- MEDIA ---------------- */
-
-const MEDIA = [
-  "from-primary/40 to-orange-200",
-  "from-pink-200 to-orange-200",
-  "from-amber-200 to-rose-200",
-  "from-orange-300 to-red-200",
-  "from-rose-200 to-pink-300",
-  "from-yellow-200 to-orange-300",
-];
-
-function MediaPreview() {
-  return (
-    <Card className="p-5">
-      <SectionHeader
-        title="Your photos & media"
-        action={
-          <div className="flex gap-2">
-            <Button size="sm" variant="outline" disabled>
-              Gallery
-            </Button>
-            <Button size="sm" disabled>
-              <ImageIcon className="mr-1.5 h-3.5 w-3.5" />
-              Upload
-            </Button>
-          </div>
-        }
-      />
-      <div className="grid grid-cols-3 gap-2">
-        {MEDIA.map((g, i) => (
-          <div
-            key={i}
-            className={cn(
-              "aspect-square rounded-lg bg-gradient-to-br",
-              g,
-              i === 0 && "col-span-2 row-span-2 aspect-auto",
-            )}
-          />
-        ))}
-      </div>
-    </Card>
-  );
-}
-
-/* ---------------- SOCIAL ---------------- */
-
-function SocialPanel() {
-  return (
-    <Card className="p-5">
-      <SectionHeader
-        title="Social accounts"
-        action={
-          <Button size="sm" variant="outline" disabled>
-            Settings
-          </Button>
-        }
-      />
-      <div className="space-y-3">
-        <SocialRow
-          icon={<Music2 className="h-4 w-4" />}
-          name="TikTok"
-          connected
-          handle="@rooftop.dc"
-          lastSync="2h ago"
-        />
-        <SocialRow icon={<Instagram className="h-4 w-4" />} name="Instagram" connected={false} />
-      </div>
-    </Card>
-  );
-}
-
-function SocialRow({
-  icon,
-  name,
-  connected,
-  handle,
-  lastSync,
-}: {
-  icon: React.ReactNode;
-  name: string;
-  connected: boolean;
-  handle?: string;
-  lastSync?: string;
-}) {
-  return (
-    <div className="flex items-center justify-between rounded-xl border bg-background/50 p-3">
-      <div className="flex items-center gap-3">
-        <div className="rounded-lg bg-primary/10 p-2 text-primary">{icon}</div>
-        <div>
-          <div className="text-sm font-semibold">{name}</div>
-          <div className="text-xs text-muted-foreground">
-            {connected ? `${handle} · synced ${lastSync}` : "Not connected"}
-          </div>
-        </div>
-      </div>
-      <Button size="sm" variant={connected ? "outline" : "default"} disabled>
-        {connected ? "Edit" : "Connect"}
-      </Button>
-    </div>
-  );
-}
-
-/* ---------------- PROMOTION ---------------- */
-
-function PromotionPanel({ unlocked }: { unlocked: boolean }) {
-  if (!unlocked) {
-    return (
-      <Card className="relative overflow-hidden p-5">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/8 via-transparent to-orange-100/40" />
-        <SectionHeader
-          title="Promotion tools"
-          icon={<Lock className="h-4 w-4 text-muted-foreground" />}
-        />
-        <p className="text-sm text-muted-foreground">
-          Promotion tools are invite-only. Request access and our team will reach out within 24
-          hours.
-        </p>
-        <Button className="mt-4" size="sm" disabled>
-          Request access
-        </Button>
-      </Card>
-    );
-  }
-
-  const features = ["Featured badge", "Boosted reels", "Priority search", "Hot Spots rotation"];
-
-  return (
-    <Card className="relative overflow-hidden p-5">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/12 via-transparent to-orange-100/50" />
-      <SectionHeader
-        title="Promotion tools"
-        icon={<Megaphone className="h-4 w-4 text-primary" />}
-        action={<Button size="sm" disabled>Manage</Button>}
-      />
-      <div className="mb-3 flex items-baseline gap-2">
-        <span className="text-2xl font-bold">Boost Level 2</span>
-        <span className="text-xs text-muted-foreground">of 4</span>
-      </div>
-      <ul className="grid grid-cols-2 gap-2">
-        {features.map((f) => (
-          <li key={f} className="flex items-center gap-2 text-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            {f}
-          </li>
-        ))}
-      </ul>
-    </Card>
   );
 }
 
@@ -620,42 +344,6 @@ function SparkChart({ label, data, color }: { label: string; data: number[]; col
   );
 }
 
-/* ---------------- AI REFRESH ---------------- */
-
-function AIRefreshStatus() {
-  return (
-    <Card className="p-5">
-      <SectionHeader
-        title="AI monthly refresh"
-        icon={<RefreshCw className="h-4 w-4 text-primary" />}
-        action={
-          <Button size="sm" variant="outline" disabled>
-            <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
-            Run refresh
-          </Button>
-        }
-      />
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Last refresh</div>
-          <div className="mt-1 text-base font-semibold">3 days ago</div>
-          <div className="text-xs text-muted-foreground">Next scheduled: in 27 days</div>
-        </div>
-        <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">
-            Updated last cycle
-          </div>
-          <ul className="mt-1 text-sm">
-            <li>12 Google images</li>
-            <li>8 TikTok clips · 6 Instagram posts</li>
-            <li>15 trending hashtags</li>
-          </ul>
-        </div>
-      </div>
-    </Card>
-  );
-}
-
 /* ---------------- FOOTER ---------------- */
 
 function DashboardFooter() {
@@ -664,16 +352,16 @@ function DashboardFooter() {
       <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
         <div>Confetti for Business · Premium nightlife discovery</div>
         <div className="flex gap-4">
-          <a href="#" className="hover:text-foreground">
+          <a href="/about" className="hover:text-foreground">
             Help
           </a>
           <a href="mailto:support@confetti.app" className="hover:text-foreground">
             Support
           </a>
-          <a href="#" className="hover:text-foreground">
+          <a href="/about" className="hover:text-foreground">
             Pricing
           </a>
-          <a href="#" className="hover:text-foreground">
+          <a href="/privacy" className="hover:text-foreground">
             Terms
           </a>
         </div>

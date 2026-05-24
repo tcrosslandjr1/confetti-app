@@ -1,9 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useRef, useEffect } from "react";
-import { Sparkles, Send, ArrowLeft, MapPin, Star, Utensils, Wine, CalendarDays, Car, Compass, Heart, Shuffle, Lock } from "lucide-react";
-import { sendMessageLocal } from "../lib/agents/chat-agent";
-import type { ChatResponse } from "../lib/agents/chat-agent";
-import type { DiscoveredVenue } from "../lib/agents/venue-discovery";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { Sparkles, Send, ArrowLeft, MapPin, Utensils, Wine, CalendarDays, Car, Compass, Heart, Shuffle, Lock } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { BrandCard } from "@/components/PageHero";
 
 export const Route = createFileRoute("/chat")({
@@ -13,14 +11,61 @@ export const Route = createFileRoute("/chat")({
 
 // ─── Types ─────────────────────────────────────────────────────
 
+type VenueCard = {
+  name: string;
+  neighborhood?: string;
+  cuisine?: string;
+  price?: string;
+  vibe?: string;
+  why?: string;
+  book?: string;
+  best_for?: string[];
+};
+
 type Msg = {
   id: number;
   role: "user" | "ai";
   text: string;
   reveal?: boolean;
-  venues?: DiscoveredVenue[];
+  streaming?: boolean;
+  venues?: VenueCard[];
   chips?: string[];
 };
+
+// ─── Venue card parsing ───────────────────────────────────────
+
+/** Extract ```venue JSON``` blocks from AI text, returning cleaned text + parsed cards */
+function parseVenueBlocks(raw: string): { text: string; venues: VenueCard[] } {
+  const venues: VenueCard[] = [];
+  const cleaned = raw.replace(/```venue\s*\n?([\s\S]*?)```/g, (_match, json: string) => {
+    try {
+      const parsed = JSON.parse(json.trim());
+      venues.push(parsed as VenueCard);
+    } catch {
+      // malformed JSON — skip
+    }
+    return "";
+  });
+  return { text: cleaned.trim(), venues };
+}
+
+/** Try to extract suggested chips from AI text (lines starting with chip-like patterns) */
+function extractChipsFromText(text: string): string[] {
+  // Look for lines that look like chip suggestions the AI might offer
+  const chipPatterns = [
+    /(?:^|\n)\s*[-•]\s*(🍽️[^\n]+)/g,
+    /(?:^|\n)\s*[-•]\s*(🍸[^\n]+)/g,
+    /(?:^|\n)\s*[-•]\s*(🌃[^\n]+)/g,
+    /(?:^|\n)\s*[-•]\s*(🚗[^\n]+)/g,
+  ];
+  const found: string[] = [];
+  for (const pat of chipPatterns) {
+    for (const m of text.matchAll(pat)) {
+      found.push(m[1].trim());
+    }
+  }
+  return found;
+}
 
 // Map common chip intents to icons & tones for branded rendering
 const CHIP_META: Record<string, { icon: React.ComponentType<{ className?: string }>; tone: "gold" | "coral" | "ink" | "cream" }> = {
@@ -67,40 +112,145 @@ function ChatPage() {
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const [chips, setChips] = useState<string[]>(DEFAULT_CHIPS);
+  const [isAuthed, setIsAuthed] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
+  const navigate = useNavigate();
+
+  // Check auth status on mount
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      setIsAuthed(Boolean(data.session));
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthed(Boolean(session));
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, typing]);
 
-  async function send(text: string) {
+  const send = useCallback(async (text: string) => {
     if (!text.trim() || typing) return;
+
+    // Handle sign-in chip
+    if (text === "🔒 Sign in") {
+      navigate({ to: "/auth" });
+      return;
+    }
+
+    // Check auth — allow unauthenticated but warn
+    if (!isAuthed) {
+      const userMsg: Msg = { id: Date.now(), role: "user", text };
+      setMessages((m) => [...m, userMsg, {
+        id: Date.now() + 1,
+        role: "ai",
+        text: "Sign in to unlock your personal Confetti concierge — I'll remember your vibes, learn your taste, and give you way better picks.",
+        reveal: true,
+        chips: ["🔒 Sign in"],
+      }]);
+      setInput("");
+      return;
+    }
+
     const userMsg: Msg = { id: Date.now(), role: "user", text };
     setMessages((m) => [...m, userMsg]);
     setInput("");
     setTyping(true);
 
+    // Build the message history for the API (exclude the welcome message)
+    const history = [...messages.filter((m) => m.id !== 0), userMsg].map((m) => ({
+      role: m.role === "ai" ? "assistant" as const : "user" as const,
+      content: m.text,
+    }));
+
     try {
-      const response: ChatResponse = await sendMessageLocal(text);
-      setTyping(false);
-      setMessages((m) => [
-        ...m,
-        {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        setTyping(false);
+        setMessages((m) => [...m, {
           id: Date.now() + 1,
           role: "ai",
-          text: response.message,
+          text: "Looks like your session expired — sign in again to keep the vibes going.",
           reveal: true,
-          venues: response.venues,
-          chips: response.suggestedChips,
-        },
-      ]);
-      if (response.suggestedChips?.length) {
-        setChips(response.suggestedChips);
+        }]);
+        return;
       }
-    } catch {
+
+      abortRef.current = new AbortController();
+
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          messages: history,
+          now: new Date().toISOString(),
+        }),
+        signal: abortRef.current.signal,
+      });
+
+      if (!res.ok) {
+        throw new Error(`API error ${res.status}`);
+      }
+
+      const reader = res.body?.getReader();
+      if (!reader) throw new Error("No response body");
+
+      const decoder = new TextDecoder();
+      let fullText = "";
+      const aiMsgId = Date.now() + 1;
+
+      // Add the AI message placeholder for streaming
+      setTyping(false);
+      setMessages((m) => [...m, {
+        id: aiMsgId,
+        role: "ai",
+        text: "",
+        streaming: true,
+      }]);
+
+      // Stream tokens
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        fullText += decoder.decode(value, { stream: true });
+        const streamText = fullText;
+        setMessages((m) =>
+          m.map((msg) =>
+            msg.id === aiMsgId ? { ...msg, text: streamText } : msg
+          )
+        );
+      }
+
+      // Streaming complete — parse venue blocks and finalize
+      const { text: cleanedText, venues } = parseVenueBlocks(fullText);
+      const extractedChips = extractChipsFromText(cleanedText);
+      const finalChips = extractedChips.length > 0 ? extractedChips : DEFAULT_CHIPS;
+
+      setMessages((m) =>
+        m.map((msg) =>
+          msg.id === aiMsgId
+            ? {
+                ...msg,
+                text: cleanedText,
+                streaming: false,
+                venues: venues.length > 0 ? venues : undefined,
+                chips: finalChips,
+              }
+            : msg
+        )
+      );
+      setChips(finalChips);
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") return;
       setTyping(false);
       setMessages((m) => [
-        ...m,
+        ...m.filter((msg) => !msg.streaming || msg.text),
         {
           id: Date.now() + 1,
           role: "ai",
@@ -109,7 +259,7 @@ function ChatPage() {
         },
       ]);
     }
-  }
+  }, [typing, isAuthed, messages, navigate]);
 
   return (
     <div className="flex min-h-screen flex-col bg-cream pb-24">
@@ -152,7 +302,13 @@ function ChatPage() {
                     : "rounded-bl-sm bg-white text-ink"
                 } ${m.reveal ? "animate-[reveal-up_0.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
               >
-                <Typewriter text={m.text} animate={Boolean(m.reveal && m.role === "ai")} />
+                {m.role === "ai" && m.streaming ? (
+                  <span>{m.text}<span className="inline-block h-3.5 w-1.5 animate-pulse bg-ink/60 align-middle" /></span>
+                ) : m.role === "ai" && m.reveal ? (
+                  <Typewriter text={m.text} animate />
+                ) : (
+                  <span>{m.text}</span>
+                )}
                 {m.venues && m.venues.length > 0 && (
                   <div className="mt-2 flex flex-col gap-2">
                     {m.venues.map((v, vi) => (
@@ -165,21 +321,38 @@ function ChatPage() {
                         <div className="flex items-center gap-1.5">
                           <MapPin className="h-3 w-3 text-coral" />
                           <span className="font-display text-xs font-bold">{v.name}</span>
-                          {v.rating && (
-                            <span className="ml-auto flex items-center gap-0.5 text-[10px] text-ink/60">
-                              <Star className="h-2.5 w-2.5 fill-gold text-gold" />
-                              {v.rating}
+                          {v.price && (
+                            <span className="ml-auto text-[10px] font-bold text-ink/60">
+                              {v.price}
                             </span>
                           )}
                         </div>
-                        {v.vibeTags?.length > 0 && (
+                        {v.neighborhood && (
+                          <div className="mt-0.5 font-mono text-[9px] text-ink/50">{v.neighborhood}{v.cuisine ? ` — ${v.cuisine}` : ""}</div>
+                        )}
+                        {v.why && (
+                          <div className="mt-1 text-[11px] leading-snug text-ink/70">{v.why}</div>
+                        )}
+                        {v.vibe && (
                           <div className="mt-1 flex flex-wrap gap-1">
-                            {v.vibeTags.slice(0, 3).map((tag) => (
+                            {v.vibe.split(",").map((tag) => tag.trim()).filter(Boolean).slice(0, 3).map((tag) => (
                               <span
                                 key={tag}
                                 className="rounded-full border border-ink/10 bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-ink"
                               >
                                 {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        {v.best_for && v.best_for.length > 0 && (
+                          <div className="mt-1 flex flex-wrap gap-1">
+                            {v.best_for.map((bf) => (
+                              <span
+                                key={bf}
+                                className="rounded-full border border-ink/10 bg-coral/15 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-coral"
+                              >
+                                {bf}
                               </span>
                             ))}
                           </div>

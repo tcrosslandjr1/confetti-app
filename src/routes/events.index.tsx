@@ -1,11 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { LocateFixed, MapPin, Search } from "lucide-react";
+import { useEffect, useMemo, useState, useCallback } from "react";
+import { LocateFixed, MapPin, Search, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EventCard } from "@/components/EventCard";
-import { CATEGORIES, CITIES, EVENTS, distanceMiles, type EventCategory } from "@/lib/events";
+import {
+  CATEGORIES,
+  CITIES,
+  EVENTS,
+  distanceMiles,
+  fetchLiveEvents,
+  type EventCategory,
+  type EventItem,
+} from "@/lib/events";
 
 type EventsSearch = {
   cat?: EventCategory;
@@ -51,8 +59,32 @@ function BrowseEvents() {
   const navigate = Route.useNavigate();
   const [query, setQuery] = useState(search.q ?? "");
   const [locating, setLocating] = useState(false);
+  const [liveEvents, setLiveEvents] = useState<EventItem[]>(EVENTS);
+  const [loadingLive, setLoadingLive] = useState(false);
 
   const radius = search.radius ?? 50;
+
+  // Fetch live events on mount and when filters change
+  const loadEvents = useCallback(async () => {
+    setLoadingLive(true);
+    try {
+      const events = await fetchLiveEvents({
+        city: search.loc && search.loc !== "me" ? search.loc : undefined,
+        category: search.cat,
+        q: query.trim() || undefined,
+      });
+      setLiveEvents(events);
+    } catch {
+      // fetchLiveEvents already falls back to static
+      setLiveEvents(EVENTS);
+    } finally {
+      setLoadingLive(false);
+    }
+  }, [search.loc, search.cat, query]);
+
+  useEffect(() => {
+    loadEvents();
+  }, [loadEvents]);
 
   const origin = useMemo(() => {
     if (search.loc === "me" && search.lat != null && search.lng != null) {
@@ -65,10 +97,11 @@ function BrowseEvents() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return EVENTS.map((e) => ({
-      e,
-      dist: origin ? distanceMiles(origin, { lat: e.lat, lng: e.lng }) : null,
-    }))
+    return liveEvents
+      .map((e) => ({
+        e,
+        dist: origin ? distanceMiles(origin, { lat: e.lat, lng: e.lng }) : null,
+      }))
       .filter(({ e, dist }) => {
         if (search.cat && e.category !== search.cat) return false;
         if (origin && dist != null && dist > radius) return false;
@@ -80,7 +113,7 @@ function BrowseEvents() {
         );
       })
       .sort((a, b) => (a.dist ?? 0) - (b.dist ?? 0));
-  }, [search.cat, query, origin, radius]);
+  }, [search.cat, query, origin, radius, liveEvents]);
 
   function setLocation(loc: string | undefined) {
     navigate({
@@ -178,8 +211,16 @@ function BrowseEvents() {
             Browse <span className="text-gradient">events</span>
           </h1>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            {filtered.length} event{filtered.length === 1 ? "" : "s"}
-            {origin ? ` within ${radius} miles of ${origin.label}` : " matching your vibe"}.
+            {loadingLive ? (
+              <span className="inline-flex items-center gap-2">
+                <Loader2 className="h-3.5 w-3.5 animate-spin" /> Loading live events…
+              </span>
+            ) : (
+              <>
+                {filtered.length} event{filtered.length === 1 ? "" : "s"}
+                {origin ? ` within ${radius} miles of ${origin.label}` : " matching your vibe"}.
+              </>
+            )}
           </p>
 
           <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center">

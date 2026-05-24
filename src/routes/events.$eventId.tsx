@@ -1,16 +1,17 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Calendar, MapPin, User } from "lucide-react";
+import { Calendar, ExternalLink, MapPin, User } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { formatEventDate, getEvent, EVENTS } from "@/lib/events";
+import { formatEventDate, getEvent, fetchEventById, EVENTS } from "@/lib/events";
 import { EventCard } from "@/components/EventCard";
 import { EventSaveActions } from "@/components/EventSaveActions";
 import { TicketTierSelector } from "@/components/TicketTierSelector";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/events/$eventId")({
-  loader: ({ params }) => {
-    const event = getEvent(params.eventId);
+  loader: async ({ params }) => {
+    // Try static first (instant), then Eventbrite cache
+    const event = getEvent(params.eventId) ?? (await fetchEventById(params.eventId));
     if (!event) throw notFound();
     return { event };
   },
@@ -56,6 +57,7 @@ export const Route = createFileRoute("/events/$eventId")({
 function EventDetail() {
   const { event } = Route.useLoaderData();
   const d = formatEventDate(event.date);
+  const isEventbrite = event.source === "eventbrite";
   const related = EVENTS.filter((e) => e.id !== event.id && e.category === event.category).slice(
     0,
     3,
@@ -142,38 +144,60 @@ function EventDetail() {
                   </div>
                 </div>
 
-                <TicketTierSelector
-                  tiers={[
-                    {
-                      id: `${event.id}-ga`,
-                      name: "General Admission",
-                      description: "Standard entry with full access to the event",
-                      price: event.price,
-                      capacity: 200,
-                      sold: 142,
-                    },
-                    {
-                      id: `${event.id}-vip`,
-                      name: "VIP",
-                      description: "Priority entry, premium bar, reserved seating",
-                      price: event.price > 0 ? Math.round(event.price * 2) : 50,
-                      capacity: 50,
-                      sold: 38,
-                    },
-                    {
-                      id: `${event.id}-table`,
-                      name: "Table Service",
-                      description: "Private table for 4, bottle service included",
-                      price: event.price > 0 ? Math.round(event.price * 5) : 200,
-                      capacity: 10,
-                      sold: 7,
-                    },
-                  ]}
-                  onPurchase={(selections) => {
-                    const total = selections.reduce((sum, s) => sum + s.quantity, 0);
-                    toast.success(`${total} ticket${total !== 1 ? "s" : ""} reserved — redirecting to checkout`);
-                  }}
-                />
+                {isEventbrite && event.ticketUrl ? (
+                  <div className="space-y-3">
+                    <div className="rounded-xl bg-muted p-4 text-center">
+                      <p className="text-2xl font-bold">
+                        {event.price === 0 ? "Free" : `$${event.price}`}
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {event.price === 0 ? "Free event" : "Starting price"}
+                      </p>
+                    </div>
+                    <a
+                      href={event.ticketUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-pop transition-transform hover:scale-[1.02] active:scale-95"
+                    >
+                      Get tickets on Eventbrite
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+                ) : (
+                  <TicketTierSelector
+                    tiers={[
+                      {
+                        id: `${event.id}-ga`,
+                        name: "General Admission",
+                        description: "Standard entry with full access to the event",
+                        price: event.price,
+                        capacity: 200,
+                        sold: 142,
+                      },
+                      {
+                        id: `${event.id}-vip`,
+                        name: "VIP",
+                        description: "Priority entry, premium bar, reserved seating",
+                        price: event.price > 0 ? Math.round(event.price * 2) : 50,
+                        capacity: 50,
+                        sold: 38,
+                      },
+                      {
+                        id: `${event.id}-table`,
+                        name: "Table Service",
+                        description: "Private table for 4, bottle service included",
+                        price: event.price > 0 ? Math.round(event.price * 5) : 200,
+                        capacity: 10,
+                        sold: 7,
+                      },
+                    ]}
+                    onPurchase={(selections) => {
+                      const total = selections.reduce((sum, s) => sum + s.quantity, 0);
+                      toast.success(`${total} ticket${total !== 1 ? "s" : ""} reserved — redirecting to checkout`);
+                    }}
+                  />
+                )}
 
                 <div className="mt-4">
                   <EventSaveActions event={event} />

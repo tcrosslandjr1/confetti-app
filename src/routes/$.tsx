@@ -74,7 +74,7 @@ const REDIRECTS: Record<string, string> = {
   "/business/ai-refresh": "/business/dashboard",
 
   // ── Moved to separate apps (send to home) ────────────────
-  "/admin": "/",
+  "/admin": "/admin/console",
   "/partner": "/",
   "/corporate": "/",
   "/promoter": "/",

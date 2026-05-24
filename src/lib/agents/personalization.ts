@@ -1,6 +1,15 @@
 // Confetti v7 — Personalization Engine
 // Aggregates signals into a learned profile and exposes smart defaults.
 
+export type IdentityContext =
+  | "lgbtq"
+  | "ally"
+  | "queer_woman"
+  | "queer_man"
+  | "trans"
+  | "nonbinary"
+  | null;
+
 export type PersonalizationProfile = {
   preferred_vibes: string[];
   preferred_categories: string[];
@@ -17,6 +26,10 @@ export type PersonalizationProfile = {
   promo_sensitivity: "low" | "medium" | "high";
   personalized_name_style: string;
   adult_opt_in: boolean;
+  /** Optional self-identified context — drives safe-venue routing & event matching. */
+  identity_context: IdentityContext;
+  /** When true, prioritize lgbtq_safe venues and surface pride/drag/ballroom events. */
+  lgbtq_safe_mode: boolean;
 };
 
 export const DEFAULT_PROFILE: PersonalizationProfile = {
@@ -35,6 +48,8 @@ export const DEFAULT_PROFILE: PersonalizationProfile = {
   promo_sensitivity: "medium",
   personalized_name_style: "playful",
   adult_opt_in: false,
+  identity_context: null,
+  lgbtq_safe_mode: false,
 };
 
 type Signal = { signal_type: string; payload: Record<string, unknown>; city: string | null };
@@ -96,8 +111,16 @@ export function learnProfileFromSignals(
       case "promo_dismissed":
         promoDismisses++;
         break;
+      case "identity_set":
+        // identity_context is set explicitly by user, not learned from frequency
+        break;
     }
   }
+
+  // Identity context: use most recent explicit signal if present
+  const identitySignal = signals.find((s) => s.signal_type === "identity_set");
+  const identityContext = identitySignal?.payload?.identity as IdentityContext ?? base.identity_context;
+  const lgbtqSafe = identityContext != null && identityContext !== "ally" ? true : base.lgbtq_safe_mode;
 
   const avgPrice = prices.length
     ? Math.round(prices.reduce((a, b) => a + b, 0) / prices.length)
@@ -116,6 +139,8 @@ export function learnProfileFromSignals(
     preferred_business_types: topK(bizLiked, 8),
     disliked_business_types: topK(bizDisliked, 8),
     promo_sensitivity: promoSens,
+    identity_context: identityContext,
+    lgbtq_safe_mode: lgbtqSafe,
   };
 }
 

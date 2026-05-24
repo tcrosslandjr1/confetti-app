@@ -385,7 +385,7 @@ function Landing() {
               <span onClick={() => trackCta("plan_my_night_hero", { location: "hero_primary" })}>
                 <WizardButton
                   ariaLabel="Plan my night"
-                  className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto"
+                  className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                 >
                   Plan my night — 60 sec <ArrowUpRight className="h-5 w-5" />
                 </WizardButton>
@@ -393,7 +393,7 @@ function Landing() {
               <a
                 href="#sample-plan"
                 onClick={() => trackCta("see_sample_plan", { location: "hero_secondary" })}
-                className="text-sm font-bold text-ink/70 underline-offset-4 hover:text-ink hover:underline"
+                className="text-sm font-bold text-ink/70 underline-offset-4 hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 rounded-sm"
               >
                 or peek at a sample plan ↓
               </a>
@@ -481,7 +481,7 @@ function Landing() {
                   vibeKeys: ["bougie", "speakeasy"],
                   vibeLabel: "cute, walkable, ends with a slow drink",
                 }}
-                className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
               >
                 Try this plan <ArrowUpRight className="h-4 w-4" />
               </WizardButton>
@@ -559,7 +559,7 @@ function Landing() {
           <div className="mt-6 flex justify-center sm:hidden">
             <WizardButton
               ariaLabel="Plan my night"
-              className="inline-flex h-12 min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-sm font-bold text-cream shadow-brut transition-pop"
+              className="inline-flex h-12 min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-sm font-bold text-cream shadow-brut transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               Start — Plan my night <ArrowUpRight className="h-4 w-4" />
             </WizardButton>
@@ -735,13 +735,13 @@ function Landing() {
                 <button
                   type="button"
                   onClick={() => setBookingOpen(true)}
-                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                 >
                   Tap to go — book this plan <ArrowUpRight className="h-4 w-4" />
                 </button>
                 <WizardButton
                   ariaLabel="Build my own night"
-                  className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-background px-5 text-xs font-bold text-ink transition-pop hover:-translate-y-0.5"
+                  className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-background px-5 text-xs font-bold text-ink transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                 >
                   Or build my own night
                 </WizardButton>
@@ -841,7 +841,7 @@ function Landing() {
             </h2>
             <Link
               to="/about"
-              className="hidden items-center gap-1 font-mono text-xs uppercase tracking-widest underline underline-offset-4 sm:inline-flex"
+              className="hidden items-center gap-1 font-mono text-xs uppercase tracking-widest underline underline-offset-4 sm:inline-flex rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               full walkthrough <ArrowUpRight className="h-3 w-3" />
             </Link>
@@ -892,7 +892,7 @@ function Landing() {
             <GatedAction
               to="/chat"
               feature="planning"
-              className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+              className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               skip — just plan something <ArrowUpRight className="h-4 w-4" />
             </GatedAction>
@@ -908,7 +908,7 @@ function Landing() {
                   key={o.slug}
                   to="/app/explore"
                   params={{ slug: o.slug }}
-                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut`}
+                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2`}
                 >
                   <div className="flex items-start justify-between">
                     <Icon className="h-6 w-6 drop-shadow" />
@@ -957,7 +957,7 @@ function Landing() {
                     to="/app/explore"
                     params={{ slug: o.slug }}
                     style={{ transform: `rotate(${tilt}deg)` }}
-                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:shadow-brut-lg`}
+                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2`}
                   >
                     {/* shimmer sweep on hover */}
                     <span
@@ -1139,7 +1139,7 @@ function Landing() {
             </p>
             <Link
               to="/auth"
-              className="mt-7 inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-bold text-cream shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg"
+              className="mt-7 inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-bold text-cream shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               Get started free <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -1271,14 +1271,14 @@ function Landing() {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <WizardButton
                 ariaLabel="Build my night"
-                className="group inline-flex h-16 items-center gap-2 rounded-full border-2 border-ink bg-cream px-10 font-bold text-ink shadow-brut-lg transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:bg-gold hover:shadow-brut-xl"
+                className="group inline-flex h-16 items-center gap-2 rounded-full border-2 border-ink bg-cream px-10 font-bold text-ink shadow-brut-lg transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:bg-gold hover:shadow-brut-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
               >
                 Build my night
                 <ArrowUpRight className="h-5 w-5 transition-transform group-hover:rotate-45" />
               </WizardButton>
               <Link
                 to="/about"
-                className="inline-flex h-16 items-center rounded-full border-2 border-cream px-10 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink"
+                className="inline-flex h-16 items-center rounded-full border-2 border-cream px-10 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
               >
                 Learn more
               </Link>
@@ -1390,14 +1390,14 @@ function Landing() {
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to="/business"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
               >
                 See packages{" "}
                 <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-45" />
               </Link>
               <Link
                 to="/business/login"
-                className="inline-flex h-12 items-center justify-center rounded-full border-2 border-cream/60 px-6 text-sm font-bold text-cream transition-pop hover:bg-cream/10"
+                className="inline-flex h-12 items-center justify-center rounded-full border-2 border-cream/60 px-6 text-sm font-bold text-cream transition-pop hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
               >
                 Already a partner? Sign in
               </Link>
@@ -1458,7 +1458,7 @@ function Landing() {
                               <TooltipTrigger asChild>
                                 <button
                                   type="button"
-                                  className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 text-left transition hover:border-coral/50 focus:border-coral focus:outline-none"
+                                  className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 text-left transition hover:border-coral/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
                                 >
                                   <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-cream/60">
                                     {s.k}
@@ -1553,7 +1553,7 @@ function Landing() {
             </p>
             <Link
               to="/about"
-              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               Learn more <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -1596,7 +1596,7 @@ function Landing() {
           <span onClick={() => trackCta("plan_my_night_sticky", { location: "sticky_bar" })}>
             <WizardButton
               ariaLabel="Plan my night"
-              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
             >
               Plan my night <ArrowUpRight className="h-4 w-4" />
             </WizardButton>
@@ -1647,7 +1647,7 @@ function SponsoredMarqueeSlot({
         ref={ref}
         to={href}
         onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
-        className={`relative inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink ${debugRing}`}
+        className={`relative inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2 ${debugRing}`}
         data-ad-slot={slot}
       >
         <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">
@@ -1665,7 +1665,7 @@ function SponsoredMarqueeSlot({
       ref={ref}
       to={href}
       onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
-      className={`group relative inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink ${debugRing}`}
+      className={`group relative inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2 ${debugRing}`}
       data-ad-slot={slot}
     >
       <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">

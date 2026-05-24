@@ -1,7 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Sparkles, ArrowUpRight, Loader2 } from "lucide-react";
-import { PageHero, BrandCard, BrutButton } from "@/components/PageHero";
+import { PageHero, BrandCard } from "@/components/PageHero";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { NotificationBell } from "@/components/NotificationBell";
 import { useAuth } from "@/lib/auth-context";
@@ -137,6 +138,7 @@ function PlanMyNightPage() {
                   }}
                   className={cn(
                     "rounded-full border-2 border-ink px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-white",
                     current.value === c
                       ? "bg-ink text-cream shadow-brut"
                       : "bg-white text-ink hover:-translate-y-0.5 hover:shadow-brut",
@@ -178,8 +180,9 @@ function PlanMyNightPage() {
               >
                 ← Back
               </button>
-              <BrutButton
-                tone="coral"
+              <Button
+                variant="default"
+                size="sm"
                 onClick={() => {
                   if (!current.value) return;
                   trackCta("plan_next", { step });
@@ -193,10 +196,11 @@ function PlanMyNightPage() {
                       when,
                     });
                 }}
-                className={cn(!current.value && "pointer-events-none opacity-40")}
+                disabled={!current.value}
+                className="gap-1.5"
               >
                 Next <ArrowUpRight className="size-3.5" />
-              </BrutButton>
+              </Button>
             </div>
           </BrandCard>
         ) : (
@@ -235,23 +239,23 @@ function PlanMyNightPage() {
                     Vibe-matched stops with timing and estimated cost.
                   </p>
                   <div className="mt-4 flex gap-2">
-                    <BrutButton
-                      tone="cream"
+                    <Button
+                      variant="outline"
                       size="sm"
                       className="flex-1"
                       disabled={saving}
                       onClick={() => handleSave(planLabel)}
                     >
                       {saving ? <Loader2 className="size-3.5 animate-spin" /> : "Save"}
-                    </BrutButton>
-                    <BrutButton
-                      tone="coral"
+                    </Button>
+                    <Button
+                      variant="default"
                       size="sm"
                       className="flex-1"
                       onClick={() => handleBook(planLabel)}
                     >
                       Book
-                    </BrutButton>
+                    </Button>
                   </div>
                 </BrandCard>
               );

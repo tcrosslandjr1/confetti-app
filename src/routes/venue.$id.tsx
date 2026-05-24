@@ -34,6 +34,7 @@ import { VenueReviews } from "@/components/VenueReviews";
 import { WaitlistButton } from "@/components/WaitlistButton";
 import { PriceLevel } from "@/components/PriceLevel";
 import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
+import { submitVenueReview } from "@/lib/review-taste-bridge";
 
 const SITE_ORIGIN = "https://confettiplan.lovable.app";
 
@@ -364,7 +365,7 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
       <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 py-3 sm:px-6">
         <button
           onClick={onBack}
-          className="grid h-10 w-10 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="grid h-10 w-10 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
           aria-label="Back"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -657,14 +658,14 @@ function ShareVenue({ venue }: { venue: Venue }) {
         <button
           type="button"
           onClick={nativeShare}
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-coral px-3 py-2.5 text-xs font-bold text-white shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-coral px-3 py-2.5 text-xs font-bold text-white shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         >
           <Share2 className="h-3.5 w-3.5" /> Share
         </button>
         <button
           type="button"
           onClick={copyLink}
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         >
           Copy link
         </button>
@@ -672,7 +673,7 @@ function ShareVenue({ venue }: { venue: Venue }) {
           href={twitterHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         >
           Twitter / X
         </a>
@@ -680,7 +681,7 @@ function ShareVenue({ venue }: { venue: Venue }) {
           href={facebookHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         >
           Facebook
         </a>
@@ -866,6 +867,14 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         averageRating={venue.rating ?? 4.8}
         reviewCount={842}
         reviews={[]}
+        onSubmitReview={async (r) => {
+          try {
+            await submitVenueReview(r);
+            toast.success("Review posted! Your taste profile has been updated.");
+          } catch (err) {
+            toast.error(err instanceof Error ? err.message : "Failed to post review");
+          }
+        }}
       />
 
       <div className="flex flex-wrap items-center gap-2">
@@ -963,7 +972,7 @@ function StepTime({
               <button
                 key={d.iso}
                 onClick={() => setDateIdx(i)}
-                className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${
+                className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
                   selected ? "bg-coral text-white" : "bg-white text-ink"
                 }`}
               >
@@ -1005,7 +1014,7 @@ function StepTime({
                 key={t}
                 disabled={unavail}
                 onClick={() => setTime(t)}
-                className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop ${
+                className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
                   unavail
                     ? "cursor-not-allowed border-ink/20 bg-ink/5 text-ink/30 line-through"
                     : selected
@@ -1038,14 +1047,14 @@ function StepTime({
             <button
               aria-label="Decrease party size"
               onClick={() => setParty(Math.max(1, party - 1))}
-              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-cream text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-cream text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               <Minus className="h-4 w-4" />
             </button>
             <button
               aria-label="Increase party size"
               onClick={() => setParty(Math.min(20, party + 1))}
-              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-ink text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-ink text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               <Plus className="h-4 w-4" />
             </button>
@@ -1064,7 +1073,7 @@ function StepTime({
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Birthday? Allergies? Booth preference?"
-          className="mt-2 w-full resize-none rounded-xl border-2 border-ink bg-cream px-3 py-2.5 text-sm outline-none transition focus:-translate-y-0.5 focus:shadow-brut"
+          className="mt-2 w-full resize-none rounded-xl border-2 border-ink bg-cream px-3 py-2.5 text-sm outline-none transition focus:-translate-y-0.5 focus:shadow-brut focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         />
         <div className="mt-1 text-right font-mono text-[10px] text-ink/40">{notes.length}/280</div>
       </div>
@@ -1361,7 +1370,7 @@ function StepDone({
       <div className="grid grid-cols-2 gap-3">
         <button
           onClick={() => toast.success("Added to your calendar")}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         >
           <CalendarPlus className="h-4 w-4" /> Add to Calendar
         </button>
@@ -1377,7 +1386,7 @@ function StepDone({
               toast.success("Link copied — share it with your crew");
             }
           }}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         >
           <Share2 className="h-4 w-4" /> Share with Crew
         </button>
@@ -1463,7 +1472,7 @@ function ReservationModal({
               </div>
               <button
                 onClick={onClose}
-                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-white font-bold shadow-brut transition-pop"
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-white font-bold shadow-brut transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                 aria-label="Close"
               >
                 <X className="h-3.5 w-3.5" />
@@ -1485,7 +1494,7 @@ function ReservationModal({
                     <button
                       key={d.iso}
                       onClick={() => setDateIdx(i)}
-                      className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${
+                      className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
                         selected ? "bg-coral text-white" : "bg-white text-ink"
                       }`}
                     >
@@ -1522,7 +1531,7 @@ function ReservationModal({
                       key={t}
                       disabled={unavail}
                       onClick={() => setTime(t)}
-                      className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop ${
+                      className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
                         unavail
                           ? "cursor-not-allowed border-ink/20 bg-ink/5 text-ink/30 line-through"
                           : selected
@@ -1549,7 +1558,7 @@ function ReservationModal({
                 <div className="inline-flex items-center gap-2">
                   <button
                     onClick={() => setParty(Math.max(1, party - 1))}
-                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                     aria-label="Decrease"
                   >
                     <Minus className="h-3.5 w-3.5" />
@@ -1559,7 +1568,7 @@ function ReservationModal({
                   </span>
                   <button
                     onClick={() => setParty(Math.min(20, party + 1))}
-                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                     aria-label="Increase"
                   >
                     <Plus className="h-3.5 w-3.5" />
@@ -1577,7 +1586,7 @@ function ReservationModal({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Allergies, seating preference, celebration…"
-                className="min-h-[80px] w-full rounded-2xl border-2 border-ink bg-white p-3 text-sm text-ink placeholder:text-ink/40 shadow-brut focus:outline-none focus:ring-2 focus:ring-coral"
+                className="min-h-[80px] w-full rounded-2xl border-2 border-ink bg-white p-3 text-sm text-ink placeholder:text-ink/40 shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
               />
             </div>
 
@@ -1610,7 +1619,7 @@ function ReservationModal({
             </div>
             <button
               onClick={onClose}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-3.5 font-mono text-xs font-bold uppercase tracking-[0.18em] text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut active:translate-y-0 active:shadow-none"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-3.5 font-mono text-xs font-bold uppercase tracking-[0.18em] text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
             >
               Done
             </button>
@@ -1707,7 +1716,7 @@ function GradientCTA({
       <button
         onClick={onClick}
         disabled={disabled}
-        className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-white shadow-brut-lg transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60"
+        className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-white shadow-brut-lg transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
         style={{
           backgroundImage: "linear-gradient(95deg, #F05537 0%, #E94584 45%, #7C3AED 100%)",
           backgroundSize: "180% 100%",

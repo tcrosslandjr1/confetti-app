@@ -16,14 +16,12 @@ import {
   Image as ImageIcon,
   FileText,
   Check,
-  Repeat,
   Mail,
   CalendarPlus,
 } from "lucide-react";
 import {
   checkInStop,
   setActiveLoop,
-  PLAN_PRESETS,
   type ActiveLoop,
   type LoopStop,
   type StopKind,
@@ -435,7 +433,6 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
     <div className="mx-auto max-w-md">
       {/* Share toolbar — sits above the pass card so it stays out of the captured image */}
       <div className="mb-2 flex items-center justify-end gap-2 print:hidden">
-        <SwitchPlanButton currentId={loop.id} />
         <div className="relative">
           <button
             type="button"
@@ -1716,78 +1713,3 @@ function WalletQrModal({
   );
 }
 
-// ─── Switch plan quick switcher ────────────────────────────────────────
-function SwitchPlanButton({ currentId }: { currentId: string }) {
-  const [open, setOpen] = useState(false);
-
-  function pick(presetKey: string) {
-    const preset = PLAN_PRESETS.find((p) => p.key === presetKey);
-    if (!preset) return;
-    const next = preset.build();
-    setActiveLoop(next);
-    setOpen(false);
-
-    // Notify the group that the plan was swapped, so attendees viewing the
-    // trip see it in their notification feed and activity log.
-    const message = `Plan switched to "${preset.label}" — ${preset.blurb}`;
-    appendNotifications(next.id, [{ kind: "reschedule", venue: "Guests", message }]);
-    logActivity({
-      tripId: next.id,
-      tripTitle: `${next.from} → ${next.to}`,
-      actor: "You",
-      kind: "rescheduled",
-      message,
-      detail: `${next.stops.length} stops · boarding ${next.boardingTime}`,
-    });
-
-    toast.success(`Switched to ${preset.label}`, {
-      description: "Map, directions, and group notified.",
-    });
-  }
-
-  return (
-    <div className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        aria-haspopup="menu"
-        className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
-      >
-        <Repeat className="h-3.5 w-3.5" />
-        Switch Plan
-      </button>
-      {open && (
-        <div
-          role="menu"
-          className="absolute right-0 z-30 mt-2 w-72 rounded-2xl border-2 border-ink bg-cream p-2 shadow-brut text-ink"
-        >
-          <div className="px-2 pt-1 pb-2 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
-            Pick another plan
-          </div>
-          <div className="flex flex-col gap-1 max-h-[60vh] overflow-y-auto">
-            {PLAN_PRESETS.map((p) => (
-              <button
-                key={p.key}
-                type="button"
-                onClick={() => pick(p.key)}
-                className="group flex items-start gap-2 rounded-xl border-2 border-transparent px-2 py-2 text-left hover:border-ink hover:bg-gold/40 transition-pop"
-              >
-                <span className="text-lg leading-none mt-0.5">{p.emoji}</span>
-                <span className="min-w-0 flex-1">
-                  <span className="block font-display text-sm font-extrabold tracking-tight truncate">
-                    {p.label}
-                  </span>
-                  <span className="block text-[11px] text-ink/60 truncate">{p.blurb}</span>
-                </span>
-              </button>
-            ))}
-          </div>
-          <div className="mt-1 border-t border-ink/15 px-2 py-1.5 font-mono text-[9px] text-ink/50 truncate">
-            Current: {currentId}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}

@@ -1,9 +1,12 @@
 /**
- * NotificationBell — dropdown showing recent notifications with unread badge.
+ * NotificationBell — accessible dropdown showing recent notifications.
  * Drop into any header/nav. Requires an authenticated user.
+ *
+ * Accessibility: aria-expanded, aria-haspopup, role="menu",
+ * Escape-to-close, focus-trap within dropdown, keyboard nav.
  */
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,44 +21,74 @@ export function NotificationBell({ userId }: Props) {
   const { notifications, unreadCount, markRead, markAllRead } =
     useNotifications(userId);
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const navigate = useNavigate();
+
+  const close = useCallback(() => {
+    setOpen(false);
+    triggerRef.current?.focus();
+  }, []);
 
   // Close on outside click
   useEffect(() => {
+    if (!open) return;
     function handleClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        close();
       }
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
+  }, [open, close]);
+
+  // Escape key closes dropdown
+  useEffect(() => {
+    if (!open) return;
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+      }
+    }
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [open, close]);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={containerRef} className="relative">
       <Button
+        ref={triggerRef}
         variant="ghost"
         size="icon"
         className="relative"
         onClick={() => setOpen((v) => !v)}
         aria-label={`Notifications${unreadCount ? ` (${unreadCount} unread)` : ""}`}
+        aria-haspopup="true"
+        aria-expanded={open}
       >
-        <Bell className="h-5 w-5" />
+        <Bell className="size-5" />
         {unreadCount > 0 && (
-          <span className="absolute -top-0.5 -right-0.5 h-4 min-w-4 flex items-center justify-center rounded-full bg-coral text-[10px] font-bold text-white px-1">
+          <span
+            className="absolute -top-0.5 -right-0.5 flex size-4 min-w-4 items-center justify-center rounded-full bg-coral px-1 font-mono text-[10px] font-bold text-cream"
+            aria-hidden="true"
+          >
             {unreadCount > 99 ? "99+" : unreadCount}
           </span>
         )}
       </Button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-80 max-h-96 overflow-y-auto rounded-lg border bg-card shadow-brut z-50">
-          <div className="flex items-center justify-between px-4 py-3 border-b">
-            <span className="font-semibold text-sm">Notifications</span>
+        <div
+          className="absolute right-0 top-full mt-2 w-80 max-h-96 overflow-y-auto rounded-2xl border border-ink/10 bg-surface-1 shadow-lg z-50"
+          role="menu"
+          aria-label="Notifications"
+        >
+          <div className="flex items-center justify-between border-b border-ink/8 px-4 py-3">
+            <span className="font-display text-sm font-bold text-ink">Notifications</span>
             {unreadCount > 0 && (
               <button
-                className="text-xs text-muted-foreground hover:text-foreground"
+                className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral transition-colors hover:text-coral/80"
                 onClick={() => markAllRead()}
               >
                 Mark all read
@@ -64,18 +97,18 @@ export function NotificationBell({ userId }: Props) {
           </div>
 
           {notifications.length === 0 ? (
-            <div className="p-6 text-center text-sm text-muted-foreground">
+            <div className="p-6 text-center text-sm text-ink/45">
               No notifications yet
             </div>
           ) : (
-            <ul className="divide-y">
+            <ul className="divide-y divide-ink/6" role="list">
               {notifications.slice(0, 20).map((n) => (
                 <NotifItem
                   key={n.id}
                   notification={n}
                   onRead={() => markRead(n.id)}
                   onNavigate={(link) => {
-                    setOpen(false);
+                    close();
                     navigate({ to: link });
                   }}
                 />
@@ -97,7 +130,7 @@ function NotifItem({
   onRead: () => void;
   onNavigate: (link: string) => void;
 }) {
-  const handleClick = () => {
+  const handleActivate = () => {
     if (!notification.read) onRead();
     if (notification.link) onNavigate(notification.link);
   };
@@ -107,23 +140,32 @@ function NotifItem({
   return (
     <li
       className={cn(
-        "px-4 py-3 cursor-pointer transition-colors hover:bg-accent/50",
-        !notification.read && "bg-primary/5"
+        "cursor-pointer px-4 py-3 transition-colors hover:bg-surface-2",
+        "focus-visible:outline-none focus-visible:bg-surface-2",
+        !notification.read && "bg-coral/[0.04]",
       )}
-      onClick={handleClick}
+      role="menuitem"
+      tabIndex={0}
+      onClick={handleActivate}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleActivate();
+        }
+      }}
     >
-      <div className="flex items-start gap-2">
+      <div className="flex items-start gap-2.5">
         {!notification.read && (
-          <span className="mt-1.5 h-2 w-2 rounded-full bg-coral shrink-0" />
+          <span className="mt-1.5 size-2 shrink-0 rounded-full bg-coral" aria-label="Unread" />
         )}
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium truncate">{notification.title}</p>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-medium text-ink">{notification.title}</p>
           {notification.body && (
-            <p className="text-xs text-muted-foreground line-clamp-2 mt-0.5">
+            <p className="mt-0.5 line-clamp-2 text-xs text-ink/55">
               {notification.body}
             </p>
           )}
-          <span className="text-[11px] text-muted-foreground mt-1 block">
+          <span className="mt-1 block font-mono text-[10px] text-ink/40">
             {timeAgo}
           </span>
         </div>

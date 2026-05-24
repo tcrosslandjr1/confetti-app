@@ -110,7 +110,7 @@ Deno.serve(async (req) => {
   }
 });
 
-// ─── Web Push ─────────────────────────────────────────────
+// ─── Web Push (RFC 8291 + RFC 8292) ─────────────────────
 
 async function sendWebPush(
   supabase: ReturnType<typeof createClient>,
@@ -118,13 +118,13 @@ async function sendWebPush(
 ): Promise<boolean> {
   const vapidPublicKey = Deno.env.get("VAPID_PUBLIC_KEY");
   const vapidPrivateKey = Deno.env.get("VAPID_PRIVATE_KEY");
+  const vapidSubject = Deno.env.get("VAPID_SUBJECT") ?? "mailto:notifications@confettiplan.app";
 
   if (!vapidPublicKey || !vapidPrivateKey) {
     console.warn("VAPID keys not configured — skipping push");
     return false;
   }
 
-  // Get all push subscriptions for this user
   const { data: subscriptions } = await supabase
     .from("push_subscriptions")
     .select("*")
@@ -144,23 +144,295 @@ async function sendWebPush(
 
   for (const sub of subscriptions) {
     try {
-      // Use web-push protocol via fetch (simplified — in production use web-push lib)
-      // For now, log that we would send and mark as sent
-      // Full VAPID signing requires crypto operations — placeholder for production
-      console.log(
-        `[Push] Would send to endpoint ${sub.endpoint.slice(0, 50)}...`
+      const audience = new URL(sub.endpoint).origin;
+      const vapidHeaders = await buildVapidHeaders(
+        audience,
+        vapidSubject,
+        vapidPublicKey,
+        vapidPrivateKey
       );
-      anySent = true;
+
+      const encrypted = await encryptPayload(
+        pushPayload,
+        sub.p256dh,
+        sub.auth_key
+      );
+
+      const resp = await fetch(sub.endpoint, {
+        method: "POST",
+        headers: {
+          Authorization: vapidHeaders.authorization,
+          "Crypto-Key": vapidHeaders.cryptoKey,
+          "Content-Encoding": "aes128gcm",
+          "Content-Type": "application/octet-stream",
+          TTL: "86400",
+          Urgency: "normal",
+        },
+        body: encrypted,
+      });
+
+      if (resp.status === 201 || resp.status === 200) {
+        console.log(`[Push] Sent to ${sub.endpoint.slice(0, 50)}…`);
+        anySent = true;
+      } else if (resp.status === 410 || resp.status === 404) {
+        console.warn(`[Push] Subscription gone (${resp.status}), removing`);
+        await supabase.from("push_subscriptions").delete().eq("id", sub.id);
+      } else {
+        const body = await resp.text();
+        console.error(`[Push] ${resp.status} for ${sub.endpoint.slice(0, 50)}: ${body}`);
+      }
     } catch (err) {
       console.error(`Push failed for sub ${sub.id}:`, err);
-      // Remove stale subscription
-      if ((err as any)?.statusCode === 410) {
-        await supabase.from("push_subscriptions").delete().eq("id", sub.id);
-      }
     }
   }
 
   return anySent;
+}
+
+// ─── VAPID JWT (RFC 8292) ────────────────────────────────
+
+async function buildVapidHeaders(
+  audience: string,
+  subject: string,
+  publicKeyB64: string,
+  privateKeyB64: string
+): Promise<{ authorization: string; cryptoKey: string }> {
+  const header = { typ: "JWT", alg: "ES256" };
+  const now = Math.floor(Date.now() / 1000);
+  const payload = { aud: audience, exp: now + 12 * 3600, sub: subject };
+
+  const headerB64 = toBase64Url(new TextEncoder().encode(JSON.stringify(header)));
+  const payloadB64 = toBase64Url(new TextEncoder().encode(JSON.stringify(payload)));
+  const unsigned = `${headerB64}.${payloadB64}`;
+
+  // Import VAPID private key (raw PKCS8-style 32-byte scalar in URL-safe base64)
+  const privateRaw = base64UrlToBytes(privateKeyB64);
+  const publicRaw = base64UrlToBytes(publicKeyB64);
+
+  // Build JWK from raw key bytes
+  const jwk = {
+    kty: "EC",
+    crv: "P-256",
+    x: toBase64Url(publicRaw.slice(1, 33)),
+    y: toBase64Url(publicRaw.slice(33, 65)),
+    d: toBase64Url(privateRaw),
+  };
+
+  const key = await crypto.subtle.importKey(
+    "jwk",
+    jwk,
+    { name: "ECDSA", namedCurve: "P-256" },
+    false,
+    ["sign"]
+  );
+
+  const sig = await crypto.subtle.sign(
+    { name: "ECDSA", hash: "SHA-256" },
+    key,
+    new TextEncoder().encode(unsigned)
+  );
+
+  // Convert DER signature to raw r||s (64 bytes)
+  const rawSig = derToRaw(new Uint8Array(sig));
+  const token = `${unsigned}.${toBase64Url(rawSig)}`;
+
+  return {
+    authorization: `vapid t=${token}, k=${publicKeyB64}`,
+    cryptoKey: `p256ecdsa=${publicKeyB64}`,
+  };
+}
+
+// ─── Payload Encryption (RFC 8291 aes128gcm) ─────────────
+
+async function encryptPayload(
+  plaintext: string,
+  clientPublicKeyB64: string,
+  clientAuthB64: string
+): Promise<Uint8Array> {
+  const clientPublicKey = base64UrlToBytes(clientPublicKeyB64);
+  const clientAuth = base64UrlToBytes(clientAuthB64);
+
+  // Generate ephemeral ECDH key pair
+  const localKeys = await crypto.subtle.generateKey(
+    { name: "ECDH", namedCurve: "P-256" },
+    true,
+    ["deriveBits"]
+  );
+
+  const localPublicRaw = new Uint8Array(
+    await crypto.subtle.exportKey("raw", localKeys.publicKey)
+  );
+
+  // Import client public key
+  const clientKey = await crypto.subtle.importKey(
+    "raw",
+    clientPublicKey,
+    { name: "ECDH", namedCurve: "P-256" },
+    false,
+    []
+  );
+
+  // ECDH shared secret
+  const sharedSecret = new Uint8Array(
+    await crypto.subtle.deriveBits(
+      { name: "ECDH", public: clientKey },
+      localKeys.privateKey,
+      256
+    )
+  );
+
+  // Generate 16-byte salt
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+
+  // Derive encryption key using HKDF
+  // Step 1: auth_info = "WebPush: info\0" || clientPublicKey || localPublicKey
+  const authInfo = concatBytes(
+    new TextEncoder().encode("WebPush: info\0"),
+    clientPublicKey,
+    localPublicRaw
+  );
+
+  // PRK = HKDF-Extract(clientAuth, sharedSecret)
+  const prkKey = await crypto.subtle.importKey(
+    "raw",
+    clientAuth,
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const prk = new Uint8Array(
+    await crypto.subtle.sign("HMAC", prkKey, sharedSecret)
+  );
+
+  // IKM = HKDF-Expand(prk, authInfo, 32)
+  const ikm = await hkdfExpand(prk, authInfo, 32);
+
+  // Step 2: Derive content encryption key and nonce
+  const cekInfo = concatBytes(
+    new TextEncoder().encode("Content-Encoding: aes128gcm\0")
+  );
+  const nonceInfo = concatBytes(
+    new TextEncoder().encode("Content-Encoding: nonce\0")
+  );
+
+  // PRK2 = HKDF-Extract(salt, ikm)
+  const prk2Key = await crypto.subtle.importKey(
+    "raw",
+    salt,
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const prk2 = new Uint8Array(
+    await crypto.subtle.sign("HMAC", prk2Key, ikm)
+  );
+
+  const cek = await hkdfExpand(prk2, cekInfo, 16);
+  const nonce = await hkdfExpand(prk2, nonceInfo, 12);
+
+  // Encrypt plaintext with padding delimiter \x02
+  const paddedPayload = concatBytes(
+    new TextEncoder().encode(plaintext),
+    new Uint8Array([2]) // padding delimiter
+  );
+
+  const aesKey = await crypto.subtle.importKey(
+    "raw",
+    cek,
+    { name: "AES-GCM" },
+    false,
+    ["encrypt"]
+  );
+
+  const ciphertext = new Uint8Array(
+    await crypto.subtle.encrypt(
+      { name: "AES-GCM", iv: nonce },
+      aesKey,
+      paddedPayload
+    )
+  );
+
+  // Build aes128gcm header: salt(16) || rs(4) || idlen(1) || keyid(65) || ciphertext
+  const rs = new Uint8Array(4);
+  new DataView(rs.buffer).setUint32(0, 4096);
+
+  return concatBytes(
+    salt,
+    rs,
+    new Uint8Array([localPublicRaw.length]),
+    localPublicRaw,
+    ciphertext
+  );
+}
+
+// ─── Crypto Helpers ──────────────────────────────────────
+
+function base64UrlToBytes(b64: string): Uint8Array {
+  const padding = "=".repeat((4 - (b64.length % 4)) % 4);
+  const base64 = (b64 + padding).replace(/-/g, "+").replace(/_/g, "/");
+  const raw = atob(base64);
+  const arr = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i++) arr[i] = raw.charCodeAt(i);
+  return arr;
+}
+
+function toBase64Url(bytes: Uint8Array): string {
+  let binary = "";
+  for (const b of bytes) binary += String.fromCharCode(b);
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+function concatBytes(...arrays: Uint8Array[]): Uint8Array {
+  const len = arrays.reduce((s, a) => s + a.length, 0);
+  const result = new Uint8Array(len);
+  let offset = 0;
+  for (const a of arrays) {
+    result.set(a, offset);
+    offset += a.length;
+  }
+  return result;
+}
+
+async function hkdfExpand(
+  prk: Uint8Array,
+  info: Uint8Array,
+  length: number
+): Promise<Uint8Array> {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    prk,
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  // Single expand step (length ≤ 32)
+  const input = concatBytes(info, new Uint8Array([1]));
+  const result = new Uint8Array(await crypto.subtle.sign("HMAC", key, input));
+  return result.slice(0, length);
+}
+
+/** Convert potentially DER-encoded ECDSA signature to raw 64-byte r||s */
+function derToRaw(sig: Uint8Array): Uint8Array {
+  // If already 64 bytes, it's raw
+  if (sig.length === 64) return sig;
+
+  // DER: 0x30 <len> 0x02 <rLen> <r> 0x02 <sLen> <s>
+  const raw = new Uint8Array(64);
+  let offset = 2; // skip 0x30 and total length
+  // r
+  const rLen = sig[offset + 1];
+  offset += 2;
+  const rStart = rLen > 32 ? offset + (rLen - 32) : offset;
+  const rDest = rLen > 32 ? 0 : 32 - rLen;
+  raw.set(sig.slice(rStart, offset + rLen), rDest);
+  offset += rLen;
+  // s
+  const sLen = sig[offset + 1];
+  offset += 2;
+  const sStart = sLen > 32 ? offset + (sLen - 32) : offset;
+  const sDest = sLen > 32 ? 32 : 64 - sLen;
+  raw.set(sig.slice(sStart, offset + sLen), sDest);
+  return raw;
 }
 
 // ─── Email ────────────────────────────────────────────────

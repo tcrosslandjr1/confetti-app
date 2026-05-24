@@ -28,7 +28,7 @@ const OPTIONS: Option[] = [
     label: "Admin",
     Icon: Shield,
     blurb: "Full console + moderation",
-    home: "/business/dashboard",
+    home: "/admin/console",
     tone: "bg-ink text-cream",
   },
   {

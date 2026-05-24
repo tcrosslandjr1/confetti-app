@@ -127,7 +127,7 @@ function PromoCard({ sku, targetId }: { sku: Sku; targetId?: string }) {
       priceId,
       customerEmail: user.email ?? undefined,
       userId: user.id,
-      returnUrl: `${window.location.origin}/business/exposure?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
+      returnUrl: `${window.location.origin}/business/dashboard?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
       ...(targetId && ({ targetType: sku.targetType, targetId } as any)),
     });
   };

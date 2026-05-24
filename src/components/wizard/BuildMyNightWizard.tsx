@@ -158,92 +158,6 @@ type SwapCandidate = {
   time?: string;
 };
 
-const SAMPLE_STOPS: Stop[][] = [
-  [
-    {
-      time: "7:00 PM",
-      venue: "Le Diplomate",
-      vibe: "French bistro",
-      tone: "bg-coral",
-      walk: "10 min walk",
-      address: "1601 14th St NW",
-      neighborhood: "14th Street",
-    },
-    {
-      time: "8:30 PM",
-      venue: "Service Bar DC",
-      vibe: "Craft cocktails",
-      tone: "bg-purple",
-      walk: "6 min walk",
-      address: "926-928 U St NW",
-      neighborhood: "U Street",
-    },
-    {
-      time: "10:15 PM",
-      venue: "Maydan",
-      vibe: "Live-fire nightcap",
-      tone: "bg-gold",
-      address: "1346 Florida Ave NW",
-      neighborhood: "U Street",
-    },
-  ],
-  [
-    {
-      time: "6:30 PM",
-      venue: "Rose's Luxury",
-      vibe: "Bougie dinner",
-      tone: "bg-emerald-400",
-      walk: "8 min walk",
-      address: "717 8th St SE",
-      neighborhood: "Capitol Hill",
-    },
-    {
-      time: "8:45 PM",
-      venue: "Allegory",
-      vibe: "Speakeasy",
-      tone: "bg-gold",
-      walk: "4 min walk",
-      address: "1015 H St NW",
-      neighborhood: "Mt Vernon Triangle",
-    },
-    {
-      time: "10:30 PM",
-      venue: "Flash",
-      vibe: "Late dance",
-      tone: "bg-purple",
-      address: "645 Florida Ave NW",
-      neighborhood: "Shaw",
-    },
-  ],
-  [
-    {
-      time: "8:00 PM",
-      venue: "All-Purpose Pizzeria",
-      vibe: "Slice + spritz",
-      tone: "bg-coral",
-      walk: "5 min walk",
-      address: "1250 9th St NW",
-      neighborhood: "Shaw",
-    },
-    {
-      time: "9:30 PM",
-      venue: "Blues Alley",
-      vibe: "Live jazz trio",
-      tone: "bg-pink-300",
-      walk: "7 min walk",
-      address: "1073 Wisconsin Ave NW",
-      neighborhood: "Georgetown",
-    },
-    {
-      time: "11:15 PM",
-      venue: "Toki Underground",
-      vibe: "Late night ramen",
-      tone: "bg-amber-300",
-      address: "1234 H St NE",
-      neighborhood: "H Street",
-    },
-  ],
-];
 
 // Deterministic mock detail generator — keeps results stable per venue name.
 function hashStr(s: string) {
@@ -760,7 +674,7 @@ export function BuildMyNightWizard() {
       })),
     [preset],
   );
-  const baseStops = presetStops ?? dynamicStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
+  const baseStops = presetStops ?? dynamicStops ?? [];
   const stops = useMemo(
     () => baseStops.map((s, i) => replacements[i] ?? s),
     [baseStops, replacements],
@@ -1862,8 +1776,7 @@ export function BuildMyNightWizard() {
                 <button
                   type="button"
                   onClick={() => {
-                    closeWizard();
-                    navigate({ to: "/teams/new" });
+                    toast("Group planning coming soon!", { icon: "🎉" });
                   }}
                   className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
                   aria-label="Build this night with friends"

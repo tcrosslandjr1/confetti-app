@@ -909,3 +909,64 @@ export const getVenueAnalytics = createServerFn({ method: "POST" })
 
     return { daily: rows, totals, days };
   });
+
+// ═══════════════════════════════════════════════════════════════
+// ADMIN PLATFORM STATS (admin-only aggregate view)
+// ═══════════════════════════════════════════════════════════════
+
+export const getAdminPlatformStats = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const supabase = untypedDb(adminClient());
+    const admin = await isAdmin(supabase, context.userId);
+    if (!admin) throw new Error("Not authorized");
+
+    const [venuesRes, usersRes, bookingsRes, claimsRes] = await Promise.all([
+      supabase.from("venues").select("id", { count: "exact", head: true }),
+      supabase.from("profiles").select("id", { count: "exact", head: true }),
+      supabase.from("bookings").select("id", { count: "exact", head: true }),
+      supabase
+        .from("venue_claims")
+        .select("id", { count: "exact", head: true })
+        .eq("status", "pending"),
+    ]);
+
+    return {
+      totalVenues: venuesRes.count ?? 0,
+      totalUsers: usersRes.count ?? 0,
+      totalBookings: bookingsRes.count ?? 0,
+      pendingClaims: claimsRes.count ?? 0,
+    };
+  });
+
+export const getAdminRecentBookings = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const supabase = untypedDb(adminClient());
+    const admin = await isAdmin(supabase, context.userId);
+    if (!admin) throw new Error("Not authorized");
+
+    const { data, error } = await supabase
+      .from("bookings")
+      .select("id, starts_at, party_size, status, confirmation_code, venue:venues(name, city)")
+      .order("created_at", { ascending: false })
+      .limit(20);
+    if (error) throw new Error(error.message);
+    return { bookings: data ?? [] };
+  });
+
+export const getAdminAllVenues = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const supabase = untypedDb(adminClient());
+    const admin = await isAdmin(supabase, context.userId);
+    if (!admin) throw new Error("Not authorized");
+
+    const { data, error } = await supabase
+      .from("venues")
+      .select("id, name, city, neighborhood, claim_status, promotion_approved, hero_image_url")
+      .order("name")
+      .limit(200);
+    if (error) throw new Error(error.message);
+    return { venues: data ?? [] };
+  });

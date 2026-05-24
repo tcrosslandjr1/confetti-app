@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Sparkles, MapPin, Flame } from "lucide-react";
+import { Sparkles, MapPin, Flame, Zap } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { MobileHeader } from "@/components/AppShell";
 import { Card } from "@/components/ui/card";
@@ -9,6 +9,10 @@ import { NotificationBell } from "@/components/NotificationBell";
 import { useAuth } from "@/lib/auth-context";
 import { usePageview, trackEngagement } from "@/lib/analytics";
 import { Reveal } from "@/components/Reveal";
+import { fetchFeedRecommendations, getUserLocation } from "@/lib/agents/feed-recommendations";
+import type { FeedVenue } from "@/lib/agents/feed-recommendations";
+import { WhyThisPick } from "@/components/WhyThisPick";
+import type { PickSignal } from "@/components/WhyThisPick";
 
 export const Route = createFileRoute("/app/")({
   component: TonightFeedPage,
@@ -54,6 +58,24 @@ function TonightFeedPage() {
         .limit(4);
       return data ?? [];
     },
+  });
+
+  // AI-powered personalized picks from Claude
+  const { data: aiPicks, isLoading: aiLoading } = useQuery({
+    queryKey: ["app", "tonight", "ai-picks", user?.id],
+    queryFn: async () => {
+      const loc = await getUserLocation();
+      const feed = await fetchFeedRecommendations({
+        lat: loc?.lat,
+        lng: loc?.lng,
+        city: "Washington DC",
+        sections: ["picks", "surprise"],
+        limit: 4,
+      });
+      return [...(feed.picks ?? []), ...(feed.surprise ?? [])].slice(0, 6);
+    },
+    staleTime: 5 * 60_000, // cache for 5 min
+    retry: 1,
   });
 
   usePageview("app_tonight", "/app");
@@ -117,7 +139,66 @@ function TonightFeedPage() {
       </section>
       </Reveal>
 
-      <Reveal delay={320}>
+      <Reveal delay={280}>
+      <section className="mt-8">
+        <SectionHeading icon={Zap} title="For you" />
+        <div className="-mx-1 mt-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 scrollbar-none">
+          {aiLoading && (
+            <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/20 bg-purple/[0.03]">
+              <div className="flex flex-col items-center gap-2">
+                <Sparkles className="size-5 animate-pulse text-purple" />
+                <span className="font-mono text-[10px] uppercase tracking-widest text-purple/60">Finding your vibe…</span>
+              </div>
+            </div>
+          )}
+          {!aiLoading && (aiPicks ?? []).map((v: FeedVenue) => (
+            <div
+              key={v.id}
+              className="snap-start"
+              onClick={() => trackEngagement("ai_pick_tap", { venueId: v.id, venue: v.venue, source: "tonight_for_you" })}
+            >
+              <div className="h-auto w-44 shrink-0 overflow-hidden rounded-2xl border-2 border-purple/15 bg-surface-1 shadow-card transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover">
+                {v.photo ? (
+                  <img
+                    src={v.photo}
+                    alt={v.venue}
+                    className="h-28 w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="h-28 w-full bg-gradient-to-br from-purple/10 to-coral/10" />
+                )}
+                <div className="p-3">
+                  <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">{v.venue}</div>
+                  <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/45">
+                    {v.category}{v.neighborhood ? ` · ${v.neighborhood}` : ""}
+                  </div>
+                  {v.reason && (
+                    <p className="mt-1.5 line-clamp-2 text-[11px] leading-snug text-purple/80">{v.reason}</p>
+                  )}
+                  {v.vibe && (
+                    <span className="mt-1.5 inline-flex items-center gap-1 rounded-full border border-purple/20 bg-purple/8 px-2 py-0.5 text-[9px] font-semibold text-purple">
+                      <Sparkles className="size-2.5" /> {v.vibe}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+          {!aiLoading && !aiPicks?.length && (
+            <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/15 bg-surface-1">
+              <div className="flex flex-col items-center gap-2 px-6 text-center">
+                <Sparkles className="size-5 text-purple/40" />
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/30">Personalized picks coming soon</span>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+      </Reveal>
+
+      <Reveal delay={400}>
       <section className="mt-8">
         <SectionHeading title="Reels you should see" />
         <div className="mt-3.5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none">
@@ -147,7 +228,7 @@ function TonightFeedPage() {
       </section>
       </Reveal>
 
-      <Reveal delay={440}>
+      <Reveal delay={520}>
       <section className="mt-8 px-5">
         <SectionHeading title="Starting soon" />
         <div className="mt-3.5 space-y-2.5">

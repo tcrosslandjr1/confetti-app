@@ -4,10 +4,13 @@ import foodImg from "@/assets/event-food.jpg";
 import artImg from "@/assets/event-art.jpg";
 import wellnessImg from "@/assets/event-wellness.jpg";
 import sportsImg from "@/assets/event-sports.jpg";
+import { supabase } from "@/integrations/supabase/client";
 
 export type EventCategory = "Music" | "Tech" | "Food" | "Arts" | "Wellness" | "Sports";
 
 export const CATEGORIES: EventCategory[] = ["Music", "Tech", "Food", "Arts", "Wellness", "Sports"];
+
+export type EventSource = "static" | "eventbrite";
 
 export type EventItem = {
   id: string;
@@ -23,6 +26,8 @@ export type EventItem = {
   ticketUrl?: string;
   lat: number;
   lng: number;
+  source?: EventSource;
+  eventbriteId?: string;
 };
 
 export const CITIES: { name: string; lat: number; lng: number }[] = [
@@ -137,6 +142,165 @@ export function distanceMiles(a: { lat: number; lng: number }, b: { lat: number;
 
 export function getEvent(id: string) {
   return EVENTS.find((e) => e.id === id);
+}
+
+// ── Eventbrite live data helpers ─────────────────────────────
+
+/** Category-specific fallback images for Eventbrite events without images */
+const CATEGORY_FALLBACK_IMAGES: Record<EventCategory, string> = {
+  Music: musicImg,
+  Tech: techImg,
+  Food: foodImg,
+  Arts: artImg,
+  Wellness: wellnessImg,
+  Sports: sportsImg,
+};
+
+/** Transform a row from the eventbrite_events cache table → EventItem */
+function ebRowToEventItem(row: any): EventItem {
+  const cat = (CATEGORIES.includes(row.category) ? row.category : "Music") as EventCategory;
+  return {
+    id: `eb-${row.eventbrite_id}`,
+    title: row.title,
+    category: cat,
+    date: row.start_date,
+    city: row.city || "Unknown",
+    venue: row.venue || "TBA",
+    price: parseFloat(row.price) || 0,
+    image: row.image_url || CATEGORY_FALLBACK_IMAGES[cat],
+    blurb: row.blurb || "",
+    organizer: row.organizer || "Eventbrite",
+    ticketUrl: row.ticket_url || undefined,
+    lat: row.lat || 0,
+    lng: row.lng || 0,
+    source: "eventbrite",
+    eventbriteId: row.eventbrite_id,
+  };
+}
+
+export type FetchEventsParams = {
+  city?: string;
+  category?: EventCategory;
+  q?: string;
+  lat?: number;
+  lng?: number;
+  limit?: number;
+};
+
+/**
+ * Fetch events from the eventbrite_events cache table and merge with
+ * static events. Static events always appear first as a reliable baseline;
+ * Eventbrite events are appended and de-duped by title similarity.
+ */
+export async function fetchLiveEvents(params: FetchEventsParams = {}): Promise<EventItem[]> {
+  const limit = params.limit || 30;
+
+  try {
+    let query = supabase
+      .from("eventbrite_events")
+      .select("*")
+      .eq("status", "live")
+      .gte("start_date", new Date().toISOString())
+      .order("start_date", { ascending: true })
+      .limit(limit);
+
+    if (params.city) query = query.eq("city", params.city);
+    if (params.category) query = query.eq("category", params.category);
+    if (params.q) query = query.or(`title.ilike.%${params.q}%,blurb.ilike.%${params.q}%`);
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.warn("Eventbrite cache query failed, using static only:", error.message);
+      return filterStaticEvents(params);
+    }
+
+    const ebEvents = (data || []).map(ebRowToEventItem);
+    const staticFiltered = filterStaticEvents(params);
+
+    // De-duplicate: remove Eventbrite events whose title closely matches a static event
+    const staticTitles = new Set(staticFiltered.map((e) => e.title.toLowerCase()));
+    const uniqueEb = ebEvents.filter((e) => !staticTitles.has(e.title.toLowerCase()));
+
+    return [...staticFiltered, ...uniqueEb];
+  } catch (e) {
+    console.warn("fetchLiveEvents failed, falling back to static:", e);
+    return filterStaticEvents(params);
+  }
+}
+
+/** Filter static events by the same params */
+function filterStaticEvents(params: FetchEventsParams): EventItem[] {
+  let filtered = [...EVENTS].map((e) => ({ ...e, source: "static" as EventSource }));
+
+  if (params.city) {
+    filtered = filtered.filter((e) => e.city.toLowerCase().includes(params.city!.toLowerCase()));
+  }
+  if (params.category) {
+    filtered = filtered.filter((e) => e.category === params.category);
+  }
+  if (params.q) {
+    const q = params.q.toLowerCase();
+    filtered = filtered.filter(
+      (e) =>
+        e.title.toLowerCase().includes(q) ||
+        e.blurb.toLowerCase().includes(q) ||
+        e.venue.toLowerCase().includes(q),
+    );
+  }
+  return filtered;
+}
+
+/**
+ * Fetch a single event by ID. Handles both static IDs and Eventbrite IDs (prefixed "eb-").
+ */
+export async function fetchEventById(id: string): Promise<EventItem | null> {
+  // Static event
+  const staticEvent = EVENTS.find((e) => e.id === id);
+  if (staticEvent) return { ...staticEvent, source: "static" };
+
+  // Eventbrite event — strip "eb-" prefix
+  if (id.startsWith("eb-")) {
+    const ebId = id.replace("eb-", "");
+    try {
+      const { data, error } = await supabase
+        .from("eventbrite_events")
+        .select("*")
+        .eq("eventbrite_id", ebId)
+        .single();
+
+      if (error || !data) return null;
+      return ebRowToEventItem(data);
+    } catch {
+      return null;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Trigger a live search against the Eventbrite edge function (bypasses cache).
+ * Use sparingly — counts against Eventbrite API rate limits.
+ */
+export async function searchEventbriteLive(params: {
+  city?: string;
+  category?: string;
+  q?: string;
+  lat?: number;
+  lng?: number;
+  limit?: number;
+}): Promise<EventItem[]> {
+  try {
+    const { data, error } = await supabase.functions.invoke("eventbrite-events/search", {
+      body: params,
+    });
+    if (error) throw error;
+    return (data?.events || []).map(ebRowToEventItem);
+  } catch (e) {
+    console.warn("Live Eventbrite search failed:", e);
+    return [];
+  }
 }
 
 export function formatEventDate(iso: string) {

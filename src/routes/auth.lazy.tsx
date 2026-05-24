@@ -520,7 +520,7 @@ function AuthPage() {
             className="pointer-events-none absolute left-[20%] bottom-[28%] h-2 w-2 rounded-full bg-ink animate-[float_9s_ease-in-out_infinite]"
           />
 
-          <div className="relative mt-10 flex items-center gap-3 text-primary-foreground">
+          <div className="relative mt-10 flex items-center gap-3 text-cream">
             <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform hover:-translate-y-0.5 hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
               <Sparkles className="h-6 w-6" />
             </div>
@@ -601,7 +601,7 @@ function AuthPage() {
             </div>
           </div>
 
-          <div className="relative space-y-6 text-primary-foreground">
+          <div className="relative space-y-6 text-cream">
             <div className="flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
                 <span className="relative inline-flex h-2 w-2">
@@ -800,7 +800,7 @@ function AuthPage() {
                       role="tab"
                       aria-selected={active}
                       onClick={() => setMode(m)}
-                      className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
+                      className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
                         active ? "bg-ink text-cream shadow-brut" : "text-ink/60 hover:text-ink"
                       }`}
                     >
@@ -880,7 +880,7 @@ function AuthPage() {
                 onClick={() => onOAuth("google")}
                 disabled={oauthBusy !== null}
                 aria-busy={oauthBusy === "google"}
-                className="group relative inline-flex w-full items-center justify-between gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3.5 text-sm font-bold text-ink shadow-brut transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60"
+                className="group relative inline-flex w-full items-center justify-between gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3.5 text-sm font-bold text-ink shadow-brut transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
               >
                 <span className="flex items-center gap-3">
                   {oauthBusy === "google" ? (
@@ -921,7 +921,7 @@ function AuthPage() {
                 onClick={() => onOAuth("apple")}
                 disabled={oauthBusy !== null}
                 aria-busy={oauthBusy === "apple"}
-                className="group inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-ink px-4 py-3.5 text-sm font-bold text-cream shadow-brut transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60"
+                className="group inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-ink px-4 py-3.5 text-sm font-bold text-cream shadow-brut transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
               >
                 <span className="flex items-center gap-3">
                   {oauthBusy === "apple" ? (
@@ -986,7 +986,7 @@ function AuthPage() {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
                     required
-                    className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
+                    className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus-visible:ring-2 focus-visible:ring-coral/40 transition"
                   />
                 </div>
                 <div className="relative">
@@ -999,7 +999,7 @@ function AuthPage() {
                     placeholder="Pick a username"
                     required
                     maxLength={24}
-                    className={`w-full rounded-2xl border-2 bg-cream pl-9 pr-11 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus:ring-2 focus:ring-coral/40 ${
+                    className={`w-full rounded-2xl border-2 bg-cream pl-9 pr-11 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus-visible:ring-2 focus-visible:ring-coral/40 ${
                       usernameStatus === "available"
                         ? "border-emerald-500"
                         : usernameStatus === "taken" || usernameStatus === "invalid"
@@ -1042,7 +1042,7 @@ function AuthPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus:ring-2 focus:ring-coral/40"
+                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus-visible:ring-2 focus-visible:ring-coral/40"
               />
               {emailLooksValid && (
                 <span
@@ -1066,13 +1066,13 @@ function AuthPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
+                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus-visible:ring-2 focus-visible:ring-coral/40 transition"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword((s) => !s)}
                 aria-label={showPassword ? "Hide password" : "Show password"}
-                className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl border-2 border-ink/20 text-ink/60 transition hover:border-ink hover:bg-cream hover:text-ink"
+                className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl border-2 border-ink/20 text-ink/60 transition hover:border-ink hover:bg-cream hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -1112,7 +1112,7 @@ function AuthPage() {
                 <Link
                   to="/auth"
                   search={{ mode: "reset" }}
-                  className="text-xs font-medium text-muted-foreground hover:text-coral transition-colors underline-offset-4 hover:underline"
+                  className="rounded-sm text-xs font-medium text-ink/60 hover:text-coral transition-colors underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                 >
                   Forgot password?
                 </Link>
@@ -1128,12 +1128,12 @@ function AuthPage() {
                   value={refCode}
                   onChange={(e) => checkRefCode(e.target.value)}
                   placeholder="Referral code (optional)"
-                  className={`w-full rounded-2xl border-2 bg-cream/60 pl-11 pr-11 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-ink placeholder:text-ink/40 outline-none transition focus:bg-cream focus:ring-2 focus:ring-coral/40 ${
+                  className={`w-full rounded-2xl border-2 bg-cream/60 pl-11 pr-11 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-ink placeholder:text-ink/40 outline-none transition focus-visible:bg-cream focus-visible:ring-2 focus-visible:ring-coral/40 ${
                     refStatus === "valid"
                       ? "border-emerald-500"
                       : refStatus === "invalid"
                         ? "border-red-400"
-                        : "border-ink/40 focus:border-ink"
+                        : "border-ink/40 focus-visible:border-ink"
                   }`}
                 />
                 <span className="pointer-events-none absolute inset-y-0 right-4 my-auto flex h-4 items-center">
@@ -1184,7 +1184,7 @@ function AuthPage() {
             )}
             <button
               disabled={loading}
-              className="shine-sweep group relative mt-2 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink bg-coral py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg hover:scale-[1.01] active:translate-x-0 active:translate-y-0 active:shadow-none disabled:opacity-60"
+              className="shine-sweep group relative mt-2 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink bg-coral py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg hover:scale-[1.01] active:translate-x-0 active:translate-y-0 active:shadow-none disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
               <span className="relative z-10">
@@ -1209,7 +1209,7 @@ function AuthPage() {
                 By creating an account you accept our{" "}
                 <Link
                   to="/privacy"
-                  className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
+                  className="rounded-sm font-bold text-ink underline underline-offset-2 hover:text-coral transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
                 >
                   Data sharing terms
                 </Link>
@@ -1221,7 +1221,7 @@ function AuthPage() {
           <button
             type="button"
             onClick={() => setMode((m) => (m === "signin" ? "signup" : "signin"))}
-            className="group mt-6 inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 px-4 py-3 text-left transition-all hover:border-ink hover:bg-cream hover:shadow-brut"
+            className="group mt-6 inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 px-4 py-3 text-left transition-all hover:border-ink hover:bg-cream hover:shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
           >
             <span className="text-sm text-ink/70">
               {mode === "reset" ? "Remember your password? " : mode === "signin" ? "Don't have an account? " : "Already have one? "}
@@ -1273,15 +1273,15 @@ function AuthPage() {
           )}
 
           <div className="mt-auto pt-8 text-center text-[11px] text-ink/55">
-            <Link to="/privacy" className="underline underline-offset-2 hover:text-coral">
+            <Link to="/privacy" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1">
               Terms &amp; data policy
             </Link>
             <span className="mx-2 text-ink/30">·</span>
-            <Link to="/events" className="underline underline-offset-2 hover:text-coral">
+            <Link to="/events" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1">
               Browse events
             </Link>
             <span className="mx-2 text-ink/30">·</span>
-            <Link to="/business/login" className="underline underline-offset-2 hover:text-coral">
+            <Link to="/business/login" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1">
               Business sign in
             </Link>
           </div>

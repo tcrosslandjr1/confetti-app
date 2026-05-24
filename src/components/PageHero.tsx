@@ -130,12 +130,15 @@ export function SectionTitle({
 
 /**
  * BrutButton — pop-on-hover pill that matches the marketing CTAs.
+ * @deprecated Prefer `<Button variant="ink" />` (or gold/default) from ui/button.
+ * This component exists for backward compat and will be removed in a future pass.
  */
 type BrutButtonProps = {
   children: React.ReactNode;
   className?: string;
   tone?: "ink" | "coral" | "cream" | "gold";
   size?: "sm" | "md" | "lg";
+  disabled?: boolean;
   as?: React.ElementType;
   [key: string]: unknown;
 };
@@ -145,6 +148,7 @@ export function BrutButton({
   className,
   tone = "ink",
   size = "md",
+  disabled = false,
   as: As = "button",
   ...rest
 }: BrutButtonProps) {
@@ -161,11 +165,16 @@ export function BrutButton({
   return (
     <As
       className={cn(
-        "inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink font-mono font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut",
+        "inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink font-mono font-bold uppercase tracking-widest shadow-brut transition-pop",
+        "hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg",
+        "active:translate-x-0 active:translate-y-0 active:shadow-brut",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        "disabled:pointer-events-none disabled:opacity-40",
         fill,
         sizes,
         className,
       )}
+      disabled={disabled}
       {...rest}
     >
       {children}

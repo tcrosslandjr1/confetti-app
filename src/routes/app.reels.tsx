@@ -90,8 +90,12 @@ function ReelAction({
   onClick?: () => void;
 }) {
   return (
-    <button className="flex flex-col items-center gap-1 text-white" onClick={onClick}>
-      <span className="grid size-11 place-items-center rounded-full bg-white/15 backdrop-blur">
+    <button
+      className="flex flex-col items-center gap-1 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-xl"
+      onClick={onClick}
+      aria-label={label}
+    >
+      <span className="grid size-11 place-items-center rounded-full bg-white/15 backdrop-blur transition-colors hover:bg-white/25 active:bg-white/30">
         <Icon className="size-5" />
       </span>
       <span className="text-[10px] font-medium">{label}</span>

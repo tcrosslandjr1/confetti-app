@@ -32,10 +32,15 @@ import { MobileHeader } from "@/components/AppShell";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { NotificationBell } from "@/components/NotificationBell";
 import { usePageview, trackEngagement, trackCta } from "@/lib/analytics";
 import { toast } from "sonner";
+
+/* Shared TabsTrigger className — single source of truth for all 6 profile tabs */
+const tabTriggerClass =
+  "rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/50 focus-visible:ring-offset-1 data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm";
 
 export const Route = createFileRoute("/app/profile")({
   component: ProfilePage,
@@ -169,12 +174,12 @@ function ProfilePage() {
       <section className="mt-6 px-5">
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="grid w-full grid-cols-6 gap-1 rounded-xl bg-surface-2 p-1">
-            <TabsTrigger value="overview" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "overview" })}>Overview</TabsTrigger>
-            <TabsTrigger value="bookings" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "bookings" })}>Bookings</TabsTrigger>
-            <TabsTrigger value="saved" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "saved" })}>Saved</TabsTrigger>
-            <TabsTrigger value="passport" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "passport" })}>Passport</TabsTrigger>
-            <TabsTrigger value="wallet" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "wallet" })}>Wallet</TabsTrigger>
-            <TabsTrigger value="settings" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "settings" })}>Settings</TabsTrigger>
+            <TabsTrigger value="overview" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "overview" })}>Overview</TabsTrigger>
+            <TabsTrigger value="bookings" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "bookings" })}>Bookings</TabsTrigger>
+            <TabsTrigger value="saved" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "saved" })}>Saved</TabsTrigger>
+            <TabsTrigger value="passport" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "passport" })}>Passport</TabsTrigger>
+            <TabsTrigger value="wallet" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "wallet" })}>Wallet</TabsTrigger>
+            <TabsTrigger value="settings" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "settings" })}>Settings</TabsTrigger>
           </TabsList>
 
 
@@ -701,8 +706,7 @@ function SettingsTab({
       {/* Display Name */}
       <Card className="space-y-3.5 p-4">
         <h3 className="font-display text-[14px] font-bold tracking-tight text-ink">Display Name</h3>
-        <input
-          className="w-full rounded-xl border-2 border-ink/15 bg-surface-1 px-3.5 py-2.5 text-[13px] text-ink placeholder:text-ink/30 focus:border-ink focus:shadow-brut focus:outline-none"
+        <Input
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -731,21 +735,21 @@ function SettingsTab({
       <Card className="divide-y divide-ink/8">
         <Link
           to="/privacy"
-          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2"
+          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 rounded-xl"
         >
           <span className="flex-1 text-[13px] font-semibold text-ink">Privacy & Terms</span>
           <ChevronRight className="size-4 text-ink/25" />
         </Link>
         <Link
           to="/accessibility"
-          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2"
+          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 rounded-xl"
         >
           <span className="flex-1 text-[13px] font-semibold text-ink">Accessibility</span>
           <ChevronRight className="size-4 text-ink/25" />
         </Link>
         <Link
           to="/about"
-          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2"
+          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 rounded-xl"
         >
           <span className="flex-1 text-[13px] font-semibold text-ink">About Confetti</span>
           <ChevronRight className="size-4 text-ink/25" />
@@ -823,14 +827,14 @@ function ConnectedAccountsCard() {
 
   return (
     <Card className="space-y-3 p-4">
-      <h3 className="text-sm font-semibold">Sign-in methods</h3>
+      <h3 className="font-display text-[14px] font-bold tracking-tight text-ink">Sign-in methods</h3>
       {loading ? (
-        <div className="text-xs text-muted-foreground">Loading…</div>
+        <div className="font-mono text-[11px] text-ink/45">Loading…</div>
       ) : (
         <div className="space-y-2">
           {identities.map((i) => (
-            <div key={i.id} className="flex items-center justify-between rounded-lg border border-border px-3 py-2">
-              <span className="text-sm capitalize">{i.provider}</span>
+            <div key={i.id} className="flex items-center justify-between rounded-xl border-2 border-ink/8 bg-surface-1 px-3.5 py-2.5">
+              <span className="font-display text-[13px] font-bold capitalize tracking-tight text-ink">{i.provider}</span>
               {identities.length > 1 && i.provider !== "email" && (
                 <Button size="sm" variant="ghost" onClick={() => handleUnlink(i)}>
                   Disconnect
@@ -845,7 +849,7 @@ function ConnectedAccountsCard() {
           {linking ? "Connecting…" : "Connect Google account"}
         </Button>
       )}
-      <p className="text-[11px] text-muted-foreground">
+      <p className="font-mono text-[10px] uppercase tracking-wide text-ink/40">
         Link Google to sign in faster. Both methods will access this same account.
       </p>
     </Card>
@@ -863,13 +867,14 @@ function StatCard({
   icon?: React.ComponentType<{ className?: string }>;
 }) {
   return (
-    <Card className="group relative overflow-hidden p-3 text-center transition-all hover:-translate-y-0.5 hover:shadow-md">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+    <Card className="group relative overflow-hidden p-3 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card-hover">
       {Icon && (
-        <Icon className="mx-auto mb-1 size-3.5 text-primary/70" />
+        <div className="mx-auto mb-1.5 grid size-8 place-items-center rounded-lg bg-coral/10">
+          <Icon className="size-3.5 text-coral" />
+        </div>
       )}
-      <div className="text-xl font-bold tracking-tight">{value}</div>
-      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+      <div className="font-display text-xl font-extrabold tracking-tight text-ink">{value}</div>
+      <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
         {label}
       </div>
     </Card>
@@ -890,18 +895,18 @@ function QuickRow({
   return (
     <button
       onClick={onClick}
-      className="group flex w-full items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-muted/40"
+      className="group flex w-full items-center gap-3.5 px-4 py-3.5 text-left transition-colors hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 rounded-xl"
     >
-      <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary/15 to-accent/10 text-primary transition-transform group-hover:scale-105">
+      <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-coral/10 text-coral transition-transform duration-200 group-hover:scale-105">
         <Icon className="size-4" />
       </div>
       <div className="min-w-0 flex-1">
-        <span className="text-sm font-semibold">{label}</span>
+        <span className="font-display text-[13px] font-bold tracking-tight text-ink">{label}</span>
         {sub && (
-          <div className="text-xs text-muted-foreground">{sub}</div>
+          <div className="font-mono text-[10px] uppercase tracking-wide text-ink/45">{sub}</div>
         )}
       </div>
-      <ChevronRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+      <ChevronRight className="size-4 text-ink/25 transition-transform duration-200 group-hover:translate-x-0.5" />
     </button>
   );
 }
@@ -921,9 +926,11 @@ function EmptyState({
 }) {
   return (
     <div className="py-8 text-center">
-      <Icon className="mx-auto size-10 text-muted-foreground/50" />
-      <h3 className="mt-3 text-sm font-semibold">{title}</h3>
-      <p className="mt-1 text-xs text-muted-foreground">{description}</p>
+      <div className="mx-auto grid size-14 place-items-center rounded-2xl bg-ink/[0.04]">
+        <Icon className="size-6 text-ink/25" />
+      </div>
+      <h3 className="mt-3 font-display text-[14px] font-bold tracking-tight text-ink">{title}</h3>
+      <p className="mt-1 font-mono text-[11px] text-ink/45">{description}</p>
       <Button asChild size="sm" className="mt-4">
         <Link to={to}>{cta}</Link>
       </Button>
@@ -937,7 +944,7 @@ function LoadingPlaceholder() {
       {[1, 2, 3].map((i) => (
         <div
           key={i}
-          className="h-16 animate-pulse rounded-xl bg-muted"
+          className="h-16 rounded-xl bg-ink/[0.06] relative isolate overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-ink/[0.06] before:to-transparent before:animate-[skeleton-shimmer_1.8s_ease-in-out_infinite] before:bg-[length:200%_100%]"
         />
       ))}
     </div>

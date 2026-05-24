@@ -88,7 +88,7 @@ function ClaimPage() {
         }}
         onSubmitted={() => {
           claims.refetch();
-          navigate({ to: "/business/claim/pending" });
+          navigate({ to: "/business/dashboard" });
         }}
       />
     );

@@ -219,8 +219,8 @@ function AdsPage() {
               <Button
                 size="sm"
                 className="mt-3 w-full"
-                disabled={buyBoost.isPending}
-                onClick={() => buyBoost.mutate(pkg)}
+                disabled={!boostPackageToPriceId[pkg.id]}
+                onClick={() => handleBuyBoost(pkg)}
               >
                 Buy boost
               </Button>

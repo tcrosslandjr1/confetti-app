@@ -264,13 +264,15 @@ function KPIStats({ totals, daily }: { totals?: any; daily?: any[] }) {
 
 function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
   const actions = [
+    { icon: ShieldCheck, label: "Verify Venue", to: "/business/verify" as const },
+    { icon: Megaphone, label: "Ads & Plan", to: "/business/ads" as const },
     { icon: CalendarPlus, label: "Add Event", to: "/business/events" as const },
     { icon: ImageIcon, label: "Upload Photos", to: "/business/media" as const },
     { icon: Pencil, label: "Edit Venue", to: "/business/settings" as const },
     { icon: Link2, label: "Social Links", to: "/business/social" as const },
     { icon: BarChart3, label: "Analytics", to: "/business/analytics" as const },
     ...(promotionUnlocked
-      ? [{ icon: Megaphone, label: "Promote", to: "/business/promoters" as const }]
+      ? [{ icon: Megaphone, label: "Promoters", to: "/business/promoters" as const }]
       : []),
   ];
   return (

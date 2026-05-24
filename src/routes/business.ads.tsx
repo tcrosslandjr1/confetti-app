@@ -68,7 +68,18 @@ type Purchase = {
 
 function AdsPage() {
   const { venues, activeId, setActiveId, isLoading } = useManagedVenues();
-  const qc = useQueryClient();
+  const { openCheckout, checkoutElement } = useStripeCheckout();
+
+  const tierToPriceId: Record<string, string> = {
+    starter: "business_basic_monthly",
+    featured: "business_featured_monthly",
+    spotlight: "business_premium_monthly",
+  };
+  const boostPackageToPriceId: Record<string, string> = {
+    pulse_24h: "boost_24h_once",
+    weekend_spot: "boost_3d_once",
+    week_headline: "boost_7d_once",
+  };
 
   const sub = useQuery({
     queryKey: ["advertiser-subscription"],

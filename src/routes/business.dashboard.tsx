@@ -67,7 +67,7 @@ function BusinessDashboardPage() {
 
   const { data: analyticsData } = useQuery({
     queryKey: ["venue-analytics-dashboard", activeId],
-    queryFn: () => fetchAnalytics({ venueId: activeId!, days: 30 }),
+    queryFn: () => fetchAnalytics({ data: { venueId: activeId!, days: 30 } }),
     enabled: !!activeId,
     staleTime: 60_000,
   });

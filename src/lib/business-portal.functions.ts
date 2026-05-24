@@ -135,7 +135,7 @@ export const removeOfficialPhoto = createServerFn({ method: "POST" })
       .select("official_photos, hero_image_url")
       .eq("id", data.venueId)
       .single();
-    const next = (row?.official_photos ?? []).filter((u) => u !== data.url);
+    const next = (row?.official_photos ?? []).filter((u: string) => u !== data.url);
     const update: Record<string, unknown> = { official_photos: next };
     if (row?.hero_image_url === data.url) update.hero_image_url = next[0] ?? null;
 
@@ -177,9 +177,9 @@ export const toggleMediaHidden = createServerFn({ method: "POST" })
       .select("hidden_media_urls")
       .eq("id", data.venueId)
       .single();
-    const current = row?.hidden_media_urls ?? [];
+    const current: string[] = row?.hidden_media_urls ?? [];
     const next = current.includes(data.url)
-      ? current.filter((u) => u !== data.url)
+      ? current.filter((u: string) => u !== data.url)
       : [...current, data.url];
     const { error } = await supabase
       .from("venues")
@@ -287,7 +287,7 @@ export const listMyVenueEvents = createServerFn({ method: "GET" })
     if (!admin) vq = vq.eq("claimed_by", context.userId);
     const { data: venues, error: vErr } = await vq;
     if (vErr) throw new Error(vErr.message);
-    const ids = (venues ?? []).map((v) => v.id);
+    const ids = (venues ?? []).map((v: { id: string }) => v.id);
     if (ids.length === 0) return { events: [] };
     const { data, error } = await supabase
       .from("events")
@@ -421,7 +421,7 @@ export const getMyBusinessSubscription = createServerFn({ method: "GET" })
     if (error) throw new Error(error.message);
     const active =
       (data ?? []).find(
-        (s) =>
+        (s: { status: string; current_period_end?: string | null }) =>
           (s.status === "active" || s.status === "trialing") &&
           (!s.current_period_end || new Date(s.current_period_end).getTime() > Date.now()),
       ) ?? null;
@@ -464,7 +464,7 @@ export const listVenueBookings = createServerFn({ method: "GET" })
     if (error) throw new Error(error.message);
 
     // Fetch passenger profiles for the bookings
-    const userIds = [...new Set((data ?? []).map((b) => b.user_id))];
+    const userIds = [...new Set((data ?? []).map((b: { user_id: string }) => b.user_id))];
     let profiles: Record<string, { display_name: string | null; avatar_url?: string | null }> = {};
     if (userIds.length) {
       const { data: profileData } = await supabase
@@ -472,12 +472,12 @@ export const listVenueBookings = createServerFn({ method: "GET" })
         .select("id, display_name")
         .in("id", userIds);
       profiles = Object.fromEntries(
-        (profileData ?? []).map((p) => [p.id, { display_name: p.display_name, avatar_url: null }]),
+        (profileData ?? []).map((p: { id: string; display_name: string | null }) => [p.id, { display_name: p.display_name, avatar_url: null }]),
       );
     }
 
     return {
-      bookings: (data ?? []).map((b) => ({
+      bookings: (data ?? []).map((b: { user_id: string }) => ({
         ...b,
         passenger: profiles[b.user_id] ?? { display_name: null, avatar_url: null },
       })),
@@ -504,11 +504,11 @@ export const getVenueBookingStats = createServerFn({ method: "GET" })
       .eq("venue_id", input.venueId)
       .gte("created_at", thirtyDaysAgo);
 
-    const bookings = all ?? [];
+    const bookings: Array<{ status: string; party_size?: number | null; starts_at?: string }> = all ?? [];
     const upcoming = bookings.filter((b) => b.status === "upcoming" || b.status === "confirmed");
     const completed = bookings.filter((b) => b.status === "completed");
     const cancelled = bookings.filter((b) => b.status === "cancelled");
-    const totalGuests = bookings.reduce((sum, b) => sum + (b.party_size ?? 0), 0);
+    const totalGuests = bookings.reduce((sum: number, b) => sum + (b.party_size ?? 0), 0);
 
     return {
       total30d: bookings.length,
@@ -885,7 +885,7 @@ export const getVenueAnalytics = createServerFn({ method: "POST" })
 
     const rows = daily ?? [];
     const totals = rows.reduce(
-      (acc, r) => ({
+      (acc: any, r: any) => ({
         impressions: acc.impressions + (r.impressions ?? 0),
         profile_views: acc.profile_views + (r.profile_views ?? 0),
         clicks: acc.clicks + (r.clicks ?? 0),

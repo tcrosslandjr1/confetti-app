@@ -4,7 +4,13 @@
  */
 
 import { supabase } from "@/integrations/supabase/client";
-import type { NotifPrefs } from "@/components/NotificationPreferences";
+export interface NotifPrefs {
+  emailConfirmations: boolean;
+  emailReminders: boolean;
+  smsReminders: boolean;
+  pushEnabled: boolean;
+  phoneNumber?: string;
+}
 
 const DEFAULTS: NotifPrefs = {
   emailConfirmations: true,

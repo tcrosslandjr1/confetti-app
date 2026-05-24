@@ -21,7 +21,7 @@ export function useManagedVenues() {
 
   useEffect(() => {
     if (!venues.length) return;
-    if (!activeId || !venues.find((v) => v.id === activeId)) {
+    if (!activeId || !venues.find((v: { id: string }) => v.id === activeId)) {
       const first = venues[0].id;
       setActiveIdState(first);
       try {
@@ -42,7 +42,7 @@ export function useManagedVenues() {
   };
 
   const activeVenue = useMemo(
-    () => venues.find((v) => v.id === activeId) ?? null,
+    () => venues.find((v: { id: string }) => v.id === activeId) ?? null,
     [venues, activeId],
   );
 

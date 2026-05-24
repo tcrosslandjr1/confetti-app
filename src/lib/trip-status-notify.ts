@@ -36,7 +36,7 @@ export async function publishTripStatusToGroup(opts: {
       group_id: opts.groupId,
       actor_id: user.id,
       kind: opts.kind,
-      payload: opts.payload ?? {},
+      payload: (opts.payload ?? {}) as Record<string, unknown> as never,
     });
 
   if (error) {

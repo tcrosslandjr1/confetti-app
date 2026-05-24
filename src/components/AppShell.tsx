@@ -46,20 +46,25 @@ export function MobileHeader({
   eyebrow,
   title,
   right,
+  left,
 }: {
   eyebrow?: string;
   title: string;
   right?: React.ReactNode;
+  left?: React.ReactNode;
 }) {
   return (
     <header className="sticky top-0 z-20 flex items-end justify-between gap-3 bg-gradient-to-b from-background via-background to-background/0 px-5 pb-3 pt-6">
-      <div>
-        {eyebrow && (
-          <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
-            {eyebrow}
-          </div>
-        )}
-        <h1 className="mt-0.5 text-2xl font-bold tracking-tight">{title}</h1>
+      <div className="flex items-end gap-3">
+        {left}
+        <div>
+          {eyebrow && (
+            <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+              {eyebrow}
+            </div>
+          )}
+          <h1 className="mt-0.5 text-2xl font-bold tracking-tight">{title}</h1>
+        </div>
       </div>
       {right}
     </header>

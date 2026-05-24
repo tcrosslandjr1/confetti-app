@@ -54,7 +54,7 @@ function ProfilePage() {
     queryFn: async () => {
       const { data } = await supabase
         .from("profiles")
-        .select("display_name,level,xp,avatar_url")
+        .select("display_name,level,xp")
         .eq("id", userId!)
         .maybeSingle();
       return data;
@@ -331,11 +331,17 @@ function BookingsTab({ userId }: { userId: string }) {
     queryFn: async () => {
       const { data } = await supabase
         .from("bookings")
-        .select("id,venue_name,date,status,total_cents,created_at")
+        .select("id,venue_name,starts_at,status,total_cents,created_at")
         .eq("user_id", userId)
-        .order("date", { ascending: false })
+        .order("starts_at", { ascending: false })
         .limit(20);
-      return data ?? [];
+      return (data ?? []) as Array<{
+        id: string;
+        venue_name: string | null;
+        starts_at: string | null;
+        status: string | null;
+        total_cents: number | null;
+      }>;
     },
   });
 
@@ -363,7 +369,7 @@ function BookingsTab({ userId }: { userId: string }) {
               {b.venue_name || "Venue"}
             </div>
             <div className="text-xs text-muted-foreground">
-              {b.date ? new Date(b.date).toLocaleDateString() : "—"}
+              {b.starts_at ? new Date(b.starts_at).toLocaleDateString() : "—"}
               {b.total_cents != null && ` · $${(b.total_cents / 100).toFixed(2)}`}
             </div>
           </div>
@@ -489,10 +495,15 @@ function PassportTab({
     queryFn: async () => {
       const { data } = await supabase
         .from("user_achievements")
-        .select("id,achievement_code,unlocked_at")
+        .select("id,achievement_id,unlocked_at,achievements(code,title)")
         .eq("user_id", userId)
         .order("unlocked_at", { ascending: false });
-      return data ?? [];
+      return (data ?? []) as Array<{
+        id: string;
+        achievement_id: string;
+        unlocked_at: string | null;
+        achievements: { code: string; title: string } | null;
+      }>;
     },
   });
 
@@ -537,7 +548,7 @@ function PassportTab({
                 <Star className="size-4 shrink-0 text-amber-500" />
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-sm font-medium capitalize">
-                    {(a.achievement_code ?? "").replace(/_/g, " ")}
+                    {(a.achievements?.title ?? a.achievements?.code ?? "").replace(/_/g, " ")}
                   </div>
                   <div className="text-xs text-muted-foreground">
                     {a.unlocked_at

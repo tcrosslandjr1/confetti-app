@@ -877,16 +877,18 @@ function QuickRow({
   return (
     <button
       onClick={onClick}
-      className="flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-muted/40"
+      className="group flex w-full items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-muted/40"
     >
-      <Icon className="size-4 shrink-0 text-primary" />
+      <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary/15 to-accent/10 text-primary transition-transform group-hover:scale-105">
+        <Icon className="size-4" />
+      </div>
       <div className="min-w-0 flex-1">
-        <span className="text-sm font-medium">{label}</span>
+        <span className="text-sm font-semibold">{label}</span>
         {sub && (
           <div className="text-xs text-muted-foreground">{sub}</div>
         )}
       </div>
-      <ChevronRight className="size-4 text-muted-foreground" />
+      <ChevronRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
     </button>
   );
 }

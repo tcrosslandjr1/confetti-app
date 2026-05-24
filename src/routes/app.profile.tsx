@@ -89,12 +89,12 @@ function ProfilePage() {
 
   if (!user) {
     return (
-      <div className="px-5 pt-10 text-center">
-        <h1 className="text-2xl font-bold">Sign in to Confetti</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+      <div className="px-5 pt-16 text-center">
+        <h1 className="font-display text-2xl font-extrabold tracking-tight text-ink">Sign in to Confetti</h1>
+        <p className="mt-2 text-[13px] leading-relaxed text-ink/50">
           Save plans, earn Confetti, and unlock perks.
         </p>
-        <Button asChild className="mt-6 w-full">
+        <Button asChild className="mt-6 w-full" variant="ink">
           <Link to="/auth">Sign in</Link>
         </Button>
       </div>
@@ -115,43 +115,43 @@ function ProfilePage() {
 
       {/* ─── Hero Card ──────────────────────────────────────────────────── */}
       <section className="px-5">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/15 via-background to-accent/10 p-5 shadow-sm">
-          <div className="pointer-events-none absolute -right-12 -top-12 size-40 rounded-full bg-primary/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-16 -left-10 size-40 rounded-full bg-accent/20 blur-3xl" />
+        <div className="relative overflow-hidden rounded-2xl border-2 border-ink bg-ink p-5 shadow-brut-lg">
+          <div className="pointer-events-none absolute -right-8 -top-8 size-36 rounded-full bg-gold/15 blur-2xl" />
+          <div className="pointer-events-none absolute -bottom-12 -left-8 size-36 rounded-full bg-coral/10 blur-2xl" />
 
           <div className="relative flex items-center gap-4">
             <div className="relative shrink-0">
-              <div className="grid size-20 place-items-center rounded-full bg-gradient-to-br from-primary to-accent text-2xl font-bold text-primary-foreground shadow-lg ring-4 ring-background">
+              <div className="grid size-[72px] place-items-center rounded-2xl bg-gold/90 font-display text-2xl font-extrabold text-ink shadow-sm">
                 {(profile?.display_name ?? user.email ?? "?")
                   .slice(0, 1)
                   .toUpperCase()}
               </div>
-              <div className="absolute -bottom-1 -right-1 grid size-7 place-items-center rounded-full bg-background text-[10px] font-bold text-primary shadow-md ring-2 ring-primary/30">
+              <div className="absolute -bottom-1.5 -right-1.5 grid size-7 place-items-center rounded-lg bg-cream font-mono text-[10px] font-bold text-ink shadow-md ring-2 ring-ink/20">
                 {level}
               </div>
             </div>
             <div className="min-w-0 flex-1">
-              <div className="truncate text-xl font-bold tracking-tight">
+              <div className="truncate font-display text-xl font-extrabold tracking-tight text-cream">
                 {profile?.display_name ?? user.email?.split("@")[0]}
               </div>
               <div className="mt-0.5 flex items-center gap-1.5">
-                <Sparkles className="size-3 text-primary" />
-                <span className="text-xs font-semibold text-primary">
+                <Sparkles className="size-3 text-gold" />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-gold">
                   {levelTitle(level)}
                 </span>
               </div>
-              <div className="mt-2 flex items-center gap-2">
-                <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted/70">
+              <div className="mt-2.5 flex items-center gap-2">
+                <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-cream/15">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-700"
+                    className="h-full rounded-full bg-gold transition-all duration-700"
                     style={{ width: `${Math.min(100, progress.progress * 100)}%` }}
                   />
                 </div>
-                <span className="shrink-0 text-[10px] font-medium text-muted-foreground">
+                <span className="shrink-0 font-mono text-[10px] font-bold text-cream/50">
                   {xp} XP
                 </span>
               </div>
-              <div className="mt-1 text-[10px] text-muted-foreground">
+              <div className="mt-1 font-mono text-[10px] text-cream/40">
                 Lv {level + 1} unlocks soon
               </div>
             </div>
@@ -168,13 +168,13 @@ function ProfilePage() {
       {/* ─── Tabs ───────────────────────────────────────────────────────── */}
       <section className="mt-6 px-5">
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="grid w-full grid-cols-6 gap-1 rounded-2xl bg-muted/60 p-1">
-            <TabsTrigger value="overview" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "overview" })}>Overview</TabsTrigger>
-            <TabsTrigger value="bookings" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "bookings" })}>Bookings</TabsTrigger>
-            <TabsTrigger value="saved" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "saved" })}>Saved</TabsTrigger>
-            <TabsTrigger value="passport" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "passport" })}>Passport</TabsTrigger>
-            <TabsTrigger value="wallet" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "wallet" })}>Wallet</TabsTrigger>
-            <TabsTrigger value="settings" className="rounded-xl text-xs" onClick={() => trackEngagement("profile_tab", { tab: "settings" })}>Settings</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-6 gap-1 rounded-xl bg-surface-2 p-1">
+            <TabsTrigger value="overview" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "overview" })}>Overview</TabsTrigger>
+            <TabsTrigger value="bookings" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "bookings" })}>Bookings</TabsTrigger>
+            <TabsTrigger value="saved" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "saved" })}>Saved</TabsTrigger>
+            <TabsTrigger value="passport" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "passport" })}>Passport</TabsTrigger>
+            <TabsTrigger value="wallet" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "wallet" })}>Wallet</TabsTrigger>
+            <TabsTrigger value="settings" className="rounded-lg font-mono text-[9px] font-bold uppercase tracking-widest data-[state=active]:bg-ink data-[state=active]:text-cream data-[state=active]:shadow-sm" onClick={() => trackEngagement("profile_tab", { tab: "settings" })}>Settings</TabsTrigger>
           </TabsList>
 
 
@@ -236,7 +236,7 @@ function OverviewTab({
   return (
     <div className="space-y-4 pt-2">
       {/* Quick Actions */}
-      <Card className="divide-y divide-border">
+      <Card className="divide-y divide-ink/8">
         <QuickRow
           icon={Sparkles}
           label="Tune your vibes"
@@ -269,7 +269,7 @@ function OverviewTab({
       {/* Recent Plans */}
       {recentTrips && recentTrips.length > 0 && (
         <div>
-          <h3 className="mb-2 text-sm font-semibold">Recent Plans</h3>
+          <h3 className="mb-2.5 font-display text-[14px] font-extrabold tracking-tight text-ink">Recent Plans</h3>
           <div className="space-y-2">
             {recentTrips.map((trip) => (
               <Link
@@ -280,19 +280,21 @@ function OverviewTab({
                   trackEngagement("profile_recent_trip", { id: trip.id })
                 }
               >
-                <Card className="flex items-center gap-3 p-3 hover:bg-muted/40">
-                  <MapPin className="size-4 shrink-0 text-primary" />
+                <Card className="flex items-center gap-3 p-3 transition-all duration-200 hover:shadow-card-hover active:scale-[0.98]">
+                  <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-coral/10">
+                    <MapPin className="size-4 text-coral" />
+                  </div>
                   <div className="min-w-0 flex-1">
-                    <div className="truncate text-sm font-medium">
+                    <div className="truncate font-display text-[13px] font-bold tracking-tight text-ink">
                       {trip.title || "Untitled plan"}
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
                       {trip.city || "—"}{" "}
                       {trip.date &&
                         `· ${new Date(trip.date).toLocaleDateString()}`}
                     </div>
                   </div>
-                  <ChevronRight className="size-4 text-muted-foreground" />
+                  <ChevronRight className="size-4 text-ink/25" />
                 </Card>
               </Link>
             ))}
@@ -342,13 +344,15 @@ function BookingsTab({ userId }: { userId: string }) {
   return (
     <div className="space-y-2 pt-2">
       {bookings.map((b) => (
-        <Card key={b.id} className="flex items-center gap-3 p-3">
-          <Calendar className="size-4 shrink-0 text-primary" />
+        <Card key={b.id} className="flex items-center gap-3.5 p-3.5">
+          <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-coral/10">
+            <Calendar className="size-4 text-coral" />
+          </div>
           <div className="min-w-0 flex-1">
-            <div className="truncate text-sm font-medium">
+            <div className="truncate font-display text-[13px] font-bold tracking-tight text-ink">
               {b.venue_name || "Venue"}
             </div>
-            <div className="text-xs text-muted-foreground">
+            <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
               {b.starts_at ? new Date(b.starts_at).toLocaleDateString() : "—"}
               {b.total_cents != null && ` · $${(b.total_cents / 100).toFixed(2)}`}
             </div>
@@ -414,21 +418,23 @@ function SavedTab({ userId }: { userId: string }) {
     <div className="space-y-4 pt-2">
       {savedPlans && savedPlans.length > 0 && (
         <div>
-          <h3 className="mb-2 text-sm font-semibold">Saved Plans</h3>
+          <h3 className="mb-2.5 font-display text-[14px] font-extrabold tracking-tight text-ink">Saved Plans</h3>
           <div className="space-y-2">
             {savedPlans.map((p) => (
               <Link key={p.id} to="/trips/$id" params={{ id: p.id }}>
-                <Card className="flex items-center gap-3 p-3 hover:bg-muted/40">
-                  <MapPin className="size-4 shrink-0 text-primary" />
+                <Card className="flex items-center gap-3.5 p-3.5 transition-all duration-200 hover:shadow-card-hover active:scale-[0.98]">
+                  <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-coral/10">
+                    <MapPin className="size-4 text-coral" />
+                  </div>
                   <div className="min-w-0 flex-1">
-                    <div className="truncate text-sm font-medium">
+                    <div className="truncate font-display text-[13px] font-bold tracking-tight text-ink">
                       {p.title || "Untitled plan"}
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
                       {p.city || "—"}
                     </div>
                   </div>
-                  <ChevronRight className="size-4 text-muted-foreground" />
+                  <ChevronRight className="size-4 text-ink/25" />
                 </Card>
               </Link>
             ))}
@@ -438,13 +444,15 @@ function SavedTab({ userId }: { userId: string }) {
 
       {savedVenues && savedVenues.length > 0 && (
         <div>
-          <h3 className="mb-2 text-sm font-semibold">Favorite Venues</h3>
+          <h3 className="mb-2.5 font-display text-[14px] font-extrabold tracking-tight text-ink">Favorite Venues</h3>
           <div className="space-y-2">
             {savedVenues.map((v) => (
-              <Card key={v.id} className="flex items-center gap-3 p-3">
-                <Heart className="size-4 shrink-0 text-red-500" />
+              <Card key={v.id} className="flex items-center gap-3.5 p-3.5">
+                <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-coral/10">
+                  <Heart className="size-4 text-coral" />
+                </div>
                 <div className="min-w-0 flex-1">
-                  <div className="truncate text-sm font-medium">
+                  <div className="truncate font-display text-[13px] font-bold tracking-tight text-ink">
                     {v.venue_name || "Venue"}
                   </div>
                 </div>
@@ -493,25 +501,25 @@ function PassportTab({
       <Card className="p-4">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-2xl font-bold">{xp} XP</div>
-            <div className="text-xs text-muted-foreground">
+            <div className="font-display text-2xl font-extrabold tracking-tight text-ink">{xp} XP</div>
+            <div className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-ink/45">
               {levelTitle(level)} · Level {level}
             </div>
           </div>
-          <div className="grid size-14 place-items-center rounded-full bg-primary/10">
-            <Trophy className="size-6 text-primary" />
+          <div className="grid size-12 place-items-center rounded-xl bg-gold/15">
+            <Trophy className="size-5 text-gold" />
           </div>
         </div>
-        <div className="mt-3">
-          <div className="flex justify-between text-[10px] text-muted-foreground">
+        <div className="mt-3.5">
+          <div className="flex justify-between font-mono text-[10px] uppercase tracking-wide text-ink/40">
             <span>
               {progress.current} / {progress.required} XP
             </span>
             <span>Next: {levelTitle(level + 1)}</span>
           </div>
-          <div className="mt-1 h-2 overflow-hidden rounded-full bg-muted">
+          <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-ink/[0.06]">
             <div
-              className="h-full rounded-full bg-primary transition-all"
+              className="h-full rounded-full bg-gold transition-all duration-700"
               style={{ width: `${Math.min(100, progress.progress * 100)}%` }}
             />
           </div>
@@ -520,29 +528,33 @@ function PassportTab({
 
       {/* Achievements */}
       <div>
-        <h3 className="mb-2 text-sm font-semibold">Achievements</h3>
+        <h3 className="mb-2.5 font-display text-[14px] font-extrabold tracking-tight text-ink">Achievements</h3>
         {achievements && achievements.length > 0 ? (
           <div className="space-y-2">
             {achievements.map((a) => (
-              <Card key={a.id} className="flex items-center gap-3 p-3">
-                <Star className="size-4 shrink-0 text-amber-500" />
+              <Card key={a.id} className="flex items-center gap-3.5 p-3.5">
+                <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-gold/15">
+                  <Star className="size-4 text-gold" />
+                </div>
                 <div className="min-w-0 flex-1">
-                  <div className="truncate text-sm font-medium capitalize">
+                  <div className="truncate font-display text-[13px] font-bold capitalize tracking-tight text-ink">
                     {(a.achievements?.title ?? a.achievements?.code ?? "").replace(/_/g, " ")}
                   </div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
                     {a.unlocked_at
                       ? new Date(a.unlocked_at).toLocaleDateString()
                       : ""}
                   </div>
                 </div>
-                <Check className="size-4 text-green-600" />
+                <div className="grid size-6 place-items-center rounded-full bg-teal/15">
+                  <Check className="size-3.5 text-teal" />
+                </div>
               </Card>
             ))}
           </div>
         ) : (
-          <Card className="p-4 text-center text-sm text-muted-foreground">
-            Complete actions to unlock achievements
+          <Card className="p-5 text-center">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ink/35">Complete actions to unlock achievements</span>
           </Card>
         )}
       </div>
@@ -579,20 +591,20 @@ function WalletTab({ userId }: { userId: string }) {
     <div className="space-y-4 pt-2">
       {/* Referral Card */}
       <Card className="p-4">
-        <div className="flex items-center gap-3">
-          <div className="grid size-10 shrink-0 place-items-center rounded-full bg-primary/10">
-            <Gift className="size-5 text-primary" />
+        <div className="flex items-center gap-3.5">
+          <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-coral/10">
+            <Gift className="size-5 text-coral" />
           </div>
           <div className="flex-1">
-            <div className="text-sm font-semibold">Invite friends</div>
-            <div className="text-xs text-muted-foreground">
+            <div className="font-display text-[14px] font-bold tracking-tight text-ink">Invite friends</div>
+            <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
               Earn rewards when friends join
             </div>
           </div>
         </div>
         {refCode && (
-          <div className="mt-3 flex items-center gap-2">
-            <div className="flex-1 truncate rounded-lg bg-muted px-3 py-2 text-xs font-mono">
+          <div className="mt-3.5 flex items-center gap-2">
+            <div className="flex-1 truncate rounded-xl border-2 border-ink/8 bg-surface-2 px-3 py-2.5 font-mono text-[11px] text-ink/70">
               {refCode}
             </div>
             <Button size="sm" variant="outline" onClick={handleCopy}>
@@ -625,29 +637,29 @@ function WalletTab({ userId }: { userId: string }) {
       {/* Stats */}
       {stats && (
         <div className="grid grid-cols-2 gap-3">
-          <Card className="p-3 text-center">
-            <div className="text-xl font-bold">{stats.invited}</div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+          <Card className="p-3.5 text-center">
+            <div className="font-display text-xl font-extrabold tracking-tight text-ink">{stats.invited}</div>
+            <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
               Invited
             </div>
           </Card>
-          <Card className="p-3 text-center">
-            <div className="text-xl font-bold">{stats.signedUp}</div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+          <Card className="p-3.5 text-center">
+            <div className="font-display text-xl font-extrabold tracking-tight text-ink">{stats.signedUp}</div>
+            <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
               Signed Up
             </div>
           </Card>
-          <Card className="p-3 text-center">
-            <div className="text-xl font-bold">{stats.completed}</div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+          <Card className="p-3.5 text-center">
+            <div className="font-display text-xl font-extrabold tracking-tight text-ink">{stats.completed}</div>
+            <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
               Completed
             </div>
           </Card>
-          <Card className="p-3 text-center">
-            <div className="text-xl font-bold">
+          <Card className="p-3.5 text-center">
+            <div className="font-display text-xl font-extrabold tracking-tight text-ink">
               ${(stats.earnedCents / 100).toFixed(0)}
             </div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
               Earned
             </div>
           </Card>
@@ -687,16 +699,17 @@ function SettingsTab({
   return (
     <div className="space-y-4 pt-2">
       {/* Display Name */}
-      <Card className="space-y-3 p-4">
-        <h3 className="text-sm font-semibold">Display Name</h3>
+      <Card className="space-y-3.5 p-4">
+        <h3 className="font-display text-[14px] font-bold tracking-tight text-ink">Display Name</h3>
         <input
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+          className="w-full rounded-xl border-2 border-ink/15 bg-surface-1 px-3.5 py-2.5 text-[13px] text-ink placeholder:text-ink/30 focus:border-ink focus:shadow-brut focus:outline-none"
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <Button
           size="sm"
+          variant="ink"
           className="w-full"
           disabled={saving}
           onClick={handleSave}
@@ -707,42 +720,42 @@ function SettingsTab({
 
       {/* Account Info */}
       <Card className="p-4">
-        <h3 className="mb-2 text-sm font-semibold">Account</h3>
-        <div className="text-xs text-muted-foreground">{user.email}</div>
+        <h3 className="mb-1.5 font-display text-[14px] font-bold tracking-tight text-ink">Account</h3>
+        <div className="font-mono text-[11px] text-ink/45">{user.email}</div>
       </Card>
 
       {/* Connected accounts */}
       <ConnectedAccountsCard />
 
       {/* Legal Links */}
-      <Card className="divide-y divide-border">
+      <Card className="divide-y divide-ink/8">
         <Link
           to="/privacy"
-          className="flex items-center gap-3 px-4 py-3 hover:bg-muted/40"
+          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2"
         >
-          <span className="flex-1 text-sm font-medium">Privacy & Terms</span>
-          <ChevronRight className="size-4 text-muted-foreground" />
+          <span className="flex-1 text-[13px] font-semibold text-ink">Privacy & Terms</span>
+          <ChevronRight className="size-4 text-ink/25" />
         </Link>
         <Link
           to="/accessibility"
-          className="flex items-center gap-3 px-4 py-3 hover:bg-muted/40"
+          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2"
         >
-          <span className="flex-1 text-sm font-medium">Accessibility</span>
-          <ChevronRight className="size-4 text-muted-foreground" />
+          <span className="flex-1 text-[13px] font-semibold text-ink">Accessibility</span>
+          <ChevronRight className="size-4 text-ink/25" />
         </Link>
         <Link
           to="/about"
-          className="flex items-center gap-3 px-4 py-3 hover:bg-muted/40"
+          className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-2"
         >
-          <span className="flex-1 text-sm font-medium">About Confetti</span>
-          <ChevronRight className="size-4 text-muted-foreground" />
+          <span className="flex-1 text-[13px] font-semibold text-ink">About Confetti</span>
+          <ChevronRight className="size-4 text-ink/25" />
         </Link>
       </Card>
 
       {/* Sign Out */}
       <Button
         variant="ghost"
-        className="w-full text-muted-foreground"
+        className="w-full text-ink/40 hover:text-ink/60"
         onClick={async () => {
           trackCta("sign_out");
           await supabase.auth.signOut();

@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { Sparkles, ArrowUpRight } from "lucide-react";
+import { Sparkles, ArrowUpRight, Loader2 } from "lucide-react";
 import { PageHero, BrandCard, BrutButton } from "@/components/PageHero";
 import { cn } from "@/lib/utils";
 import { NotificationBell } from "@/components/NotificationBell";
@@ -11,6 +11,13 @@ import {
   trackEngagement,
   trackConversion,
 } from "@/lib/analytics";
+import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
+import {
+  createSkeletonItinerary,
+  populateItinerary,
+  type BuildPayload,
+} from "@/lib/itineraries";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/plan")({
   component: PlanMyNightPage,
@@ -24,12 +31,57 @@ const TIMES = ["Now", "Tonight", "This weekend", "Pick a date"];
 function PlanMyNightPage() {
   usePageview("app_plan", "/app/plan");
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [occasion, setOccasion] = useState<string | null>(null);
   const [vibe, setVibe] = useState<string | null>(null);
   const [budget, setBudget] = useState<string | null>(null);
   const [groupSize, setGroupSize] = useState(2);
   const [when, setWhen] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+
+  /* ── Book → boarding pass (localStorage-backed) ── */
+  function handleBook(planLabel: string) {
+    const loop = makeDemoLoop({
+      occasion: occasion ?? undefined,
+      planParams: {
+        occasionId: occasion ?? undefined,
+        vibeId: vibe ?? undefined,
+        groupSize,
+        budget: budget ?? undefined,
+      },
+      groupSize,
+      passenger: user?.user_metadata?.display_name ?? user?.email ?? "Guest",
+    });
+    loop.to = `${vibe ?? "Epic"} ${occasion ?? "Night"}`;
+    loop.gate = planLabel;
+    setActiveLoop(loop);
+    trackConversion("plan_booked", { plan: planLabel, occasion, vibe, budget, groupSize, when });
+    toast.success("Boarding pass ready — let's go!");
+    navigate({ to: "/boarding-pass" });
+  }
+
+  /* ── Save → Supabase itinerary ── */
+  async function handleSave(planLabel: string) {
+    setSaving(true);
+    try {
+      const payload: BuildPayload = {
+        occasion: occasion ?? "Night out",
+        vibe: vibe ?? undefined,
+        budget: budget ?? undefined,
+      };
+      const { id } = await createSkeletonItinerary(payload);
+      trackConversion("plan_saved", { plan: planLabel, itineraryId: id });
+      toast.success("Trip saved — building your stops…");
+      navigate({ to: "/trips/$id", params: { id } });
+      populateItinerary(id, payload);
+    } catch (err) {
+      console.error(err);
+      toast.error("Couldn't save the plan — try again.");
+    } finally {
+      setSaving(false);
+    }
+  }
 
   const steps = [
     { title: "What's the occasion?", choices: OCCASIONS, value: occasion, set: setOccasion },
@@ -162,34 +214,48 @@ function PlanMyNightPage() {
               </div>
             </BrandCard>
 
-            {["A", "B", "C"].map((id, i) => (
-              <BrandCard key={id} interactive className="p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
-                      Plan {id}
+            {["A", "B", "C"].map((id, i) => {
+              const planLabel = ["Rooftop opener", "Classy crawl", "Late-night spin"][i];
+              return (
+                <BrandCard key={id} interactive className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
+                        Plan {id}
+                      </div>
+                      <h3 className="mt-1 font-display text-lg font-extrabold">
+                        {planLabel}
+                      </h3>
                     </div>
-                    <h3 className="mt-1 font-display text-lg font-extrabold">
-                      {["Rooftop opener", "Classy crawl", "Late-night spin"][i]}
-                    </h3>
+                    <span className="rounded-full border-2 border-ink bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut">
+                      3 stops
+                    </span>
                   </div>
-                  <span className="rounded-full border-2 border-ink bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut">
-                    3 stops
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-ink/70">
-                  Vibe-matched stops with timing and estimated cost.
-                </p>
-                <div className="mt-4 flex gap-2">
-                  <BrutButton as={Link} to="/app" tone="cream" size="sm" className="flex-1">
-                    Save
-                  </BrutButton>
-                  <BrutButton as={Link} to="/app" tone="coral" size="sm" className="flex-1">
-                    Book
-                  </BrutButton>
-                </div>
-              </BrandCard>
-            ))}
+                  <p className="mt-2 text-sm text-ink/70">
+                    Vibe-matched stops with timing and estimated cost.
+                  </p>
+                  <div className="mt-4 flex gap-2">
+                    <BrutButton
+                      tone="cream"
+                      size="sm"
+                      className="flex-1"
+                      disabled={saving}
+                      onClick={() => handleSave(planLabel)}
+                    >
+                      {saving ? <Loader2 className="size-3.5 animate-spin" /> : "Save"}
+                    </BrutButton>
+                    <BrutButton
+                      tone="coral"
+                      size="sm"
+                      className="flex-1"
+                      onClick={() => handleBook(planLabel)}
+                    >
+                      Book
+                    </BrutButton>
+                  </div>
+                </BrandCard>
+              );
+            })}
 
             <button
               className="w-full py-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"

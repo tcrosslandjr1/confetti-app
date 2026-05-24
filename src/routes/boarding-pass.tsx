@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { getActiveLoop, subscribeActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { BoardingPass } from "@/components/loop/BoardingPass";
-import { MobileHeader } from "@/components/AppShell";
+import { MobileHeader, BottomNav } from "@/components/AppShell";
 import { usePageview } from "@/lib/analytics";
 
 export const Route = createFileRoute("/boarding-pass")({
@@ -38,7 +38,7 @@ function BoardingPassPage() {
   }
 
   return (
-    <div className="pb-6">
+    <div className="relative mx-auto min-h-screen w-full max-w-md bg-cream text-ink pb-24">
       <MobileHeader
         eyebrow="Boarding Pass"
         title={loop.experienceName || loop.to || "Your Night"}
@@ -51,6 +51,7 @@ function BoardingPassPage() {
       <div className="px-4">
         <BoardingPass loop={loop} />
       </div>
+      <BottomNav />
     </div>
   );
 }

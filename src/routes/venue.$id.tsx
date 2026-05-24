@@ -33,6 +33,7 @@ import { VenueMenu, type MenuSection } from "@/components/VenueMenu";
 import { VenueReviews } from "@/components/VenueReviews";
 import { WaitlistButton } from "@/components/WaitlistButton";
 import { PriceLevel } from "@/components/PriceLevel";
+import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
 
 const SITE_ORIGIN = "https://confettiplan.lovable.app";
 
@@ -1235,6 +1236,31 @@ function StepDone({
     const t = setTimeout(() => setShowXp(true), 350);
     return () => clearTimeout(t);
   }, []);
+
+  /* Persist booking to loop-store so /boarding-pass works */
+  useEffect(() => {
+    const loop = makeDemoLoop({
+      to: venue.name,
+      from: venue.neighborhood || venue.city || "Downtown",
+      groupSize: party,
+      date: `${date.mon} ${date.day}`,
+      boardingTime: time,
+      stops: [
+        {
+          name: venue.name,
+          type: (venue as any).category ?? "venue",
+          time,
+          address: venue.neighborhood || venue.city || "",
+        },
+      ],
+      booking: {
+        ref: code,
+        bookedAt: new Date().toISOString(),
+        stops: { [venue.id]: "confirmed" },
+      },
+    });
+    setActiveLoop(loop);
+  }, []); // run once on mount
 
   return (
     <div className="relative space-y-5">

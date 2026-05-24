@@ -123,53 +123,25 @@ function AdsPage() {
     },
   });
 
-  const upgrade = useMutation({
-    mutationFn: async (tier: string) => {
-      const advertiserId = sub.data?.advertiser_id;
-      if (!advertiserId) throw new Error("Claim a venue first");
-      const { error } = await (supabase as any)
-        .from("advertiser_subscriptions")
-        .upsert({
-          advertiser_id: advertiserId,
-          tier,
-          status: "active",
-          current_period_end: new Date(Date.now() + 30 * 24 * 3600 * 1000).toISOString(),
-          stub: true,
-        }, { onConflict: "advertiser_id" });
-      if (error) throw new Error(error.message);
-    },
-    onSuccess: () => {
-      toast.success("Plan updated. Stripe checkout coming soon.");
-      qc.invalidateQueries({ queryKey: ["advertiser-subscription"] });
-    },
-    onError: (e: Error) => toast.error(e.message),
-  });
+  const handleUpgrade = (tier: string) => {
+    const priceId = tierToPriceId[tier];
+    if (!priceId) return;
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "business" },
+      title: `Subscribe — ${tier}`,
+      returnUrl: `${window.location.origin}/business/ads?upgraded=1`,
+    });
+  };
 
-  const buyBoost = useMutation({
-    mutationFn: async (pkg: Package) => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("Sign in first");
-      const advertiserId = sub.data?.advertiser_id ?? null;
-      const starts = new Date();
-      const ends = new Date(starts.getTime() + pkg.duration_hours * 3600 * 1000);
-      const { error } = await (supabase as any).from("boost_purchases").insert({
-        advertiser_id: advertiserId,
-        venue_id: activeId,
-        package_id: pkg.id,
-        amount_cents: pkg.price_cents,
-        status: "pending",
-        starts_at: starts.toISOString(),
-        ends_at: ends.toISOString(),
-        created_by: u.user.id,
-      });
-      if (error) throw new Error(error.message);
-    },
-    onSuccess: () => {
-      toast.success("Boost queued. Stripe checkout coming soon.");
-      qc.invalidateQueries({ queryKey: ["boost-purchases", activeId] });
-    },
-    onError: (e: Error) => toast.error(e.message),
-  });
+  const handleBuyBoost = (pkg: Package) => {
+    const priceId = boostPackageToPriceId[pkg.id];
+    if (!priceId) return;
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "business" },
+      title: pkg.name,
+      returnUrl: `${window.location.origin}/business/ads?boost=${pkg.id}`,
+    });
+  };
 
   if (isLoading) return <Shell>Loading…</Shell>;
   if (!venues.length) return <Shell><NoVenueClaim /></Shell>;

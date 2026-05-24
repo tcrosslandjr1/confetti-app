@@ -19,6 +19,7 @@ import {
   Shirt,
   Flame,
   ExternalLink,
+  Car,
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -128,6 +129,7 @@ const SAMPLE_MENU: MenuSection[] = [
 ];
 
 const DETAILS = [
+  { icon: Car, label: "Parking", value: "Street & garage nearby" },
   { icon: Shirt, label: "Dress code", value: "Smart casual" },
   { icon: Volume2, label: "Noise level", value: "Loud & lively" },
   { icon: Users, label: "Best for", value: "Date night · 2–6" },

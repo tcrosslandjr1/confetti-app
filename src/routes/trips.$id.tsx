@@ -35,6 +35,8 @@ import {
   AlertTriangle,
   X,
   Shirt,
+  ArrowLeftRight,
+  Plus,
 } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -382,10 +384,25 @@ function TripDetail() {
                       </p>
                       <h3 className="mt-1 font-display text-xl font-bold">{s.name}</h3>
                     </div>
-                    <BookingPill
-                      status={s.booking_status as Stop["booking_status"]}
-                      onChange={(st) => s.id && setStatus(s.id, st)}
-                    />
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          toast("Swap-stop feature coming soon!", {
+                            icon: "🔄",
+                            description:
+                              "You'll be able to search or let AI suggest an alternative.",
+                          })
+                        }
+                        className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                      >
+                        <ArrowLeftRight className="h-3 w-3" /> Change
+                      </button>
+                      <BookingPill
+                        status={s.booking_status as Stop["booking_status"]}
+                        onChange={(st) => s.id && setStatus(s.id, st)}
+                      />
+                    </div>
                   </div>
 
                   <GooglePhotos
@@ -500,6 +517,23 @@ function TripDetail() {
             );
           })}
         </ol>
+
+        {/* Add stop */}
+        <div className="mt-6 flex justify-center">
+          <button
+            type="button"
+            onClick={() =>
+              toast("Add-stop feature coming soon!", {
+                icon: "📍",
+                description:
+                  "You'll be able to search venues or let AI suggest the perfect next stop.",
+              })
+            }
+            className="inline-flex items-center gap-2 rounded-full border-2 border-dashed border-border bg-background px-5 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            <Plus className="h-4 w-4" /> Add a stop
+          </button>
+        </div>
       </section>
 
       {/* Notification history */}

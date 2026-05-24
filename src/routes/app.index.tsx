@@ -1,6 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Sparkles, MapPin, Flame, Zap } from "lucide-react";
+import { VenueFlipCard } from "@/components/VenueFlipCard";
+import type { FlipVenue } from "@/components/VenueFlipCard";
 import { supabase } from "@/integrations/supabase/client";
 import { MobileHeader } from "@/components/AppShell";
 import { Card } from "@/components/ui/card";
@@ -109,30 +111,21 @@ function TonightFeedPage() {
       <Reveal delay={200}>
       <section className="mt-8">
         <SectionHeading icon={Flame} title="Trending venues" />
-        <div className="-mx-1 mt-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 scrollbar-none">
+        <div className="mt-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-pl-5 px-5 pb-2 scrollbar-none">
           {(venues ?? []).map((v) => (
-            <Link key={v.id} to="/venue/$id" params={{ id: v.id }} className="snap-start" onClick={() => trackEngagement("venue_tap", { venueId: v.id, venueName: v.name, source: "tonight_trending" })}>
-              <div className="h-48 w-40 shrink-0 overflow-hidden rounded-2xl border-2 border-ink/8 bg-surface-1 shadow-card transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover">
-                {(v.hero_image_url || v.image_url) ? (
-                  <img
-                    src={v.hero_image_url || v.image_url || ""}
-                    alt={v.name}
-                    className="h-30 w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <div className="h-30 w-full bg-ink/[0.04]" />
-                )}
-                <div className="p-3">
-                  <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">{v.name}</div>
-                  <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/45">
-                    {v.category}
-                    {v.neighborhood ? ` · ${v.neighborhood}` : ""}
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <VenueFlipCard
+              key={v.id}
+              venue={{
+                id: v.id,
+                name: v.name,
+                category: v.category,
+                neighborhood: v.neighborhood,
+                photo: v.hero_image_url || v.image_url,
+              }}
+              widthClass="w-44"
+              source="tonight_trending"
+              accent="coral"
+            />
           ))}
           {!venues?.length && <Placeholder text="Trending venues will appear here" />}
         </div>
@@ -142,7 +135,7 @@ function TonightFeedPage() {
       <Reveal delay={280}>
       <section className="mt-8">
         <SectionHeading icon={Zap} title="For you" />
-        <div className="-mx-1 mt-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 scrollbar-none">
+        <div className="mt-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-pl-5 px-5 pb-2 scrollbar-none">
           {aiLoading && (
             <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/20 bg-purple/[0.03]">
               <div className="flex flex-col items-center gap-2">
@@ -152,39 +145,24 @@ function TonightFeedPage() {
             </div>
           )}
           {!aiLoading && (aiPicks ?? []).map((v: FeedVenue) => (
-            <div
+            <VenueFlipCard
               key={v.id}
-              className="snap-start"
-              onClick={() => trackEngagement("ai_pick_tap", { venueId: v.id, venue: v.venue, source: "tonight_for_you" })}
-            >
-              <div className="h-auto w-44 shrink-0 overflow-hidden rounded-2xl border-2 border-purple/15 bg-surface-1 shadow-card transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover">
-                {v.photo ? (
-                  <img
-                    src={v.photo}
-                    alt={v.venue}
-                    className="h-28 w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <div className="h-28 w-full bg-gradient-to-br from-purple/10 to-coral/10" />
-                )}
-                <div className="p-3">
-                  <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">{v.venue}</div>
-                  <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/45">
-                    {v.category}{v.neighborhood ? ` · ${v.neighborhood}` : ""}
-                  </div>
-                  {v.reason && (
-                    <p className="mt-1.5 line-clamp-2 text-[11px] leading-snug text-purple/80">{v.reason}</p>
-                  )}
-                  {v.vibe && (
-                    <span className="mt-1.5 inline-flex items-center gap-1 rounded-full border border-purple/20 bg-purple/8 px-2 py-0.5 text-[9px] font-semibold text-purple">
-                      <Sparkles className="size-2.5" /> {v.vibe}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
+              venue={{
+                id: v.id,
+                name: v.venue,
+                category: v.category,
+                neighborhood: v.neighborhood,
+                photo: v.photo,
+                rating: v.rating,
+                priceLevel: v.priceLevel,
+                vibe: v.vibe,
+                reason: v.reason,
+                address: v.address,
+              }}
+              widthClass="w-44"
+              source="tonight_for_you"
+              accent="purple"
+            />
           ))}
           {!aiLoading && !aiPicks?.length && (
             <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/15 bg-surface-1">
@@ -203,9 +181,11 @@ function TonightFeedPage() {
         <SectionHeading title="Reels you should see" />
         <div className="mt-3.5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none">
           {(reels ?? []).map((r) => (
-            <div
+            <Link
               key={r.id}
+              to="/app/reels"
               className="relative h-56 w-36 shrink-0 overflow-hidden rounded-2xl border-2 border-ink/8 bg-ink/[0.04] shadow-card transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover"
+              onClick={() => trackEngagement("reel_tap", { reelId: r.id, reelTitle: r.title, source: "tonight_reels" })}
             >
               {r.thumbnail_url && (
                 <img
@@ -221,7 +201,7 @@ function TonightFeedPage() {
                   {r.title ?? "Untitled"}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
           {!reels?.length && <Placeholder text="No reels yet" />}
         </div>
@@ -233,22 +213,24 @@ function TonightFeedPage() {
         <SectionHeading title="Starting soon" />
         <div className="mt-3.5 space-y-2.5">
           {(events ?? []).map((e) => (
-            <Card key={e.id} className="flex items-center gap-3.5 p-3.5">
-              <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-coral/10 text-coral">
-                <MapPin className="size-[18px]" strokeWidth={2.25} />
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="line-clamp-1 font-display text-[14px] font-bold tracking-tight text-ink">{e.title}</div>
-                <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
-                  {new Date(e.starts_at).toLocaleString(undefined, {
-                    weekday: "short",
-                    hour: "numeric",
-                    minute: "2-digit",
-                  })}{" "}
-                  · {e.venue_name ?? e.city}
+            <Link key={e.id} to="/events/$eventId" params={{ eventId: e.id }} onClick={() => trackEngagement("event_tap", { eventId: e.id, eventTitle: e.title, source: "tonight_starting_soon" })}>
+              <Card className="flex items-center gap-3.5 p-3.5">
+                <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-coral/10 text-coral">
+                  <MapPin className="size-[18px]" strokeWidth={2.25} />
                 </div>
-              </div>
-            </Card>
+                <div className="min-w-0 flex-1">
+                  <div className="line-clamp-1 font-display text-[14px] font-bold tracking-tight text-ink">{e.title}</div>
+                  <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
+                    {new Date(e.starts_at).toLocaleString(undefined, {
+                      weekday: "short",
+                      hour: "numeric",
+                      minute: "2-digit",
+                    })}{" "}
+                    · {e.venue_name ?? e.city}
+                  </div>
+                </div>
+              </Card>
+            </Link>
           ))}
           {!events?.length && (
             <Card className="p-5 text-center">

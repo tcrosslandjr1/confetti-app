@@ -57,50 +57,30 @@ type PlaceHit = {
   websiteUri?: string;
 };
 
-// Curated KB cities — used to split textQuery into [name, city] components
-// so we don't match e.g. Atlanta's "Bar Margot" when the user asks for Cincinnati.
-const KB_CITIES = [
-  "atlanta", "austin", "boston", "california", "chicago", "cincinnati",
-  "denver", "fort lauderdale", "maryland", "miami", "nashville",
-  "new jersey", "new orleans", "new york", "philadelphia",
-  "san francisco", "seattle", "toronto", "virginia", "washington",
-];
-
-/** Pull a known city out of textQuery if present; return {nameTokens, city}. */
-function splitQuery(textQuery: string): { nameTokens: string[]; city: string | null } {
-  const lower = textQuery.toLowerCase();
-  // Match multi-word cities first.
-  let cityMatch: string | null = null;
-  for (const c of KB_CITIES.slice().sort((a, b) => b.length - a.length)) {
-    if (lower.includes(c)) {
-      cityMatch = c;
-      break;
-    }
-  }
-  const withoutCity = cityMatch ? lower.replace(cityMatch, " ") : lower;
-  const nameTokens = withoutCity
-    .split(/[\s,]+/)
-    .map((t) => t.replace(/[^a-z0-9]/g, ""))
-    .filter((t) => t.length > 2);
-  return { nameTokens, city: cityMatch };
-}
-
 /**
  * Drop-in replacement for the old Google Places search.
- * Searches the curated `venues` table for matches against textQuery.
- * Detects an embedded city name (Atlanta, Cincinnati, etc.) and constrains
- * the match to that city so name lookups don't return wrong-city venues.
- * The `key` and `bias` params are kept for signature compat and ignored.
+ * Searches the curated `venues` table for matches against textQuery,
+ * constrained to a specific city when provided. The `key` and `bias`
+ * params are kept for signature compat and ignored.
+ *
+ * `cityFilter` is the authoritative city name — when set, results are
+ * required to match that city exactly (ilike). This avoids accidentally
+ * picking a same-named venue from a different city.
  */
 async function placesSearch(
   textQuery: string,
   _key: string,
   _bias?: { lat: number; lng: number },
+  cityFilter?: string | null,
 ): Promise<PlaceHit[]> {
   const q = textQuery.trim();
   if (!q) return [];
-  const { nameTokens, city } = splitQuery(q);
-  if (nameTokens.length === 0 && !city) return [];
+  const nameTokens = q
+    .toLowerCase()
+    .split(/[\s,]+/)
+    .map((t) => t.replace(/[^a-z0-9]/g, ""))
+    .filter((t) => t.length > 2);
+  if (nameTokens.length === 0 && !cityFilter) return [];
 
   let query = supabaseAdmin
     .from("venues")
@@ -111,8 +91,8 @@ async function placesSearch(
     .order("rating", { ascending: false, nullsFirst: false })
     .limit(15);
 
-  if (city) {
-    query = query.ilike("city", `%${city}%`);
+  if (cityFilter && cityFilter.trim()) {
+    query = query.ilike("city", cityFilter.trim());
   }
   if (nameTokens.length > 0) {
     const orParts: string[] = [];
@@ -202,7 +182,7 @@ async function verifyStop(
   // 1) Try exact name lookup first
   if (name) {
     const direct = operational(
-      await placesSearch(cityForQuery ? `${name} ${cityForQuery}` : name, key, bias),
+      await placesSearch(name, key, bias, cityForQuery || null),
     );
     const match = direct.find(
       (h) => nameSimilar(h.displayName?.text ?? "", name) && !used.has(h.id),
@@ -229,8 +209,8 @@ async function verifyStop(
   }
 
   // 2) Fallback: search by category in the chosen city
-  const fallbackQ = `${CATEGORY_QUERY[category] ?? "popular spot"} ${cityForQuery}`.trim();
-  const fb = operational(await placesSearch(fallbackQ, key, bias)).filter((h) => !used.has(h.id));
+  const fallbackQ = CATEGORY_QUERY[category] ?? "popular spot";
+  const fb = operational(await placesSearch(fallbackQ, key, bias, cityForQuery || null)).filter((h) => !used.has(h.id));
   // Prefer best-rated with enough reviews
   fb.sort((a, b) => {
     const ar = (a.rating ?? 0) * Math.log10((a.userRatingCount ?? 0) + 10);
@@ -412,13 +392,15 @@ async function verifyItinerary(
     const category = String(s.category ?? "other");
     const cityForQuery = cityLabel || "";
 
-    // Fire both searches concurrently per stop
-    const directQuery = name ? (cityForQuery ? `${name} ${cityForQuery}` : name) : "";
-    const fallbackQ = `${CATEGORY_QUERY[category] ?? "popular spot"} ${cityForQuery}`.trim();
+    // Fire both searches concurrently per stop. City is passed as an
+    // explicit filter (not concatenated into the textQuery) so we never
+    // pick a same-named venue from a different city.
+    const directQuery = name;
+    const fallbackQ = CATEGORY_QUERY[category] ?? "popular spot";
 
     const [directHits, fallbackHits] = await Promise.all([
-      directQuery ? placesSearch(directQuery, key, bias) : Promise.resolve([] as PlaceHit[]),
-      placesSearch(fallbackQ, key, bias),
+      directQuery ? placesSearch(directQuery, key, bias, cityForQuery || null) : Promise.resolve([] as PlaceHit[]),
+      placesSearch(fallbackQ, key, bias, cityForQuery || null),
     ]);
 
     return {

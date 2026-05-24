@@ -34,22 +34,22 @@ function slugify(s: string): string {
     .slice(0, 80);
 }
 
+/** Match the WHOLE city string (case-insensitive) so "San Diego" doesn't
+ * accidentally match "San Francisco" via a shared first word. */
 async function countCityVenues(city: string): Promise<number> {
-  const firstWord = city.split(/[\s,]+/)[0];
   const { count, error } = await supabaseAdmin
     .from("venues")
     .select("id", { count: "exact", head: true })
-    .ilike("city", `%${firstWord}%`);
+    .ilike("city", city);
   if (error) return 0;
   return count ?? 0;
 }
 
 async function fetchKnownSlugs(city: string): Promise<Set<string>> {
-  const firstWord = city.split(/[\s,]+/)[0];
   const { data } = await supabaseAdmin
     .from("venues")
     .select("slug,name")
-    .ilike("city", `%${firstWord}%`);
+    .ilike("city", city);
   return new Set(
     ((data as Array<{ slug: string; name: string }>) ?? []).map((r) => r.slug),
   );

@@ -1,14 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
-import { Sparkles, Send, ArrowLeft, MapPin, Star } from "lucide-react";
+import { Sparkles, Send, ArrowLeft, MapPin, Star, Utensils, Wine, CalendarDays, Car } from "lucide-react";
 import { sendMessageLocal } from "../lib/agents/chat-agent";
 import type { ChatResponse } from "../lib/agents/chat-agent";
 import type { DiscoveredVenue } from "../lib/agents/venue-discovery";
+import { BrandCard } from "@/components/PageHero";
 
 export const Route = createFileRoute("/chat")({
   head: () => ({ meta: [{ title: "Confetti AI Chat — Confetti" }] }),
   component: ChatPage,
 });
+
 
 type Msg = {
   id: number;

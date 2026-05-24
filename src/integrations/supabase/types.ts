@@ -944,6 +944,112 @@ export type Database = {
           },
         ]
       }
+      boost_packages: {
+        Row: {
+          active: boolean
+          created_at: string
+          currency: string
+          description: string | null
+          duration_hours: number
+          id: string
+          name: string
+          price_cents: number
+          tier: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          currency?: string
+          description?: string | null
+          duration_hours: number
+          id: string
+          name: string
+          price_cents: number
+          tier: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          currency?: string
+          description?: string | null
+          duration_hours?: number
+          id?: string
+          name?: string
+          price_cents?: number
+          tier?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      boost_purchases: {
+        Row: {
+          advertiser_id: string | null
+          amount_cents: number
+          created_at: string
+          created_by: string
+          currency: string
+          ends_at: string | null
+          id: string
+          package_id: string
+          starts_at: string | null
+          status: string
+          updated_at: string
+          venue_id: string
+        }
+        Insert: {
+          advertiser_id?: string | null
+          amount_cents: number
+          created_at?: string
+          created_by: string
+          currency?: string
+          ends_at?: string | null
+          id?: string
+          package_id: string
+          starts_at?: string | null
+          status?: string
+          updated_at?: string
+          venue_id: string
+        }
+        Update: {
+          advertiser_id?: string | null
+          amount_cents?: number
+          created_at?: string
+          created_by?: string
+          currency?: string
+          ends_at?: string | null
+          id?: string
+          package_id?: string
+          starts_at?: string | null
+          status?: string
+          updated_at?: string
+          venue_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "boost_purchases_advertiser_id_fkey"
+            columns: ["advertiser_id"]
+            isOneToOne: false
+            referencedRelation: "advertisers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "boost_purchases_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "boost_packages"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "boost_purchases_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "venues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       bug_reports: {
         Row: {
           assigned_to: string | null
@@ -5878,7 +5984,10 @@ export type Database = {
           tiktok_url: string | null
           trending_refreshed_at: string | null
           trending_score: number
+          verification_method: string | null
+          verification_tier: string
           verified: boolean
+          verified_at: string | null
           website: string | null
         }
         Insert: {
@@ -5944,7 +6053,10 @@ export type Database = {
           tiktok_url?: string | null
           trending_refreshed_at?: string | null
           trending_score?: number
+          verification_method?: string | null
+          verification_tier?: string
           verified?: boolean
+          verified_at?: string | null
           website?: string | null
         }
         Update: {
@@ -6010,7 +6122,10 @@ export type Database = {
           tiktok_url?: string | null
           trending_refreshed_at?: string | null
           trending_score?: number
+          verification_method?: string | null
+          verification_tier?: string
           verified?: boolean
+          verified_at?: string | null
           website?: string | null
         }
         Relationships: [
@@ -6029,6 +6144,42 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      verification_codes: {
+        Row: {
+          channel: string
+          code: string
+          consumed_at: string | null
+          created_at: string
+          destination: string
+          expires_at: string
+          id: string
+          user_id: string
+          venue_id: string
+        }
+        Insert: {
+          channel: string
+          code: string
+          consumed_at?: string | null
+          created_at?: string
+          destination: string
+          expires_at?: string
+          id?: string
+          user_id: string
+          venue_id: string
+        }
+        Update: {
+          channel?: string
+          code?: string
+          consumed_at?: string | null
+          created_at?: string
+          destination?: string
+          expires_at?: string
+          id?: string
+          user_id?: string
+          venue_id?: string
+        }
+        Relationships: []
       }
       viral_discovery_runs: {
         Row: {

@@ -33,6 +33,7 @@ import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
+import { Route as BusinessVerifyRouteImport } from './routes/business.verify'
 import { Route as BusinessSocialRouteImport } from './routes/business.social'
 import { Route as BusinessSettingsRouteImport } from './routes/business.settings'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
@@ -42,6 +43,7 @@ import { Route as BusinessEventsRouteImport } from './routes/business.events'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
 import { Route as BusinessAnalyticsRouteImport } from './routes/business.analytics'
+import { Route as BusinessAdsRouteImport } from './routes/business.ads'
 import { Route as AppReelsRouteImport } from './routes/app.reels'
 import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppPlanRouteImport } from './routes/app.plan'
@@ -194,6 +196,11 @@ const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   path: '/checkout/return',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessVerifyRoute = BusinessVerifyRouteImport.update({
+  id: '/business/verify',
+  path: '/business/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessSocialRoute = BusinessSocialRouteImport.update({
   id: '/business/social',
   path: '/business/social',
@@ -237,6 +244,11 @@ const BusinessClaimRoute = BusinessClaimRouteImport.update({
 const BusinessAnalyticsRoute = BusinessAnalyticsRouteImport.update({
   id: '/business/analytics',
   path: '/business/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessAdsRoute = BusinessAdsRouteImport.update({
+  id: '/business/ads',
+  path: '/business/ads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppReelsRoute = AppReelsRouteImport.update({
@@ -436,6 +448,7 @@ export interface FileRoutesByFullPath {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -445,6 +458,7 @@ export interface FileRoutesByFullPath {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
@@ -501,6 +515,7 @@ export interface FileRoutesByTo {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -510,6 +525,7 @@ export interface FileRoutesByTo {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
@@ -568,6 +584,7 @@ export interface FileRoutesById {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -577,6 +594,7 @@ export interface FileRoutesById {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
@@ -636,6 +654,7 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -645,6 +664,7 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
     | '/events/$eventId'
     | '/p/$code'
@@ -701,6 +721,7 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -710,6 +731,7 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
     | '/events/$eventId'
     | '/p/$code'
@@ -767,6 +789,7 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -776,6 +799,7 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
     | '/events/$eventId'
     | '/p/$code'
@@ -830,6 +854,7 @@ export interface RootRouteChildren {
   AdminTrendRadarRoute: typeof AdminTrendRadarRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiPlanRoute: typeof ApiPlanRoute
+  BusinessAdsRoute: typeof BusinessAdsRoute
   BusinessAnalyticsRoute: typeof BusinessAnalyticsRoute
   BusinessClaimRoute: typeof BusinessClaimRoute
   BusinessDashboardRoute: typeof BusinessDashboardRoute
@@ -839,6 +864,7 @@ export interface RootRouteChildren {
   BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSettingsRoute: typeof BusinessSettingsRoute
   BusinessSocialRoute: typeof BusinessSocialRoute
+  BusinessVerifyRoute: typeof BusinessVerifyRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   PCodeRoute: typeof PCodeRoute
@@ -1039,6 +1065,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutReturnRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/verify': {
+      id: '/business/verify'
+      path: '/business/verify'
+      fullPath: '/business/verify'
+      preLoaderRoute: typeof BusinessVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/social': {
       id: '/business/social'
       path: '/business/social'
@@ -1100,6 +1133,13 @@ declare module '@tanstack/react-router' {
       path: '/business/analytics'
       fullPath: '/business/analytics'
       preLoaderRoute: typeof BusinessAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/ads': {
+      id: '/business/ads'
+      path: '/business/ads'
+      fullPath: '/business/ads'
+      preLoaderRoute: typeof BusinessAdsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app/reels': {
@@ -1373,6 +1413,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminTrendRadarRoute: AdminTrendRadarRoute,
   ApiChatRoute: ApiChatRoute,
   ApiPlanRoute: ApiPlanRoute,
+  BusinessAdsRoute: BusinessAdsRoute,
   BusinessAnalyticsRoute: BusinessAnalyticsRoute,
   BusinessClaimRoute: BusinessClaimRoute,
   BusinessDashboardRoute: BusinessDashboardRoute,
@@ -1382,6 +1423,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSettingsRoute: BusinessSettingsRoute,
   BusinessSocialRoute: BusinessSocialRoute,
+  BusinessVerifyRoute: BusinessVerifyRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   PCodeRoute: PCodeRoute,

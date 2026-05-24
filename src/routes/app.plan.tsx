@@ -72,7 +72,7 @@ function PlanMyNightPage() {
         occasionId: occasion ?? undefined,
         vibeId: vibe ?? undefined,
         groupSize,
-        budget: budget ?? undefined,
+        budget: budget ? (Number(budget) as 1 | 2 | 3 | 4) : undefined,
       },
       groupSize,
       passenger: user?.user_metadata?.display_name ?? user?.email ?? "Guest",

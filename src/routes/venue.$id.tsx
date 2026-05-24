@@ -76,27 +76,9 @@ export const Route = createFileRoute("/venue/$id")({
   component: VenueBookingPage,
 });
 
-type Venue = {
-  id: string;
-  name: string;
-  category: string | null;
-  neighborhood: string | null;
-  address: string | null;
-  image_url: string | null;
-  description: string | null;
-  rating: number | null;
-  price_level: number | null;
-  tags: string[];
-  source: "venues" | "viral_venues";
-  city: string | null;
-  website: string | null;
-  address_full?: string | null;
-  gallery_urls?: GalleryItem[];
-  tiktok_url?: string | null;
-  tiktok_handle?: string | null;
-  instagram_url?: string | null;
-  instagram_handle?: string | null;
-};
+import { validateVenueRow, type ValidatedVenue } from "@/lib/venue-schema";
+
+type Venue = ValidatedVenue;
 
 const FALLBACK_PHOTO =
   "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&auto=format&fit=crop";

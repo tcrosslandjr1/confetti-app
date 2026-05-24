@@ -26,6 +26,7 @@ import {
   fetchHangoutWeather,
   type HangoutForecast,
 } from "@/lib/hangout-helpers";
+import { createSharedHangout, getClaimerName, setClaimerName } from "@/lib/hangout-collab";
 
 interface HangoutPassProps {
   hangout: ActiveHangout;
@@ -36,6 +37,8 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
   const { plan } = hangout;
   const pickupLinks = combinedPickupLinks(plan);
   const [weather, setWeather] = useState<HangoutForecast | null>(null);
+  const [sharing, setSharing] = useState(false);
+  const [crewLink, setCrewLink] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -52,6 +55,33 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
     clearActiveHangout();
     toast.success("Plan cancelled");
     navigate({ to: "/app" });
+  }
+
+  async function handleShareWithCrew() {
+    if (sharing) return;
+    setSharing(true);
+    try {
+      const hostName = getClaimerName("");
+      const name = hostName || prompt("What's your name?")?.trim() || "Host";
+      if (!hostName) setClaimerName(name);
+      const { token } = await createSharedHangout(hangout, name);
+      const link = `${window.location.origin}/hangout/${token}`;
+      setCrewLink(link);
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: plan.title, text: `${plan.title} — help me prep:`, url: link });
+        } else {
+          await navigator.clipboard.writeText(link);
+          toast.success("Crew link copied — paste it in the group chat");
+        }
+      } catch {
+        /* user cancelled share */
+      }
+    } catch (e) {
+      toast.error("Couldn't create crew link", { description: (e as Error).message });
+    } finally {
+      setSharing(false);
+    }
   }
 
   async function handleShare() {
@@ -74,6 +104,14 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
       <div className="mb-4 flex flex-wrap items-center justify-end gap-2">
         <button
           type="button"
+          onClick={handleShareWithCrew}
+          disabled={sharing}
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut hover:-translate-y-0.5 transition-pop disabled:opacity-50"
+        >
+          <Users className="h-3.5 w-3.5" /> {sharing ? "Linking…" : "Share with crew"}
+        </button>
+        <button
+          type="button"
           onClick={() => downloadHangoutIcs(hangout)}
           className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut hover:-translate-y-0.5 transition-pop"
         >
@@ -94,6 +132,28 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
           <XCircle className="h-3.5 w-3.5" /> Cancel
         </button>
       </div>
+
+      {/* Crew link confirmation strip */}
+      {crewLink && (
+        <div className="mb-3 rounded-2xl border-2 border-coral bg-coral/10 px-4 py-3">
+          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">
+            Crew link · share it
+          </div>
+          <div className="mt-1 flex items-center gap-2">
+            <code className="flex-1 truncate rounded-lg bg-cream/80 px-2 py-1 font-mono text-[11px]">{crewLink}</code>
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard.writeText(crewLink);
+                toast.success("Copied");
+              }}
+              className="shrink-0 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Live weather banner — pulls from Open-Meteo (free) for the
           hangout's city + time. Nudges users toward the weather_backup

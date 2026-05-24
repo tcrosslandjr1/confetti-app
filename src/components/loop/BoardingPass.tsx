@@ -18,16 +18,40 @@ import {
   Check,
   Mail,
   CalendarPlus,
+  MoreVertical,
+  ArrowLeftRight,
+  Trash2,
 } from "lucide-react";
 import {
   checkInStop,
+  removeStop,
+  replaceStop,
   setActiveLoop,
   type ActiveLoop,
   type LoopStop,
   type StopKind,
 } from "@/lib/loop-store";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { VenuePickerModal, venueToStopPayload } from "@/components/loop/VenuePickerModal";
 import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
+import { fetchVenueIntel, type VenueIntel, type FetchStatus } from "@/lib/agents/venue-intel";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { ParkingPin } from "@/components/loop/ParkingPin";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
@@ -649,6 +673,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                     kind={kind}
                     index={i}
                     isLast={i === loop.stops.length - 1}
+                    city={loop.toName ?? loop.to ?? null}
                   />
                   {stop.driveAfter && (
                     <DriveTimeChip
@@ -1064,19 +1089,86 @@ function StopCard({
   kind,
   index,
   isLast,
+  city,
 }: {
   loopId: string;
   stop: LoopStop;
   kind: StopKind;
   index: number;
   isLast: boolean;
+  city?: string | null;
 }) {
   const [visible, setVisible] = useState(false);
   const [showQr, setShowQr] = useState(false);
+  const [intelStatus, setIntelStatus] = useState<FetchStatus>("idle");
+  const [intel, setIntel] = useState<VenueIntel | null>(null);
+  const [flipped, setFlipped] = useState(false);
+  const [swapOpen, setSwapOpen] = useState(false);
+  const [confirmRemoveOpen, setConfirmRemoveOpen] = useState(false);
+
+  function handlePickSwap(v: { id: string; name: string; cuisine: string; neighborhood: string; address: string; lat: number; lng: number; price: string; priceLevel: number }) {
+    const payload = venueToStopPayload(v as Parameters<typeof venueToStopPayload>[0], {
+      time: stop.time,
+      kind: kind,
+    });
+    const updated = replaceStop(stop.id, payload);
+    if (!updated) {
+      toast.error("Couldn't swap this stop");
+      return;
+    }
+    logActivity({
+      tripId: loopId,
+      actor: "You",
+      kind: "stop_swapped",
+      message: `Swapped stop to ${v.name}`,
+      detail: v.neighborhood ? `${v.cuisine} · ${v.neighborhood}` : v.cuisine,
+    });
+    toast.success(`Swapped to ${v.name}`);
+    setSwapOpen(false);
+    // Reset intel for the new venue
+    setIntel(null);
+    setIntelStatus("idle");
+    setFlipped(false);
+  }
+
+  function handleRemove() {
+    const updated = removeStop(stop.id);
+    setConfirmRemoveOpen(false);
+    if (!updated) {
+      toast.error("Couldn't remove this stop");
+      return;
+    }
+    logActivity({
+      tripId: loopId,
+      actor: "You",
+      kind: "stop_removed",
+      message: `Removed stop: ${stop.name}`,
+    });
+    toast.success(`Removed ${stop.name}`);
+  }
+
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 120 + index * 90);
     return () => clearTimeout(t);
   }, [index]);
+
+  async function handleFlipToDetails() {
+    if (flipped) {
+      setFlipped(false);
+      return;
+    }
+    setFlipped(true);
+    if (intelStatus === "loading") return;
+    if (intel && intel.source !== "none") return;
+    setIntelStatus("loading");
+    try {
+      const result = await fetchVenueIntel(stop.id);
+      setIntel(result);
+      setIntelStatus(result.source === "none" ? "not-found" : "success");
+    } catch {
+      setIntelStatus("error");
+    }
+  }
 
   const checkInUrl =
     typeof window !== "undefined"
@@ -1139,10 +1231,45 @@ function StopCard({
         {!isLast && <span className={`mt-1 flex-1 w-px border-l-2 border-dashed ${tone.line}`} />}
       </div>
 
-      {/* Content */}
-      <div className="flex-1 pb-5 min-w-0">
-        <div className={`font-mono text-[10px] font-bold uppercase tracking-widest ${tone.label}`}>
-          {typeLabel} — {stop.time}
+      {/* Content - 3D flip card */}
+      <div className="flex-1 pb-5 min-w-0 [perspective:1200px]">
+        <div
+          className={`relative transition-transform duration-500 [transform-style:preserve-3d] ${
+            flipped ? "[transform:rotateY(180deg)]" : ""
+          }`}
+        >
+        {/* ─── FRONT face ─── */}
+        <div className="[backface-visibility:hidden]">
+        <div className="flex items-start justify-between gap-2">
+          <div className={`font-mono text-[10px] font-bold uppercase tracking-widest ${tone.label}`}>
+            {typeLabel} — {stop.time}
+          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                aria-label="Stop actions"
+                className="-mr-1 -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-ink/50 hover:bg-ink/8 hover:text-ink transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <MoreVertical className="h-4 w-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-44">
+              <DropdownMenuItem onClick={() => setSwapOpen(true)}>
+                <ArrowLeftRight className="mr-2 h-4 w-4" />
+                Swap this stop
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem
+                onClick={() => setConfirmRemoveOpen(true)}
+                className="text-red-600 focus:text-red-600 focus:bg-red-50"
+              >
+                <Trash2 className="mr-2 h-4 w-4" />
+                Remove this stop
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         {stop.venueId ? (
           <Link
@@ -1234,6 +1361,18 @@ function StopCard({
           </div>
         )}
 
+        {/* Flip-to-details button */}
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
+          <button
+            type="button"
+            onClick={handleFlipToDetails}
+            aria-pressed={flipped}
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition-colors"
+          >
+            <span aria-hidden>↻</span> View details
+          </button>
+        </div>
+
         {/* Check-in: tap or QR-scan-from-staff */}
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <button
@@ -1271,7 +1410,114 @@ function StopCard({
             </span>
           </div>
         )}
+        </div>
+        {/* ─── BACK face: venue intel ─── */}
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-y-auto rounded-xl border-2 border-ink/30 bg-cream/95 p-3 shadow-brut">
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0">
+              <div className={`font-mono text-[9px] font-bold uppercase tracking-widest ${tone.label}`}>
+                {typeLabel} — details
+              </div>
+              <div className="mt-0.5 font-display text-sm font-extrabold tracking-tight leading-snug">
+                {stop.name}
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setFlipped(false)}
+              className="shrink-0 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-widest hover:bg-gold transition-colors"
+            >
+              ← Back
+            </button>
+          </div>
+
+          <div className="mt-2 text-[11px] space-y-1.5">
+            {intelStatus === "loading" && (
+              <div className="flex items-center gap-2 text-ink/60">
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                <span>Fetching venue intel…</span>
+              </div>
+            )}
+            {intelStatus === "not-found" && (
+              <div className="text-ink/60 italic">No deeper intel on file for this spot yet.</div>
+            )}
+            {intelStatus === "error" && (
+              <div className="text-red-600 font-medium">Something went wrong. Try again later.</div>
+            )}
+            {intelStatus === "success" && intel && (
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                {intel.priceLevel && (
+                  <div><span className="font-bold text-ink/60">Price:</span> {intel.priceLevel}</div>
+                )}
+                {intel.dressCode && (
+                  <div><span className="font-bold text-ink/60">Dress:</span> {intel.dressCode}</div>
+                )}
+                {intel.signature && (
+                  <div className="col-span-2"><span className="font-bold text-ink/60">Signature:</span> {intel.signature}</div>
+                )}
+                {intel.crowd && (
+                  <div className="col-span-2"><span className="font-bold text-ink/60">Crowd:</span> {intel.crowd}</div>
+                )}
+                {intel.bestFor && (
+                  <div><span className="font-bold text-ink/60">Best for:</span> {intel.bestFor}</div>
+                )}
+                {intel.waitTime && (
+                  <div><span className="font-bold text-ink/60">Wait:</span> {intel.waitTime}</div>
+                )}
+                {intel.parking && !stop.parking && (
+                  <div className="col-span-2"><span className="font-bold text-ink/60">🅿 Parking:</span> {intel.parking}</div>
+                )}
+                {intel.phone && (
+                  <div className="col-span-2"><span className="font-bold text-ink/60">Phone:</span> <a href={`tel:${intel.phone}`} className="underline">{intel.phone}</a></div>
+                )}
+                {intel.address && !address && (
+                  <div className="col-span-2"><span className="font-bold text-ink/60">Address:</span> {intel.address}</div>
+                )}
+                {intel.rating && (
+                  <div><span className="font-bold text-ink/60">Rating:</span> {intel.rating}/5</div>
+                )}
+                <div className="col-span-2 mt-1 text-[9px] text-ink/40 uppercase tracking-widest">
+                  Source: {intel.source === "local-kb" ? "Curated knowledge base" : "AI lookup"}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        </div>
       </div>
+
+      {/* Swap modal */}
+      <VenuePickerModal
+        open={swapOpen}
+        onClose={() => setSwapOpen(false)}
+        city={city ?? null}
+        preferredCuisine={stop.category ?? stop.type ?? null}
+        excludeIds={stop.venueId ? [stop.venueId] : []}
+        title="Swap this stop"
+        description={`Replacing "${stop.name}" — pick a new venue.`}
+        onPick={handlePickSwap}
+      />
+
+      {/* Remove confirmation */}
+      <AlertDialog open={confirmRemoveOpen} onOpenChange={setConfirmRemoveOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Remove this stop?</AlertDialogTitle>
+            <AlertDialogDescription>
+              {stop.name} will be removed from your boarding pass. You can re-add a stop later.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleRemove}
+              className="bg-red-600 text-cream hover:bg-red-700"
+            >
+              Remove
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

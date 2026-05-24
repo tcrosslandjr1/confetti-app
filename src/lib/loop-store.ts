@@ -255,6 +255,64 @@ export function setStopDone(stopId: string, done = true): ActiveLoop | null {
   return updated;
 }
 
+/** Remove a stop by id. Returns the updated loop, or null if no active loop / stop not found. */
+export function removeStop(stopId: string): ActiveLoop | null {
+  const loop = getActiveLoop();
+  if (!loop) return null;
+  const next = loop.stops.filter((s) => s.id !== stopId);
+  if (next.length === loop.stops.length) return null;
+  const updated: ActiveLoop = { ...loop, stops: next };
+  setActiveLoop(updated);
+  return updated;
+}
+
+/** Replace a stop in place. Preserves position and original `id`, `time`, and `kind`. */
+export function replaceStop(
+  stopId: string,
+  patch: Partial<LoopStop>,
+): ActiveLoop | null {
+  const loop = getActiveLoop();
+  if (!loop) return null;
+  const idx = loop.stops.findIndex((s) => s.id === stopId);
+  if (idx < 0) return null;
+  const original = loop.stops[idx];
+  const merged: LoopStop = {
+    ...patch,
+    id: original.id,
+    time: patch.time ?? original.time,
+    kind: patch.kind ?? original.kind,
+    name: patch.name ?? original.name,
+    type: patch.type ?? original.type,
+    // Reset enrichment that's specific to the previous venue.
+    awarded: false,
+    done: false,
+    checkedInAt: undefined,
+  };
+  const stops = [...loop.stops];
+  stops[idx] = merged;
+  const updated: ActiveLoop = { ...loop, stops };
+  setActiveLoop(updated);
+  return updated;
+}
+
+/** Append a stop to the end of the loop (or insert at a given index). */
+export function addStop(
+  stop: LoopStop,
+  position?: number,
+): ActiveLoop | null {
+  const loop = getActiveLoop();
+  if (!loop) return null;
+  const stops = [...loop.stops];
+  if (typeof position === "number" && position >= 0 && position <= stops.length) {
+    stops.splice(position, 0, stop);
+  } else {
+    stops.push(stop);
+  }
+  const updated: ActiveLoop = { ...loop, stops };
+  setActiveLoop(updated);
+  return updated;
+}
+
 export type CheckInResult = {
   loop: ActiveLoop;
   stop: LoopStop;

@@ -329,6 +329,89 @@ export async function updateStop(stopId: string, patch: Partial<Stop>): Promise<
   emitItineraryChanged();
 }
 
+/**
+ * Append a new stop to the end of an itinerary. Computes the next `position`
+ * by reading the current max from `itinerary_stops`.
+ */
+export async function insertStop(
+  itineraryId: string,
+  payload: Omit<Stop, "id" | "position">,
+): Promise<{ id: string }> {
+  // Find the highest existing position so we can append.
+  const { data: maxRow, error: maxErr } = await supabase
+    .from("itinerary_stops")
+    .select("position")
+    .eq("itinerary_id", itineraryId)
+    .order("position", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (maxErr) throw new Error(maxErr.message);
+  const nextPosition = (maxRow?.position ?? -1) + 1;
+
+  const { data, error } = await supabase
+    .from("itinerary_stops")
+    .insert({
+      itinerary_id: itineraryId,
+      position: nextPosition,
+      name: payload.name,
+      category: payload.category,
+      description: payload.description ?? null,
+      address: payload.address ?? null,
+      start_time: payload.start_time ?? null,
+      duration_minutes: payload.duration_minutes ?? null,
+      est_cost: payload.est_cost ?? null,
+      what_to_do: payload.what_to_do ?? null,
+      booking_url: payload.booking_url ?? null,
+      booking_provider: payload.booking_provider ?? null,
+      review_snippets: payload.review_snippets ?? [],
+      parking: payload.parking ?? null,
+      tips: payload.tips ?? [],
+      dress_code: payload.dress_code ?? null,
+    })
+    .select("id")
+    .single();
+  if (error || !data) throw new Error(error?.message ?? "Failed to add stop");
+  emitItineraryChanged();
+  return { id: data.id };
+}
+
+/**
+ * Remove a stop and renumber the remaining positions to keep them contiguous.
+ */
+export async function deleteStop(stopId: string): Promise<void> {
+  // Look up the itinerary so we can renumber afterwards.
+  const { data: row, error: lookupErr } = await supabase
+    .from("itinerary_stops")
+    .select("itinerary_id, position")
+    .eq("id", stopId)
+    .maybeSingle();
+  if (lookupErr) throw new Error(lookupErr.message);
+  if (!row) return;
+
+  const { error: delErr } = await supabase
+    .from("itinerary_stops")
+    .delete()
+    .eq("id", stopId);
+  if (delErr) throw new Error(delErr.message);
+
+  // Renumber subsequent stops (best-effort; if it fails, the gap is harmless).
+  const { data: laterStops } = await supabase
+    .from("itinerary_stops")
+    .select("id, position")
+    .eq("itinerary_id", row.itinerary_id)
+    .gt("position", row.position)
+    .order("position", { ascending: true });
+  if (laterStops) {
+    for (const s of laterStops) {
+      await supabase
+        .from("itinerary_stops")
+        .update({ position: s.position - 1 })
+        .eq("id", s.id);
+    }
+  }
+  emitItineraryChanged();
+}
+
 export async function deleteItinerary(id: string): Promise<void> {
   const { error } = await supabase.from("itineraries").delete().eq("id", id);
   if (error) throw new Error(error.message);

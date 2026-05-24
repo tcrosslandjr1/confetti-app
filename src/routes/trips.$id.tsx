@@ -52,11 +52,13 @@ import {
   completeItinerary,
   deleteItinerary,
   getItinerary,
+  insertStop,
   updateStop,
   type Itinerary,
   type Stop,
   type TravelLeg,
 } from "@/lib/itineraries";
+import { VenuePickerModal } from "@/components/loop/VenuePickerModal";
 import { LateRescheduleFab } from "@/components/LateRescheduleFab";
 import { LiveElapsed } from "@/components/LiveElapsed";
 import { BoardingPass } from "@/components/BoardingPass";
@@ -116,6 +118,16 @@ const CAT_ICONS: Record<string, typeof Utensils> = {
   other: Sparkles,
 };
 
+/** Map a venue cuisine string to one of the Stop.category buckets. */
+function inferCategory(cuisine: string): Stop["category"] {
+  const c = (cuisine || "").toLowerCase();
+  if (/(bar|cocktail|wine|brewery|pub|lounge|speakeasy|nightclub)/.test(c)) return "drinks";
+  if (/(view|rooftop|park|garden|museum|gallery|landmark|scenic)/.test(c)) return "scenic";
+  if (/(arcade|bowling|theater|cinema|concert|venue|club|karaoke)/.test(c)) return "activity";
+  if (!c) return "other";
+  return "meal";
+}
+
 function TripDetail() {
   const { id } = Route.useParams();
   const { user, loading: authLoading } = useAuth();
@@ -127,6 +139,8 @@ function TripDetail() {
   const [tripStatus, setTripStatus] = useState<TripStatus | null>(null);
   const [notifications, setNotifications] = useState<SentNotification[]>([]);
   const [vibePrefs, setVibePrefs] = useState<VibePrefs>(() => loadVibePrefs());
+  const [addStopOpen, setAddStopOpen] = useState(false);
+  const [addingStop, setAddingStop] = useState(false);
 
   function updateVibePrefs(next: VibePrefs) {
     setVibePrefs(next);
@@ -214,6 +228,39 @@ function TripDetail() {
       await updateStop(stopId, patch);
     } catch (e) {
       setErr((e as Error).message);
+    }
+  }
+
+  async function handleAddStop(v: {
+    id: string;
+    name: string;
+    cuisine: string;
+    neighborhood: string;
+    address: string;
+    price: string;
+  }) {
+    if (!data || addingStop) return;
+    setAddingStop(true);
+    const category = inferCategory(v.cuisine);
+    const description = v.neighborhood
+      ? `${v.cuisine} · ${v.neighborhood}`
+      : v.cuisine;
+    try {
+      await insertStop(data.itinerary.id, {
+        name: v.name,
+        category,
+        description,
+        address: v.address,
+        est_cost: v.price,
+        booking_status: "unbooked",
+      });
+      await fetchTrip();
+      toast.success(`Added ${v.name}`, { icon: "📍" });
+      setAddStopOpen(false);
+    } catch (e) {
+      toast.error("Couldn't add stop", { description: (e as Error).message });
+    } finally {
+      setAddingStop(false);
     }
   }
 
@@ -522,16 +569,11 @@ function TripDetail() {
         <div className="mt-6 flex justify-center">
           <button
             type="button"
-            onClick={() =>
-              toast("Add-stop feature coming soon!", {
-                icon: "📍",
-                description:
-                  "You'll be able to search venues or let AI suggest the perfect next stop.",
-              })
-            }
-            className="inline-flex items-center gap-2 rounded-full border-2 border-dashed border-border bg-background px-5 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+            onClick={() => setAddStopOpen(true)}
+            disabled={addingStop}
+            className="inline-flex items-center gap-2 rounded-full border-2 border-dashed border-border bg-background px-5 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
           >
-            <Plus className="h-4 w-4" /> Add a stop
+            <Plus className="h-4 w-4" /> {addingStop ? "Adding…" : "Add a stop"}
           </button>
         </div>
       </section>
@@ -630,6 +672,15 @@ function TripDetail() {
           name: s.name,
           durationMin: s.duration_minutes ?? undefined,
         }))}
+      />
+
+      <VenuePickerModal
+        open={addStopOpen}
+        onClose={() => setAddStopOpen(false)}
+        city={it.city ?? null}
+        title="Add a stop"
+        description={it.city ? `Find a new spot in ${it.city}.` : "Pick a new spot to add."}
+        onPick={handleAddStop}
       />
     </div>
   );

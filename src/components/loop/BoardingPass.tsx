@@ -22,9 +22,12 @@ import {
   ArrowLeftRight,
   Trash2,
   GripVertical,
+  XCircle,
+  Sparkles,
 } from "lucide-react";
 import {
   checkInStop,
+  clearActiveLoop,
   removeStop,
   reorderStops,
   replaceStop,
@@ -145,11 +148,28 @@ const tagToneClass: Record<NonNullable<LoopStop["tags"]>[number]["variant"], str
 
 // ──────────────────────────────────────────────────────────────────────
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
+  const navigate = useNavigate();
   const [googleLoading, setGoogleLoading] = useState(false);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
   const [qrPending, setQrPending] = useState(false);
   const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [cancelConfirmOpen, setCancelConfirmOpen] = useState(false);
+
+  function handleCancelPlan() {
+    setCancelConfirmOpen(false);
+    clearActiveLoop();
+    logActivity({
+      tripId: loop.id,
+      actor: "You",
+      kind: "left",
+      message: `Cancelled plan: ${loop.passenger ?? "Untitled"} (${loop.from} → ${loop.to})`,
+    });
+    toast.success("Plan cancelled", {
+      description: "We've cleared your boarding pass. Plan a new night anytime.",
+    });
+    navigate({ to: "/app" });
+  }
 
   // Drag-to-reorder sensors. Use a small activation distance so a tap on
   // any card button still works without accidentally starting a drag.
@@ -506,6 +526,14 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
     <div className="mx-auto max-w-md">
       {/* Share toolbar — sits above the pass card so it stays out of the captured image */}
       <div className="mb-2 flex items-center justify-end gap-2 print:hidden">
+        <button
+          type="button"
+          onClick={() => setCancelConfirmOpen(true)}
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink/40 bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70 transition-pop hover:-translate-y-0.5 hover:bg-red-50 hover:border-red-600 hover:text-red-700"
+        >
+          <XCircle className="h-3.5 w-3.5" />
+          Cancel
+        </button>
         <div className="relative">
           <button
             type="button"
@@ -725,6 +753,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                         index={i}
                         isLast={i === loop.stops.length - 1}
                         city={loop.toName ?? loop.to ?? null}
+                        loop={loop}
                       />
                       {stop.driveAfter && (
                         <DriveTimeChip
@@ -1056,6 +1085,26 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         loop={loop}
         reward={reward}
       />
+
+      <AlertDialog open={cancelConfirmOpen} onOpenChange={setCancelConfirmOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Cancel this plan?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Your boarding pass for {loop.from} → {loop.to} will be cleared. Check-ins and Confetti earned so far stay in your history.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Keep plan</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleCancelPlan}
+              className="bg-red-600 text-cream hover:bg-red-700"
+            >
+              Cancel plan
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
@@ -1143,6 +1192,7 @@ function StopCard({
   index,
   isLast,
   city,
+  loop,
 }: {
   loopId: string;
   stop: LoopStop;
@@ -1150,6 +1200,7 @@ function StopCard({
   index: number;
   isLast: boolean;
   city?: string | null;
+  loop?: ActiveLoop;
 }) {
   const [visible, setVisible] = useState(false);
   const [showQr, setShowQr] = useState(false);
@@ -1166,6 +1217,73 @@ function StopCard({
     opacity: sortable.isDragging ? 0.6 : 1,
     zIndex: sortable.isDragging ? 20 : undefined,
   };
+
+  const [replanning, setReplanning] = useState(false);
+
+  async function handleReplanFromHere() {
+    if (!loop || replanning) return;
+    setReplanning(true);
+    try {
+      const completedNames = loop.stops.slice(0, index + 1).map((s) => s.name);
+      const now = new Date();
+      const currentTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+      const url = import.meta.env.VITE_SUPABASE_URL;
+      const apikey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+      if (!url || !apikey) throw new Error("Supabase env missing");
+      const res = await fetch(`${url}/functions/v1/build-itinerary`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey, Authorization: `Bearer ${apikey}` },
+        body: JSON.stringify({
+          mode: "replan",
+          occasion: loop.occasion ?? "evening out",
+          vibe: (loop.vibes ?? []).join(", "),
+          city: city ?? loop.to,
+          budget: undefined,
+          completedStops: completedNames,
+          currentTime,
+          remainingHours: 4,
+          transportMode: "auto",
+        }),
+      });
+      if (!res.ok) throw new Error(`build-itinerary ${res.status}`);
+      const data = await res.json();
+      const newStops = (data?.itinerary?.stops ?? []) as Array<{
+        name: string;
+        category?: string;
+        address?: string;
+        startTime?: string;
+        durationMinutes?: number;
+      }>;
+      if (newStops.length === 0) {
+        toast.error("Couldn't find new stops — try a different vibe or time of day.");
+        return;
+      }
+      const replaced: LoopStop[] = newStops.map((s, idx) => ({
+        id: `replan-${Date.now()}-${idx}`,
+        name: s.name,
+        type: s.category ?? "venue",
+        time: s.startTime ?? "later",
+        address: s.address,
+        kind: "layover" as StopKind,
+      }));
+      const updated: ActiveLoop = {
+        ...loop,
+        stops: [...loop.stops.slice(0, index + 1), ...replaced],
+      };
+      setActiveLoop(updated);
+      logActivity({
+        tripId: loopId,
+        actor: "You",
+        kind: "rescheduled",
+        message: `Replanned from "${stop.name}" — ${replaced.length} new stops generated`,
+      });
+      toast.success(`Replanned — ${replaced.length} fresh stops queued up`);
+    } catch (e) {
+      toast.error("Replan failed", { description: (e as Error).message });
+    } finally {
+      setReplanning(false);
+    }
+  }
 
   function handlePickSwap(v: PickedVenue) {
     const payload = venueToStopPayload(v, {
@@ -1328,11 +1446,17 @@ function StopCard({
                 <MoreVertical className="h-4 w-4" />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-44">
+            <DropdownMenuContent align="end" className="w-52">
               <DropdownMenuItem onClick={() => setSwapOpen(true)}>
                 <ArrowLeftRight className="mr-2 h-4 w-4" />
                 Swap this stop
               </DropdownMenuItem>
+              {loop && (
+                <DropdownMenuItem onClick={handleReplanFromHere} disabled={replanning}>
+                  <Sparkles className="mr-2 h-4 w-4 text-purple" />
+                  {replanning ? "Replanning…" : "Replan from here"}
+                </DropdownMenuItem>
+              )}
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 onClick={() => setConfirmRemoveOpen(true)}

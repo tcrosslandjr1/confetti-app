@@ -60,22 +60,26 @@ async function askClaudeForVenues(
   count: number,
   apiKey: string,
   knownNames: string[],
+  nicheHint?: string | null,
 ): Promise<ClaudeVenue[]> {
   const known = knownNames.slice(0, 60).join(", ");
+  const nicheBlock = nicheHint && nicheHint.trim()
+    ? `\n\nNICHE REQUEST: the user is specifically looking for ${nicheHint.trim()}. INCLUDE at least 6 venues that match this niche (hookah lounges, dive bars, comedy clubs, gaming lounges, axe throwing, paint-and-sip studios, kid-friendly arcades, queer bars, halal/kosher kitchens, vegan kitchens — whatever the niche is). Use accurate vibe_tags so they're findable downstream (e.g. for hookah: ["hookah", "lounge", "shisha", "mediterranean", "late-night"]).`
+    : "";
   const systemPrompt = `You are Confetti's local venue scout. Produce a list of REAL, operating venues in a specific city. Restaurants, bars, cocktail lounges, speakeasies, nightclubs, rooftops, breweries, coffee shops, brunch spots, live music, lounges — the full nightlife/dining mix.
 
 Rules:
 - Only include venues you are CONFIDENT exist today. Skip if unsure.
 - Never invent names.
 - price_level must be 1 ($), 2 ($$), 3 ($$$), or 4 ($$$$).
-- vibe_tags lowercase keywords: "rooftop", "speakeasy", "cocktails", "live music", "outdoor", "intimate", "lively", "upscale", "casual", "dance", "queer-friendly", "instagrammable".
-- cuisine_tags describe food/drink type: "Italian", "Steakhouse", "Cocktail Bar", "Brewery", "Coffee", "Brunch", "Wine Bar", etc.
+- vibe_tags lowercase keywords: "rooftop", "speakeasy", "cocktails", "live music", "outdoor", "intimate", "lively", "upscale", "casual", "dance", "queer-friendly", "instagrammable", "hookah", "shisha", "dive", "sports", "comedy", "karaoke", "arcade", "axe-throwing", "kid-friendly", "halal", "kosher", "vegan".
+- cuisine_tags describe food/drink type: "Italian", "Steakhouse", "Cocktail Bar", "Brewery", "Coffee", "Brunch", "Wine Bar", "Hookah Lounge", "Comedy Club", "Gaming Lounge", etc.
 - occasion_tags from: "date-night", "girls-night", "guys-night", "bachelor", "bachelorette", "anniversary", "family", "birthday", "in-laws".
 - vibe_notes: one warm sentence, 20–35 words.
 - DO NOT repeat any of these (already in our DB): ${known || "none"}
-- Return ONLY valid JSON in the exact shape below — no markdown, no explanation.`;
+- Return ONLY valid JSON in the exact shape below — no markdown, no explanation.${nicheBlock}`;
 
-  const userPrompt = `Generate ${count} REAL, well-known venues in ${city}. Mix categories: cocktail bars, restaurants (varied cuisines), rooftops, brunch, nightlife/clubs, speakeasies, breweries, plus at least one of {coffee, live music, lounge}.
+  const userPrompt = `Generate ${count} REAL, well-known venues in ${city}.${nicheHint ? ` Lean into: ${nicheHint}.` : " Mix categories: cocktail bars, restaurants (varied cuisines), rooftops, brunch, nightlife/clubs, speakeasies, breweries, plus at least one of {coffee, live music, lounge}."}
 
 Return:
 {
@@ -165,28 +169,44 @@ async function persist(
  * Designed to be called at the top of edge handlers BEFORE they query
  * venues, so subsequent reads see a populated set.
  */
+/**
+ * Make sure the given city has at least `minThreshold` venues in the
+ * venues table. When `nicheHint` is set (e.g. "hookah lounges and
+ * Mediterranean small plates"), discovery prioritizes seeding venues
+ * that match the niche so downstream ranking has something to pick.
+ *
+ * If a nicheHint is passed and the city is already populated for the
+ * generic case but the niche isn't represented, discovery still runs
+ * a niche-only round so build-itinerary can find what it needs.
+ */
 export async function ensureCityVenues(
   city: string | null | undefined,
   minThreshold = 15,
   requestCount = 25,
+  nicheHint?: string | null,
 ): Promise<number> {
   if (!city) return 0;
   const trimmed = city.trim();
   if (!trimmed) return 0;
 
-  const existingCount = await countCityVenues(trimmed);
-  if (existingCount >= minThreshold) return 0;
-
   const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
   if (!apiKey) return 0;
 
+  const existingCount = await countCityVenues(trimmed);
+  const needsBaseline = existingCount < minThreshold;
+  const needsNiche = !!nicheHint && nicheHint.trim() && !(await nicheRepresented(trimmed, nicheHint));
+
+  if (!needsBaseline && !needsNiche) return 0;
+
   try {
     const knownSlugs = await fetchKnownSlugs(trimmed);
+    const knownNames = [...knownSlugs].map((s) => s.replace(/-/g, " "));
     const fresh = await askClaudeForVenues(
       trimmed,
       requestCount,
       apiKey,
-      [...knownSlugs].map((s) => s.replace(/-/g, " ")),
+      knownNames,
+      nicheHint ?? null,
     );
     const inserted = await persist(trimmed, fresh, knownSlugs);
     return inserted;
@@ -194,4 +214,24 @@ export async function ensureCityVenues(
     console.warn("[ensureCityVenues] failed:", (e as Error).message);
     return 0;
   }
+}
+
+/** Quick check: does the city have any venues whose name/cuisine/vibe_tags hit the niche tokens? */
+async function nicheRepresented(city: string, nicheHint: string): Promise<boolean> {
+  const tokens = nicheHint
+    .toLowerCase()
+    .split(/[\s,]+/)
+    .map((t) => t.replace(/[^a-z0-9]/g, ""))
+    .filter((t) => t.length > 3);
+  if (tokens.length === 0) return true;
+  const orParts: string[] = [];
+  for (const t of tokens.slice(0, 4)) {
+    orParts.push(`name.ilike.%${t}%`, `cuisine.ilike.%${t}%`, `vibe_notes.ilike.%${t}%`);
+  }
+  const { count } = await supabaseAdmin
+    .from("venues")
+    .select("id", { count: "exact", head: true })
+    .ilike("city", city)
+    .or(orParts.join(","));
+  return (count ?? 0) >= 2;
 }

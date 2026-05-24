@@ -27,6 +27,14 @@ type Body = {
   notes?: string;
   tasteSummary?: string;
   transportMode?: "auto" | "car" | "transit" | "lyft" | "uber" | "walk"; // user preference
+  /** When set to "replan", regenerate only the stops AFTER `completedStops`. */
+  mode?: "build" | "replan";
+  /** For replan: names of stops already visited, in order. */
+  completedStops?: string[];
+  /** For replan: HH:mm of where the user is right now. */
+  currentTime?: string;
+  /** For replan: how many hours remain in the night. */
+  remainingHours?: number;
 };
 
 // ---------- Curated venues verification ----------
@@ -506,8 +514,12 @@ Deno.serve(async (req) => {
     const userId = await getUserIdFromAuth(req);
 
     // Lazy bootstrap: warm the destination city's venues so the
-    // verification step has something to match against.
-    await ensureCityVenues(b.city, 15, 25);
+    // verification step has something to match against. Pass the
+    // user's vibe/notes as a niche hint so e.g. "hookah lounges and
+    // Mediterranean" pulls in hookah spots even if the baseline KB
+    // is already populated for that city.
+    const nicheHint = [b.vibe, b.notes].filter(Boolean).join(" — ") || null;
+    await ensureCityVenues(b.city, 15, 25, nicheHint);
 
     const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
     if (!apiKey) return json({ error: "missing ANTHROPIC_API_KEY" }, 500);
@@ -552,6 +564,11 @@ Deno.serve(async (req) => {
       ? `Expand this seed idea into the full day:\nTitle: ${b.seedIdea.title}\n${b.seedIdea.hook ?? ""}\n${b.seedIdea.description ?? ""}\nVibe tags: ${(b.seedIdea.vibeTags ?? []).join(", ")}`
       : "No seed idea — design from scratch.";
 
+    // Replan-from-here block.
+    const replanBlock = b.mode === "replan" && (b.completedStops?.length ?? 0) > 0
+      ? `\nMID-TRIP REPLAN: the user has ALREADY completed these stops: ${b.completedStops!.map((n, i) => `${i + 1}) ${n}`).join(", ")}. It's currently ${b.currentTime ?? "now"} and they have about ${b.remainingHours ?? 2} hours left. Plan ONLY the REMAINING stops (2-4) — do NOT repeat what they already did, do NOT include any of those venues again. Pick from the candidate list, pick up the energy where the night left off (if they had drinks, suggest food next; if they ate, suggest cocktails or activity), and time-anchor the first new stop to ~15 minutes after ${b.currentTime ?? "now"}.\n`
+      : "";
+
     const sys = `You are a thoughtful day-planner for an app called Confetti.
 Create ONE full-day itinerary for occasion: "${b.occasion}"${b.vibe ? ` (vibe: ${b.vibe})` : ""}.
 City: ${b.city ?? "user's city"} ${b.neighborhood ? `(focus near ${b.neighborhood})` : ""}.
@@ -581,6 +598,7 @@ OCCASION PLAYBOOK — match every stop to who's actually going. Do NOT default t
 Pick stop categories that fit (don't force "drinks" on a kids day, don't force "museum" on a guys' night). Match the energy and demographics in every venue, what_to_do, parking note, and tip.
 
 ${seedBlock}
+${replanBlock}
 ${candidateBlock}
 Return a tight 3-6 stop plan that flows naturally — no backtracking, sensible drive/walk times between stops.
 Each stop must include a category, a clear "what to do" or "what to order", and a likely booking provider when relevant (opentable, resy, eventbrite, ticketmaster, or "website").

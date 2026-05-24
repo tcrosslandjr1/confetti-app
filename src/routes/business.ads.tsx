@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, Megaphone, Crown, Zap, Star, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "sonner";
+import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 
 export const Route = createFileRoute("/business/ads")({
   beforeLoad: async () => {
@@ -68,7 +68,18 @@ type Purchase = {
 
 function AdsPage() {
   const { venues, activeId, setActiveId, isLoading } = useManagedVenues();
-  const qc = useQueryClient();
+  const { openCheckout, checkoutElement } = useStripeCheckout();
+
+  const tierToPriceId: Record<string, string> = {
+    starter: "business_basic_monthly",
+    featured: "business_featured_monthly",
+    spotlight: "business_premium_monthly",
+  };
+  const boostPackageToPriceId: Record<string, string> = {
+    pulse_24h: "boost_24h_once",
+    weekend_spot: "boost_3d_once",
+    week_headline: "boost_7d_once",
+  };
 
   const sub = useQuery({
     queryKey: ["advertiser-subscription"],
@@ -112,53 +123,25 @@ function AdsPage() {
     },
   });
 
-  const upgrade = useMutation({
-    mutationFn: async (tier: string) => {
-      const advertiserId = sub.data?.advertiser_id;
-      if (!advertiserId) throw new Error("Claim a venue first");
-      const { error } = await (supabase as any)
-        .from("advertiser_subscriptions")
-        .upsert({
-          advertiser_id: advertiserId,
-          tier,
-          status: "active",
-          current_period_end: new Date(Date.now() + 30 * 24 * 3600 * 1000).toISOString(),
-          stub: true,
-        }, { onConflict: "advertiser_id" });
-      if (error) throw new Error(error.message);
-    },
-    onSuccess: () => {
-      toast.success("Plan updated. Stripe checkout coming soon.");
-      qc.invalidateQueries({ queryKey: ["advertiser-subscription"] });
-    },
-    onError: (e: Error) => toast.error(e.message),
-  });
+  const handleUpgrade = (tier: string) => {
+    const priceId = tierToPriceId[tier];
+    if (!priceId) return;
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "business" },
+      title: `Subscribe — ${tier}`,
+      returnUrl: `${window.location.origin}/business/ads?upgraded=1`,
+    });
+  };
 
-  const buyBoost = useMutation({
-    mutationFn: async (pkg: Package) => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("Sign in first");
-      const advertiserId = sub.data?.advertiser_id ?? null;
-      const starts = new Date();
-      const ends = new Date(starts.getTime() + pkg.duration_hours * 3600 * 1000);
-      const { error } = await (supabase as any).from("boost_purchases").insert({
-        advertiser_id: advertiserId,
-        venue_id: activeId,
-        package_id: pkg.id,
-        amount_cents: pkg.price_cents,
-        status: "pending",
-        starts_at: starts.toISOString(),
-        ends_at: ends.toISOString(),
-        created_by: u.user.id,
-      });
-      if (error) throw new Error(error.message);
-    },
-    onSuccess: () => {
-      toast.success("Boost queued. Stripe checkout coming soon.");
-      qc.invalidateQueries({ queryKey: ["boost-purchases", activeId] });
-    },
-    onError: (e: Error) => toast.error(e.message),
-  });
+  const handleBuyBoost = (pkg: Package) => {
+    const priceId = boostPackageToPriceId[pkg.id];
+    if (!priceId) return;
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "business" },
+      title: pkg.name,
+      returnUrl: `${window.location.origin}/business/ads?boost=${pkg.id}`,
+    });
+  };
 
   if (isLoading) return <Shell>Loading…</Shell>;
   if (!venues.length) return <Shell><NoVenueClaim /></Shell>;
@@ -207,8 +190,8 @@ function AdsPage() {
                 <Button
                   className="mt-4 w-full"
                   variant={active ? "outline" : "default"}
-                  disabled={active || upgrade.isPending}
-                  onClick={() => upgrade.mutate(t.id)}
+                  disabled={active}
+                  onClick={() => handleUpgrade(t.id)}
                 >
                   {active ? "Current plan" : "Switch to " + t.name}
                 </Button>
@@ -236,8 +219,8 @@ function AdsPage() {
               <Button
                 size="sm"
                 className="mt-3 w-full"
-                disabled={buyBoost.isPending}
-                onClick={() => buyBoost.mutate(pkg)}
+                disabled={!boostPackageToPriceId[pkg.id]}
+                onClick={() => handleBuyBoost(pkg)}
               >
                 Buy boost
               </Button>
@@ -275,6 +258,7 @@ function AdsPage() {
           </Card>
         )}
       </section>
+      {checkoutElement}
     </Shell>
   );
 }

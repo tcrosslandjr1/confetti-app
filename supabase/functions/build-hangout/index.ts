@@ -61,6 +61,7 @@ const OCCASION_PLAYBOOK: Record<string, string> = {
   "birthday-at-home": `Cake + theme. Photo backdrop. Activity (paint + sip, karaoke, game). Music. Surprise moment. Bakery pickup.`,
   "low-key-hang": `Small spread, easy drinks, no fuss. 4-6 people max suggestion.`,
   "outdoor-gathering": `Generic outdoor — folding chairs, citronella, bug spray, string lights, blankets if cool.`,
+  "theme-park": `Theme park day. Plan around rope-drop OR off-peak afternoon arrival. Park essentials: sunscreen (reapply window), refillable water bottles, snack pack (granola bars, fruit, pretzels), portable phone chargers, ponchos for water rides, comfortable walking shoes, hand sanitizer, wet wipes, advil. Food strategy: 1 sit-down + quick-service for the rest; mobile-order to skip lines. Single-rider lines for thrill rides; rider-swap for kids. Build in regroup points every 2-3 hours (a specific bench, fountain, or stand). Sensory-regulation break: a quiet area mid-day. Budget per person realistic: $80-120 food/snacks/treats above ticket. Parking lane note + tram tip. End-of-day cleanup back at hotel: laundry, restock kit, charge devices. Nearby stores worth knowing: nearest drugstore (sunscreen/advil refills), grocery (water by the case), Target (cheap ponchos).`,
 };
 
 interface VenueRow {

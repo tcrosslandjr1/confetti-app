@@ -1,10 +1,12 @@
 import { useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import {
   Utensils,
   Wine,
   ShoppingBag,
   Boxes,
+  Calendar,
   Clock,
   Music,
   Gamepad2,
@@ -18,6 +20,12 @@ import {
   Share2,
 } from "lucide-react";
 import { clearActiveHangout, type ActiveHangout } from "@/lib/hangout-store";
+import {
+  combinedPickupLinks,
+  downloadHangoutIcs,
+  fetchHangoutWeather,
+  type HangoutForecast,
+} from "@/lib/hangout-helpers";
 
 interface HangoutPassProps {
   hangout: ActiveHangout;
@@ -26,6 +34,18 @@ interface HangoutPassProps {
 export function HangoutPass({ hangout }: HangoutPassProps) {
   const navigate = useNavigate();
   const { plan } = hangout;
+  const pickupLinks = combinedPickupLinks(plan);
+  const [weather, setWeather] = useState<HangoutForecast | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchHangoutWeather(hangout).then((w) => {
+      if (!cancelled) setWeather(w);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [hangout]);
 
   function handleCancel() {
     if (!confirm("Cancel this hangout plan? You can build a new one anytime.")) return;
@@ -51,7 +71,14 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
   return (
     <div className="mx-auto max-w-2xl px-4 py-6">
       {/* Header */}
-      <div className="mb-4 flex items-center justify-end gap-2">
+      <div className="mb-4 flex flex-wrap items-center justify-end gap-2">
+        <button
+          type="button"
+          onClick={() => downloadHangoutIcs(hangout)}
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut hover:-translate-y-0.5 transition-pop"
+        >
+          <Calendar className="h-3.5 w-3.5" /> Add to calendar
+        </button>
         <button
           type="button"
           onClick={handleShare}
@@ -67,6 +94,22 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
           <XCircle className="h-3.5 w-3.5" /> Cancel
         </button>
       </div>
+
+      {/* Live weather banner — pulls from Open-Meteo (free) for the
+          hangout's city + time. Nudges users toward the weather_backup
+          section when rain / heat / cold is forecast. */}
+      {weather && (
+        <div
+          className={`mb-3 flex items-center gap-2 rounded-2xl border-2 px-4 py-2.5 text-[12px] font-bold ${
+            weather.backupRecommended
+              ? "border-amber-500 bg-amber-100 text-amber-900"
+              : "border-emerald-500/30 bg-emerald-100/50 text-emerald-900"
+          }`}
+        >
+          <CloudRain className="h-4 w-4 shrink-0" />
+          <span>{weather.summary}</span>
+        </div>
+      )}
 
       {/* Title card */}
       <div className="rounded-3xl border-2 border-ink bg-cream p-6 shadow-brut">
@@ -228,11 +271,12 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
         </Section>
       )}
 
-      {/* Pickup links */}
-      {plan.pickup_links && plan.pickup_links.length > 0 && (
+      {/* Pickup links — merges Claude's links with auto-derived
+          Instacart / Maps deeplinks. */}
+      {pickupLinks.length > 0 && (
         <Section icon={Sparkles} title="Quick pickups" accent="purple">
           <ul className="grid gap-2 sm:grid-cols-2">
-            {plan.pickup_links.map((l, i) => (
+            {pickupLinks.map((l, i) => (
               <li key={i}>
                 <a
                   href={l.url}

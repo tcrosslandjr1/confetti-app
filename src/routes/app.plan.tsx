@@ -64,6 +64,7 @@ const HANGOUT_OCCASIONS: Array<{ key: string; label: string }> = [
   { key: "family-day",         label: "Family day" },
   { key: "kids-day",           label: "Kids day out" },
   { key: "low-key-hang",       label: "Low-key hang" },
+  { key: "theme-park",         label: "Theme park day" },
 ];
 
 /** Which plan-type modes route through build-hangout vs the existing nightlife wizard. */

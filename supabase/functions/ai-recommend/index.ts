@@ -60,6 +60,8 @@ interface VenueRecommendation {
   partnerLabel?: string;
   /** Which campaign drove the placement — used for click/booking attribution. */
   boostCampaignId?: string;
+  /** True when the venue's web/social presence has been verified live. */
+  verified?: boolean;
 }
 
 interface EventRecommendation {
@@ -112,6 +114,7 @@ interface VenueRow {
   photo_url: string | null;
   vibe_notes: string | null;
   popularity_score: number | null;
+  is_verified: boolean | null;
 }
 
 // ─── Auth ─────────────────────────────────────────────────────
@@ -252,7 +255,7 @@ async function fetchSponsoredCampaigns(
   const { data: venues } = await supabaseAdmin
     .from("venues")
     .select(
-      "id,name,city,neighborhood,address,lat,lng,cuisine,cuisine_tags,vibe_tags,occasion_tags,price,price_level,rating,rating_count,photo_url,vibe_notes,popularity_score",
+      "id,name,city,neighborhood,address,lat,lng,cuisine,cuisine_tags,vibe_tags,occasion_tags,price,price_level,rating,rating_count,photo_url,vibe_notes,popularity_score,is_verified",
     )
     .in("id", venueIds);
 
@@ -313,8 +316,9 @@ async function fetchCandidates(
   let query = supabaseAdmin
     .from("venues")
     .select(
-      "id,name,city,neighborhood,address,lat,lng,cuisine,cuisine_tags,vibe_tags,occasion_tags,price,price_level,rating,rating_count,photo_url,vibe_notes,popularity_score",
+      "id,name,city,neighborhood,address,lat,lng,cuisine,cuisine_tags,vibe_tags,occasion_tags,price,price_level,rating,rating_count,photo_url,vibe_notes,popularity_score,is_verified",
     )
+    .order("is_verified", { ascending: false, nullsFirst: false })
     .order("popularity_score", { ascending: false, nullsFirst: false })
     .order("rating", { ascending: false, nullsFirst: false })
     .limit(Math.max(limit * 4, 20));
@@ -519,6 +523,7 @@ async function rankSection(
       lat: v.lat ?? undefined,
       lng: v.lng ?? undefined,
       tone,
+      verified: v.is_verified === true,
       ...(campaign
         ? {
             sponsored: true,

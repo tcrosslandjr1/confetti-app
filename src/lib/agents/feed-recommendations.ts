@@ -28,6 +28,8 @@ export interface FeedVenue {
   partnerLabel?: string;
   /** Which campaign drove the placement — used for click attribution. */
   boostCampaignId?: string;
+  /** True when the venue's web/social presence has been verified. */
+  verified?: boolean;
 }
 
 export interface FeedEvent {

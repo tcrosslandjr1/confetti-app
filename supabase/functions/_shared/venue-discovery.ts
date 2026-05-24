@@ -322,6 +322,114 @@ export async function ensureCityVenues(
   }
 }
 
+/**
+ * Backfill verification on existing unverified venues. Pulls up to `batchSize`
+ * rows where is_verified is not true, asks Claude for website + Instagram
+ * handle per venue in a single call, runs the same HEAD-check pipeline,
+ * and updates each row. Returns counts so the caller can loop until done.
+ */
+export async function backfillVerifyVenues(
+  batchSize = 25,
+): Promise<{ processed: number; verified: number; remaining: number }> {
+  const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+  if (!apiKey) return { processed: 0, verified: 0, remaining: 0 };
+
+  // Pull a batch of unverified venues. Filter to recognisable names only.
+  const { data: rows, error } = await supabaseAdmin
+    .from("venues")
+    .select("id,name,city,address,website")
+    .or("is_verified.is.null,is_verified.eq.false")
+    .order("popularity_score", { ascending: false, nullsFirst: false })
+    .limit(batchSize);
+  if (error || !rows || rows.length === 0) {
+    return { processed: 0, verified: 0, remaining: 0 };
+  }
+
+  const items = rows as Array<{
+    id: string;
+    name: string;
+    city: string;
+    address: string | null;
+    website: string | null;
+  }>;
+
+  // Ask Claude for website + IG handle for each venue in one call.
+  const venueList = items
+    .map((r, i) => `${i + 1}. ${r.name} — ${r.city}${r.address ? ` (${r.address})` : ""}`)
+    .join("\n");
+  const sys = `You are Confetti's verification helper. Given a list of venues, return your best-guess official website URL and Instagram handle for each. We HEAD-check them afterwards, so guessing freely is GOOD — only outright bad guesses fail. Match by index. Return ONLY valid JSON: {"items":[{"index":1,"website":"https://...","instagram_handle":"handle"}, ...]}`;
+  const userMsg = `Provide website + instagram_handle for each:\n\n${venueList}`;
+
+  let guesses: Array<{ index: number; website?: string | null; instagram_handle?: string | null }> = [];
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 4000,
+        system: sys,
+        messages: [{ role: "user", content: userMsg }],
+      }),
+    });
+    if (!res.ok) throw new Error(`Claude ${res.status}`);
+    const data = await res.json();
+    const raw = data?.content?.[0]?.text ?? "";
+    const stripped = raw.replace(/^```json?\s*/i, "").replace(/\s*```$/i, "").trim();
+    const parsed = JSON.parse(stripped) as { items?: typeof guesses };
+    guesses = parsed.items ?? [];
+  } catch (e) {
+    console.warn("[backfillVerify] Claude failed:", (e as Error).message);
+    return { processed: 0, verified: 0, remaining: items.length };
+  }
+
+  // Pair guesses with items by index, verify in parallel.
+  const byIndex = new Map(guesses.map((g) => [g.index, g]));
+  const toVerify = items.map((it, i) => {
+    const g = byIndex.get(i + 1);
+    return {
+      id: it.id,
+      name: it.name,
+      website: g?.website ?? null,
+      instagram_handle: g?.instagram_handle ?? null,
+      is_verified: false,
+      source_credit: "ai-discovery",
+    };
+  });
+  await verifyBatch(toVerify, 6);
+
+  // Bulk-update.
+  let verifiedCount = 0;
+  await Promise.all(
+    toVerify.map(async (t) => {
+      const patch: Record<string, unknown> = {
+        is_verified: t.is_verified ?? false,
+      };
+      if (t.website) patch.website = t.website;
+      if (t.is_verified) {
+        verifiedCount++;
+        patch.source_credit = t.source_credit;
+      }
+      await supabaseAdmin.from("venues").update(patch).eq("id", t.id);
+    }),
+  );
+
+  const { count: remaining } = await supabaseAdmin
+    .from("venues")
+    .select("id", { count: "exact", head: true })
+    .or("is_verified.is.null,is_verified.eq.false");
+
+  return {
+    processed: items.length,
+    verified: verifiedCount,
+    remaining: remaining ?? 0,
+  };
+}
+
 /** Quick check: does the city have any venues whose name/cuisine/vibe_tags hit the niche tokens? */
 async function nicheRepresented(city: string, nicheHint: string): Promise<boolean> {
   const tokens = nicheHint

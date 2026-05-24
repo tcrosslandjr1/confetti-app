@@ -11,10 +11,13 @@
 import { serve } from "../_shared/server.ts";
 import { jsonResponse, errorResponse, supabaseAdmin } from "../_shared/supabase-client.ts";
 import { consumeRateLimit, callerIdentity } from "../_shared/ratelimit.ts";
-import { ensureCityVenues } from "../_shared/venue-discovery.ts";
+import { backfillVerifyVenues, ensureCityVenues } from "../_shared/venue-discovery.ts";
 
 interface Body {
-  city: string;
+  /** Action. Default "discover". */
+  mode?: "discover" | "verify_existing";
+  /** Required for "discover". */
+  city?: string;
   /** If existing rows < this, run discovery. Default 20. */
   minThreshold?: number;
   /** How many venues to ask Claude to generate. Default 30. */
@@ -23,6 +26,8 @@ interface Body {
   force?: boolean;
   /** Free-text niche, e.g. "hookah lounges and Mediterranean". */
   nicheHint?: string;
+  /** For verify_existing: batch size per call. Default 25. */
+  batchSize?: number;
 }
 
 interface VenueRow {
@@ -58,6 +63,7 @@ async function getVenues(city: string): Promise<VenueRow[]> {
       "id,name,slug,city,state,neighborhood,address,lat,lng,cuisine,cuisine_tags,vibe_tags,occasion_tags,price,price_level,rating,rating_count,photo_url,vibe_notes,popularity_score,website,is_verified,source_credit",
     )
     .ilike("city", city)
+    .order("is_verified", { ascending: false, nullsFirst: false })
     .order("popularity_score", { ascending: false, nullsFirst: false })
     .limit(200);
   if (error) {
@@ -86,6 +92,15 @@ serve(async (req: Request) => {
     } catch {
       return errorResponse("Invalid JSON body");
     }
+
+    // verify_existing mode: backfill verification on existing rows.
+    if (body.mode === "verify_existing") {
+      const result = await backfillVerifyVenues(
+        Math.max(1, Math.min(body.batchSize ?? 25, 50)),
+      );
+      return jsonResponse({ mode: "verify_existing", ...result });
+    }
+
     if (!body.city || body.city.trim().length === 0) {
       return errorResponse("city required");
     }

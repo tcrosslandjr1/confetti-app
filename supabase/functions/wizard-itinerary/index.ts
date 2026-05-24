@@ -125,6 +125,7 @@ async function fetchCandidates(
     .select(
       "id,name,city,neighborhood,address,lat,lng,cuisine,cuisine_tags,vibe_tags,price,price_level,rating,rating_count,photo_url,vibe_notes,popularity_score",
     )
+    .order("is_verified", { ascending: false, nullsFirst: false })
     .order("popularity_score", { ascending: false, nullsFirst: false })
     .order("rating", { ascending: false, nullsFirst: false })
     .limit(pageSize * 3);

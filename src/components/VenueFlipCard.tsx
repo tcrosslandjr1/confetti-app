@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import { trackEngagement } from "@/lib/analytics";
 import { PartnerPickBadge } from "@/components/PartnerPickBadge";
+import { VerifiedBadge } from "@/components/VerifiedBadge";
 import { trackPartnerClick } from "@/lib/partner-attribution";
 
 /* ------------------------------------------------------------------ */
@@ -42,6 +43,8 @@ export interface FlipVenue {
   partnerLabel?: string;
   /** Boost campaign id — used for click attribution on tap. */
   boostCampaignId?: string;
+  /** True when the venue has a confirmed live web/social presence. */
+  verified?: boolean;
 }
 
 interface VenueFlipCardProps {
@@ -129,8 +132,11 @@ export function VenueFlipCard({
             <div className={cn("h-[130px] w-full", accent === "purple" ? "bg-gradient-to-br from-purple/10 to-coral/10" : "bg-ink/[0.04]")} />
           )}
           <div className="p-3">
-            <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">
-              {venue.name}
+            <div className="flex items-center gap-1">
+              <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">
+                {venue.name}
+              </div>
+              {venue.verified && <VerifiedBadge variant="icon" />}
             </div>
             <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/45">
               {venue.category}
@@ -164,8 +170,11 @@ export function VenueFlipCard({
           )}
         >
           <div className={cn("px-3 pt-3 pb-1", accentBg)}>
-            <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">
-              {venue.name}
+            <div className="flex items-center gap-1">
+              <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">
+                {venue.name}
+              </div>
+              {venue.verified && <VerifiedBadge variant="icon" />}
             </div>
             <div className="flex items-center gap-2 mt-0.5">
               {venue.rating && (

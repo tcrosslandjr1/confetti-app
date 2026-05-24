@@ -165,6 +165,7 @@ function TonightFeedPage() {
                 sponsored: v.sponsored,
                 partnerLabel: v.partnerLabel,
                 boostCampaignId: v.boostCampaignId,
+                verified: v.verified,
               }}
               widthClass="w-44"
               source="tonight_for_you"

@@ -59,6 +59,8 @@ export type LoopStop = {
   partnerLabel?: string;
   /** Boost campaign id for click/booking attribution. */
   boostCampaignId?: string;
+  /** True when the venue's web/social presence has been verified. */
+  verified?: boolean;
 };
 
 export type LoopBonusMove = {

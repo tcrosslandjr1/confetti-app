@@ -95,6 +95,7 @@ async function placesSearch(
     .select(
       "id,name,city,neighborhood,address,lat,lng,cuisine,rating,rating_count,popularity_score",
     )
+    .order("is_verified", { ascending: false, nullsFirst: false })
     .order("popularity_score", { ascending: false, nullsFirst: false })
     .order("rating", { ascending: false, nullsFirst: false })
     .limit(15);
@@ -536,7 +537,7 @@ Deno.serve(async (req) => {
           "name,cuisine,neighborhood,address,price,price_level,vibe_tags,vibe_notes",
         )
         .ilike("city", b.city)
-        .order("popularity_score", { ascending: false, nullsFirst: false })
+        .order("is_verified", { ascending: false, nullsFirst: false })        .order("popularity_score", { ascending: false, nullsFirst: false })
         .order("rating", { ascending: false, nullsFirst: false })
         .limit(60);
       const cands = (rawCands as Array<{

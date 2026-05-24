@@ -5,6 +5,7 @@ import {
   type VenueKnowledge,
 } from "@/lib/agents/venue-knowledge";
 import { PartnerPickBadge } from "@/components/PartnerPickBadge";
+import { VerifiedBadge } from "@/components/VerifiedBadge";
 import { trackPartnerClick } from "@/lib/partner-attribution";
 import {
   Dialog,
@@ -40,6 +41,8 @@ export interface PickedVenue {
   partnerLabel?: string;
   /** Boost campaign id for click attribution downstream. */
   boostCampaignId?: string;
+  /** True when the venue's web/social presence has been verified live. */
+  verified?: boolean;
 }
 
 interface AiRec {
@@ -58,6 +61,7 @@ interface AiRec {
   sponsored?: boolean;
   partnerLabel?: string;
   boostCampaignId?: string;
+  verified?: boolean;
 }
 
 interface VenuePickerModalProps {
@@ -121,6 +125,7 @@ function aiToPicked(rec: AiRec): PickedVenue {
     sponsored: rec.sponsored ?? false,
     partnerLabel: rec.partnerLabel,
     boostCampaignId: rec.boostCampaignId,
+    verified: rec.verified ?? false,
   };
 }
 
@@ -451,7 +456,7 @@ export function VenuePickerModal({
                               "{rec.reason}"
                             </p>
                           )}
-                          <div className="mt-1.5 flex items-center gap-2">
+                          <div className="mt-1.5 flex flex-wrap items-center gap-2">
                             <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-purple">
                               <Sparkles className="h-2.5 w-2.5" />
                               AI suggested
@@ -459,6 +464,7 @@ export function VenuePickerModal({
                             {rec.sponsored && (
                               <PartnerPickBadge variant="inline" label={rec.partnerLabel} />
                             )}
+                            {rec.verified && <VerifiedBadge variant="inline" />}
                           </div>
                         </div>
                       </div>
@@ -502,5 +508,6 @@ export function venueToStopPayload(
     sponsored: v.sponsored ?? undefined,
     partnerLabel: v.partnerLabel,
     boostCampaignId: v.boostCampaignId,
+    verified: v.verified ?? undefined,
   };
 }

@@ -22,10 +22,10 @@ type Msg = {
 };
 
 const DEFAULT_CHIPS = [
-  "Find me a rooftop",
-  "Date night ideas",
-  "What's trending",
-  "Surprise me",
+  { label: "Find restaurants", icon: Utensils, emoji: "🍽️", tone: "gold" as const },
+  { label: "Find bars", icon: Wine, emoji: "🍸", tone: "coral" as const },
+  { label: "Build a Confetti plan", icon: CalendarDays, emoji: "🌃", tone: "ink" as const },
+  { label: "Plan a trip", icon: Car, emoji: "🚗", tone: "cream" as const },
 ];
 
 function ChatPage() {

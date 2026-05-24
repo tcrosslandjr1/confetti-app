@@ -764,7 +764,90 @@ function SettingsTab({
   );
 }
 
-/* ─── Shared Components ───────────────────────────────────────────────────── */
+/* ─── Connected Accounts ──────────────────────────────────────────────────── */
+
+function ConnectedAccountsCard() {
+  const [identities, setIdentities] = useState<Array<{ id: string; provider: string }>>([]);
+  const [loading, setLoading] = useState(true);
+  const [linking, setLinking] = useState(false);
+
+  const refresh = async () => {
+    setLoading(true);
+    const { data, error } = await supabase.auth.getUserIdentities();
+    setLoading(false);
+    if (!error && data?.identities) {
+      setIdentities(data.identities.map((i) => ({ id: i.identity_id ?? i.id, provider: i.provider })));
+    }
+  };
+
+  useEffect(() => {
+    refresh();
+  }, []);
+
+  const hasGoogle = identities.some((i) => i.provider === "google");
+
+  const handleLinkGoogle = async () => {
+    setLinking(true);
+    trackCta("link_google");
+    const { error } = await supabase.auth.linkIdentity({
+      provider: "google",
+      options: { redirectTo: `${window.location.origin}/app/profile` },
+    });
+    setLinking(false);
+    if (error) {
+      toast.error(error.message || "Couldn't link Google account");
+    }
+  };
+
+  const handleUnlink = async (identity: { id: string; provider: string }) => {
+    if (identities.length <= 1) {
+      toast.error("You need at least one sign-in method");
+      return;
+    }
+    const full = (await supabase.auth.getUserIdentities()).data?.identities?.find(
+      (i) => (i.identity_id ?? i.id) === identity.id,
+    );
+    if (!full) return;
+    const { error } = await supabase.auth.unlinkIdentity(full);
+    if (error) {
+      toast.error(error.message || "Couldn't unlink");
+    } else {
+      toast.success(`${identity.provider} disconnected`);
+      refresh();
+    }
+  };
+
+  return (
+    <Card className="space-y-3 p-4">
+      <h3 className="text-sm font-semibold">Sign-in methods</h3>
+      {loading ? (
+        <div className="text-xs text-muted-foreground">Loading…</div>
+      ) : (
+        <div className="space-y-2">
+          {identities.map((i) => (
+            <div key={i.id} className="flex items-center justify-between rounded-lg border border-border px-3 py-2">
+              <span className="text-sm capitalize">{i.provider}</span>
+              {identities.length > 1 && i.provider !== "email" && (
+                <Button size="sm" variant="ghost" onClick={() => handleUnlink(i)}>
+                  Disconnect
+                </Button>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+      {!hasGoogle && (
+        <Button size="sm" variant="outline" className="w-full" disabled={linking} onClick={handleLinkGoogle}>
+          {linking ? "Connecting…" : "Connect Google account"}
+        </Button>
+      )}
+      <p className="text-[11px] text-muted-foreground">
+        Link Google to sign in faster. Both methods will access this same account.
+      </p>
+    </Card>
+  );
+}
+
 
 function StatCard({ label, value }: { label: string; value: number }) {
   return (

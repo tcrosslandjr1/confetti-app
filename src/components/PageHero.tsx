@@ -131,6 +131,15 @@ export function SectionTitle({
 /**
  * BrutButton — pop-on-hover pill that matches the marketing CTAs.
  */
+type BrutButtonProps = {
+  children: React.ReactNode;
+  className?: string;
+  tone?: "ink" | "coral" | "cream" | "gold";
+  size?: "sm" | "md" | "lg";
+  as?: React.ElementType;
+  [key: string]: unknown;
+};
+
 export function BrutButton({
   children,
   className,
@@ -138,13 +147,7 @@ export function BrutButton({
   size = "md",
   as: As = "button",
   ...rest
-}: {
-  children: React.ReactNode;
-  className?: string;
-  tone?: "ink" | "coral" | "cream" | "gold";
-  size?: "sm" | "md" | "lg";
-  as?: React.ElementType;
-} & React.HTMLAttributes<HTMLElement>) {
+}: BrutButtonProps) {
   const fill =
     tone === "coral"
       ? "bg-coral text-cream"

@@ -258,6 +258,7 @@ function AdsPage() {
           </Card>
         )}
       </section>
+      {checkoutElement}
     </Shell>
   );
 }

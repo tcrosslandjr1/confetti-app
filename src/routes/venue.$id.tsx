@@ -1217,6 +1217,7 @@ function StepDone({
       boardingTime: time,
       stops: [
         {
+          id: venue.id,
           name: venue.name,
           type: (venue as any).category ?? "venue",
           time,

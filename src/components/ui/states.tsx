@@ -51,7 +51,7 @@ function StateShell({
       )}
       {action && (
         <Button
-          variant="brutalist"
+          variant="ink"
           size="sm"
           className="mt-2"
           onClick={action.onClick}

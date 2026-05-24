@@ -8,200 +8,43 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WeatherRouteImport } from './routes/weather'
-import { Route as ViralRouteImport } from './routes/viral'
-import { Route as VibePlansRouteImport } from './routes/vibe-plans'
-import { Route as VibePickerRouteImport } from './routes/vibe-picker'
-import { Route as TranslateRouteImport } from './routes/translate'
-import { Route as TonightRouteImport } from './routes/tonight'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as TeamsRouteImport } from './routes/teams'
-import { Route as TeamEventsRouteImport } from './routes/team-events'
-import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as ScanRouteImport } from './routes/scan'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as ReservationsRouteImport } from './routes/reservations'
-import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
-import { Route as QaRouteImport } from './routes/qa'
-import { Route as PromoterRouteImport } from './routes/promoter'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as PortalRouteImport } from './routes/portal'
-import { Route as PlanRouteImport } from './routes/plan'
-import { Route as PassportRouteImport } from './routes/passport'
-import { Route as PartnersRouteImport } from './routes/partners'
-import { Route as PartnerRouteImport } from './routes/partner'
-import { Route as OnboardingRouteImport } from './routes/onboarding'
-import { Route as NightPlannerRouteImport } from './routes/night-planner'
-import { Route as MeRouteImport } from './routes/me'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as InfluencerRouteImport } from './routes/influencer'
-import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as HealthRouteImport } from './routes/health'
-import { Route as GuidesRouteImport } from './routes/guides'
-import { Route as GroupOutingRouteImport } from './routes/group-outing'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
-import { Route as FeaturesRouteImport } from './routes/features'
-import { Route as FavoritesRouteImport } from './routes/favorites'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as EventPackRouteImport } from './routes/event-pack'
-import { Route as DiscoverRouteImport } from './routes/discover'
-import { Route as DataTermsRouteImport } from './routes/data-terms'
-import { Route as CreateRouteImport } from './routes/create'
-import { Route as CorporateRouteImport } from './routes/corporate'
-import { Route as CookiesRouteImport } from './routes/cookies'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ConfirmationRouteImport } from './routes/confirmation'
-import { Route as ConciergeRouteImport } from './routes/concierge'
-import { Route as CityGuidesRouteImport } from './routes/city-guides'
 import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
-import { Route as BoardingPassPlannerRouteImport } from './routes/boarding-pass-planner'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AskRouteImport } from './routes/ask'
 import { Route as AppRouteImport } from './routes/app'
-import { Route as AdvertiseRouteImport } from './routes/advertise'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as ActiveLoopRouteImport } from './routes/active-loop'
-import { Route as ActiveConfettiRouteImport } from './routes/active-confetti'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
-import { Route as TeamsIndexRouteImport } from './routes/teams.index'
-import { Route as PromoterIndexRouteImport } from './routes/promoter.index'
-import { Route as PortalIndexRouteImport } from './routes/portal.index'
-import { Route as PartnerIndexRouteImport } from './routes/partner.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
-import { Route as CorporateIndexRouteImport } from './routes/corporate.index'
-import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
-import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
-import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
-import { Route as TeamsNewRouteImport } from './routes/teams.new'
-import { Route as TeamsIdRouteImport } from './routes/teams.$id'
-import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
-import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
-import { Route as RecapItineraryIdRouteImport } from './routes/recap.$itineraryId'
-import { Route as QaTestPlanRouteImport } from './routes/qa.test-plan'
-import { Route as PromoterJobsRouteImport } from './routes/promoter.jobs'
-import { Route as ProfilePreferencesRouteImport } from './routes/profile.preferences'
-import { Route as PortalWalletRouteImport } from './routes/portal.wallet'
-import { Route as PortalViralRouteImport } from './routes/portal.viral'
-import { Route as PortalSavedRouteImport } from './routes/portal.saved'
-import { Route as PortalReferRouteImport } from './routes/portal.refer'
-import { Route as PortalProfileRouteImport } from './routes/portal.profile'
-import { Route as PortalPassportRouteImport } from './routes/portal.passport'
-import { Route as PortalBriefRouteImport } from './routes/portal.brief'
-import { Route as PortalBookingsRouteImport } from './routes/portal.bookings'
-import { Route as PortalActivityRouteImport } from './routes/portal.activity'
-import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
-import { Route as PlanReadyRouteImport } from './routes/plan.ready'
-import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
-import { Route as PartnerSupportRouteImport } from './routes/partner.support'
-import { Route as PartnerSuggestionsRouteImport } from './routes/partner.suggestions'
-import { Route as PartnerReservationsRouteImport } from './routes/partner.reservations'
-import { Route as PartnerPromotionsRouteImport } from './routes/partner.promotions'
-import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
-import { Route as PartnerOrdersRouteImport } from './routes/partner.orders'
-import { Route as PartnerOrderSettingsRouteImport } from './routes/partner.order-settings'
-import { Route as PartnerMenuRouteImport } from './routes/partner.menu'
-import { Route as PartnerCalendarRouteImport } from './routes/partner.calendar'
-import { Route as PartnerBookingSettingsRouteImport } from './routes/partner.booking-settings'
-import { Route as PartnerBillingRouteImport } from './routes/partner.billing'
-import { Route as PartnerApiRouteImport } from './routes/partner.api'
-import { Route as PartnerAnalyticsRouteImport } from './routes/partner.analytics'
 import { Route as PCodeRouteImport } from './routes/p.$code'
-import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
-import { Route as CorporateTeamsRouteImport } from './routes/corporate.teams'
-import { Route as CorporateSettingsRouteImport } from './routes/corporate.settings'
-import { Route as CorporateReportingRouteImport } from './routes/corporate.reporting'
-import { Route as CorporatePoliciesRouteImport } from './routes/corporate.policies'
-import { Route as CorporatePlannerRouteImport } from './routes/corporate.planner'
-import { Route as CorporateLoginRouteImport } from './routes/corporate.login'
-import { Route as CorporateBookingsRouteImport } from './routes/corporate.bookings'
-import { Route as CorporateApprovalsRouteImport } from './routes/corporate.approvals'
-import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
-import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
-import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
-import { Route as BusinessSocialRouteImport } from './routes/business.social'
-import { Route as BusinessSignupRouteImport } from './routes/business.signup'
-import { Route as BusinessSettingsRouteImport } from './routes/business.settings'
-import { Route as BusinessRegisterRouteImport } from './routes/business.register'
-import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
-import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
-import { Route as BusinessPendingRouteImport } from './routes/business.pending'
-import { Route as BusinessPayoutsRouteImport } from './routes/business.payouts'
-import { Route as BusinessMediaRouteImport } from './routes/business.media'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
-import { Route as BusinessEventsRouteImport } from './routes/business.events'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
-import { Route as BusinessBillingRouteImport } from './routes/business.billing'
-import { Route as BusinessAiRefreshRouteImport } from './routes/business.ai-refresh'
 import { Route as AppReelsRouteImport } from './routes/app.reels'
 import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppPlanRouteImport } from './routes/app.plan'
 import { Route as AppExploreRouteImport } from './routes/app.explore'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
-import { Route as AdvertiseReportsRouteImport } from './routes/advertise.reports'
-import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
-import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debug'
-import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
-import { Route as AdminUsersRouteImport } from './routes/admin.users'
-import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
-import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
-import { Route as AdminRoutesMapRouteImport } from './routes/admin.routes-map'
-import { Route as AdminRolesRouteImport } from './routes/admin.roles'
-import { Route as AdminPromotersRouteImport } from './routes/admin.promoters'
-import { Route as AdminPickAnalyticsRouteImport } from './routes/admin.pick-analytics'
-import { Route as AdminOutreachRouteImport } from './routes/admin.outreach'
-import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
-import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
-import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
-import { Route as AdminLogsRouteImport } from './routes/admin.logs'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
-import { Route as AdminLaunchRouteImport } from './routes/admin.launch'
-import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
-import { Route as AdminHealthRouteImport } from './routes/admin.health'
-import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
-import { Route as AdminDiagnosticsRouteImport } from './routes/admin.diagnostics'
-import { Route as AdminDeployPreflightRouteImport } from './routes/admin.deploy-preflight'
-import { Route as AdminContractsRouteImport } from './routes/admin.contracts'
-import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business-claims'
-import { Route as AdminBriefRouteImport } from './routes/admin.brief'
-import { Route as AdminBootstrapRouteImport } from './routes/admin.bootstrap'
-import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
-import { Route as AdminAuditRouteImport } from './routes/admin.audit'
-import { Route as AdminAskRouteImport } from './routes/admin.ask'
-import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
-import { Route as AdminAgentsRouteImport } from './routes/admin.agents'
-import { Route as AdminAdvertisersRouteImport } from './routes/admin.advertisers'
-import { Route as AdminAdAnalyticsRouteImport } from './routes/admin.ad-analytics'
-import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
-import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
-import { Route as BusinessClaimPendingRouteImport } from './routes/business.claim.pending'
-import { Route as ApiQaRunRouteImport } from './routes/api.qa.run'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiPlansGenerateRouteImport } from './routes/api/plans/generate'
 import { Route as ApiMapsSatelliteRouteImport } from './routes/api/maps/satellite'
-import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
 import { Route as ApiPublicWebhooksPartnerRouteImport } from './routes/api/public/webhooks/partner'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
@@ -221,260 +64,29 @@ import { Route as ApiPublicPartnerV1OrdersIndexRouteImport } from './routes/api/
 import { Route as ApiPublicPartnerV1ReservationsIdRouteImport } from './routes/api/public/partner/v1/reservations/$id'
 import { Route as ApiPublicPartnerV1OrdersIdRouteImport } from './routes/api/public/partner/v1/orders/$id'
 
-const AdminCityIdeasLazyRouteImport = createFileRoute('/admin/city-ideas')()
-
-const WeatherRoute = WeatherRouteImport.update({
-  id: '/weather',
-  path: '/weather',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/weather.lazy').then((d) => d.Route))
-const ViralRoute = ViralRouteImport.update({
-  id: '/viral',
-  path: '/viral',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/viral.lazy').then((d) => d.Route))
-const VibePlansRoute = VibePlansRouteImport.update({
-  id: '/vibe-plans',
-  path: '/vibe-plans',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/vibe-plans.lazy').then((d) => d.Route))
-const VibePickerRoute = VibePickerRouteImport.update({
-  id: '/vibe-picker',
-  path: '/vibe-picker',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TranslateRoute = TranslateRouteImport.update({
-  id: '/translate',
-  path: '/translate',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/translate.lazy').then((d) => d.Route))
-const TonightRoute = TonightRouteImport.update({
-  id: '/tonight',
-  path: '/tonight',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/testimonials.lazy').then((d) => d.Route))
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/terms.lazy').then((d) => d.Route))
-const TeamsRoute = TeamsRouteImport.update({
-  id: '/teams',
-  path: '/teams',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/teams.lazy').then((d) => d.Route))
-const TeamEventsRoute = TeamEventsRouteImport.update({
-  id: '/team-events',
-  path: '/team-events',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/team-events.lazy').then((d) => d.Route))
-const TasteTunerRoute = TasteTunerRouteImport.update({
-  id: '/taste-tuner',
-  path: '/taste-tuner',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/taste-tuner.lazy').then((d) => d.Route))
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ScanRoute = ScanRouteImport.update({
-  id: '/scan',
-  path: '/scan',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/scan.lazy').then((d) => d.Route))
-const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/reset-password.lazy').then((d) => d.Route),
-)
-const ReservationsRoute = ReservationsRouteImport.update({
-  id: '/reservations',
-  path: '/reservations',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/reservations.lazy').then((d) => d.Route))
-const QuickGenerateRoute = QuickGenerateRouteImport.update({
-  id: '/quick-generate',
-  path: '/quick-generate',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/quick-generate.lazy').then((d) => d.Route),
-)
-const QaRoute = QaRouteImport.update({
-  id: '/qa',
-  path: '/qa',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/qa.lazy').then((d) => d.Route))
-const PromoterRoute = PromoterRouteImport.update({
-  id: '/promoter',
-  path: '/promoter',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/promoter.lazy').then((d) => d.Route))
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/privacy.lazy').then((d) => d.Route))
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/pricing.lazy').then((d) => d.Route))
-const PortalRoute = PortalRouteImport.update({
-  id: '/portal',
-  path: '/portal',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/portal.lazy').then((d) => d.Route))
-const PlanRoute = PlanRouteImport.update({
-  id: '/plan',
-  path: '/plan',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/plan.lazy').then((d) => d.Route))
-const PassportRoute = PassportRouteImport.update({
-  id: '/passport',
-  path: '/passport',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/passport.lazy').then((d) => d.Route))
-const PartnersRoute = PartnersRouteImport.update({
-  id: '/partners',
-  path: '/partners',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/partners.lazy').then((d) => d.Route))
-const PartnerRoute = PartnerRouteImport.update({
-  id: '/partner',
-  path: '/partner',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/partner.lazy').then((d) => d.Route))
-const OnboardingRoute = OnboardingRouteImport.update({
-  id: '/onboarding',
-  path: '/onboarding',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NightPlannerRoute = NightPlannerRouteImport.update({
-  id: '/night-planner',
-  path: '/night-planner',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MeRoute = MeRouteImport.update({
-  id: '/me',
-  path: '/me',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InvestorsRoute = InvestorsRouteImport.update({
-  id: '/investors',
-  path: '/investors',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const InfluencerRoute = InfluencerRouteImport.update({
   id: '/influencer',
   path: '/influencer',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/influencer.lazy').then((d) => d.Route))
-const HowItWorksRoute = HowItWorksRouteImport.update({
-  id: '/how-it-works',
-  path: '/how-it-works',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const HealthRoute = HealthRouteImport.update({
   id: '/health',
   path: '/health',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuidesRoute = GuidesRouteImport.update({
-  id: '/guides',
-  path: '/guides',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GroupOutingRoute = GroupOutingRouteImport.update({
-  id: '/group-outing',
-  path: '/group-outing',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ForBusinessRoute = ForBusinessRouteImport.update({
   id: '/for-business',
   path: '/for-business',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeaturesRoute = FeaturesRouteImport.update({
-  id: '/features',
-  path: '/features',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FavoritesRoute = FavoritesRouteImport.update({
-  id: '/favorites',
-  path: '/favorites',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/faq.lazy').then((d) => d.Route))
-const EventPackRoute = EventPackRouteImport.update({
-  id: '/event-pack',
-  path: '/event-pack',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DiscoverRoute = DiscoverRouteImport.update({
-  id: '/discover',
-  path: '/discover',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DataTermsRoute = DataTermsRouteImport.update({
-  id: '/data-terms',
-  path: '/data-terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CreateRoute = CreateRouteImport.update({
-  id: '/create',
-  path: '/create',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CorporateRoute = CorporateRouteImport.update({
-  id: '/corporate',
-  path: '/corporate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CookiesRoute = CookiesRouteImport.update({
-  id: '/cookies',
-  path: '/cookies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConfirmationRoute = ConfirmationRouteImport.update({
-  id: '/confirmation',
-  path: '/confirmation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConciergeRoute = ConciergeRouteImport.update({
-  id: '/concierge',
-  path: '/concierge',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CityGuidesRoute = CityGuidesRouteImport.update({
-  id: '/city-guides',
-  path: '/city-guides',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckInRoute = CheckInRouteImport.update({
@@ -487,11 +99,6 @@ const ChatRoute = ChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BoardingPassPlannerRoute = BoardingPassPlannerRouteImport.update({
-  id: '/boarding-pass-planner',
-  path: '/boarding-pass-planner',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BoardingPassRoute = BoardingPassRouteImport.update({
   id: '/boarding-pass',
   path: '/boarding-pass',
@@ -502,38 +109,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/auth.lazy').then((d) => d.Route))
-const AskRoute = AskRouteImport.update({
-  id: '/ask',
-  path: '/ask',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AppRoute = AppRouteImport.update({
   id: '/app',
   path: '/app',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdvertiseRoute = AdvertiseRouteImport.update({
-  id: '/advertise',
-  path: '/advertise',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/admin.lazy').then((d) => d.Route))
-const ActiveLoopRoute = ActiveLoopRouteImport.update({
-  id: '/active-loop',
-  path: '/active-loop',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/active-loop.lazy').then((d) => d.Route))
-const ActiveConfettiRoute = ActiveConfettiRouteImport.update({
-  id: '/active-confetti',
-  path: '/active-confetti',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/active-confetti.lazy').then((d) => d.Route),
-)
 const AccessibilityRoute = AccessibilityRouteImport.update({
   id: '/accessibility',
   path: '/accessibility',
@@ -559,40 +139,10 @@ const TripsIndexRoute = TripsIndexRouteImport.update({
   path: '/trips/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeamsIndexRoute = TeamsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => TeamsRoute,
-} as any)
-const PromoterIndexRoute = PromoterIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => PromoterRoute,
-} as any)
-const PortalIndexRoute = PortalIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PartnerIndexRoute = PartnerIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => PartnerRoute,
-} as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const CorporateIndexRoute = CorporateIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ConciergeRoute,
 } as any)
 const BusinessIndexRoute = BusinessIndexRouteImport.update({
   id: '/business/',
@@ -604,23 +154,6 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
-const AdvertiseIndexRoute = AdvertiseIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdvertiseRoute,
-} as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.index.lazy').then((d) => d.Route))
-const AdminCityIdeasLazyRoute = AdminCityIdeasLazyRouteImport.update({
-  id: '/city-ideas',
-  path: '/city-ideas',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.city-ideas.lazy').then((d) => d.Route),
-)
 const VenueIdRoute = VenueIdRouteImport.update({
   id: '/venue/$id',
   path: '/venue/$id',
@@ -631,179 +164,9 @@ const TripsIdRoute = TripsIdRouteImport.update({
   path: '/trips/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeamsNewRoute = TeamsNewRouteImport.update({
-  id: '/new',
-  path: '/new',
-  getParentRoute: () => TeamsRoute,
-} as any)
-const TeamsIdRoute = TeamsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => TeamsRoute,
-} as any)
-const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
-  id: '/rsvp/$tripId',
-  path: '/rsvp/$tripId',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RsvpTokenRoute = RsvpTokenRouteImport.update({
-  id: '/rsvp/$token',
-  path: '/rsvp/$token',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RecapItineraryIdRoute = RecapItineraryIdRouteImport.update({
-  id: '/recap/$itineraryId',
-  path: '/recap/$itineraryId',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const QaTestPlanRoute = QaTestPlanRouteImport.update({
-  id: '/test-plan',
-  path: '/test-plan',
-  getParentRoute: () => QaRoute,
-} as any)
-const PromoterJobsRoute = PromoterJobsRouteImport.update({
-  id: '/jobs',
-  path: '/jobs',
-  getParentRoute: () => PromoterRoute,
-} as any)
-const ProfilePreferencesRoute = ProfilePreferencesRouteImport.update({
-  id: '/profile/preferences',
-  path: '/profile/preferences',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PortalWalletRoute = PortalWalletRouteImport.update({
-  id: '/wallet',
-  path: '/wallet',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalViralRoute = PortalViralRouteImport.update({
-  id: '/viral',
-  path: '/viral',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalSavedRoute = PortalSavedRouteImport.update({
-  id: '/saved',
-  path: '/saved',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalReferRoute = PortalReferRouteImport.update({
-  id: '/refer',
-  path: '/refer',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalProfileRoute = PortalProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalPassportRoute = PortalPassportRouteImport.update({
-  id: '/passport',
-  path: '/passport',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalBriefRoute = PortalBriefRouteImport.update({
-  id: '/brief',
-  path: '/brief',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalBookingsRoute = PortalBookingsRouteImport.update({
-  id: '/bookings',
-  path: '/bookings',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalActivityRoute = PortalActivityRouteImport.update({
-  id: '/activity',
-  path: '/activity',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PortalAchievementsRoute = PortalAchievementsRouteImport.update({
-  id: '/achievements',
-  path: '/achievements',
-  getParentRoute: () => PortalRoute,
-} as any)
-const PlanReadyRoute = PlanReadyRouteImport.update({
-  id: '/ready',
-  path: '/ready',
-  getParentRoute: () => PlanRoute,
-} as any)
-const PlanPreviewRoute = PlanPreviewRouteImport.update({
-  id: '/preview',
-  path: '/preview',
-  getParentRoute: () => PlanRoute,
-} as any)
-const PartnerSupportRoute = PartnerSupportRouteImport.update({
-  id: '/support',
-  path: '/support',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerSuggestionsRoute = PartnerSuggestionsRouteImport.update({
-  id: '/suggestions',
-  path: '/suggestions',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerReservationsRoute = PartnerReservationsRouteImport.update({
-  id: '/reservations',
-  path: '/reservations',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerPromotionsRoute = PartnerPromotionsRouteImport.update({
-  id: '/promotions',
-  path: '/promotions',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerProfileRoute = PartnerProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerOrdersRoute = PartnerOrdersRouteImport.update({
-  id: '/orders',
-  path: '/orders',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerOrderSettingsRoute = PartnerOrderSettingsRouteImport.update({
-  id: '/order-settings',
-  path: '/order-settings',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerMenuRoute = PartnerMenuRouteImport.update({
-  id: '/menu',
-  path: '/menu',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerCalendarRoute = PartnerCalendarRouteImport.update({
-  id: '/calendar',
-  path: '/calendar',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerBookingSettingsRoute = PartnerBookingSettingsRouteImport.update({
-  id: '/booking-settings',
-  path: '/booking-settings',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerBillingRoute = PartnerBillingRouteImport.update({
-  id: '/billing',
-  path: '/billing',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerApiRoute = PartnerApiRouteImport.update({
-  id: '/api',
-  path: '/api',
-  getParentRoute: () => PartnerRoute,
-} as any)
-const PartnerAnalyticsRoute = PartnerAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => PartnerRoute,
-} as any)
 const PCodeRoute = PCodeRouteImport.update({
   id: '/p/$code',
   path: '/p/$code',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IdeasSlugRoute = IdeasSlugRouteImport.update({
-  id: '/ideas/$slug',
-  path: '/ideas/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsEventIdRoute = EventsEventIdRouteImport.update({
@@ -811,121 +174,14 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   path: '/events/$eventId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CorporateTeamsRoute = CorporateTeamsRouteImport.update({
-  id: '/teams',
-  path: '/teams',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const CorporateSettingsRoute = CorporateSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const CorporateReportingRoute = CorporateReportingRouteImport.update({
-  id: '/reporting',
-  path: '/reporting',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const CorporatePoliciesRoute = CorporatePoliciesRouteImport.update({
-  id: '/policies',
-  path: '/policies',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const CorporatePlannerRoute = CorporatePlannerRouteImport.update({
-  id: '/planner',
-  path: '/planner',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const CorporateLoginRoute = CorporateLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const CorporateBookingsRoute = CorporateBookingsRouteImport.update({
-  id: '/bookings',
-  path: '/bookings',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const CorporateApprovalsRoute = CorporateApprovalsRouteImport.update({
-  id: '/approvals',
-  path: '/approvals',
-  getParentRoute: () => CorporateRoute,
-} as any)
-const ConciergeProfileRoute = ConciergeProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => ConciergeRoute,
-} as any)
-const ConciergePassportRoute = ConciergePassportRouteImport.update({
-  id: '/passport',
-  path: '/passport',
-  getParentRoute: () => ConciergeRoute,
-} as any)
-const CollabTripIdRoute = CollabTripIdRouteImport.update({
-  id: '/collab/$tripId',
-  path: '/collab/$tripId',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   id: '/checkout/return',
   path: '/checkout/return',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BusinessSocialRoute = BusinessSocialRouteImport.update({
-  id: '/business/social',
-  path: '/business/social',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessSignupRoute = BusinessSignupRouteImport.update({
-  id: '/business/signup',
-  path: '/business/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessSettingsRoute = BusinessSettingsRouteImport.update({
-  id: '/business/settings',
-  path: '/business/settings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessRegisterRoute = BusinessRegisterRouteImport.update({
-  id: '/business/register',
-  path: '/business/register',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/business.register.lazy').then((d) => d.Route),
-)
-const BusinessPromotersRoute = BusinessPromotersRouteImport.update({
-  id: '/business/promoters',
-  path: '/business/promoters',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessPricingRoute = BusinessPricingRouteImport.update({
-  id: '/business/pricing',
-  path: '/business/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessPendingRoute = BusinessPendingRouteImport.update({
-  id: '/business/pending',
-  path: '/business/pending',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessPayoutsRoute = BusinessPayoutsRouteImport.update({
-  id: '/business/payouts',
-  path: '/business/payouts',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessMediaRoute = BusinessMediaRouteImport.update({
-  id: '/business/media',
-  path: '/business/media',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BusinessLoginRoute = BusinessLoginRouteImport.update({
   id: '/business/login',
   path: '/business/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessEventsRoute = BusinessEventsRouteImport.update({
-  id: '/business/events',
-  path: '/business/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessDashboardRoute = BusinessDashboardRouteImport.update({
@@ -936,16 +192,6 @@ const BusinessDashboardRoute = BusinessDashboardRouteImport.update({
 const BusinessClaimRoute = BusinessClaimRouteImport.update({
   id: '/business/claim',
   path: '/business/claim',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessBillingRoute = BusinessBillingRouteImport.update({
-  id: '/business/billing',
-  path: '/business/billing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessAiRefreshRoute = BusinessAiRefreshRouteImport.update({
-  id: '/business/ai-refresh',
-  path: '/business/ai-refresh',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppReelsRoute = AppReelsRouteImport.update({
@@ -978,240 +224,10 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdvertiseReportsRoute = AdvertiseReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => AdvertiseRoute,
-} as any)
-const AdvertisePortalRoute = AdvertisePortalRouteImport.update({
-  id: '/portal',
-  path: '/portal',
-  getParentRoute: () => AdvertiseRoute,
-} as any)
-const AdminWalletDebugRoute = AdminWalletDebugRouteImport.update({
-  id: '/wallet-debug',
-  path: '/wallet-debug',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.wallet-debug.lazy').then((d) => d.Route),
-)
-const AdminVenuesRoute = AdminVenuesRouteImport.update({
-  id: '/venues',
-  path: '/venues',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.venues.lazy').then((d) => d.Route))
-const AdminUsersRoute = AdminUsersRouteImport.update({
-  id: '/users',
-  path: '/users',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.users.lazy').then((d) => d.Route))
-const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.testimonials.lazy').then((d) => d.Route),
-)
-const AdminSettingsRoute = AdminSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.settings.lazy').then((d) => d.Route),
-)
-const AdminRoutesMapRoute = AdminRoutesMapRouteImport.update({
-  id: '/routes-map',
-  path: '/routes-map',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.routes-map.lazy').then((d) => d.Route),
-)
-const AdminRolesRoute = AdminRolesRouteImport.update({
-  id: '/roles',
-  path: '/roles',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.roles.lazy').then((d) => d.Route))
-const AdminPromotersRoute = AdminPromotersRouteImport.update({
-  id: '/promoters',
-  path: '/promoters',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.promoters.lazy').then((d) => d.Route),
-)
-const AdminPickAnalyticsRoute = AdminPickAnalyticsRouteImport.update({
-  id: '/pick-analytics',
-  path: '/pick-analytics',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.pick-analytics.lazy').then((d) => d.Route),
-)
-const AdminOutreachRoute = AdminOutreachRouteImport.update({
-  id: '/outreach',
-  path: '/outreach',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.outreach.lazy').then((d) => d.Route),
-)
-const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
-  id: '/notifications',
-  path: '/notifications',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.notifications.lazy').then((d) => d.Route),
-)
-const AdminModerationRoute = AdminModerationRouteImport.update({
-  id: '/moderation',
-  path: '/moderation',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.moderation.lazy').then((d) => d.Route),
-)
-const AdminMarqueeRoute = AdminMarqueeRouteImport.update({
-  id: '/marquee',
-  path: '/marquee',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.marquee.lazy').then((d) => d.Route))
-const AdminLogsRoute = AdminLogsRouteImport.update({
-  id: '/logs',
-  path: '/logs',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.logs.lazy').then((d) => d.Route))
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.login.lazy').then((d) => d.Route))
-const AdminLaunchRoute = AdminLaunchRouteImport.update({
-  id: '/launch',
-  path: '/launch',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.launch.lazy').then((d) => d.Route))
-const AdminIntegrationsRoute = AdminIntegrationsRouteImport.update({
-  id: '/integrations',
-  path: '/integrations',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.integrations.lazy').then((d) => d.Route),
-)
-const AdminHealthRoute = AdminHealthRouteImport.update({
-  id: '/health',
-  path: '/health',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.health.lazy').then((d) => d.Route))
-const AdminEventAnalyticsRoute = AdminEventAnalyticsRouteImport.update({
-  id: '/event-analytics',
-  path: '/event-analytics',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.event-analytics.lazy').then((d) => d.Route),
-)
-const AdminDiagnosticsRoute = AdminDiagnosticsRouteImport.update({
-  id: '/diagnostics',
-  path: '/diagnostics',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.diagnostics.lazy').then((d) => d.Route),
-)
-const AdminDeployPreflightRoute = AdminDeployPreflightRouteImport.update({
-  id: '/deploy-preflight',
-  path: '/deploy-preflight',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.deploy-preflight.lazy').then((d) => d.Route),
-)
-const AdminContractsRoute = AdminContractsRouteImport.update({
-  id: '/contracts',
-  path: '/contracts',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.contracts.lazy').then((d) => d.Route),
-)
-const AdminBusinessClaimsRoute = AdminBusinessClaimsRouteImport.update({
-  id: '/business-claims',
-  path: '/business-claims',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.business-claims.lazy').then((d) => d.Route),
-)
-const AdminBriefRoute = AdminBriefRouteImport.update({
-  id: '/brief',
-  path: '/brief',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminBootstrapRoute = AdminBootstrapRouteImport.update({
-  id: '/bootstrap',
-  path: '/bootstrap',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.bootstrap.lazy').then((d) => d.Route),
-)
-const AdminBookingsRoute = AdminBookingsRouteImport.update({
-  id: '/bookings',
-  path: '/bookings',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.bookings.lazy').then((d) => d.Route),
-)
-const AdminAuditRoute = AdminAuditRouteImport.update({
-  id: '/audit',
-  path: '/audit',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.audit.lazy').then((d) => d.Route))
-const AdminAskRoute = AdminAskRouteImport.update({
-  id: '/ask',
-  path: '/ask',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.ask.lazy').then((d) => d.Route))
-const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.analytics.lazy').then((d) => d.Route),
-)
-const AdminAgentsRoute = AdminAgentsRouteImport.update({
-  id: '/agents',
-  path: '/agents',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() => import('./routes/admin.agents.lazy').then((d) => d.Route))
-const AdminAdvertisersRoute = AdminAdvertisersRouteImport.update({
-  id: '/advertisers',
-  path: '/advertisers',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.advertisers.lazy').then((d) => d.Route),
-)
-const AdminAdAnalyticsRoute = AdminAdAnalyticsRouteImport.update({
-  id: '/ad-analytics',
-  path: '/ad-analytics',
-  getParentRoute: () => AdminRoute,
-} as any).lazy(() =>
-  import('./routes/admin.ad-analytics.lazy').then((d) => d.Route),
-)
-const ConciergeChatIndexRoute = ConciergeChatIndexRouteImport.update({
-  id: '/chat/',
-  path: '/chat/',
-  getParentRoute: () => ConciergeRoute,
-} as any)
 const TripsIdPassportRoute = TripsIdPassportRouteImport.update({
   id: '/passport',
   path: '/passport',
   getParentRoute: () => TripsIdRoute,
-} as any)
-const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
-  id: '/chat/$threadId',
-  path: '/chat/$threadId',
-  getParentRoute: () => ConciergeRoute,
-} as any)
-const BusinessClaimPendingRoute = BusinessClaimPendingRouteImport.update({
-  id: '/pending',
-  path: '/pending',
-  getParentRoute: () => BusinessClaimRoute,
-} as any)
-const ApiQaRunRoute = ApiQaRunRouteImport.update({
-  id: '/api/qa/run',
-  path: '/api/qa/run',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
   id: '/api/public/pick-events',
@@ -1227,11 +243,6 @@ const ApiMapsSatelliteRoute = ApiMapsSatelliteRouteImport.update({
   id: '/api/maps/satellite',
   path: '/api/maps/satellite',
   getParentRoute: () => rootRouteImport,
-} as any)
-const AdvertiseStoriesSlugRoute = AdvertiseStoriesSlugRouteImport.update({
-  id: '/stories/$slug',
-  path: '/stories/$slug',
-  getParentRoute: () => AdvertiseRoute,
 } as any)
 const ApiPublicWebhooksPartnerRoute =
   ApiPublicWebhooksPartnerRouteImport.update({
@@ -1344,194 +355,38 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
-  '/active-confetti': typeof ActiveConfettiRoute
-  '/active-loop': typeof ActiveLoopRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/advertise': typeof AdvertiseRouteWithChildren
   '/app': typeof AppRouteWithChildren
-  '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
-  '/boarding-pass-planner': typeof BoardingPassPlannerRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
-  '/city-guides': typeof CityGuidesRoute
-  '/concierge': typeof ConciergeRouteWithChildren
-  '/confirmation': typeof ConfirmationRoute
-  '/contact': typeof ContactRoute
-  '/cookies': typeof CookiesRoute
-  '/corporate': typeof CorporateRouteWithChildren
-  '/create': typeof CreateRoute
-  '/data-terms': typeof DataTermsRoute
-  '/discover': typeof DiscoverRoute
-  '/event-pack': typeof EventPackRoute
-  '/faq': typeof FaqRoute
-  '/favorites': typeof FavoritesRoute
-  '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
-  '/group-outing': typeof GroupOutingRoute
-  '/guides': typeof GuidesRoute
   '/health': typeof HealthRoute
-  '/how-it-works': typeof HowItWorksRoute
   '/influencer': typeof InfluencerRoute
-  '/investors': typeof InvestorsRoute
-  '/login': typeof LoginRoute
-  '/me': typeof MeRoute
-  '/night-planner': typeof NightPlannerRoute
-  '/onboarding': typeof OnboardingRoute
-  '/partner': typeof PartnerRouteWithChildren
-  '/partners': typeof PartnersRoute
-  '/passport': typeof PassportRoute
-  '/plan': typeof PlanRouteWithChildren
-  '/portal': typeof PortalRouteWithChildren
-  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
-  '/promoter': typeof PromoterRouteWithChildren
-  '/qa': typeof QaRouteWithChildren
-  '/quick-generate': typeof QuickGenerateRoute
-  '/reservations': typeof ReservationsRoute
-  '/reset-password': typeof ResetPasswordRoute
-  '/scan': typeof ScanRoute
-  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/taste-tuner': typeof TasteTunerRoute
-  '/team-events': typeof TeamEventsRoute
-  '/teams': typeof TeamsRouteWithChildren
-  '/terms': typeof TermsRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/tonight': typeof TonightRoute
-  '/translate': typeof TranslateRoute
-  '/vibe-picker': typeof VibePickerRoute
-  '/vibe-plans': typeof VibePlansRoute
-  '/viral': typeof ViralRoute
-  '/weather': typeof WeatherRoute
-  '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
-  '/admin/advertisers': typeof AdminAdvertisersRoute
-  '/admin/agents': typeof AdminAgentsRoute
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/ask': typeof AdminAskRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/bookings': typeof AdminBookingsRoute
-  '/admin/bootstrap': typeof AdminBootstrapRoute
-  '/admin/brief': typeof AdminBriefRoute
-  '/admin/business-claims': typeof AdminBusinessClaimsRoute
-  '/admin/contracts': typeof AdminContractsRoute
-  '/admin/deploy-preflight': typeof AdminDeployPreflightRoute
-  '/admin/diagnostics': typeof AdminDiagnosticsRoute
-  '/admin/event-analytics': typeof AdminEventAnalyticsRoute
-  '/admin/health': typeof AdminHealthRoute
-  '/admin/integrations': typeof AdminIntegrationsRoute
-  '/admin/launch': typeof AdminLaunchRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/admin/logs': typeof AdminLogsRoute
-  '/admin/marquee': typeof AdminMarqueeRoute
-  '/admin/moderation': typeof AdminModerationRoute
-  '/admin/notifications': typeof AdminNotificationsRoute
-  '/admin/outreach': typeof AdminOutreachRoute
-  '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
-  '/admin/promoters': typeof AdminPromotersRoute
-  '/admin/roles': typeof AdminRolesRoute
-  '/admin/routes-map': typeof AdminRoutesMapRoute
-  '/admin/settings': typeof AdminSettingsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/venues': typeof AdminVenuesRoute
-  '/admin/wallet-debug': typeof AdminWalletDebugRoute
-  '/advertise/portal': typeof AdvertisePortalRoute
-  '/advertise/reports': typeof AdvertiseReportsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
-  '/business/ai-refresh': typeof BusinessAiRefreshRoute
-  '/business/billing': typeof BusinessBillingRoute
-  '/business/claim': typeof BusinessClaimRouteWithChildren
+  '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
-  '/business/events': typeof BusinessEventsRoute
   '/business/login': typeof BusinessLoginRoute
-  '/business/media': typeof BusinessMediaRoute
-  '/business/payouts': typeof BusinessPayoutsRoute
-  '/business/pending': typeof BusinessPendingRoute
-  '/business/pricing': typeof BusinessPricingRoute
-  '/business/promoters': typeof BusinessPromotersRoute
-  '/business/register': typeof BusinessRegisterRoute
-  '/business/settings': typeof BusinessSettingsRoute
-  '/business/signup': typeof BusinessSignupRoute
-  '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
-  '/collab/$tripId': typeof CollabTripIdRoute
-  '/concierge/passport': typeof ConciergePassportRoute
-  '/concierge/profile': typeof ConciergeProfileRoute
-  '/corporate/approvals': typeof CorporateApprovalsRoute
-  '/corporate/bookings': typeof CorporateBookingsRoute
-  '/corporate/login': typeof CorporateLoginRoute
-  '/corporate/planner': typeof CorporatePlannerRoute
-  '/corporate/policies': typeof CorporatePoliciesRoute
-  '/corporate/reporting': typeof CorporateReportingRoute
-  '/corporate/settings': typeof CorporateSettingsRoute
-  '/corporate/teams': typeof CorporateTeamsRoute
   '/events/$eventId': typeof EventsEventIdRoute
-  '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
-  '/partner/analytics': typeof PartnerAnalyticsRoute
-  '/partner/api': typeof PartnerApiRoute
-  '/partner/billing': typeof PartnerBillingRoute
-  '/partner/booking-settings': typeof PartnerBookingSettingsRoute
-  '/partner/calendar': typeof PartnerCalendarRoute
-  '/partner/menu': typeof PartnerMenuRoute
-  '/partner/order-settings': typeof PartnerOrderSettingsRoute
-  '/partner/orders': typeof PartnerOrdersRoute
-  '/partner/profile': typeof PartnerProfileRoute
-  '/partner/promotions': typeof PartnerPromotionsRoute
-  '/partner/reservations': typeof PartnerReservationsRoute
-  '/partner/suggestions': typeof PartnerSuggestionsRoute
-  '/partner/support': typeof PartnerSupportRoute
-  '/plan/preview': typeof PlanPreviewRoute
-  '/plan/ready': typeof PlanReadyRoute
-  '/portal/achievements': typeof PortalAchievementsRoute
-  '/portal/activity': typeof PortalActivityRoute
-  '/portal/bookings': typeof PortalBookingsRoute
-  '/portal/brief': typeof PortalBriefRoute
-  '/portal/passport': typeof PortalPassportRoute
-  '/portal/profile': typeof PortalProfileRoute
-  '/portal/refer': typeof PortalReferRoute
-  '/portal/saved': typeof PortalSavedRoute
-  '/portal/viral': typeof PortalViralRoute
-  '/portal/wallet': typeof PortalWalletRoute
-  '/profile/preferences': typeof ProfilePreferencesRoute
-  '/promoter/jobs': typeof PromoterJobsRoute
-  '/qa/test-plan': typeof QaTestPlanRoute
-  '/recap/$itineraryId': typeof RecapItineraryIdRoute
-  '/rsvp/$token': typeof RsvpTokenRoute
-  '/rsvp/$tripId': typeof RsvpTripIdRoute
-  '/teams/$id': typeof TeamsIdRoute
-  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
-  '/admin/city-ideas': typeof AdminCityIdeasLazyRoute
-  '/admin/': typeof AdminIndexRoute
-  '/advertise/': typeof AdvertiseIndexRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
-  '/concierge/': typeof ConciergeIndexRoute
-  '/corporate/': typeof CorporateIndexRoute
   '/events/': typeof EventsIndexRoute
-  '/partner/': typeof PartnerIndexRoute
-  '/portal/': typeof PortalIndexRoute
-  '/promoter/': typeof PromoterIndexRoute
-  '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
-  '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
-  '/api/qa/run': typeof ApiQaRunRoute
-  '/business/claim/pending': typeof BusinessClaimPendingRoute
-  '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
-  '/concierge/chat/': typeof ConciergeChatIndexRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
@@ -1556,185 +411,37 @@ export interface FileRoutesByTo {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
-  '/active-confetti': typeof ActiveConfettiRoute
-  '/active-loop': typeof ActiveLoopRoute
-  '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
-  '/boarding-pass-planner': typeof BoardingPassPlannerRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
-  '/city-guides': typeof CityGuidesRoute
-  '/confirmation': typeof ConfirmationRoute
-  '/contact': typeof ContactRoute
-  '/cookies': typeof CookiesRoute
-  '/create': typeof CreateRoute
-  '/data-terms': typeof DataTermsRoute
-  '/discover': typeof DiscoverRoute
-  '/event-pack': typeof EventPackRoute
-  '/faq': typeof FaqRoute
-  '/favorites': typeof FavoritesRoute
-  '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
-  '/group-outing': typeof GroupOutingRoute
-  '/guides': typeof GuidesRoute
   '/health': typeof HealthRoute
-  '/how-it-works': typeof HowItWorksRoute
   '/influencer': typeof InfluencerRoute
-  '/investors': typeof InvestorsRoute
-  '/login': typeof LoginRoute
-  '/me': typeof MeRoute
-  '/night-planner': typeof NightPlannerRoute
-  '/onboarding': typeof OnboardingRoute
-  '/partners': typeof PartnersRoute
-  '/passport': typeof PassportRoute
-  '/plan': typeof PlanRouteWithChildren
-  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
-  '/qa': typeof QaRouteWithChildren
-  '/quick-generate': typeof QuickGenerateRoute
-  '/reservations': typeof ReservationsRoute
-  '/reset-password': typeof ResetPasswordRoute
-  '/scan': typeof ScanRoute
-  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/taste-tuner': typeof TasteTunerRoute
-  '/team-events': typeof TeamEventsRoute
-  '/terms': typeof TermsRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/tonight': typeof TonightRoute
-  '/translate': typeof TranslateRoute
-  '/vibe-picker': typeof VibePickerRoute
-  '/vibe-plans': typeof VibePlansRoute
-  '/viral': typeof ViralRoute
-  '/weather': typeof WeatherRoute
-  '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
-  '/admin/advertisers': typeof AdminAdvertisersRoute
-  '/admin/agents': typeof AdminAgentsRoute
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/ask': typeof AdminAskRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/bookings': typeof AdminBookingsRoute
-  '/admin/bootstrap': typeof AdminBootstrapRoute
-  '/admin/brief': typeof AdminBriefRoute
-  '/admin/business-claims': typeof AdminBusinessClaimsRoute
-  '/admin/contracts': typeof AdminContractsRoute
-  '/admin/deploy-preflight': typeof AdminDeployPreflightRoute
-  '/admin/diagnostics': typeof AdminDiagnosticsRoute
-  '/admin/event-analytics': typeof AdminEventAnalyticsRoute
-  '/admin/health': typeof AdminHealthRoute
-  '/admin/integrations': typeof AdminIntegrationsRoute
-  '/admin/launch': typeof AdminLaunchRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/admin/logs': typeof AdminLogsRoute
-  '/admin/marquee': typeof AdminMarqueeRoute
-  '/admin/moderation': typeof AdminModerationRoute
-  '/admin/notifications': typeof AdminNotificationsRoute
-  '/admin/outreach': typeof AdminOutreachRoute
-  '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
-  '/admin/promoters': typeof AdminPromotersRoute
-  '/admin/roles': typeof AdminRolesRoute
-  '/admin/routes-map': typeof AdminRoutesMapRoute
-  '/admin/settings': typeof AdminSettingsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/venues': typeof AdminVenuesRoute
-  '/admin/wallet-debug': typeof AdminWalletDebugRoute
-  '/advertise/portal': typeof AdvertisePortalRoute
-  '/advertise/reports': typeof AdvertiseReportsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
-  '/business/ai-refresh': typeof BusinessAiRefreshRoute
-  '/business/billing': typeof BusinessBillingRoute
-  '/business/claim': typeof BusinessClaimRouteWithChildren
+  '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
-  '/business/events': typeof BusinessEventsRoute
   '/business/login': typeof BusinessLoginRoute
-  '/business/media': typeof BusinessMediaRoute
-  '/business/payouts': typeof BusinessPayoutsRoute
-  '/business/pending': typeof BusinessPendingRoute
-  '/business/pricing': typeof BusinessPricingRoute
-  '/business/promoters': typeof BusinessPromotersRoute
-  '/business/register': typeof BusinessRegisterRoute
-  '/business/settings': typeof BusinessSettingsRoute
-  '/business/signup': typeof BusinessSignupRoute
-  '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
-  '/collab/$tripId': typeof CollabTripIdRoute
-  '/concierge/passport': typeof ConciergePassportRoute
-  '/concierge/profile': typeof ConciergeProfileRoute
-  '/corporate/approvals': typeof CorporateApprovalsRoute
-  '/corporate/bookings': typeof CorporateBookingsRoute
-  '/corporate/login': typeof CorporateLoginRoute
-  '/corporate/planner': typeof CorporatePlannerRoute
-  '/corporate/policies': typeof CorporatePoliciesRoute
-  '/corporate/reporting': typeof CorporateReportingRoute
-  '/corporate/settings': typeof CorporateSettingsRoute
-  '/corporate/teams': typeof CorporateTeamsRoute
   '/events/$eventId': typeof EventsEventIdRoute
-  '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
-  '/partner/analytics': typeof PartnerAnalyticsRoute
-  '/partner/api': typeof PartnerApiRoute
-  '/partner/billing': typeof PartnerBillingRoute
-  '/partner/booking-settings': typeof PartnerBookingSettingsRoute
-  '/partner/calendar': typeof PartnerCalendarRoute
-  '/partner/menu': typeof PartnerMenuRoute
-  '/partner/order-settings': typeof PartnerOrderSettingsRoute
-  '/partner/orders': typeof PartnerOrdersRoute
-  '/partner/profile': typeof PartnerProfileRoute
-  '/partner/promotions': typeof PartnerPromotionsRoute
-  '/partner/reservations': typeof PartnerReservationsRoute
-  '/partner/suggestions': typeof PartnerSuggestionsRoute
-  '/partner/support': typeof PartnerSupportRoute
-  '/plan/preview': typeof PlanPreviewRoute
-  '/plan/ready': typeof PlanReadyRoute
-  '/portal/achievements': typeof PortalAchievementsRoute
-  '/portal/activity': typeof PortalActivityRoute
-  '/portal/bookings': typeof PortalBookingsRoute
-  '/portal/brief': typeof PortalBriefRoute
-  '/portal/passport': typeof PortalPassportRoute
-  '/portal/profile': typeof PortalProfileRoute
-  '/portal/refer': typeof PortalReferRoute
-  '/portal/saved': typeof PortalSavedRoute
-  '/portal/viral': typeof PortalViralRoute
-  '/portal/wallet': typeof PortalWalletRoute
-  '/profile/preferences': typeof ProfilePreferencesRoute
-  '/promoter/jobs': typeof PromoterJobsRoute
-  '/qa/test-plan': typeof QaTestPlanRoute
-  '/recap/$itineraryId': typeof RecapItineraryIdRoute
-  '/rsvp/$token': typeof RsvpTokenRoute
-  '/rsvp/$tripId': typeof RsvpTripIdRoute
-  '/teams/$id': typeof TeamsIdRoute
-  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
-  '/admin/city-ideas': typeof AdminCityIdeasLazyRoute
-  '/admin': typeof AdminIndexRoute
-  '/advertise': typeof AdvertiseIndexRoute
   '/app': typeof AppIndexRoute
   '/business': typeof BusinessIndexRoute
-  '/concierge': typeof ConciergeIndexRoute
-  '/corporate': typeof CorporateIndexRoute
   '/events': typeof EventsIndexRoute
-  '/partner': typeof PartnerIndexRoute
-  '/portal': typeof PortalIndexRoute
-  '/promoter': typeof PromoterIndexRoute
-  '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
-  '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
-  '/api/qa/run': typeof ApiQaRunRoute
-  '/business/claim/pending': typeof BusinessClaimPendingRoute
-  '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
-  '/concierge/chat': typeof ConciergeChatIndexRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
@@ -1760,194 +467,38 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
-  '/active-confetti': typeof ActiveConfettiRoute
-  '/active-loop': typeof ActiveLoopRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/advertise': typeof AdvertiseRouteWithChildren
   '/app': typeof AppRouteWithChildren
-  '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
-  '/boarding-pass-planner': typeof BoardingPassPlannerRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
-  '/city-guides': typeof CityGuidesRoute
-  '/concierge': typeof ConciergeRouteWithChildren
-  '/confirmation': typeof ConfirmationRoute
-  '/contact': typeof ContactRoute
-  '/cookies': typeof CookiesRoute
-  '/corporate': typeof CorporateRouteWithChildren
-  '/create': typeof CreateRoute
-  '/data-terms': typeof DataTermsRoute
-  '/discover': typeof DiscoverRoute
-  '/event-pack': typeof EventPackRoute
-  '/faq': typeof FaqRoute
-  '/favorites': typeof FavoritesRoute
-  '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
-  '/group-outing': typeof GroupOutingRoute
-  '/guides': typeof GuidesRoute
   '/health': typeof HealthRoute
-  '/how-it-works': typeof HowItWorksRoute
   '/influencer': typeof InfluencerRoute
-  '/investors': typeof InvestorsRoute
-  '/login': typeof LoginRoute
-  '/me': typeof MeRoute
-  '/night-planner': typeof NightPlannerRoute
-  '/onboarding': typeof OnboardingRoute
-  '/partner': typeof PartnerRouteWithChildren
-  '/partners': typeof PartnersRoute
-  '/passport': typeof PassportRoute
-  '/plan': typeof PlanRouteWithChildren
-  '/portal': typeof PortalRouteWithChildren
-  '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
-  '/promoter': typeof PromoterRouteWithChildren
-  '/qa': typeof QaRouteWithChildren
-  '/quick-generate': typeof QuickGenerateRoute
-  '/reservations': typeof ReservationsRoute
-  '/reset-password': typeof ResetPasswordRoute
-  '/scan': typeof ScanRoute
-  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/taste-tuner': typeof TasteTunerRoute
-  '/team-events': typeof TeamEventsRoute
-  '/teams': typeof TeamsRouteWithChildren
-  '/terms': typeof TermsRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/tonight': typeof TonightRoute
-  '/translate': typeof TranslateRoute
-  '/vibe-picker': typeof VibePickerRoute
-  '/vibe-plans': typeof VibePlansRoute
-  '/viral': typeof ViralRoute
-  '/weather': typeof WeatherRoute
-  '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
-  '/admin/advertisers': typeof AdminAdvertisersRoute
-  '/admin/agents': typeof AdminAgentsRoute
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/ask': typeof AdminAskRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/bookings': typeof AdminBookingsRoute
-  '/admin/bootstrap': typeof AdminBootstrapRoute
-  '/admin/brief': typeof AdminBriefRoute
-  '/admin/business-claims': typeof AdminBusinessClaimsRoute
-  '/admin/contracts': typeof AdminContractsRoute
-  '/admin/deploy-preflight': typeof AdminDeployPreflightRoute
-  '/admin/diagnostics': typeof AdminDiagnosticsRoute
-  '/admin/event-analytics': typeof AdminEventAnalyticsRoute
-  '/admin/health': typeof AdminHealthRoute
-  '/admin/integrations': typeof AdminIntegrationsRoute
-  '/admin/launch': typeof AdminLaunchRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/admin/logs': typeof AdminLogsRoute
-  '/admin/marquee': typeof AdminMarqueeRoute
-  '/admin/moderation': typeof AdminModerationRoute
-  '/admin/notifications': typeof AdminNotificationsRoute
-  '/admin/outreach': typeof AdminOutreachRoute
-  '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
-  '/admin/promoters': typeof AdminPromotersRoute
-  '/admin/roles': typeof AdminRolesRoute
-  '/admin/routes-map': typeof AdminRoutesMapRoute
-  '/admin/settings': typeof AdminSettingsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/venues': typeof AdminVenuesRoute
-  '/admin/wallet-debug': typeof AdminWalletDebugRoute
-  '/advertise/portal': typeof AdvertisePortalRoute
-  '/advertise/reports': typeof AdvertiseReportsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
-  '/business/ai-refresh': typeof BusinessAiRefreshRoute
-  '/business/billing': typeof BusinessBillingRoute
-  '/business/claim': typeof BusinessClaimRouteWithChildren
+  '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
-  '/business/events': typeof BusinessEventsRoute
   '/business/login': typeof BusinessLoginRoute
-  '/business/media': typeof BusinessMediaRoute
-  '/business/payouts': typeof BusinessPayoutsRoute
-  '/business/pending': typeof BusinessPendingRoute
-  '/business/pricing': typeof BusinessPricingRoute
-  '/business/promoters': typeof BusinessPromotersRoute
-  '/business/register': typeof BusinessRegisterRoute
-  '/business/settings': typeof BusinessSettingsRoute
-  '/business/signup': typeof BusinessSignupRoute
-  '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
-  '/collab/$tripId': typeof CollabTripIdRoute
-  '/concierge/passport': typeof ConciergePassportRoute
-  '/concierge/profile': typeof ConciergeProfileRoute
-  '/corporate/approvals': typeof CorporateApprovalsRoute
-  '/corporate/bookings': typeof CorporateBookingsRoute
-  '/corporate/login': typeof CorporateLoginRoute
-  '/corporate/planner': typeof CorporatePlannerRoute
-  '/corporate/policies': typeof CorporatePoliciesRoute
-  '/corporate/reporting': typeof CorporateReportingRoute
-  '/corporate/settings': typeof CorporateSettingsRoute
-  '/corporate/teams': typeof CorporateTeamsRoute
   '/events/$eventId': typeof EventsEventIdRoute
-  '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
-  '/partner/analytics': typeof PartnerAnalyticsRoute
-  '/partner/api': typeof PartnerApiRoute
-  '/partner/billing': typeof PartnerBillingRoute
-  '/partner/booking-settings': typeof PartnerBookingSettingsRoute
-  '/partner/calendar': typeof PartnerCalendarRoute
-  '/partner/menu': typeof PartnerMenuRoute
-  '/partner/order-settings': typeof PartnerOrderSettingsRoute
-  '/partner/orders': typeof PartnerOrdersRoute
-  '/partner/profile': typeof PartnerProfileRoute
-  '/partner/promotions': typeof PartnerPromotionsRoute
-  '/partner/reservations': typeof PartnerReservationsRoute
-  '/partner/suggestions': typeof PartnerSuggestionsRoute
-  '/partner/support': typeof PartnerSupportRoute
-  '/plan/preview': typeof PlanPreviewRoute
-  '/plan/ready': typeof PlanReadyRoute
-  '/portal/achievements': typeof PortalAchievementsRoute
-  '/portal/activity': typeof PortalActivityRoute
-  '/portal/bookings': typeof PortalBookingsRoute
-  '/portal/brief': typeof PortalBriefRoute
-  '/portal/passport': typeof PortalPassportRoute
-  '/portal/profile': typeof PortalProfileRoute
-  '/portal/refer': typeof PortalReferRoute
-  '/portal/saved': typeof PortalSavedRoute
-  '/portal/viral': typeof PortalViralRoute
-  '/portal/wallet': typeof PortalWalletRoute
-  '/profile/preferences': typeof ProfilePreferencesRoute
-  '/promoter/jobs': typeof PromoterJobsRoute
-  '/qa/test-plan': typeof QaTestPlanRoute
-  '/recap/$itineraryId': typeof RecapItineraryIdRoute
-  '/rsvp/$token': typeof RsvpTokenRoute
-  '/rsvp/$tripId': typeof RsvpTripIdRoute
-  '/teams/$id': typeof TeamsIdRoute
-  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
-  '/admin/city-ideas': typeof AdminCityIdeasLazyRoute
-  '/admin/': typeof AdminIndexRoute
-  '/advertise/': typeof AdvertiseIndexRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
-  '/concierge/': typeof ConciergeIndexRoute
-  '/corporate/': typeof CorporateIndexRoute
   '/events/': typeof EventsIndexRoute
-  '/partner/': typeof PartnerIndexRoute
-  '/portal/': typeof PortalIndexRoute
-  '/promoter/': typeof PromoterIndexRoute
-  '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
-  '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
-  '/api/qa/run': typeof ApiQaRunRoute
-  '/business/claim/pending': typeof BusinessClaimPendingRoute
-  '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
-  '/concierge/chat/': typeof ConciergeChatIndexRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
@@ -1974,194 +525,38 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/accessibility'
-    | '/active-confetti'
-    | '/active-loop'
-    | '/admin'
-    | '/advertise'
     | '/app'
-    | '/ask'
     | '/auth'
     | '/boarding-pass'
-    | '/boarding-pass-planner'
     | '/chat'
     | '/check-in'
-    | '/city-guides'
-    | '/concierge'
-    | '/confirmation'
-    | '/contact'
-    | '/cookies'
-    | '/corporate'
-    | '/create'
-    | '/data-terms'
-    | '/discover'
-    | '/event-pack'
-    | '/faq'
-    | '/favorites'
-    | '/features'
     | '/for-business'
-    | '/group-outing'
-    | '/guides'
     | '/health'
-    | '/how-it-works'
     | '/influencer'
-    | '/investors'
-    | '/login'
-    | '/me'
-    | '/night-planner'
-    | '/onboarding'
-    | '/partner'
-    | '/partners'
-    | '/passport'
-    | '/plan'
-    | '/portal'
-    | '/pricing'
     | '/privacy'
-    | '/promoter'
-    | '/qa'
-    | '/quick-generate'
-    | '/reservations'
-    | '/reset-password'
-    | '/scan'
-    | '/signup'
     | '/sitemap.xml'
-    | '/taste-tuner'
-    | '/team-events'
-    | '/teams'
-    | '/terms'
-    | '/testimonials'
-    | '/tonight'
-    | '/translate'
-    | '/vibe-picker'
-    | '/vibe-plans'
-    | '/viral'
-    | '/weather'
-    | '/admin/ad-analytics'
-    | '/admin/advertisers'
-    | '/admin/agents'
-    | '/admin/analytics'
-    | '/admin/ask'
-    | '/admin/audit'
-    | '/admin/bookings'
-    | '/admin/bootstrap'
-    | '/admin/brief'
-    | '/admin/business-claims'
-    | '/admin/contracts'
-    | '/admin/deploy-preflight'
-    | '/admin/diagnostics'
-    | '/admin/event-analytics'
-    | '/admin/health'
-    | '/admin/integrations'
-    | '/admin/launch'
-    | '/admin/login'
-    | '/admin/logs'
-    | '/admin/marquee'
-    | '/admin/moderation'
-    | '/admin/notifications'
-    | '/admin/outreach'
-    | '/admin/pick-analytics'
-    | '/admin/promoters'
-    | '/admin/roles'
-    | '/admin/routes-map'
-    | '/admin/settings'
-    | '/admin/testimonials'
-    | '/admin/users'
-    | '/admin/venues'
-    | '/admin/wallet-debug'
-    | '/advertise/portal'
-    | '/advertise/reports'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
-    | '/business/ai-refresh'
-    | '/business/billing'
     | '/business/claim'
     | '/business/dashboard'
-    | '/business/events'
     | '/business/login'
-    | '/business/media'
-    | '/business/payouts'
-    | '/business/pending'
-    | '/business/pricing'
-    | '/business/promoters'
-    | '/business/register'
-    | '/business/settings'
-    | '/business/signup'
-    | '/business/social'
     | '/checkout/return'
-    | '/collab/$tripId'
-    | '/concierge/passport'
-    | '/concierge/profile'
-    | '/corporate/approvals'
-    | '/corporate/bookings'
-    | '/corporate/login'
-    | '/corporate/planner'
-    | '/corporate/policies'
-    | '/corporate/reporting'
-    | '/corporate/settings'
-    | '/corporate/teams'
     | '/events/$eventId'
-    | '/ideas/$slug'
     | '/p/$code'
-    | '/partner/analytics'
-    | '/partner/api'
-    | '/partner/billing'
-    | '/partner/booking-settings'
-    | '/partner/calendar'
-    | '/partner/menu'
-    | '/partner/order-settings'
-    | '/partner/orders'
-    | '/partner/profile'
-    | '/partner/promotions'
-    | '/partner/reservations'
-    | '/partner/suggestions'
-    | '/partner/support'
-    | '/plan/preview'
-    | '/plan/ready'
-    | '/portal/achievements'
-    | '/portal/activity'
-    | '/portal/bookings'
-    | '/portal/brief'
-    | '/portal/passport'
-    | '/portal/profile'
-    | '/portal/refer'
-    | '/portal/saved'
-    | '/portal/viral'
-    | '/portal/wallet'
-    | '/profile/preferences'
-    | '/promoter/jobs'
-    | '/qa/test-plan'
-    | '/recap/$itineraryId'
-    | '/rsvp/$token'
-    | '/rsvp/$tripId'
-    | '/teams/$id'
-    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
-    | '/admin/city-ideas'
-    | '/admin/'
-    | '/advertise/'
     | '/app/'
     | '/business/'
-    | '/concierge/'
-    | '/corporate/'
     | '/events/'
-    | '/partner/'
-    | '/portal/'
-    | '/promoter/'
-    | '/teams/'
     | '/trips/'
-    | '/advertise/stories/$slug'
     | '/api/maps/satellite'
     | '/api/plans/generate'
     | '/api/public/pick-events'
-    | '/api/qa/run'
-    | '/business/claim/pending'
-    | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
-    | '/concierge/chat/'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
@@ -2186,185 +581,37 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/accessibility'
-    | '/active-confetti'
-    | '/active-loop'
-    | '/ask'
     | '/auth'
     | '/boarding-pass'
-    | '/boarding-pass-planner'
     | '/chat'
     | '/check-in'
-    | '/city-guides'
-    | '/confirmation'
-    | '/contact'
-    | '/cookies'
-    | '/create'
-    | '/data-terms'
-    | '/discover'
-    | '/event-pack'
-    | '/faq'
-    | '/favorites'
-    | '/features'
     | '/for-business'
-    | '/group-outing'
-    | '/guides'
     | '/health'
-    | '/how-it-works'
     | '/influencer'
-    | '/investors'
-    | '/login'
-    | '/me'
-    | '/night-planner'
-    | '/onboarding'
-    | '/partners'
-    | '/passport'
-    | '/plan'
-    | '/pricing'
     | '/privacy'
-    | '/qa'
-    | '/quick-generate'
-    | '/reservations'
-    | '/reset-password'
-    | '/scan'
-    | '/signup'
     | '/sitemap.xml'
-    | '/taste-tuner'
-    | '/team-events'
-    | '/terms'
-    | '/testimonials'
-    | '/tonight'
-    | '/translate'
-    | '/vibe-picker'
-    | '/vibe-plans'
-    | '/viral'
-    | '/weather'
-    | '/admin/ad-analytics'
-    | '/admin/advertisers'
-    | '/admin/agents'
-    | '/admin/analytics'
-    | '/admin/ask'
-    | '/admin/audit'
-    | '/admin/bookings'
-    | '/admin/bootstrap'
-    | '/admin/brief'
-    | '/admin/business-claims'
-    | '/admin/contracts'
-    | '/admin/deploy-preflight'
-    | '/admin/diagnostics'
-    | '/admin/event-analytics'
-    | '/admin/health'
-    | '/admin/integrations'
-    | '/admin/launch'
-    | '/admin/login'
-    | '/admin/logs'
-    | '/admin/marquee'
-    | '/admin/moderation'
-    | '/admin/notifications'
-    | '/admin/outreach'
-    | '/admin/pick-analytics'
-    | '/admin/promoters'
-    | '/admin/roles'
-    | '/admin/routes-map'
-    | '/admin/settings'
-    | '/admin/testimonials'
-    | '/admin/users'
-    | '/admin/venues'
-    | '/admin/wallet-debug'
-    | '/advertise/portal'
-    | '/advertise/reports'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
-    | '/business/ai-refresh'
-    | '/business/billing'
     | '/business/claim'
     | '/business/dashboard'
-    | '/business/events'
     | '/business/login'
-    | '/business/media'
-    | '/business/payouts'
-    | '/business/pending'
-    | '/business/pricing'
-    | '/business/promoters'
-    | '/business/register'
-    | '/business/settings'
-    | '/business/signup'
-    | '/business/social'
     | '/checkout/return'
-    | '/collab/$tripId'
-    | '/concierge/passport'
-    | '/concierge/profile'
-    | '/corporate/approvals'
-    | '/corporate/bookings'
-    | '/corporate/login'
-    | '/corporate/planner'
-    | '/corporate/policies'
-    | '/corporate/reporting'
-    | '/corporate/settings'
-    | '/corporate/teams'
     | '/events/$eventId'
-    | '/ideas/$slug'
     | '/p/$code'
-    | '/partner/analytics'
-    | '/partner/api'
-    | '/partner/billing'
-    | '/partner/booking-settings'
-    | '/partner/calendar'
-    | '/partner/menu'
-    | '/partner/order-settings'
-    | '/partner/orders'
-    | '/partner/profile'
-    | '/partner/promotions'
-    | '/partner/reservations'
-    | '/partner/suggestions'
-    | '/partner/support'
-    | '/plan/preview'
-    | '/plan/ready'
-    | '/portal/achievements'
-    | '/portal/activity'
-    | '/portal/bookings'
-    | '/portal/brief'
-    | '/portal/passport'
-    | '/portal/profile'
-    | '/portal/refer'
-    | '/portal/saved'
-    | '/portal/viral'
-    | '/portal/wallet'
-    | '/profile/preferences'
-    | '/promoter/jobs'
-    | '/qa/test-plan'
-    | '/recap/$itineraryId'
-    | '/rsvp/$token'
-    | '/rsvp/$tripId'
-    | '/teams/$id'
-    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
-    | '/admin/city-ideas'
-    | '/admin'
-    | '/advertise'
     | '/app'
     | '/business'
-    | '/concierge'
-    | '/corporate'
     | '/events'
-    | '/partner'
-    | '/portal'
-    | '/promoter'
-    | '/teams'
     | '/trips'
-    | '/advertise/stories/$slug'
     | '/api/maps/satellite'
     | '/api/plans/generate'
     | '/api/public/pick-events'
-    | '/api/qa/run'
-    | '/business/claim/pending'
-    | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
-    | '/concierge/chat'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
@@ -2389,194 +636,38 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/accessibility'
-    | '/active-confetti'
-    | '/active-loop'
-    | '/admin'
-    | '/advertise'
     | '/app'
-    | '/ask'
     | '/auth'
     | '/boarding-pass'
-    | '/boarding-pass-planner'
     | '/chat'
     | '/check-in'
-    | '/city-guides'
-    | '/concierge'
-    | '/confirmation'
-    | '/contact'
-    | '/cookies'
-    | '/corporate'
-    | '/create'
-    | '/data-terms'
-    | '/discover'
-    | '/event-pack'
-    | '/faq'
-    | '/favorites'
-    | '/features'
     | '/for-business'
-    | '/group-outing'
-    | '/guides'
     | '/health'
-    | '/how-it-works'
     | '/influencer'
-    | '/investors'
-    | '/login'
-    | '/me'
-    | '/night-planner'
-    | '/onboarding'
-    | '/partner'
-    | '/partners'
-    | '/passport'
-    | '/plan'
-    | '/portal'
-    | '/pricing'
     | '/privacy'
-    | '/promoter'
-    | '/qa'
-    | '/quick-generate'
-    | '/reservations'
-    | '/reset-password'
-    | '/scan'
-    | '/signup'
     | '/sitemap.xml'
-    | '/taste-tuner'
-    | '/team-events'
-    | '/teams'
-    | '/terms'
-    | '/testimonials'
-    | '/tonight'
-    | '/translate'
-    | '/vibe-picker'
-    | '/vibe-plans'
-    | '/viral'
-    | '/weather'
-    | '/admin/ad-analytics'
-    | '/admin/advertisers'
-    | '/admin/agents'
-    | '/admin/analytics'
-    | '/admin/ask'
-    | '/admin/audit'
-    | '/admin/bookings'
-    | '/admin/bootstrap'
-    | '/admin/brief'
-    | '/admin/business-claims'
-    | '/admin/contracts'
-    | '/admin/deploy-preflight'
-    | '/admin/diagnostics'
-    | '/admin/event-analytics'
-    | '/admin/health'
-    | '/admin/integrations'
-    | '/admin/launch'
-    | '/admin/login'
-    | '/admin/logs'
-    | '/admin/marquee'
-    | '/admin/moderation'
-    | '/admin/notifications'
-    | '/admin/outreach'
-    | '/admin/pick-analytics'
-    | '/admin/promoters'
-    | '/admin/roles'
-    | '/admin/routes-map'
-    | '/admin/settings'
-    | '/admin/testimonials'
-    | '/admin/users'
-    | '/admin/venues'
-    | '/admin/wallet-debug'
-    | '/advertise/portal'
-    | '/advertise/reports'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
-    | '/business/ai-refresh'
-    | '/business/billing'
     | '/business/claim'
     | '/business/dashboard'
-    | '/business/events'
     | '/business/login'
-    | '/business/media'
-    | '/business/payouts'
-    | '/business/pending'
-    | '/business/pricing'
-    | '/business/promoters'
-    | '/business/register'
-    | '/business/settings'
-    | '/business/signup'
-    | '/business/social'
     | '/checkout/return'
-    | '/collab/$tripId'
-    | '/concierge/passport'
-    | '/concierge/profile'
-    | '/corporate/approvals'
-    | '/corporate/bookings'
-    | '/corporate/login'
-    | '/corporate/planner'
-    | '/corporate/policies'
-    | '/corporate/reporting'
-    | '/corporate/settings'
-    | '/corporate/teams'
     | '/events/$eventId'
-    | '/ideas/$slug'
     | '/p/$code'
-    | '/partner/analytics'
-    | '/partner/api'
-    | '/partner/billing'
-    | '/partner/booking-settings'
-    | '/partner/calendar'
-    | '/partner/menu'
-    | '/partner/order-settings'
-    | '/partner/orders'
-    | '/partner/profile'
-    | '/partner/promotions'
-    | '/partner/reservations'
-    | '/partner/suggestions'
-    | '/partner/support'
-    | '/plan/preview'
-    | '/plan/ready'
-    | '/portal/achievements'
-    | '/portal/activity'
-    | '/portal/bookings'
-    | '/portal/brief'
-    | '/portal/passport'
-    | '/portal/profile'
-    | '/portal/refer'
-    | '/portal/saved'
-    | '/portal/viral'
-    | '/portal/wallet'
-    | '/profile/preferences'
-    | '/promoter/jobs'
-    | '/qa/test-plan'
-    | '/recap/$itineraryId'
-    | '/rsvp/$token'
-    | '/rsvp/$tripId'
-    | '/teams/$id'
-    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
-    | '/admin/city-ideas'
-    | '/admin/'
-    | '/advertise/'
     | '/app/'
     | '/business/'
-    | '/concierge/'
-    | '/corporate/'
     | '/events/'
-    | '/partner/'
-    | '/portal/'
-    | '/promoter/'
-    | '/teams/'
     | '/trips/'
-    | '/advertise/stories/$slug'
     | '/api/maps/satellite'
     | '/api/plans/generate'
     | '/api/public/pick-events'
-    | '/api/qa/run'
-    | '/business/claim/pending'
-    | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
-    | '/concierge/chat/'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
@@ -2602,93 +693,24 @@ export interface RootRouteChildren {
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
-  ActiveConfettiRoute: typeof ActiveConfettiRoute
-  ActiveLoopRoute: typeof ActiveLoopRoute
-  AdminRoute: typeof AdminRouteWithChildren
-  AdvertiseRoute: typeof AdvertiseRouteWithChildren
   AppRoute: typeof AppRouteWithChildren
-  AskRoute: typeof AskRoute
   AuthRoute: typeof AuthRoute
   BoardingPassRoute: typeof BoardingPassRoute
-  BoardingPassPlannerRoute: typeof BoardingPassPlannerRoute
   ChatRoute: typeof ChatRoute
   CheckInRoute: typeof CheckInRoute
-  CityGuidesRoute: typeof CityGuidesRoute
-  ConciergeRoute: typeof ConciergeRouteWithChildren
-  ConfirmationRoute: typeof ConfirmationRoute
-  ContactRoute: typeof ContactRoute
-  CookiesRoute: typeof CookiesRoute
-  CorporateRoute: typeof CorporateRouteWithChildren
-  CreateRoute: typeof CreateRoute
-  DataTermsRoute: typeof DataTermsRoute
-  DiscoverRoute: typeof DiscoverRoute
-  EventPackRoute: typeof EventPackRoute
-  FaqRoute: typeof FaqRoute
-  FavoritesRoute: typeof FavoritesRoute
-  FeaturesRoute: typeof FeaturesRoute
   ForBusinessRoute: typeof ForBusinessRoute
-  GroupOutingRoute: typeof GroupOutingRoute
-  GuidesRoute: typeof GuidesRoute
   HealthRoute: typeof HealthRoute
-  HowItWorksRoute: typeof HowItWorksRoute
   InfluencerRoute: typeof InfluencerRoute
-  InvestorsRoute: typeof InvestorsRoute
-  LoginRoute: typeof LoginRoute
-  MeRoute: typeof MeRoute
-  NightPlannerRoute: typeof NightPlannerRoute
-  OnboardingRoute: typeof OnboardingRoute
-  PartnerRoute: typeof PartnerRouteWithChildren
-  PartnersRoute: typeof PartnersRoute
-  PassportRoute: typeof PassportRoute
-  PlanRoute: typeof PlanRouteWithChildren
-  PortalRoute: typeof PortalRouteWithChildren
-  PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
-  PromoterRoute: typeof PromoterRouteWithChildren
-  QaRoute: typeof QaRouteWithChildren
-  QuickGenerateRoute: typeof QuickGenerateRoute
-  ReservationsRoute: typeof ReservationsRoute
-  ResetPasswordRoute: typeof ResetPasswordRoute
-  ScanRoute: typeof ScanRoute
-  SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  TasteTunerRoute: typeof TasteTunerRoute
-  TeamEventsRoute: typeof TeamEventsRoute
-  TeamsRoute: typeof TeamsRouteWithChildren
-  TermsRoute: typeof TermsRoute
-  TestimonialsRoute: typeof TestimonialsRoute
-  TonightRoute: typeof TonightRoute
-  TranslateRoute: typeof TranslateRoute
-  VibePickerRoute: typeof VibePickerRoute
-  VibePlansRoute: typeof VibePlansRoute
-  ViralRoute: typeof ViralRoute
-  WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiPlanRoute: typeof ApiPlanRoute
-  BusinessAiRefreshRoute: typeof BusinessAiRefreshRoute
-  BusinessBillingRoute: typeof BusinessBillingRoute
-  BusinessClaimRoute: typeof BusinessClaimRouteWithChildren
+  BusinessClaimRoute: typeof BusinessClaimRoute
   BusinessDashboardRoute: typeof BusinessDashboardRoute
-  BusinessEventsRoute: typeof BusinessEventsRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
-  BusinessMediaRoute: typeof BusinessMediaRoute
-  BusinessPayoutsRoute: typeof BusinessPayoutsRoute
-  BusinessPendingRoute: typeof BusinessPendingRoute
-  BusinessPricingRoute: typeof BusinessPricingRoute
-  BusinessPromotersRoute: typeof BusinessPromotersRoute
-  BusinessRegisterRoute: typeof BusinessRegisterRoute
-  BusinessSettingsRoute: typeof BusinessSettingsRoute
-  BusinessSignupRoute: typeof BusinessSignupRoute
-  BusinessSocialRoute: typeof BusinessSocialRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
-  CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
-  IdeasSlugRoute: typeof IdeasSlugRoute
   PCodeRoute: typeof PCodeRoute
-  ProfilePreferencesRoute: typeof ProfilePreferencesRoute
-  RecapItineraryIdRoute: typeof RecapItineraryIdRoute
-  RsvpTokenRoute: typeof RsvpTokenRoute
-  RsvpTripIdRoute: typeof RsvpTripIdRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
@@ -2697,7 +719,6 @@ export interface RootRouteChildren {
   ApiMapsSatelliteRoute: typeof ApiMapsSatelliteRoute
   ApiPlansGenerateRoute: typeof ApiPlansGenerateRoute
   ApiPublicPickEventsRoute: typeof ApiPublicPickEventsRoute
-  ApiQaRunRoute: typeof ApiQaRunRoute
   ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
   ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
@@ -2720,137 +741,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/weather': {
-      id: '/weather'
-      path: '/weather'
-      fullPath: '/weather'
-      preLoaderRoute: typeof WeatherRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/viral': {
-      id: '/viral'
-      path: '/viral'
-      fullPath: '/viral'
-      preLoaderRoute: typeof ViralRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vibe-plans': {
-      id: '/vibe-plans'
-      path: '/vibe-plans'
-      fullPath: '/vibe-plans'
-      preLoaderRoute: typeof VibePlansRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vibe-picker': {
-      id: '/vibe-picker'
-      path: '/vibe-picker'
-      fullPath: '/vibe-picker'
-      preLoaderRoute: typeof VibePickerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/translate': {
-      id: '/translate'
-      path: '/translate'
-      fullPath: '/translate'
-      preLoaderRoute: typeof TranslateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tonight': {
-      id: '/tonight'
-      path: '/tonight'
-      fullPath: '/tonight'
-      preLoaderRoute: typeof TonightRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/teams': {
-      id: '/teams'
-      path: '/teams'
-      fullPath: '/teams'
-      preLoaderRoute: typeof TeamsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/team-events': {
-      id: '/team-events'
-      path: '/team-events'
-      fullPath: '/team-events'
-      preLoaderRoute: typeof TeamEventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/taste-tuner': {
-      id: '/taste-tuner'
-      path: '/taste-tuner'
-      fullPath: '/taste-tuner'
-      preLoaderRoute: typeof TasteTunerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/scan': {
-      id: '/scan'
-      path: '/scan'
-      fullPath: '/scan'
-      preLoaderRoute: typeof ScanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reservations': {
-      id: '/reservations'
-      path: '/reservations'
-      fullPath: '/reservations'
-      preLoaderRoute: typeof ReservationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/quick-generate': {
-      id: '/quick-generate'
-      path: '/quick-generate'
-      fullPath: '/quick-generate'
-      preLoaderRoute: typeof QuickGenerateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/qa': {
-      id: '/qa'
-      path: '/qa'
-      fullPath: '/qa'
-      preLoaderRoute: typeof QaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/promoter': {
-      id: '/promoter'
-      path: '/promoter'
-      fullPath: '/promoter'
-      preLoaderRoute: typeof PromoterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -2860,95 +755,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portal': {
-      id: '/portal'
-      path: '/portal'
-      fullPath: '/portal'
-      preLoaderRoute: typeof PortalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/plan': {
-      id: '/plan'
-      path: '/plan'
-      fullPath: '/plan'
-      preLoaderRoute: typeof PlanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/passport': {
-      id: '/passport'
-      path: '/passport'
-      fullPath: '/passport'
-      preLoaderRoute: typeof PassportRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/partners': {
-      id: '/partners'
-      path: '/partners'
-      fullPath: '/partners'
-      preLoaderRoute: typeof PartnersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/partner': {
-      id: '/partner'
-      path: '/partner'
-      fullPath: '/partner'
-      preLoaderRoute: typeof PartnerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/onboarding': {
-      id: '/onboarding'
-      path: '/onboarding'
-      fullPath: '/onboarding'
-      preLoaderRoute: typeof OnboardingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/night-planner': {
-      id: '/night-planner'
-      path: '/night-planner'
-      fullPath: '/night-planner'
-      preLoaderRoute: typeof NightPlannerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/me': {
-      id: '/me'
-      path: '/me'
-      fullPath: '/me'
-      preLoaderRoute: typeof MeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/investors': {
-      id: '/investors'
-      path: '/investors'
-      fullPath: '/investors'
-      preLoaderRoute: typeof InvestorsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/influencer': {
       id: '/influencer'
       path: '/influencer'
       fullPath: '/influencer'
       preLoaderRoute: typeof InfluencerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/how-it-works': {
-      id: '/how-it-works'
-      path: '/how-it-works'
-      fullPath: '/how-it-works'
-      preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/health': {
@@ -2958,116 +769,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HealthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/guides': {
-      id: '/guides'
-      path: '/guides'
-      fullPath: '/guides'
-      preLoaderRoute: typeof GuidesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/group-outing': {
-      id: '/group-outing'
-      path: '/group-outing'
-      fullPath: '/group-outing'
-      preLoaderRoute: typeof GroupOutingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/for-business': {
       id: '/for-business'
       path: '/for-business'
       fullPath: '/for-business'
       preLoaderRoute: typeof ForBusinessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/features': {
-      id: '/features'
-      path: '/features'
-      fullPath: '/features'
-      preLoaderRoute: typeof FeaturesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/favorites': {
-      id: '/favorites'
-      path: '/favorites'
-      fullPath: '/favorites'
-      preLoaderRoute: typeof FavoritesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/event-pack': {
-      id: '/event-pack'
-      path: '/event-pack'
-      fullPath: '/event-pack'
-      preLoaderRoute: typeof EventPackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/discover': {
-      id: '/discover'
-      path: '/discover'
-      fullPath: '/discover'
-      preLoaderRoute: typeof DiscoverRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/data-terms': {
-      id: '/data-terms'
-      path: '/data-terms'
-      fullPath: '/data-terms'
-      preLoaderRoute: typeof DataTermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/create': {
-      id: '/create'
-      path: '/create'
-      fullPath: '/create'
-      preLoaderRoute: typeof CreateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/corporate': {
-      id: '/corporate'
-      path: '/corporate'
-      fullPath: '/corporate'
-      preLoaderRoute: typeof CorporateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cookies': {
-      id: '/cookies'
-      path: '/cookies'
-      fullPath: '/cookies'
-      preLoaderRoute: typeof CookiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/confirmation': {
-      id: '/confirmation'
-      path: '/confirmation'
-      fullPath: '/confirmation'
-      preLoaderRoute: typeof ConfirmationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/concierge': {
-      id: '/concierge'
-      path: '/concierge'
-      fullPath: '/concierge'
-      preLoaderRoute: typeof ConciergeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/city-guides': {
-      id: '/city-guides'
-      path: '/city-guides'
-      fullPath: '/city-guides'
-      preLoaderRoute: typeof CityGuidesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/check-in': {
@@ -3084,13 +790,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/boarding-pass-planner': {
-      id: '/boarding-pass-planner'
-      path: '/boarding-pass-planner'
-      fullPath: '/boarding-pass-planner'
-      preLoaderRoute: typeof BoardingPassPlannerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/boarding-pass': {
       id: '/boarding-pass'
       path: '/boarding-pass'
@@ -3105,46 +804,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ask': {
-      id: '/ask'
-      path: '/ask'
-      fullPath: '/ask'
-      preLoaderRoute: typeof AskRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/app': {
       id: '/app'
       path: '/app'
       fullPath: '/app'
       preLoaderRoute: typeof AppRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/advertise': {
-      id: '/advertise'
-      path: '/advertise'
-      fullPath: '/advertise'
-      preLoaderRoute: typeof AdvertiseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/active-loop': {
-      id: '/active-loop'
-      path: '/active-loop'
-      fullPath: '/active-loop'
-      preLoaderRoute: typeof ActiveLoopRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/active-confetti': {
-      id: '/active-confetti'
-      path: '/active-confetti'
-      fullPath: '/active-confetti'
-      preLoaderRoute: typeof ActiveConfettiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accessibility': {
@@ -3182,54 +846,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TripsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teams/': {
-      id: '/teams/'
-      path: '/'
-      fullPath: '/teams/'
-      preLoaderRoute: typeof TeamsIndexRouteImport
-      parentRoute: typeof TeamsRoute
-    }
-    '/promoter/': {
-      id: '/promoter/'
-      path: '/'
-      fullPath: '/promoter/'
-      preLoaderRoute: typeof PromoterIndexRouteImport
-      parentRoute: typeof PromoterRoute
-    }
-    '/portal/': {
-      id: '/portal/'
-      path: '/'
-      fullPath: '/portal/'
-      preLoaderRoute: typeof PortalIndexRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/partner/': {
-      id: '/partner/'
-      path: '/'
-      fullPath: '/partner/'
-      preLoaderRoute: typeof PartnerIndexRouteImport
-      parentRoute: typeof PartnerRoute
-    }
     '/events/': {
       id: '/events/'
       path: '/events'
       fullPath: '/events/'
       preLoaderRoute: typeof EventsIndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/corporate/': {
-      id: '/corporate/'
-      path: '/'
-      fullPath: '/corporate/'
-      preLoaderRoute: typeof CorporateIndexRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/concierge/': {
-      id: '/concierge/'
-      path: '/'
-      fullPath: '/concierge/'
-      preLoaderRoute: typeof ConciergeIndexRouteImport
-      parentRoute: typeof ConciergeRoute
     }
     '/business/': {
       id: '/business/'
@@ -3245,27 +867,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
-    '/advertise/': {
-      id: '/advertise/'
-      path: '/'
-      fullPath: '/advertise/'
-      preLoaderRoute: typeof AdvertiseIndexRouteImport
-      parentRoute: typeof AdvertiseRoute
-    }
-    '/admin/': {
-      id: '/admin/'
-      path: '/'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/city-ideas': {
-      id: '/admin/city-ideas'
-      path: '/city-ideas'
-      fullPath: '/admin/city-ideas'
-      preLoaderRoute: typeof AdminCityIdeasLazyRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/venue/$id': {
       id: '/venue/$id'
       path: '/venue/$id'
@@ -3280,249 +881,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TripsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teams/new': {
-      id: '/teams/new'
-      path: '/new'
-      fullPath: '/teams/new'
-      preLoaderRoute: typeof TeamsNewRouteImport
-      parentRoute: typeof TeamsRoute
-    }
-    '/teams/$id': {
-      id: '/teams/$id'
-      path: '/$id'
-      fullPath: '/teams/$id'
-      preLoaderRoute: typeof TeamsIdRouteImport
-      parentRoute: typeof TeamsRoute
-    }
-    '/rsvp/$tripId': {
-      id: '/rsvp/$tripId'
-      path: '/rsvp/$tripId'
-      fullPath: '/rsvp/$tripId'
-      preLoaderRoute: typeof RsvpTripIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rsvp/$token': {
-      id: '/rsvp/$token'
-      path: '/rsvp/$token'
-      fullPath: '/rsvp/$token'
-      preLoaderRoute: typeof RsvpTokenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/recap/$itineraryId': {
-      id: '/recap/$itineraryId'
-      path: '/recap/$itineraryId'
-      fullPath: '/recap/$itineraryId'
-      preLoaderRoute: typeof RecapItineraryIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/qa/test-plan': {
-      id: '/qa/test-plan'
-      path: '/test-plan'
-      fullPath: '/qa/test-plan'
-      preLoaderRoute: typeof QaTestPlanRouteImport
-      parentRoute: typeof QaRoute
-    }
-    '/promoter/jobs': {
-      id: '/promoter/jobs'
-      path: '/jobs'
-      fullPath: '/promoter/jobs'
-      preLoaderRoute: typeof PromoterJobsRouteImport
-      parentRoute: typeof PromoterRoute
-    }
-    '/profile/preferences': {
-      id: '/profile/preferences'
-      path: '/profile/preferences'
-      fullPath: '/profile/preferences'
-      preLoaderRoute: typeof ProfilePreferencesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portal/wallet': {
-      id: '/portal/wallet'
-      path: '/wallet'
-      fullPath: '/portal/wallet'
-      preLoaderRoute: typeof PortalWalletRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/viral': {
-      id: '/portal/viral'
-      path: '/viral'
-      fullPath: '/portal/viral'
-      preLoaderRoute: typeof PortalViralRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/saved': {
-      id: '/portal/saved'
-      path: '/saved'
-      fullPath: '/portal/saved'
-      preLoaderRoute: typeof PortalSavedRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/refer': {
-      id: '/portal/refer'
-      path: '/refer'
-      fullPath: '/portal/refer'
-      preLoaderRoute: typeof PortalReferRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/profile': {
-      id: '/portal/profile'
-      path: '/profile'
-      fullPath: '/portal/profile'
-      preLoaderRoute: typeof PortalProfileRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/passport': {
-      id: '/portal/passport'
-      path: '/passport'
-      fullPath: '/portal/passport'
-      preLoaderRoute: typeof PortalPassportRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/brief': {
-      id: '/portal/brief'
-      path: '/brief'
-      fullPath: '/portal/brief'
-      preLoaderRoute: typeof PortalBriefRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/bookings': {
-      id: '/portal/bookings'
-      path: '/bookings'
-      fullPath: '/portal/bookings'
-      preLoaderRoute: typeof PortalBookingsRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/activity': {
-      id: '/portal/activity'
-      path: '/activity'
-      fullPath: '/portal/activity'
-      preLoaderRoute: typeof PortalActivityRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/portal/achievements': {
-      id: '/portal/achievements'
-      path: '/achievements'
-      fullPath: '/portal/achievements'
-      preLoaderRoute: typeof PortalAchievementsRouteImport
-      parentRoute: typeof PortalRoute
-    }
-    '/plan/ready': {
-      id: '/plan/ready'
-      path: '/ready'
-      fullPath: '/plan/ready'
-      preLoaderRoute: typeof PlanReadyRouteImport
-      parentRoute: typeof PlanRoute
-    }
-    '/plan/preview': {
-      id: '/plan/preview'
-      path: '/preview'
-      fullPath: '/plan/preview'
-      preLoaderRoute: typeof PlanPreviewRouteImport
-      parentRoute: typeof PlanRoute
-    }
-    '/partner/support': {
-      id: '/partner/support'
-      path: '/support'
-      fullPath: '/partner/support'
-      preLoaderRoute: typeof PartnerSupportRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/suggestions': {
-      id: '/partner/suggestions'
-      path: '/suggestions'
-      fullPath: '/partner/suggestions'
-      preLoaderRoute: typeof PartnerSuggestionsRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/reservations': {
-      id: '/partner/reservations'
-      path: '/reservations'
-      fullPath: '/partner/reservations'
-      preLoaderRoute: typeof PartnerReservationsRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/promotions': {
-      id: '/partner/promotions'
-      path: '/promotions'
-      fullPath: '/partner/promotions'
-      preLoaderRoute: typeof PartnerPromotionsRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/profile': {
-      id: '/partner/profile'
-      path: '/profile'
-      fullPath: '/partner/profile'
-      preLoaderRoute: typeof PartnerProfileRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/orders': {
-      id: '/partner/orders'
-      path: '/orders'
-      fullPath: '/partner/orders'
-      preLoaderRoute: typeof PartnerOrdersRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/order-settings': {
-      id: '/partner/order-settings'
-      path: '/order-settings'
-      fullPath: '/partner/order-settings'
-      preLoaderRoute: typeof PartnerOrderSettingsRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/menu': {
-      id: '/partner/menu'
-      path: '/menu'
-      fullPath: '/partner/menu'
-      preLoaderRoute: typeof PartnerMenuRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/calendar': {
-      id: '/partner/calendar'
-      path: '/calendar'
-      fullPath: '/partner/calendar'
-      preLoaderRoute: typeof PartnerCalendarRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/booking-settings': {
-      id: '/partner/booking-settings'
-      path: '/booking-settings'
-      fullPath: '/partner/booking-settings'
-      preLoaderRoute: typeof PartnerBookingSettingsRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/billing': {
-      id: '/partner/billing'
-      path: '/billing'
-      fullPath: '/partner/billing'
-      preLoaderRoute: typeof PartnerBillingRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/api': {
-      id: '/partner/api'
-      path: '/api'
-      fullPath: '/partner/api'
-      preLoaderRoute: typeof PartnerApiRouteImport
-      parentRoute: typeof PartnerRoute
-    }
-    '/partner/analytics': {
-      id: '/partner/analytics'
-      path: '/analytics'
-      fullPath: '/partner/analytics'
-      preLoaderRoute: typeof PartnerAnalyticsRouteImport
-      parentRoute: typeof PartnerRoute
-    }
     '/p/$code': {
       id: '/p/$code'
       path: '/p/$code'
       fullPath: '/p/$code'
       preLoaderRoute: typeof PCodeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ideas/$slug': {
-      id: '/ideas/$slug'
-      path: '/ideas/$slug'
-      fullPath: '/ideas/$slug'
-      preLoaderRoute: typeof IdeasSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events/$eventId': {
@@ -3532,83 +895,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsEventIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/corporate/teams': {
-      id: '/corporate/teams'
-      path: '/teams'
-      fullPath: '/corporate/teams'
-      preLoaderRoute: typeof CorporateTeamsRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/corporate/settings': {
-      id: '/corporate/settings'
-      path: '/settings'
-      fullPath: '/corporate/settings'
-      preLoaderRoute: typeof CorporateSettingsRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/corporate/reporting': {
-      id: '/corporate/reporting'
-      path: '/reporting'
-      fullPath: '/corporate/reporting'
-      preLoaderRoute: typeof CorporateReportingRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/corporate/policies': {
-      id: '/corporate/policies'
-      path: '/policies'
-      fullPath: '/corporate/policies'
-      preLoaderRoute: typeof CorporatePoliciesRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/corporate/planner': {
-      id: '/corporate/planner'
-      path: '/planner'
-      fullPath: '/corporate/planner'
-      preLoaderRoute: typeof CorporatePlannerRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/corporate/login': {
-      id: '/corporate/login'
-      path: '/login'
-      fullPath: '/corporate/login'
-      preLoaderRoute: typeof CorporateLoginRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/corporate/bookings': {
-      id: '/corporate/bookings'
-      path: '/bookings'
-      fullPath: '/corporate/bookings'
-      preLoaderRoute: typeof CorporateBookingsRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/corporate/approvals': {
-      id: '/corporate/approvals'
-      path: '/approvals'
-      fullPath: '/corporate/approvals'
-      preLoaderRoute: typeof CorporateApprovalsRouteImport
-      parentRoute: typeof CorporateRoute
-    }
-    '/concierge/profile': {
-      id: '/concierge/profile'
-      path: '/profile'
-      fullPath: '/concierge/profile'
-      preLoaderRoute: typeof ConciergeProfileRouteImport
-      parentRoute: typeof ConciergeRoute
-    }
-    '/concierge/passport': {
-      id: '/concierge/passport'
-      path: '/passport'
-      fullPath: '/concierge/passport'
-      preLoaderRoute: typeof ConciergePassportRouteImport
-      parentRoute: typeof ConciergeRoute
-    }
-    '/collab/$tripId': {
-      id: '/collab/$tripId'
-      path: '/collab/$tripId'
-      fullPath: '/collab/$tripId'
-      preLoaderRoute: typeof CollabTripIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/checkout/return': {
       id: '/checkout/return'
       path: '/checkout/return'
@@ -3616,81 +902,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutReturnRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/business/social': {
-      id: '/business/social'
-      path: '/business/social'
-      fullPath: '/business/social'
-      preLoaderRoute: typeof BusinessSocialRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/signup': {
-      id: '/business/signup'
-      path: '/business/signup'
-      fullPath: '/business/signup'
-      preLoaderRoute: typeof BusinessSignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/settings': {
-      id: '/business/settings'
-      path: '/business/settings'
-      fullPath: '/business/settings'
-      preLoaderRoute: typeof BusinessSettingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/register': {
-      id: '/business/register'
-      path: '/business/register'
-      fullPath: '/business/register'
-      preLoaderRoute: typeof BusinessRegisterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/promoters': {
-      id: '/business/promoters'
-      path: '/business/promoters'
-      fullPath: '/business/promoters'
-      preLoaderRoute: typeof BusinessPromotersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/pricing': {
-      id: '/business/pricing'
-      path: '/business/pricing'
-      fullPath: '/business/pricing'
-      preLoaderRoute: typeof BusinessPricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/pending': {
-      id: '/business/pending'
-      path: '/business/pending'
-      fullPath: '/business/pending'
-      preLoaderRoute: typeof BusinessPendingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/payouts': {
-      id: '/business/payouts'
-      path: '/business/payouts'
-      fullPath: '/business/payouts'
-      preLoaderRoute: typeof BusinessPayoutsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/media': {
-      id: '/business/media'
-      path: '/business/media'
-      fullPath: '/business/media'
-      preLoaderRoute: typeof BusinessMediaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/business/login': {
       id: '/business/login'
       path: '/business/login'
       fullPath: '/business/login'
       preLoaderRoute: typeof BusinessLoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/events': {
-      id: '/business/events'
-      path: '/business/events'
-      fullPath: '/business/events'
-      preLoaderRoute: typeof BusinessEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/dashboard': {
@@ -3705,20 +921,6 @@ declare module '@tanstack/react-router' {
       path: '/business/claim'
       fullPath: '/business/claim'
       preLoaderRoute: typeof BusinessClaimRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/billing': {
-      id: '/business/billing'
-      path: '/business/billing'
-      fullPath: '/business/billing'
-      preLoaderRoute: typeof BusinessBillingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business/ai-refresh': {
-      id: '/business/ai-refresh'
-      path: '/business/ai-refresh'
-      fullPath: '/business/ai-refresh'
-      preLoaderRoute: typeof BusinessAiRefreshRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app/reels': {
@@ -3763,278 +965,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/advertise/reports': {
-      id: '/advertise/reports'
-      path: '/reports'
-      fullPath: '/advertise/reports'
-      preLoaderRoute: typeof AdvertiseReportsRouteImport
-      parentRoute: typeof AdvertiseRoute
-    }
-    '/advertise/portal': {
-      id: '/advertise/portal'
-      path: '/portal'
-      fullPath: '/advertise/portal'
-      preLoaderRoute: typeof AdvertisePortalRouteImport
-      parentRoute: typeof AdvertiseRoute
-    }
-    '/admin/wallet-debug': {
-      id: '/admin/wallet-debug'
-      path: '/wallet-debug'
-      fullPath: '/admin/wallet-debug'
-      preLoaderRoute: typeof AdminWalletDebugRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/venues': {
-      id: '/admin/venues'
-      path: '/venues'
-      fullPath: '/admin/venues'
-      preLoaderRoute: typeof AdminVenuesRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/users': {
-      id: '/admin/users'
-      path: '/users'
-      fullPath: '/admin/users'
-      preLoaderRoute: typeof AdminUsersRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/testimonials': {
-      id: '/admin/testimonials'
-      path: '/testimonials'
-      fullPath: '/admin/testimonials'
-      preLoaderRoute: typeof AdminTestimonialsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/settings': {
-      id: '/admin/settings'
-      path: '/settings'
-      fullPath: '/admin/settings'
-      preLoaderRoute: typeof AdminSettingsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/routes-map': {
-      id: '/admin/routes-map'
-      path: '/routes-map'
-      fullPath: '/admin/routes-map'
-      preLoaderRoute: typeof AdminRoutesMapRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/roles': {
-      id: '/admin/roles'
-      path: '/roles'
-      fullPath: '/admin/roles'
-      preLoaderRoute: typeof AdminRolesRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/promoters': {
-      id: '/admin/promoters'
-      path: '/promoters'
-      fullPath: '/admin/promoters'
-      preLoaderRoute: typeof AdminPromotersRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/pick-analytics': {
-      id: '/admin/pick-analytics'
-      path: '/pick-analytics'
-      fullPath: '/admin/pick-analytics'
-      preLoaderRoute: typeof AdminPickAnalyticsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/outreach': {
-      id: '/admin/outreach'
-      path: '/outreach'
-      fullPath: '/admin/outreach'
-      preLoaderRoute: typeof AdminOutreachRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/notifications': {
-      id: '/admin/notifications'
-      path: '/notifications'
-      fullPath: '/admin/notifications'
-      preLoaderRoute: typeof AdminNotificationsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/moderation': {
-      id: '/admin/moderation'
-      path: '/moderation'
-      fullPath: '/admin/moderation'
-      preLoaderRoute: typeof AdminModerationRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/marquee': {
-      id: '/admin/marquee'
-      path: '/marquee'
-      fullPath: '/admin/marquee'
-      preLoaderRoute: typeof AdminMarqueeRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/logs': {
-      id: '/admin/logs'
-      path: '/logs'
-      fullPath: '/admin/logs'
-      preLoaderRoute: typeof AdminLogsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/launch': {
-      id: '/admin/launch'
-      path: '/launch'
-      fullPath: '/admin/launch'
-      preLoaderRoute: typeof AdminLaunchRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/integrations': {
-      id: '/admin/integrations'
-      path: '/integrations'
-      fullPath: '/admin/integrations'
-      preLoaderRoute: typeof AdminIntegrationsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/health': {
-      id: '/admin/health'
-      path: '/health'
-      fullPath: '/admin/health'
-      preLoaderRoute: typeof AdminHealthRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/event-analytics': {
-      id: '/admin/event-analytics'
-      path: '/event-analytics'
-      fullPath: '/admin/event-analytics'
-      preLoaderRoute: typeof AdminEventAnalyticsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/diagnostics': {
-      id: '/admin/diagnostics'
-      path: '/diagnostics'
-      fullPath: '/admin/diagnostics'
-      preLoaderRoute: typeof AdminDiagnosticsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/deploy-preflight': {
-      id: '/admin/deploy-preflight'
-      path: '/deploy-preflight'
-      fullPath: '/admin/deploy-preflight'
-      preLoaderRoute: typeof AdminDeployPreflightRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/contracts': {
-      id: '/admin/contracts'
-      path: '/contracts'
-      fullPath: '/admin/contracts'
-      preLoaderRoute: typeof AdminContractsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/business-claims': {
-      id: '/admin/business-claims'
-      path: '/business-claims'
-      fullPath: '/admin/business-claims'
-      preLoaderRoute: typeof AdminBusinessClaimsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/brief': {
-      id: '/admin/brief'
-      path: '/brief'
-      fullPath: '/admin/brief'
-      preLoaderRoute: typeof AdminBriefRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/bootstrap': {
-      id: '/admin/bootstrap'
-      path: '/bootstrap'
-      fullPath: '/admin/bootstrap'
-      preLoaderRoute: typeof AdminBootstrapRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/bookings': {
-      id: '/admin/bookings'
-      path: '/bookings'
-      fullPath: '/admin/bookings'
-      preLoaderRoute: typeof AdminBookingsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/audit': {
-      id: '/admin/audit'
-      path: '/audit'
-      fullPath: '/admin/audit'
-      preLoaderRoute: typeof AdminAuditRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/ask': {
-      id: '/admin/ask'
-      path: '/ask'
-      fullPath: '/admin/ask'
-      preLoaderRoute: typeof AdminAskRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/analytics': {
-      id: '/admin/analytics'
-      path: '/analytics'
-      fullPath: '/admin/analytics'
-      preLoaderRoute: typeof AdminAnalyticsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/agents': {
-      id: '/admin/agents'
-      path: '/agents'
-      fullPath: '/admin/agents'
-      preLoaderRoute: typeof AdminAgentsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/advertisers': {
-      id: '/admin/advertisers'
-      path: '/advertisers'
-      fullPath: '/admin/advertisers'
-      preLoaderRoute: typeof AdminAdvertisersRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/ad-analytics': {
-      id: '/admin/ad-analytics'
-      path: '/ad-analytics'
-      fullPath: '/admin/ad-analytics'
-      preLoaderRoute: typeof AdminAdAnalyticsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/concierge/chat/': {
-      id: '/concierge/chat/'
-      path: '/chat'
-      fullPath: '/concierge/chat/'
-      preLoaderRoute: typeof ConciergeChatIndexRouteImport
-      parentRoute: typeof ConciergeRoute
-    }
     '/trips/$id/passport': {
       id: '/trips/$id/passport'
       path: '/passport'
       fullPath: '/trips/$id/passport'
       preLoaderRoute: typeof TripsIdPassportRouteImport
       parentRoute: typeof TripsIdRoute
-    }
-    '/concierge/chat/$threadId': {
-      id: '/concierge/chat/$threadId'
-      path: '/chat/$threadId'
-      fullPath: '/concierge/chat/$threadId'
-      preLoaderRoute: typeof ConciergeChatThreadIdRouteImport
-      parentRoute: typeof ConciergeRoute
-    }
-    '/business/claim/pending': {
-      id: '/business/claim/pending'
-      path: '/pending'
-      fullPath: '/business/claim/pending'
-      preLoaderRoute: typeof BusinessClaimPendingRouteImport
-      parentRoute: typeof BusinessClaimRoute
-    }
-    '/api/qa/run': {
-      id: '/api/qa/run'
-      path: '/api/qa/run'
-      fullPath: '/api/qa/run'
-      preLoaderRoute: typeof ApiQaRunRouteImport
-      parentRoute: typeof rootRouteImport
     }
     '/api/public/pick-events': {
       id: '/api/public/pick-events'
@@ -4056,13 +992,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/maps/satellite'
       preLoaderRoute: typeof ApiMapsSatelliteRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/advertise/stories/$slug': {
-      id: '/advertise/stories/$slug'
-      path: '/stories/$slug'
-      fullPath: '/advertise/stories/$slug'
-      preLoaderRoute: typeof AdvertiseStoriesSlugRouteImport
-      parentRoute: typeof AdvertiseRoute
     }
     '/api/public/webhooks/partner': {
       id: '/api/public/webhooks/partner'
@@ -4193,100 +1122,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AdminRouteChildren {
-  AdminAdAnalyticsRoute: typeof AdminAdAnalyticsRoute
-  AdminAdvertisersRoute: typeof AdminAdvertisersRoute
-  AdminAgentsRoute: typeof AdminAgentsRoute
-  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
-  AdminAskRoute: typeof AdminAskRoute
-  AdminAuditRoute: typeof AdminAuditRoute
-  AdminBookingsRoute: typeof AdminBookingsRoute
-  AdminBootstrapRoute: typeof AdminBootstrapRoute
-  AdminBriefRoute: typeof AdminBriefRoute
-  AdminBusinessClaimsRoute: typeof AdminBusinessClaimsRoute
-  AdminContractsRoute: typeof AdminContractsRoute
-  AdminDeployPreflightRoute: typeof AdminDeployPreflightRoute
-  AdminDiagnosticsRoute: typeof AdminDiagnosticsRoute
-  AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
-  AdminHealthRoute: typeof AdminHealthRoute
-  AdminIntegrationsRoute: typeof AdminIntegrationsRoute
-  AdminLaunchRoute: typeof AdminLaunchRoute
-  AdminLoginRoute: typeof AdminLoginRoute
-  AdminLogsRoute: typeof AdminLogsRoute
-  AdminMarqueeRoute: typeof AdminMarqueeRoute
-  AdminModerationRoute: typeof AdminModerationRoute
-  AdminNotificationsRoute: typeof AdminNotificationsRoute
-  AdminOutreachRoute: typeof AdminOutreachRoute
-  AdminPickAnalyticsRoute: typeof AdminPickAnalyticsRoute
-  AdminPromotersRoute: typeof AdminPromotersRoute
-  AdminRolesRoute: typeof AdminRolesRoute
-  AdminRoutesMapRoute: typeof AdminRoutesMapRoute
-  AdminSettingsRoute: typeof AdminSettingsRoute
-  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
-  AdminUsersRoute: typeof AdminUsersRoute
-  AdminVenuesRoute: typeof AdminVenuesRoute
-  AdminWalletDebugRoute: typeof AdminWalletDebugRoute
-  AdminCityIdeasLazyRoute: typeof AdminCityIdeasLazyRoute
-  AdminIndexRoute: typeof AdminIndexRoute
-}
-
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminAdAnalyticsRoute: AdminAdAnalyticsRoute,
-  AdminAdvertisersRoute: AdminAdvertisersRoute,
-  AdminAgentsRoute: AdminAgentsRoute,
-  AdminAnalyticsRoute: AdminAnalyticsRoute,
-  AdminAskRoute: AdminAskRoute,
-  AdminAuditRoute: AdminAuditRoute,
-  AdminBookingsRoute: AdminBookingsRoute,
-  AdminBootstrapRoute: AdminBootstrapRoute,
-  AdminBriefRoute: AdminBriefRoute,
-  AdminBusinessClaimsRoute: AdminBusinessClaimsRoute,
-  AdminContractsRoute: AdminContractsRoute,
-  AdminDeployPreflightRoute: AdminDeployPreflightRoute,
-  AdminDiagnosticsRoute: AdminDiagnosticsRoute,
-  AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
-  AdminHealthRoute: AdminHealthRoute,
-  AdminIntegrationsRoute: AdminIntegrationsRoute,
-  AdminLaunchRoute: AdminLaunchRoute,
-  AdminLoginRoute: AdminLoginRoute,
-  AdminLogsRoute: AdminLogsRoute,
-  AdminMarqueeRoute: AdminMarqueeRoute,
-  AdminModerationRoute: AdminModerationRoute,
-  AdminNotificationsRoute: AdminNotificationsRoute,
-  AdminOutreachRoute: AdminOutreachRoute,
-  AdminPickAnalyticsRoute: AdminPickAnalyticsRoute,
-  AdminPromotersRoute: AdminPromotersRoute,
-  AdminRolesRoute: AdminRolesRoute,
-  AdminRoutesMapRoute: AdminRoutesMapRoute,
-  AdminSettingsRoute: AdminSettingsRoute,
-  AdminTestimonialsRoute: AdminTestimonialsRoute,
-  AdminUsersRoute: AdminUsersRoute,
-  AdminVenuesRoute: AdminVenuesRoute,
-  AdminWalletDebugRoute: AdminWalletDebugRoute,
-  AdminCityIdeasLazyRoute: AdminCityIdeasLazyRoute,
-  AdminIndexRoute: AdminIndexRoute,
-}
-
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
-
-interface AdvertiseRouteChildren {
-  AdvertisePortalRoute: typeof AdvertisePortalRoute
-  AdvertiseReportsRoute: typeof AdvertiseReportsRoute
-  AdvertiseIndexRoute: typeof AdvertiseIndexRoute
-  AdvertiseStoriesSlugRoute: typeof AdvertiseStoriesSlugRoute
-}
-
-const AdvertiseRouteChildren: AdvertiseRouteChildren = {
-  AdvertisePortalRoute: AdvertisePortalRoute,
-  AdvertiseReportsRoute: AdvertiseReportsRoute,
-  AdvertiseIndexRoute: AdvertiseIndexRoute,
-  AdvertiseStoriesSlugRoute: AdvertiseStoriesSlugRoute,
-}
-
-const AdvertiseRouteWithChildren = AdvertiseRoute._addFileChildren(
-  AdvertiseRouteChildren,
-)
-
 interface AppRouteChildren {
   AppExploreRoute: typeof AppExploreRoute
   AppPlanRoute: typeof AppPlanRoute
@@ -4305,184 +1140,6 @@ const AppRouteChildren: AppRouteChildren = {
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
-interface ConciergeRouteChildren {
-  ConciergePassportRoute: typeof ConciergePassportRoute
-  ConciergeProfileRoute: typeof ConciergeProfileRoute
-  ConciergeIndexRoute: typeof ConciergeIndexRoute
-  ConciergeChatThreadIdRoute: typeof ConciergeChatThreadIdRoute
-  ConciergeChatIndexRoute: typeof ConciergeChatIndexRoute
-}
-
-const ConciergeRouteChildren: ConciergeRouteChildren = {
-  ConciergePassportRoute: ConciergePassportRoute,
-  ConciergeProfileRoute: ConciergeProfileRoute,
-  ConciergeIndexRoute: ConciergeIndexRoute,
-  ConciergeChatThreadIdRoute: ConciergeChatThreadIdRoute,
-  ConciergeChatIndexRoute: ConciergeChatIndexRoute,
-}
-
-const ConciergeRouteWithChildren = ConciergeRoute._addFileChildren(
-  ConciergeRouteChildren,
-)
-
-interface CorporateRouteChildren {
-  CorporateApprovalsRoute: typeof CorporateApprovalsRoute
-  CorporateBookingsRoute: typeof CorporateBookingsRoute
-  CorporateLoginRoute: typeof CorporateLoginRoute
-  CorporatePlannerRoute: typeof CorporatePlannerRoute
-  CorporatePoliciesRoute: typeof CorporatePoliciesRoute
-  CorporateReportingRoute: typeof CorporateReportingRoute
-  CorporateSettingsRoute: typeof CorporateSettingsRoute
-  CorporateTeamsRoute: typeof CorporateTeamsRoute
-  CorporateIndexRoute: typeof CorporateIndexRoute
-}
-
-const CorporateRouteChildren: CorporateRouteChildren = {
-  CorporateApprovalsRoute: CorporateApprovalsRoute,
-  CorporateBookingsRoute: CorporateBookingsRoute,
-  CorporateLoginRoute: CorporateLoginRoute,
-  CorporatePlannerRoute: CorporatePlannerRoute,
-  CorporatePoliciesRoute: CorporatePoliciesRoute,
-  CorporateReportingRoute: CorporateReportingRoute,
-  CorporateSettingsRoute: CorporateSettingsRoute,
-  CorporateTeamsRoute: CorporateTeamsRoute,
-  CorporateIndexRoute: CorporateIndexRoute,
-}
-
-const CorporateRouteWithChildren = CorporateRoute._addFileChildren(
-  CorporateRouteChildren,
-)
-
-interface PartnerRouteChildren {
-  PartnerAnalyticsRoute: typeof PartnerAnalyticsRoute
-  PartnerApiRoute: typeof PartnerApiRoute
-  PartnerBillingRoute: typeof PartnerBillingRoute
-  PartnerBookingSettingsRoute: typeof PartnerBookingSettingsRoute
-  PartnerCalendarRoute: typeof PartnerCalendarRoute
-  PartnerMenuRoute: typeof PartnerMenuRoute
-  PartnerOrderSettingsRoute: typeof PartnerOrderSettingsRoute
-  PartnerOrdersRoute: typeof PartnerOrdersRoute
-  PartnerProfileRoute: typeof PartnerProfileRoute
-  PartnerPromotionsRoute: typeof PartnerPromotionsRoute
-  PartnerReservationsRoute: typeof PartnerReservationsRoute
-  PartnerSuggestionsRoute: typeof PartnerSuggestionsRoute
-  PartnerSupportRoute: typeof PartnerSupportRoute
-  PartnerIndexRoute: typeof PartnerIndexRoute
-}
-
-const PartnerRouteChildren: PartnerRouteChildren = {
-  PartnerAnalyticsRoute: PartnerAnalyticsRoute,
-  PartnerApiRoute: PartnerApiRoute,
-  PartnerBillingRoute: PartnerBillingRoute,
-  PartnerBookingSettingsRoute: PartnerBookingSettingsRoute,
-  PartnerCalendarRoute: PartnerCalendarRoute,
-  PartnerMenuRoute: PartnerMenuRoute,
-  PartnerOrderSettingsRoute: PartnerOrderSettingsRoute,
-  PartnerOrdersRoute: PartnerOrdersRoute,
-  PartnerProfileRoute: PartnerProfileRoute,
-  PartnerPromotionsRoute: PartnerPromotionsRoute,
-  PartnerReservationsRoute: PartnerReservationsRoute,
-  PartnerSuggestionsRoute: PartnerSuggestionsRoute,
-  PartnerSupportRoute: PartnerSupportRoute,
-  PartnerIndexRoute: PartnerIndexRoute,
-}
-
-const PartnerRouteWithChildren =
-  PartnerRoute._addFileChildren(PartnerRouteChildren)
-
-interface PlanRouteChildren {
-  PlanPreviewRoute: typeof PlanPreviewRoute
-  PlanReadyRoute: typeof PlanReadyRoute
-}
-
-const PlanRouteChildren: PlanRouteChildren = {
-  PlanPreviewRoute: PlanPreviewRoute,
-  PlanReadyRoute: PlanReadyRoute,
-}
-
-const PlanRouteWithChildren = PlanRoute._addFileChildren(PlanRouteChildren)
-
-interface PortalRouteChildren {
-  PortalAchievementsRoute: typeof PortalAchievementsRoute
-  PortalActivityRoute: typeof PortalActivityRoute
-  PortalBookingsRoute: typeof PortalBookingsRoute
-  PortalBriefRoute: typeof PortalBriefRoute
-  PortalPassportRoute: typeof PortalPassportRoute
-  PortalProfileRoute: typeof PortalProfileRoute
-  PortalReferRoute: typeof PortalReferRoute
-  PortalSavedRoute: typeof PortalSavedRoute
-  PortalViralRoute: typeof PortalViralRoute
-  PortalWalletRoute: typeof PortalWalletRoute
-  PortalIndexRoute: typeof PortalIndexRoute
-}
-
-const PortalRouteChildren: PortalRouteChildren = {
-  PortalAchievementsRoute: PortalAchievementsRoute,
-  PortalActivityRoute: PortalActivityRoute,
-  PortalBookingsRoute: PortalBookingsRoute,
-  PortalBriefRoute: PortalBriefRoute,
-  PortalPassportRoute: PortalPassportRoute,
-  PortalProfileRoute: PortalProfileRoute,
-  PortalReferRoute: PortalReferRoute,
-  PortalSavedRoute: PortalSavedRoute,
-  PortalViralRoute: PortalViralRoute,
-  PortalWalletRoute: PortalWalletRoute,
-  PortalIndexRoute: PortalIndexRoute,
-}
-
-const PortalRouteWithChildren =
-  PortalRoute._addFileChildren(PortalRouteChildren)
-
-interface PromoterRouteChildren {
-  PromoterJobsRoute: typeof PromoterJobsRoute
-  PromoterIndexRoute: typeof PromoterIndexRoute
-}
-
-const PromoterRouteChildren: PromoterRouteChildren = {
-  PromoterJobsRoute: PromoterJobsRoute,
-  PromoterIndexRoute: PromoterIndexRoute,
-}
-
-const PromoterRouteWithChildren = PromoterRoute._addFileChildren(
-  PromoterRouteChildren,
-)
-
-interface QaRouteChildren {
-  QaTestPlanRoute: typeof QaTestPlanRoute
-}
-
-const QaRouteChildren: QaRouteChildren = {
-  QaTestPlanRoute: QaTestPlanRoute,
-}
-
-const QaRouteWithChildren = QaRoute._addFileChildren(QaRouteChildren)
-
-interface TeamsRouteChildren {
-  TeamsIdRoute: typeof TeamsIdRoute
-  TeamsNewRoute: typeof TeamsNewRoute
-  TeamsIndexRoute: typeof TeamsIndexRoute
-}
-
-const TeamsRouteChildren: TeamsRouteChildren = {
-  TeamsIdRoute: TeamsIdRoute,
-  TeamsNewRoute: TeamsNewRoute,
-  TeamsIndexRoute: TeamsIndexRoute,
-}
-
-const TeamsRouteWithChildren = TeamsRoute._addFileChildren(TeamsRouteChildren)
-
-interface BusinessClaimRouteChildren {
-  BusinessClaimPendingRoute: typeof BusinessClaimPendingRoute
-}
-
-const BusinessClaimRouteChildren: BusinessClaimRouteChildren = {
-  BusinessClaimPendingRoute: BusinessClaimPendingRoute,
-}
-
-const BusinessClaimRouteWithChildren = BusinessClaimRoute._addFileChildren(
-  BusinessClaimRouteChildren,
-)
-
 interface TripsIdRouteChildren {
   TripsIdPassportRoute: typeof TripsIdPassportRoute
 }
@@ -4499,93 +1156,24 @@ const rootRouteChildren: RootRouteChildren = {
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
-  ActiveConfettiRoute: ActiveConfettiRoute,
-  ActiveLoopRoute: ActiveLoopRoute,
-  AdminRoute: AdminRouteWithChildren,
-  AdvertiseRoute: AdvertiseRouteWithChildren,
   AppRoute: AppRouteWithChildren,
-  AskRoute: AskRoute,
   AuthRoute: AuthRoute,
   BoardingPassRoute: BoardingPassRoute,
-  BoardingPassPlannerRoute: BoardingPassPlannerRoute,
   ChatRoute: ChatRoute,
   CheckInRoute: CheckInRoute,
-  CityGuidesRoute: CityGuidesRoute,
-  ConciergeRoute: ConciergeRouteWithChildren,
-  ConfirmationRoute: ConfirmationRoute,
-  ContactRoute: ContactRoute,
-  CookiesRoute: CookiesRoute,
-  CorporateRoute: CorporateRouteWithChildren,
-  CreateRoute: CreateRoute,
-  DataTermsRoute: DataTermsRoute,
-  DiscoverRoute: DiscoverRoute,
-  EventPackRoute: EventPackRoute,
-  FaqRoute: FaqRoute,
-  FavoritesRoute: FavoritesRoute,
-  FeaturesRoute: FeaturesRoute,
   ForBusinessRoute: ForBusinessRoute,
-  GroupOutingRoute: GroupOutingRoute,
-  GuidesRoute: GuidesRoute,
   HealthRoute: HealthRoute,
-  HowItWorksRoute: HowItWorksRoute,
   InfluencerRoute: InfluencerRoute,
-  InvestorsRoute: InvestorsRoute,
-  LoginRoute: LoginRoute,
-  MeRoute: MeRoute,
-  NightPlannerRoute: NightPlannerRoute,
-  OnboardingRoute: OnboardingRoute,
-  PartnerRoute: PartnerRouteWithChildren,
-  PartnersRoute: PartnersRoute,
-  PassportRoute: PassportRoute,
-  PlanRoute: PlanRouteWithChildren,
-  PortalRoute: PortalRouteWithChildren,
-  PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
-  PromoterRoute: PromoterRouteWithChildren,
-  QaRoute: QaRouteWithChildren,
-  QuickGenerateRoute: QuickGenerateRoute,
-  ReservationsRoute: ReservationsRoute,
-  ResetPasswordRoute: ResetPasswordRoute,
-  ScanRoute: ScanRoute,
-  SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  TasteTunerRoute: TasteTunerRoute,
-  TeamEventsRoute: TeamEventsRoute,
-  TeamsRoute: TeamsRouteWithChildren,
-  TermsRoute: TermsRoute,
-  TestimonialsRoute: TestimonialsRoute,
-  TonightRoute: TonightRoute,
-  TranslateRoute: TranslateRoute,
-  VibePickerRoute: VibePickerRoute,
-  VibePlansRoute: VibePlansRoute,
-  ViralRoute: ViralRoute,
-  WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
   ApiPlanRoute: ApiPlanRoute,
-  BusinessAiRefreshRoute: BusinessAiRefreshRoute,
-  BusinessBillingRoute: BusinessBillingRoute,
-  BusinessClaimRoute: BusinessClaimRouteWithChildren,
+  BusinessClaimRoute: BusinessClaimRoute,
   BusinessDashboardRoute: BusinessDashboardRoute,
-  BusinessEventsRoute: BusinessEventsRoute,
   BusinessLoginRoute: BusinessLoginRoute,
-  BusinessMediaRoute: BusinessMediaRoute,
-  BusinessPayoutsRoute: BusinessPayoutsRoute,
-  BusinessPendingRoute: BusinessPendingRoute,
-  BusinessPricingRoute: BusinessPricingRoute,
-  BusinessPromotersRoute: BusinessPromotersRoute,
-  BusinessRegisterRoute: BusinessRegisterRoute,
-  BusinessSettingsRoute: BusinessSettingsRoute,
-  BusinessSignupRoute: BusinessSignupRoute,
-  BusinessSocialRoute: BusinessSocialRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
-  CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,
-  IdeasSlugRoute: IdeasSlugRoute,
   PCodeRoute: PCodeRoute,
-  ProfilePreferencesRoute: ProfilePreferencesRoute,
-  RecapItineraryIdRoute: RecapItineraryIdRoute,
-  RsvpTokenRoute: RsvpTokenRoute,
-  RsvpTripIdRoute: RsvpTripIdRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,
   BusinessIndexRoute: BusinessIndexRoute,
@@ -4594,7 +1182,6 @@ const rootRouteChildren: RootRouteChildren = {
   ApiMapsSatelliteRoute: ApiMapsSatelliteRoute,
   ApiPlansGenerateRoute: ApiPlansGenerateRoute,
   ApiPublicPickEventsRoute: ApiPublicPickEventsRoute,
-  ApiQaRunRoute: ApiQaRunRoute,
   ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
   ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,

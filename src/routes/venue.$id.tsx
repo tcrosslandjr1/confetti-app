@@ -144,12 +144,12 @@ function VenueBookingPage() {
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
     const sample = getSampleVenue(id);
     (async () => {
-      let v: any = null;
+      let row: unknown = null;
       let source: "venues" | "viral_venues" = "venues";
       if (isUuid) {
         const venuesRes = await supabase.from("venues").select("*").eq("id", id).maybeSingle();
         if (venuesRes.data) {
-          v = venuesRes.data;
+          row = venuesRes.data;
         } else {
           const viralRes = await supabase
             .from("viral_venues")
@@ -157,72 +157,49 @@ function VenueBookingPage() {
             .eq("id", id)
             .maybeSingle();
           if (viralRes.data) {
-            v = viralRes.data;
+            row = viralRes.data;
             source = "viral_venues";
           }
         }
       }
       if (cancelled) return;
-      if (v) {
-        setVenue({
-          id: v.id,
-          name: v.name,
-          category: v.category ?? null,
-          neighborhood: v.neighborhood ?? null,
-          address: (v as any).address ?? null,
-          image_url: v.image_url ?? null,
-          description: v.description ?? null,
-          rating: (v as any).rating ?? 4.8,
-          price_level: (v as any).price_level ?? 3,
-          tags: Array.isArray((v as any).tags) ? (v as any).tags : [],
-          source,
-          city: (v as any).city ?? null,
-          website: (v as any).website ?? null,
-          gallery_urls: Array.isArray((v as any).gallery_urls) ? (v as any).gallery_urls : [],
-          tiktok_url: (v as any).tiktok_url ?? null,
-          tiktok_handle: (v as any).tiktok_handle ?? null,
-          instagram_url: (v as any).instagram_url ?? null,
-          instagram_handle: (v as any).instagram_handle ?? null,
-        });
-      } else if (sample) {
-        setVenue({
-          id: sample.id,
-          name: sample.name,
-          category: sample.category,
-          neighborhood: sample.neighborhood,
-          address: sample.address,
-          image_url: sample.imageUrl,
-          description: sample.description,
-          rating: sample.rating,
-          price_level: sample.price_level,
-          tags: sample.tags,
-          source: "venues",
-          city: sample.city,
-          website: (sample as any).website ?? null,
-        });
-      } else {
-        // Final fallback so the flow remains usable even without a row.
-        setVenue({
-          id,
-          name: "Le Petit Salon",
-          category: "Cocktail bar",
-          neighborhood: "West Village",
-          address: "247 W 10th St, New York",
-          image_url: FALLBACK_PHOTO,
-          description: "An intimate cocktail bar with a hidden garden patio.",
-          rating: 4.8,
-          price_level: 3,
-          tags: ["date night", "cocktails", "intimate"],
-          source: "venues",
-          city: "New York",
-          website: null,
-        });
+
+      const validated = row ? validateVenueRow(row, source) : null;
+      if (validated) {
+        setVenue(validated);
+        return;
       }
+      if (sample) {
+        // Sample-venue path stays for static demo pages but still passes
+        // through the validator so missing fields collapse to null.
+        const sampleValidated = validateVenueRow(
+          {
+            id: sample.id,
+            name: sample.name,
+            category: sample.category,
+            neighborhood: sample.neighborhood,
+            address: sample.address,
+            city: sample.city,
+            description: sample.description,
+            image_url: sample.imageUrl,
+            rating: sample.rating,
+            price_level: sample.price_level,
+            tags: sample.tags,
+            gallery_urls: [],
+            website: (sample as any).website ?? null,
+          },
+          "venues",
+        );
+        setVenue(sampleValidated);
+        return;
+      }
+      setVenue(null);
     })();
     return () => {
       cancelled = true;
     };
   }, [id]);
+
 
   const go = (next: 1 | 2 | 3 | 4) => {
     setDir(next > step ? 1 : -1);

@@ -18,7 +18,7 @@ type Option = {
   label: string;
   Icon: typeof Shield;
   blurb: string;
-  home: "/" | "/app/profile" | "/business/dashboard";
+  home: "/" | "/app/profile" | "/business/dashboard" | "/admin/console";
   tone: string; // tailwind classes for active chip
 };
 

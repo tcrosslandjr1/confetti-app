@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, Megaphone, Crown, Zap, Star, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "sonner";
+import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 
 export const Route = createFileRoute("/business/ads")({
   beforeLoad: async () => {

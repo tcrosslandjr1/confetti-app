@@ -13,7 +13,8 @@ export function supabaseForUser(authHeader: string) {
   );
 }
 
-export { getCorsHeaders, corsHeaders } from "./cors.ts";
+import { getCorsHeaders, corsHeaders } from "./cors.ts";
+export { getCorsHeaders, corsHeaders };
 
 /** @deprecated Use getCorsHeaders(request) from cors.ts for dynamic origin checking */
 export function corsHeadersLegacy() {

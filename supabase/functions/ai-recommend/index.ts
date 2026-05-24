@@ -258,7 +258,8 @@ Return ONLY valid JSON (no markdown, no code fences). Use this exact structure:
 // ─── Main Handler ─────────────────────────────────────────────
 
 serve(async (req: Request) => {
-  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders() });
+  try {
+  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   if (!isAuthorized(req)) return errorResponse("Unauthorized", 401);
 
@@ -385,6 +386,13 @@ serve(async (req: Request) => {
   }
 
   return jsonResponse(result);
+  } catch (err) {
+    console.error("[ai-recommend] uncaught:", (err as Error).stack ?? err);
+    return errorResponse(
+      `Unhandled: ${(err as Error).message ?? String(err)}`,
+      500,
+    );
+  }
 });
 
 // ─── Helpers ──────────────────────────────────────────────────

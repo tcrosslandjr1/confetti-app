@@ -41,6 +41,7 @@ import { Route as AppPlanRouteImport } from './routes/app.plan'
 import { Route as AppExploreRouteImport } from './routes/app.explore'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiPlansGenerateRouteImport } from './routes/api/plans/generate'
@@ -224,6 +225,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TripsIdPassportRoute = TripsIdPassportRouteImport.update({
   id: '/passport',
   path: '/passport',
@@ -365,6 +371,7 @@ export interface FileRoutesByFullPath {
   '/influencer': typeof InfluencerRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -420,6 +427,7 @@ export interface FileRoutesByTo {
   '/influencer': typeof InfluencerRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -477,6 +485,7 @@ export interface FileRoutesById {
   '/influencer': typeof InfluencerRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -535,6 +544,7 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/privacy'
     | '/sitemap.xml'
+    | '/admin/login'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -590,6 +600,7 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/privacy'
     | '/sitemap.xml'
+    | '/admin/login'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -646,6 +657,7 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/privacy'
     | '/sitemap.xml'
+    | '/admin/login'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -703,6 +715,7 @@ export interface RootRouteChildren {
   InfluencerRoute: typeof InfluencerRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminLoginRoute: typeof AdminLoginRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiPlanRoute: typeof ApiPlanRoute
   BusinessClaimRoute: typeof BusinessClaimRoute
@@ -965,6 +978,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/trips/$id/passport': {
       id: '/trips/$id/passport'
       path: '/passport'
@@ -1166,6 +1186,7 @@ const rootRouteChildren: RootRouteChildren = {
   InfluencerRoute: InfluencerRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminLoginRoute: AdminLoginRoute,
   ApiChatRoute: ApiChatRoute,
   ApiPlanRoute: ApiPlanRoute,
   BusinessClaimRoute: BusinessClaimRoute,

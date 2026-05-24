@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { Check, Sparkles, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from "@/lib/auth-context";
@@ -7,19 +6,18 @@ import { useSubscription } from "@/hooks/useSubscription";
 import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 import { getStripeEnvironment } from "@/lib/stripe-env";
 import {
-  createPortalSession,
-  cancelSubscription,
-  changePlan,
+  createBillingPortalSession,
+  cancelCurrentSubscription,
+  changeSubscriptionPlan,
   BUSINESS_PRICES,
-} from "@/lib/checkout.functions";
+  type BusinessPriceId,
+} from "@/lib/checkout-api";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-
-type BusinessPriceId = (typeof BUSINESS_PRICES)[number];
 
 type TierDef = {
   id: BusinessPriceId;
@@ -87,9 +85,6 @@ export function BusinessUpgradePanel() {
   const { user } = useAuth();
   const { subscription, isActive, priceId, refetch, loading } = useSubscription();
   const { openCheckout, checkoutElement } = useStripeCheckout();
-  const portalFn = useServerFn(createPortalSession);
-  const cancelFn = useServerFn(cancelSubscription);
-  const changeFn = useServerFn(changePlan);
   const [busy, setBusy] = useState<string | null>(null);
 
   const env = getStripeEnvironment();
@@ -113,7 +108,7 @@ export function BusinessUpgradePanel() {
     if (tierId === currentTier) return;
     setBusy(tierId);
     try {
-      const res = await changeFn({ data: { environment: env, newPriceId: tierId } });
+      const res = await changeSubscriptionPlan({ environment: env, newPriceId: tierId });
       toast.success(
         res.mode === "upgrade"
           ? "Upgraded — changes are live"
@@ -132,8 +127,9 @@ export function BusinessUpgradePanel() {
   const handlePortal = async () => {
     setBusy("portal");
     try {
-      const url = await portalFn({
-        data: { environment: env, returnUrl: window.location.href },
+      const url = await createBillingPortalSession({
+        environment: env,
+        returnUrl: window.location.href,
       });
       window.open(url, "_blank");
     } catch (e: any) {
@@ -147,7 +143,7 @@ export function BusinessUpgradePanel() {
     if (!confirm("Cancel your venue subscription? Access ends immediately.")) return;
     setBusy("cancel");
     try {
-      await cancelFn({ data: { environment: env } });
+      await cancelCurrentSubscription({ environment: env });
       toast.success("Subscription canceled");
       await refetch();
     } catch (e: any) {

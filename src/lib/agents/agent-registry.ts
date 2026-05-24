@@ -367,6 +367,34 @@ export async function getControlCenterView(): Promise<ControlCenterView> {
 // ═══════════════════════════════════════════════════════════
 
 export async function seedControlCenterDemo(): Promise<void> {
+  // Ensure trend intelligence agents exist in registry
+  const trendAgents = [
+    {
+      id: "trend_intel",
+      name: "Trend Intelligence",
+      description: "Discovers trending venues from social signals, press, and creator mentions. Runs the discover-viral pipeline and scores candidates.",
+      team_id: "ai_recs",
+      layer: "backend",
+      status: "idle",
+      file_path: "src/routes/api/public/hooks/discover-viral.ts",
+    },
+    {
+      id: "trend_plangen",
+      name: "Trend Plan Generator",
+      description: "Creates Surprise Me itinerary seeds and curates the What's Hot feed from verified viral venues and venue intelligence data.",
+      team_id: "ai_recs",
+      layer: "backend",
+      status: "idle",
+      file_path: "src/lib/agents/feed-recommendations.ts",
+    },
+  ];
+
+  for (const agent of trendAgents) {
+    await supabase
+      .from("agent_registry")
+      .upsert(agent, { onConflict: "id" });
+  }
+
   const demoMessages: Array<Parameters<typeof sendMessage>> = [
     ["chat_agent", { to_agent: "venue_discovery", msg_type: "task_handoff", subject: "User wants rooftop bars in Georgetown", body: "Mood: chill vibes, group of 4, budget $$" }],
     ["venue_discovery", { to_agent: "pipeline_ranking", msg_type: "task_handoff", subject: "12 venues found, sending for ranking", body: "Georgetown rooftop bars, filtered by rating > 4.0" }],
@@ -380,6 +408,8 @@ export async function seedControlCenterDemo(): Promise<void> {
     ["seo_aso", { to_team: "growth", msg_type: "status_update", subject: "App Store ranking improved: #47 → #31 in Lifestyle", body: "Keyword 'nightlife concierge' driving installs" }],
     ["emergency_controls", { msg_type: "broadcast", subject: "All systems green — no active incidents" }],
     ["automated_reports", { to_team: "operations", msg_type: "status_update", subject: "Daily digest generated: 847 active users, 12 plans created" }],
+    ["trend_intel", { to_agent: "trend_plangen", msg_type: "task_handoff", subject: "14 new viral venues scored in DC — 8 above threshold", body: "Top: Dauphine's (score 9.2), The Mirror Room (8.7), Reverie (8.1)" }],
+    ["trend_plangen", { to_team: "ai_recs", msg_type: "status_update", subject: "6 Surprise Me seeds generated from latest trending data" }],
   ];
 
   for (const [from, msg] of demoMessages) {
@@ -394,6 +424,7 @@ export async function seedControlCenterDemo(): Promise<void> {
     { title: "A/B test new onboarding flow", priority: "medium" as TaskPriority, assigned_to: "feature_flags", created_by: "feedback_pipeline", team_id: "operations" },
     { title: "Update venue cache for DC metro area", priority: "low" as TaskPriority, assigned_to: "venue_discovery", created_by: "automated_reports", team_id: "ai_recs" },
     { title: "Write content for weekend events push", priority: "medium" as TaskPriority, assigned_to: "content_cms", created_by: "content_cms", team_id: "growth" },
+    { title: "Review 8 pending viral venues in Trend Radar", priority: "medium" as TaskPriority, assigned_to: "trend_intel", created_by: "trend_intel", team_id: "ai_recs" },
   ];
 
   for (const task of demoTasks) {
@@ -414,6 +445,8 @@ export async function seedControlCenterDemo(): Promise<void> {
     ["automated_reports", "idle", "Generated daily digest for 2026-05-19"],
     ["admin_alerts", "active", "Monitoring 3 active alerts"],
     ["content_cms", "idle", "Published weekend events article"],
+    ["trend_intel", "idle", "Last run: discovered 14 viral venues in DC metro"],
+    ["trend_plangen", "idle", "Generated 6 Surprise Me seeds from trending data"],
   ];
 
   for (const [id, status, task] of statusUpdates) {

@@ -5,7 +5,7 @@
  * - Push notification handling
  */
 
-const CACHE_NAME = "confetti-v1";
+const CACHE_NAME = "confetti-v2";
 const STATIC_ASSETS = [
   "/",
   "/manifest.webmanifest",
@@ -48,13 +48,21 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
 
   // Network-first for HTML navigations (SPA routes)
+  // If the server returns a non-OK response (e.g. Lovable's infrastructure 404
+  // for client-side routes), serve cached index.html so TanStack Router can
+  // handle the route on the client.
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-          return response;
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+            return response;
+          }
+          // Server returned 404 or other error — serve cached index.html
+          // so the SPA router handles the path client-side
+          return caches.match("/").then((cached) => cached || response);
         })
         .catch(() => caches.match("/") || caches.match(request))
     );

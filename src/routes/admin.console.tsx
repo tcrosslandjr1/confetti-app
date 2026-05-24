@@ -19,7 +19,9 @@ import {
   Store,
   Clock,
   ChevronRight,
+  Zap,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin/console")({
   component: AdminConsole,
@@ -214,6 +216,27 @@ function AdminDashboard() {
       </header>
 
       <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+        {/* Quick Nav */}
+        <div className="mb-6">
+          <Link
+            to="/admin/trend-radar"
+            className="flex items-center gap-4 rounded-xl border-2 border-coral/30 bg-coral/5 px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-coral/50 hover:shadow-lg"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-coral bg-coral/10">
+              <Zap className="h-5 w-5 text-coral" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-sm font-black tracking-tight text-cream">
+                Trend Radar
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                Review &amp; approve trending venue discoveries
+              </p>
+            </div>
+            <ChevronRight className="h-5 w-5 shrink-0 text-cream/30" />
+          </Link>
+        </div>
+
         {/* Stat Cards */}
         {stats && (
           <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">

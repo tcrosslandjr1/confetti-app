@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sparkles, ArrowUpRight, Loader2 } from "lucide-react";
 import { PageHero, BrandCard } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,9 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/plan")({
   component: PlanMyNightPage,
+  validateSearch: (search: Record<string, unknown>) => ({
+    mode: (search.mode as string) || undefined,
+  }),
 });
 
 const OCCASIONS = ["Date", "Friends", "Birthday", "Solo", "Out-of-towner"];
@@ -40,6 +43,26 @@ function PlanMyNightPage() {
   const [groupSize, setGroupSize] = useState(2);
   const [when, setWhen] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+
+  /* ── Surprise Me mode — auto-trigger from home feed ── */
+  const { mode } = Route.useSearch();
+  useEffect(() => {
+    if (mode === "surprise") {
+      setOccasion("Solo");
+      setVibe("Chill");
+      setBudget("$$");
+      setWhen("Tonight");
+      setStep(4); // skip wizard, jump to results
+      trackConversion("plan_completed", {
+        occasion: "Solo",
+        vibe: "Chill",
+        budget: "$$",
+        groupSize,
+        when: "Tonight",
+        surpriseMode: true,
+      });
+    }
+  }, [mode]);
 
   /* ── Book → boarding pass (localStorage-backed) ── */
   function handleBook(planLabel: string) {

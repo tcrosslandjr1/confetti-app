@@ -1,15 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
-import { listMyManagedVenues } from "@/lib/business-portal.functions";
+import { Link } from "@tanstack/react-router";
+import { listMyManagedVenues } from "@/lib/business-api";
 
 const STORAGE_KEY = "confetti.activeVenueId";
 
 export function useManagedVenues() {
-  const fetcher = useServerFn(listMyManagedVenues);
   const query = useQuery({
     queryKey: ["my-managed-venues"],
-    queryFn: () => fetcher(),
+    queryFn: () => listMyManagedVenues(),
     staleTime: 30_000,
   });
   const venues = query.data?.venues ?? [];
@@ -87,12 +86,12 @@ export function NoVenueClaim() {
       <p className="text-sm text-muted-foreground">
         You don't manage any approved venues yet. Submit a claim to get started.
       </p>
-      <a
-        href="/business/claim"
+      <Link
+        to="/business/claim"
         className="mt-3 inline-flex rounded-full border border-ink bg-ink px-4 py-1.5 text-xs font-semibold text-cream"
       >
         Claim a venue
-      </a>
+      </Link>
     </div>
   );
 }

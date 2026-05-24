@@ -1,7 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { toast } from "sonner";
 import { motion } from "framer-motion";
 import {
   Eye,
@@ -21,8 +19,8 @@ import {
   DollarSign,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { listMyClaims } from "@/lib/business-onboarding.functions";
-import { getVenueAnalytics } from "@/lib/business-portal.functions";
+import { listMyClaims } from "@/lib/business-onboarding-api";
+import { getVenueAnalytics } from "@/lib/business-api";
 import { useManagedVenues } from "@/components/business/useManagedVenue";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -51,16 +49,14 @@ export const Route = createFileRoute("/business/dashboard")({
 function BusinessDashboardPage() {
   useAuth();
   const { activeId } = useManagedVenues();
-  const fetchClaims = useServerFn(listMyClaims);
-  const fetchAnalytics = useServerFn(getVenueAnalytics);
   const { data: claimsData } = useQuery({
     queryKey: ["my-venue-claims"],
-    queryFn: () => fetchClaims(),
+    queryFn: () => listMyClaims(),
   });
 
   const { data: analyticsData } = useQuery({
     queryKey: ["venue-analytics-dashboard", activeId],
-    queryFn: () => fetchAnalytics({ data: { venueId: activeId!, days: 30 } }),
+    queryFn: () => getVenueAnalytics({ venueId: activeId!, days: 30 }),
     enabled: !!activeId,
     staleTime: 60_000,
   });
@@ -268,26 +264,28 @@ function KPIStats({ totals, daily }: { totals?: any; daily?: any[] }) {
 
 function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
   const actions = [
-    { icon: CalendarPlus, label: "Add Event", to: "/business/events" },
-    { icon: ImageIcon, label: "Upload Photos", to: "/business/media" },
-    { icon: Pencil, label: "Edit Venue", to: "/business/settings" },
-    { icon: Link2, label: "Social Links", to: "/business/social" },
-    { icon: BarChart3, label: "Analytics", to: "/business/notifications" },
-    ...(promotionUnlocked ? [{ icon: Megaphone, label: "Promote", to: "/business/promoters" }] : []),
+    { icon: CalendarPlus, label: "Add Event", to: "/business/events" as const },
+    { icon: ImageIcon, label: "Upload Photos", to: "/business/media" as const },
+    { icon: Pencil, label: "Edit Venue", to: "/business/settings" as const },
+    { icon: Link2, label: "Social Links", to: "/business/social" as const },
+    { icon: BarChart3, label: "Analytics", to: "/business/analytics" as const },
+    ...(promotionUnlocked
+      ? [{ icon: Megaphone, label: "Promote", to: "/business/promoters" as const }]
+      : []),
   ];
   return (
     <section>
       <SectionHeader title="Quick actions" />
       <div className="flex flex-wrap gap-3">
         {actions.map((a) => (
-          <button
+          <Link
             key={a.label}
-            onClick={() => toast(`${a.label} — coming soon!`)}
+            to={a.to}
             className="group flex items-center gap-2 rounded-xl border bg-card px-4 py-3 text-sm font-medium shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
           >
             <a.icon className="h-4 w-4 text-primary transition-transform group-hover:scale-110" />
             {a.label}
-          </button>
+          </Link>
         ))}
       </div>
     </section>
@@ -305,9 +303,11 @@ function AnalyticsPreview({ daily }: { daily?: any[] }) {
       <SectionHeader
         title="Performance overview"
         action={
-          <Button size="sm" variant="outline" disabled>
-            Full analytics
-          </Button>
+          <Link to="/business/analytics">
+            <Button size="sm" variant="outline">
+              Full analytics
+            </Button>
+          </Link>
         }
       />
       <div className="grid gap-4 md:grid-cols-3">
@@ -352,18 +352,18 @@ function DashboardFooter() {
       <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
         <div>Confetti for Business · Premium nightlife discovery</div>
         <div className="flex gap-4">
-          <a href="/about" className="hover:text-foreground">
-            Help
-          </a>
+          <Link to="/about" className="hover:text-foreground">
+            About
+          </Link>
           <a href="mailto:support@confetti.app" className="hover:text-foreground">
             Support
           </a>
-          <a href="/about" className="hover:text-foreground">
+          <Link to="/for-business" className="hover:text-foreground">
             Pricing
-          </a>
-          <a href="/privacy" className="hover:text-foreground">
-            Terms
-          </a>
+          </Link>
+          <Link to="/privacy" className="hover:text-foreground">
+            Privacy
+          </Link>
         </div>
       </div>
     </footer>

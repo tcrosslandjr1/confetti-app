@@ -346,6 +346,165 @@ serve(async (req: Request) => {
         return jsonResponse(txn);
       }
 
+      // ── Stripe Subscription Billing ──────────────────────
+      case "create-portal-session": {
+        const body = await parseJson(req);
+        const environment = optionalString(body.environment, "environment", { max: 20 }) ?? "sandbox";
+        const returnUrl = optionalString(body.return_url, "return_url", { max: 2000 });
+
+        const { data: sub } = await sb
+          .from("subscriptions")
+          .select("stripe_customer_id")
+          .eq("user_id", user.id)
+          .eq("environment", environment)
+          .order("created_at", { ascending: false })
+          .limit(1)
+          .maybeSingle();
+        if (!sub?.stripe_customer_id) return errorResponse("No subscription found", 404);
+
+        const STRIPE_SECRET_KEY = Deno.env.get("STRIPE_SECRET_KEY") ?? "";
+        if (!STRIPE_SECRET_KEY) return errorResponse("Stripe not configured", 500);
+
+        const portalRes = await fetch("https://api.stripe.com/v1/billing_portal/sessions", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${STRIPE_SECRET_KEY}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            customer: sub.stripe_customer_id,
+            ...(returnUrl ? { return_url: returnUrl } : {}),
+          }),
+        });
+        const portal = await portalRes.json();
+        if (!portalRes.ok) return errorResponse(portal?.error?.message ?? "Portal creation failed", 400);
+        return jsonResponse({ url: portal.url });
+      }
+
+      case "change-plan": {
+        const body = await parseJson(req);
+        const environment = optionalString(body.environment, "environment", { max: 20 }) ?? "sandbox";
+        const newPriceId = requireString(body.new_price_id, "new_price_id", { min: 1, max: 120 });
+
+        const PRICE_RANK: Record<string, number> = {
+          consumer_plus_monthly: 1,
+          consumer_crew_monthly: 2,
+          business_featured_monthly: 1,
+          business_boosted_monthly: 2,
+          business_premium_monthly: 3,
+          ad_featured_monthly: 1,
+          ad_boosted_monthly: 2,
+          ad_premium_monthly: 3,
+        };
+
+        const { data: sub } = await sb
+          .from("subscriptions")
+          .select("stripe_subscription_id, price_id")
+          .eq("user_id", user.id)
+          .eq("environment", environment)
+          .in("status", ["active", "trialing", "past_due"])
+          .order("created_at", { ascending: false })
+          .limit(1)
+          .maybeSingle();
+        if (!sub?.stripe_subscription_id) return errorResponse("No active subscription", 404);
+        if (sub.price_id === newPriceId) return jsonResponse({ ok: true, mode: "noop" });
+
+        const STRIPE_SECRET_KEY = Deno.env.get("STRIPE_SECRET_KEY") ?? "";
+        if (!STRIPE_SECRET_KEY) return errorResponse("Stripe not configured", 500);
+
+        const stripeHeaders = {
+          "Authorization": `Bearer ${STRIPE_SECRET_KEY}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        };
+
+        // Look up the Stripe price by lookup_key
+        const pricesRes = await fetch(
+          `https://api.stripe.com/v1/prices?lookup_keys[]=${encodeURIComponent(newPriceId)}&limit=1`,
+          { headers: { "Authorization": `Bearer ${STRIPE_SECRET_KEY}` } },
+        );
+        const pricesData = await pricesRes.json();
+        if (!pricesData.data?.length) return errorResponse("New price not found in Stripe", 404);
+        const newStripePrice = pricesData.data[0];
+
+        // Retrieve current subscription
+        const subRes = await fetch(
+          `https://api.stripe.com/v1/subscriptions/${sub.stripe_subscription_id}`,
+          { headers: { "Authorization": `Bearer ${STRIPE_SECRET_KEY}` } },
+        );
+        const subscription = await subRes.json();
+        if (!subRes.ok) return errorResponse("Could not retrieve subscription", 400);
+        const currentItemId = subscription.items?.data?.[0]?.id;
+        if (!currentItemId) return errorResponse("Subscription has no items", 400);
+
+        const currentRank = PRICE_RANK[sub.price_id as string] ?? 0;
+        const newRank = PRICE_RANK[newPriceId] ?? 0;
+        const isUpgrade = newRank > currentRank;
+
+        const updateParams = new URLSearchParams({
+          "items[0][id]": currentItemId,
+          "items[0][price]": newStripePrice.id,
+          "proration_behavior": isUpgrade ? "always_invoice" : "none",
+          [`metadata[${isUpgrade ? "priceId" : "pendingPriceId"}]`]: newPriceId,
+        });
+        if (!isUpgrade) {
+          updateParams.set("billing_cycle_anchor", "unchanged");
+        }
+
+        const updateRes = await fetch(
+          `https://api.stripe.com/v1/subscriptions/${sub.stripe_subscription_id}`,
+          { method: "POST", headers: stripeHeaders, body: updateParams },
+        );
+        const updateData = await updateRes.json();
+        if (!updateRes.ok) return errorResponse(updateData?.error?.message ?? "Plan change failed", 400);
+
+        // For downgrades, record pending_price_id locally
+        if (!isUpgrade) {
+          await supabaseAdmin
+            .from("subscriptions")
+            .update({ pending_price_id: newPriceId } as any)
+            .eq("stripe_subscription_id", sub.stripe_subscription_id);
+        }
+
+        return jsonResponse({ ok: true, mode: isUpgrade ? "upgrade" : "downgrade_at_period_end" });
+      }
+
+      case "cancel-subscription": {
+        const body = await parseJson(req);
+        const environment = optionalString(body.environment, "environment", { max: 20 }) ?? "sandbox";
+
+        const { data: sub } = await sb
+          .from("subscriptions")
+          .select("stripe_subscription_id")
+          .eq("user_id", user.id)
+          .eq("environment", environment)
+          .in("status", ["active", "trialing", "past_due"])
+          .order("created_at", { ascending: false })
+          .limit(1)
+          .maybeSingle();
+        if (!sub?.stripe_subscription_id) return errorResponse("No active subscription", 404);
+
+        const STRIPE_SECRET_KEY = Deno.env.get("STRIPE_SECRET_KEY") ?? "";
+        if (!STRIPE_SECRET_KEY) return errorResponse("Stripe not configured", 500);
+
+        const cancelRes = await fetch(
+          `https://api.stripe.com/v1/subscriptions/${sub.stripe_subscription_id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Authorization": `Bearer ${STRIPE_SECRET_KEY}`,
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              invoice_now: "false",
+              prorate: "false",
+            }),
+          },
+        );
+        const cancelData = await cancelRes.json();
+        if (!cancelRes.ok) return errorResponse(cancelData?.error?.message ?? "Cancel failed", 400);
+        return jsonResponse({ ok: true });
+      }
+
       default:
         return errorResponse("Unknown action", 404);
     }

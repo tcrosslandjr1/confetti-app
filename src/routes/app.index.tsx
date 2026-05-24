@@ -23,13 +23,14 @@ export const Route = createFileRoute("/app/")({
 function TonightFeedPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { data: venues } = useQuery({
-    queryKey: ["app", "tonight", "venues"],
+  const { data: trendingVenues } = useQuery({
+    queryKey: ["app", "tonight", "trending"],
     queryFn: async () => {
       const { data } = await supabase
-        .from("venues")
-        .select("id,name,category,neighborhood,city,hero_image_url,image_url")
-        .order("featured", { ascending: false })
+        .from("viral_venues")
+        .select("id,venue_name,neighborhood,city,photo_url,rating,tags,trend_score,summary")
+        .eq("verified", true)
+        .order("trend_score", { ascending: false })
         .limit(8);
       return data ?? [];
     },
@@ -112,22 +113,25 @@ function TonightFeedPage() {
       <section className="mt-8">
         <SectionHeading icon={Flame} title="Trending venues" />
         <div className="mt-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-pl-5 px-5 pb-2 scrollbar-none">
-          {(venues ?? []).map((v) => (
+          {(trendingVenues ?? []).map((v) => (
             <VenueFlipCard
               key={v.id}
               venue={{
                 id: v.id,
-                name: v.name,
-                category: v.category,
+                name: v.venue_name,
+                category: (v.tags?.[0] ?? "hotspot"),
                 neighborhood: v.neighborhood,
-                photo: v.hero_image_url || v.image_url,
+                photo: v.photo_url,
+                rating: v.rating,
+                vibe: v.summary?.slice(0, 60) ?? "Trending now",
+                reason: `Trend score: ${v.trend_score}`,
               }}
               widthClass="w-44"
               source="tonight_trending"
               accent="coral"
             />
           ))}
-          {!venues?.length && <Placeholder text="Trending venues will appear here" />}
+          {!trendingVenues?.length && <Placeholder text="Trending venues will appear here" />}
         </div>
       </section>
       </Reveal>
@@ -177,6 +181,35 @@ function TonightFeedPage() {
           )}
         </div>
       </section>
+      </Reveal>
+
+      <Reveal delay={340}>
+        <section className="mt-8 px-5">
+          <Card
+            className="relative cursor-pointer overflow-hidden border-2 border-coral bg-gradient-to-br from-coral/10 via-cream to-gold/10 p-5 shadow-brut-lg transition-all active:scale-[0.98]"
+            onClick={() => {
+              trackEngagement("surprise_me_tap", { source: "tonight_feed" });
+              navigate({ to: "/app/plan", search: { mode: "surprise" } });
+            }}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
+                  <Sparkles className="size-3.5" /> Surprise Me
+                </div>
+                <h2 className="mt-2 font-display text-lg font-extrabold tracking-tight text-ink">
+                  Feeling adventurous?
+                </h2>
+                <p className="mt-1 text-[13px] leading-relaxed text-ink/60">
+                  We'll pick trending spots you'd never find on your own.
+                </p>
+              </div>
+              <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-coral/15">
+                <Zap className="size-7 text-coral" strokeWidth={2} />
+              </div>
+            </div>
+          </Card>
+        </section>
       </Reveal>
 
       <Reveal delay={400}>

@@ -2,6 +2,7 @@
 // Venue grounding uses the curated `venues` table (1,074 entries) — no Google Places.
 import { getCorsHeaders } from "../_shared/cors.ts";
 import { supabaseAdmin } from "../_shared/supabase-client.ts";
+import { ensureCityVenues } from "../_shared/venue-discovery.ts";
 
 type SeedIdea = {
   title: string;
@@ -521,6 +522,10 @@ Deno.serve(async (req) => {
     const b = (await req.json()) as Body;
     if (!b.occasion) return json({ error: "occasion required" }, 400);
     const userId = await getUserIdFromAuth(req);
+
+    // Lazy bootstrap: warm the destination city's venues so the
+    // verification step has something to match against.
+    await ensureCityVenues(b.city, 15, 25);
 
     const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
     if (!apiKey) return json({ error: "missing ANTHROPIC_API_KEY" }, 500);

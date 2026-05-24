@@ -9,6 +9,7 @@
 import { serve } from "../_shared/server.ts";
 import { jsonResponse, errorResponse, supabaseAdmin } from "../_shared/supabase-client.ts";
 import { consumeRateLimit, callerIdentity } from "../_shared/ratelimit.ts";
+import { ensureCityVenues } from "../_shared/venue-discovery.ts";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -339,8 +340,12 @@ async function fetchCandidates(
 }
 
 /**
- * If the first city-biased query returns too few rows (sparse coverage),
- * fall back to top-rated nationwide for the same section bias.
+ * Fetch venues for a section with a cascading fallback:
+ *   1. city + section bias (cocktails, dining, etc.) — primary
+ *   2. city + ANY section (no bias filter) — keeps results in-city if
+ *      Claude's freshly-generated tags don't match our recipe's vocab
+ *   3. nationwide + section bias — last resort
+ * Always prefers in-city matches over wider ones.
  */
 async function fetchCandidatesWithFallback(
   city: string | null | undefined,
@@ -349,10 +354,22 @@ async function fetchCandidatesWithFallback(
   exclude: Set<string>,
 ): Promise<VenueRow[]> {
   const primary = await fetchCandidates(city, sectionKey, limit, exclude);
-  if (primary.length >= Math.max(3, Math.floor(limit / 2))) return primary;
+  const ok = (n: number) => n >= Math.max(3, Math.floor(limit / 2));
+  if (ok(primary.length)) return primary;
+
+  // Drop the section bias but keep the city — surfaces Claude-discovered
+  // venues whose tags don't line up with our recipe's vocab.
+  const cityWide = city ? await fetchCandidates(city, "trending", limit, exclude) : [];
+  const cityMerged: VenueRow[] = [...primary];
+  for (const v of cityWide) {
+    if (!cityMerged.some((m) => m.id === v.id)) cityMerged.push(v);
+    if (cityMerged.length >= limit) break;
+  }
+  if (ok(cityMerged.length)) return cityMerged;
+
+  // Last resort: nationwide with the original bias.
   const wide = await fetchCandidates(null, sectionKey, limit, exclude);
-  // Prefer in-city even if sparse.
-  const merged: VenueRow[] = [...primary];
+  const merged: VenueRow[] = [...cityMerged];
   for (const v of wide) {
     if (!merged.some((m) => m.id === v.id)) merged.push(v);
     if (merged.length >= limit) break;
@@ -662,6 +679,10 @@ serve(async (req: Request) => {
   const sections = body.sections ?? ["trending", "picks", "events"];
   const limit = Math.max(1, Math.min(body.limit ?? 4, 8));
   const timeOfDay = body.time_of_day ?? inferTimeOfDay();
+
+  // Lazy bootstrap: if the requested city has < threshold venues in
+  // our KB, ask Claude to fill it before we rank anything.
+  await ensureCityVenues(body.city, 15, 25);
 
   // Build a global exclusion set from the taste profile's "avoid" list
   // and from any per-section already-picked ids.

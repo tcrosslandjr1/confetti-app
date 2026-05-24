@@ -7,6 +7,7 @@
 import { serve } from "../_shared/server.ts";
 import { jsonResponse, errorResponse, supabaseAdmin } from "../_shared/supabase-client.ts";
 import { consumeRateLimit, callerIdentity } from "../_shared/ratelimit.ts";
+import { ensureCityVenues } from "../_shared/venue-discovery.ts";
 
 interface Body {
   vibes?: string[];
@@ -221,6 +222,9 @@ serve(async (req: Request) => {
 
     const userId = await getUserIdFromAuth(req);
     const blocked = await fetchBlockedPlaceIds(userId, body.city ?? null);
+
+    // Lazy bootstrap: warm the city's venues before we try to pick stops.
+    await ensureCityVenues(body.city, 15, 25);
 
     // ── Alternatives mode ──
     if (body.mode === "alternatives") {

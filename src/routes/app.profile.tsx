@@ -720,6 +720,9 @@ function SettingsTab({
         <div className="text-xs text-muted-foreground">{user.email}</div>
       </Card>
 
+      {/* Connected accounts */}
+      <ConnectedAccountsCard />
+
       {/* Legal Links */}
       <Card className="divide-y divide-border">
         <Link

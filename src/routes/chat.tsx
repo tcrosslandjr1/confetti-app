@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
-import { Sparkles, Send, ArrowLeft, MapPin, Star, Utensils, Wine, CalendarDays, Car } from "lucide-react";
+import { Sparkles, Send, ArrowLeft, MapPin, Star, Utensils, Wine, CalendarDays, Car, Compass, Heart, Shuffle, Lock } from "lucide-react";
 import { sendMessageLocal } from "../lib/agents/chat-agent";
 import type { ChatResponse } from "../lib/agents/chat-agent";
 import type { DiscoveredVenue } from "../lib/agents/venue-discovery";
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/chat")({
   component: ChatPage,
 });
 
+// ─── Types ─────────────────────────────────────────────────────
 
 type Msg = {
   id: number;
@@ -21,12 +22,37 @@ type Msg = {
   chips?: string[];
 };
 
-const DEFAULT_CHIPS = [
-  { label: "Find restaurants", icon: Utensils, emoji: "🍽️", tone: "gold" as const },
-  { label: "Find bars", icon: Wine, emoji: "🍸", tone: "coral" as const },
-  { label: "Build a Confetti plan", icon: CalendarDays, emoji: "🌃", tone: "ink" as const },
-  { label: "Plan a trip", icon: Car, emoji: "🚗", tone: "cream" as const },
+// Map common chip intents to icons & tones for branded rendering
+const CHIP_META: Record<string, { icon: React.ComponentType<{ className?: string }>; tone: "gold" | "coral" | "ink" | "cream" }> = {
+  "🍽️": { icon: Utensils, tone: "gold" },
+  "🍸": { icon: Wine, tone: "coral" },
+  "🌃": { icon: CalendarDays, tone: "ink" },
+  "🚗": { icon: Car, tone: "cream" },
+  "🔄": { icon: Shuffle, tone: "gold" },
+  "➕": { icon: Compass, tone: "coral" },
+  "🎲": { icon: Shuffle, tone: "ink" },
+  "🔒": { icon: Lock, tone: "gold" },
+  "❤️": { icon: Heart, tone: "coral" },
+};
+
+function parseChip(chip: string) {
+  const emojiMatch = chip.match(/^(\p{Emoji_Presentation}\uFE0F?\s*)/u);
+  const emoji = emojiMatch?.[1]?.trim() ?? "";
+  const label = chip.replace(/^\p{Emoji_Presentation}\uFE0F?\s*/u, "").trim();
+  const meta = CHIP_META[emoji] ?? { icon: Sparkles, tone: "cream" as const };
+  return { emoji, label, ...meta };
+}
+
+// ─── Default quick-action cards ────────────────────────────────
+
+const DEFAULT_CHIPS: string[] = [
+  "🍽️ Find restaurants",
+  "🍸 Find bars",
+  "🌃 Build a Confetti plan",
+  "🚗 Plan a trip",
 ];
+
+// ─── Component ─────────────────────────────────────────────────
 
 function ChatPage() {
   const [messages, setMessages] = useState<Msg[]>([
@@ -86,16 +112,17 @@ function ChatPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background pb-24">
+    <div className="flex min-h-screen flex-col bg-cream pb-24">
+      {/* Header */}
       <header className="sticky top-0 z-10 border-b-2 border-ink bg-cream/95 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-md items-center gap-3 px-4">
           <Link
             to="/app"
-            className="grid h-8 w-8 place-items-center rounded-full hover:bg-muted"
+            className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-white shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut"
           >
             <ArrowLeft className="h-4 w-4" />
           </Link>
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-vibe text-cream">
+          <span className="grid h-9 w-9 place-items-center rounded-full border-2 border-ink bg-gradient-vibe text-cream shadow-brut">
             <Sparkles className="h-4 w-4" />
           </span>
           <div>
@@ -105,6 +132,7 @@ function ChatPage() {
         </div>
       </header>
 
+      {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4">
         <div className="mx-auto flex max-w-md flex-col gap-3">
           {messages.map((m) => (
@@ -113,7 +141,7 @@ function ChatPage() {
               className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
             >
               {m.role === "ai" && (
-                <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-gradient-vibe text-cream">
+                <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-ink bg-gradient-vibe text-cream shadow-brut">
                   <Sparkles className="h-3 w-3" />
                 </span>
               )}
@@ -121,16 +149,18 @@ function ChatPage() {
                 className={`max-w-[78%] rounded-2xl border-2 border-ink px-3.5 py-2.5 text-sm shadow-brut ${
                   m.role === "user"
                     ? "rounded-br-sm bg-coral text-cream"
-                    : "rounded-bl-sm bg-card text-ink"
+                    : "rounded-bl-sm bg-white text-ink"
                 } ${m.reveal ? "animate-[reveal-up_0.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
               >
                 <Typewriter text={m.text} animate={Boolean(m.reveal && m.role === "ai")} />
                 {m.venues && m.venues.length > 0 && (
-                  <div className="mt-2 flex flex-col gap-1.5">
+                  <div className="mt-2 flex flex-col gap-2">
                     {m.venues.map((v, vi) => (
-                      <div
+                      <BrandCard
                         key={vi}
-                        className="rounded-lg border border-ink/20 bg-cream/50 px-2.5 py-2"
+                        tone="white"
+                        interactive
+                        className="p-2.5"
                       >
                         <div className="flex items-center gap-1.5">
                           <MapPin className="h-3 w-3 text-coral" />
@@ -147,15 +177,44 @@ function ChatPage() {
                             {v.vibeTags.slice(0, 3).map((tag) => (
                               <span
                                 key={tag}
-                                className="rounded-full bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider"
+                                className="rounded-full border border-ink/10 bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-ink"
                               >
                                 {tag}
                               </span>
                             ))}
                           </div>
                         )}
-                      </div>
+                      </BrandCard>
                     ))}
+                  </div>
+                )}
+                {m.chips && m.chips.length > 0 && (
+                  <div className="mt-3 grid grid-cols-2 gap-2">
+                    {m.chips.map((s) => {
+                      const { label, icon: Icon, tone } = parseChip(s);
+                      return (
+                        <button
+                          key={s}
+                          onClick={() => send(s)}
+                          disabled={typing}
+                          className="text-left"
+                        >
+                          <BrandCard
+                            tone={tone}
+                            interactive
+                            className="flex items-center gap-2 p-2.5 disabled:opacity-40"
+                            as="div"
+                          >
+                            <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut">
+                              <Icon className="h-3.5 w-3.5" />
+                            </span>
+                            <span className="font-mono text-[10px] font-bold uppercase leading-tight tracking-widest">
+                              {label}
+                            </span>
+                          </BrandCard>
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -163,10 +222,10 @@ function ChatPage() {
           ))}
           {typing && (
             <div className="flex justify-start">
-              <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-gradient-vibe text-cream">
+              <span className="mr-2 mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-ink bg-gradient-vibe text-cream shadow-brut">
                 <Sparkles className="h-3 w-3" />
               </span>
-              <div className="rounded-2xl rounded-bl-sm border-2 border-ink bg-card px-4 py-3 shadow-brut">
+              <div className="rounded-2xl rounded-bl-sm border-2 border-ink bg-white px-4 py-3 shadow-brut">
                 <TypingDots />
               </div>
             </div>
@@ -174,26 +233,44 @@ function ChatPage() {
         </div>
       </div>
 
+      {/* Input */}
       <div className="border-t-2 border-ink bg-cream px-4 pt-3 pb-3">
         <div className="mx-auto max-w-md">
-          <div className="mb-2 flex flex-wrap gap-1.5">
-            {chips.map((s) => (
-              <button
-                key={s}
-                onClick={() => send(s)}
-                disabled={typing}
-                className="rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink hover:bg-gold disabled:opacity-40"
-              >
-                {s}
-              </button>
-            ))}
+          {/* Suggested chips */}
+          <div className="mb-2 grid grid-cols-2 gap-2">
+            {chips.map((s) => {
+              const { label, icon: Icon, tone } = parseChip(s);
+              return (
+                <button
+                  key={s}
+                  onClick={() => send(s)}
+                  disabled={typing}
+                  className="text-left"
+                >
+                  <BrandCard
+                    tone={tone}
+                    interactive
+                    className="flex items-center gap-2 p-2 disabled:opacity-40"
+                    as="div"
+                  >
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut">
+                      <Icon className="h-3 w-3" />
+                    </span>
+                    <span className="font-mono text-[9px] font-bold uppercase leading-tight tracking-widest">
+                      {label}
+                    </span>
+                  </BrandCard>
+                </button>
+              );
+            })}
           </div>
+
           <form
             onSubmit={(e) => {
               e.preventDefault();
               send(input);
             }}
-            className="flex items-center gap-2 rounded-2xl border-2 border-ink bg-card px-3 py-2 shadow-brut focus-within:bg-cream"
+            className="flex items-center gap-2 rounded-2xl border-2 border-ink bg-white px-3 py-2 shadow-brut transition-all focus-within:shadow-brut-lg"
           >
             <input
               value={input}
@@ -204,7 +281,7 @@ function ChatPage() {
             <button
               type="submit"
               disabled={!input.trim()}
-              className="grid h-9 w-9 place-items-center rounded-full bg-coral text-cream disabled:opacity-40"
+              className="grid h-9 w-9 place-items-center rounded-full border-2 border-ink bg-coral text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut disabled:opacity-40"
             >
               <Send className="h-4 w-4" />
             </button>

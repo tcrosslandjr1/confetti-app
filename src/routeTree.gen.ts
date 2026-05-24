@@ -50,6 +50,7 @@ import { Route as AppPlanRouteImport } from './routes/app.plan'
 import { Route as AppExploreRouteImport } from './routes/app.explore'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AdminVerificationsRouteImport } from './routes/admin.verifications'
 import { Route as AdminTrendRadarRouteImport } from './routes/admin.trend-radar'
 import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
@@ -281,6 +282,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminVerificationsRoute = AdminVerificationsRouteImport.update({
+  id: '/admin/verifications',
+  path: '/admin/verifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminTrendRadarRoute = AdminTrendRadarRouteImport.update({
   id: '/admin/trend-radar',
   path: '/admin/trend-radar',
@@ -442,6 +448,7 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/trend-radar': typeof AdminTrendRadarRoute
+  '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -509,6 +516,7 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/trend-radar': typeof AdminTrendRadarRoute
+  '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -578,6 +586,7 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/trend-radar': typeof AdminTrendRadarRoute
+  '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -648,6 +657,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/partners'
     | '/admin/trend-radar'
+    | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -715,6 +725,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/partners'
     | '/admin/trend-radar'
+    | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -783,6 +794,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/partners'
     | '/admin/trend-radar'
+    | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -852,6 +864,7 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   AdminPartnersRoute: typeof AdminPartnersRoute
   AdminTrendRadarRoute: typeof AdminTrendRadarRoute
+  AdminVerificationsRoute: typeof AdminVerificationsRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiPlanRoute: typeof ApiPlanRoute
   BusinessAdsRoute: typeof BusinessAdsRoute
@@ -1184,6 +1197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/verifications': {
+      id: '/admin/verifications'
+      path: '/admin/verifications'
+      fullPath: '/admin/verifications'
+      preLoaderRoute: typeof AdminVerificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/trend-radar': {
       id: '/admin/trend-radar'
       path: '/admin/trend-radar'
@@ -1411,6 +1431,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   AdminPartnersRoute: AdminPartnersRoute,
   AdminTrendRadarRoute: AdminTrendRadarRoute,
+  AdminVerificationsRoute: AdminVerificationsRoute,
   ApiChatRoute: ApiChatRoute,
   ApiPlanRoute: ApiPlanRoute,
   BusinessAdsRoute: BusinessAdsRoute,

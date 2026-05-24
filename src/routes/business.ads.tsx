@@ -190,8 +190,8 @@ function AdsPage() {
                 <Button
                   className="mt-4 w-full"
                   variant={active ? "outline" : "default"}
-                  disabled={active || upgrade.isPending}
-                  onClick={() => upgrade.mutate(t.id)}
+                  disabled={active}
+                  onClick={() => handleUpgrade(t.id)}
                 >
                   {active ? "Current plan" : "Switch to " + t.name}
                 </Button>

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as LegalRouteImport } from './routes/legal'
 import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as HealthRouteImport } from './routes/health'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
@@ -83,6 +84,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/privacy.lazy').then((d) => d.Route))
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InfluencerRoute = InfluencerRouteImport.update({
   id: '/influencer',
   path: '/influencer',
@@ -417,6 +423,7 @@ export interface FileRoutesByFullPath {
   '/for-business': typeof ForBusinessRoute
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
+  '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/console': typeof AdminConsoleRoute
@@ -481,6 +488,7 @@ export interface FileRoutesByTo {
   '/for-business': typeof ForBusinessRoute
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
+  '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/console': typeof AdminConsoleRoute
@@ -547,6 +555,7 @@ export interface FileRoutesById {
   '/for-business': typeof ForBusinessRoute
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
+  '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/console': typeof AdminConsoleRoute
@@ -614,6 +623,7 @@ export interface FileRouteTypes {
     | '/for-business'
     | '/health'
     | '/influencer'
+    | '/legal'
     | '/privacy'
     | '/sitemap.xml'
     | '/admin/console'
@@ -678,6 +688,7 @@ export interface FileRouteTypes {
     | '/for-business'
     | '/health'
     | '/influencer'
+    | '/legal'
     | '/privacy'
     | '/sitemap.xml'
     | '/admin/console'
@@ -743,6 +754,7 @@ export interface FileRouteTypes {
     | '/for-business'
     | '/health'
     | '/influencer'
+    | '/legal'
     | '/privacy'
     | '/sitemap.xml'
     | '/admin/console'
@@ -809,6 +821,7 @@ export interface RootRouteChildren {
   ForBusinessRoute: typeof ForBusinessRoute
   HealthRoute: typeof HealthRoute
   InfluencerRoute: typeof InfluencerRoute
+  LegalRoute: typeof LegalRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminConsoleRoute: typeof AdminConsoleRoute
@@ -870,6 +883,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/influencer': {
@@ -1344,6 +1364,7 @@ const rootRouteChildren: RootRouteChildren = {
   ForBusinessRoute: ForBusinessRoute,
   HealthRoute: HealthRoute,
   InfluencerRoute: InfluencerRoute,
+  LegalRoute: LegalRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminConsoleRoute: AdminConsoleRoute,

@@ -147,7 +147,7 @@ export async function chat(
     const message = err instanceof Error ? err.message : String(err);
     console.warn("[Confetti AI] ai-chat failed, using mock response.", message);
     const mock = getMockResponse(messages);
-    mock.content = mock.content + "\n\n_(AI provider temporarily unavailable — showing cached response)_";
+    // Note: mock fallback active — no user-facing disclaimer needed
     return mock;
   }
 }

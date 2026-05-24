@@ -115,37 +115,53 @@ function ProfilePage() {
 
       {/* ─── Hero Card ──────────────────────────────────────────────────── */}
       <section className="px-5">
-        <Card className="flex items-center gap-4 p-5">
-          <div className="grid size-16 shrink-0 place-items-center rounded-full bg-primary/10 text-lg font-bold text-primary">
-            {(profile?.display_name ?? user.email ?? "?")
-              .slice(0, 1)
-              .toUpperCase()}
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="truncate text-lg font-semibold">
-              {profile?.display_name ?? user.email?.split("@")[0]}
-            </div>
-            <div className="text-xs font-medium text-primary">
-              {levelTitle(level)}
-            </div>
-            <div className="mt-1.5 flex items-center gap-2">
-              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
-                <div
-                  className="h-full rounded-full bg-primary transition-all"
-                  style={{ width: `${Math.min(100, progress.progress * 100)}%` }}
-                />
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/15 via-background to-accent/10 p-5 shadow-sm">
+          <div className="pointer-events-none absolute -right-12 -top-12 size-40 rounded-full bg-primary/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-16 -left-10 size-40 rounded-full bg-accent/20 blur-3xl" />
+
+          <div className="relative flex items-center gap-4">
+            <div className="relative shrink-0">
+              <div className="grid size-20 place-items-center rounded-full bg-gradient-to-br from-primary to-accent text-2xl font-bold text-primary-foreground shadow-lg ring-4 ring-background">
+                {(profile?.display_name ?? user.email ?? "?")
+                  .slice(0, 1)
+                  .toUpperCase()}
               </div>
-              <span className="shrink-0 text-[10px] text-muted-foreground">
-                Lv {level} · {xp} XP
-              </span>
+              <div className="absolute -bottom-1 -right-1 grid size-7 place-items-center rounded-full bg-background text-[10px] font-bold text-primary shadow-md ring-2 ring-primary/30">
+                {level}
+              </div>
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="truncate text-xl font-bold tracking-tight">
+                {profile?.display_name ?? user.email?.split("@")[0]}
+              </div>
+              <div className="mt-0.5 flex items-center gap-1.5">
+                <Sparkles className="size-3 text-primary" />
+                <span className="text-xs font-semibold text-primary">
+                  {levelTitle(level)}
+                </span>
+              </div>
+              <div className="mt-2 flex items-center gap-2">
+                <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted/70">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-700"
+                    style={{ width: `${Math.min(100, progress.progress * 100)}%` }}
+                  />
+                </div>
+                <span className="shrink-0 text-[10px] font-medium text-muted-foreground">
+                  {xp} XP
+                </span>
+              </div>
+              <div className="mt-1 text-[10px] text-muted-foreground">
+                Lv {level + 1} unlocks soon
+              </div>
             </div>
           </div>
-        </Card>
+        </div>
 
         <div className="mt-4 grid grid-cols-3 gap-3">
-          <StatCard label="Plans" value={counts?.trips ?? 0} />
-          <StatCard label="Saved" value={counts?.faves ?? 0} />
-          <StatCard label="Bookings" value={counts?.bookings ?? 0} />
+          <StatCard label="Plans" value={counts?.trips ?? 0} icon={MapPin} />
+          <StatCard label="Saved" value={counts?.faves ?? 0} icon={Heart} />
+          <StatCard label="Bookings" value={counts?.bookings ?? 0} icon={Calendar} />
         </div>
       </section>
 

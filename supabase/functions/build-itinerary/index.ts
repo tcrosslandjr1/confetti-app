@@ -1,5 +1,7 @@
-// Lovable AI Gateway — build a full-day itinerary
+// Lovable AI Gateway — build a full-day itinerary.
+// Venue grounding uses the curated `venues` table (1,074 entries) — no Google Places.
 import { getCorsHeaders } from "../_shared/cors.ts";
+import { supabaseAdmin } from "../_shared/supabase-client.ts";
 
 type SeedIdea = {
   title: string;
@@ -26,13 +28,11 @@ type Body = {
   transportMode?: "auto" | "car" | "transit" | "lyft" | "uber" | "walk"; // user preference
 };
 
-// ---------- Google Places verification ----------
-// LLMs hallucinate venue names. We re-check every named stop against Google Places
-// and only keep ones that exist AND are OPERATIONAL. Closed / not-found stops fall
-// back to a category search around the user's selected city so we never falsely
-// advertise a venue that isn't there.
-const PLACES_FIELDS =
-  "places.id,places.displayName,places.formattedAddress,places.shortFormattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.businessStatus,places.googleMapsUri,places.websiteUri,places.types";
+// ---------- Curated venues verification ----------
+// LLMs hallucinate venue names. We re-check every named stop against the curated
+// `venues` table (1,074 entries). Closed / not-found stops fall back to a
+// category search in the same city so we never falsely advertise a venue that
+// isn't in our knowledge base.
 
 const CATEGORY_QUERY: Record<string, string> = {
   meal: "popular restaurant",
@@ -56,38 +56,103 @@ type PlaceHit = {
   websiteUri?: string;
 };
 
+// Curated KB cities — used to split textQuery into [name, city] components
+// so we don't match e.g. Atlanta's "Bar Margot" when the user asks for Cincinnati.
+const KB_CITIES = [
+  "atlanta", "austin", "boston", "california", "chicago", "cincinnati",
+  "denver", "fort lauderdale", "maryland", "miami", "nashville",
+  "new jersey", "new orleans", "new york", "philadelphia",
+  "san francisco", "seattle", "toronto", "virginia", "washington",
+];
+
+/** Pull a known city out of textQuery if present; return {nameTokens, city}. */
+function splitQuery(textQuery: string): { nameTokens: string[]; city: string | null } {
+  const lower = textQuery.toLowerCase();
+  // Match multi-word cities first.
+  let cityMatch: string | null = null;
+  for (const c of KB_CITIES.slice().sort((a, b) => b.length - a.length)) {
+    if (lower.includes(c)) {
+      cityMatch = c;
+      break;
+    }
+  }
+  const withoutCity = cityMatch ? lower.replace(cityMatch, " ") : lower;
+  const nameTokens = withoutCity
+    .split(/[\s,]+/)
+    .map((t) => t.replace(/[^a-z0-9]/g, ""))
+    .filter((t) => t.length > 2);
+  return { nameTokens, city: cityMatch };
+}
+
+/**
+ * Drop-in replacement for the old Google Places search.
+ * Searches the curated `venues` table for matches against textQuery.
+ * Detects an embedded city name (Atlanta, Cincinnati, etc.) and constrains
+ * the match to that city so name lookups don't return wrong-city venues.
+ * The `key` and `bias` params are kept for signature compat and ignored.
+ */
 async function placesSearch(
   textQuery: string,
-  key: string,
-  bias?: { lat: number; lng: number },
+  _key: string,
+  _bias?: { lat: number; lng: number },
 ): Promise<PlaceHit[]> {
-  try {
-    const body: Record<string, unknown> = { textQuery, pageSize: 5 };
-    if (bias) {
-      body.locationBias = {
-        circle: {
-          center: { latitude: bias.lat, longitude: bias.lng },
-          radius: 30000,
-        },
-      };
+  const q = textQuery.trim();
+  if (!q) return [];
+  const { nameTokens, city } = splitQuery(q);
+  if (nameTokens.length === 0 && !city) return [];
+
+  let query = supabaseAdmin
+    .from("venues")
+    .select(
+      "id,name,city,neighborhood,address,lat,lng,cuisine,rating,rating_count,popularity_score",
+    )
+    .order("popularity_score", { ascending: false, nullsFirst: false })
+    .order("rating", { ascending: false, nullsFirst: false })
+    .limit(15);
+
+  if (city) {
+    query = query.ilike("city", `%${city}%`);
+  }
+  if (nameTokens.length > 0) {
+    const orParts: string[] = [];
+    for (const t of nameTokens.slice(0, 4)) {
+      orParts.push(`name.ilike.%${t}%`, `cuisine.ilike.%${t}%`, `address.ilike.%${t}%`);
     }
-    const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": key,
-        "X-Goog-FieldMask": PLACES_FIELDS,
-      },
-      body: JSON.stringify(body),
-    });
-    if (!res.ok) {
-      console.warn("[build-itinerary] places error", res.status);
+    query = query.or(orParts.join(","));
+  }
+
+  try {
+    const { data, error } = await query;
+    if (error) {
+      console.warn("[build-itinerary] venues error", error.message);
       return [];
     }
-    const data = await res.json();
-    return (data.places ?? []) as PlaceHit[];
+    return ((data as Array<{
+      id: string;
+      name: string;
+      address: string | null;
+      lat: number | null;
+      lng: number | null;
+      rating: number | null;
+      rating_count: number | null;
+    }>) ?? []).map<PlaceHit>((r) => ({
+      id: r.id,
+      displayName: { text: r.name },
+      formattedAddress: r.address ?? undefined,
+      shortFormattedAddress: r.address ?? undefined,
+      location:
+        typeof r.lat === "number" && typeof r.lng === "number"
+          ? { latitude: r.lat, longitude: r.lng }
+          : undefined,
+      rating: r.rating ?? undefined,
+      userRatingCount: r.rating_count ?? undefined,
+      businessStatus: "OPERATIONAL",
+      googleMapsUri: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        `${r.name} ${r.address ?? ""}`,
+      )}`,
+    }));
   } catch (e) {
-    console.warn("[build-itinerary] places fetch failed", (e as Error).message);
+    console.warn("[build-itinerary] venues fetch failed", (e as Error).message);
     return [];
   }
 }
@@ -457,8 +522,8 @@ Deno.serve(async (req) => {
     if (!b.occasion) return json({ error: "occasion required" }, 400);
     const userId = await getUserIdFromAuth(req);
 
-    const apiKey = Deno.env.get("LOVABLE_API_KEY");
-    if (!apiKey) return json({ error: "missing LOVABLE_API_KEY" }, 500);
+    const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+    if (!apiKey) return json({ error: "missing ANTHROPIC_API_KEY" }, 500);
 
     const seedBlock = b.seedIdea
       ? `Expand this seed idea into the full day:\nTitle: ${b.seedIdea.title}\n${b.seedIdea.hook ?? ""}\n${b.seedIdea.description ?? ""}\nVibe tags: ${(b.seedIdea.vibeTags ?? []).join(", ")}`
@@ -631,47 +696,54 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
       },
     };
 
-    const resp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    // Translate the OpenAI-style tool spec into Anthropic's tool-use shape.
+    const anthropicTool = {
+      name: tool.function.name,
+      description: tool.function.description,
+      input_schema: tool.function.parameters,
+    };
+
+    const resp = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
-        messages: [
-          { role: "system", content: sys },
-          { role: "user", content: "Build the itinerary now." },
-        ],
-        tools: [tool],
-        tool_choice: { type: "function", function: { name: "return_itinerary" } },
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 4096,
+        system: sys,
+        messages: [{ role: "user", content: "Build the itinerary now." }],
+        tools: [anthropicTool],
+        tool_choice: { type: "tool", name: anthropicTool.name },
       }),
     });
 
     if (resp.status === 429) return json({ error: "Rate limit — try again in a moment." }, 429);
-    if (resp.status === 402)
-      return json({ error: "AI credits exhausted. Add credits in workspace usage." }, 402);
     if (!resp.ok) return json({ error: `AI error ${resp.status}: ${await resp.text()}` }, 500);
 
     const data = await resp.json();
-    const call = data.choices?.[0]?.message?.tool_calls?.[0];
-    if (!call) return json({ error: "No tool call returned" }, 500);
-    const args = JSON.parse(call.function.arguments);
+    const toolUse = (data.content ?? []).find(
+      (c: { type?: string }) => c?.type === "tool_use",
+    );
+    if (!toolUse) return json({ error: "No tool call returned" }, 500);
+    const args = (toolUse as { input: Record<string, unknown> }).input;
 
-    // Ground every named stop against Google Places so we never falsely advertise
-    // venues that don't exist or have closed.
-    const placesKey = Deno.env.get("GOOGLE_PLACES_API_KEY");
+    // Ground every named stop against the curated venues table so we never
+    // falsely advertise venues that aren't in our knowledge base. The empty
+    // string is passed for legacy `placesKey` param — venues table is
+    // queried via supabaseAdmin internally.
     let verified = args;
-    if (placesKey) {
-      try {
-        verified = await verifyItinerary(args, b, placesKey, { userId });
-        if (!verified.stops?.length) {
-          // All stops failed verification — return the original so the user sees
-          // *something*, but flag it so the UI can warn.
-          verified = { ...args, _unverified: true };
-        }
-      } catch (e) {
-        console.warn("[build-itinerary] verify failed", (e as Error).message);
+    try {
+      verified = await verifyItinerary(args, b, "", { userId });
+      if (!verified.stops?.length) {
+        // All stops failed verification — return the original so the user
+        // sees *something*, but flag it so the UI can warn.
+        verified = { ...args, _unverified: true };
       }
-    } else {
-      console.warn("[build-itinerary] GOOGLE_PLACES_API_KEY missing — venues unverified");
+    } catch (e) {
+      console.warn("[build-itinerary] verify failed", (e as Error).message);
     }
     return json({ itinerary: verified });
   } catch (e) {

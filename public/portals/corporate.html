@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Confetti for Teams · Corporate Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --ui: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --bg: #f8f0dd; --paper: #fffaf0; --ink: #130b0d;
+    --a1: #ff5b3d; --a2: #f7c83b; --a3: #5b45d9; --a4: #2bb673;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--ui);
+    background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  button { font-family: var(--ui); cursor: pointer; }
+  .display { font-family: var(--display); font-weight: 900; letter-spacing: -0.025em; }
+  .mono { font-family: var(--mono); letter-spacing: 0.04em; }
+
+  .app { min-height: 100vh; display: grid;
+    grid-template-columns: 240px 1fr; grid-template-rows: 56px 1fr; }
+  .side { grid-row: 1 / 3; background: var(--paper);
+    border-right: 3px solid var(--ink); padding: 18px 14px;
+    display: flex; flex-direction: column; }
+  .side-brand { display: flex; align-items: center; gap: 7px;
+    font-family: var(--display); font-weight: 900; font-size: 18px; }
+  .side-brand span:first-child { color: var(--a1); }
+  .side-co { margin-top: 16px; padding: 12px;
+    background: var(--ink); color: var(--paper);
+    border: 2.5px solid var(--ink); border-radius: 12px;
+    box-shadow: 3px 3px 0 var(--a1); margin-bottom: 22px; }
+  .side-co .lbl { font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.65; }
+  .side-co .nm { font-family: var(--display); font-weight: 900; font-size: 16px;
+    letter-spacing: -0.02em; margin-top: 2px; }
+  .side-co .sub { font-family: var(--mono); font-size: 9px; font-weight: 700;
+    opacity: 0.7; margin-top: 4px; letter-spacing: .08em; text-transform: uppercase; }
+  .side-nav { display: flex; flex-direction: column; gap: 2px; }
+  .side-nav h4 { font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.45; text-transform: uppercase;
+    margin: 14px 0 4px 8px; }
+  .side-nav a { text-decoration: none; color: var(--ink); padding: 7px 10px;
+    border-radius: 8px; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px; opacity: 0.7; cursor: pointer; }
+  .side-nav a:hover { opacity: 1; background: var(--bg); }
+  .side-nav a.on { background: var(--ink); color: var(--paper); opacity: 1;
+    box-shadow: 3px 3px 0 var(--a1); }
+  .side-nav a .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--a1); }
+  .side-nav a .badge { margin-left: auto; padding: 1px 6px;
+    background: var(--a1); color: var(--ink); border-radius: 999px;
+    font-family: var(--mono); font-size: 9px; font-weight: 800; }
+
+  .top { border-bottom: 3px solid var(--ink); background: var(--paper);
+    padding: 0 22px; display: flex; align-items: center; justify-content: space-between; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px;
+    border: 2px solid var(--ink); border-radius: 999px;
+    font-family: var(--mono); font-size: 10px; font-weight: 800;
+    letter-spacing: .12em; text-transform: uppercase; background: var(--paper); }
+  .pill.live { background: var(--a4); color: var(--paper); }
+  .pill .blink { width: 6px; height: 6px; border-radius: 999px; background: currentColor;
+    animation: blink 1.2s infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .row { display: flex; align-items: center; gap: 8px; } .gap-12 { gap: 12px; }
+
+  .main { padding: 24px; overflow: auto; }
+  h1.title { font-family: var(--display); font-weight: 900; font-size: 44px;
+    letter-spacing: -0.04em; line-height: 0.95; margin: 0 0 6px; }
+  .subtitle { font-family: var(--mono); font-size: 11px; font-weight: 800;
+    letter-spacing: .12em; opacity: 0.55; text-transform: uppercase; margin-bottom: 22px; }
+
+  .card { background: var(--paper); border: 2.5px solid var(--ink);
+    border-radius: 16px; box-shadow: 5px 5px 0 var(--ink); padding: 18px; }
+  .card-h { display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px; }
+  .card-h h3 { margin: 0; font-family: var(--display); font-weight: 900;
+    font-size: 18px; letter-spacing: -0.02em; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-bottom: 22px; }
+  .stat { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 14px;
+    padding: 14px 16px; box-shadow: 4px 4px 0 var(--ink); }
+  .stat .lbl { font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.6; text-transform: uppercase; }
+  .stat .val { font-family: var(--display); font-weight: 900; font-size: 32px;
+    letter-spacing: -0.03em; margin-top: 4px; }
+  .stat .delta { font-family: var(--mono); font-size: 11px; font-weight: 800; margin-top: 2px; }
+  .delta.up { color: var(--a4); } .delta.down { color: var(--a1); }
+
+  .grid { display: grid; gap: 14px; grid-template-columns: 1.4fr 1fr; }
+  .full { grid-column: 1 / -1; }
+
+  .tbl { width: 100%; border-collapse: collapse; }
+  .tbl th, .tbl td { text-align: left; padding: 10px 10px;
+    border-bottom: 1.5px dashed rgba(0,0,0,0.18);
+    font-family: var(--ui); font-size: 12px; font-weight: 700; }
+  .tbl th { font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.55; text-transform: uppercase;
+    border-bottom: 2px solid var(--ink); }
+  .tbl tr:last-child td { border-bottom: 0; }
+  .tag { display: inline-block; padding: 2px 7px;
+    border: 1.5px solid var(--ink); border-radius: 4px;
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .08em; }
+  .tag.approved { background: var(--a4); color: var(--paper); }
+  .tag.pending { background: var(--a2); }
+  .tag.review { background: var(--a3); color: var(--paper); }
+  .tag.rejected { background: #d32323; color: var(--paper); }
+
+  .ai-card { background: var(--ink); color: var(--paper);
+    border: 2.5px solid var(--ink); border-radius: 16px;
+    box-shadow: 5px 5px 0 var(--a1); padding: 18px; margin-bottom: 14px; }
+  .ai-tag { display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border: 2px solid var(--paper); border-radius: 999px;
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; margin-bottom: 12px; }
+  .ai-card h3 { margin: 0; font-family: var(--display); font-weight: 900;
+    font-size: 22px; letter-spacing: -0.025em; line-height: 1.05; }
+  .ai-body { margin-top: 10px; font-family: var(--ui); font-size: 13px;
+    font-weight: 600; line-height: 1.45; opacity: 0.9; }
+
+  .plan-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .plan { padding: 14px; border: 2.5px solid var(--paper); border-radius: 12px;
+    background: rgba(255,255,255,0.05); }
+  .plan h4 { margin: 0 0 6px; font-family: var(--display); font-weight: 900;
+    font-size: 16px; letter-spacing: -0.02em; }
+  .plan ul { margin: 8px 0 0; padding-left: 16px; font-size: 12px; font-weight: 600;
+    opacity: 0.85; line-height: 1.5; }
+  .plan .pp { font-family: var(--mono); font-size: 11px; font-weight: 800;
+    opacity: 0.85; letter-spacing: .04em; margin-top: 6px; }
+  .plan .pick { appearance: none; padding: 6px 10px; margin-top: 10px;
+    border: 2px solid var(--paper); border-radius: 999px;
+    background: transparent; color: var(--paper);
+    font-family: var(--ui); font-size: 11px; font-weight: 800; cursor: pointer; }
+  .plan.best .pick { background: var(--a1); color: var(--ink); border-color: var(--ink); }
+  .plan.best { background: rgba(255,91,61,0.18); border-color: var(--a1); }
+
+  .bars { display: flex; align-items: flex-end; gap: 8px; height: 160px;
+    padding-top: 10px; border-bottom: 2px solid var(--ink); }
+  .bar { flex: 1; background: var(--a3); border: 2px solid var(--ink);
+    border-radius: 4px 4px 0 0; }
+  .bar-lbls { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; }
+  .bar-lbls span { flex: 1; text-align: center; font-family: var(--mono);
+    font-size: 9px; font-weight: 700; opacity: 0.6; }
+
+  .approval { display: grid; grid-template-columns: 60px 1fr auto; gap: 12px;
+    align-items: center; padding: 12px;
+    border: 2px solid var(--ink); border-radius: 12px;
+    background: var(--paper); margin-bottom: 8px; }
+  .approval .av { width: 44px; height: 44px; border-radius: 999px;
+    border: 2.5px solid var(--ink); display: flex; align-items: center;
+    justify-content: center; font-family: var(--display); font-weight: 900; font-size: 16px; }
+
+  .section { display: none; }
+  .section.on { display: block; }
+
+  .avatar { width: 28px; height: 28px; border-radius: 999px; border: 2px solid var(--ink);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-weight: 900; font-size: 11px; }
+
+  .toggle { position: relative; width: 38px; height: 22px; border: 2px solid var(--ink);
+    border-radius: 999px; background: rgba(0,0,0,0.12); cursor: pointer; padding: 0; }
+  .toggle.on { background: var(--a1); }
+  .toggle i { position: absolute; top: 1px; left: 1px; width: 16px; height: 16px;
+    border-radius: 999px; background: var(--paper); border: 1.5px solid var(--ink);
+    transition: left .15s; }
+  .toggle.on i { left: 17px; }
+
+  .slider-row { display: flex; align-items: center; gap: 12px; padding: 12px 0;
+    border-bottom: 1.5px dashed rgba(0,0,0,0.15); }
+  .slider-row:last-child { border-bottom: 0; }
+  .slider-row .lbl-grp { flex: 1; }
+  .slider-row .lbl { font-family: var(--ui); font-size: 13px; font-weight: 800; }
+  .slider-row .sub { font-family: var(--mono); font-size: 10px; font-weight: 700;
+    opacity: 0.55; margin-top: 2px; letter-spacing: .04em; }
+  .slider-row .val { font-family: var(--display); font-weight: 900; font-size: 18px;
+    width: 100px; text-align: right; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="side-brand"><span>✣</span><span>confetti</span><span style="opacity:.4;font-size:14px">/teams</span></div>
+    <div class="side-co">
+      <div class="lbl">YOUR COMPANY</div>
+      <div class="nm">Hummingbird Inc.</div>
+      <div class="sub">washington dc HQ · 148 employees · pro tier</div>
+    </div>
+    <nav class="side-nav" id="nav">
+      <h4>Plan</h4>
+      <a data-sec="home" class="on"><span class="dot"></span>Home</a>
+      <a data-sec="planner"><span class="dot"></span>Outing Planner</a>
+      <a data-sec="approvals"><span class="dot"></span>Approvals<span class="badge">5</span></a>
+      <a data-sec="bookings"><span class="dot"></span>Bookings</a>
+
+      <h4>Admin</h4>
+      <a data-sec="team"><span class="dot" style="background:var(--a3)"></span>Team Management</a>
+      <a data-sec="policies"><span class="dot" style="background:var(--a3)"></span>Policies</a>
+      <a data-sec="settings"><span class="dot" style="background:var(--a3)"></span>Company Settings</a>
+
+      <h4>Insight</h4>
+      <a data-sec="reporting"><span class="dot" style="background:var(--a2)"></span>Reporting</a>
+
+      <h4>Account</h4>
+      <a><span class="dot" style="opacity:0.3"></span>Billing &amp; Stripe</a>
+      <a><span class="dot" style="opacity:0.3"></span>Help &amp; SLA</a>
+    </nav>
+  </aside>
+
+  <div class="top">
+    <div class="row gap-12">
+      <span class="pill live"><span class="blink"></span>FY26 Q2 · IN BUDGET</span>
+      <span class="pill">SAT MAY 23</span>
+    </div>
+    <div class="row gap-12">
+      <span class="pill" style="background:var(--a2)">5 PENDING APPROVALS</span>
+      <span class="mono" style="font-size:11px;font-weight:700;opacity:0.65">priya@hummingbird.io</span>
+      <div style="width:34px;height:34px;border-radius:999px;border:2.5px solid var(--ink);background:var(--a1);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:13px;box-shadow:3px 3px 0 var(--ink)">PR</div>
+    </div>
+  </div>
+
+  <main class="main">
+    <!-- HOME -->
+    <section class="section on" id="sec-home">
+      <h1 class="title">Plan team things people actually want to go to.</h1>
+      <div class="subtitle">8 OUTINGS THIS QUARTER · 5 PENDING APPROVAL · $14.2K SPENT</div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="lbl">UPCOMING OUTINGS</div>
+          <div class="val">3</div>
+          <div class="delta up">▲ next: thu jun 5</div>
+        </div>
+        <div class="stat" style="background:var(--a2)">
+          <div class="lbl">PENDING APPROVALS</div>
+          <div class="val">5</div>
+          <div class="delta down">▼ 2 over policy cap</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">MONTHLY SPEND · MAY</div>
+          <div class="val">$4,820</div>
+          <div class="delta up">▲ 62% of $7,800 cap</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">AVG NPS · LAST 6 OUTINGS</div>
+          <div class="val">8.7</div>
+          <div class="delta up">▲ +0.4 vs Q1</div>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-tag"><span style="color:var(--a1);font-size:11px">✣</span> CONFETTI · 3 OUTING DRAFTS FOR JUNE</div>
+        <h3>"Closeout Q2 with the eng team — 14 ppl, $40/person, walkable from HQ."</h3>
+        <div class="ai-body">Parsed 14 attendees from your eng roster. Pulled walking radius from HQ, cross-checked policy (no alcohol-primary, $40/pp cap, $560 total). 3 options below. Pick one to send for approval.</div>
+        <div class="plan-grid">
+          <div class="plan best">
+            <h4>Option A · Brewery + tacos</h4>
+            <div class="mono" style="font-size:10px;opacity:0.7">0.4 MI · 3H · WALKABLE</div>
+            <ul>
+              <li>Threes Brewing · private side room</li>
+              <li>Oxomoco · taco bar setup</li>
+              <li>Optional cornhole tournament</li>
+            </ul>
+            <div class="pp">$38/pp · $532 total · within cap</div>
+            <button class="pick">send for approval →</button>
+          </div>
+          <div class="plan">
+            <h4>Option B · Bowling + pizza</h4>
+            <div class="mono" style="font-size:10px;opacity:0.7">0.8 MI · 2.5H · LYFT</div>
+            <ul>
+              <li>The Gutter · 4 lanes reserved</li>
+              <li>Roberta's pizza family-style</li>
+              <li>Soft cap on bar tab</li>
+            </ul>
+            <div class="pp">$42/pp · $588 total · $0.50 over cap</div>
+            <button class="pick">send for approval →</button>
+          </div>
+          <div class="plan">
+            <h4>Option C · Mini-golf + dinner</h4>
+            <div class="mono" style="font-size:10px;opacity:0.7">1.1 MI · 3H · LYFT</div>
+            <ul>
+              <li>Shipwrecked mini-golf · group</li>
+              <li>Lilia · family pasta menu</li>
+              <li>Walkable home from venue 2</li>
+            </ul>
+            <div class="pp">$39/pp · $546 total · within cap</div>
+            <button class="pick">send for approval →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-h"><h3>Upcoming outings · this quarter</h3>
+            <span class="pill" style="background:var(--a1)">+ new outing</span></div>
+          <table class="tbl">
+            <thead><tr><th>When</th><th>Outing</th><th>Team</th><th>Attendees</th><th>Est.</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Thu Jun 5</strong></td><td>Eng Q2 close</td><td>Engineering</td><td>14 of 16 RSVP'd</td><td>$532</td><td><span class="tag pending">PENDING</span></td></tr>
+              <tr><td><strong>Wed Jun 12</strong></td><td>Sales kickoff dinner</td><td>Go-to-market</td><td>22 of 24</td><td>$1,420</td><td><span class="tag approved">APPROVED</span></td></tr>
+              <tr><td><strong>Fri Jun 21</strong></td><td>All-hands trivia</td><td>Company</td><td>96 of 148</td><td>$2,840</td><td><span class="tag review">REVIEW · OVER CAP</span></td></tr>
+              <tr><td><strong>Thu Jul 11</strong></td><td>Design retreat</td><td>Design</td><td>8 of 8</td><td>$960</td><td><span class="tag pending">PENDING</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-h"><h3>Recent activity</h3></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="padding:10px;border:2px solid var(--ink);border-radius:10px;background:var(--paper)">
+              <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.1em">2H AGO · @priya</div>
+              <div style="font-size:13px;font-weight:700;margin-top:3px">Approved <strong>Sales kickoff dinner</strong> — $1,420</div>
+            </div>
+            <div style="padding:10px;border:2px solid var(--ink);border-radius:10px;background:var(--paper)">
+              <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.1em">YESTERDAY · @marcus</div>
+              <div style="font-size:13px;font-weight:700;margin-top:3px">Created outing draft "<strong>Eng Q2 close</strong>"</div>
+            </div>
+            <div style="padding:10px;border:2px solid var(--ink);border-radius:10px;background:var(--paper)">
+              <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.1em">MON · CONFETTI</div>
+              <div style="font-size:13px;font-weight:700;margin-top:3px">⚠ Q2 spend at 78% · 6 weeks left</div>
+            </div>
+            <div style="padding:10px;border:2px solid var(--ink);border-radius:10px;background:var(--paper)">
+              <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.1em">FRI · @james</div>
+              <div style="font-size:13px;font-weight:700;margin-top:3px">Updated policy: walking distance from HQ raised to 1 mi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTING PLANNER -->
+    <section class="section" id="sec-planner">
+      <h1 class="title">Plan an outing.</h1>
+      <div class="subtitle">CHAT WITH CONFETTI · ENFORCES YOUR COMPANY POLICY</div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="card-h"><h3>1 · Describe what you need</h3></div>
+        <div style="padding:14px;border:2.5px solid var(--ink);border-radius:14px;background:var(--bg);box-shadow:3px 3px 0 var(--ink)">
+          <div class="mono" style="font-size:10px;opacity:0.55;letter-spacing:.14em;margin-bottom:6px">EXAMPLE</div>
+          <div style="font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:-0.02em">"close out Q2 with the eng team — 14 ppl, walkable from HQ, $40/pp, no boozy primary"</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+          <span class="pill" style="background:var(--a2)">team kickoff</span>
+          <span class="pill" style="background:var(--a2)">offsite half-day</span>
+          <span class="pill" style="background:var(--a2)">client dinner</span>
+          <span class="pill" style="background:var(--a2)">birthday at office</span>
+          <span class="pill" style="background:var(--a2)">retreat (multi-day)</span>
+          <span class="pill" style="background:var(--a2)">conference reception</span>
+          <span class="pill" style="background:var(--a2)">end-of-quarter</span>
+          <span class="pill" style="background:var(--a2)">new hire welcome</span>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-h"><h3>2 · Confirm scope</h3></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center">
+              <span class="mono" style="font-size:11px;font-weight:800;opacity:0.7">TEAM</span>
+              <span style="font-weight:800">Engineering · 16 members</span>
+            </div>
+            <div style="display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center">
+              <span class="mono" style="font-size:11px;font-weight:800;opacity:0.7">DATE</span>
+              <span style="font-weight:800">Thu Jun 5 · evening</span>
+            </div>
+            <div style="display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center">
+              <span class="mono" style="font-size:11px;font-weight:800;opacity:0.7">BUDGET / PP</span>
+              <span style="font-weight:800">$40 (policy cap: $50)</span>
+            </div>
+            <div style="display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center">
+              <span class="mono" style="font-size:11px;font-weight:800;opacity:0.7">LOCATION</span>
+              <span style="font-weight:800">Within 1 mi of HQ · Dumbo</span>
+            </div>
+            <div style="display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center">
+              <span class="mono" style="font-size:11px;font-weight:800;opacity:0.7">CONSTRAINTS</span>
+              <span style="font-weight:800">No alcohol-primary · stroller-accessible</span>
+            </div>
+            <div style="display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center">
+              <span class="mono" style="font-size:11px;font-weight:800;opacity:0.7">APPROVER</span>
+              <span style="font-weight:800">Priya (VP People)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-h"><h3>3 · Headcount</h3></div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;padding:14px 0">
+            <div>
+              <div class="display" style="font-size:64px;line-height:1;letter-spacing:-0.045em">14<span style="font-size:24px;opacity:0.5">/16</span></div>
+              <div class="mono" style="font-size:10px;font-weight:700;opacity:0.55;margin-top:6px;letter-spacing:.1em">CONFIRMED · 87% RSVP</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;max-width:160px;justify-content:flex-end">
+              <span class="avatar" style="background:var(--a1)">SK</span>
+              <span class="avatar" style="background:var(--a2)">JL</span>
+              <span class="avatar" style="background:var(--a3);color:var(--paper)">RM</span>
+              <span class="avatar" style="background:var(--a1)">DM</span>
+              <span class="avatar" style="background:var(--a2)">+10</span>
+            </div>
+          </div>
+          <div style="padding:10px;border:2px dashed var(--ink);border-radius:10px;font-family:var(--mono);font-size:10px;font-weight:700;opacity:0.7;line-height:1.5">
+            ⓘ 2 dietary flags: pescatarian + 1 GF<br/>
+            ⓘ 1 mobility note: cane, no stairs
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROVALS -->
+    <section class="section" id="sec-approvals">
+      <h1 class="title">Approvals.</h1>
+      <div class="subtitle">5 PENDING · 2 OVER POLICY · YOU CAN REQUEST CHANGES OR APPROVE</div>
+
+      <div class="approval">
+        <div class="av" style="background:var(--a1)">MA</div>
+        <div>
+          <div class="display" style="font-size:18px">Eng Q2 close · brewery + tacos</div>
+          <div class="mono" style="font-size:10px;opacity:0.55;letter-spacing:.1em;margin-top:3px">@marcus · Engineering · Jun 5 · 14 ppl · $532 · within cap ✓</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="pill" style="background:var(--a4);color:var(--paper);cursor:pointer">approve</button>
+          <button class="pill" style="cursor:pointer">request changes</button>
+          <button class="pill" style="cursor:pointer">reject</button>
+        </div>
+      </div>
+
+      <div class="approval" style="background:rgba(255,209,102,0.15)">
+        <div class="av" style="background:var(--a2)">CW</div>
+        <div>
+          <div class="display" style="font-size:18px">All-hands trivia · 96 ppl <span class="tag review" style="margin-left:6px">OVER CAP</span></div>
+          <div class="mono" style="font-size:10px;opacity:0.55;letter-spacing:.1em;margin-top:3px">@cole · Company-wide · Jun 21 · $2,840 · over by $260 (policy: $2,580)</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="pill" style="background:var(--a4);color:var(--paper);cursor:pointer">approve w/ note</button>
+          <button class="pill" style="cursor:pointer">trim down</button>
+          <button class="pill" style="cursor:pointer">reject</button>
+        </div>
+      </div>
+
+      <div class="approval">
+        <div class="av" style="background:var(--a3);color:var(--paper)">RL</div>
+        <div>
+          <div class="display" style="font-size:18px">Design retreat · 8 ppl · upstate</div>
+          <div class="mono" style="font-size:10px;opacity:0.55;letter-spacing:.1em;margin-top:3px">@rio · Design · Jul 11 · $960 · within cap ✓ · transport: van</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="pill" style="background:var(--a4);color:var(--paper);cursor:pointer">approve</button>
+          <button class="pill" style="cursor:pointer">request changes</button>
+        </div>
+      </div>
+
+      <div class="approval">
+        <div class="av" style="background:var(--a1)">SK</div>
+        <div>
+          <div class="display" style="font-size:18px">New hire welcome lunch</div>
+          <div class="mono" style="font-size:10px;opacity:0.55;letter-spacing:.1em;margin-top:3px">@samira · People · Jun 17 · 6 ppl · $180 · within cap ✓</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="pill" style="background:var(--a4);color:var(--paper);cursor:pointer">approve</button>
+          <button class="pill" style="cursor:pointer">delegate</button>
+        </div>
+      </div>
+
+      <div class="approval" style="background:rgba(255,91,61,0.12)">
+        <div class="av" style="background:var(--a1)">JM</div>
+        <div>
+          <div class="display" style="font-size:18px">Client dinner · Westlight rooftop <span class="tag review" style="margin-left:6px">ALCOHOL PRIMARY</span></div>
+          <div class="mono" style="font-size:10px;opacity:0.55;letter-spacing:.1em;margin-top:3px">@jules · Sales · Jun 9 · 4 ppl · $480 · within cap · flagged: alcohol-primary venue</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="pill" style="background:var(--a4);color:var(--paper);cursor:pointer">override + approve</button>
+          <button class="pill" style="cursor:pointer">suggest alt</button>
+          <button class="pill" style="cursor:pointer">reject</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKINGS -->
+    <section class="section" id="sec-bookings">
+      <h1 class="title">Bookings.</h1>
+      <div class="subtitle">8 BOOKED THIS QUARTER · $14,238 SPENT · 3 RECEIPTS PENDING</div>
+
+      <div class="card">
+        <table class="tbl">
+          <thead><tr><th>Date</th><th>Outing</th><th>Venue</th><th>Team</th><th>People</th><th>Cost</th><th>Receipt</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Jun 5</strong></td><td>Eng Q2 close</td><td>Threes Brewing + Oxomoco</td><td>Eng</td><td>14</td><td>$532</td><td>—</td><td><span class="tag pending">CONFIRMED · UPCOMING</span></td></tr>
+            <tr><td><strong>May 22</strong></td><td>Maya's farewell</td><td>Lilia</td><td>Eng</td><td>11</td><td>$684</td><td>📎 PDF</td><td><span class="tag approved">PAID</span></td></tr>
+            <tr><td><strong>May 14</strong></td><td>Q2 mid-quarter</td><td>Brooklyn Brewery</td><td>Company</td><td>76</td><td>$2,210</td><td>📎 PDF</td><td><span class="tag approved">PAID</span></td></tr>
+            <tr><td><strong>May 8</strong></td><td>Sales recharge</td><td>Westlight</td><td>Sales</td><td>9</td><td>$540</td><td>⏳ pending</td><td><span class="tag approved">PAID</span></td></tr>
+            <tr><td><strong>Apr 29</strong></td><td>Design + eng sync</td><td>The Brooklyn Inn</td><td>Eng + Design</td><td>18</td><td>$720</td><td>📎 PDF</td><td><span class="tag approved">PAID</span></td></tr>
+            <tr><td><strong>Apr 18</strong></td><td>People offsite</td><td>Industry City</td><td>People</td><td>6</td><td>$386</td><td>⏳ pending</td><td><span class="tag approved">PAID</span></td></tr>
+            <tr><td><strong>Apr 4</strong></td><td>Q1 close · all-hands</td><td>Brooklyn Steel</td><td>Company</td><td>132</td><td>$8,420</td><td>📎 PDF</td><td><span class="tag approved">PAID</span></td></tr>
+            <tr><td><strong>Mar 21</strong></td><td>Eng book club</td><td>Books Are Magic</td><td>Eng</td><td>7</td><td>$0</td><td>—</td><td><span class="tag approved">FREE</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TEAM MGMT -->
+    <section class="section" id="sec-team">
+      <h1 class="title">Team management.</h1>
+      <div class="subtitle">148 EMPLOYEES · 8 TEAMS · 12 ADMINS · CLAUDE SYNCS WITH OKTA</div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-h"><h3>Teams</h3>
+            <span class="pill" style="background:var(--a1)">+ new team</span></div>
+          <table class="tbl">
+            <thead><tr><th>Team</th><th>Lead</th><th>People</th><th>Q2 budget</th><th>Spent</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Engineering</strong></td><td>@marcus</td><td>16</td><td>$3,200</td><td>$1,216 · 38%</td></tr>
+              <tr><td><strong>Design</strong></td><td>@rio</td><td>8</td><td>$1,600</td><td>$960 · 60%</td></tr>
+              <tr><td><strong>Sales</strong></td><td>@jules</td><td>24</td><td>$4,800</td><td>$1,020 · 21%</td></tr>
+              <tr><td><strong>People</strong></td><td>@priya</td><td>6</td><td>$1,200</td><td>$386 · 32%</td></tr>
+              <tr><td><strong>Marketing</strong></td><td>@cole</td><td>12</td><td>$2,400</td><td>$840 · 35%</td></tr>
+              <tr><td><strong>Ops</strong></td><td>@james</td><td>10</td><td>$2,000</td><td>$0 · 0%</td></tr>
+              <tr><td colspan="5" style="opacity:0.55;font-style:italic">+ 2 more teams</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3>Approvers</h3></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;border:2px solid var(--ink);border-radius:10px">
+              <span class="avatar" style="background:var(--a1)">PR</span>
+              <div style="flex:1"><div style="font-weight:800">@priya</div><div class="mono" style="font-size:10px;opacity:0.55">VP PEOPLE · CAN APPROVE ≤ $5K</div></div>
+              <span class="tag approved">PRIMARY</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;border:2px solid var(--ink);border-radius:10px">
+              <span class="avatar" style="background:var(--a3);color:var(--paper)">JM</span>
+              <div style="flex:1"><div style="font-weight:800">@james</div><div class="mono" style="font-size:10px;opacity:0.55">COO · CAN APPROVE UNLIMITED</div></div>
+              <span class="tag approved">BACKUP</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;border:2px solid var(--ink);border-radius:10px">
+              <span class="avatar" style="background:var(--a2)">MA</span>
+              <div style="flex:1"><div style="font-weight:800">@marcus</div><div class="mono" style="font-size:10px;opacity:0.55">VP ENG · TEAM-LEVEL ≤ $1K</div></div>
+              <span class="tag approved">TEAM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICIES -->
+    <section class="section" id="sec-policies">
+      <h1 class="title">Policies.</h1>
+      <div class="subtitle">CLAUDE WILL ENFORCE THESE WHEN PLANNING — OUTINGS THAT VIOLATE GO TO REVIEW</div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="card-h"><h3>Budget</h3></div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Cap per person</div><div class="sub">applies unless approver overrides</div></div>
+          <div class="val">$50</div>
+        </div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Approval threshold</div><div class="sub">over this requires VP approval</div></div>
+          <div class="val">$1,000</div>
+        </div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Stripe deposit limit</div><div class="sub">max upfront held</div></div>
+          <div class="val">$5,000</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="card-h"><h3>Conduct rules</h3></div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">No alcohol-primary venues</div><div class="sub">bars with no food program</div></div>
+          <div class="val"><button class="toggle on"><i></i></button></div>
+        </div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Inclusive menus required</div><div class="sub">veg + GF + halal options must exist</div></div>
+          <div class="val"><button class="toggle on"><i></i></button></div>
+        </div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Stroller / mobility accessible</div><div class="sub">venue must verify accessibility</div></div>
+          <div class="val"><button class="toggle on"><i></i></button></div>
+        </div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Allow off-hours (after 9 PM)</div><div class="sub">claude will warn approver</div></div>
+          <div class="val"><button class="toggle"><i></i></button></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h3>Distance + transit</h3></div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Max distance from HQ</div><div class="sub">walking · driving cap separately</div></div>
+          <div class="val">1.0 mi</div>
+        </div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Rideshare reimbursable</div><div class="sub">lyft/uber covered if walkable distance &gt; cap</div></div>
+          <div class="val"><button class="toggle on"><i></i></button></div>
+        </div>
+        <div class="slider-row">
+          <div class="lbl-grp"><div class="lbl">Multi-day retreats</div><div class="sub">requires C-suite approval</div></div>
+          <div class="val"><button class="toggle on"><i></i></button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPANY SETTINGS -->
+    <section class="section" id="sec-settings">
+      <h1 class="title">Company settings.</h1>
+      <div class="subtitle">PROFILE · CITIES · ADMINS · BILLING · SSO</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-h"><h3>Profile</h3></div>
+          <div style="display:flex;align-items:center;gap:16px;padding:8px 0">
+            <div style="width:64px;height:64px;border-radius:14px;border:2.5px solid var(--ink);background:var(--a3);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:26px;box-shadow:3px 3px 0 var(--ink)">H</div>
+            <div style="flex:1">
+              <div class="display" style="font-size:22px">Hummingbird Inc.</div>
+              <div class="mono" style="font-size:10px;opacity:0.55;margin-top:3px">B-CORP · 148 EMPLOYEES · FOUNDED 2019 · DC</div>
+            </div>
+            <button class="pill" style="cursor:pointer">edit</button>
+          </div>
+          <table class="tbl" style="margin-top:14px">
+            <tbody>
+              <tr><td>Primary city</td><td><strong>Brooklyn, NY</strong></td></tr>
+              <tr><td>HQ address</td><td><strong>1500 K St NW · Washington DC</strong></td></tr>
+              <tr><td>Other cities</td><td><strong>SF · CDMX · Lisbon (remote)</strong></td></tr>
+              <tr><td>Time zone</td><td><strong>America/New_York</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3>Identity</h3></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="padding:12px;border:2px solid var(--ink);border-radius:10px;background:var(--a4);color:var(--paper)">
+              <div class="mono" style="font-size:9px;opacity:0.85;letter-spacing:.14em">OKTA SSO · CONNECTED</div>
+              <div style="font-weight:800;margin-top:3px">148 of 148 employees synced</div>
+            </div>
+            <div style="padding:12px;border:2px solid var(--ink);border-radius:10px">
+              <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.14em">STRIPE · CONNECTED</div>
+              <div style="font-weight:800;margin-top:3px">Pro tier · billed monthly · $99/seat × 12 admin seats</div>
+            </div>
+            <div style="padding:12px;border:2px solid var(--ink);border-radius:10px">
+              <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.14em">SLACK · CONNECTED</div>
+              <div style="font-weight:800;margin-top:3px">#outings channel · RSVPs auto-posted</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORTING -->
+    <section class="section" id="sec-reporting">
+      <h1 class="title">Reporting.</h1>
+      <div class="subtitle">Q2 2026 · $14,238 SPENT OF $24,000 BUDGET</div>
+
+      <div class="stat-row">
+        <div class="stat"><div class="lbl">SPEND · Q2 TO DATE</div><div class="val">$14,238</div><div class="delta up">▲ 59% of budget used</div></div>
+        <div class="stat" style="background:var(--a2)"><div class="lbl">OUTINGS · Q2</div><div class="val">8</div><div class="delta up">▲ 2 more booked</div></div>
+        <div class="stat"><div class="lbl">ATTENDANCE</div><div class="val">87%</div><div class="delta up">▲ +5pt vs Q1</div></div>
+        <div class="stat"><div class="lbl">AVG NPS · POST OUTING</div><div class="val">8.7</div><div class="delta up">▲ +0.4 vs Q1</div></div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-h"><h3>Spend by team · Q2</h3></div>
+          <div class="bars">
+            <div class="bar" style="height:38%;background:var(--a1)"></div>
+            <div class="bar" style="height:60%;background:var(--a2)"></div>
+            <div class="bar" style="height:21%"></div>
+            <div class="bar" style="height:32%;background:var(--a1)"></div>
+            <div class="bar" style="height:35%;background:var(--a2)"></div>
+            <div class="bar" style="height:0%"></div>
+          </div>
+          <div class="bar-lbls">
+            <span>ENG</span><span>DESIGN</span><span>SALES</span><span>PEOPLE</span><span>MARKETING</span><span>OPS</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3>Favorite venues · last 6 mo</h3></div>
+          <table class="tbl">
+            <thead><tr><th>Venue</th><th>Visits</th><th>$</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Lilia</strong></td><td>4</td><td>$2,736</td></tr>
+              <tr><td><strong>Threes Brewing</strong></td><td>3</td><td>$1,596</td></tr>
+              <tr><td><strong>Westlight</strong></td><td>3</td><td>$1,620</td></tr>
+              <tr><td><strong>Oxomoco</strong></td><td>2</td><td>$948</td></tr>
+              <tr><td><strong>Brooklyn Steel</strong></td><td>1</td><td>$8,420</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card full">
+          <div class="card-h"><h3>Spend over time</h3>
+            <div style="display:flex;gap:6px">
+              <span class="pill" style="background:var(--a1)">▮ outings</span>
+              <span class="pill">▮ budget cap</span>
+            </div>
+          </div>
+          <svg viewBox="0 0 700 200" style="width:100%;height:200px;display:block">
+            <g stroke="rgba(0,0,0,0.12)" stroke-width="1">
+              <line x1="0" y1="50"  x2="700" y2="50"/>
+              <line x1="0" y1="100" x2="700" y2="100"/>
+              <line x1="0" y1="150" x2="700" y2="150"/>
+            </g>
+            <line x1="0" y1="40" x2="700" y2="40" stroke="rgba(0,0,0,0.45)" stroke-width="2" stroke-dasharray="6 4"/>
+            <text x="6" y="36" font-family="JetBrains Mono" font-size="10" font-weight="700" opacity="0.6">CAP · $8K/MO</text>
+            <path d="M 30 170 L 130 150 L 230 110 L 330 100 L 430 80  L 530 60  L 630 90  L 700 70"
+              stroke="var(--a1)" stroke-width="3.5" fill="none"/>
+            <path d="M 30 170 L 130 150 L 230 110 L 330 100 L 430 80  L 530 60  L 630 90  L 700 70 L 700 200 L 30 200 Z"
+              fill="var(--a1)" opacity="0.15"/>
+            <g font-family="JetBrains Mono" font-size="10" font-weight="800" opacity="0.6">
+              <text x="20" y="194">JAN</text><text x="120" y="194">FEB</text><text x="220" y="194">MAR</text>
+              <text x="320" y="194">APR</text><text x="420" y="194">MAY</text><text x="520" y="194">JUN</text>
+              <text x="620" y="194">JUL→</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const nav = document.getElementById('nav');
+  nav.addEventListener('click', e => {
+    const a = e.target.closest('a[data-sec]');
+    if (!a) return;
+    nav.querySelectorAll('a').forEach(x => x.classList.remove('on'));
+    a.classList.add('on');
+    document.querySelectorAll('section.section').forEach(s => s.classList.remove('on'));
+    document.getElementById('sec-' + a.dataset.sec)?.classList.add('on');
+  });
+</script>
+</body>
+</html>

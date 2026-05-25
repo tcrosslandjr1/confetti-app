@@ -109,9 +109,18 @@ function CityLandingPage() {
     staleTime: 5 * 60 * 1000,
   });
 
+  usePageview(`city_${city.slug}`, `/cities/${city.slug}`);
+
   const handlePlanNight = () => {
     setSelectedCity(city.slug);
+    trackCta("city_plan_night", { city: city.name, citySlug: city.slug });
   };
+
+  const handleExplore = () => {
+    setSelectedCity(city.slug);
+    trackCta("city_explore_venues", { city: city.name, citySlug: city.slug });
+  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50/40 via-background to-background">

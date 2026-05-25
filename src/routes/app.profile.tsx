@@ -314,6 +314,7 @@ function OverviewTab({
 /* ─── Tab: Bookings ───────────────────────────────────────────────────────── */
 
 function BookingsTab({ userId }: { userId: string }) {
+  const qc = useQueryClient();
   const { data: bookings, isLoading } = useQuery({
     queryKey: ["profile", "bookings", userId],
     queryFn: async () => {
@@ -331,6 +332,13 @@ function BookingsTab({ userId }: { userId: string }) {
         total_cents: number | null;
       }>;
     },
+  });
+
+  useRealtimeTable({
+    table: "bookings",
+    filter: `user_id=eq.${userId}`,
+    enabled: !!userId,
+    onChange: () => qc.invalidateQueries({ queryKey: ["profile", "bookings", userId] }),
   });
 
   if (isLoading) return <LoadingPlaceholder />;

@@ -84,7 +84,8 @@ function PlanMyNightPage() {
     loop.to = `${vibe ?? "Epic"} ${occasion ?? "Night"}`;
     loop.gate = planLabel;
     setActiveLoop(loop);
-    trackConversion("plan_booked", { plan: planLabel, occasion, vibe, budget, groupSize, when });
+    const city = getSelectedCity();
+    trackConversion("plan_booked", { plan: planLabel, occasion, vibe, budget, groupSize, when, city: city?.name ?? null, citySlug: city?.slug ?? null });
     toast.success("Boarding pass ready — let's go!");
     navigate({ to: "/boarding-pass" });
   }

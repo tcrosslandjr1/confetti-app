@@ -5,13 +5,20 @@ import { useLocationTracking } from "@/hooks/useLocationTracking";
 
 /* ── Navigation tabs ────────────────────────────────────────────────── */
 
-const TABS = [
+type Tab = {
+  to: "/app" | "/app/explore" | "/app/plan" | "/boarding-pass" | "/app/reels";
+  label: string;
+  icon: typeof Home;
+  exact?: boolean;
+};
+
+const TABS: readonly Tab[] = [
   { to: "/app", label: "Tonight", icon: Home, exact: true },
   { to: "/app/explore", label: "Explore", icon: Compass },
   { to: "/app/plan", label: "Plan", icon: Sparkles },
   { to: "/boarding-pass", label: "Pass", icon: Ticket },
   { to: "/app/reels", label: "Reels", icon: Film },
-] as const;
+];
 
 /* ── BottomNav ──────────────────────────────────────────────────────── */
 

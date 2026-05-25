@@ -44,26 +44,31 @@ const socials = [
   {
     Icon: Instagram,
     label: "Instagram",
+    href: "https://instagram.com/confettiplan",
     hover: "hover:bg-coral  hover:text-cream hover:border-coral",
   },
   {
     Icon: Twitter,
     label: "Twitter",
+    href: "https://twitter.com/confettiplan",
     hover: "hover:bg-teal   hover:text-ink   hover:border-teal",
   },
   {
     Icon: Music2,
     label: "TikTok",
+    href: "https://tiktok.com/@confettiplan",
     hover: "hover:bg-pink   hover:text-cream hover:border-pink",
   },
   {
     Icon: Youtube,
     label: "YouTube",
+    href: "https://youtube.com/@confettiplan",
     hover: "hover:bg-gold   hover:text-ink   hover:border-gold",
   },
   {
     Icon: Github,
     label: "GitHub",
+    href: "https://github.com/confettiplan",
     hover: "hover:bg-purple hover:text-cream hover:border-purple",
   },
 ];

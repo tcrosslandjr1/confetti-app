@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { OCCASIONS } from "@/lib/occasions";
+import { CITIES } from "@/lib/cities";
 
 const BASE_URL = "https://confettiplan.lovable.app";
 
@@ -14,6 +15,7 @@ const STATIC_ROUTES: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/about", changefreq: "monthly", priority: "0.7" },
   { path: "/app/explore", changefreq: "daily", priority: "0.8" },
+  { path: "/cities", changefreq: "weekly", priority: "0.9" },
   { path: "/events", changefreq: "daily", priority: "0.8" },
   { path: "/for-business", changefreq: "monthly", priority: "0.7" },
   { path: "/privacy", changefreq: "yearly", priority: "0.3" },
@@ -30,6 +32,11 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/ideas/${o.slug}`,
             changefreq: "weekly" as const,
             priority: "0.6",
+          })),
+          ...CITIES.map((c) => ({
+            path: `/cities/${c.slug}`,
+            changefreq: "weekly" as const,
+            priority: "0.8",
           })),
         ];
 

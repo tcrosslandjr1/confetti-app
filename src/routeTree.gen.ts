@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PromoterRouteImport } from './routes/promoter'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as LegalRouteImport } from './routes/legal'
 import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as HealthRouteImport } from './routes/health'
 import { Route as HangoutRouteImport } from './routes/hangout'
@@ -27,10 +29,12 @@ import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as CitiesIndexRouteImport } from './routes/cities.index'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as PromoterLoginRouteImport } from './routes/promoter.login'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as NewWalletRouteImport } from './routes/new.wallet'
 import { Route as NewVenueRouteImport } from './routes/new.venue'
@@ -74,7 +78,9 @@ import { Route as NewAgeGateRouteImport } from './routes/new.age-gate'
 import { Route as New2faRouteImport } from './routes/new.2fa'
 import { Route as HangoutTokenRouteImport } from './routes/hangout.$token'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as CitiesSlugRouteImport } from './routes/cities.$slug'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
+import { Route as BusinessVerifyRouteImport } from './routes/business.verify'
 import { Route as BusinessSocialRouteImport } from './routes/business.social'
 import { Route as BusinessSettingsRouteImport } from './routes/business.settings'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
@@ -84,16 +90,19 @@ import { Route as BusinessEventsRouteImport } from './routes/business.events'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
 import { Route as BusinessAnalyticsRouteImport } from './routes/business.analytics'
+import { Route as BusinessAdsRouteImport } from './routes/business.ads'
 import { Route as AppReelsRouteImport } from './routes/app.reels'
 import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppPlanRouteImport } from './routes/app.plan'
 import { Route as AppExploreRouteImport } from './routes/app.explore'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AdminVerificationsRouteImport } from './routes/admin.verifications'
 import { Route as AdminTrendRadarRouteImport } from './routes/admin.trend-radar'
 import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminConsoleRouteImport } from './routes/admin.console'
+import { Route as AdminCityAnalyticsRouteImport } from './routes/admin.city-analytics'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiMapsSatelliteRouteImport } from './routes/api/maps/satellite'
@@ -126,11 +135,21 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PromoterRoute = PromoterRouteImport.update({
+  id: '/promoter',
+  path: '/promoter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/privacy.lazy').then((d) => d.Route))
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InfluencerRoute = InfluencerRouteImport.update({
   id: '/influencer',
   path: '/influencer',
@@ -206,6 +225,11 @@ const EventsIndexRoute = EventsIndexRouteImport.update({
   path: '/events/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CitiesIndexRoute = CitiesIndexRouteImport.update({
+  id: '/cities/',
+  path: '/cities/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessIndexRoute = BusinessIndexRouteImport.update({
   id: '/business/',
   path: '/business/',
@@ -225,6 +249,11 @@ const TripsIdRoute = TripsIdRouteImport.update({
   id: '/trips/$id',
   path: '/trips/$id',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PromoterLoginRoute = PromoterLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => PromoterRoute,
 } as any)
 const PCodeRoute = PCodeRouteImport.update({
   id: '/p/$code',
@@ -441,9 +470,19 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   path: '/events/$eventId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CitiesSlugRoute = CitiesSlugRouteImport.update({
+  id: '/cities/$slug',
+  path: '/cities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   id: '/checkout/return',
   path: '/checkout/return',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessVerifyRoute = BusinessVerifyRouteImport.update({
+  id: '/business/verify',
+  path: '/business/verify',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessSocialRoute = BusinessSocialRouteImport.update({
@@ -491,6 +530,11 @@ const BusinessAnalyticsRoute = BusinessAnalyticsRouteImport.update({
   path: '/business/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessAdsRoute = BusinessAdsRouteImport.update({
+  id: '/business/ads',
+  path: '/business/ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppReelsRoute = AppReelsRouteImport.update({
   id: '/reels',
   path: '/reels',
@@ -521,6 +565,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminVerificationsRoute = AdminVerificationsRouteImport.update({
+  id: '/admin/verifications',
+  path: '/admin/verifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminTrendRadarRoute = AdminTrendRadarRouteImport.update({
   id: '/admin/trend-radar',
   path: '/admin/trend-radar',
@@ -539,6 +588,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
 const AdminConsoleRoute = AdminConsoleRouteImport.update({
   id: '/admin/console',
   path: '/admin/console',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCityAnalyticsRoute = AdminCityAnalyticsRouteImport.update({
+  id: '/admin/city-analytics',
+  path: '/admin/city-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TripsIdPassportRoute = TripsIdPassportRouteImport.update({
@@ -676,19 +730,23 @@ export interface FileRoutesByFullPath {
   '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
+  '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/welcome': typeof WelcomeRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/trend-radar': typeof AdminTrendRadarRoute
+  '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -698,7 +756,9 @@ export interface FileRoutesByFullPath {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/hangout/$token': typeof HangoutTokenRoute
   '/new/2fa': typeof New2faRoute
@@ -742,10 +802,12 @@ export interface FileRoutesByFullPath {
   '/new/venue': typeof NewVenueRoute
   '/new/wallet': typeof NewWalletRoute
   '/p/$code': typeof PCodeRoute
+  '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
+  '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -783,19 +845,23 @@ export interface FileRoutesByTo {
   '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
+  '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/welcome': typeof WelcomeRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/trend-radar': typeof AdminTrendRadarRoute
+  '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -805,7 +871,9 @@ export interface FileRoutesByTo {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/hangout/$token': typeof HangoutTokenRoute
   '/new/2fa': typeof New2faRoute
@@ -849,10 +917,12 @@ export interface FileRoutesByTo {
   '/new/venue': typeof NewVenueRoute
   '/new/wallet': typeof NewWalletRoute
   '/p/$code': typeof PCodeRoute
+  '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app': typeof AppIndexRoute
   '/business': typeof BusinessIndexRoute
+  '/cities': typeof CitiesIndexRoute
   '/events': typeof EventsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -892,19 +962,23 @@ export interface FileRoutesById {
   '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
+  '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/welcome': typeof WelcomeRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/trend-radar': typeof AdminTrendRadarRoute
+  '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
   '/business/dashboard': typeof BusinessDashboardRoute
@@ -914,7 +988,9 @@ export interface FileRoutesById {
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/social': typeof BusinessSocialRoute
+  '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/hangout/$token': typeof HangoutTokenRoute
   '/new/2fa': typeof New2faRoute
@@ -958,10 +1034,12 @@ export interface FileRoutesById {
   '/new/venue': typeof NewVenueRoute
   '/new/wallet': typeof NewWalletRoute
   '/p/$code': typeof PCodeRoute
+  '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
+  '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -1002,19 +1080,23 @@ export interface FileRouteTypes {
     | '/hangout'
     | '/health'
     | '/influencer'
+    | '/legal'
     | '/privacy'
+    | '/promoter'
     | '/sitemap.xml'
     | '/welcome'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
     | '/admin/trend-radar'
+    | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -1024,7 +1106,9 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
+    | '/cities/$slug'
     | '/events/$eventId'
     | '/hangout/$token'
     | '/new/2fa'
@@ -1068,10 +1152,12 @@ export interface FileRouteTypes {
     | '/new/venue'
     | '/new/wallet'
     | '/p/$code'
+    | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
     | '/app/'
     | '/business/'
+    | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
@@ -1109,19 +1195,23 @@ export interface FileRouteTypes {
     | '/hangout'
     | '/health'
     | '/influencer'
+    | '/legal'
     | '/privacy'
+    | '/promoter'
     | '/sitemap.xml'
     | '/welcome'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
     | '/admin/trend-radar'
+    | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -1131,7 +1221,9 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
+    | '/cities/$slug'
     | '/events/$eventId'
     | '/hangout/$token'
     | '/new/2fa'
@@ -1175,10 +1267,12 @@ export interface FileRouteTypes {
     | '/new/venue'
     | '/new/wallet'
     | '/p/$code'
+    | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
     | '/app'
     | '/business'
+    | '/cities'
     | '/events'
     | '/trips'
     | '/api/maps/satellite'
@@ -1217,19 +1311,23 @@ export interface FileRouteTypes {
     | '/hangout'
     | '/health'
     | '/influencer'
+    | '/legal'
     | '/privacy'
+    | '/promoter'
     | '/sitemap.xml'
     | '/welcome'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
     | '/admin/trend-radar'
+    | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
     | '/business/dashboard'
@@ -1239,7 +1337,9 @@ export interface FileRouteTypes {
     | '/business/promoters'
     | '/business/settings'
     | '/business/social'
+    | '/business/verify'
     | '/checkout/return'
+    | '/cities/$slug'
     | '/events/$eventId'
     | '/hangout/$token'
     | '/new/2fa'
@@ -1283,10 +1383,12 @@ export interface FileRouteTypes {
     | '/new/venue'
     | '/new/wallet'
     | '/p/$code'
+    | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
     | '/app/'
     | '/business/'
+    | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
@@ -1326,15 +1428,19 @@ export interface RootRouteChildren {
   HangoutRoute: typeof HangoutRouteWithChildren
   HealthRoute: typeof HealthRoute
   InfluencerRoute: typeof InfluencerRoute
+  LegalRoute: typeof LegalRoute
   PrivacyRoute: typeof PrivacyRoute
+  PromoterRoute: typeof PromoterRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WelcomeRoute: typeof WelcomeRoute
   AdminConsoleRoute: typeof AdminConsoleRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminPartnersRoute: typeof AdminPartnersRoute
   AdminTrendRadarRoute: typeof AdminTrendRadarRoute
+  AdminVerificationsRoute: typeof AdminVerificationsRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiPlanRoute: typeof ApiPlanRoute
+  BusinessAdsRoute: typeof BusinessAdsRoute
   BusinessAnalyticsRoute: typeof BusinessAnalyticsRoute
   BusinessClaimRoute: typeof BusinessClaimRoute
   BusinessDashboardRoute: typeof BusinessDashboardRoute
@@ -1344,7 +1450,9 @@ export interface RootRouteChildren {
   BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSettingsRoute: typeof BusinessSettingsRoute
   BusinessSocialRoute: typeof BusinessSocialRoute
+  BusinessVerifyRoute: typeof BusinessVerifyRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
+  CitiesSlugRoute: typeof CitiesSlugRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   New2faRoute: typeof New2faRoute
   NewAgeGateRoute: typeof NewAgeGateRoute
@@ -1390,6 +1498,7 @@ export interface RootRouteChildren {
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
+  CitiesIndexRoute: typeof CitiesIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
   ApiMapsSatelliteRoute: typeof ApiMapsSatelliteRoute
@@ -1430,11 +1539,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/promoter': {
+      id: '/promoter'
+      path: '/promoter'
+      fullPath: '/promoter'
+      preLoaderRoute: typeof PromoterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/influencer': {
@@ -1542,6 +1665,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cities/': {
+      id: '/cities/'
+      path: '/cities'
+      fullPath: '/cities/'
+      preLoaderRoute: typeof CitiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/': {
       id: '/business/'
       path: '/business'
@@ -1569,6 +1699,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/trips/$id'
       preLoaderRoute: typeof TripsIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/promoter/login': {
+      id: '/promoter/login'
+      path: '/login'
+      fullPath: '/promoter/login'
+      preLoaderRoute: typeof PromoterLoginRouteImport
+      parentRoute: typeof PromoterRoute
     }
     '/p/$code': {
       id: '/p/$code'
@@ -1871,11 +2008,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsEventIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cities/$slug': {
+      id: '/cities/$slug'
+      path: '/cities/$slug'
+      fullPath: '/cities/$slug'
+      preLoaderRoute: typeof CitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/checkout/return': {
       id: '/checkout/return'
       path: '/checkout/return'
       fullPath: '/checkout/return'
       preLoaderRoute: typeof CheckoutReturnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/verify': {
+      id: '/business/verify'
+      path: '/business/verify'
+      fullPath: '/business/verify'
+      preLoaderRoute: typeof BusinessVerifyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/social': {
@@ -1941,6 +2092,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/ads': {
+      id: '/business/ads'
+      path: '/business/ads'
+      fullPath: '/business/ads'
+      preLoaderRoute: typeof BusinessAdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app/reels': {
       id: '/app/reels'
       path: '/reels'
@@ -1983,6 +2141,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/verifications': {
+      id: '/admin/verifications'
+      path: '/admin/verifications'
+      fullPath: '/admin/verifications'
+      preLoaderRoute: typeof AdminVerificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/trend-radar': {
       id: '/admin/trend-radar'
       path: '/admin/trend-radar'
@@ -2009,6 +2174,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/console'
       fullPath: '/admin/console'
       preLoaderRoute: typeof AdminConsoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/city-analytics': {
+      id: '/admin/city-analytics'
+      path: '/admin/city-analytics'
+      fullPath: '/admin/city-analytics'
+      preLoaderRoute: typeof AdminCityAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/trips/$id/passport': {
@@ -2215,15 +2387,19 @@ const rootRouteChildren: RootRouteChildren = {
   HangoutRoute: HangoutRouteWithChildren,
   HealthRoute: HealthRoute,
   InfluencerRoute: InfluencerRoute,
+  LegalRoute: LegalRoute,
   PrivacyRoute: PrivacyRoute,
+  PromoterRoute: PromoterRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WelcomeRoute: WelcomeRoute,
   AdminConsoleRoute: AdminConsoleRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminPartnersRoute: AdminPartnersRoute,
   AdminTrendRadarRoute: AdminTrendRadarRoute,
+  AdminVerificationsRoute: AdminVerificationsRoute,
   ApiChatRoute: ApiChatRoute,
   ApiPlanRoute: ApiPlanRoute,
+  BusinessAdsRoute: BusinessAdsRoute,
   BusinessAnalyticsRoute: BusinessAnalyticsRoute,
   BusinessClaimRoute: BusinessClaimRoute,
   BusinessDashboardRoute: BusinessDashboardRoute,
@@ -2233,7 +2409,9 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSettingsRoute: BusinessSettingsRoute,
   BusinessSocialRoute: BusinessSocialRoute,
+  BusinessVerifyRoute: BusinessVerifyRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
+  CitiesSlugRoute: CitiesSlugRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   New2faRoute: New2faRoute,
   NewAgeGateRoute: NewAgeGateRoute,
@@ -2279,6 +2457,7 @@ const rootRouteChildren: RootRouteChildren = {
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,
   BusinessIndexRoute: BusinessIndexRoute,
+  CitiesIndexRoute: CitiesIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
   ApiMapsSatelliteRoute: ApiMapsSatelliteRoute,

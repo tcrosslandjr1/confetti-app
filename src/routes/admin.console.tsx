@@ -217,7 +217,7 @@ function AdminDashboard() {
 
       <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         {/* Quick Nav */}
-        <div className="mb-6">
+        <div className="mb-6 grid gap-3 sm:grid-cols-2">
           <Link
             to="/admin/trend-radar"
             className="flex items-center gap-4 rounded-xl border-2 border-coral/30 bg-coral/5 px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-coral/50 hover:shadow-lg"
@@ -235,7 +235,42 @@ function AdminDashboard() {
             </div>
             <ChevronRight className="h-5 w-5 shrink-0 text-cream/30" />
           </Link>
+          <Link
+            to="/admin/verifications"
+            className="flex items-center gap-4 rounded-xl border-2 border-amber-400/30 bg-amber-400/5 px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-amber-400/50 hover:shadow-lg"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-amber-400 bg-amber-400/10">
+              <Zap className="h-5 w-5 text-amber-400" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-sm font-black tracking-tight text-cream">
+                Verification queue
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                Approve Premium Verified document uploads
+              </p>
+            </div>
+            <ChevronRight className="h-5 w-5 shrink-0 text-cream/30" />
+          </Link>
+          <Link
+            to="/admin/city-analytics"
+            className="flex items-center gap-4 rounded-xl border-2 border-sky-400/30 bg-sky-400/5 px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-sky-400/50 hover:shadow-lg"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-sky-400 bg-sky-400/10">
+              <MapPin className="h-5 w-5 text-sky-400" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-sm font-black tracking-tight text-cream">
+                City analytics
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                Views, plan completions &amp; ad clicks per city
+              </p>
+            </div>
+            <ChevronRight className="h-5 w-5 shrink-0 text-cream/30" />
+          </Link>
         </div>
+
 
         {/* Stat Cards */}
         {stats && (

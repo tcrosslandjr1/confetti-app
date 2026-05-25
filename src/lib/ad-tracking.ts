@@ -1,4 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
+import { getSelectedCity } from "@/lib/cities";
+import { trackEngagement } from "@/lib/analytics";
 
 type LogArgs = {
   surface: string; // e.g. "marquee_top" | "marquee_bottom"
@@ -43,4 +45,13 @@ export function logAdViewImpression(args: LogArgs, slot?: string) {
 
 export function logAdClick(args: LogArgs) {
   insert("click", args);
+  const city = getSelectedCity();
+  trackEngagement("ad_click", {
+    surface: args.surface,
+    brand: args.brand,
+    occasion: args.occasion,
+    href: args.href ?? null,
+    city: city?.name ?? null,
+    citySlug: city?.slug ?? null,
+  });
 }

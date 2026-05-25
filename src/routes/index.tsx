@@ -5,6 +5,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { getPartnerStats } from "@/lib/partner-stats.functions";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
+import { CityPickerTrigger } from "@/components/CitySearch";
 import {
   Tooltip,
   TooltipContent,
@@ -403,6 +404,7 @@ function Landing() {
               >
                 or peek at a sample plan ↓
               </a>
+              <CityPickerTrigger />
             </div>
           </div>
 

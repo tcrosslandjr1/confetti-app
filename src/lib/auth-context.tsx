@@ -53,6 +53,7 @@ const Ctx = createContext<AuthCtx>({
   viewAsLoaded: false,
   isAdmin: false,
   isBusiness: false,
+  isPromoter: false,
   viewAs: "visitor",
   isImpersonating: false,
   isPreview: false,

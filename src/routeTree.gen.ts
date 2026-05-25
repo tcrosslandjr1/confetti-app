@@ -26,12 +26,14 @@ import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as CitiesIndexRouteImport } from './routes/cities.index'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as CitiesSlugRouteImport } from './routes/cities.$slug'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as BusinessVerifyRouteImport } from './routes/business.verify'
 import { Route as BusinessSocialRouteImport } from './routes/business.social'
@@ -162,6 +164,11 @@ const EventsIndexRoute = EventsIndexRouteImport.update({
   path: '/events/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CitiesIndexRoute = CitiesIndexRouteImport.update({
+  id: '/cities/',
+  path: '/cities/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessIndexRoute = BusinessIndexRouteImport.update({
   id: '/business/',
   path: '/business/',
@@ -190,6 +197,11 @@ const PCodeRoute = PCodeRouteImport.update({
 const EventsEventIdRoute = EventsEventIdRouteImport.update({
   id: '/events/$eventId',
   path: '/events/$eventId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitiesSlugRoute = CitiesSlugRouteImport.update({
+  id: '/cities/$slug',
+  path: '/cities/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
@@ -467,12 +479,14 @@ export interface FileRoutesByFullPath {
   '/business/social': typeof BusinessSocialRoute
   '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
+  '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -535,12 +549,14 @@ export interface FileRoutesByTo {
   '/business/social': typeof BusinessSocialRoute
   '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app': typeof AppIndexRoute
   '/business': typeof BusinessIndexRoute
+  '/cities': typeof CitiesIndexRoute
   '/events': typeof EventsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -605,12 +621,14 @@ export interface FileRoutesById {
   '/business/social': typeof BusinessSocialRoute
   '/business/verify': typeof BusinessVerifyRoute
   '/checkout/return': typeof CheckoutReturnRoute
+  '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
+  '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -676,12 +694,14 @@ export interface FileRouteTypes {
     | '/business/social'
     | '/business/verify'
     | '/checkout/return'
+    | '/cities/$slug'
     | '/events/$eventId'
     | '/p/$code'
     | '/trips/$id'
     | '/venue/$id'
     | '/app/'
     | '/business/'
+    | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
@@ -744,12 +764,14 @@ export interface FileRouteTypes {
     | '/business/social'
     | '/business/verify'
     | '/checkout/return'
+    | '/cities/$slug'
     | '/events/$eventId'
     | '/p/$code'
     | '/trips/$id'
     | '/venue/$id'
     | '/app'
     | '/business'
+    | '/cities'
     | '/events'
     | '/trips'
     | '/api/maps/satellite'
@@ -813,12 +835,14 @@ export interface FileRouteTypes {
     | '/business/social'
     | '/business/verify'
     | '/checkout/return'
+    | '/cities/$slug'
     | '/events/$eventId'
     | '/p/$code'
     | '/trips/$id'
     | '/venue/$id'
     | '/app/'
     | '/business/'
+    | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
@@ -879,11 +903,13 @@ export interface RootRouteChildren {
   BusinessSocialRoute: typeof BusinessSocialRoute
   BusinessVerifyRoute: typeof BusinessVerifyRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
+  CitiesSlugRoute: typeof CitiesSlugRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   PCodeRoute: typeof PCodeRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
+  CitiesIndexRoute: typeof CitiesIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
   ApiMapsSatelliteRoute: typeof ApiMapsSatelliteRoute
@@ -1029,6 +1055,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cities/': {
+      id: '/cities/'
+      path: '/cities'
+      fullPath: '/cities/'
+      preLoaderRoute: typeof CitiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/': {
       id: '/business/'
       path: '/business'
@@ -1069,6 +1102,13 @@ declare module '@tanstack/react-router' {
       path: '/events/$eventId'
       fullPath: '/events/$eventId'
       preLoaderRoute: typeof EventsEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cities/$slug': {
+      id: '/cities/$slug'
+      path: '/cities/$slug'
+      fullPath: '/cities/$slug'
+      preLoaderRoute: typeof CitiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout/return': {
@@ -1446,11 +1486,13 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessSocialRoute: BusinessSocialRoute,
   BusinessVerifyRoute: BusinessVerifyRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
+  CitiesSlugRoute: CitiesSlugRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   PCodeRoute: PCodeRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,
   BusinessIndexRoute: BusinessIndexRoute,
+  CitiesIndexRoute: CitiesIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
   ApiMapsSatelliteRoute: ApiMapsSatelliteRoute,

@@ -28,7 +28,7 @@ const TOKENS = {
 
 function WelcomePage() {
   const navigate = useNavigate();
-  const onStart = () => navigate({ to: "/app" });
+  const onStart = () => navigate({ to: "/new/hub" });
 
   // Wash the page in the warm palette while this route is mounted.
   useEffect(() => {

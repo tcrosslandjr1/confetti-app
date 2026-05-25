@@ -6,6 +6,7 @@ import { CITIES, setSelectedCity, type City } from "@/lib/cities";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { usePageview, trackCta, trackEngagement } from "@/lib/analytics";
 
 export const Route = createFileRoute("/cities/$slug")({
   beforeLoad: ({ params }) => {

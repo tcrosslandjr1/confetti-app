@@ -276,12 +276,15 @@ function CityCard({
       </div>
 
       {/* Quick actions */}
-      <div className="mt-4 flex gap-2">
+      <div className="relative z-10 mt-4 flex gap-2">
         <Button
           asChild
           size="sm"
           className="h-9 flex-1 gap-1.5 rounded-xl text-xs font-bold"
-          onClick={() => setSelectedCity(city.slug)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedCity(city.slug);
+          }}
         >
           <Link to="/app/plan">
             <Sparkles className="h-3.5 w-3.5" />
@@ -293,7 +296,10 @@ function CityCard({
           variant="outline"
           size="sm"
           className="h-9 flex-1 gap-1.5 rounded-xl border-2 border-ink/15 text-xs font-bold hover:border-ink/30"
-          onClick={() => setSelectedCity(city.slug)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedCity(city.slug);
+          }}
         >
           <Link to="/app/explore">
             <Compass className="h-3.5 w-3.5" />

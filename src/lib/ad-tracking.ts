@@ -1,4 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
+import { getSelectedCity } from "@/lib/cities";
+import { trackEngagement } from "@/lib/analytics";
 
 type LogArgs = {
   surface: string; // e.g. "marquee_top" | "marquee_bottom"

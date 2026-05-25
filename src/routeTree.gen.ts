@@ -26,6 +26,7 @@ import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as CitiesIndexRouteImport } from './routes/cities.index'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
@@ -161,6 +162,11 @@ const TripsIndexRoute = TripsIndexRouteImport.update({
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitiesIndexRoute = CitiesIndexRouteImport.update({
+  id: '/cities/',
+  path: '/cities/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessIndexRoute = BusinessIndexRouteImport.update({
@@ -480,6 +486,7 @@ export interface FileRoutesByFullPath {
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
+  '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -549,6 +556,7 @@ export interface FileRoutesByTo {
   '/venue/$id': typeof VenueIdRoute
   '/app': typeof AppIndexRoute
   '/business': typeof BusinessIndexRoute
+  '/cities': typeof CitiesIndexRoute
   '/events': typeof EventsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -620,6 +628,7 @@ export interface FileRoutesById {
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
+  '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
@@ -692,6 +701,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/app/'
     | '/business/'
+    | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
@@ -761,6 +771,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/app'
     | '/business'
+    | '/cities'
     | '/events'
     | '/trips'
     | '/api/maps/satellite'
@@ -831,6 +842,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/app/'
     | '/business/'
+    | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
@@ -897,6 +909,7 @@ export interface RootRouteChildren {
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
+  CitiesIndexRoute: typeof CitiesIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
   ApiMapsSatelliteRoute: typeof ApiMapsSatelliteRoute
@@ -1040,6 +1053,13 @@ declare module '@tanstack/react-router' {
       path: '/events'
       fullPath: '/events/'
       preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cities/': {
+      id: '/cities/'
+      path: '/cities'
+      fullPath: '/cities/'
+      preLoaderRoute: typeof CitiesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/': {
@@ -1472,6 +1492,7 @@ const rootRouteChildren: RootRouteChildren = {
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,
   BusinessIndexRoute: BusinessIndexRoute,
+  CitiesIndexRoute: CitiesIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
   ApiMapsSatelliteRoute: ApiMapsSatelliteRoute,

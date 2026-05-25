@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { CITIES } from "@/lib/cities";
+import { CitySearch } from "@/components/CitySearch";
 
 export const Route = createFileRoute("/cities/")({
   component: CitiesIndex,
@@ -21,13 +21,6 @@ export const Route = createFileRoute("/cities/")({
 });
 
 function CitiesIndex() {
-  const us = CITIES.filter((c) =>
-    /^(DC|Manhattan|LA|Cook|Miami|Bay|Metro ATL|Puget|Music|Clark|Harris|Shelby|East TN|Hamilton|Great Smokies|Maricopa|Travis|Mile|Suffolk|Delaware|Orleans|SoCal|Multnomah|Lowcountry)/.test(
-      c.region,
-    ),
-  );
-  const intl = CITIES.filter((c) => !us.includes(c));
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50/40 via-background to-background">
       <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
@@ -44,42 +37,19 @@ function CitiesIndex() {
             Explore Confetti cities
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
-            Pick a city to see curated ideas, trending venues, and ready-to-go plans.
+            Search, filter, and jump straight into curated ideas, trending venues, and ready-to-go plans.
           </p>
         </motion.div>
 
-        <CityGroup title="United States" cities={us} />
-        <CityGroup title="International" cities={intl} />
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+          className="mt-10"
+        >
+          <CitySearch />
+        </motion.div>
       </section>
-    </div>
-  );
-}
-
-function CityGroup({ title, cities }: { title: string; cities: typeof CITIES }) {
-  return (
-    <div className="mt-14">
-      <h2 className="mb-5 text-2xl font-bold tracking-tight">{title}</h2>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {cities.map((c, i) => (
-          <motion.div
-            key={c.slug}
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: Math.min(i * 0.02, 0.3), duration: 0.3 }}
-          >
-            <Link
-              to="/cities/$slug"
-              params={{ slug: c.slug }}
-              className="flex h-full flex-col rounded-2xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
-            >
-              <span className="text-3xl">{c.emoji}</span>
-              <span className="mt-2 font-semibold leading-tight">{c.name}</span>
-              <span className="mt-0.5 text-xs text-muted-foreground">{c.region}</span>
-            </Link>
-          </motion.div>
-        ))}
-      </div>
     </div>
   );
 }

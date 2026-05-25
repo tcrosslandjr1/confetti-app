@@ -13,6 +13,7 @@ import {
   trackConversion,
 } from "@/lib/analytics";
 import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
+import { getSelectedCity } from "@/lib/cities";
 import {
   createSkeletonItinerary,
   populateItinerary,

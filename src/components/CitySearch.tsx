@@ -261,8 +261,12 @@ function CityCard({
           : "border-ink/10 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5",
       )}
     >
-      {/* Header */}
-      <div className="flex items-start gap-4">
+      {/* Header — clickable link to city page */}
+      <Link
+        to="/cities/$slug"
+        params={{ slug: city.slug }}
+        className="flex items-start gap-4 rounded-xl p-1 -m-1 transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      >
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-ink/10 bg-surface-1 text-2xl">
           {city.emoji}
         </span>
@@ -273,18 +277,15 @@ function CityCard({
             <span className="truncate">{city.region}</span>
           </p>
         </div>
-      </div>
+      </Link>
 
       {/* Quick actions */}
-      <div className="relative z-10 mt-4 flex gap-2">
+      <div className="mt-4 flex gap-2">
         <Button
           asChild
           size="sm"
           className="h-9 flex-1 gap-1.5 rounded-xl text-xs font-bold"
-          onClick={(e) => {
-            e.stopPropagation();
-            setSelectedCity(city.slug);
-          }}
+          onClick={() => setSelectedCity(city.slug)}
         >
           <Link to="/app/plan">
             <Sparkles className="h-3.5 w-3.5" />
@@ -296,10 +297,7 @@ function CityCard({
           variant="outline"
           size="sm"
           className="h-9 flex-1 gap-1.5 rounded-xl border-2 border-ink/15 text-xs font-bold hover:border-ink/30"
-          onClick={(e) => {
-            e.stopPropagation();
-            setSelectedCity(city.slug);
-          }}
+          onClick={() => setSelectedCity(city.slug)}
         >
           <Link to="/app/explore">
             <Compass className="h-3.5 w-3.5" />
@@ -307,14 +305,6 @@ function CityCard({
           </Link>
         </Button>
       </div>
-
-      {/* Link to city page */}
-      <Link
-        to="/cities/$slug"
-        params={{ slug: city.slug }}
-        className="absolute inset-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-        aria-label={`View ${city.name} city page`}
-      />
     </div>
   );
 }

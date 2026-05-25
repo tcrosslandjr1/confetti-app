@@ -200,6 +200,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [session?.user?.id]);
 
+  // Look up promoter access: user has a promoter profile
+  useEffect(() => {
+    let cancelled = false;
+    const uid = session?.user?.id;
+    if (!uid) {
+      setIsPromoter(false);
+      return;
+    }
+    supabase
+      .from("promoters")
+      .select("id")
+      .eq("user_id", uid)
+      .limit(1)
+      .maybeSingle()
+      .then(
+        ({ data }) => {
+          if (!cancelled) setIsPromoter(!!data);
+        },
+        () => {
+          if (!cancelled) setIsPromoter(false);
+        },
+      );
+    return () => {
+      cancelled = true;
+    };
+  }, [session?.user?.id]);
+
   const setViewAs = useCallback((v: ViewAs) => {
     setViewAsState(v);
     if (typeof window !== "undefined") sessionStorage.setItem(VIEW_KEY, v);

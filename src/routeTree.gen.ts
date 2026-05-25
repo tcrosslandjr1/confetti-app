@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PromoterRouteImport } from './routes/promoter'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as InfluencerRouteImport } from './routes/influencer'
@@ -31,6 +32,7 @@ import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as PromoterLoginRouteImport } from './routes/promoter.login'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as CitiesSlugRouteImport } from './routes/cities.$slug'
@@ -83,6 +85,11 @@ import { Route as ApiPublicPartnerV1OrdersIdRouteImport } from './routes/api/pub
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PromoterRoute = PromoterRouteImport.update({
+  id: '/promoter',
+  path: '/promoter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -189,6 +196,11 @@ const TripsIdRoute = TripsIdRouteImport.update({
   id: '/trips/$id',
   path: '/trips/$id',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PromoterLoginRoute = PromoterLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => PromoterRoute,
 } as any)
 const PCodeRoute = PCodeRouteImport.update({
   id: '/p/$code',
@@ -461,6 +473,7 @@ export interface FileRoutesByFullPath {
   '/influencer': typeof InfluencerRoute
   '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
@@ -489,6 +502,7 @@ export interface FileRoutesByFullPath {
   '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
+  '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
@@ -532,6 +546,7 @@ export interface FileRoutesByTo {
   '/influencer': typeof InfluencerRoute
   '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
@@ -560,6 +575,7 @@ export interface FileRoutesByTo {
   '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
+  '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app': typeof AppIndexRoute
@@ -605,6 +621,7 @@ export interface FileRoutesById {
   '/influencer': typeof InfluencerRoute
   '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
@@ -633,6 +650,7 @@ export interface FileRoutesById {
   '/cities/$slug': typeof CitiesSlugRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/p/$code': typeof PCodeRoute
+  '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/app/': typeof AppIndexRoute
@@ -679,6 +697,7 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/legal'
     | '/privacy'
+    | '/promoter'
     | '/sitemap.xml'
     | '/admin/city-analytics'
     | '/admin/console'
@@ -707,6 +726,7 @@ export interface FileRouteTypes {
     | '/cities/$slug'
     | '/events/$eventId'
     | '/p/$code'
+    | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
     | '/app/'
@@ -750,6 +770,7 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/legal'
     | '/privacy'
+    | '/promoter'
     | '/sitemap.xml'
     | '/admin/city-analytics'
     | '/admin/console'
@@ -778,6 +799,7 @@ export interface FileRouteTypes {
     | '/cities/$slug'
     | '/events/$eventId'
     | '/p/$code'
+    | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
     | '/app'
@@ -822,6 +844,7 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/legal'
     | '/privacy'
+    | '/promoter'
     | '/sitemap.xml'
     | '/admin/city-analytics'
     | '/admin/console'
@@ -850,6 +873,7 @@ export interface FileRouteTypes {
     | '/cities/$slug'
     | '/events/$eventId'
     | '/p/$code'
+    | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
     | '/app/'
@@ -895,6 +919,7 @@ export interface RootRouteChildren {
   InfluencerRoute: typeof InfluencerRoute
   LegalRoute: typeof LegalRoute
   PrivacyRoute: typeof PrivacyRoute
+  PromoterRoute: typeof PromoterRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminCityAnalyticsRoute: typeof AdminCityAnalyticsRoute
   AdminConsoleRoute: typeof AdminConsoleRoute
@@ -954,6 +979,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/promoter': {
+      id: '/promoter'
+      path: '/promoter'
+      fullPath: '/promoter'
+      preLoaderRoute: typeof PromoterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -1102,6 +1134,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/trips/$id'
       preLoaderRoute: typeof TripsIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/promoter/login': {
+      id: '/promoter/login'
+      path: '/login'
+      fullPath: '/promoter/login'
+      preLoaderRoute: typeof PromoterLoginRouteImport
+      parentRoute: typeof PromoterRoute
     }
     '/p/$code': {
       id: '/p/$code'
@@ -1460,6 +1499,18 @@ const AppRouteChildren: AppRouteChildren = {
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
+interface PromoterRouteChildren {
+  PromoterLoginRoute: typeof PromoterLoginRoute
+}
+
+const PromoterRouteChildren: PromoterRouteChildren = {
+  PromoterLoginRoute: PromoterLoginRoute,
+}
+
+const PromoterRouteWithChildren = PromoterRoute._addFileChildren(
+  PromoterRouteChildren,
+)
+
 interface TripsIdRouteChildren {
   TripsIdPassportRoute: typeof TripsIdPassportRoute
 }
@@ -1486,6 +1537,7 @@ const rootRouteChildren: RootRouteChildren = {
   InfluencerRoute: InfluencerRoute,
   LegalRoute: LegalRoute,
   PrivacyRoute: PrivacyRoute,
+  PromoterRoute: PromoterRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminCityAnalyticsRoute: AdminCityAnalyticsRoute,
   AdminConsoleRoute: AdminConsoleRoute,

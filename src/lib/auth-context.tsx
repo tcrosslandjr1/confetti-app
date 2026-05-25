@@ -24,7 +24,9 @@ type AuthCtx = {
   isAdmin: boolean;
   /** True when user owns an advertiser account or has an approved/pending venue claim */
   isBusiness: boolean;
-  /** "admin" | "customer" | "visitor" — what the user is currently viewing the app AS */
+  /** True when user has an active promoter/influencer profile */
+  isPromoter: boolean;
+  /** "admin" | "business" | "promoter" | "customer" | "visitor" — what the user is currently viewing the app AS */
   viewAs: ViewAs;
   /** True when an admin is impersonating another role */
   isImpersonating: boolean;

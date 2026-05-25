@@ -71,7 +71,7 @@ export function CitySearch() {
     );
   }, [query, filter]);
 
-  const grouped = useMemo(() => {
+  const grouped = useMemo<Record<string, City[]>>(() => {
     if (query.trim()) return { "Search results": filtered };
     if (filter === "us") return { "United States": filtered };
     if (filter === "intl") return { International: filtered };

@@ -343,6 +343,21 @@ function AuthPage() {
     } catch (err) {
       console.error("[routeAfterAuth] advertiser check failed:", err);
     }
+    // Promoter profile? Send them to /promoter.
+    try {
+      const { data: promoter } = await supabase
+        .from("promoters")
+        .select("id")
+        .eq("user_id", uid)
+        .limit(1)
+        .maybeSingle();
+      if (promoter) {
+        navigate({ to: "/promoter" as never });
+        return;
+      }
+    } catch (err) {
+      console.error("[routeAfterAuth] promoter check failed:", err);
+    }
     // Check if user has completed taste onboarding
     try {
       const { data: prefs } = await supabase

@@ -11,7 +11,7 @@ import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { consumePendingReferralOnSignup } from "@/lib/referrals";
 
-export type ViewAs = "admin" | "business" | "customer" | "visitor";
+export type ViewAs = "admin" | "business" | "promoter" | "customer" | "visitor";
 const VIEW_KEY = "concierge.viewAs";
 
 type AuthCtx = {
@@ -24,7 +24,9 @@ type AuthCtx = {
   isAdmin: boolean;
   /** True when user owns an advertiser account or has an approved/pending venue claim */
   isBusiness: boolean;
-  /** "admin" | "customer" | "visitor" — what the user is currently viewing the app AS */
+  /** True when user has an active promoter/influencer profile */
+  isPromoter: boolean;
+  /** "admin" | "business" | "promoter" | "customer" | "visitor" — what the user is currently viewing the app AS */
   viewAs: ViewAs;
   /** True when an admin is impersonating another role */
   isImpersonating: boolean;
@@ -51,6 +53,7 @@ const Ctx = createContext<AuthCtx>({
   viewAsLoaded: false,
   isAdmin: false,
   isBusiness: false,
+  isPromoter: false,
   viewAs: "visitor",
   isImpersonating: false,
   isPreview: false,
@@ -69,6 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [roleLoading, setRoleLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isBusiness, setIsBusiness] = useState(false);
+  const [isPromoter, setIsPromoter] = useState(false);
   const [viewAsState, setViewAsState] = useState<ViewAs | null>(null);
   const [viewAsLoaded, setViewAsLoaded] = useState(!isBrowser);
 
@@ -196,6 +200,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [session?.user?.id]);
 
+  // Look up promoter access: user has a promoter profile
+  useEffect(() => {
+    let cancelled = false;
+    const uid = session?.user?.id;
+    if (!uid) {
+      setIsPromoter(false);
+      return;
+    }
+    supabase
+      .from("promoters")
+      .select("id")
+      .eq("user_id", uid)
+      .limit(1)
+      .maybeSingle()
+      .then(
+        ({ data }) => {
+          if (!cancelled) setIsPromoter(!!data);
+        },
+        () => {
+          if (!cancelled) setIsPromoter(false);
+        },
+      );
+    return () => {
+      cancelled = true;
+    };
+  }, [session?.user?.id]);
+
   const setViewAs = useCallback((v: ViewAs) => {
     setViewAsState(v);
     if (typeof window !== "undefined") sessionStorage.setItem(VIEW_KEY, v);
@@ -228,10 +259,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<AuthCtx>(() => {
     const loading = sessionLoading || roleLoading || !viewAsLoaded;
-    const realRole: ViewAs = !session?.user ? "visitor" : isAdmin ? "admin" : "customer";
+    // Real-role precedence: admin > business > promoter > customer > visitor.
+    // Admins can preview as any role; everyone else is locked to their real role.
+    const realRole: ViewAs = !session?.user
+      ? "visitor"
+      : isAdmin
+        ? "admin"
+        : isBusiness
+          ? "business"
+          : isPromoter
+            ? "promoter"
+            : "customer";
 
-    // Only real admins can preview other views. Everyone else is locked to
-    // their real visitor/customer role even if an old tab has sessionStorage.
     const effective: ViewAs = isAdmin ? (viewAsState ?? realRole) : realRole;
     const impersonating = effective !== realRole;
     const preview = false;
@@ -245,6 +284,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       viewAsLoaded,
       isAdmin,
       isBusiness,
+      isPromoter,
       viewAs: effective,
       isImpersonating: impersonating,
       isPreview: preview,
@@ -260,6 +300,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     viewAsLoaded,
     isAdmin,
     isBusiness,
+    isPromoter,
     viewAsState,
     setViewAs,
     exitImpersonation,

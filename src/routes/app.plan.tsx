@@ -211,14 +211,18 @@ function PlanMyNightPage() {
                   if (!current.value) return;
                   trackCta("plan_next", { step });
                   setStep((s) => s + 1);
-                  if (step === steps.length - 1)
+                  if (step === steps.length - 1) {
+                    const city = getSelectedCity();
                     trackConversion("plan_completed", {
                       occasion,
                       vibe,
                       budget,
                       groupSize,
                       when,
+                      city: city?.name ?? null,
+                      citySlug: city?.slug ?? null,
                     });
+                  }
                 }}
                 disabled={!current.value}
                 className="gap-1.5"

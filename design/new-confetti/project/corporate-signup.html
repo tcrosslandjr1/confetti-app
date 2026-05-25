@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Confetti for Teams · Create Account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --ui:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --bg:#f8f0dd;--paper:#fffaf0;--ink:#130b0d;
+    --a1:#ff5b3d;--a2:#f7c83b;--a3:#5b45d9;--a4:#2bb673;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:var(--ui);background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(var(--ink) 1px,transparent 1px);background-size:22px 22px}
+  body::before{content:'';position:fixed;inset:0;
+    background:linear-gradient(180deg,rgba(248,240,221,0.85),rgba(248,240,221,0.95));
+    pointer-events:none;z-index:0}
+  .page{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:50px 28px 80px}
+  button{font-family:var(--ui);cursor:pointer}
+
+  .brand{display:flex;align-items:center;gap:8px;
+    font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:-0.025em}
+  .brand span:first-child{color:var(--a1);font-size:22px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+
+  /* Progress rail */
+  .rail{display:flex;gap:6px;margin-bottom:30px}
+  .rail span{flex:1;height:8px;border-radius:999px;
+    background:rgba(0,0,0,0.12);border:1.5px solid var(--ink)}
+  .rail span.on{background:var(--a1)}
+
+  .stamp{display:inline-block;padding:6px 12px;
+    border:2.5px solid var(--ink);border-radius:999px;background:var(--a2);
+    font-family:var(--mono);font-size:11px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;
+    transform:rotate(-2deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:18px}
+
+  h1{font-family:var(--display);font-weight:900;font-size:44px;
+    letter-spacing:-0.045em;line-height:0.92;margin:0 0 14px}
+  h1 em{font-style:normal;color:var(--a1)}
+  .sub{font-family:var(--ui);font-size:16px;font-weight:600;opacity:0.7;
+    max-width:520px;margin:0 0 28px;line-height:1.45}
+
+  .card{padding:18px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:16px;box-shadow:5px 5px 0 var(--ink);margin-bottom:14px}
+  .card h3{margin:0 0 12px;font-family:var(--display);font-weight:900;
+    font-size:20px;letter-spacing:-0.025em}
+  .card .hint{font-family:var(--mono);font-size:10px;font-weight:700;
+    opacity:0.55;letter-spacing:.06em;margin-bottom:14px;line-height:1.5}
+
+  label{display:block;margin-bottom:14px}
+  label .l{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;text-transform:uppercase;margin-bottom:6px;display:block}
+  input,select{width:100%;appearance:none;padding:12px 14px;
+    border:2.5px solid var(--ink);border-radius:12px;background:var(--paper);
+    color:var(--ink);font-family:var(--ui);font-size:14px;font-weight:700;
+    outline:none;box-shadow:3px 3px 0 var(--ink)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+  /* SSO buttons */
+  .sso{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+  .ssobtn{appearance:none;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 14px;border:2.5px solid var(--ink);border-radius:12px;
+    background:var(--paper);font-family:var(--ui);font-size:13px;font-weight:800;
+    box-shadow:3px 3px 0 var(--ink)}
+  .ssobtn.dark{background:var(--ink);color:var(--paper)}
+  .ssobtn.gcal{background:#4285F4;color:#fff}
+
+  .or{display:flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:10px;font-weight:700;opacity:0.5;
+    letter-spacing:.12em;margin:8px 0}
+  .or::before,.or::after{content:'';flex:1;height:2px;
+    background:var(--ink);opacity:0.15}
+
+  /* Provider rows */
+  .provider{display:flex;align-items:center;gap:12px;padding:14px;
+    border:2.5px solid var(--ink);border-radius:14px;background:var(--paper);
+    box-shadow:4px 4px 0 var(--ink);margin-bottom:10px}
+  .provider .ic{width:48px;height:48px;border-radius:10px;
+    border:2.5px solid var(--ink);background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:20px;flex-shrink:0}
+  .provider .ic.google{background:#fff}
+  .provider .ic.gcal{background:#4285F4;color:#fff}
+  .provider .ic.okta{background:#007DC1;color:#fff}
+  .provider .ic.slack{background:#4A154B;color:#fff}
+  .provider .ic.outlook{background:#0078D4;color:#fff}
+  .provider h4{margin:0 0 2px;font-family:var(--display);font-weight:900;
+    font-size:16px;letter-spacing:-0.025em}
+  .provider .sub{font-family:var(--mono);font-size:10px;font-weight:700;
+    opacity:0.6;letter-spacing:.06em;line-height:1.4}
+  .provider .right{margin-left:auto}
+  .provider .connect{appearance:none;cursor:pointer;padding:8px 14px;
+    border:2px solid var(--ink);border-radius:999px;background:var(--paper);
+    font-family:var(--ui);font-size:12px;font-weight:800}
+  .provider .connect.on{background:var(--a4);color:var(--paper)}
+  .provider .recommend{padding:2px 8px;background:var(--a1);color:var(--ink);
+    border:1.5px solid var(--ink);border-radius:999px;
+    font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.1em;
+    margin-left:8px;text-transform:uppercase}
+
+  /* Team chip */
+  .teamchip{display:inline-flex;align-items:center;gap:6px;
+    padding:6px 10px 6px 6px;border:2px solid var(--ink);border-radius:999px;
+    background:var(--paper);margin:4px 4px 0 0}
+  .teamchip .av{width:22px;height:22px;border-radius:999px;
+    border:1.5px solid var(--ink);background:var(--a2);
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:10px}
+  .teamchip .x{appearance:none;border:0;background:transparent;cursor:pointer;
+    font-size:11px;font-weight:900;opacity:0.6}
+
+  .nav{display:flex;gap:10px;margin-top:24px}
+  .nav button{flex:1;padding:14px 18px;border:3px solid var(--ink);
+    border-radius:14px;font-family:var(--ui);font-weight:900;font-size:15px;
+    box-shadow:4px 4px 0 var(--ink);cursor:pointer}
+  .nav .back{background:var(--paper);color:var(--ink);flex:0 0 130px}
+  .nav .next{background:var(--a1);color:var(--ink)}
+  .nav .next:hover{background:var(--ink);color:var(--paper)}
+
+  .perms{padding:14px;border:2px dashed var(--ink);border-radius:12px;
+    background:var(--paper);font-family:var(--mono);font-size:10px;
+    font-weight:700;opacity:0.75;line-height:1.5;letter-spacing:.04em}
+
+  .preview{padding:16px;background:var(--ink);color:var(--paper);
+    border:2.5px solid var(--ink);border-radius:14px;
+    box-shadow:5px 5px 0 var(--a1);margin-bottom:14px}
+  .preview .lbl{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.7;margin-bottom:4px}
+  .preview .row{display:flex;justify-content:space-between;padding:5px 0;
+    font-family:var(--ui);font-size:13px;font-weight:700}
+  .preview .row span:last-child{font-family:var(--mono);font-weight:800;opacity:0.85}
+
+  @media(max-width:680px){
+    .two,.sso{grid-template-columns:1fr}
+    h1{font-size:34px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <a href="forcorporate.html" style="text-decoration:none;color:inherit">
+      <div class="brand"><span>✣</span><span>confetti</span><span style="opacity:.4;font-size:14px">/teams</span></div>
+    </a>
+    <a href="corporate.html" style="font-family:var(--mono);font-size:11px;font-weight:700;opacity:0.55;letter-spacing:.12em;text-decoration:none;color:inherit">SKIP TO DEMO →</a>
+  </div>
+
+  <div class="rail" id="rail">
+    <span class="on"></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Step 1: Company -->
+  <section data-step="1">
+    <div class="stamp">step 01 · company</div>
+    <h1>Bring your team to <em>Confetti</em>.</h1>
+    <p class="sub">5-minute setup. Connect Okta + Google Cal and we'll pull your roster, conference rooms, and out-of-office schedules automatically. SSO live in 60 seconds.</p>
+
+    <div class="card">
+      <h3>Sign in with work SSO</h3>
+      <div class="sso">
+        <button class="ssobtn dark">🍎 Apple Business</button>
+        <button class="ssobtn"><svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.6 9.2c0-.6-.1-1.2-.2-1.7H9v3.3h4.8c-.2 1.1-.8 2-1.8 2.6v2.1h2.9c1.7-1.6 2.7-3.9 2.7-6.3z"/><path fill="#34A853" d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H1v2.4C2.5 16.1 5.5 18 9 18z"/><path fill="#FBBC05" d="M3.9 10.7c-.2-.6-.3-1.1-.3-1.7s.1-1.1.3-1.7V4.9H1C.4 6.2 0 7.6 0 9s.4 2.8 1 4.1l2.9-2.4z"/><path fill="#EA4335" d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.5 1.9 1 4.9l2.9 2.4C4.6 5.2 6.6 3.6 9 3.6z"/></svg>Sign in with Google</button>
+      </div>
+      <div class="sso">
+        <button class="ssobtn" style="background:#007DC1;color:#fff">Okta SSO</button>
+        <button class="ssobtn" style="background:#0078D4;color:#fff">Microsoft 365</button>
+      </div>
+
+      <div class="or">OR ENTER MANUALLY</div>
+
+      <label><span class="l">work email</span>
+        <input type="email" placeholder="priya@hummingbird.io" value="priya@hummingbird.io" />
+      </label>
+      <div class="two">
+        <label><span class="l">your name</span>
+          <input placeholder="Priya Rao" value="Priya Rao" />
+        </label>
+        <label><span class="l">your role</span>
+          <select>
+            <option>VP People (Admin)</option>
+            <option>Operations / EA</option>
+            <option>Team lead</option>
+            <option>Finance approver</option>
+          </select>
+        </label>
+      </div>
+
+      <label><span class="l">company name</span>
+        <input placeholder="Hummingbird Inc." value="Hummingbird Inc." />
+      </label>
+      <div class="two">
+        <label><span class="l">team size</span>
+          <select>
+            <option>11–50</option>
+            <option selected>51–250</option>
+            <option>251–1,000</option>
+            <option>1,000+</option>
+          </select>
+        </label>
+        <label><span class="l">primary city</span>
+          <select>
+            <option selected>Brooklyn / NYC</option>
+            <option>San Francisco</option>
+            <option>Los Angeles</option>
+            <option>Multiple cities</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Connect -->
+  <section data-step="2" hidden>
+    <div class="stamp" style="background:var(--a1)">step 02 · integrations</div>
+    <h1>Connect the apps you <em>already use</em>.</h1>
+    <p class="sub">Confetti reads availability, syncs invites, and posts outing announcements automatically. Read-only by default — we never post or invite without your approval.</p>
+
+    <div class="provider">
+      <div class="ic gcal">📅</div>
+      <div>
+        <h4>Google Calendar <span class="recommend">recommended</span></h4>
+        <div class="sub">PULL TEAM AVAILABILITY · BLOCK OUTINGS · INVITE GUESTS</div>
+      </div>
+      <div class="right"><button class="connect on" data-on>✓ connected</button></div>
+    </div>
+
+    <div class="provider">
+      <div class="ic outlook">📧</div>
+      <div>
+        <h4>Microsoft Outlook</h4>
+        <div class="sub">PULL TEAM AVAILABILITY · ROOM RESERVATIONS</div>
+      </div>
+      <div class="right"><button class="connect">connect</button></div>
+    </div>
+
+    <div class="provider">
+      <div class="ic okta">🔐</div>
+      <div>
+        <h4>Okta SCIM</h4>
+        <div class="sub">AUTO-PROVISION USERS · ROSTER SYNC · TERMS-ON-EXIT</div>
+      </div>
+      <div class="right"><button class="connect on" data-on>✓ connected · 148 users</button></div>
+    </div>
+
+    <div class="provider">
+      <div class="ic slack">💬</div>
+      <div>
+        <h4>Slack <span class="recommend">recommended</span></h4>
+        <div class="sub">#OUTINGS CHANNEL · RSVP AUTO-POSTS · APPROVER DMS</div>
+      </div>
+      <div class="right"><button class="connect">connect</button></div>
+    </div>
+
+    <div class="provider">
+      <div class="ic" style="background:#635BFF;color:#fff">$</div>
+      <div>
+        <h4>Stripe (billing) <span class="recommend">recommended</span></h4>
+        <div class="sub">SUBSCRIPTION · INVOICES · CONNECTED PAYOUTS TO VENUES</div>
+      </div>
+      <div class="right"><button class="connect">connect</button></div>
+    </div>
+
+    <div class="provider" style="opacity:0.75">
+      <div class="ic" style="background:#fff">C</div>
+      <div>
+        <h4>Concur / Expensify</h4>
+        <div class="sub">AUTO-FILE RECEIPTS · POST-OUTING REIMBURSEMENT</div>
+      </div>
+      <div class="right"><button class="connect">connect later</button></div>
+    </div>
+
+    <div class="perms" style="margin-top:14px">
+      🔒 <strong>What we read:</strong> calendar availability (free/busy only · not event titles), Okta roster, Slack workspace name. <strong>What we never do:</strong> auto-post, auto-invite, or share data with venues without your team's review.
+    </div>
+  </section>
+
+  <!-- Step 3: Teams + Approvers -->
+  <section data-step="3" hidden>
+    <div class="stamp" style="background:var(--a3);color:var(--paper)">step 03 · teams</div>
+    <h1>Set up <em>teams + approvers</em>.</h1>
+    <p class="sub">Pulled 8 teams from Okta. Confirm leads + budgets so Sparkle can plan within policy.</p>
+
+    <div class="card">
+      <h3>Auto-detected teams</h3>
+      <div class="hint">FROM OKTA · ROLES SYNCED · BUDGETS DEFAULT TO COMPANY POLICY</div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;
+                  font-family:var(--mono);font-size:9px;font-weight:800;
+                  letter-spacing:.14em;opacity:0.55;margin-bottom:6px;padding-bottom:8px;
+                  border-bottom:2px solid var(--ink)">
+        <span>TEAM</span><span>LEAD</span><span style="text-align:right">Q2 BUDGET</span>
+      </div>
+
+      <div id="teamRows"></div>
+    </div>
+
+    <div class="card">
+      <h3>Approvers</h3>
+      <div class="hint">WHO CAN APPROVE OUTINGS · AUTO-ESCALATES ABOVE THRESHOLD</div>
+      <div style="display:flex;flex-wrap:wrap">
+        <span class="teamchip"><span class="av">PR</span>@priya · primary · ≤$5K<button class="x">✕</button></span>
+        <span class="teamchip"><span class="av" style="background:var(--a3);color:var(--paper)">JM</span>@james · backup · unlimited<button class="x">✕</button></span>
+        <span class="teamchip"><span class="av" style="background:var(--a1)">MA</span>@marcus · team-only · ≤$1K<button class="x">✕</button></span>
+        <span class="teamchip" style="border-style:dashed;cursor:pointer">＋ add approver</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Policy defaults</h3>
+      <div class="hint">YOU CAN OVERRIDE PER-TEAM LATER · CLAUDE ENFORCES THESE WHEN PLANNING</div>
+      <div class="two">
+        <label><span class="l">cap per person</span><input value="$50" /></label>
+        <label><span class="l">approval threshold</span><input value="$1,000" /></label>
+        <label><span class="l">max distance from HQ</span><input value="1.0 mi" /></label>
+        <label><span class="l">alcohol-primary venues</span>
+          <select><option>blocked</option><option>allowed w/ approval</option></select>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 4: Review + invite -->
+  <section data-step="4" hidden>
+    <div class="stamp" style="background:var(--a4);color:var(--paper)">step 04 · launch</div>
+    <h1>Ready to <em>print plans</em>.</h1>
+    <p class="sub">Here's what's set up. Click launch to publish to your org — admins get an email, everyone else gets the app on their first invite.</p>
+
+    <div class="preview">
+      <div class="lbl">YOUR CONFETTI FOR TEAMS ACCOUNT</div>
+      <div class="row"><span>Company</span><span>Hummingbird Inc.</span></div>
+      <div class="row"><span>Plan</span><span>Pro · $99/seat × 5 admins</span></div>
+      <div class="row"><span>Connected</span><span>Google Cal · Okta</span></div>
+      <div class="row"><span>Teams</span><span>8 detected · 148 employees</span></div>
+      <div class="row"><span>Approvers</span><span>3 set up</span></div>
+      <div class="row"><span>Per-person cap</span><span>$50</span></div>
+      <div class="row" style="border-top:1.5px dashed rgba(255,250,240,0.3);margin-top:8px;padding-top:10px">
+        <span style="font-family:var(--display);font-weight:900;font-size:18px">Today</span>
+        <span style="font-family:var(--display);font-weight:900;font-size:18px;opacity:1">$0 · 14-day trial</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Invite admins now? <span style="font-family:var(--mono);font-size:11px;opacity:0.6;font-weight:700;letter-spacing:.1em">OPTIONAL</span></h3>
+      <div class="hint">SEND CO-ADMINS A SETUP LINK · ONE EMAIL PER LINE</div>
+      <label>
+        <textarea rows="3" style="width:100%;padding:12px 14px;
+          border:2.5px solid var(--ink);border-radius:12px;background:var(--paper);
+          color:var(--ink);font-family:var(--ui);font-size:14px;font-weight:700;
+          outline:none;box-shadow:3px 3px 0 var(--ink);resize:none"
+          placeholder="james@hummingbird.io&#10;marcus@hummingbird.io">james@hummingbird.io
+marcus@hummingbird.io</textarea>
+      </label>
+    </div>
+
+    <div class="perms">
+      🔒 <strong>Billing:</strong> $0 today · 14-day free trial · then $495/mo (5 admin seats × $99). Cancel any time. Stripe-handled.
+    </div>
+  </section>
+
+  <div class="nav">
+    <button class="back" id="back" hidden>← back</button>
+    <button class="next" id="next">next →</button>
+  </div>
+</div>
+
+<script>
+  const teams = [
+    ['Engineering', '@marcus', '$3,200'],
+    ['Design', '@rio', '$1,600'],
+    ['Sales', '@jules', '$4,800'],
+    ['People', '@priya', '$1,200'],
+    ['Marketing', '@cole', '$2,400'],
+    ['Ops', '@james', '$2,000'],
+    ['Finance', '@eva', '$1,000'],
+    ['Customer success', '@dani', '$1,600'],
+  ];
+  const tr = document.getElementById('teamRows');
+  teams.forEach(([n, lead, b]) => {
+    const row = document.createElement('div');
+    row.style = 'display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;padding:8px 0;border-bottom:1.5px dashed rgba(0,0,0,0.15);font-family:var(--ui);font-size:13px;font-weight:700';
+    row.innerHTML = `<span><strong>${n}</strong></span><span style="font-family:var(--mono);font-size:11px;opacity:0.7">${lead}</span><span style="text-align:right;font-family:var(--mono);font-weight:800">${b}</span>`;
+    tr.appendChild(row);
+  });
+
+  let step = 1;
+  const max = 4;
+  const rail = document.querySelectorAll('#rail span');
+  const nextBtn = document.getElementById('next');
+  const backBtn = document.getElementById('back');
+  const sections = document.querySelectorAll('section[data-step]');
+  function render() {
+    sections.forEach(s => s.hidden = +s.dataset.step !== step);
+    rail.forEach((d, i) => d.classList.toggle('on', i < step));
+    backBtn.hidden = step === 1;
+    nextBtn.textContent = step === max ? 'launch · invite team →' : 'next →';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  nextBtn.onclick = () => {
+    if (step < max) { step++; render(); }
+    else { window.location.href = 'corporate.html'; }
+  };
+  backBtn.onclick = () => { if (step > 1) { step--; render(); } };
+
+  // SSO connect toggles
+  document.querySelectorAll('.connect').forEach(b => {
+    b.onclick = () => {
+      if (b.dataset.on !== undefined) return;
+      b.classList.toggle('on');
+      b.textContent = b.classList.contains('on') ? '✓ connected' : 'connect';
+    };
+  });
+</script>
+</body>
+</html>

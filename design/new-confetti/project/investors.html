@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Confetti · Investor Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --ui:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --bg:#f8f0dd;--paper:#fffaf0;--ink:#130b0d;
+    --a1:#ff5b3d;--a2:#f7c83b;--a3:#5b45d9;--a4:#2bb673;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:var(--ui);background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(var(--ink) 1px,transparent 1px);
+    background-size:22px 22px}
+  body::before{content:'';position:fixed;inset:0;
+    background:linear-gradient(180deg,rgba(248,240,221,0.85),rgba(248,240,221,0.95));
+    pointer-events:none;z-index:0}
+  .page{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:50px 28px 80px}
+  button{font-family:var(--ui);cursor:pointer}
+
+  .brand{display:flex;align-items:center;gap:8px;
+    font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:-0.025em}
+  .brand span:first-child{color:var(--a1);font-size:22px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px}
+  .cta{appearance:none;cursor:pointer;padding:10px 16px;
+    border:2.5px solid var(--ink);border-radius:999px;
+    background:var(--a1);color:var(--ink);font-size:14px;font-weight:900;
+    box-shadow:4px 4px 0 var(--ink)}
+
+  .stamp{display:inline-block;padding:8px 14px;
+    border:3px solid var(--ink);border-radius:999px;background:var(--a2);
+    font-family:var(--mono);font-size:12px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;
+    transform:rotate(-2deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:18px}
+
+  h1{font-family:var(--display);font-weight:900;font-size:clamp(48px,7vw,82px);
+    letter-spacing:-0.045em;line-height:0.9;margin:0 0 18px;max-width:900px}
+  h1 em{font-style:normal;color:var(--a1)}
+  .sub{font-family:var(--ui);font-size:19px;font-weight:600;
+    color:var(--ink);opacity:0.7;max-width:680px;margin:0 0 36px;line-height:1.45}
+
+  h2{font-family:var(--display);font-weight:900;font-size:44px;
+    letter-spacing:-0.04em;line-height:0.95;margin:60px 0 18px;max-width:760px}
+  h2 em{font-style:normal;color:var(--a1)}
+  .lede{font-family:var(--ui);font-size:17px;font-weight:600;opacity:0.7;
+    max-width:600px;margin:0 0 30px;line-height:1.45}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px}
+  .stat{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;
+    padding:18px;box-shadow:4px 4px 0 var(--ink)}
+  .stat .lbl{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;text-transform:uppercase}
+  .stat .val{font-family:var(--display);font-weight:900;font-size:42px;
+    letter-spacing:-0.04em;line-height:1;margin-top:6px}
+  .stat .sub{font-family:var(--mono);font-size:11px;font-weight:700;opacity:0.6;
+    margin-top:4px;letter-spacing:.04em}
+  .stat.hot{background:var(--a1)}
+
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{padding:22px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:18px;box-shadow:6px 6px 0 var(--ink)}
+  .card.dark{background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 var(--a1)}
+  .card .ic{font-size:32px;margin-bottom:10px}
+  .card h3{font-family:var(--display);font-weight:900;font-size:22px;
+    letter-spacing:-0.025em;margin:0 0 6px}
+  .card p{font-family:var(--ui);font-size:14px;font-weight:600;opacity:0.7;
+    line-height:1.4;margin:0}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+
+  /* Market sizing */
+  .market{padding:24px;background:var(--ink);color:var(--paper);
+    border:2.5px solid var(--ink);border-radius:18px;
+    box-shadow:6px 6px 0 var(--a1)}
+  .market .row{display:flex;align-items:center;gap:16px;
+    padding:14px 0;border-bottom:1.5px dashed rgba(255,250,240,0.25)}
+  .market .row:last-child{border-bottom:0}
+  .market .lbl{font-family:var(--mono);font-size:11px;font-weight:800;
+    letter-spacing:.14em;width:54px}
+  .market .nm{flex:1;font-family:var(--ui);font-size:14px;font-weight:700}
+  .market .v{font-family:var(--display);font-weight:900;font-size:30px;
+    letter-spacing:-0.035em}
+  .market .v.s{font-size:20px;opacity:0.65}
+
+  /* Revenue table */
+  .tbl{width:100%;border-collapse:collapse}
+  .tbl th,.tbl td{text-align:left;padding:12px 10px;
+    border-bottom:1.5px dashed rgba(0,0,0,0.18);
+    font-family:var(--ui);font-size:13px;font-weight:700}
+  .tbl th{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;text-transform:uppercase;
+    border-bottom:2px solid var(--ink)}
+  .tbl td:last-child,.tbl th:last-child{text-align:right}
+
+  /* Roadmap */
+  .quarters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .qtr{padding:16px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:14px;box-shadow:4px 4px 0 var(--ink)}
+  .qtr.now{background:var(--a1)}
+  .qtr.next{background:var(--a2)}
+  .qtr .q{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.6}
+  .qtr h4{font-family:var(--display);font-weight:900;font-size:20px;
+    letter-spacing:-0.025em;margin:4px 0 10px}
+  .qtr ul{margin:0;padding-left:18px;font-size:12px;font-weight:700;
+    line-height:1.5}
+
+  /* Team */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .person{padding:18px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:14px;box-shadow:4px 4px 0 var(--ink);text-align:center}
+  .avatar{width:80px;height:80px;border-radius:18px;margin:0 auto 12px;
+    border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:28px}
+  .person h4{font-family:var(--display);font-weight:900;font-size:18px;
+    letter-spacing:-0.02em;margin:0 0 2px}
+  .person .role{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.1em;opacity:0.55;text-transform:uppercase}
+  .person p{font-family:var(--ui);font-size:12px;font-weight:600;opacity:0.7;
+    line-height:1.4;margin:8px 0 0}
+
+  /* Ask */
+  .ask{padding:40px;background:var(--a1);color:var(--ink);
+    border:3px solid var(--ink);border-radius:24px;
+    box-shadow:10px 10px 0 var(--ink);margin-top:60px}
+  .ask h2{font-family:var(--display);font-weight:900;font-size:54px;
+    letter-spacing:-0.045em;line-height:0.9;margin:0 0 18px}
+  .ask .row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+  .ask .row .item{padding:14px 16px;background:var(--paper);
+    border:2.5px solid var(--ink);border-radius:14px}
+  .ask .row .item .lbl{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;text-transform:uppercase}
+  .ask .row .item .v{font-family:var(--display);font-weight:900;font-size:26px;
+    letter-spacing:-0.03em;line-height:1;margin-top:4px}
+
+  /* Section label */
+  .seclbl{font-family:var(--mono);font-size:11px;font-weight:800;
+    letter-spacing:.16em;opacity:0.55;text-transform:uppercase;margin-bottom:12px}
+
+  /* Press */
+  .press{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .press .pq{padding:14px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:12px;box-shadow:3px 3px 0 var(--ink)}
+  .press .pq .who{font-family:var(--mono);font-size:9px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;margin-bottom:6px}
+  .press .pq .q{font-family:var(--display);font-weight:900;font-size:14px;
+    letter-spacing:-0.02em;line-height:1.3}
+
+  /* Loop diagram */
+  .loop{padding:30px;background:var(--paper);border:3px solid var(--ink);
+    border-radius:20px;box-shadow:8px 8px 0 var(--ink);
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:center;
+    position:relative}
+  .loop .node{padding:16px;background:var(--bg);border:2.5px solid var(--ink);
+    border-radius:14px;text-align:center}
+  .loop .node h4{font-family:var(--display);font-weight:900;font-size:18px;
+    letter-spacing:-0.025em;margin:0 0 4px}
+  .loop .node p{font-family:var(--mono);font-size:10px;font-weight:700;
+    opacity:0.65;letter-spacing:.06em;margin:0;line-height:1.4}
+  .loop .arrow{display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:24px;color:var(--a1)}
+
+  /* Footer */
+  .foot{margin-top:60px;padding-top:30px;text-align:center;
+    border-top:2px solid var(--ink);
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    opacity:0.55;letter-spacing:.12em}
+
+  @media(max-width:780px){
+    .stat-row,.three,.quarters,.team-grid,.press,.two,.loop{grid-template-columns:1fr}
+    .ask .row{grid-template-columns:1fr}
+    h1{font-size:48px} h2{font-size:36px} .ask h2{font-size:38px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="top">
+  <div class="brand"><span>✣</span><span>confetti</span><span style="opacity:.4;font-size:14px">/investors</span></div>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span style="font-family:var(--mono);font-size:11px;font-weight:700;opacity:0.55;letter-spacing:.12em">CONFIDENTIAL · v4.2</span>
+    <button class="cta">book a call →</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="stamp">seed round · $2.5M</div>
+<h1>The AI planner<br/>for <em>real life</em>.</h1>
+<p class="sub">Going out shouldn't take 47 Slack messages. Confetti is one app that plans nights out, family days, parties, BBQs, and offsites — paired with the venues that show up to host them. We're building the consumer-AI layer for everything worth showing up for.</p>
+
+<!-- Key stats -->
+<div class="stat-row">
+  <div class="stat">
+    <div class="lbl">PASSES PRINTED · LAST 90D</div>
+    <div class="val">42,180</div>
+    <div class="sub">▲ 6.4× since Feb</div>
+  </div>
+  <div class="stat hot">
+    <div class="lbl">W4 RETENTION</div>
+    <div class="val">38%</div>
+    <div class="sub">▲ 2.1× industry benchmark</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">PAYING CONVERSION</div>
+    <div class="val">14.2%</div>
+    <div class="sub">all-access · $9.99/mo</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">CITIES LIVE</div>
+    <div class="val">12</div>
+    <div class="sub">+ 8 onboarding Q3</div>
+  </div>
+</div>
+
+<!-- The problem -->
+<h2>The problem.</h2>
+<p class="lede">"What should we do tonight?" is a 23-minute conversation that ends with the same brunch spot for the fourth time.</p>
+<div class="three">
+  <div class="card">
+    <div class="ic">📱</div>
+    <h3>Discovery is broken</h3>
+    <p>Yelp ranks for SEO, not vibe. Reddit's a research project. TikTok is hot but unstructured. Nobody planned the whole night.</p>
+  </div>
+  <div class="card">
+    <div class="ic">⏱</div>
+    <h3>Planning is unbundled</h3>
+    <p>OpenTable for one stop. Lyft for transit. Stripe for a deposit. Wallet for the ticket. Slack for the crew. Four tabs to a Saturday.</p>
+  </div>
+  <div class="card">
+    <div class="ic">🏪</div>
+    <h3>Venues are starving</h3>
+    <p>Restaurants lose $58B/yr to no-shows + empty 8pm slots. Yelp ads convert at 0.3%. They want guests with intent — and Confetti delivers them.</p>
+  </div>
+</div>
+
+<!-- The solution -->
+<h2>One pass. <em>Every plan.</em></h2>
+<p class="lede">Tell Confetti a vibe — "crabs in the backyard Saturday" or "kid jump-place birthday under $300." Claude routes it to the right specialist agent. Pass prints in 4 minutes.</p>
+
+<div class="loop">
+  <div class="node"><h4>Tell us a vibe.</h4><p>4 min · chat or chip</p></div>
+  <div class="arrow">→</div>
+  <div class="node"><h4>Claude builds your pass.</h4><p>7 agents · 42 venues ranked</p></div>
+  <div class="arrow" style="grid-column:1">↓</div>
+  <div></div>
+  <div class="arrow">↓</div>
+  <div class="node"><h4>You show up.</h4><p>QR check-in · live crew · 9-sec recap</p></div>
+  <div class="arrow">←</div>
+  <div class="node"><h4>Pass goes social.</h4><p>auto-reel posts · friends clone it</p></div>
+</div>
+
+<!-- Why now -->
+<h2>Why <em>now.</em></h2>
+<div class="three">
+  <div class="card dark">
+    <div class="ic" style="color:var(--a1)">✣</div>
+    <h3>AI got planning-grade</h3>
+    <p style="opacity:0.85">Claude + GPT-4 finally reason over 40+ venues, your taste graph, and weather constraints in &lt; 4 sec. This was impossible 18 months ago.</p>
+  </div>
+  <div class="card">
+    <div class="ic">📺</div>
+    <h3>TikTok rewired discovery</h3>
+    <p>72% of Gen-Z finds restaurants via TikTok. We read their saves + likes (with consent) → we know what they want before they do.</p>
+  </div>
+  <div class="card">
+    <div class="ic">💸</div>
+    <h3>Venues will pay for intent</h3>
+    <p>Resy + OpenTable take 1-3% on covers. We deliver pre-paid, pre-routed guests at 3% with twice the show-rate. Easy switch.</p>
+  </div>
+</div>
+
+<!-- Market sizing -->
+<h2>Market.</h2>
+<div class="market">
+  <div class="row"><span class="lbl">TAM</span><span class="nm">US discretionary outings spend</span><span class="v">$1.2T</span></div>
+  <div class="row"><span class="lbl">SAM</span><span class="nm">Urban adults 22-44 · ≥1 outing/wk</span><span class="v">$182B</span></div>
+  <div class="row"><span class="lbl">SOM</span><span class="nm">12 cities live · 5% capture by yr 3</span><span class="v s">$340M</span></div>
+  <div class="row"><span class="lbl">SOM-3</span><span class="nm">Family + corporate side bets · yr 3</span><span class="v s">+ $128M</span></div>
+</div>
+
+<!-- Revenue model -->
+<h2>Revenue.</h2>
+<p class="lede">Four streams. Subscription is the floor; venue + corporate scale with usage.</p>
+<div class="card" style="padding:0">
+  <table class="tbl">
+    <thead><tr><th>Stream</th><th>What</th><th>Take</th><th>FY26 share</th><th>Margin</th></tr></thead>
+    <tbody>
+      <tr><td><strong>All-Access</strong></td><td>$9.99/mo or $99/yr consumer sub</td><td>—</td><td>42%</td><td>74%</td></tr>
+      <tr><td><strong>Venue revenue share</strong></td><td>3% per cover delivered</td><td>3%</td><td>31%</td><td>92%</td></tr>
+      <tr><td><strong>Corporate seats</strong></td><td>$99/seat/mo · admin seats</td><td>—</td><td>18%</td><td>88%</td></tr>
+      <tr><td><strong>Promoter take-rate</strong></td><td>20% of influencer-driven passes</td><td>20%</td><td>9%</td><td>96%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Traction / unit economics -->
+<h2>Unit economics.</h2>
+<div class="stat-row">
+  <div class="stat"><div class="lbl">CAC</div><div class="val">$8.40</div><div class="sub">organic via Reels · paid 11%</div></div>
+  <div class="stat" style="background:var(--a2)"><div class="lbl">LTV · 18MO</div><div class="val">$142</div><div class="sub">17× CAC · improving</div></div>
+  <div class="stat"><div class="lbl">PAYBACK</div><div class="val">5.2 wk</div><div class="sub">after first paid month</div></div>
+  <div class="stat hot"><div class="lbl">GROSS MARGIN</div><div class="val">82%</div><div class="sub">post-Claude inference</div></div>
+</div>
+
+<!-- The moat -->
+<h2>The <em>moat</em>.</h2>
+<div class="three">
+  <div class="card">
+    <div class="ic">🧠</div>
+    <h3>Taste graph</h3>
+    <p>TikTok saves + 18-pass history per user = a personal model 1000× richer than a profile form. Compounds with every check-in.</p>
+  </div>
+  <div class="card">
+    <div class="ic">🏪</div>
+    <h3>Venue supply</h3>
+    <p>340 verified BK venues with pre-negotiated 3% rates + Stripe deposits + Apple/Google Wallet boarding pass integration.</p>
+  </div>
+  <div class="card">
+    <div class="ic">🔁</div>
+    <h3>The loop</h3>
+    <p>Plan → show up → reel → friends clone → plan. Self-distributing. Every paying user is a marketing channel.</p>
+  </div>
+</div>
+
+<!-- Roadmap -->
+<h2>12-month roadmap.</h2>
+<div class="quarters">
+  <div class="qtr now">
+    <div class="q">Q2 26 · NOW</div>
+    <h4>Land BK + Manhattan</h4>
+    <ul>
+      <li>340 venues live</li>
+      <li>50k MAU target</li>
+      <li>Corporate beta · 12 logos</li>
+    </ul>
+  </div>
+  <div class="qtr next">
+    <div class="q">Q3 26</div>
+    <h4>Scale East Coast</h4>
+    <ul>
+      <li>+ DC, Philly, Boston</li>
+      <li>Native iOS shell</li>
+      <li>Stripe Connect payouts</li>
+    </ul>
+  </div>
+  <div class="qtr">
+    <div class="q">Q4 26</div>
+    <h4>National + family</h4>
+    <ul>
+      <li>+ LA, SF, Austin, Chicago</li>
+      <li>Family Mode GA</li>
+      <li>Kids Pass · $4.99 add-on</li>
+    </ul>
+  </div>
+  <div class="qtr">
+    <div class="q">Q1 27</div>
+    <h4>Series A readiness</h4>
+    <ul>
+      <li>250k MAU</li>
+      <li>$1.2M MRR</li>
+      <li>3 international beta cities</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Team -->
+<h2>The team.</h2>
+<div class="team-grid">
+  <div class="person">
+    <div class="avatar" style="background:var(--a1)">JL</div>
+    <h4>Jess Lawson</h4>
+    <div class="role">FOUNDER · CEO</div>
+    <p>10 yrs at Resy + Airbnb · led venue product. Solo product/design/eng on Confetti since Feb.</p>
+  </div>
+  <div class="person">
+    <div class="avatar" style="background:var(--a3);color:var(--paper)">AK</div>
+    <h4>Amir Khattak</h4>
+    <div class="role">ADVISOR · CTO TBH</div>
+    <p>ex-Spotify infra. Helping architect agent runtime · open to full-time post-raise.</p>
+  </div>
+  <div class="person">
+    <div class="avatar" style="background:var(--a2)">+</div>
+    <h4>Hiring</h4>
+    <div class="role">3 ROLES OPEN POST-RAISE</div>
+    <p>Senior FS eng · staff product designer · venue ops lead (NYC).</p>
+  </div>
+</div>
+
+<!-- Press / proof -->
+<div style="margin-top:50px">
+  <div class="seclbl">VENUE PARTNERS + EARLY PRESS</div>
+  <div class="press">
+    <div class="pq">
+      <div class="who">EATER NY · APR 26</div>
+      <div class="q">"the only app that gets the night, not just the dinner."</div>
+    </div>
+    <div class="pq">
+      <div class="who">BK MAG · MAR 26</div>
+      <div class="q">"the planner my group chat was praying for."</div>
+    </div>
+    <div class="pq">
+      <div class="who">@MAYA.BROOKLYN · 240K</div>
+      <div class="q">"this is how I plan every night now."</div>
+    </div>
+    <div class="pq">
+      <div class="who">LUPA NOTTE · OWNER</div>
+      <div class="q">"+$612 a week from Confetti covers."</div>
+    </div>
+  </div>
+</div>
+
+<!-- The Ask -->
+<div class="ask">
+  <h2>The ask.</h2>
+  <div class="row">
+    <div class="item"><div class="lbl">ROUND</div><div class="v">Seed</div></div>
+    <div class="item"><div class="lbl">RAISING</div><div class="v">$2.5M</div></div>
+    <div class="item"><div class="lbl">VALUATION</div><div class="v">$18M post</div></div>
+  </div>
+  <div class="row">
+    <div class="item"><div class="lbl">RUNWAY</div><div class="v">18 mo to Series A</div></div>
+    <div class="item"><div class="lbl">USE OF FUNDS</div><div class="v">55% eng · 25% venue ops · 20% paid acq</div></div>
+    <div class="item"><div class="lbl">CO-LEAD</div><div class="v">Looking for product VC + consumer angel</div></div>
+  </div>
+  <button class="cta" style="margin-top:28px;padding:16px 24px;font-size:16px;border-color:var(--ink);background:var(--ink);color:var(--paper);box-shadow:5px 5px 0 var(--paper)">book a 30-min call →</button>
+</div>
+
+<div class="foot">
+  CONFETTI © 2026 · DECK · DATA ROOM · CAP TABLE BY REQUEST · INVEST@CONFETTI.APP
+</div>
+</div>
+</body>
+</html>

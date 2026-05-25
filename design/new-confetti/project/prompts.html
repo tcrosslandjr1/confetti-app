@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>What users actually ask Confetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --ui:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --bg:#f8f0dd;--paper:#fffaf0;--ink:#130b0d;
+    --a1:#ff5b3d;--a2:#f7c83b;--a3:#5b45d9;--a4:#2bb673;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:var(--ui);background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(var(--ink) 1px,transparent 1px);
+    background-size:22px 22px}
+  body::before{content:'';position:fixed;inset:0;
+    background:linear-gradient(180deg,rgba(248,240,221,0.85),rgba(248,240,221,0.95));
+    pointer-events:none;z-index:0}
+  .page{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:60px 28px}
+  .hero{text-align:center;margin-bottom:50px}
+  .stamp{display:inline-block;padding:8px 14px;
+    border:3px solid var(--ink);border-radius:999px;background:var(--a2);
+    font-family:var(--mono);font-size:12px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;
+    transform:rotate(-2deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:18px}
+  h1{font-family:var(--display);font-weight:900;
+    font-size:clamp(40px,6vw,72px);letter-spacing:-0.045em;
+    line-height:0.92;margin:0 0 14px}
+  h1 em{font-style:normal;color:var(--a1)}
+  .sub{font-family:var(--ui);font-size:17px;font-weight:600;
+    opacity:0.7;max-width:560px;margin:0 auto;line-height:1.45}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  @media(max-width:780px){.grid{grid-template-columns:1fr}}
+
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  @media(max-width:600px){.row{grid-template-columns:1fr}}
+
+  /* The "ask" bubble */
+  .ask{position:relative;
+    padding:18px 18px 22px;
+    background:var(--ink);color:var(--paper);
+    border:3px solid var(--ink);
+    border-radius:18px 18px 18px 6px;
+    box-shadow:5px 5px 0 var(--a1);
+    align-self:start;
+  }
+  .ask .lbl{font-family:var(--mono);font-size:9px;font-weight:800;
+    letter-spacing:.16em;opacity:0.65;margin-bottom:8px;text-transform:uppercase}
+  .ask .who{display:inline-flex;align-items:center;gap:7px;margin-bottom:10px}
+  .ask .av{width:24px;height:24px;border-radius:999px;
+    border:2px solid var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:11px;color:var(--ink)}
+  .ask .name{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.1em;opacity:0.7}
+  .ask q{font-family:var(--display);font-weight:800;font-size:22px;
+    letter-spacing:-0.025em;line-height:1.2;quotes:'"' '"'}
+  .ask .agent{margin-top:14px;display:inline-flex;align-items:center;gap:6px;
+    padding:4px 10px;background:var(--a1);color:var(--ink);
+    border:2px solid var(--paper);border-radius:999px;
+    font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.14em}
+
+  /* The pass ticket */
+  .pass{position:relative;
+    background:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;
+    box-shadow:6px 6px 0 var(--ink);overflow:hidden}
+  .pass-top{display:flex;justify-content:space-between;
+    padding:10px 16px;background:var(--a1);
+    border-bottom:3px solid var(--ink);
+    font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.14em}
+  .pass-body{padding:16px}
+  .pass h3{font-family:var(--display);font-weight:900;font-size:22px;
+    letter-spacing:-0.025em;line-height:1.05;margin:0 0 10px}
+  .stops{display:flex;flex-direction:column;gap:0}
+  .stop{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;
+    padding:8px 0;border-bottom:1.5px dashed rgba(0,0,0,0.15)}
+  .stop:last-child{border-bottom:0}
+  .stop .n{width:36px;height:36px;border-radius:999px;
+    border:2.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:15px}
+  .stop .nm{font-family:var(--display);font-weight:900;font-size:14px;letter-spacing:-0.02em}
+  .stop .sub{font-family:var(--mono);font-size:9px;font-weight:700;
+    opacity:0.6;letter-spacing:.06em;margin-top:1px;text-transform:uppercase}
+  .stop .price{font-family:var(--mono);font-size:10px;font-weight:800}
+  .pass-foot{margin-top:10px;padding-top:10px;border-top:2.5px dashed var(--ink);
+    display:flex;justify-content:space-between;align-items:center}
+  .total{font-family:var(--display);font-weight:900;font-size:18px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tag{padding:3px 8px;border:1.5px solid var(--ink);border-radius:999px;
+    font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.1em;
+    text-transform:uppercase}
+
+  /* Section label */
+  .sec-lbl{margin:60px 0 24px;
+    font-family:var(--mono);font-size:11px;font-weight:800;
+    letter-spacing:.16em;opacity:0.55;text-transform:uppercase}
+  .sec-lbl strong{color:var(--a1);font-weight:800}
+
+  .footer{margin-top:60px;padding-top:30px;
+    border-top:2px solid var(--ink);text-align:center;
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    opacity:0.55;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="stamp">how confetti reads people</div>
+    <h1>What people <em>actually ask</em> Confetti.</h1>
+    <p class="sub">Real prompts. Real passes. Every one of these turns into a 3-stop plan in under 4 minutes — Claude routes intent, the specialist agent does the work.</p>
+  </div>
+
+  <div class="sec-lbl">NIGHT OUT · <strong>Night Out Agent</strong></div>
+  <div class="grid">
+    <div class="row">
+      <div class="ask">
+        <div class="who">
+          <span class="av" style="background:var(--a1)">JS</span>
+          <span class="name">@jess.s · sat 4:21 pm</span>
+        </div>
+        <q>date night, brooklyn, $80 budget, walkable, foodie with a twist, add a show after</q>
+        <div class="agent"><span>🌃</span> NIGHT OUT AGENT</div>
+      </div>
+      <div class="pass">
+        <div class="pass-top"><span>BROOKLYN · DATE NIGHT</span><span>#A7K2</span></div>
+        <div class="pass-body">
+          <h3>Foodie + a show.</h3>
+          <div class="stops">
+            <div class="stop"><div class="n" style="background:var(--a2)">1</div>
+              <div><div class="nm">Skinny Pete's</div><div class="sub">7:30 · DIVE WARM-UP</div></div>
+              <div class="price">$14</div></div>
+            <div class="stop"><div class="n" style="background:var(--a1)">2</div>
+              <div><div class="nm">Lupa Notte</div><div class="sub">8:30 · COUNTER PASTA</div></div>
+              <div class="price">$52</div></div>
+            <div class="stop"><div class="n" style="background:var(--a3);color:var(--paper)">3</div>
+              <div><div class="nm">Quartz Room</div><div class="sub">10:30 · INDIE SHOW</div></div>
+              <div class="price">$26</div></div>
+          </div>
+          <div class="pass-foot">
+            <div class="tags">
+              <span class="tag" style="background:var(--a2)">foodie</span>
+              <span class="tag" style="background:var(--a1)">walkable</span>
+            </div>
+            <div class="total">$92</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">HOSTING · <strong>Hosting Agent</strong></div>
+  <div class="grid">
+    <div class="row">
+      <div class="ask">
+        <div class="who">
+          <span class="av" style="background:var(--a2)">M</span>
+          <span class="name">@marcus · thu 6:08 pm</span>
+        </div>
+        <q>crabs in the backyard for 12 people saturday, beer, music, low effort</q>
+        <div class="agent"><span>🍽</span> HOSTING AGENT</div>
+      </div>
+      <div class="pass">
+        <div class="pass-top"><span>HOSTING · CRAB BOIL · 12 PPL</span><span>#H3M4</span></div>
+        <div class="pass-body">
+          <h3>Crab boil · backyard · sat 4pm.</h3>
+          <div class="stops">
+            <div class="stop"><div class="n" style="background:var(--a2)">📋</div>
+              <div><div class="nm">Grocery list · 18 items</div><div class="sub">CRABS · CORN · BUTTER · OLD BAY</div></div>
+              <div class="price">$168</div></div>
+            <div class="stop"><div class="n" style="background:var(--a1)">⏱</div>
+              <div><div class="nm">Prep timeline · T-2h</div><div class="sub">BOIL POT · NEWSPAPER · MALLETS</div></div>
+              <div class="price">2h</div></div>
+            <div class="stop"><div class="n" style="background:var(--a3);color:var(--paper)">♫</div>
+              <div><div class="nm">Outdoor playlist · 3h</div><div class="sub">SUMMER COOKOUT VIBE</div></div>
+              <div class="price">auto</div></div>
+          </div>
+          <div class="pass-foot">
+            <div class="tags">
+              <span class="tag" style="background:var(--a1)">12 ppl</span>
+              <span class="tag" style="background:var(--a2)">$22 / pp</span>
+            </div>
+            <div class="total">$268</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">KIDS PARTY · <strong>Party Agent</strong></div>
+  <div class="grid">
+    <div class="row">
+      <div class="ask">
+        <div class="who">
+          <span class="av" style="background:var(--a3);color:var(--paper)">PR</span>
+          <span class="name">@priya · wed 10:14 am</span>
+        </div>
+        <q>kids jump place birthday under $300 for mia turning 5, walkable, parents stay</q>
+        <div class="agent"><span>🎂</span> PARTY AGENT</div>
+      </div>
+      <div class="pass">
+        <div class="pass-top"><span>PARTY · MIA TURNS 5 · 12 KIDS</span><span>#K9J2</span></div>
+        <div class="pass-body">
+          <h3>Jump + pizza + cake at 3pm.</h3>
+          <div class="stops">
+            <div class="stop"><div class="n" style="background:var(--a2)">1</div>
+              <div><div class="nm">Bounce! Williamsburg</div><div class="sub">3:00 · 90M · 12 KIDS</div></div>
+              <div class="price">$210</div></div>
+            <div class="stop"><div class="n" style="background:var(--a1)">2</div>
+              <div><div class="nm">Pizza Moto party room</div><div class="sub">4:30 · 60M · KID MENU</div></div>
+              <div class="price">$72</div></div>
+            <div class="stop"><div class="n" style="background:var(--a3);color:var(--paper)">✉</div>
+              <div><div class="nm">Invite + RSVP tracker</div><div class="sub">EVITE DRAFTED · READY TO SEND</div></div>
+              <div class="price">auto</div></div>
+          </div>
+          <div class="pass-foot">
+            <div class="tags">
+              <span class="tag" style="background:var(--a2)">stroller</span>
+              <span class="tag" style="background:var(--a1)">$282</span>
+            </div>
+            <div class="total">under $300 ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">FAMILY LEARNING · <strong>Family Agent</strong></div>
+  <div class="grid">
+    <div class="row">
+      <div class="ask">
+        <div class="who">
+          <span class="av" style="background:var(--a1)">D</span>
+          <span class="name">@devon · sat 8:02 am</span>
+        </div>
+        <q>rainy saturday with two kids 4 and 7, library + something cool, $0 if possible</q>
+        <div class="agent"><span>👨‍👩‍👧</span> FAMILY AGENT</div>
+      </div>
+      <div class="pass">
+        <div class="pass-top"><span>FAMILY LEARN · 2 KIDS</span><span>#FL12</span></div>
+        <div class="pass-body">
+          <h3>Free family learning day.</h3>
+          <div class="stops">
+            <div class="stop"><div class="n" style="background:var(--a1)">1</div>
+              <div><div class="nm">BPL story time</div><div class="sub">10:30 · AGE 0-5 · FREE</div></div>
+              <div class="price">$0</div></div>
+            <div class="stop"><div class="n" style="background:var(--a2)">2</div>
+              <div><div class="nm">BK Children's Museum</div><div class="sub">12:00 · SENSORY ROOMS</div></div>
+              <div class="price">$32</div></div>
+            <div class="stop"><div class="n" style="background:var(--a3);color:var(--paper)">3</div>
+              <div><div class="nm">Cafe Regular du Nord</div><div class="sub">2:30 · KID MENU · WIND-DOWN</div></div>
+              <div class="price">$24</div></div>
+          </div>
+          <div class="pass-foot">
+            <div class="tags">
+              <span class="tag" style="background:var(--a2)">indoor</span>
+              <span class="tag" style="background:var(--a1)">stroller ok</span>
+              <span class="tag" style="background:var(--a3);color:var(--paper)">nap @ 3</span>
+            </div>
+            <div class="total">$56</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">RECHARGE · <strong>Night Out + Route + Budget</strong></div>
+  <div class="grid">
+    <div class="row">
+      <div class="ask">
+        <div class="who">
+          <span class="av" style="background:var(--a3);color:var(--paper)">R</span>
+          <span class="name">@rio · sun 9:48 am</span>
+        </div>
+        <q>solo sunday recharge, slow coffee, bookstore, long walk, quiet dinner, no phones</q>
+        <div class="agent"><span>🌿</span> RECHARGE PLAN</div>
+      </div>
+      <div class="pass">
+        <div class="pass-top"><span>SOLO RECHARGE · SUNDAY</span><span>#R8X9</span></div>
+        <div class="pass-body">
+          <h3>Slow Sunday, on purpose.</h3>
+          <div class="stops">
+            <div class="stop"><div class="n" style="background:var(--a2)">1</div>
+              <div><div class="nm">Devoción · sit-in</div><div class="sub">10:30 · NEWSPAPER + POUR-OVER</div></div>
+              <div class="price">$8</div></div>
+            <div class="stop"><div class="n" style="background:var(--a1)">2</div>
+              <div><div class="nm">Books Are Magic</div><div class="sub">11:30 · 90M BROWSE</div></div>
+              <div class="price">$24</div></div>
+            <div class="stop"><div class="n" style="background:var(--a3);color:var(--paper)">3</div>
+              <div><div class="nm">Walk · BK Bridge loop</div><div class="sub">1:00 · 4.2 MI · 90M</div></div>
+              <div class="price">free</div></div>
+            <div class="stop"><div class="n" style="background:var(--a2)">4</div>
+              <div><div class="nm">Estuary · counter seat</div><div class="sub">3:30 · QUIET · NO RES</div></div>
+              <div class="price">$48</div></div>
+          </div>
+          <div class="pass-foot">
+            <div class="tags">
+              <span class="tag" style="background:var(--a1)">solo</span>
+              <span class="tag" style="background:var(--a2)">walkable</span>
+            </div>
+            <div class="total">$80</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">CORPORATE · <strong>Routes to Corporate Planner</strong></div>
+  <div class="grid">
+    <div class="row">
+      <div class="ask">
+        <div class="who">
+          <span class="av" style="background:var(--a2)">PR</span>
+          <span class="name">@priya · mon 11:02 am · HR</span>
+        </div>
+        <q>close out Q2 with the eng team — 14 ppl, walkable from HQ, $40/pp, no boozy primary</q>
+        <div class="agent"><span>🏢</span> CORPORATE PLANNER</div>
+      </div>
+      <div class="pass">
+        <div class="pass-top"><span>CORP · ENG Q2 CLOSE</span><span>#JQ08</span></div>
+        <div class="pass-body">
+          <h3>Brewery + tacos · 14 ppl.</h3>
+          <div class="stops">
+            <div class="stop"><div class="n" style="background:var(--a2)">1</div>
+              <div><div class="nm">Threes Brewing</div><div class="sub">6:30 · PRIVATE ROOM</div></div>
+              <div class="price">$182</div></div>
+            <div class="stop"><div class="n" style="background:var(--a1)">2</div>
+              <div><div class="nm">Oxomoco</div><div class="sub">8:00 · TACO BAR · VEG + GF</div></div>
+              <div class="price">$310</div></div>
+            <div class="stop"><div class="n" style="background:var(--a3);color:var(--paper)">3</div>
+              <div><div class="nm">Cornhole + dessert</div><div class="sub">9:15 · OPTIONAL · WALK</div></div>
+              <div class="price">$40</div></div>
+          </div>
+          <div class="pass-foot">
+            <div class="tags">
+              <span class="tag" style="background:var(--a4);color:var(--paper)">within cap</span>
+              <span class="tag" style="background:var(--a2)">$38/pp</span>
+            </div>
+            <div class="total">$532</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    SAME ENGINE · SAME PASS · DIFFERENT INTENT · CLAUDE ROUTES IT
+  </div>
+</div>
+</body>
+</html>

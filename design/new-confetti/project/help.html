@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Confetti · How it works, FAQ + Legal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --ui:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --bg:#f8f0dd;--paper:#fffaf0;--ink:#130b0d;
+    --a1:#ff5b3d;--a2:#f7c83b;--a3:#5b45d9;--a4:#2bb673;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:var(--ui);background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(var(--ink) 1px,transparent 1px);
+    background-size:22px 22px}
+  body::before{content:'';position:fixed;inset:0;
+    background:linear-gradient(180deg,rgba(248,240,221,0.85),rgba(248,240,221,0.95));
+    pointer-events:none;z-index:0}
+  .page{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:50px 28px 80px}
+  button,a{font-family:var(--ui);cursor:pointer}
+
+  .brand{display:flex;align-items:center;gap:8px;
+    font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:-0.025em;
+    text-decoration:none;color:inherit}
+  .brand span:first-child{color:var(--a1);font-size:22px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;
+    padding-bottom:14px;border-bottom:2px solid var(--ink)}
+  .top-nav{display:flex;gap:18px;font-size:13px;font-weight:700;opacity:0.65}
+  .top-nav a{color:inherit;text-decoration:none}
+
+  .tabs{display:flex;gap:6px;margin-bottom:30px;overflow-x:auto;scrollbar-width:none;
+    padding-bottom:4px}
+  .tabs button{appearance:none;padding:9px 16px;
+    border:2.5px solid var(--ink);border-radius:999px;
+    background:var(--paper);font-size:13px;font-weight:800;
+    box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
+  .tabs button.on{background:var(--ink);color:var(--paper);
+    box-shadow:3px 3px 0 var(--a1);transform:translate(-1px,-1px)}
+
+  .stamp{display:inline-block;padding:7px 13px;
+    border:3px solid var(--ink);border-radius:999px;background:var(--a2);
+    font-family:var(--mono);font-size:11px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;
+    transform:rotate(-2deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:16px}
+
+  h1{font-family:var(--display);font-weight:900;font-size:50px;
+    letter-spacing:-0.045em;line-height:0.92;margin:0 0 14px}
+  h1 em{font-style:normal;color:var(--a1)}
+  h2{font-family:var(--display);font-weight:900;font-size:30px;
+    letter-spacing:-0.035em;line-height:0.95;margin:40px 0 14px}
+  h2 em{font-style:normal;color:var(--a1)}
+  h3{font-family:var(--display);font-weight:900;font-size:20px;
+    letter-spacing:-0.025em;margin:0 0 8px}
+  .lede{font-size:17px;font-weight:600;opacity:0.7;line-height:1.45;
+    max-width:600px;margin:0 0 26px}
+
+  .step{display:grid;grid-template-columns:60px 1fr;gap:18px;margin-bottom:22px;align-items:flex-start}
+  .step .n{width:56px;height:56px;border-radius:14px;
+    border:3px solid var(--ink);background:var(--a1);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:24px;
+    box-shadow:4px 4px 0 var(--ink)}
+  .step:nth-child(odd) .n{background:var(--a2)}
+  .step:nth-child(even) .n{background:var(--a3);color:var(--paper)}
+  .step h3{margin:6px 0 4px}
+  .step p{margin:0;font-size:14px;font-weight:600;opacity:0.75;line-height:1.5}
+
+  /* FAQ */
+  .faq details{padding:16px 18px;background:var(--paper);
+    border:2.5px solid var(--ink);border-radius:14px;box-shadow:3px 3px 0 var(--ink);
+    margin-bottom:10px}
+  .faq summary{font-family:var(--display);font-weight:900;font-size:16px;
+    letter-spacing:-0.02em;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';font-size:24px;font-weight:900;opacity:0.55;flex-shrink:0}
+  .faq details[open] summary::after{content:'−'}
+  .faq p{font-size:14px;font-weight:600;opacity:0.75;line-height:1.5;margin:10px 0 0}
+
+  /* Idea copy blocks */
+  .copy{padding:18px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:14px;box-shadow:4px 4px 0 var(--ink);margin-bottom:14px}
+  .copy h3{margin-bottom:6px}
+  .copy .lbl{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;text-transform:uppercase;margin-bottom:6px}
+  .copy p{font-family:var(--ui);font-size:15px;font-weight:700;line-height:1.5;margin:0;
+    white-space:pre-wrap}
+  .copy.dark{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--a1)}
+
+  /* Legal blocks */
+  .legal{padding:18px;background:var(--paper);border:2px solid var(--ink);
+    border-radius:12px;margin-bottom:12px}
+  .legal h3{margin-bottom:6px}
+  .legal .meta{font-family:var(--mono);font-size:10px;font-weight:700;
+    opacity:0.55;letter-spacing:.06em;margin-bottom:10px}
+  .legal p{font-size:13px;font-weight:600;line-height:1.55;opacity:0.85;margin:0 0 8px}
+  .legal ul{margin:6px 0 12px;padding-left:18px;font-size:13px;font-weight:600;line-height:1.6;opacity:0.85}
+  .legal strong{color:var(--a1)}
+
+  .section{display:none}
+  .section.on{display:block}
+
+  /* Share strip */
+  .share{margin-top:32px;padding:22px;background:var(--ink);color:var(--paper);
+    border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--a1)}
+  .share h3{margin:0 0 10px;font-family:var(--display);font-weight:900;font-size:22px;
+    letter-spacing:-0.025em;color:var(--paper)}
+  .share-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+  .share-btn{appearance:none;padding:10px 12px;
+    border:2px solid var(--paper);border-radius:10px;
+    background:transparent;color:var(--paper);
+    font-family:var(--ui);font-size:12px;font-weight:800;cursor:pointer}
+  .share-btn.primary{background:var(--a1);color:var(--ink);border-color:var(--ink)}
+
+  /* Cookie banner */
+  .cookie{position:fixed;bottom:18px;left:18px;right:18px;z-index:20;
+    max-width:520px;margin:0 auto;
+    padding:14px 18px;background:var(--ink);color:var(--paper);
+    border:3px solid var(--paper);border-radius:14px;
+    box-shadow:4px 4px 0 var(--a1);
+    display:flex;align-items:center;gap:14px}
+  .cookie p{margin:0;font-size:12px;font-weight:600;line-height:1.5;flex:1}
+  .cookie .row{display:flex;gap:6px;flex-shrink:0}
+  .cookie button{appearance:none;padding:7px 12px;
+    border:2px solid var(--paper);border-radius:999px;
+    font-family:var(--ui);font-size:11px;font-weight:800;cursor:pointer}
+  .cookie .accept{background:var(--a1);color:var(--ink);border-color:var(--ink)}
+  .cookie .reject{background:transparent;color:var(--paper)}
+
+  @media(max-width:680px){
+    h1{font-size:36px}
+    h2{font-size:24px}
+    .step{grid-template-columns:1fr}
+    .share-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="top">
+  <a class="brand" href="#"><span>✣</span><span>confetti</span><span style="opacity:.4;font-size:13px">/help</span></a>
+  <nav class="top-nav">
+    <a href="passport.html">try it</a>
+    <a href="forcorporate.html">for teams</a>
+    <a href="investors.html">investors</a>
+    <a href="#contact">contact</a>
+  </nav>
+</div>
+
+<div class="tabs" id="tabs">
+  <button data-sec="how" class="on">how it works</button>
+  <button data-sec="faq">faq</button>
+  <button data-sec="copy">copy library</button>
+  <button data-sec="privacy">privacy</button>
+  <button data-sec="terms">terms</button>
+  <button data-sec="cookies">cookies</button>
+  <button data-sec="content">content rules</button>
+  <button data-sec="copyright">copyright</button>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section on" id="sec-how">
+  <div class="stamp">how it works · 4 minutes</div>
+  <h1>From a vibe to a <em>printed pass</em>.</h1>
+  <p class="lede">You tell Confetti what kind of day you're up for. Sparkle — our AI conductor — routes it to the right specialist agent, books your stops, and prints a pass to your wallet. Show up, check in, share it.</p>
+
+  <div class="step">
+    <div class="n">1</div>
+    <div>
+      <h3>Say a vibe.</h3>
+      <p>"date night, brooklyn, $80, walkable" · "crabs in the backyard for 12" · "kids jump-place party under $300" · "rainy library day with two toddlers". Type or pick a chip. Sparkle parses it instantly.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="n">2</div>
+    <div>
+      <h3>Sparkle routes to a specialist.</h3>
+      <p>Night Out · Family · Party · Hosting · Social · Route · Budget — 7 agents working in parallel behind the scenes. You see them in the loader. Powered by Claude, fed by your TikTok taste graph, 50+ city venue DB, and real-time event feeds (Ticketmaster, Yelp, Google Places).</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="n">3</div>
+    <div>
+      <h3>Pass prints.</h3>
+      <p>3-stop ticket with venues, timing, route, budget, must-orders, parking, dress code. Apple/Google Wallet pass auto-generated. Tap any stop to flip it and see fetched intel — live crowd, wait times, what to wear, what to order, and a pro tip.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="n">4</div>
+    <div>
+      <h3>Book everything in one tap.</h3>
+      <p>Stripe deposit for the dinner reservation. Ticketmaster for the show. OpenTable for the brunch. All fire in parallel. If one fails, the rest still go through and Sparkle tells you what to do next.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="n">5</div>
+    <div>
+      <h3>Show up.</h3>
+      <p>Geofence auto-detects when you're 1 mi out. The Wallet pass swaps to the next stop's QR. Staff scans it. You're checked in. Confetti points + venue perks fire automatically.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="n">6</div>
+    <div>
+      <h3>Share or save.</h3>
+      <p>Auto-cut 9-second reel posts to TikTok with your watermark. Friends can tap "plan their night" or grab individual stops. Your Trip Passport saves to your scrapbook with stamps, photos, and a receipt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="sec-faq">
+  <div class="stamp" style="background:var(--a1)">faq</div>
+  <h1>Things people <em>ask</em>.</h1>
+  <div class="faq">
+    <details open>
+      <summary>What is Confetti?</summary>
+      <p>The AI planner for real life — nights out, family days, kids parties, BBQs, hosting, recharge days. You tell it what you're up for, it builds a 3-stop pass with real venues, timing, route, and budget.</p>
+    </details>
+    <details>
+      <summary>How much does it cost?</summary>
+      <p>Free to try (3 plans/wk). All-Access is $9.99/mo or $99/yr — unlimited plans, Family Mode, Kids Parties, hosting plans, RSVP tracker, Party Memory Kit, boarding passes, rewards. 7-day free trial. Cancel any time from Settings.</p>
+    </details>
+    <details>
+      <summary>Which cities is it live in?</summary>
+      <p>50 cities. US: NYC · LA · DC · Chicago · Miami · SF · Atlanta · Seattle · Nashville · Vegas · Houston · Boston · Philly · NOLA · San Diego · Portland · Phoenix · Scottsdale · Austin · Denver · Charleston · Memphis · Knoxville · Chattanooga · Gatlinburg. International: London · Paris · Tokyo · Dubai · Toronto · CDMX · Barcelona · Berlin · Amsterdam · Sydney · Athens · Bali · Bangkok · Buenos Aires · Cape Town · Hong Kong · Istanbul · Lisbon · Madrid · Melbourne · Milan · Mumbai · Rio · Rome · São Paulo · Seoul · Singapore · Tel Aviv · Tulum · Vancouver.</p>
+    </details>
+    <details>
+      <summary>What does Sparkle actually do?</summary>
+      <p>Sparkle is the AI conductor (powered by Claude). She parses your intent, routes to the right specialist agent (Night Out / Family / Party / Hosting / Social / Route / Budget), fetches live data from Yelp + Google + Ticketmaster + TikTok, ranks 40+ venues against your taste graph, and composes a pass in under 4 minutes.</p>
+    </details>
+    <details>
+      <summary>How does the TikTok taste graph work?</summary>
+      <p>If you connect TikTok at sign-up, Confetti reads (read-only) your saves, likes, and follows. We classify them locally into vibes (foodie, rooftop, low-key, etc.) and use that to rank venues. We never auto-post. You can see your taste profile in Settings → Your taste graph and delete it any time.</p>
+    </details>
+    <details>
+      <summary>Is my data shared with venues?</summary>
+      <p>Only your booking name + party size + arrival time when you actually book through us. Nothing else. We never sell data to advertisers. We never share TikTok content. See Privacy below.</p>
+    </details>
+    <details>
+      <summary>Can kids use it? Is there parental control?</summary>
+      <p>Family Mode is for adults planning kid-friendly days. Under-13s can't sign up without verified parental consent (COPPA). Kids Mode filters out adult venues automatically. Photos of kids can be auto-blurred. Parents can hide names and locations from reels.</p>
+    </details>
+    <details>
+      <summary>How do bookings work?</summary>
+      <p>One tap fires Stripe (deposits), Ticketmaster (tickets), and OpenTable (free reservations) in parallel. Refund policies follow each venue's rules — usually cancel by 6 PM for deposits, no refunds for tickets, 30 min grace for free reservations.</p>
+    </details>
+    <details>
+      <summary>What if a venue doesn't honor my pass?</summary>
+      <p>Tell Sparkle. Auto-refund within minutes, +100 pts ($1) credit, and we follow up with the venue owner. We re-train hosts. If it happens twice we pull the listing.</p>
+    </details>
+    <details>
+      <summary>How do I cancel my subscription?</summary>
+      <p>Settings → Account → Payment methods → Cancel. Or email support@confetti.app. Cancels apply at the end of the current billing period. We never auto-charge after cancellation.</p>
+    </details>
+    <details>
+      <summary>For businesses — how do I get my venue listed?</summary>
+      <p>Visit <a href="forcorporate.html" style="color:var(--a1)">forcorporate.html</a> or hit /business/claim in the app. We verify via email OTP + license upload. Pre-negotiated rates: 3% per cover delivered. Pre-paid customers, auto-confirmed.</p>
+    </details>
+  </div>
+</section>
+
+<!-- COPY LIBRARY -->
+<section class="section" id="sec-copy">
+  <div class="stamp" style="background:var(--a3);color:var(--paper)">copy library</div>
+  <h1>Brand <em>voice</em>.</h1>
+  <p class="lede">Confetti is warm, casual, lowercase, and confident. Never corporate. Never "you'll love this." Always specific.</p>
+
+  <div class="copy dark">
+    <div class="lbl">PRIMARY TAGLINE</div>
+    <p>Plan a night. Or a day. Or whatever.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">ALT TAGLINE · ALL-ACCESS</div>
+    <p>One plan. Every kind of plan. $9.99/month.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">B2B TAGLINE</div>
+    <p>Plan offsites without 47 Slack threads.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">FAMILY MODE TAGLINE</div>
+    <p>Kid-friendly plans without the group-chat spiral.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">CHAT OPENER · SPARKLE</div>
+    <p>hey. i'm sparkle — confetti's planner. what are you up for?</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">LOADING MESSAGE</div>
+    <p>Reading the vibe. Pulling 42 venues. Filtering for walkable. Drafting the route. Printing your pass.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">CHECK-IN REWARD</div>
+    <p>+125 pts. $4 off applied to bill. Nice — keep going.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">EMPTY-STATE · FIRST PASS</div>
+    <p>You haven't printed a pass yet. Tell us a vibe — we'll do the rest.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">SHARE COPY · AUTO-REEL</div>
+    <p>Saturday at @lupanotte. 3 stops, 4 hours, $92. Built by Confetti — ✣ confetti.app</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">ERROR · BOOKING FAILED</div>
+    <p>Lost the thread for a sec on that stop. Try again, or Sparkle can swap it for a similar one.</p>
+  </div>
+  <div class="copy">
+    <div class="lbl">RECEIPT FOOTER</div>
+    <p>That was a night. Save the pass to your scrapbook · share with the crew · we'll see you next Saturday.</p>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section class="section" id="sec-privacy">
+  <div class="stamp">privacy policy</div>
+  <h1>Your data, your <em>call</em>.</h1>
+  <p class="lede">Plain English. No dark patterns. We're a small team and we don't sell data.</p>
+  <div class="legal">
+    <div class="meta">LAST UPDATED · MAY 24, 2026 · V4.2</div>
+    <h3>What we collect</h3>
+    <ul>
+      <li><strong>Email + phone</strong> — for sign-in and crew check-ins via Twilio. Phone is optional after sign-up.</li>
+      <li><strong>Location</strong> — only when you have an active pass. Auto-purged 24h after the night ends. Off by default outside active passes.</li>
+      <li><strong>TikTok saves/likes/follows</strong> — read-only, only if you connect TikTok. We classify locally before sending anything to Claude. You can disconnect or delete the graph at any time.</li>
+      <li><strong>Vibe + ranking history</strong> — trains the planner agent on what you actually like. You can clear it from Settings → Your taste graph.</li>
+      <li><strong>Payment tokens</strong> — held by Stripe; we never see card numbers.</li>
+      <li><strong>Check-in photos</strong> — stored on our CDN, encrypted. Auto-deleted after 90 days unless you save them to your scrapbook.</li>
+    </ul>
+    <h3>Who we share with</h3>
+    <ul>
+      <li><strong>Venues you book</strong> — just the booking name + party size + estimated arrival.</li>
+      <li><strong>AI providers</strong> — OpenAI &amp; Anthropic on contractual no-train terms; prompts are scrubbed before send.</li>
+      <li><strong>Never</strong> — no data sold to advertisers. No social-graph crawls. No browser fingerprinting. No third-party analytics that track you off-app.</li>
+    </ul>
+    <h3>Your controls</h3>
+    <ul>
+      <li><strong>Export</strong> — a ZIP of every pass, check-in, photo, and AI conversation. Generated in 10 min, delivered to your email.</li>
+      <li><strong>Delete</strong> — instant. Tombstones live 30 days for compliance, then gone.</li>
+      <li><strong>Children (under 13)</strong> — verified parental consent required. We never knowingly collect from kids without it. COPPA compliant.</li>
+    </ul>
+    <h3>Where we're regulated</h3>
+    <p>GDPR (EU) · CCPA (California) · PIPEDA (Canada) · COPPA (US, under 13). Send rights requests to <strong>privacy@confetti.app</strong>. We respond in &lt; 5 business days.</p>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="section" id="sec-terms">
+  <div class="stamp" style="background:var(--a1)">terms of service</div>
+  <h1>Using Confetti.</h1>
+  <div class="legal">
+    <div class="meta">LAST UPDATED · MAY 24, 2026</div>
+    <h3>1 · Eligibility</h3>
+    <ul>
+      <li>You must be <strong>18+</strong> to maintain an account. Some passes include 21+ stops which we surface clearly.</li>
+      <li>Under-13 accounts require <strong>verified parental consent</strong> via email confirmation.</li>
+    </ul>
+    <h3>2 · Bookings &amp; cancellations</h3>
+    <ul>
+      <li>Passes are <strong>non-binding plans</strong>. Venues hold spots on goodwill. Repeated no-shows will throttle your booking ability.</li>
+      <li><strong>Stripe deposits</strong> are refundable until 6h before scheduled arrival; after, venue policy applies.</li>
+      <li><strong>Ticketmaster purchases</strong> follow their refund rules directly.</li>
+      <li><strong>Free reservations</strong> (OpenTable) usually have a 30-minute grace period.</li>
+    </ul>
+    <h3>3 · Content you post</h3>
+    <ul>
+      <li>Your photos, reels, and check-in captions stay yours. You grant Confetti a non-exclusive license to display them in your shareable Trip Passport and (with your opt-in) in the public Reels feed.</li>
+      <li>You can delete any post at any time. We honor takedowns within 24h.</li>
+    </ul>
+    <h3>4 · Subscription</h3>
+    <ul>
+      <li>All-Access auto-renews at $9.99/mo or $99/yr until cancelled.</li>
+      <li>Cancel any time from Settings — applies at end of current period.</li>
+      <li>Refunds for unused time are pro-rated only when we're at fault (outage, broken feature).</li>
+    </ul>
+    <h3>5 · Liability</h3>
+    <p>Confetti plans nights but isn't liable for what happens at the venues. Drink responsibly. Don't drive impaired. Confetti isn't a transportation provider — we deep-link to Uber/Lyft/transit but their terms govern those rides.</p>
+    <h3>6 · Disputes</h3>
+    <p>Governed by laws of the State of New York. Disputes resolved by binding individual arbitration (AAA) unless you opt out within 30 days of sign-up. Class actions waived.</p>
+  </div>
+</section>
+
+<!-- COOKIES -->
+<section class="section" id="sec-cookies">
+  <div class="stamp" style="background:var(--a2)">cookies</div>
+  <h1>What we put on your <em>device</em>.</h1>
+  <div class="legal">
+    <div class="meta">EU + UK + CA OPT-OUT COMPLIANT · GPC HONORED</div>
+    <h3>Strictly necessary</h3>
+    <p>Auth session, CSRF token, region routing. Can't opt out — you can't sign in without these.</p>
+    <h3>Preferences</h3>
+    <p>Palette (warm/cool/mono), language, last city, tab order. Local-only. Cleared if you sign out.</p>
+    <h3>Analytics — opt-in only</h3>
+    <p>We use <strong>Plausible</strong> (privacy-friendly, EU-hosted, no fingerprinting). Tracks: page views, anonymized country, referrer. No Google Analytics. No Facebook pixel. No cross-site tracking.</p>
+    <h3>Third-party</h3>
+    <ul>
+      <li><strong>Stripe</strong> — sets cookies during checkout for fraud detection. Required to process payment.</li>
+      <li><strong>Sentry</strong> — error reporting, only the error context (no personal data).</li>
+    </ul>
+    <p style="margin-top:14px"><strong>You can clear all cookies at any time from Settings → Privacy → Clear cookies + cache.</strong></p>
+  </div>
+</section>
+
+<!-- CONTENT RULES -->
+<section class="section" id="sec-content">
+  <div class="stamp" style="background:var(--a4);color:var(--paper)">content consent</div>
+  <h1>Photos, reels, and <em>safety</em>.</h1>
+  <div class="legal">
+    <h3>What you can post</h3>
+    <ul>
+      <li>Photos and videos <strong>from your own pass and check-ins</strong>.</li>
+      <li>Captions, hashtags, and reactions on your own posts.</li>
+      <li>Tags of people who have explicitly opted in via their own Confetti account.</li>
+    </ul>
+    <h3>What you can't post</h3>
+    <ul>
+      <li>Photos of <strong>under-13s</strong> without verified parental consent (we auto-blur if detected).</li>
+      <li>Photos of identifiable strangers without their consent. We auto-blur unrecognized faces in kids mode.</li>
+      <li>Hate speech, harassment, doxxing, sexually explicit content, violence, IP infringement.</li>
+      <li>Content that names or shames a specific venue staff member.</li>
+    </ul>
+    <h3>How we moderate</h3>
+    <ul>
+      <li><strong>Sightengine + Hive</strong> auto-scan every reel and check-in photo before publish.</li>
+      <li><strong>Sparkle AI</strong> reviews captions for hate/harassment/PII leaks.</li>
+      <li><strong>Human moderation queue</strong> reviews everything auto-flagged within 30 min during NYC business hours.</li>
+      <li><strong>Report any post</strong> via the ⋯ menu. We respond in &lt; 24h.</li>
+    </ul>
+    <h3>Auto-post safeguards</h3>
+    <p>Confetti <strong>never auto-posts</strong> to TikTok, Instagram, X, or anywhere else without your explicit review-and-approve. The auto-reel after a night is held for your review until you tap "post".</p>
+  </div>
+</section>
+
+<!-- COPYRIGHT -->
+<section class="section" id="sec-copyright">
+  <div class="stamp">copyright + DMCA</div>
+  <h1>IP &amp; takedowns.</h1>
+  <div class="legal">
+    <h3>Our marks</h3>
+    <p>"Confetti", "Sparkle", "All-Access", the ✣ pinwheel logo, the ticket motif, and the "plan a night, or a day, or whatever." tagline are trademarks of Confetti Inc. © 2026 Confetti Inc. All rights reserved.</p>
+    <h3>Your content</h3>
+    <p>You own everything you upload. We claim a non-exclusive, revocable license to display it within the product (your Passport page, your Reels, the public feed if you opted in).</p>
+    <h3>DMCA takedown</h3>
+    <ul>
+      <li>Send to <strong>dmca@confetti.app</strong> with: identification of the work, URL of infringing content, your contact info, and a good-faith statement.</li>
+      <li>We act on valid DMCA notices within 24h.</li>
+      <li>Counter-notices accepted at the same email.</li>
+      <li>Repeat infringers (3+ valid notices in 12 months) lose their account.</li>
+    </ul>
+    <h3>Third-party content (Yelp, TikTok, Ticketmaster)</h3>
+    <p>Pulled through their official APIs under their respective terms. We attribute and link back. We don't scrape; we don't republish; we cite. If you're a rights-holder and want something delisted, email <strong>delist@confetti.app</strong>.</p>
+  </div>
+</section>
+
+<!-- Share strip -->
+<div class="share" id="contact">
+  <h3>Ready to share this with Lovable?</h3>
+  <p style="font-size:14px;font-weight:600;opacity:0.85;line-height:1.4;margin:0 0 4px">Drop the live link in Lovable as your design spec — every page on this site is production-ready static HTML.</p>
+  <div class="share-row">
+    <button class="share-btn primary" onclick="navigator.clipboard?.writeText(window.location.href)">📋 copy live link</button>
+    <button class="share-btn" onclick="window.open('passport.html')">↗ open consumer page</button>
+    <button class="share-btn" onclick="window.open('forcorporate.html')">↗ B2B landing</button>
+  </div>
+  <div class="share-row">
+    <button class="share-btn" onclick="window.open('investors.html')">↗ investor 1-pager</button>
+    <button class="share-btn" onclick="window.open('corporate.html')">↗ corp demo</button>
+    <button class="share-btn" onclick="window.open('ops.html')">↗ ops portal</button>
+  </div>
+  <div style="margin-top:14px;font-family:var(--mono);font-size:10px;opacity:0.55;letter-spacing:.1em">SUPPORT · HELP@CONFETTI.APP · PRESS · PRESS@CONFETTI.APP · LEGAL · LEGAL@CONFETTI.APP</div>
+</div>
+
+</div>
+
+<!-- Cookie banner -->
+<div class="cookie" id="cookie">
+  <p>We use strictly necessary cookies + <strong>optional Plausible analytics</strong> (no Google, no Facebook). Read more in <a href="#" onclick="showTab('cookies');document.getElementById('cookie').style.display='none';return false" style="color:var(--a1);font-weight:800">cookies</a>.</p>
+  <div class="row">
+    <button class="reject" onclick="document.getElementById('cookie').style.display='none'">reject all</button>
+    <button class="accept" onclick="document.getElementById('cookie').style.display='none'">accept</button>
+  </div>
+</div>
+
+<script>
+  function showTab(sec) {
+    document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.sec === sec));
+    document.querySelectorAll('section.section').forEach(s => s.classList.toggle('on', s.id === 'sec-' + sec));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.getElementById('tabs').addEventListener('click', e => {
+    const b = e.target.closest('button[data-sec]');
+    if (b) showTab(b.dataset.sec);
+  });
+</script>
+</body>
+</html>

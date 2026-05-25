@@ -252,6 +252,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <ViewAsRedirector />
         <RouteAnalytics />
         <Suspense fallback={null}>
           <MapProvider>

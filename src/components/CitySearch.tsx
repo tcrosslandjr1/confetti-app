@@ -199,7 +199,7 @@ export function CitySearch() {
             </Button>
           </motion.div>
         ) : (
-          Object.entries(grouped).map(([group, cities]) =>
+          Object.entries(grouped).map(([group, cities]: [string, City[]]) =>
             cities.length === 0 ? null : (
               <div key={group} className="mt-10 first:mt-6">
                 <h2 className="mb-4 text-xl font-bold tracking-tight text-ink">

@@ -72,6 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [roleLoading, setRoleLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isBusiness, setIsBusiness] = useState(false);
+  const [isPromoter, setIsPromoter] = useState(false);
   const [viewAsState, setViewAsState] = useState<ViewAs | null>(null);
   const [viewAsLoaded, setViewAsLoaded] = useState(!isBrowser);
 

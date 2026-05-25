@@ -9,6 +9,7 @@ import {
   ChevronDown,
   Repeat,
   Briefcase,
+  Megaphone,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { logSecurityTrace } from "@/lib/security-trace";
@@ -18,7 +19,7 @@ type Option = {
   label: string;
   Icon: typeof Shield;
   blurb: string;
-  home: "/" | "/app/profile" | "/business/dashboard" | "/admin/console";
+  home: "/" | "/app/profile" | "/business/dashboard" | "/admin/console" | "/promoter";
   tone: string; // tailwind classes for active chip
 };
 
@@ -38,6 +39,14 @@ const OPTIONS: Option[] = [
     blurb: "Advertiser portal & venues",
     home: "/business/dashboard",
     tone: "bg-purple text-cream",
+  },
+  {
+    value: "promoter",
+    label: "Promoter",
+    Icon: Megaphone,
+    blurb: "Influencer jobs & payouts",
+    home: "/promoter",
+    tone: "bg-pink-500 text-cream",
   },
   {
     value: "customer",

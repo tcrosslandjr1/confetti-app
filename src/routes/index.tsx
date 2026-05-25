@@ -404,6 +404,7 @@ function Landing() {
               >
                 or peek at a sample plan ↓
               </a>
+              <CityPickerTrigger />
             </div>
           </div>
 

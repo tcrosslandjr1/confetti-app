@@ -84,7 +84,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
     const stored = sessionStorage.getItem(VIEW_KEY) as ViewAs | null;
-    if (stored && ["admin", "business", "customer", "visitor"].includes(stored)) {
+    if (stored && ["admin", "business", "promoter", "customer", "visitor"].includes(stored)) {
       setViewAsState(stored);
     }
     setViewAsLoaded(true);

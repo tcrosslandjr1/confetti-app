@@ -16,6 +16,8 @@ import { installErrorTracking, RouteAnalytics } from "@/lib/analytics";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { CustomerOnly } from "@/components/CustomerOnly";
 
+import { ViewAsRedirector } from "@/components/ViewAsRedirector";
+
 const RoleSwitcher = lazy(() =>
   import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),
 );
@@ -252,6 +254,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <ViewAsRedirector />
         <RouteAnalytics />
         <Suspense fallback={null}>
           <MapProvider>

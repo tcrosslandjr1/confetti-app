@@ -100,7 +100,8 @@ function PlanMyNightPage() {
         budget: budget ?? undefined,
       };
       const { id } = await createSkeletonItinerary(payload);
-      trackConversion("plan_saved", { plan: planLabel, itineraryId: id });
+      const city = getSelectedCity();
+      trackConversion("plan_saved", { plan: planLabel, itineraryId: id, city: city?.name ?? null, citySlug: city?.slug ?? null });
       toast.success("Trip saved — building your stops…");
       navigate({ to: "/trips/$id", params: { id } });
       populateItinerary(id, payload);

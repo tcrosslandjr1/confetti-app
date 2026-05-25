@@ -232,7 +232,13 @@ function CityLandingPage() {
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {venues.map((v) => (
-              <Link key={v.id} to="/venue/$id" params={{ id: v.id }} className="group">
+              <Link
+                key={v.id}
+                to="/venue/$id"
+                params={{ id: v.id }}
+                className="group"
+                onClick={() => trackEngagement("city_venue_tap", { city: city.name, citySlug: city.slug, venueId: v.id })}
+              >
                 <Card className="h-full overflow-hidden transition-all hover:-translate-y-0.5 hover:shadow-md">
                   <div className="aspect-[4/3] overflow-hidden bg-muted">
                     {v.hero_image_url || v.image_url ? (

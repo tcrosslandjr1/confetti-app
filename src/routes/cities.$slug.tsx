@@ -152,9 +152,10 @@ function CityLandingPage() {
                   Plan my night in {city.name.split(/[,\s]/)[0]}
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="min-w-48">
+              <Button asChild variant="outline" size="lg" className="min-w-48" onClick={handleExplore}>
                 <Link to="/app/explore">Explore venues</Link>
               </Button>
+
             </div>
           </motion.div>
         </div>

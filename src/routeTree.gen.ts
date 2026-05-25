@@ -9,10 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as HealthRouteImport } from './routes/health'
+import { Route as HangoutRouteImport } from './routes/hangout'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
@@ -30,6 +32,47 @@ import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as PCodeRouteImport } from './routes/p.$code'
+import { Route as NewWalletRouteImport } from './routes/new.wallet'
+import { Route as NewVenueRouteImport } from './routes/new.venue'
+import { Route as NewTripsRouteImport } from './routes/new.trips'
+import { Route as NewTasteRouteImport } from './routes/new.taste'
+import { Route as NewStripeRouteImport } from './routes/new.stripe'
+import { Route as NewSignupRouteImport } from './routes/new.signup'
+import { Route as NewSigninRouteImport } from './routes/new.signin'
+import { Route as NewSettingsRouteImport } from './routes/new.settings'
+import { Route as NewReferralRouteImport } from './routes/new.referral'
+import { Route as NewReelsRouteImport } from './routes/new.reels'
+import { Route as NewQrcheckinRouteImport } from './routes/new.qrcheckin'
+import { Route as NewProfileRouteImport } from './routes/new.profile'
+import { Route as NewPrintingRouteImport } from './routes/new.printing'
+import { Route as NewPlanRouteImport } from './routes/new.plan'
+import { Route as NewPhoneVerifyRouteImport } from './routes/new.phone-verify'
+import { Route as NewPaywallRouteImport } from './routes/new.paywall'
+import { Route as NewPassRouteImport } from './routes/new.pass'
+import { Route as NewParentalConsentRouteImport } from './routes/new.parental-consent'
+import { Route as NewNightTogetherRouteImport } from './routes/new.night-together'
+import { Route as NewNightRouteImport } from './routes/new.night'
+import { Route as NewLockedRouteImport } from './routes/new.locked'
+import { Route as NewHubRouteImport } from './routes/new.hub'
+import { Route as NewGatedRouteImport } from './routes/new.gated'
+import { Route as NewForgotPwRouteImport } from './routes/new.forgot-pw'
+import { Route as NewFinishedRouteImport } from './routes/new.finished'
+import { Route as NewFamilyPlanRouteImport } from './routes/new.family-plan'
+import { Route as NewFamilyPassRouteImport } from './routes/new.family-pass'
+import { Route as NewExploreRouteImport } from './routes/new.explore'
+import { Route as NewExplainerRouteImport } from './routes/new.explainer'
+import { Route as NewEventsRouteImport } from './routes/new.events'
+import { Route as NewEventDetailRouteImport } from './routes/new.event-detail'
+import { Route as NewEmailVerifyRouteImport } from './routes/new.email-verify'
+import { Route as NewCrewsRouteImport } from './routes/new.crews'
+import { Route as NewCrewMapRouteImport } from './routes/new.crew-map'
+import { Route as NewConfettiCamRouteImport } from './routes/new.confetti-cam'
+import { Route as NewCheckoutReturnRouteImport } from './routes/new.checkout-return'
+import { Route as NewChatRouteImport } from './routes/new.chat'
+import { Route as NewAllAccessRouteImport } from './routes/new.all-access'
+import { Route as NewAgeGateRouteImport } from './routes/new.age-gate'
+import { Route as New2faRouteImport } from './routes/new.2fa'
+import { Route as HangoutTokenRouteImport } from './routes/hangout.$token'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as BusinessSocialRouteImport } from './routes/business.social'
@@ -73,6 +116,11 @@ import { Route as ApiPublicPartnerV1OrdersIndexRouteImport } from './routes/api/
 import { Route as ApiPublicPartnerV1ReservationsIdRouteImport } from './routes/api/public/partner/v1/reservations/$id'
 import { Route as ApiPublicPartnerV1OrdersIdRouteImport } from './routes/api/public/partner/v1/orders/$id'
 
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -91,6 +139,11 @@ const InfluencerRoute = InfluencerRouteImport.update({
 const HealthRoute = HealthRouteImport.update({
   id: '/health',
   path: '/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HangoutRoute = HangoutRouteImport.update({
+  id: '/hangout',
+  path: '/hangout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ForBusinessRoute = ForBusinessRouteImport.update({
@@ -177,6 +230,211 @@ const PCodeRoute = PCodeRouteImport.update({
   id: '/p/$code',
   path: '/p/$code',
   getParentRoute: () => rootRouteImport,
+} as any)
+const NewWalletRoute = NewWalletRouteImport.update({
+  id: '/new/wallet',
+  path: '/new/wallet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewVenueRoute = NewVenueRouteImport.update({
+  id: '/new/venue',
+  path: '/new/venue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewTripsRoute = NewTripsRouteImport.update({
+  id: '/new/trips',
+  path: '/new/trips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewTasteRoute = NewTasteRouteImport.update({
+  id: '/new/taste',
+  path: '/new/taste',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewStripeRoute = NewStripeRouteImport.update({
+  id: '/new/stripe',
+  path: '/new/stripe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewSignupRoute = NewSignupRouteImport.update({
+  id: '/new/signup',
+  path: '/new/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewSigninRoute = NewSigninRouteImport.update({
+  id: '/new/signin',
+  path: '/new/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewSettingsRoute = NewSettingsRouteImport.update({
+  id: '/new/settings',
+  path: '/new/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewReferralRoute = NewReferralRouteImport.update({
+  id: '/new/referral',
+  path: '/new/referral',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewReelsRoute = NewReelsRouteImport.update({
+  id: '/new/reels',
+  path: '/new/reels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewQrcheckinRoute = NewQrcheckinRouteImport.update({
+  id: '/new/qrcheckin',
+  path: '/new/qrcheckin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewProfileRoute = NewProfileRouteImport.update({
+  id: '/new/profile',
+  path: '/new/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewPrintingRoute = NewPrintingRouteImport.update({
+  id: '/new/printing',
+  path: '/new/printing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewPlanRoute = NewPlanRouteImport.update({
+  id: '/new/plan',
+  path: '/new/plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewPhoneVerifyRoute = NewPhoneVerifyRouteImport.update({
+  id: '/new/phone-verify',
+  path: '/new/phone-verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewPaywallRoute = NewPaywallRouteImport.update({
+  id: '/new/paywall',
+  path: '/new/paywall',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewPassRoute = NewPassRouteImport.update({
+  id: '/new/pass',
+  path: '/new/pass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewParentalConsentRoute = NewParentalConsentRouteImport.update({
+  id: '/new/parental-consent',
+  path: '/new/parental-consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewNightTogetherRoute = NewNightTogetherRouteImport.update({
+  id: '/new/night-together',
+  path: '/new/night-together',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewNightRoute = NewNightRouteImport.update({
+  id: '/new/night',
+  path: '/new/night',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewLockedRoute = NewLockedRouteImport.update({
+  id: '/new/locked',
+  path: '/new/locked',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewHubRoute = NewHubRouteImport.update({
+  id: '/new/hub',
+  path: '/new/hub',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewGatedRoute = NewGatedRouteImport.update({
+  id: '/new/gated',
+  path: '/new/gated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewForgotPwRoute = NewForgotPwRouteImport.update({
+  id: '/new/forgot-pw',
+  path: '/new/forgot-pw',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewFinishedRoute = NewFinishedRouteImport.update({
+  id: '/new/finished',
+  path: '/new/finished',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewFamilyPlanRoute = NewFamilyPlanRouteImport.update({
+  id: '/new/family-plan',
+  path: '/new/family-plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewFamilyPassRoute = NewFamilyPassRouteImport.update({
+  id: '/new/family-pass',
+  path: '/new/family-pass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewExploreRoute = NewExploreRouteImport.update({
+  id: '/new/explore',
+  path: '/new/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewExplainerRoute = NewExplainerRouteImport.update({
+  id: '/new/explainer',
+  path: '/new/explainer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewEventsRoute = NewEventsRouteImport.update({
+  id: '/new/events',
+  path: '/new/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewEventDetailRoute = NewEventDetailRouteImport.update({
+  id: '/new/event-detail',
+  path: '/new/event-detail',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewEmailVerifyRoute = NewEmailVerifyRouteImport.update({
+  id: '/new/email-verify',
+  path: '/new/email-verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewCrewsRoute = NewCrewsRouteImport.update({
+  id: '/new/crews',
+  path: '/new/crews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewCrewMapRoute = NewCrewMapRouteImport.update({
+  id: '/new/crew-map',
+  path: '/new/crew-map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewConfettiCamRoute = NewConfettiCamRouteImport.update({
+  id: '/new/confetti-cam',
+  path: '/new/confetti-cam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewCheckoutReturnRoute = NewCheckoutReturnRouteImport.update({
+  id: '/new/checkout-return',
+  path: '/new/checkout-return',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewChatRoute = NewChatRouteImport.update({
+  id: '/new/chat',
+  path: '/new/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewAllAccessRoute = NewAllAccessRouteImport.update({
+  id: '/new/all-access',
+  path: '/new/all-access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewAgeGateRoute = NewAgeGateRouteImport.update({
+  id: '/new/age-gate',
+  path: '/new/age-gate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const New2faRoute = New2faRouteImport.update({
+  id: '/new/2fa',
+  path: '/new/2fa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HangoutTokenRoute = HangoutTokenRouteImport.update({
+  id: '/$token',
+  path: '/$token',
+  getParentRoute: () => HangoutRoute,
 } as any)
 const EventsEventIdRoute = EventsEventIdRouteImport.update({
   id: '/events/$eventId',
@@ -415,10 +673,12 @@ export interface FileRoutesByFullPath {
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
   '/for-business': typeof ForBusinessRoute
+  '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/welcome': typeof WelcomeRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
@@ -440,6 +700,47 @@ export interface FileRoutesByFullPath {
   '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/hangout/$token': typeof HangoutTokenRoute
+  '/new/2fa': typeof New2faRoute
+  '/new/age-gate': typeof NewAgeGateRoute
+  '/new/all-access': typeof NewAllAccessRoute
+  '/new/chat': typeof NewChatRoute
+  '/new/checkout-return': typeof NewCheckoutReturnRoute
+  '/new/confetti-cam': typeof NewConfettiCamRoute
+  '/new/crew-map': typeof NewCrewMapRoute
+  '/new/crews': typeof NewCrewsRoute
+  '/new/email-verify': typeof NewEmailVerifyRoute
+  '/new/event-detail': typeof NewEventDetailRoute
+  '/new/events': typeof NewEventsRoute
+  '/new/explainer': typeof NewExplainerRoute
+  '/new/explore': typeof NewExploreRoute
+  '/new/family-pass': typeof NewFamilyPassRoute
+  '/new/family-plan': typeof NewFamilyPlanRoute
+  '/new/finished': typeof NewFinishedRoute
+  '/new/forgot-pw': typeof NewForgotPwRoute
+  '/new/gated': typeof NewGatedRoute
+  '/new/hub': typeof NewHubRoute
+  '/new/locked': typeof NewLockedRoute
+  '/new/night': typeof NewNightRoute
+  '/new/night-together': typeof NewNightTogetherRoute
+  '/new/parental-consent': typeof NewParentalConsentRoute
+  '/new/pass': typeof NewPassRoute
+  '/new/paywall': typeof NewPaywallRoute
+  '/new/phone-verify': typeof NewPhoneVerifyRoute
+  '/new/plan': typeof NewPlanRoute
+  '/new/printing': typeof NewPrintingRoute
+  '/new/profile': typeof NewProfileRoute
+  '/new/qrcheckin': typeof NewQrcheckinRoute
+  '/new/reels': typeof NewReelsRoute
+  '/new/referral': typeof NewReferralRoute
+  '/new/settings': typeof NewSettingsRoute
+  '/new/signin': typeof NewSigninRoute
+  '/new/signup': typeof NewSignupRoute
+  '/new/stripe': typeof NewStripeRoute
+  '/new/taste': typeof NewTasteRoute
+  '/new/trips': typeof NewTripsRoute
+  '/new/venue': typeof NewVenueRoute
+  '/new/wallet': typeof NewWalletRoute
   '/p/$code': typeof PCodeRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -479,10 +780,12 @@ export interface FileRoutesByTo {
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
   '/for-business': typeof ForBusinessRoute
+  '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/welcome': typeof WelcomeRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
@@ -504,6 +807,47 @@ export interface FileRoutesByTo {
   '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/hangout/$token': typeof HangoutTokenRoute
+  '/new/2fa': typeof New2faRoute
+  '/new/age-gate': typeof NewAgeGateRoute
+  '/new/all-access': typeof NewAllAccessRoute
+  '/new/chat': typeof NewChatRoute
+  '/new/checkout-return': typeof NewCheckoutReturnRoute
+  '/new/confetti-cam': typeof NewConfettiCamRoute
+  '/new/crew-map': typeof NewCrewMapRoute
+  '/new/crews': typeof NewCrewsRoute
+  '/new/email-verify': typeof NewEmailVerifyRoute
+  '/new/event-detail': typeof NewEventDetailRoute
+  '/new/events': typeof NewEventsRoute
+  '/new/explainer': typeof NewExplainerRoute
+  '/new/explore': typeof NewExploreRoute
+  '/new/family-pass': typeof NewFamilyPassRoute
+  '/new/family-plan': typeof NewFamilyPlanRoute
+  '/new/finished': typeof NewFinishedRoute
+  '/new/forgot-pw': typeof NewForgotPwRoute
+  '/new/gated': typeof NewGatedRoute
+  '/new/hub': typeof NewHubRoute
+  '/new/locked': typeof NewLockedRoute
+  '/new/night': typeof NewNightRoute
+  '/new/night-together': typeof NewNightTogetherRoute
+  '/new/parental-consent': typeof NewParentalConsentRoute
+  '/new/pass': typeof NewPassRoute
+  '/new/paywall': typeof NewPaywallRoute
+  '/new/phone-verify': typeof NewPhoneVerifyRoute
+  '/new/plan': typeof NewPlanRoute
+  '/new/printing': typeof NewPrintingRoute
+  '/new/profile': typeof NewProfileRoute
+  '/new/qrcheckin': typeof NewQrcheckinRoute
+  '/new/reels': typeof NewReelsRoute
+  '/new/referral': typeof NewReferralRoute
+  '/new/settings': typeof NewSettingsRoute
+  '/new/signin': typeof NewSigninRoute
+  '/new/signup': typeof NewSignupRoute
+  '/new/stripe': typeof NewStripeRoute
+  '/new/taste': typeof NewTasteRoute
+  '/new/trips': typeof NewTripsRoute
+  '/new/venue': typeof NewVenueRoute
+  '/new/wallet': typeof NewWalletRoute
   '/p/$code': typeof PCodeRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -545,10 +889,12 @@ export interface FileRoutesById {
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
   '/for-business': typeof ForBusinessRoute
+  '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
   '/influencer': typeof InfluencerRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/welcome': typeof WelcomeRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
@@ -570,6 +916,47 @@ export interface FileRoutesById {
   '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/hangout/$token': typeof HangoutTokenRoute
+  '/new/2fa': typeof New2faRoute
+  '/new/age-gate': typeof NewAgeGateRoute
+  '/new/all-access': typeof NewAllAccessRoute
+  '/new/chat': typeof NewChatRoute
+  '/new/checkout-return': typeof NewCheckoutReturnRoute
+  '/new/confetti-cam': typeof NewConfettiCamRoute
+  '/new/crew-map': typeof NewCrewMapRoute
+  '/new/crews': typeof NewCrewsRoute
+  '/new/email-verify': typeof NewEmailVerifyRoute
+  '/new/event-detail': typeof NewEventDetailRoute
+  '/new/events': typeof NewEventsRoute
+  '/new/explainer': typeof NewExplainerRoute
+  '/new/explore': typeof NewExploreRoute
+  '/new/family-pass': typeof NewFamilyPassRoute
+  '/new/family-plan': typeof NewFamilyPlanRoute
+  '/new/finished': typeof NewFinishedRoute
+  '/new/forgot-pw': typeof NewForgotPwRoute
+  '/new/gated': typeof NewGatedRoute
+  '/new/hub': typeof NewHubRoute
+  '/new/locked': typeof NewLockedRoute
+  '/new/night': typeof NewNightRoute
+  '/new/night-together': typeof NewNightTogetherRoute
+  '/new/parental-consent': typeof NewParentalConsentRoute
+  '/new/pass': typeof NewPassRoute
+  '/new/paywall': typeof NewPaywallRoute
+  '/new/phone-verify': typeof NewPhoneVerifyRoute
+  '/new/plan': typeof NewPlanRoute
+  '/new/printing': typeof NewPrintingRoute
+  '/new/profile': typeof NewProfileRoute
+  '/new/qrcheckin': typeof NewQrcheckinRoute
+  '/new/reels': typeof NewReelsRoute
+  '/new/referral': typeof NewReferralRoute
+  '/new/settings': typeof NewSettingsRoute
+  '/new/signin': typeof NewSigninRoute
+  '/new/signup': typeof NewSignupRoute
+  '/new/stripe': typeof NewStripeRoute
+  '/new/taste': typeof NewTasteRoute
+  '/new/trips': typeof NewTripsRoute
+  '/new/venue': typeof NewVenueRoute
+  '/new/wallet': typeof NewWalletRoute
   '/p/$code': typeof PCodeRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -612,10 +999,12 @@ export interface FileRouteTypes {
     | '/chat'
     | '/check-in'
     | '/for-business'
+    | '/hangout'
     | '/health'
     | '/influencer'
     | '/privacy'
     | '/sitemap.xml'
+    | '/welcome'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
@@ -637,6 +1026,47 @@ export interface FileRouteTypes {
     | '/business/social'
     | '/checkout/return'
     | '/events/$eventId'
+    | '/hangout/$token'
+    | '/new/2fa'
+    | '/new/age-gate'
+    | '/new/all-access'
+    | '/new/chat'
+    | '/new/checkout-return'
+    | '/new/confetti-cam'
+    | '/new/crew-map'
+    | '/new/crews'
+    | '/new/email-verify'
+    | '/new/event-detail'
+    | '/new/events'
+    | '/new/explainer'
+    | '/new/explore'
+    | '/new/family-pass'
+    | '/new/family-plan'
+    | '/new/finished'
+    | '/new/forgot-pw'
+    | '/new/gated'
+    | '/new/hub'
+    | '/new/locked'
+    | '/new/night'
+    | '/new/night-together'
+    | '/new/parental-consent'
+    | '/new/pass'
+    | '/new/paywall'
+    | '/new/phone-verify'
+    | '/new/plan'
+    | '/new/printing'
+    | '/new/profile'
+    | '/new/qrcheckin'
+    | '/new/reels'
+    | '/new/referral'
+    | '/new/settings'
+    | '/new/signin'
+    | '/new/signup'
+    | '/new/stripe'
+    | '/new/taste'
+    | '/new/trips'
+    | '/new/venue'
+    | '/new/wallet'
     | '/p/$code'
     | '/trips/$id'
     | '/venue/$id'
@@ -676,10 +1106,12 @@ export interface FileRouteTypes {
     | '/chat'
     | '/check-in'
     | '/for-business'
+    | '/hangout'
     | '/health'
     | '/influencer'
     | '/privacy'
     | '/sitemap.xml'
+    | '/welcome'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
@@ -701,6 +1133,47 @@ export interface FileRouteTypes {
     | '/business/social'
     | '/checkout/return'
     | '/events/$eventId'
+    | '/hangout/$token'
+    | '/new/2fa'
+    | '/new/age-gate'
+    | '/new/all-access'
+    | '/new/chat'
+    | '/new/checkout-return'
+    | '/new/confetti-cam'
+    | '/new/crew-map'
+    | '/new/crews'
+    | '/new/email-verify'
+    | '/new/event-detail'
+    | '/new/events'
+    | '/new/explainer'
+    | '/new/explore'
+    | '/new/family-pass'
+    | '/new/family-plan'
+    | '/new/finished'
+    | '/new/forgot-pw'
+    | '/new/gated'
+    | '/new/hub'
+    | '/new/locked'
+    | '/new/night'
+    | '/new/night-together'
+    | '/new/parental-consent'
+    | '/new/pass'
+    | '/new/paywall'
+    | '/new/phone-verify'
+    | '/new/plan'
+    | '/new/printing'
+    | '/new/profile'
+    | '/new/qrcheckin'
+    | '/new/reels'
+    | '/new/referral'
+    | '/new/settings'
+    | '/new/signin'
+    | '/new/signup'
+    | '/new/stripe'
+    | '/new/taste'
+    | '/new/trips'
+    | '/new/venue'
+    | '/new/wallet'
     | '/p/$code'
     | '/trips/$id'
     | '/venue/$id'
@@ -741,10 +1214,12 @@ export interface FileRouteTypes {
     | '/chat'
     | '/check-in'
     | '/for-business'
+    | '/hangout'
     | '/health'
     | '/influencer'
     | '/privacy'
     | '/sitemap.xml'
+    | '/welcome'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
@@ -766,6 +1241,47 @@ export interface FileRouteTypes {
     | '/business/social'
     | '/checkout/return'
     | '/events/$eventId'
+    | '/hangout/$token'
+    | '/new/2fa'
+    | '/new/age-gate'
+    | '/new/all-access'
+    | '/new/chat'
+    | '/new/checkout-return'
+    | '/new/confetti-cam'
+    | '/new/crew-map'
+    | '/new/crews'
+    | '/new/email-verify'
+    | '/new/event-detail'
+    | '/new/events'
+    | '/new/explainer'
+    | '/new/explore'
+    | '/new/family-pass'
+    | '/new/family-plan'
+    | '/new/finished'
+    | '/new/forgot-pw'
+    | '/new/gated'
+    | '/new/hub'
+    | '/new/locked'
+    | '/new/night'
+    | '/new/night-together'
+    | '/new/parental-consent'
+    | '/new/pass'
+    | '/new/paywall'
+    | '/new/phone-verify'
+    | '/new/plan'
+    | '/new/printing'
+    | '/new/profile'
+    | '/new/qrcheckin'
+    | '/new/reels'
+    | '/new/referral'
+    | '/new/settings'
+    | '/new/signin'
+    | '/new/signup'
+    | '/new/stripe'
+    | '/new/taste'
+    | '/new/trips'
+    | '/new/venue'
+    | '/new/wallet'
     | '/p/$code'
     | '/trips/$id'
     | '/venue/$id'
@@ -807,10 +1323,12 @@ export interface RootRouteChildren {
   ChatRoute: typeof ChatRoute
   CheckInRoute: typeof CheckInRoute
   ForBusinessRoute: typeof ForBusinessRoute
+  HangoutRoute: typeof HangoutRouteWithChildren
   HealthRoute: typeof HealthRoute
   InfluencerRoute: typeof InfluencerRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WelcomeRoute: typeof WelcomeRoute
   AdminConsoleRoute: typeof AdminConsoleRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminPartnersRoute: typeof AdminPartnersRoute
@@ -828,6 +1346,46 @@ export interface RootRouteChildren {
   BusinessSocialRoute: typeof BusinessSocialRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
+  New2faRoute: typeof New2faRoute
+  NewAgeGateRoute: typeof NewAgeGateRoute
+  NewAllAccessRoute: typeof NewAllAccessRoute
+  NewChatRoute: typeof NewChatRoute
+  NewCheckoutReturnRoute: typeof NewCheckoutReturnRoute
+  NewConfettiCamRoute: typeof NewConfettiCamRoute
+  NewCrewMapRoute: typeof NewCrewMapRoute
+  NewCrewsRoute: typeof NewCrewsRoute
+  NewEmailVerifyRoute: typeof NewEmailVerifyRoute
+  NewEventDetailRoute: typeof NewEventDetailRoute
+  NewEventsRoute: typeof NewEventsRoute
+  NewExplainerRoute: typeof NewExplainerRoute
+  NewExploreRoute: typeof NewExploreRoute
+  NewFamilyPassRoute: typeof NewFamilyPassRoute
+  NewFamilyPlanRoute: typeof NewFamilyPlanRoute
+  NewFinishedRoute: typeof NewFinishedRoute
+  NewForgotPwRoute: typeof NewForgotPwRoute
+  NewGatedRoute: typeof NewGatedRoute
+  NewHubRoute: typeof NewHubRoute
+  NewLockedRoute: typeof NewLockedRoute
+  NewNightRoute: typeof NewNightRoute
+  NewNightTogetherRoute: typeof NewNightTogetherRoute
+  NewParentalConsentRoute: typeof NewParentalConsentRoute
+  NewPassRoute: typeof NewPassRoute
+  NewPaywallRoute: typeof NewPaywallRoute
+  NewPhoneVerifyRoute: typeof NewPhoneVerifyRoute
+  NewPlanRoute: typeof NewPlanRoute
+  NewPrintingRoute: typeof NewPrintingRoute
+  NewProfileRoute: typeof NewProfileRoute
+  NewQrcheckinRoute: typeof NewQrcheckinRoute
+  NewReelsRoute: typeof NewReelsRoute
+  NewReferralRoute: typeof NewReferralRoute
+  NewSettingsRoute: typeof NewSettingsRoute
+  NewSigninRoute: typeof NewSigninRoute
+  NewSignupRoute: typeof NewSignupRoute
+  NewStripeRoute: typeof NewStripeRoute
+  NewTasteRoute: typeof NewTasteRoute
+  NewTripsRoute: typeof NewTripsRoute
+  NewVenueRoute: typeof NewVenueRoute
+  NewWalletRoute: typeof NewWalletRoute
   PCodeRoute: typeof PCodeRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
@@ -858,6 +1416,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -884,6 +1449,13 @@ declare module '@tanstack/react-router' {
       path: '/health'
       fullPath: '/health'
       preLoaderRoute: typeof HealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hangout': {
+      id: '/hangout'
+      path: '/hangout'
+      fullPath: '/hangout'
+      preLoaderRoute: typeof HangoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/for-business': {
@@ -1004,6 +1576,293 @@ declare module '@tanstack/react-router' {
       fullPath: '/p/$code'
       preLoaderRoute: typeof PCodeRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/new/wallet': {
+      id: '/new/wallet'
+      path: '/new/wallet'
+      fullPath: '/new/wallet'
+      preLoaderRoute: typeof NewWalletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/venue': {
+      id: '/new/venue'
+      path: '/new/venue'
+      fullPath: '/new/venue'
+      preLoaderRoute: typeof NewVenueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/trips': {
+      id: '/new/trips'
+      path: '/new/trips'
+      fullPath: '/new/trips'
+      preLoaderRoute: typeof NewTripsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/taste': {
+      id: '/new/taste'
+      path: '/new/taste'
+      fullPath: '/new/taste'
+      preLoaderRoute: typeof NewTasteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/stripe': {
+      id: '/new/stripe'
+      path: '/new/stripe'
+      fullPath: '/new/stripe'
+      preLoaderRoute: typeof NewStripeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/signup': {
+      id: '/new/signup'
+      path: '/new/signup'
+      fullPath: '/new/signup'
+      preLoaderRoute: typeof NewSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/signin': {
+      id: '/new/signin'
+      path: '/new/signin'
+      fullPath: '/new/signin'
+      preLoaderRoute: typeof NewSigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/settings': {
+      id: '/new/settings'
+      path: '/new/settings'
+      fullPath: '/new/settings'
+      preLoaderRoute: typeof NewSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/referral': {
+      id: '/new/referral'
+      path: '/new/referral'
+      fullPath: '/new/referral'
+      preLoaderRoute: typeof NewReferralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/reels': {
+      id: '/new/reels'
+      path: '/new/reels'
+      fullPath: '/new/reels'
+      preLoaderRoute: typeof NewReelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/qrcheckin': {
+      id: '/new/qrcheckin'
+      path: '/new/qrcheckin'
+      fullPath: '/new/qrcheckin'
+      preLoaderRoute: typeof NewQrcheckinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/profile': {
+      id: '/new/profile'
+      path: '/new/profile'
+      fullPath: '/new/profile'
+      preLoaderRoute: typeof NewProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/printing': {
+      id: '/new/printing'
+      path: '/new/printing'
+      fullPath: '/new/printing'
+      preLoaderRoute: typeof NewPrintingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/plan': {
+      id: '/new/plan'
+      path: '/new/plan'
+      fullPath: '/new/plan'
+      preLoaderRoute: typeof NewPlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/phone-verify': {
+      id: '/new/phone-verify'
+      path: '/new/phone-verify'
+      fullPath: '/new/phone-verify'
+      preLoaderRoute: typeof NewPhoneVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/paywall': {
+      id: '/new/paywall'
+      path: '/new/paywall'
+      fullPath: '/new/paywall'
+      preLoaderRoute: typeof NewPaywallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/pass': {
+      id: '/new/pass'
+      path: '/new/pass'
+      fullPath: '/new/pass'
+      preLoaderRoute: typeof NewPassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/parental-consent': {
+      id: '/new/parental-consent'
+      path: '/new/parental-consent'
+      fullPath: '/new/parental-consent'
+      preLoaderRoute: typeof NewParentalConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/night-together': {
+      id: '/new/night-together'
+      path: '/new/night-together'
+      fullPath: '/new/night-together'
+      preLoaderRoute: typeof NewNightTogetherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/night': {
+      id: '/new/night'
+      path: '/new/night'
+      fullPath: '/new/night'
+      preLoaderRoute: typeof NewNightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/locked': {
+      id: '/new/locked'
+      path: '/new/locked'
+      fullPath: '/new/locked'
+      preLoaderRoute: typeof NewLockedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/hub': {
+      id: '/new/hub'
+      path: '/new/hub'
+      fullPath: '/new/hub'
+      preLoaderRoute: typeof NewHubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/gated': {
+      id: '/new/gated'
+      path: '/new/gated'
+      fullPath: '/new/gated'
+      preLoaderRoute: typeof NewGatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/forgot-pw': {
+      id: '/new/forgot-pw'
+      path: '/new/forgot-pw'
+      fullPath: '/new/forgot-pw'
+      preLoaderRoute: typeof NewForgotPwRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/finished': {
+      id: '/new/finished'
+      path: '/new/finished'
+      fullPath: '/new/finished'
+      preLoaderRoute: typeof NewFinishedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/family-plan': {
+      id: '/new/family-plan'
+      path: '/new/family-plan'
+      fullPath: '/new/family-plan'
+      preLoaderRoute: typeof NewFamilyPlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/family-pass': {
+      id: '/new/family-pass'
+      path: '/new/family-pass'
+      fullPath: '/new/family-pass'
+      preLoaderRoute: typeof NewFamilyPassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/explore': {
+      id: '/new/explore'
+      path: '/new/explore'
+      fullPath: '/new/explore'
+      preLoaderRoute: typeof NewExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/explainer': {
+      id: '/new/explainer'
+      path: '/new/explainer'
+      fullPath: '/new/explainer'
+      preLoaderRoute: typeof NewExplainerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/events': {
+      id: '/new/events'
+      path: '/new/events'
+      fullPath: '/new/events'
+      preLoaderRoute: typeof NewEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/event-detail': {
+      id: '/new/event-detail'
+      path: '/new/event-detail'
+      fullPath: '/new/event-detail'
+      preLoaderRoute: typeof NewEventDetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/email-verify': {
+      id: '/new/email-verify'
+      path: '/new/email-verify'
+      fullPath: '/new/email-verify'
+      preLoaderRoute: typeof NewEmailVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/crews': {
+      id: '/new/crews'
+      path: '/new/crews'
+      fullPath: '/new/crews'
+      preLoaderRoute: typeof NewCrewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/crew-map': {
+      id: '/new/crew-map'
+      path: '/new/crew-map'
+      fullPath: '/new/crew-map'
+      preLoaderRoute: typeof NewCrewMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/confetti-cam': {
+      id: '/new/confetti-cam'
+      path: '/new/confetti-cam'
+      fullPath: '/new/confetti-cam'
+      preLoaderRoute: typeof NewConfettiCamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/checkout-return': {
+      id: '/new/checkout-return'
+      path: '/new/checkout-return'
+      fullPath: '/new/checkout-return'
+      preLoaderRoute: typeof NewCheckoutReturnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/chat': {
+      id: '/new/chat'
+      path: '/new/chat'
+      fullPath: '/new/chat'
+      preLoaderRoute: typeof NewChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/all-access': {
+      id: '/new/all-access'
+      path: '/new/all-access'
+      fullPath: '/new/all-access'
+      preLoaderRoute: typeof NewAllAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/age-gate': {
+      id: '/new/age-gate'
+      path: '/new/age-gate'
+      fullPath: '/new/age-gate'
+      preLoaderRoute: typeof NewAgeGateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/2fa': {
+      id: '/new/2fa'
+      path: '/new/2fa'
+      fullPath: '/new/2fa'
+      preLoaderRoute: typeof New2faRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hangout/$token': {
+      id: '/hangout/$token'
+      path: '/$token'
+      fullPath: '/hangout/$token'
+      preLoaderRoute: typeof HangoutTokenRouteImport
+      parentRoute: typeof HangoutRoute
     }
     '/events/$eventId': {
       id: '/events/$eventId'
@@ -1320,6 +2179,17 @@ const AppRouteChildren: AppRouteChildren = {
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
+interface HangoutRouteChildren {
+  HangoutTokenRoute: typeof HangoutTokenRoute
+}
+
+const HangoutRouteChildren: HangoutRouteChildren = {
+  HangoutTokenRoute: HangoutTokenRoute,
+}
+
+const HangoutRouteWithChildren =
+  HangoutRoute._addFileChildren(HangoutRouteChildren)
+
 interface TripsIdRouteChildren {
   TripsIdPassportRoute: typeof TripsIdPassportRoute
 }
@@ -1342,10 +2212,12 @@ const rootRouteChildren: RootRouteChildren = {
   ChatRoute: ChatRoute,
   CheckInRoute: CheckInRoute,
   ForBusinessRoute: ForBusinessRoute,
+  HangoutRoute: HangoutRouteWithChildren,
   HealthRoute: HealthRoute,
   InfluencerRoute: InfluencerRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WelcomeRoute: WelcomeRoute,
   AdminConsoleRoute: AdminConsoleRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminPartnersRoute: AdminPartnersRoute,
@@ -1363,6 +2235,46 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessSocialRoute: BusinessSocialRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   EventsEventIdRoute: EventsEventIdRoute,
+  New2faRoute: New2faRoute,
+  NewAgeGateRoute: NewAgeGateRoute,
+  NewAllAccessRoute: NewAllAccessRoute,
+  NewChatRoute: NewChatRoute,
+  NewCheckoutReturnRoute: NewCheckoutReturnRoute,
+  NewConfettiCamRoute: NewConfettiCamRoute,
+  NewCrewMapRoute: NewCrewMapRoute,
+  NewCrewsRoute: NewCrewsRoute,
+  NewEmailVerifyRoute: NewEmailVerifyRoute,
+  NewEventDetailRoute: NewEventDetailRoute,
+  NewEventsRoute: NewEventsRoute,
+  NewExplainerRoute: NewExplainerRoute,
+  NewExploreRoute: NewExploreRoute,
+  NewFamilyPassRoute: NewFamilyPassRoute,
+  NewFamilyPlanRoute: NewFamilyPlanRoute,
+  NewFinishedRoute: NewFinishedRoute,
+  NewForgotPwRoute: NewForgotPwRoute,
+  NewGatedRoute: NewGatedRoute,
+  NewHubRoute: NewHubRoute,
+  NewLockedRoute: NewLockedRoute,
+  NewNightRoute: NewNightRoute,
+  NewNightTogetherRoute: NewNightTogetherRoute,
+  NewParentalConsentRoute: NewParentalConsentRoute,
+  NewPassRoute: NewPassRoute,
+  NewPaywallRoute: NewPaywallRoute,
+  NewPhoneVerifyRoute: NewPhoneVerifyRoute,
+  NewPlanRoute: NewPlanRoute,
+  NewPrintingRoute: NewPrintingRoute,
+  NewProfileRoute: NewProfileRoute,
+  NewQrcheckinRoute: NewQrcheckinRoute,
+  NewReelsRoute: NewReelsRoute,
+  NewReferralRoute: NewReferralRoute,
+  NewSettingsRoute: NewSettingsRoute,
+  NewSigninRoute: NewSigninRoute,
+  NewSignupRoute: NewSignupRoute,
+  NewStripeRoute: NewStripeRoute,
+  NewTasteRoute: NewTasteRoute,
+  NewTripsRoute: NewTripsRoute,
+  NewVenueRoute: NewVenueRoute,
+  NewWalletRoute: NewWalletRoute,
   PCodeRoute: PCodeRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,

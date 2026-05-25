@@ -54,6 +54,7 @@ function PlanMyNightPage() {
       setBudget("$$");
       setWhen("Tonight");
       setStep(4); // skip wizard, jump to results
+      const city = getSelectedCity();
       trackConversion("plan_completed", {
         occasion: "Solo",
         vibe: "Chill",
@@ -61,6 +62,8 @@ function PlanMyNightPage() {
         groupSize,
         when: "Tonight",
         surpriseMode: true,
+        city: city?.name ?? null,
+        citySlug: city?.slug ?? null,
       });
     }
   }, [mode]);

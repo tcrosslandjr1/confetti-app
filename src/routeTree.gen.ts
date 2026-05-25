@@ -57,6 +57,7 @@ import { Route as AdminTrendRadarRouteImport } from './routes/admin.trend-radar'
 import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminConsoleRouteImport } from './routes/admin.console'
+import { Route as AdminCityAnalyticsRouteImport } from './routes/admin.city-analytics'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiMapsSatelliteRouteImport } from './routes/api/maps/satellite'
@@ -319,6 +320,11 @@ const AdminConsoleRoute = AdminConsoleRouteImport.update({
   path: '/admin/console',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminCityAnalyticsRoute = AdminCityAnalyticsRouteImport.update({
+  id: '/admin/city-analytics',
+  path: '/admin/city-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TripsIdPassportRoute = TripsIdPassportRouteImport.update({
   id: '/passport',
   path: '/passport',
@@ -456,6 +462,7 @@ export interface FileRoutesByFullPath {
   '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
@@ -526,6 +533,7 @@ export interface FileRoutesByTo {
   '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
@@ -598,6 +606,7 @@ export interface FileRoutesById {
   '/legal': typeof LegalRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/partners': typeof AdminPartnersRoute
@@ -671,6 +680,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/privacy'
     | '/sitemap.xml'
+    | '/admin/city-analytics'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
@@ -741,6 +751,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/privacy'
     | '/sitemap.xml'
+    | '/admin/city-analytics'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
@@ -812,6 +823,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/privacy'
     | '/sitemap.xml'
+    | '/admin/city-analytics'
     | '/admin/console'
     | '/admin/login'
     | '/admin/partners'
@@ -884,6 +896,7 @@ export interface RootRouteChildren {
   LegalRoute: typeof LegalRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminCityAnalyticsRoute: typeof AdminCityAnalyticsRoute
   AdminConsoleRoute: typeof AdminConsoleRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminPartnersRoute: typeof AdminPartnersRoute
@@ -1272,6 +1285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminConsoleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/city-analytics': {
+      id: '/admin/city-analytics'
+      path: '/admin/city-analytics'
+      fullPath: '/admin/city-analytics'
+      preLoaderRoute: typeof AdminCityAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/trips/$id/passport': {
       id: '/trips/$id/passport'
       path: '/passport'
@@ -1467,6 +1487,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRoute: LegalRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminCityAnalyticsRoute: AdminCityAnalyticsRoute,
   AdminConsoleRoute: AdminConsoleRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminPartnersRoute: AdminPartnersRoute,

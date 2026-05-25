@@ -13,6 +13,7 @@ import {
   trackConversion,
 } from "@/lib/analytics";
 import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
+import { getSelectedCity } from "@/lib/cities";
 import {
   createSkeletonItinerary,
   populateItinerary,
@@ -53,6 +54,7 @@ function PlanMyNightPage() {
       setBudget("$$");
       setWhen("Tonight");
       setStep(4); // skip wizard, jump to results
+      const city = getSelectedCity();
       trackConversion("plan_completed", {
         occasion: "Solo",
         vibe: "Chill",
@@ -60,6 +62,8 @@ function PlanMyNightPage() {
         groupSize,
         when: "Tonight",
         surpriseMode: true,
+        city: city?.name ?? null,
+        citySlug: city?.slug ?? null,
       });
     }
   }, [mode]);
@@ -80,7 +84,8 @@ function PlanMyNightPage() {
     loop.to = `${vibe ?? "Epic"} ${occasion ?? "Night"}`;
     loop.gate = planLabel;
     setActiveLoop(loop);
-    trackConversion("plan_booked", { plan: planLabel, occasion, vibe, budget, groupSize, when });
+    const city = getSelectedCity();
+    trackConversion("plan_booked", { plan: planLabel, occasion, vibe, budget, groupSize, when, city: city?.name ?? null, citySlug: city?.slug ?? null });
     toast.success("Boarding pass ready — let's go!");
     navigate({ to: "/boarding-pass" });
   }
@@ -95,7 +100,8 @@ function PlanMyNightPage() {
         budget: budget ?? undefined,
       };
       const { id } = await createSkeletonItinerary(payload);
-      trackConversion("plan_saved", { plan: planLabel, itineraryId: id });
+      const city = getSelectedCity();
+      trackConversion("plan_saved", { plan: planLabel, itineraryId: id, city: city?.name ?? null, citySlug: city?.slug ?? null });
       toast.success("Trip saved — building your stops…");
       navigate({ to: "/trips/$id", params: { id } });
       populateItinerary(id, payload);
@@ -210,14 +216,18 @@ function PlanMyNightPage() {
                   if (!current.value) return;
                   trackCta("plan_next", { step });
                   setStep((s) => s + 1);
-                  if (step === steps.length - 1)
+                  if (step === steps.length - 1) {
+                    const city = getSelectedCity();
                     trackConversion("plan_completed", {
                       occasion,
                       vibe,
                       budget,
                       groupSize,
                       when,
+                      city: city?.name ?? null,
+                      citySlug: city?.slug ?? null,
                     });
+                  }
                 }}
                 disabled={!current.value}
                 className="gap-1.5"

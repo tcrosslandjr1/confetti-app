@@ -6,6 +6,7 @@ import { CITIES, setSelectedCity, type City } from "@/lib/cities";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { usePageview, trackCta, trackEngagement } from "@/lib/analytics";
 
 export const Route = createFileRoute("/cities/$slug")({
   beforeLoad: ({ params }) => {
@@ -108,9 +109,18 @@ function CityLandingPage() {
     staleTime: 5 * 60 * 1000,
   });
 
+  usePageview(`city_${city.slug}`, `/cities/${city.slug}`);
+
   const handlePlanNight = () => {
     setSelectedCity(city.slug);
+    trackCta("city_plan_night", { city: city.name, citySlug: city.slug });
   };
+
+  const handleExplore = () => {
+    setSelectedCity(city.slug);
+    trackCta("city_explore_venues", { city: city.name, citySlug: city.slug });
+  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50/40 via-background to-background">
@@ -142,9 +152,10 @@ function CityLandingPage() {
                   Plan my night in {city.name.split(/[,\s]/)[0]}
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="min-w-48">
+              <Button asChild variant="outline" size="lg" className="min-w-48" onClick={handleExplore}>
                 <Link to="/app/explore">Explore venues</Link>
               </Button>
+
             </div>
           </motion.div>
         </div>
@@ -221,7 +232,13 @@ function CityLandingPage() {
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {venues.map((v) => (
-              <Link key={v.id} to="/venue/$id" params={{ id: v.id }} className="group">
+              <Link
+                key={v.id}
+                to="/venue/$id"
+                params={{ id: v.id }}
+                className="group"
+                onClick={() => trackEngagement("city_venue_tap", { city: city.name, citySlug: city.slug, venueId: v.id })}
+              >
                 <Card className="h-full overflow-hidden transition-all hover:-translate-y-0.5 hover:shadow-md">
                   <div className="aspect-[4/3] overflow-hidden bg-muted">
                     {v.hero_image_url || v.image_url ? (

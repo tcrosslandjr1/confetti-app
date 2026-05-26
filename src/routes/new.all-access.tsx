@@ -137,7 +137,7 @@ function AllAccessPage() {
 
         <div style={{ position: "relative", zIndex: 2, paddingTop: 12 }}>
           <ChunkyButton variant="accent"
-            onClick={() => navigate({ to: "/new/hub" })} icon={Icons.arrow}>
+            onClick={() => navigate({ to: "/new/stripe", search: { plan } })} icon={Icons.arrow}>
             Start 7-day free trial
           </ChunkyButton>
           <div style={{

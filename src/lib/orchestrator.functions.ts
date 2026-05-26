@@ -5,7 +5,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { generateText, Output } from "ai";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { createLovableAiGatewayProvider } from "./ai-gateway.server";
+import { getAiProvider } from "./ai-gateway.server";
 import { generatePlan } from "./generate-plan.functions";
 import { generateTrip } from "./trip.functions";
 import {
@@ -28,9 +28,9 @@ const IntentSchema = z.object({
   energyCurve: z.string().nullable(),
 });
 
-async function intentAgent(rawRequest: string, apiKey: string) {
-  const gateway = createLovableAiGatewayProvider(apiKey);
-  const model = gateway("google/gemini-3-flash-preview");
+async function intentAgent(rawRequest: string) {
+  const provider = getAiProvider();
+  const model = provider("google/gemini-3-flash-preview");
   const { experimental_output: out } = await generateText({
     model,
     system:
@@ -78,12 +78,10 @@ export const orchestratePlan = createServerFn({ method: "POST" })
       .parse(input),
   )
   .handler(async ({ data, context }) => {
-    const apiKey = process.env.LOVABLE_API_KEY;
-    if (!apiKey) throw new Error("Missing LOVABLE_API_KEY");
     const { supabase, userId } = context;
 
     // 1. Intent agent
-    const intent = await intentAgent(data.rawRequest, apiKey);
+    const intent = await intentAgent(data.rawRequest);
 
     // 2. Personalization
     const profile = await loadProfile(supabase, userId);

@@ -3,22 +3,36 @@ import { type ReactNode } from "react";
 import {
   BrandMark, DotsBg, Frame, RouteDots, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
+import { useNewAuth } from "@/hooks/useNewAuth";
 
-// Ported from design/new-confetti/project/extras.jsx (HubScreen, line 301)
 export const Route = createFileRoute("/new/hub")({
   component: HubPage,
 });
 
 function HubPage() {
+  const { ready } = useNewAuth();
   const navigate = useNavigate();
+
+  if (!ready) {
+    return (
+      <Frame>
+        <div style={{
+          height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
+          background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
+          color: TOKENS.ink, opacity: 0.5,
+        }}>loading...</div>
+      </Frame>
+    );
+  }
   const onGo = (target: string) => {
-    if (target === "plan" || target === "chat") navigate({ to: "/new/plan" });
+    if (target === "chat") navigate({ to: "/new/chat" });
+    else if (target === "plan") navigate({ to: "/new/plan" });
     else if (target === "night") navigate({ to: "/new/night" });
     else if (target === "loader" || target === "surprise") navigate({ to: "/new/printing" });
-    else if (target === "feed" || target === "explore" || target === "crew-map" || target === "wallet") {
-      // Not ported this session — bounce to plan for now
-      navigate({ to: "/new/plan" });
-    }
+    else if (target === "explore") navigate({ to: "/new/explore" });
+    else if (target === "feed") navigate({ to: "/new/reels" });
+    else if (target === "crew-map") navigate({ to: "/new/crew-map" });
+    else if (target === "wallet") navigate({ to: "/new/wallet" });
   };
 
   return (

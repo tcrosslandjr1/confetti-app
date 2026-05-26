@@ -1,9 +1,10 @@
 import "@tanstack/react-start";
 import { createFileRoute } from "@tanstack/react-router";
 import { streamText, type ModelMessage } from "ai";
-import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
+import { getAiProvider } from "@/lib/ai-gateway.server";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { findCityLoose, type CityContext } from "@/lib/agents/city-context";
+import { loadUserTasteContext, buildTastePromptBlock } from "@/lib/taste-profile.server";
 
 type Prefs = {
   cuisines?: string[] | null;
@@ -121,8 +122,10 @@ export const Route = createFileRoute("/api/chat")({
         const userId = await getAuthedUserId(request);
         if (!userId) return unauthorizedResponse();
         const body = (await request.json()) as ChatBody;
-        const key = process.env.LOVABLE_API_KEY;
-        if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+        const gateway = getAiProvider();
+
+        // Load computed taste intelligence server-side (no client payload needed)
+        const tasteCtx = await loadUserTasteContext(userId);
 
         const ctx: string[] = [];
         const now = body.now ? new Date(body.now) : new Date();
@@ -223,6 +226,12 @@ export const Route = createFileRoute("/api/chat")({
           console.warn("[chat] trending context fetch failed", err);
         }
 
+        // Inject taste intelligence into context
+        if (tasteCtx) {
+          const tasteBlock = buildTastePromptBlock(tasteCtx);
+          if (tasteBlock) ctx.push(`TASTE PROFILE\n${tasteBlock}`);
+        }
+
         const cityCtx = findCityLoose(body.city?.slug, body.city?.name);
         const cityLabel = cityCtx?.label ?? body.city?.name ?? "your city";
         const cityRegion = body.city?.region ?? null;
@@ -237,7 +246,6 @@ export const Route = createFileRoute("/api/chat")({
           content: m.content,
         })) as ModelMessage[];
 
-        const gateway = createLovableAiGatewayProvider(key);
         const result = streamText({
           model: gateway("google/gemini-3-flash-preview"),
           system,

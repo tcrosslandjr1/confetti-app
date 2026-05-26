@@ -45,7 +45,7 @@ export function FirstRunNudge() {
       aria-label="New visitor tip"
       className="fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+7rem)] z-40 mx-auto flex max-w-2xl items-center gap-2 px-3 lg:hidden"
     >
-      <div className="flex w-full items-center gap-2 rounded-full border-2 border-ink bg-gold/95 pl-4 pr-2 py-1.5 text-ink shadow-brut backdrop-blur">
+      <div className="flex w-full items-center gap-2 rounded-full border-2 border-ink bg-gold/95 pl-4 pr-2 py-1.5 text-cream shadow-brut backdrop-blur">
         <span className="font-mono text-[11px] font-bold uppercase tracking-widest">New here?</span>
         <button
           type="button"

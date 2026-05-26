@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { generateText, Output } from "ai";
-import { createLovableAiGatewayProvider } from "./ai-gateway.server";
+import { getAiProvider } from "./ai-gateway.server";
 
 const VibeInput = z.union([z.string().max(200), z.array(z.string().max(60)).max(10)]);
 
@@ -87,9 +87,7 @@ export const RateInput = z.object({
 export async function generateNamesInternal(
   input: GenerateNamesInput,
 ): Promise<{ names: string[] }> {
-  const key = process.env.LOVABLE_API_KEY;
-  if (!key) throw new Error("Missing LOVABLE_API_KEY");
-  const gateway = createLovableAiGatewayProvider(key);
+  const gateway = getAiProvider();
   const model = gateway("google/gemini-3-flash-preview");
 
   const count = input.count ?? 10;
@@ -117,10 +115,8 @@ export async function rankNamesInternal(
   names: string[],
   ctx: { city?: string; category: string; vibe: GenerateNamesInput["vibe"]; audience: string },
 ): Promise<{ ranked: { name: string; score: number }[] }> {
-  const key = process.env.LOVABLE_API_KEY;
-  if (!key) throw new Error("Missing LOVABLE_API_KEY");
   if (!names.length) return { ranked: [] };
-  const gateway = createLovableAiGatewayProvider(key);
+  const gateway = getAiProvider();
   const model = gateway("google/gemini-3-flash-preview");
 
   const prompt =

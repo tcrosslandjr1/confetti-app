@@ -1420,7 +1420,7 @@ export function BuildMyNightWizard() {
         role="dialog"
         aria-modal="true"
         aria-label="Build my night"
-        className="relative flex w-full max-w-3xl flex-col overflow-hidden rounded-3xl border-2 border-ink bg-cream text-ink shadow-brut-lg max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]"
+        className="relative flex w-full max-w-3xl flex-col overflow-hidden rounded-3xl border-2 border-ink bg-cream text-cream shadow-brut-lg max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]"
         style={{ animation: "reveal-scale 0.35s cubic-bezier(0.22,1,0.36,1) forwards" }}
       >
         {/* Header */}
@@ -1433,7 +1433,7 @@ export function BuildMyNightWizard() {
                 ? "Building your night"
                 : "Your night, ready"}
             {step <= 5 && (
-              <span className="hidden font-normal normal-case tracking-normal text-ink/60 sm:inline">
+              <span className="hidden font-normal normal-case tracking-normal text-cream/60 sm:inline">
                 · ~45 sec total
               </span>
             )}
@@ -1449,7 +1449,7 @@ export function BuildMyNightWizard() {
 
         {/* Progress bar */}
         {step <= 5 && (
-          <div className="h-1.5 w-full shrink-0 bg-ink/10">
+          <div className="h-1.5 w-full shrink-0 bg-cream/10">
             <div
               className="h-full bg-gradient-to-r from-coral via-gold to-purple transition-[width] duration-500 ease-out"
               style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
@@ -1499,7 +1499,7 @@ export function BuildMyNightWizard() {
                     <button
                       key={c.k}
                       onClick={() => setCrew(c.k)}
-                      className={`rounded-2xl border-2 border-ink p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-gold text-ink shadow-brut-lg" : "bg-cream text-ink"}`}
+                      className={`rounded-2xl border-2 border-ink p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-gold text-cream shadow-brut-lg" : "bg-cream text-cream"}`}
                     >
                       <div className="font-display text-3xl font-extrabold">{c.sub}</div>
                       <div className="mt-1 font-mono text-[11px] uppercase tracking-widest">
@@ -1521,7 +1521,7 @@ export function BuildMyNightWizard() {
                     <button
                       key={w.k}
                       onClick={() => setWhen(w.k)}
-                      className={`rounded-2xl border-2 border-ink p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-coral text-cream shadow-brut-lg" : "bg-cream text-ink"}`}
+                      className={`rounded-2xl border-2 border-ink p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-coral text-cream shadow-brut-lg" : "bg-cream text-cream"}`}
                     >
                       <div className="font-display text-2xl font-extrabold">{w.label}</div>
                     </button>
@@ -1553,7 +1553,7 @@ export function BuildMyNightWizard() {
                     <button
                       key={b.k}
                       onClick={() => setBudget(b.k)}
-                      className={`rounded-2xl border-2 border-ink p-5 text-center shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-purple text-cream shadow-brut-lg" : "bg-cream text-ink"}`}
+                      className={`rounded-2xl border-2 border-ink p-5 text-center shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-purple text-cream shadow-brut-lg" : "bg-cream text-cream"}`}
                     >
                       <div className="font-display text-3xl font-extrabold">{b.label}</div>
                       <div
@@ -1594,9 +1594,9 @@ export function BuildMyNightWizard() {
                   onChange={(e) => setWishlist(e.target.value.slice(0, 280))}
                   rows={3}
                   placeholder="e.g. see live jazz, try ramen, find a quiet patio for two…"
-                  className="w-full resize-none rounded-xl border-2 border-ink bg-cream px-4 py-3 font-display text-base shadow-brut outline-none placeholder:text-ink/40 focus:-translate-y-0.5 focus:shadow-brut-lg"
+                  className="w-full resize-none rounded-xl border-2 border-ink bg-cream px-4 py-3 font-display text-base shadow-brut outline-none placeholder:text-cream/40 focus:-translate-y-0.5 focus:shadow-brut-lg"
                 />
-                <div className="mt-1 text-right font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                <div className="mt-1 text-right font-mono text-[10px] uppercase tracking-widest text-cream/50">
                   {wishlist.length}/280
                 </div>
               </div>
@@ -1610,7 +1610,7 @@ export function BuildMyNightWizard() {
             >
               <div className="space-y-5">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-cream/55">
                     Diet
                   </p>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -1643,7 +1643,7 @@ export function BuildMyNightWizard() {
                               return nextP;
                             })
                           }
-                          className={`rounded-full border-2 border-ink px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-0.5 bg-mint text-ink shadow-brut-lg" : "bg-cream"}`}
+                          className={`rounded-full border-2 border-ink px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-0.5 bg-mint text-cream shadow-brut-lg" : "bg-cream"}`}
                         >
                           {active && <Check className="-mt-0.5 mr-1 inline h-3.5 w-3.5" />}
                           {d.label}
@@ -1651,13 +1651,13 @@ export function BuildMyNightWizard() {
                       );
                     })}
                   </div>
-                  <p className="mt-1.5 text-[11px] text-ink/55">
+                  <p className="mt-1.5 text-[11px] text-cream/55">
                     Pick one. Vegan automatically implies vegetarian.
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-cream/55">
                     Allergens to avoid
                   </p>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -1685,7 +1685,7 @@ export function BuildMyNightWizard() {
                       );
                     })}
                   </div>
-                  <p className="mt-1.5 text-[11px] text-ink/55">
+                  <p className="mt-1.5 text-[11px] text-cream/55">
                     We'll flag matches in dish details and skip risky picks where possible.
                   </p>
                 </div>
@@ -1714,7 +1714,7 @@ export function BuildMyNightWizard() {
                           allergens: [],
                         })
                       }
-                      className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 underline-offset-4 hover:text-coral hover:underline"
+                      className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60 underline-offset-4 hover:text-coral hover:underline"
                     >
                       Clear dietary needs
                     </button>
@@ -1753,7 +1753,7 @@ export function BuildMyNightWizard() {
                   <span className="font-serif italic font-normal text-coral">locked in.</span>
                 )}
               </h2>
-              <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ink/60">
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cream/60">
                 {preset
                   ? [preset.vibeLabel, preset.crewLabel, preset.budgetLabel]
                       .filter(Boolean)
@@ -1768,7 +1768,7 @@ export function BuildMyNightWizard() {
                 <button
                   type="button"
                   onClick={() => setStep(preset ? 0 : 4)}
-                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
                   aria-label="Go back and change your answers"
                 >
                   <ArrowLeft className="h-3.5 w-3.5" /> Back
@@ -1778,12 +1778,12 @@ export function BuildMyNightWizard() {
                   onClick={() => {
                     toast("Group planning coming soon!", { icon: "🎉" });
                   }}
-                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
                   aria-label="Build this night with friends"
                 >
                   <Users className="h-3.5 w-3.5" /> Build with friends
                 </button>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
                   Tap <span className="font-bold text-coral">+ Add</span> on a stop to lock it in
                 </span>
               </div>
@@ -1796,7 +1796,7 @@ export function BuildMyNightWizard() {
                   <div className="flex items-start gap-3">
                     <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-coral" />
                     <div className="flex-1">
-                      <p className="font-display text-base font-extrabold text-ink">
+                      <p className="font-display text-base font-extrabold text-cream">
                         {dynamicError.reason === "empty"
                           ? dynamicError.city
                             ? `No verified venues in ${dynamicError.city} for these vibes`
@@ -1805,10 +1805,10 @@ export function BuildMyNightWizard() {
                             ? `Couldn't load venues for ${dynamicError.city}`
                             : "Couldn't load venues"}
                       </p>
-                      <p className="mt-1 text-[13px] text-ink/70">
+                      <p className="mt-1 text-[13px] text-cream/70">
                         We won't show venues we can't confirm are real and open. Try one of these:
                       </p>
-                      <ul className="mt-2 list-disc pl-5 text-[13px] text-ink/80 space-y-1">
+                      <ul className="mt-2 list-disc pl-5 text-[13px] text-cream/80 space-y-1">
                         <li>Pick different vibes on the previous step</li>
                         <li>Switch to another city from the city picker</li>
                         <li>Loosen your budget or dietary filters</li>
@@ -1856,7 +1856,7 @@ export function BuildMyNightWizard() {
                 return (
                   <div className="mt-4 rounded-2xl border-2 border-ink bg-mint/30 p-3 shadow-brut">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+                      <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70">
                         Your dietary needs
                       </p>
                       <button
@@ -1875,7 +1875,7 @@ export function BuildMyNightWizard() {
                       )}
                       {allergens.length > 0 && (
                         <>
-                          <span className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-cream/55">
                             avoiding
                           </span>
                           {allergens.map((a) => (
@@ -1889,7 +1889,7 @@ export function BuildMyNightWizard() {
                         </>
                       )}
                     </div>
-                    <p className="mt-2 text-[11px] text-ink/60">
+                    <p className="mt-2 text-[11px] text-cream/60">
                       We'll flag risky dishes and prefer matches as you browse picks below.
                     </p>
                   </div>
@@ -1897,11 +1897,11 @@ export function BuildMyNightWizard() {
               })()}
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                   Sort by
                 </span>
                 {placesLoading && (
-                  <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                  <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-cream/50">
                     <Loader2 className="h-3 w-3 animate-spin" /> live data…
                   </span>
                 )}
@@ -1920,7 +1920,7 @@ export function BuildMyNightWizard() {
                       key={opt.k}
                       type="button"
                       onClick={() => setSortBy(opt.k)}
-                      className={`rounded-full border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${active ? "bg-ink text-cream" : "bg-cream text-ink hover:bg-ink/5"}`}
+                      className={`rounded-full border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${active ? "bg-ink text-cream" : "bg-cream text-cream hover:bg-cream/5"}`}
                     >
                       {opt.label}
                     </button>
@@ -1929,7 +1929,7 @@ export function BuildMyNightWizard() {
                 <button
                   type="button"
                   onClick={() => setShowFavorites((v) => !v)}
-                  className={`ml-auto inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${showFavorites ? "bg-coral text-cream" : "bg-cream text-ink hover:bg-ink/5"}`}
+                  className={`ml-auto inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${showFavorites ? "bg-coral text-cream" : "bg-cream text-cream hover:bg-cream/5"}`}
                   aria-expanded={showFavorites}
                 >
                   <Heart
@@ -1944,11 +1944,11 @@ export function BuildMyNightWizard() {
                   className="mt-3 rounded-2xl border-2 border-ink bg-cream/80 p-3"
                   style={{ animation: "reveal-up 0.3s ease-out forwards" }}
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                     Your saved spots
                   </p>
                   {Object.keys(favorites).length === 0 ? (
-                    <p className="mt-2 text-sm text-ink/70">
+                    <p className="mt-2 text-sm text-cream/70">
                       Tap the ♥ on any stop to save it here for later.
                     </p>
                   ) : (
@@ -1956,13 +1956,13 @@ export function BuildMyNightWizard() {
                       {Object.values(favorites).map((f) => (
                         <li
                           key={f.venue_name}
-                          className="flex items-start justify-between gap-2 rounded-xl border border-ink/20 bg-cream p-2"
+                          className="flex items-start justify-between gap-2 rounded-xl border border-cream/20 bg-cream p-2"
                         >
                           <div className="min-w-0">
                             <div className="truncate font-display text-sm font-extrabold">
                               {f.venue_name}
                             </div>
-                            <div className="truncate font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                            <div className="truncate font-mono text-[10px] uppercase tracking-widest text-cream/60">
                               {[f.vibe, f.neighborhood].filter(Boolean).join(" · ") || "Saved"}
                             </div>
                           </div>
@@ -1978,7 +1978,7 @@ export function BuildMyNightWizard() {
                                 neighborhood: f.neighborhood ?? undefined,
                               })
                             }
-                            className="shrink-0 rounded-full border border-ink/20 p-1 text-coral transition-colors hover:bg-coral/10"
+                            className="shrink-0 rounded-full border border-cream/20 p-1 text-coral transition-colors hover:bg-coral/10"
                             aria-label={`Remove ${f.venue_name} from favorites`}
                           >
                             <Heart className="h-3.5 w-3.5 fill-coral" />
@@ -2040,7 +2040,7 @@ export function BuildMyNightWizard() {
                           }
                         }}
                         aria-expanded={isOpen}
-                        className="flex w-full items-stretch gap-3 p-3 text-left transition-colors hover:bg-ink/[0.03] cursor-pointer"
+                        className="flex w-full items-stretch gap-3 p-3 text-left transition-colors hover:bg-cream/[0.03] cursor-pointer"
                       >
                         {heroPhoto ? (
                           <div className="relative w-24 shrink-0 overflow-hidden rounded-xl border-2 border-ink">
@@ -2051,14 +2051,14 @@ export function BuildMyNightWizard() {
                               className="h-full w-full object-cover"
                              decoding="async"/>
                             <div
-                              className={`absolute inset-x-0 bottom-0 ${s.tone} border-t-2 border-ink px-1 py-0.5 text-center font-display text-[11px] font-extrabold leading-tight text-ink`}
+                              className={`absolute inset-x-0 bottom-0 ${s.tone} border-t-2 border-ink px-1 py-0.5 text-center font-display text-[11px] font-extrabold leading-tight text-cream`}
                             >
                               {s.time}
                             </div>
                           </div>
                         ) : (
                           <div
-                            className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}
+                            className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-cream`}
                           >
                             {s.time}
                           </div>
@@ -2073,7 +2073,7 @@ export function BuildMyNightWizard() {
                             </span>
                           </div>
                           {displayAddress && (
-                            <div className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-ink/70">
+                            <div className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-cream/70">
                               <MapPin className="h-3 w-3" />
                               {displayAddress}
                             </div>
@@ -2082,7 +2082,7 @@ export function BuildMyNightWizard() {
                             <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">
                               {s.vibe}
                             </span>
-                            <span className="font-mono text-[11px] text-ink/60">
+                            <span className="font-mono text-[11px] text-cream/60">
                               {"$".repeat(d.priceLevel)}
                             </span>
                             {openNow === true && (
@@ -2096,11 +2096,11 @@ export function BuildMyNightWizard() {
                               </span>
                             )}
                             {s.walk && (
-                              <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>
+                              <span className="font-mono text-[11px] text-cream/60">↳ {s.walk}</span>
                             )}
                           </div>
                         </div>
-                        <div className="flex w-[68px] shrink-0 flex-col items-stretch justify-between gap-1.5 self-stretch border-l-2 border-dashed border-ink/20 pl-2">
+                        <div className="flex w-[68px] shrink-0 flex-col items-stretch justify-between gap-1.5 self-stretch border-l-2 border-dashed border-cream/20 pl-2">
                           <div className="flex items-center justify-between gap-1">
                             <button
                               type="button"
@@ -2115,7 +2115,7 @@ export function BuildMyNightWizard() {
                                   : `Save ${s.venue} to favorites`
                               }
                               title={isFav ? "Remove from favorites" : "Save to favorites"}
-                              className={`grid h-7 w-7 place-items-center rounded-full border-2 border-ink transition-pop hover:-translate-y-0.5 ${isFav ? "bg-coral text-cream" : "bg-cream text-ink hover:bg-coral/10"}`}
+                              className={`grid h-7 w-7 place-items-center rounded-full border-2 border-ink transition-pop hover:-translate-y-0.5 ${isFav ? "bg-coral text-cream" : "bg-cream text-cream hover:bg-coral/10"}`}
                             >
                               <Heart className={`h-3.5 w-3.5 ${isFav ? "fill-cream" : ""}`} />
                             </button>
@@ -2147,7 +2147,7 @@ export function BuildMyNightWizard() {
                                 }
                                 className={`flex h-9 items-center justify-center gap-1 rounded-full border-2 border-ink px-2 font-mono text-[10px] font-extrabold uppercase tracking-widest shadow-brut transition-pop ${
                                   added
-                                    ? "bg-mint text-ink cursor-default"
+                                    ? "bg-mint text-cream cursor-default"
                                     : "bg-coral text-cream hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-ink hover:shadow-brut-lg"
                                 }`}
                               >
@@ -2173,7 +2173,7 @@ export function BuildMyNightWizard() {
                               }}
                               aria-label={`Swap ${s.venue} for another venue`}
                               title="Swap this stop"
-                              className="flex h-7 flex-col items-center justify-center rounded-md border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-mint/40"
+                              className="flex h-7 flex-col items-center justify-center rounded-md border-2 border-ink bg-cream text-cream transition-pop hover:-translate-y-0.5 hover:bg-mint/40"
                             >
                               <RefreshCw className="h-3 w-3" />
                             </button>
@@ -2201,7 +2201,7 @@ export function BuildMyNightWizard() {
                               disabled={sharing === s.venue}
                               aria-label={`Share ${s.venue} stop card`}
                               title="Share stop card"
-                              className="flex h-7 flex-col items-center justify-center rounded-md border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-gold/30 disabled:opacity-50"
+                              className="flex h-7 flex-col items-center justify-center rounded-md border-2 border-ink bg-cream text-cream transition-pop hover:-translate-y-0.5 hover:bg-gold/30 disabled:opacity-50"
                             >
                               {sharing === s.venue ? (
                                 <Loader2 className="h-3 w-3 animate-spin" />
@@ -2219,7 +2219,7 @@ export function BuildMyNightWizard() {
                             }}
                             aria-label={isOpen ? "Hide details" : "Show details"}
                             title={isOpen ? "Hide details" : "Show details"}
-                            className="flex h-6 items-center justify-center gap-1 rounded-full border border-ink/30 bg-cream font-mono text-[9px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink"
+                            className="flex h-6 items-center justify-center gap-1 rounded-full border border-ink/30 bg-cream font-mono text-[9px] font-bold uppercase tracking-widest text-cream/70 transition-colors hover:bg-cream/5 hover:text-cream"
                           >
                             {isOpen ? "Less" : "More"}
                             <ChevronDown
@@ -2254,12 +2254,12 @@ export function BuildMyNightWizard() {
                               ))}
                             </div>
                           )}
-                          <p className="text-sm leading-relaxed text-ink/85">{d.blurb}</p>
+                          <p className="text-sm leading-relaxed text-cream/85">{d.blurb}</p>
 
                           <div className="mt-3 flex flex-wrap items-center gap-2">
                             <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-cream px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
                               <Star className="h-3 w-3 fill-gold text-gold" /> {d.rating}{" "}
-                              <span className="text-ink/50">
+                              <span className="text-cream/50">
                                 ({d.reviewCount.toLocaleString()})
                               </span>
                             </span>
@@ -2273,42 +2273,42 @@ export function BuildMyNightWizard() {
                               <Utensils className="h-3 w-3" /> Known for {d.knownFor}
                             </span>
                             {d.glutenFree && (
-                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
                                 GF available
                               </span>
                             )}
                             {d.vegan && (
-                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
                                 🌱 Vegan
                               </span>
                             )}
                             {d.vegetarian && !d.vegan && (
-                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
                                 Vegetarian
                               </span>
                             )}
                             {d.pescatarian && (
-                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
                                 🐟 Pescatarian
                               </span>
                             )}
                           </div>
 
-                          <div className="mt-3 rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
-                            <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                          <div className="mt-3 rounded-xl border-2 border-cream/15 bg-cream/60 p-3">
+                            <p className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                               Dietary options
                             </p>
                             <div className="mt-1.5 flex flex-wrap gap-1.5">
                               {d.dietary.map((opt) => (
                                 <span
                                   key={opt}
-                                  className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2 py-0.5 text-[11px] text-ink/85"
+                                  className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2 py-0.5 text-[11px] text-cream/85"
                                 >
                                   ✓ {opt}
                                 </span>
                               ))}
                             </div>
-                            <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                            <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-cream/60">
                               Allergens — notify ahead
                             </p>
                             <div className="mt-1.5 flex flex-wrap gap-1.5">
@@ -2316,13 +2316,13 @@ export function BuildMyNightWizard() {
                                 d.allergens.map((a) => (
                                   <span
                                     key={a}
-                                    className="inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-ink/85"
+                                    className="inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-cream/85"
                                   >
                                     ⚠ {a}
                                   </span>
                                 ))
                               ) : (
-                                <span className="text-[11px] text-ink/60">
+                                <span className="text-[11px] text-cream/60">
                                   Kitchen accommodates most allergens — call ahead.
                                 </span>
                               )}
@@ -2330,22 +2330,22 @@ export function BuildMyNightWizard() {
                           </div>
 
                           <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                            <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
+                            <div className="rounded-xl border-2 border-cream/15 bg-cream/60 p-3">
                               <div className="flex items-center justify-between gap-2">
-                                <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                                <p className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                                   Popular booked · live availability
                                   {d.isUsual && (
-                                    <span className="ml-1.5 rounded-full bg-coral/20 px-1.5 py-0.5 text-[9px] text-ink/80">
+                                    <span className="ml-1.5 rounded-full bg-coral/20 px-1.5 py-0.5 text-[9px] text-cream/80">
                                       ★ your usual spot
                                     </span>
                                   )}
                                 </p>
-                                <span className="font-mono text-[9px] uppercase tracking-widest text-ink/45">
+                                <span className="font-mono text-[9px] uppercase tracking-widest text-cream/45">
                                   Party of {partySizeFromCrew(crew)}
                                 </span>
                               </div>
                               {d.personalNote && (
-                                <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-mint/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ink/75">
+                                <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-mint/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-cream/75">
                                   <Sparkles className="h-2.5 w-2.5" /> {d.personalNote}
                                 </p>
                               )}
@@ -2356,14 +2356,14 @@ export function BuildMyNightWizard() {
                                   const busy = reservingKey === key;
                                   const isPeak = time === d.peakTime;
                                   const tone = booked
-                                    ? "border-ink bg-mint text-ink"
+                                    ? "border-ink bg-mint text-cream"
                                     : level === "full"
-                                      ? "border-ink/20 bg-cream/60 text-ink/40 cursor-not-allowed"
+                                      ? "border-cream/20 bg-cream/60 text-cream/40 cursor-not-allowed"
                                       : level === "few"
-                                        ? "border-coral/60 bg-coral/15 text-ink hover:bg-coral/25"
+                                        ? "border-coral/60 bg-coral/15 text-cream hover:bg-coral/25"
                                         : level === "limited"
-                                          ? "border-gold/70 bg-gold/20 text-ink hover:bg-gold/35"
-                                          : "border-ink/40 bg-mint/40 text-ink hover:bg-mint/70";
+                                          ? "border-gold/70 bg-gold/20 text-cream hover:bg-gold/35"
+                                          : "border-ink/40 bg-mint/40 text-cream hover:bg-mint/70";
                                   const dot = booked
                                     ? "bg-emerald-600"
                                     : level === "full"
@@ -2407,19 +2407,19 @@ export function BuildMyNightWizard() {
                                           />
                                         </span>
                                       </div>
-                                      <span className="font-mono text-[10px] uppercase tracking-wider text-ink/70">
+                                      <span className="font-mono text-[10px] uppercase tracking-wider text-cream/70">
                                         {busy ? "Reserving…" : label}
                                       </span>
                                     </button>
                                   );
                                 })}
                               </div>
-                              <p className="mt-2 text-[11px] text-ink/65">
+                              <p className="mt-2 text-[11px] text-cream/65">
                                 Tap a slot to reserve —{" "}
                                 {personalize?.preferredHour != null ? "your usual window" : "peak"}{" "}
-                                around <span className="font-semibold text-ink">{d.peakTime}</span>.
+                                around <span className="font-semibold text-cream">{d.peakTime}</span>.
                               </p>
-                              <p className="mt-1 inline-flex items-start gap-1 rounded-md bg-cream px-2 py-1 font-mono text-[10px] text-ink/70">
+                              <p className="mt-1 inline-flex items-start gap-1 rounded-md bg-cream px-2 py-1 font-mono text-[10px] text-cream/70">
                                 <Sparkles className="mt-[1px] h-2.5 w-2.5 shrink-0 text-coral" />
                                 <span>
                                   Why ★ {d.peakTime}: {peakReason(personalize, d.peakTime)}
@@ -2427,7 +2427,7 @@ export function BuildMyNightWizard() {
                               </p>
                               {d.dishes.length > 0 && (
                                 <>
-                                  <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                                  <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-cream/60">
                                     Most ordered · why for you
                                   </p>
                                   <ul className="mt-1.5 space-y-1.5">
@@ -2440,7 +2440,7 @@ export function BuildMyNightWizard() {
                                             onClick={() =>
                                               setOpenDish({ name: dish, venue: s.venue })
                                             }
-                                            className="group flex w-full flex-col gap-0.5 rounded-md px-1 py-1 text-left text-[12px] text-ink/85 transition-colors hover:bg-gold/20 hover:text-ink"
+                                            className="group flex w-full flex-col gap-0.5 rounded-md px-1 py-1 text-left text-[12px] text-cream/85 transition-colors hover:bg-gold/20 hover:text-cream"
                                             aria-label={`See details for ${dish}`}
                                           >
                                             <span className="flex w-full items-center gap-1.5">
@@ -2448,7 +2448,7 @@ export function BuildMyNightWizard() {
                                               <span className="underline-offset-2 group-hover:underline">
                                                 {dish}
                                               </span>
-                                              <span className="ml-auto font-mono text-[9px] uppercase tracking-widest text-ink/45 opacity-0 transition-opacity group-hover:opacity-100">
+                                              <span className="ml-auto font-mono text-[9px] uppercase tracking-widest text-cream/45 opacity-0 transition-opacity group-hover:opacity-100">
                                                 View →
                                               </span>
                                             </span>
@@ -2457,7 +2457,7 @@ export function BuildMyNightWizard() {
                                                 {reasons.map((r) => (
                                                   <span
                                                     key={r}
-                                                    className="inline-flex items-center gap-0.5 rounded-full border border-ink/20 bg-mint/40 px-1.5 py-[1px] font-mono text-[9px] uppercase tracking-widest text-ink/75"
+                                                    className="inline-flex items-center gap-0.5 rounded-full border border-cream/20 bg-mint/40 px-1.5 py-[1px] font-mono text-[9px] uppercase tracking-widest text-cream/75"
                                                   >
                                                     {r}
                                                   </span>
@@ -2473,26 +2473,26 @@ export function BuildMyNightWizard() {
                               )}
                             </div>
 
-                            <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
-                              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                            <div className="rounded-xl border-2 border-cream/15 bg-cream/60 p-3">
+                              <p className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                                 The vibe
                               </p>
                               <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-[12px]">
-                                <dt className="text-ink/55">Crowd</dt>
-                                <dd className="text-ink/90">{d.vibeProfile.crowd}</dd>
-                                <dt className="text-ink/55">Noise</dt>
-                                <dd className="text-ink/90">{d.vibeProfile.noise}</dd>
-                                <dt className="text-ink/55">Dress</dt>
-                                <dd className="text-ink/90">{d.vibeProfile.dress}</dd>
-                                <dt className="text-ink/55">Lighting</dt>
-                                <dd className="text-ink/90">{d.vibeProfile.lighting}</dd>
-                                <dt className="text-ink/55">Music</dt>
-                                <dd className="text-ink/90">{d.vibeProfile.music}</dd>
+                                <dt className="text-cream/55">Crowd</dt>
+                                <dd className="text-cream/90">{d.vibeProfile.crowd}</dd>
+                                <dt className="text-cream/55">Noise</dt>
+                                <dd className="text-cream/90">{d.vibeProfile.noise}</dd>
+                                <dt className="text-cream/55">Dress</dt>
+                                <dd className="text-cream/90">{d.vibeProfile.dress}</dd>
+                                <dt className="text-cream/55">Lighting</dt>
+                                <dd className="text-cream/90">{d.vibeProfile.lighting}</dd>
+                                <dt className="text-cream/55">Music</dt>
+                                <dd className="text-cream/90">{d.vibeProfile.music}</dd>
                               </dl>
                             </div>
                           </div>
 
-                          <blockquote className="mt-3 rounded-xl border-2 border-ink/15 bg-cream px-3 py-2 font-serif text-sm italic text-ink/80">
+                          <blockquote className="mt-3 rounded-xl border-2 border-cream/15 bg-cream px-3 py-2 font-serif text-sm italic text-cream/80">
                             {d.review}
                           </blockquote>
 
@@ -2552,10 +2552,10 @@ export function BuildMyNightWizard() {
         {step === 7 && addedStopKeys.size > 0 && (
           <div className="flex shrink-0 items-center justify-between gap-3 border-t-2 border-ink bg-mint/40 px-5 py-3 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+0.75rem)]">
             <div className="min-w-0">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/70">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
                 Your night so far
               </p>
-              <p className="truncate font-display text-sm font-bold text-ink">
+              <p className="truncate font-display text-sm font-bold text-cream">
                 {activeLoopState?.stops.map((s) => s.name).join(" → ")}
               </p>
             </div>
@@ -2633,19 +2633,19 @@ export function BuildMyNightWizard() {
             <DialogTitle className="font-display text-2xl font-extrabold">
               Swap this stop
             </DialogTitle>
-            <DialogDescription className="font-mono text-xs text-ink/70">
+            <DialogDescription className="font-mono text-xs text-cream/70">
               {swapTarget
                 ? `Pick a different ${swapTarget.stop.vibe.toLowerCase()} venue for your ${swapTarget.stop.time} stop.`
                 : ""}
             </DialogDescription>
           </DialogHeader>
           {swapLoading && (
-            <div className="flex items-center justify-center gap-2 py-8 font-mono text-xs text-ink/70">
+            <div className="flex items-center justify-center gap-2 py-8 font-mono text-xs text-cream/70">
               <Loader2 className="h-4 w-4 animate-spin" /> Finding alternatives…
             </div>
           )}
           {!swapLoading && swapError && (
-            <div className="rounded-xl border-2 border-ink bg-coral/10 p-3 font-mono text-xs text-ink/80">
+            <div className="rounded-xl border-2 border-ink bg-coral/10 p-3 font-mono text-xs text-cream/80">
               {swapError}
             </div>
           )}
@@ -2656,7 +2656,7 @@ export function BuildMyNightWizard() {
                   <button
                     type="button"
                     onClick={() => applySwap(c)}
-                    className="flex w-full items-stretch gap-3 rounded-2xl border-2 border-ink bg-cream p-2 text-left transition-pop hover:-translate-y-0.5 hover:bg-ink/[0.03]"
+                    className="flex w-full items-stretch gap-3 rounded-2xl border-2 border-ink bg-cream p-2 text-left transition-pop hover:-translate-y-0.5 hover:bg-cream/[0.03]"
                   >
                     {c.photo ? (
                       <img
@@ -2674,9 +2674,9 @@ export function BuildMyNightWizard() {
                       <div className="font-display text-base font-extrabold leading-tight">
                         {c.venue}
                       </div>
-                      <div className="mt-0.5 flex flex-wrap items-center gap-2 font-mono text-[11px] text-ink/70">
+                      <div className="mt-0.5 flex flex-wrap items-center gap-2 font-mono text-[11px] text-cream/70">
                         {typeof c.rating === "number" && (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold text-ink">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold text-cream">
                             <Star className="h-2.5 w-2.5 fill-current" />
                             {c.rating.toFixed(1)}
                             {typeof c.userRatingCount === "number" && ` · ${c.userRatingCount}`}
@@ -2687,7 +2687,7 @@ export function BuildMyNightWizard() {
                         )}
                       </div>
                       {c.address && (
-                        <div className="mt-1 inline-flex items-center gap-1 font-mono text-[11px] text-ink/60">
+                        <div className="mt-1 inline-flex items-center gap-1 font-mono text-[11px] text-cream/60">
                           <MapPin className="h-3 w-3" />
                           {c.address}
                         </div>
@@ -2716,7 +2716,7 @@ function StepShell({
   return (
     <div style={{ animation: "reveal-up 0.4s ease-out forwards" }}>
       <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">{title}</h2>
-      <p className="mt-1 text-sm text-ink/70">{sub}</p>
+      <p className="mt-1 text-sm text-cream/70">{sub}</p>
       <div className="mt-6">{children}</div>
     </div>
   );
@@ -2736,9 +2736,9 @@ function DishQuickView({
     info?.pairing.type === "wine"
       ? "bg-purple/15 text-purple border-purple/40"
       : info?.pairing.type === "beer"
-        ? "bg-gold/20 text-ink border-gold/50"
+        ? "bg-gold/20 text-cream border-gold/50"
         : info?.pairing.type === "non-alcoholic"
-          ? "bg-mint/40 text-ink border-ink/30"
+          ? "bg-mint/40 text-cream border-ink/30"
           : "bg-coral/15 text-coral border-coral/40";
 
   const avoidLower = avoidAllergens.map((a) => a.toLowerCase());
@@ -2755,13 +2755,13 @@ function DishQuickView({
                   <Flame className="h-4 w-4" />
                 </span>
                 <div className="min-w-0">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-cream/55">
                     Most ordered at {open.venue}
                   </p>
                   <DialogTitle className="font-display text-2xl">{open.name}</DialogTitle>
                 </div>
               </div>
-              <DialogDescription className="pt-2 text-sm text-ink/80">
+              <DialogDescription className="pt-2 text-sm text-cream/80">
                 {info.description}
               </DialogDescription>
             </DialogHeader>
@@ -2784,28 +2784,28 @@ function DishQuickView({
                     </span>
                   ))}
                 </div>
-                <p className="mt-1.5 text-[11px] text-ink/80">
+                <p className="mt-1.5 text-[11px] text-cream/80">
                   Confirm with the kitchen before ordering or ask about a substitute.
                 </p>
               </div>
             )}
 
             {typeof info.spice === "number" && info.spice > 0 && (
-              <div className="flex items-center gap-1.5 text-[12px] text-ink/70">
-                <span className="font-mono uppercase tracking-widest text-ink/55">Spice</span>
+              <div className="flex items-center gap-1.5 text-[12px] text-cream/70">
+                <span className="font-mono uppercase tracking-widest text-cream/55">Spice</span>
                 <span aria-label={`${info.spice} of 3`}>
                   {Array.from({ length: 3 }).map((_, i) => (
                     <Flame
                       key={i}
-                      className={`inline h-3.5 w-3.5 ${i < info.spice! ? "fill-coral text-coral" : "text-ink/20"}`}
+                      className={`inline h-3.5 w-3.5 ${i < info.spice! ? "fill-coral text-coral" : "text-cream/20"}`}
                     />
                   ))}
                 </span>
               </div>
             )}
 
-            <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+            <div className="rounded-xl border-2 border-cream/15 bg-cream/60 p-3">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-cream/55">
                 Allergens — let your server know
               </p>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
@@ -2818,7 +2818,7 @@ function DishQuickView({
                         className={
                           isMatch
                             ? "inline-flex items-center gap-1 rounded-full border-2 border-coral bg-coral/25 px-2 py-0.5 text-[11px] font-bold text-coral"
-                            : "inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-ink/85"
+                            : "inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-cream/85"
                         }
                       >
                         ⚠ {a}
@@ -2827,7 +2827,7 @@ function DishQuickView({
                     );
                   })
                 ) : (
-                  <span className="text-[11px] text-ink/65">
+                  <span className="text-[11px] text-cream/65">
                     No common allergens — confirm prep with the kitchen.
                   </span>
                 )}

@@ -41,15 +41,15 @@ export function PageHero({
       <div className="relative flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           {eyebrow && (
-            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/60">
               {eyebrow}
             </div>
           )}
-          <h1 className="mt-2 font-display text-[30px] leading-[0.95] font-extrabold tracking-[-0.03em] text-ink">
+          <h1 className="mt-2 font-display text-[30px] leading-[0.95] font-extrabold tracking-[-0.03em] text-cream">
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-2 max-w-[34ch] text-sm leading-snug text-ink/70">{subtitle}</p>
+            <p className="mt-2 max-w-[34ch] text-sm leading-snug text-cream/70">{subtitle}</p>
           )}
         </div>
         {right && <div className="shrink-0">{right}</div>}
@@ -83,10 +83,10 @@ export function BrandCard({
       : tone === "coral"
         ? "bg-coral text-cream"
         : tone === "gold"
-          ? "bg-gold text-ink"
+          ? "bg-gold text-cream"
           : tone === "cream"
-            ? "bg-cream text-ink"
-            : "bg-white text-ink";
+            ? "bg-cream text-cream"
+            : "bg-white text-cream";
   return (
     <As
       className={cn(
@@ -115,11 +115,11 @@ export function SectionTitle({
     <div className="flex items-center justify-between gap-2 px-5">
       <div className="flex items-center gap-2">
         {Icon && (
-          <span className="grid size-7 place-items-center rounded-lg border-2 border-ink bg-gold text-ink shadow-brut">
+          <span className="grid size-7 place-items-center rounded-lg border-2 border-ink bg-gold text-cream shadow-brut">
             <Icon className="size-3.5" />
           </span>
         )}
-        <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-ink">
+        <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-cream">
           {title}
         </h3>
       </div>
@@ -156,9 +156,9 @@ export function BrutButton({
     tone === "coral"
       ? "bg-coral text-cream"
       : tone === "cream"
-        ? "bg-cream text-ink"
+        ? "bg-cream text-cream"
         : tone === "gold"
-          ? "bg-gold text-ink"
+          ? "bg-gold text-cream"
           : "bg-ink text-cream";
   const sizes =
     size === "sm" ? "h-9 px-4 text-[11px]" : size === "lg" ? "h-13 px-6 text-sm" : "h-11 px-5 text-xs";

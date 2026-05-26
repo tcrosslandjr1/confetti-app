@@ -1,7 +1,7 @@
-// Lovable AI Gateway — generate outing ideas for an occasion
+// Confetti AI — generate outing ideas for an occasion
 const corsHeaders = {
   "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.lovable.app",
+    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.com",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
@@ -39,8 +39,8 @@ Deno.serve(async (req) => {
     } = body;
     if (!occasion || !format) return json({ error: "occasion and format required" }, 400);
 
-    const apiKey = Deno.env.get("LOVABLE_API_KEY");
-    if (!apiKey) return json({ error: "missing LOVABLE_API_KEY" }, 500);
+    const apiKey = Deno.env.get("OPENROUTER_API_KEY");
+    if (!apiKey) return json({ error: "missing OPENROUTER_API_KEY" }, 500);
 
     const tasteBlock = tasteSummary
       ? `\nUSER TASTE PROFILE (use this to personalize every idea — match age/life-stage/energy/scenes/music/cities/budget; honor "avoid" strictly): ${tasteSummary}\n`
@@ -148,7 +148,7 @@ For ALL ideas: be specific (name the venue type and what to do/order), match the
       },
     };
 
-    const resp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({

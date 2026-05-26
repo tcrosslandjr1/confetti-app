@@ -22,7 +22,7 @@ export function useHistoryDismiss(open: boolean, onClose: () => void) {
     if (!open || typeof window === "undefined") return;
 
     let poppedByBrowser = false;
-    const marker = { __lovableModal: true, t: Date.now() };
+    const marker = { __confettiModal: true, t: Date.now() };
     window.history.pushState(marker, "");
 
     const onPop = () => {

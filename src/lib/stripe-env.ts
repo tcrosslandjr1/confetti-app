@@ -11,7 +11,7 @@ export function getStripeEnvironment(): StripeEnv {
   if (clientToken?.startsWith("pk_test_")) return "sandbox";
   if (typeof window === "undefined") return "sandbox";
   const host = window.location.hostname;
-  return host === "confettiplan.lovable.app" ? "live" : "sandbox";
+  return host === "confettiplan.com" || host === "www.confettiplan.com" ? "live" : "sandbox";
 }
 
 export type { StripeEnv };

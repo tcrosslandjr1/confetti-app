@@ -1,4 +1,4 @@
-// Lovable AI Gateway — build a full-day itinerary.
+// Confetti AI — build a full-day itinerary.
 // Venue grounding uses the curated `venues` table (1,074 entries) — no Google Places.
 import { getCorsHeaders } from "../_shared/cors.ts";
 import { supabaseAdmin } from "../_shared/supabase-client.ts";

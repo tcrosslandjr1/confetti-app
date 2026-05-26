@@ -3,6 +3,10 @@ import { useState, type ReactNode } from "react";
 import {
   BrandMark, Chip, ChunkyButton, DotsBg, Frame, Icons, TOKENS,
 } from "@/components/new-confetti/shell";
+import { useNewAuth } from "@/hooks/useNewAuth";
+import { generateAiPlan } from "@/lib/generate-plan-client";
+import { setActiveLoop } from "@/lib/loop-store";
+import { getSelectedCity } from "@/lib/cities";
 
 // Ported from design/new-confetti/project/screens.jsx (PlanScreen, line 195)
 export const Route = createFileRoute("/new/plan")({
@@ -30,18 +34,57 @@ interface PlanState {
 }
 
 function PlanPage() {
+  const { ready } = useNewAuth();
   const navigate = useNavigate();
   const [state, setState] = useState<PlanState>({
-    city: "Brooklyn, NY", when: "Tonight",
-    vibes: ["foodie", "chill"], budget: "$$", crew: 2, addons: ["walk"],
+    city: getSelectedCity()?.name ?? "Washington DC",
+    when: "Tonight",
+    vibes: [], budget: "$$", crew: 2, addons: [],
   });
+  const [generating, setGenerating] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const toggleVibe = (id: string) => {
     const next = state.vibes.includes(id)
       ? state.vibes.filter((v) => v !== id)
       : state.vibes.length < 3 ? [...state.vibes, id] : state.vibes;
     setState({ ...state, vibes: next });
   };
-  const canPlan = state.vibes.length > 0;
+  const canPlan = state.vibes.length > 0 && !generating;
+
+  async function handleGenerate() {
+    if (!canPlan) return;
+    setGenerating(true);
+    setError(null);
+    try {
+      const { loop } = await generateAiPlan({
+        occasion: state.when.toLowerCase(),
+        vibe: state.vibes.join(", "),
+        budget: state.budget,
+        timeOfDay: state.when.toLowerCase(),
+        groupSize: state.crew,
+        notes: state.addons.length > 0 ? `Preferences: ${state.addons.join(", ")}` : undefined,
+      });
+      setActiveLoop(loop);
+      navigate({ to: "/new/printing" });
+    } catch (err: any) {
+      setError(err.message ?? "Something went wrong — try again.");
+    } finally {
+      setGenerating(false);
+    }
+  }
+
+  if (!ready) {
+    return (
+      <Frame>
+        <div style={{
+          height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
+          background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
+          color: TOKENS.ink, opacity: 0.5,
+        }}>loading...</div>
+      </Frame>
+    );
+  }
 
   return (
     <Frame>
@@ -211,12 +254,19 @@ function PlanPage() {
         </div>
 
         <div style={{ position: "relative", zIndex: 2, paddingTop: 12 }}>
+          {error && (
+            <div style={{
+              marginBottom: 10, padding: "10px 14px", borderRadius: 10,
+              background: "#fee2e2", border: "2px solid #ef4444",
+              fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 600, color: "#991b1b",
+            }}>{error}</div>
+          )}
           <ChunkyButton
             variant={canPlan ? "accent" : "ghost"}
             disabled={!canPlan}
-            onClick={() => canPlan && navigate({ to: "/new/printing" })}
+            onClick={handleGenerate}
             icon={Icons.arrow}>
-            {canPlan ? "Generate my plan" : "Pick a vibe first"}
+            {generating ? "Building your night…" : canPlan ? "Generate my plan" : "Pick a vibe first"}
           </ChunkyButton>
         </div>
       </div>

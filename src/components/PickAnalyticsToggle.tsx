@@ -44,7 +44,7 @@ export function PickAnalyticsToggle({ className = "" }: { className?: string }) 
           {granted ? (
             <Shield className="h-4 w-4 text-coral" />
           ) : (
-            <ShieldOff className="h-4 w-4 text-ink/50" />
+            <ShieldOff className="h-4 w-4 text-cream/50" />
           )}
           <h3 className="font-display text-sm font-bold">Pick analytics</h3>
         </div>

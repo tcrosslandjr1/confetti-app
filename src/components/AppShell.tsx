@@ -27,7 +27,7 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-[var(--z-nav)] mx-auto w-full max-w-md border-t border-ink/10 bg-cream/92 backdrop-blur-2xl safe-bottom"
+      className="fixed inset-x-0 bottom-0 z-[var(--z-nav)] mx-auto w-full max-w-md border-t border-cream/10 bg-mocha-dark/92 backdrop-blur-2xl safe-bottom"
       aria-label="Main navigation"
     >
       <ul className="grid grid-cols-5 px-1 pt-2 pb-1" role="list">
@@ -43,16 +43,16 @@ export function BottomNav() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "flex flex-col items-center gap-0.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.14em] transition-colors duration-200",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-cream rounded-xl",
-                  active ? "text-ink" : "text-ink/35 hover:text-ink/60",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-mocha-dark rounded-xl",
+                  active ? "text-cream" : "text-cream/35 hover:text-cream/60",
                 )}
               >
                 <span
                   className={cn(
                     "grid size-10 place-items-center rounded-2xl transition-all duration-200",
                     active
-                      ? "bg-gold/90 text-ink shadow-sm scale-100"
-                      : "text-ink/35",
+                      ? "bg-coral text-cream shadow-sm scale-100"
+                      : "text-cream/35",
                   )}
                 >
                   <Icon
@@ -79,7 +79,7 @@ export function AppShell() {
   useLocationTracking();
 
   return (
-    <div className="relative mx-auto min-h-screen w-full max-w-md bg-cream text-ink pb-24">
+    <div className="relative mx-auto min-h-screen w-full max-w-md bg-mocha text-cream pb-24">
       <Outlet />
       <BottomNav />
     </div>
@@ -104,7 +104,7 @@ export function MobileHeader({
   return (
     <header
       className={cn(
-        "sticky top-0 z-[var(--z-sticky)] border-b border-ink/8 bg-cream/95 backdrop-blur-2xl px-5 pb-3.5 pt-5",
+        "sticky top-0 z-[var(--z-sticky)] border-b border-cream/8 bg-mocha-dark/95 backdrop-blur-2xl px-5 pb-3.5 pt-5",
         className,
       )}
     >
@@ -113,11 +113,11 @@ export function MobileHeader({
           {left}
           <div className="min-w-0">
             {eyebrow && (
-              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/45 mb-1">
+              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-cream/45 mb-1">
                 {eyebrow}
               </p>
             )}
-            <h1 className="truncate font-display text-[22px] font-extrabold tracking-[-0.02em] text-ink leading-none">
+            <h1 className="truncate font-display text-[22px] font-extrabold tracking-[-0.02em] text-cream leading-none">
               {title}
             </h1>
           </div>

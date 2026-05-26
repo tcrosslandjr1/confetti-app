@@ -3,7 +3,7 @@
 --
 -- All statements use IF EXISTS / DROP POLICY IF EXISTS so the
 -- migration is safe to apply even if some flagged tables don't
--- exist (e.g. tables that Lovable created outside our migrations).
+-- exist (e.g. tables created outside our migrations).
 -- ============================================================
 
 -- ─── profile_social_links: add INSERT/UPDATE policies ──────

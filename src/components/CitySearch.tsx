@@ -135,7 +135,7 @@ export function CitySearch() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Search cities, regions, or vibes…"
-            className="h-14 rounded-2xl border-2 border-ink/15 bg-card pl-12 pr-12 text-base shadow-sm transition-all focus:border-primary focus:shadow-brut"
+            className="h-14 rounded-2xl border-2 border-cream/15 bg-card pl-12 pr-12 text-base shadow-sm transition-all focus:border-primary focus:shadow-brut"
             aria-label="Search cities"
           />
           {query && (
@@ -144,7 +144,7 @@ export function CitySearch() {
                 setQuery("");
                 inputRef.current?.focus();
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground hover:text-ink"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground hover:text-cream"
               aria-label="Clear search"
             >
               <X className="h-4 w-4" />
@@ -162,7 +162,7 @@ export function CitySearch() {
                 "rounded-full border-2 px-4 py-1.5 text-sm font-semibold transition-all",
                 filter === f.key
                   ? "border-ink bg-ink text-cream shadow-brut"
-                  : "border-ink/15 bg-card text-ink hover:border-ink/40 hover:-translate-y-0.5 hover:shadow-sm",
+                  : "border-cream/15 bg-card text-cream hover:border-ink/40 hover:-translate-y-0.5 hover:shadow-sm",
               )}
             >
               {f.label}
@@ -202,7 +202,7 @@ export function CitySearch() {
           Object.entries(grouped).map(([group, cities]: [string, City[]]) =>
             cities.length === 0 ? null : (
               <div key={group} className="mt-10 first:mt-6">
-                <h2 className="mb-4 text-xl font-bold tracking-tight text-ink">
+                <h2 className="mb-4 text-xl font-bold tracking-tight text-cream">
                   {group}
                   <span className="ml-2 text-sm font-normal text-muted-foreground">
                     {cities.length}
@@ -258,7 +258,7 @@ function CityCard({
         "group relative flex flex-col rounded-2xl border-2 bg-card p-5 transition-all",
         isFocused
           ? "border-primary shadow-brut -translate-x-0.5 -translate-y-0.5"
-          : "border-ink/10 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5",
+          : "border-cream/10 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5",
       )}
     >
       {/* Header — clickable link to city page */}
@@ -267,11 +267,11 @@ function CityCard({
         params={{ slug: city.slug }}
         className="flex items-start gap-4 rounded-xl p-1 -m-1 transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-ink/10 bg-surface-1 text-2xl">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-cream/10 bg-cream/5 text-2xl">
           {city.emoji}
         </span>
         <div className="min-w-0">
-          <h3 className="text-lg font-bold leading-tight text-ink">{city.name}</h3>
+          <h3 className="text-lg font-bold leading-tight text-cream">{city.name}</h3>
           <p className="mt-0.5 flex items-center gap-1 text-sm text-muted-foreground">
             <MapPin className="h-3 w-3 shrink-0" />
             <span className="truncate">{city.region}</span>
@@ -296,7 +296,7 @@ function CityCard({
           asChild
           variant="outline"
           size="sm"
-          className="h-9 flex-1 gap-1.5 rounded-xl border-2 border-ink/15 text-xs font-bold hover:border-ink/30"
+          className="h-9 flex-1 gap-1.5 rounded-xl border-2 border-cream/15 text-xs font-bold hover:border-ink/30"
           onClick={() => setSelectedCity(city.slug)}
         >
           <Link to="/app/explore">
@@ -347,7 +347,7 @@ export function CityPickerTrigger({ className }: { className?: string }) {
       <button
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          "inline-flex items-center gap-2 rounded-full border-2 border-ink/15 bg-card px-4 py-2 text-sm font-semibold text-ink transition-all hover:border-ink/30",
+          "inline-flex items-center gap-2 rounded-full border-2 border-cream/15 bg-card px-4 py-2 text-sm font-semibold text-cream transition-all hover:border-ink/30",
           open && "border-primary shadow-brut",
         )}
       >
@@ -362,7 +362,7 @@ export function CityPickerTrigger({ className }: { className?: string }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 top-full z-50 mt-2 w-80 rounded-2xl border-2 border-ink/15 bg-card p-3 shadow-brut-lg"
+            className="absolute left-0 top-full z-50 mt-2 w-80 rounded-2xl border-2 border-cream/15 bg-card p-3 shadow-brut-lg"
           >
             <div className="relative">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -371,12 +371,12 @@ export function CityPickerTrigger({ className }: { className?: string }) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search cities…"
-                className="h-10 w-full rounded-xl border-2 border-ink/15 bg-surface-1 pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none focus:ring-0"
+                className="h-10 w-full rounded-xl border-2 border-cream/15 bg-cream/5 pl-9 pr-8 text-sm text-cream placeholder:text-cream/35 focus:border-primary focus:outline-none focus:ring-0"
               />
               {query && (
                 <button
                   onClick={() => setQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-ink"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-cream"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -402,7 +402,7 @@ export function CityPickerTrigger({ className }: { className?: string }) {
                   >
                     <span className="text-xl">{city.emoji}</span>
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-ink">{city.name}</p>
+                      <p className="text-sm font-semibold text-cream">{city.name}</p>
                       <p className="text-xs text-muted-foreground">{city.region}</p>
                     </div>
                   </Link>

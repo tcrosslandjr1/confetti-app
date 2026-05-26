@@ -19,10 +19,10 @@ function HangoutPage() {
   if (!hangout) {
     return (
       <div className="grid min-h-[60vh] place-items-center px-4">
-        <div className="rounded-2xl border-2 border-dashed border-ink/20 bg-cream/40 px-8 py-12 text-center">
-          <Sparkles className="mx-auto h-8 w-8 text-ink/30" />
+        <div className="rounded-2xl border-2 border-dashed border-cream/20 bg-cream/40 px-8 py-12 text-center">
+          <Sparkles className="mx-auto h-8 w-8 text-cream/30" />
           <p className="mt-3 font-display text-lg font-bold">No hangout planned</p>
-          <p className="mt-1 text-sm text-ink/60">
+          <p className="mt-1 text-sm text-cream/60">
             Build one from the planner — crabs, game night, picnic, anything.
           </p>
           <Link

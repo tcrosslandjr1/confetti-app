@@ -7,7 +7,7 @@ import { getCorsHeaders } from "../_shared/cors.ts";
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY")!;
-const PUBLIC_SITE = Deno.env.get("PUBLIC_SITE_URL") || "https://confettiplan.lovable.app";
+const PUBLIC_SITE = Deno.env.get("PUBLIC_SITE_URL") || "https://confettiplan.com";
 
 const admin = createClient(SUPABASE_URL, SERVICE_ROLE);
 

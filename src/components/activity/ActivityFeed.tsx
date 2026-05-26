@@ -79,7 +79,7 @@ export function ActivityFeed({
           <Activity className="h-4 w-4 text-coral" /> {title}
         </h3>
         {entries.length > 0 && (
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
             {entries.length}
           </span>
         )}
@@ -93,13 +93,13 @@ export function ActivityFeed({
             const Icon = ICONS[e.kind] ?? Activity;
             return (
               <li key={e.id} className="flex items-start gap-3">
-                <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream text-ink">
+                <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream text-cream">
                   <Icon className="h-3.5 w-3.5" />
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="text-sm leading-snug">
                     <span className="font-semibold">{e.actor}</span>{" "}
-                    <span className="text-ink/80">{e.message}</span>
+                    <span className="text-cream/80">{e.message}</span>
                   </p>
                   <p className="mt-0.5 flex flex-wrap items-center gap-x-2 text-[11px] text-muted-foreground">
                     <span>{formatRelative(e.ts)}</span>

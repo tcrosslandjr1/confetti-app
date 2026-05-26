@@ -12,12 +12,12 @@
  * Feeds enriched context into the AI Content Engine's prompt builders so the
  * Recommendation Agent reasons over real social momentum — not just general knowledge.
  *
- * Runs server-side only. Uses Lovable AI Gateway for classification and
+ * Runs server-side only. Uses OpenRouter for classification and
  * supabaseAdmin for persistence.
  */
 
 import { generateText } from "ai";
-import { createLovableAiGatewayProvider } from "../ai-gateway.server";
+import { getAiProvider } from "../ai-gateway.server";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { CITIES, type CityContext } from "./city-context";
 
@@ -203,12 +203,7 @@ Return ONLY a JSON array. NO markdown. NO explanation.`;
 // ─── AI Call (reuses same pattern as idea-generator) ──────────
 
 async function callAI(prompt: string): Promise<string> {
-  const apiKey = process.env.LOVABLE_API_KEY;
-  if (!apiKey) {
-    throw new Error("Missing LOVABLE_API_KEY for social signal collection");
-  }
-
-  const provider = createLovableAiGatewayProvider(apiKey);
+  const provider = getAiProvider();
   const { text } = await generateText({
     model: provider("gpt-4o-mini"),
     prompt,

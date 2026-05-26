@@ -48,26 +48,26 @@ export function VenueReviews({
   return (
     <section className="flex flex-col gap-5">
       <div className="flex items-center justify-between">
-        <h2 className="font-display text-xl font-bold text-ink">
+        <h2 className="font-display text-xl font-bold text-cream">
           Reviews
         </h2>
         <button
           type="button"
           onClick={() => setShowForm(!showForm)}
-          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition hover:-translate-y-0.5"
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition hover:-translate-y-0.5"
         >
           <PenLine className="h-3.5 w-3.5" /> Write review
         </button>
       </div>
 
       {/* Aggregate stats */}
-      <div className="flex gap-6 rounded-2xl border border-ink/10 bg-white/60 p-5 backdrop-blur">
+      <div className="flex gap-6 rounded-2xl border border-cream/10 bg-white/60 p-5 backdrop-blur">
         <div className="flex flex-col items-center gap-1">
-          <span className="font-display text-4xl font-bold text-ink">
+          <span className="font-display text-4xl font-bold text-cream">
             {averageRating.toFixed(1)}
           </span>
           <StarRating value={averageRating} size="sm" showLabel={false} />
-          <span className="font-mono text-[10px] text-ink/50">
+          <span className="font-mono text-[10px] text-cream/50">
             {reviewCount.toLocaleString()} review{reviewCount !== 1 ? "s" : ""}
           </span>
         </div>
@@ -75,17 +75,17 @@ export function VenueReviews({
         <div className="flex flex-1 flex-col justify-center gap-1">
           {dist.map((d) => (
             <div key={d.stars} className="flex items-center gap-2">
-              <span className="w-4 text-right font-mono text-[10px] font-bold text-ink/60">
+              <span className="w-4 text-right font-mono text-[10px] font-bold text-cream/60">
                 {d.stars}
               </span>
               <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
-              <div className="h-2 flex-1 overflow-hidden rounded-full bg-ink/10">
+              <div className="h-2 flex-1 overflow-hidden rounded-full bg-cream/10">
                 <div
                   className="h-full rounded-full bg-amber-400 transition-all"
                   style={{ width: `${d.pct}%` }}
                 />
               </div>
-              <span className="w-6 font-mono text-[10px] text-ink/50">
+              <span className="w-6 font-mono text-[10px] text-cream/50">
                 {d.count}
               </span>
             </div>
@@ -109,7 +109,7 @@ export function VenueReviews({
       {/* Sort controls */}
       {reviews.length > 1 && (
         <div className="flex items-center gap-2">
-          <Filter className="h-3.5 w-3.5 text-ink/40" />
+          <Filter className="h-3.5 w-3.5 text-cream/40" />
           {(["recent", "highest", "lowest", "helpful"] as SortOption[]).map(
             (opt) => (
               <button
@@ -119,7 +119,7 @@ export function VenueReviews({
                 className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
                   sort === opt
                     ? "bg-ink text-cream"
-                    : "text-ink/50 hover:bg-ink/5"
+                    : "text-cream/50 hover:bg-cream/5"
                 }`}
               >
                 {opt}
@@ -133,10 +133,10 @@ export function VenueReviews({
       <div className="flex flex-col gap-3">
         {sorted.length === 0 ? (
           <div className="py-8 text-center">
-            <p className="font-display text-lg font-bold text-ink/40">
+            <p className="font-display text-lg font-bold text-cream/40">
               No reviews yet
             </p>
-            <p className="mt-1 text-sm text-ink/40">
+            <p className="mt-1 text-sm text-cream/40">
               Be the first to review {venueName}!
             </p>
           </div>

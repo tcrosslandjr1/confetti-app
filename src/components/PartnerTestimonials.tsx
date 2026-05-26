@@ -71,8 +71,8 @@ const LOGOS: { name: string; font: string; weight: string; italic?: boolean }[] 
 ];
 
 const ACCENT_CLASSES: Record<Testimonial["accent"], string> = {
-  coral: "bg-coral text-ink",
-  gold: "bg-gold text-ink",
+  coral: "bg-coral text-cream",
+  gold: "bg-gold text-cream",
   purple: "bg-purple text-cream",
 };
 
@@ -145,7 +145,7 @@ export function PartnerTestimonials() {
             type="button"
             onClick={prev}
             aria-label="Previous testimonial"
-            className="grid h-10 w-10 place-items-center rounded-full border-2 border-cream/40 bg-cream/5 text-cream transition hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-ink"
+            className="grid h-10 w-10 place-items-center rounded-full border-2 border-cream/40 bg-cream/5 text-cream transition hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-cream"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -153,7 +153,7 @@ export function PartnerTestimonials() {
             type="button"
             onClick={next}
             aria-label="Next testimonial"
-            className="grid h-10 w-10 place-items-center rounded-full border-2 border-cream/40 bg-cream/5 text-cream transition hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-ink"
+            className="grid h-10 w-10 place-items-center rounded-full border-2 border-cream/40 bg-cream/5 text-cream transition hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-cream"
           >
             <ChevronRight className="h-5 w-5" />
           </button>

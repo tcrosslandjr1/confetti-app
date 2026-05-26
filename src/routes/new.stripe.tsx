@@ -1,23 +1,43 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
+import { Suspense } from "react";
 import {
-  BrandMark, ChunkyButton, Frame, Icons, Stamp, Ticket, TOKENS,
+  BrandMark, Frame, Stamp, TOKENS,
 } from "@/components/new-confetti/shell";
+import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
+import { useNewAuth } from "@/hooks/useNewAuth";
 
-// Slim port — design/new-confetti/project/stripe.jsx (StripeCheckoutScreen, line 7)
+// Real Stripe Embedded Checkout — replaces the fake card form
 export const Route = createFileRoute("/new/stripe")({
   component: StripePage,
+  validateSearch: (search: Record<string, unknown>) => ({
+    plan: (search.plan as string) ?? "monthly",
+  }),
 });
+
+const PRICE_MAP: Record<string, string> = {
+  monthly: "consumer_plus_monthly",
+  yearly: "consumer_plus_yearly",
+};
 
 function StripePage() {
   const navigate = useNavigate();
-  const [plan, setPlan] = useState<"monthly" | "yearly">("yearly");
-  const [card, setCard] = useState("");
-  const [exp, setExp] = useState("");
-  const [cvc, setCvc] = useState("");
-  const [zip, setZip] = useState("");
+  const { plan } = useSearch({ from: "/new/stripe" });
+  const { ready, user } = useNewAuth();
 
-  const total = plan === "yearly" ? "$96 / yr" : "$10 / mo";
+  const priceId = PRICE_MAP[plan] ?? "consumer_plus_monthly";
+  const returnUrl = `${typeof window !== "undefined" ? window.location.origin : ""}/new/checkout-return?session_id={CHECKOUT_SESSION_ID}`;
+
+  if (!ready) {
+    return (
+      <Frame>
+        <div style={{
+          height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
+          background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
+          color: TOKENS.ink, opacity: 0.5,
+        }}>loading...</div>
+      </Frame>
+    );
+  }
 
   return (
     <Frame>
@@ -30,7 +50,7 @@ function StripePage() {
           display: "flex", alignItems: "center", justifyContent: "space-between",
           marginBottom: 14,
         }}>
-          <button onClick={() => navigate({ to: "/new/all-access" })} style={backBtn()}>←</button>
+          <button onClick={() => navigate({ to: "/new/paywall" })} style={backBtn()}>←</button>
           <BrandMark size={17} />
           <span style={{ width: 36 }} />
         </div>
@@ -42,70 +62,36 @@ function StripePage() {
           margin: "10px 0 14px",
         }}>One last<br/>tap.</h1>
 
-        {/* Plan toggle */}
-        <Ticket color={TOKENS.paper} notch style={{ padding: 12, marginBottom: 12 }}>
-          <div style={{ display: "flex", gap: 6 }}>
-            {(["monthly", "yearly"] as const).map((p) => (
-              <button key={p} onClick={() => setPlan(p)} style={{
-                appearance: "none", cursor: "pointer", flex: 1,
-                padding: "10px 12px", borderRadius: 12,
-                border: `2.5px solid ${TOKENS.ink}`,
-                background: plan === p ? TOKENS.accent2 : TOKENS.bg,
-                fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800,
-                letterSpacing: ".12em", textTransform: "uppercase",
-              }}>{p} · {p === "yearly" ? "$96" : "$10"}</button>
-            ))}
-          </div>
-        </Ticket>
-
         <div style={{
           flex: 1, overflowY: "auto", scrollbarWidth: "none",
           marginRight: -20, paddingRight: 20,
         }}>
-          <Field label="card number" placeholder="1234 5678 9012 3456"
-            value={card} onChange={setCard} />
-          <div style={{ display: "flex", gap: 8 }}>
-            <Field label="exp" placeholder="MM/YY" value={exp} onChange={setExp} />
-            <Field label="cvc" placeholder="123" value={cvc} onChange={setCvc} />
-          </div>
-          <Field label="zip" placeholder="11211" value={zip} onChange={setZip} />
-
-          <div style={{
-            fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700,
-            opacity: 0.6, marginTop: 14, letterSpacing: ".06em", textAlign: "center",
-          }}>🔒 stripe handles your card. confetti never sees it.</div>
+          <Suspense fallback={
+            <div style={{
+              display: "grid", placeItems: "center", minHeight: 400,
+            }}>
+              <div style={{
+                width: 48, height: 48, borderRadius: 999,
+                border: `3px solid ${TOKENS.ink}`,
+                borderTopColor: "transparent",
+                animation: "cf-spin 1s linear infinite",
+              }} />
+            </div>
+          }>
+            <StripeEmbeddedCheckout
+              variant={{ kind: "price", priceId, accountType: "user" }}
+              customerEmail={user?.email ?? undefined}
+              returnUrl={returnUrl}
+            />
+          </Suspense>
         </div>
 
-        <div style={{ marginTop: 12 }}>
-          <ChunkyButton variant="accent" onClick={() => navigate({ to: "/new/checkout-return" })}
-            icon={Icons.arrow}>pay {total}</ChunkyButton>
-        </div>
+        <div style={{
+          fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700,
+          opacity: 0.6, marginTop: 10, letterSpacing: ".06em", textAlign: "center",
+        }}>🔒 stripe handles your card. confetti never sees it.</div>
       </div>
     </Frame>
-  );
-}
-
-function Field({ label, placeholder, value, onChange }: {
-  label: string; placeholder: string; value: string; onChange: (v: string) => void;
-}) {
-  return (
-    <div style={{ flex: 1, marginBottom: 10 }}>
-      <div style={{
-        fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-        letterSpacing: ".14em", opacity: 0.55, marginBottom: 4,
-        textTransform: "uppercase",
-      }}>{label}</div>
-      <input
-        value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder}
-        style={{
-          width: "100%", padding: "12px 14px", boxSizing: "border-box",
-          border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12,
-          background: TOKENS.paper, color: TOKENS.ink,
-          fontFamily: TOKENS.mono, fontSize: 14, fontWeight: 700,
-          letterSpacing: ".04em", outline: "none",
-        }}
-      />
-    </div>
   );
 }
 

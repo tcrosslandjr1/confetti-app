@@ -51,11 +51,11 @@ export function VenueHours({ hours }: { hours: DayHours[] }) {
   const status = isOpenNow(hours);
 
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-white/60 p-4 backdrop-blur">
+    <div className="flex flex-col gap-3 rounded-2xl border border-cream/10 bg-white/60 p-4 backdrop-blur">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Clock className="h-4 w-4 text-ink/50" />
-          <span className="font-display text-sm font-bold text-ink">Hours</span>
+          <Clock className="h-4 w-4 text-cream/50" />
+          <span className="font-display text-sm font-bold text-cream">Hours</span>
         </div>
         <span
           className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest ${
@@ -81,14 +81,14 @@ export function VenueHours({ hours }: { hours: DayHours[] }) {
             >
               <span
                 className={`w-10 font-mono text-[11px] uppercase tracking-widest ${
-                  isToday ? "text-coral" : "text-ink/50"
+                  isToday ? "text-coral" : "text-cream/50"
                 }`}
               >
                 {name}
               </span>
               <span
                 className={`font-mono text-[11px] ${
-                  isToday ? "text-ink" : "text-ink/70"
+                  isToday ? "text-cream" : "text-cream/70"
                 }`}
               >
                 {!entry || entry.isClosed

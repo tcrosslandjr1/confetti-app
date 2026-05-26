@@ -51,7 +51,7 @@ export function ReelsDrawer({
             <div className="mx-auto mb-3 h-1.5 w-12 rounded-full bg-ink/30" />
             <div className="mb-4 flex items-center justify-between">
               <div>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                   The vibe
                 </p>
                 <h3 className="font-display text-lg font-bold leading-tight">{venueName}</h3>
@@ -59,7 +59,7 @@ export function ReelsDrawer({
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close"
-                className="grid h-9 w-9 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                className="grid h-9 w-9 place-items-center rounded-full border-2 border-ink bg-white text-cream shadow-brut active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -86,7 +86,7 @@ export function ReelsDrawer({
               )}
             </div>
 
-            <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
+            <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-widest text-cream/50">
               Tap to open in app
             </p>
           </div>

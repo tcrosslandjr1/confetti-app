@@ -3,7 +3,7 @@
  *
  * Single source of truth for the custom OAuth providers we host
  * (TikTok, Instagram). Native Supabase identities (Google, Apple) are
- * managed separately by Lovable Cloud and are not in this registry.
+ * managed separately by Supabase Auth and are not in this registry.
  *
  * This module is shared between server functions and the configuration
  * status UI, so it must NOT read process.env at module scope — server-only
@@ -18,7 +18,7 @@ export interface ProviderConfigSpec {
   id: CustomOAuthProvider;
   label: string;
   /**
-   * Names of the environment variables (Lovable Cloud secrets) that hold
+   * Names of the environment variables (Vercel env vars) that hold
    * the app credentials for this provider.
    */
   envVars: readonly [clientIdVar: string, clientSecretVar: string];
@@ -86,7 +86,7 @@ export function readProviderCredentials(id: CustomOAuthProvider): ProviderCreden
     if (!raw.clientSecret) missing.push(secretVar);
     if (missing.length > 0) {
       throw new Error(
-        `${spec.label} is not configured. Missing Lovable Cloud secret(s): ${missing.join(", ")}.`,
+        `${spec.label} is not configured. Missing environment variable(s): ${missing.join(", ")}.`,
       );
     }
     // Present but failed shape validation (too long, etc.)

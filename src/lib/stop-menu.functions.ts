@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { generateText, Output } from "ai";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { createLovableAiGatewayProvider } from "./ai-gateway.server";
+import { getAiProvider } from "./ai-gateway.server";
 
 /* -------------------------------------------------------------------------- */
 /*  Shared shapes                                                              */
@@ -162,12 +162,10 @@ export const getStopMenu = createServerFn({ method: "POST" })
       }
     }
 
-    // 2. Generate via Lovable AI
+    // 2. Generate via AI
     let items: MenuItem[] = [];
-    const apiKey = process.env.LOVABLE_API_KEY;
-    if (apiKey) {
-      try {
-        const gateway = createLovableAiGatewayProvider(apiKey);
+    try {
+      const gateway = getAiProvider();
         const model = gateway("google/gemini-2.5-flash");
         const cat = (data.category ?? "drinks").toLowerCase();
         const venueDesc = data.city ? `${data.stopName} in ${data.city}` : data.stopName;
@@ -200,9 +198,8 @@ export const getStopMenu = createServerFn({ method: "POST" })
                 .slice(0, 40) || `item-${Math.random().toString(36).slice(2, 8)}`,
           }));
         }
-      } catch {
-        // fall through to fallback
-      }
+    } catch {
+      // fall through to fallback
     }
 
     if (!items.length) {
@@ -214,7 +211,7 @@ export const getStopMenu = createServerFn({ method: "POST" })
       await supabase.from("stop_menus").upsert({
         stop_id: data.stopId,
         items: items as unknown as never,
-        source: apiKey ? "ai" : "fallback",
+        source: items.length ? "ai" : "fallback",
         generated_at: new Date().toISOString(),
       });
     }

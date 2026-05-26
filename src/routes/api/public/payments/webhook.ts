@@ -91,23 +91,25 @@ async function notifyUser(userId: string, title: string, body: string, link?: st
 
 async function sendReceipt(toEmail: string, subject: string, html: string) {
   const resendKey = process.env.RESEND_API_KEY;
-  const lovableKey = process.env.LOVABLE_API_KEY;
-  if (!resendKey || !lovableKey) return; // Stripe sends its own receipt; ours is bonus
+  if (!resendKey) return; // Stripe sends its own receipt; ours is bonus
+  const fromAddress = process.env.FROM_EMAIL ?? "Confetti <hello@confettiplan.com>";
   try {
-    await fetch("https://connector-gateway.lovable.dev/resend/emails", {
+    const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${lovableKey}`,
-        "X-Connection-Api-Key": resendKey,
+        Authorization: `Bearer ${resendKey}`,
       },
       body: JSON.stringify({
-        from: "Confetti <hello@confettiplan.lovable.app>",
+        from: fromAddress,
         to: [toEmail],
         subject,
         html,
       }),
     });
+    if (!res.ok) {
+      console.error("Receipt email failed", res.status, await res.text().catch(() => ""));
+    }
   } catch (e) {
     console.error("Receipt email failed", e);
   }

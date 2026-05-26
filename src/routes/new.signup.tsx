@@ -3,10 +3,8 @@ import { useState } from "react";
 import {
   BrandMark, Chip, ChunkyButton, DotsBg, FloatingTickets, Frame, Icons, Stamp, TOKENS,
 } from "@/components/new-confetti/shell";
+import { supabase } from "@/integrations/supabase/client";
 
-// Slim port — design/new-confetti/project/auth.jsx (SignUpScreen, line 218)
-// Single-step: name + phone + city. Multi-step vibe quiz + permissions
-// from the prototype is a follow-up polish.
 export const Route = createFileRoute("/new/signup")({
   component: SignUpPage,
 });
@@ -14,12 +12,39 @@ export const Route = createFileRoute("/new/signup")({
 function SignUpPage() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [city, setCity] = useState("Brooklyn, NY");
-  const [vibes, setVibes] = useState<string[]>(["foodie"]);
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [vibes, setVibes] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const toggle = (v: string) =>
     setVibes((vs) => vs.includes(v) ? vs.filter((x) => x !== v) : [...vs, v]);
-  const valid = name.trim().length > 0;
+  const valid = name.trim().length > 0 && email.trim().length > 0;
+
+  const handleSignUp = async () => {
+    if (!valid) return;
+    setLoading(true);
+    setError(null);
+
+    // Sign up with magic link — Supabase creates the user on first OTP send
+    const { error: authError } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: {
+        emailRedirectTo: `${window.location.origin}/new/hub`,
+        data: {
+          display_name: name.trim(),
+          city: city.trim(),
+          vibes,
+        },
+      },
+    });
+
+    setLoading(false);
+    if (authError) { setError(authError.message); return; }
+    // Navigate to a confirmation / explainer screen
+    navigate({ to: "/new/explainer" });
+  };
 
   return (
     <Frame>
@@ -56,7 +81,16 @@ function SignUpPage() {
             color: TOKENS.ink, margin: 0,
           }}>Tell us<br/>about you.</h1>
 
+          {error && (
+            <div style={{
+              padding: "10px 14px", borderRadius: 10,
+              background: "#fee2e2", border: "2px solid #ef4444",
+              fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 600, color: "#991b1b",
+            }}>{error}</div>
+          )}
+
           <Input label="Your name" value={name} onChange={setName} placeholder="Jess" icon="✣" />
+          <Input label="Email" value={email} onChange={setEmail} placeholder="you@email.com" icon="✉" />
           <Input label="City" value={city} onChange={setCity} placeholder="Brooklyn, NY" icon="📍" />
 
           <div>
@@ -77,9 +111,9 @@ function SignUpPage() {
             </div>
           </div>
 
-          <ChunkyButton variant="accent" disabled={!valid} icon={Icons.arrow}
-            onClick={() => navigate({ to: "/new/explainer" })}>
-            {valid ? "Start printing" : "Add your name"}
+          <ChunkyButton variant="accent" disabled={!valid || loading} icon={Icons.arrow}
+            onClick={handleSignUp}>
+            {loading ? "sending link..." : valid ? "Start printing" : "Add your name & email"}
           </ChunkyButton>
         </div>
       </div>

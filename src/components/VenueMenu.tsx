@@ -38,7 +38,7 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="font-display text-xl font-bold text-ink">Menu</h2>
+      <h2 className="font-display text-xl font-bold text-cream">Menu</h2>
 
       {/* Section tabs */}
       {sections.length > 1 && (
@@ -51,7 +51,7 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
               className={`shrink-0 rounded-full px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
                 activeSection === i
                   ? "bg-ink text-cream"
-                  : "border border-ink/15 text-ink/50 hover:border-ink/30"
+                  : "border border-cream/15 text-cream/50 hover:border-ink/30"
               }`}
             >
               {sec.sectionName}
@@ -65,7 +65,7 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
         {sections[activeSection].items.map((item) => (
           <div
             key={item.id}
-            className={`flex gap-3 rounded-xl border border-ink/10 bg-white/60 p-3 backdrop-blur ${
+            className={`flex gap-3 rounded-xl border border-cream/10 bg-white/60 p-3 backdrop-blur ${
               !item.isAvailable ? "opacity-50" : ""
             }`}
           >
@@ -73,14 +73,14 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
               <img
                 src={item.imageUrl}
                 alt={item.name}
-                className="h-16 w-16 shrink-0 rounded-lg border border-ink/10 object-cover"
+                className="h-16 w-16 shrink-0 rounded-lg border border-cream/10 object-cover"
                 loading="lazy"
               />
             )}
             <div className="flex flex-1 flex-col gap-1">
               <div className="flex items-start justify-between gap-2">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-display text-sm font-bold text-ink">
+                  <span className="font-display text-sm font-bold text-cream">
                     {item.name}
                   </span>
                   {item.isPopular && (
@@ -91,14 +91,14 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
                   )}
                 </div>
                 {item.price != null && (
-                  <span className="shrink-0 font-mono text-sm font-bold text-ink">
+                  <span className="shrink-0 font-mono text-sm font-bold text-cream">
                     ${item.price.toFixed(2)}
                   </span>
                 )}
               </div>
 
               {item.description && (
-                <p className="text-[12px] leading-relaxed text-ink/60">
+                <p className="text-[12px] leading-relaxed text-cream/60">
                   {item.description}
                 </p>
               )}
@@ -111,8 +111,8 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
                     return (
                       <span
                         key={tag}
-                        className={`inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest ${
-                          cfg?.color || "text-ink/50"
+                        className={`inline-flex items-center gap-0.5 rounded-full bg-cream/5 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest ${
+                          cfg?.color || "text-cream/50"
                         }`}
                       >
                         {Icon && <Icon className="h-2.5 w-2.5" />}

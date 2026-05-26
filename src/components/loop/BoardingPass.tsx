@@ -137,14 +137,14 @@ function vibesOf(loop: ActiveLoop): string[] {
 // ─── Tone tokens (mapped to design system, no raw colors) ──────────────
 const kindStyles: Record<StopKind, { marker: string; label: string; line: string }> = {
   departure: { marker: "bg-coral text-cream", label: "text-coral", line: "border-coral/40" },
-  layover: { marker: "bg-gold text-ink", label: "text-ink/70", line: "border-ink/30" },
-  destination: { marker: "bg-ink text-cream", label: "text-ink", line: "border-ink/40" },
+  layover: { marker: "bg-gold text-cream", label: "text-cream/70", line: "border-ink/30" },
+  destination: { marker: "bg-ink text-cream", label: "text-cream", line: "border-ink/40" },
 };
 
 const tagToneClass: Record<NonNullable<LoopStop["tags"]>[number]["variant"], string> = {
   vibe: "bg-coral/10 text-coral border-coral/30",
-  ev: "bg-gold/30 text-ink border-ink/30",
-  time: "bg-ink/5 text-ink border-ink/20",
+  ev: "bg-gold/30 text-cream border-ink/30",
+  time: "bg-cream/5 text-cream border-cream/20",
 };
 
 // ──────────────────────────────────────────────────────────────────────
@@ -530,7 +530,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         <button
           type="button"
           onClick={() => setCancelConfirmOpen(true)}
-          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink/40 bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70 transition-pop hover:-translate-y-0.5 hover:bg-red-50 hover:border-red-600 hover:text-red-700"
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink/40 bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70 transition-pop hover:-translate-y-0.5 hover:bg-red-50 hover:border-red-600 hover:text-red-700"
         >
           <XCircle className="h-3.5 w-3.5" />
           Cancel
@@ -546,7 +546,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
             }}
             aria-expanded={shareOpen}
             aria-haspopup="menu"
-            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5"
           >
             <Share2 className="h-3.5 w-3.5" />
             Share
@@ -554,7 +554,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           {shareOpen && (
             <div
               role="menu"
-              className="absolute right-0 z-30 mt-2 w-64 rounded-2xl border-2 border-ink bg-cream p-2 shadow-brut text-ink"
+              className="absolute right-0 z-30 mt-2 w-64 rounded-2xl border-2 border-ink bg-cream p-2 shadow-brut text-cream"
             >
               <button
                 type="button"
@@ -627,7 +627,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                 <FileText className="h-4 w-4" />
                 Save / Print as PDF
               </button>
-              <div className="mt-1 truncate border-t border-ink/15 px-3 py-1.5 font-mono text-[9px] text-ink/50">
+              <div className="mt-1 truncate border-t border-cream/15 px-3 py-1.5 font-mono text-[9px] text-cream/50">
                 {shareUrl}
               </div>
             </div>
@@ -682,14 +682,14 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         <div className="px-6 pt-6 pb-4">
           <div className="flex items-end justify-between gap-3">
             <div className="min-w-0">
-              <div className="font-mono text-[9px] uppercase tracking-widest text-ink/50">
+              <div className="font-mono text-[9px] uppercase tracking-widest text-cream/50">
                 Departure
               </div>
               <div className="font-display text-3xl font-extrabold leading-none tracking-tight">
                 {loop.from}
               </div>
               {loop.fromName && (
-                <div className="mt-1 text-[11px] text-ink/60 truncate">{loop.fromName}</div>
+                <div className="mt-1 text-[11px] text-cream/60 truncate">{loop.fromName}</div>
               )}
             </div>
             <div className="flex flex-1 items-center justify-center gap-1 px-2 pb-1">
@@ -698,14 +698,14 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               <div className="h-px flex-1 border-t-2 border-dashed border-ink/30" />
             </div>
             <div className="text-right min-w-0">
-              <div className="font-mono text-[9px] uppercase tracking-widest text-ink/50">
+              <div className="font-mono text-[9px] uppercase tracking-widest text-cream/50">
                 Destination
               </div>
               <div className="font-display text-3xl font-extrabold leading-none tracking-tight">
                 {loop.to}
               </div>
               {loop.toName && (
-                <div className="mt-1 text-[11px] text-ink/60 truncate">{loop.toName}</div>
+                <div className="mt-1 text-[11px] text-cream/60 truncate">{loop.toName}</div>
               )}
             </div>
           </div>
@@ -723,7 +723,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               {vibes.map((v) => (
                 <span
                   key={v}
-                  className="inline-flex items-center rounded-full border border-ink/20 bg-coral/10 px-2.5 py-1 text-[11px] font-semibold text-ink"
+                  className="inline-flex items-center rounded-full border border-cream/20 bg-coral/10 px-2.5 py-1 text-[11px] font-semibold text-cream"
                 >
                   {v}
                 </span>
@@ -737,7 +737,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
 
         {/* ── Flight Plan / Stops ── */}
         <div className="px-6 py-5">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-3">
+          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60 mb-3">
             Flight Plan · {loop.stops.length} stops
           </div>
           <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
@@ -805,16 +805,16 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               {dirOpen && selectedStop && (
                 <div
                   role="menu"
-                  className="w-64 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut text-ink"
+                  className="w-64 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut text-cream"
                 >
-                  <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+                  <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/60">
                     Directions to
                   </div>
                   <div className="mt-0.5 font-display text-sm font-extrabold leading-tight">
                     {selectedStop.name}
                   </div>
                   {selectedAddress && (
-                    <div className="mt-0.5 text-[11px] text-ink/60 truncate">{selectedAddress}</div>
+                    <div className="mt-0.5 text-[11px] text-cream/60 truncate">{selectedAddress}</div>
                   )}
                   <div className="mt-2 flex flex-col gap-1.5">
                     {preferAppleFirst ? (
@@ -836,7 +836,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setDirOpen(false)}
-                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-[11px] font-bold text-ink hover:bg-gold"
+                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-[11px] font-bold text-cream hover:bg-gold"
                           >
                             📍 Open in Google Maps
                           </a>
@@ -861,7 +861,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setDirOpen(false)}
-                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-[11px] font-bold text-ink hover:bg-gold"
+                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-[11px] font-bold text-cream hover:bg-gold"
                           >
                             Open in Apple Maps
                           </a>
@@ -874,7 +874,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setDirOpen(false)}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-ink/30 bg-cream px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
+                        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-ink/30 bg-cream px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-cream/70 hover:text-cream"
                       >
                         Or view full route
                       </a>
@@ -885,12 +885,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
             </div>
           </div>
           {/* Side panel — each stop with ETA + status. Tap to focus the marker. */}
-          <div className="border-t border-ink/10 bg-cream/50 px-4 py-3">
+          <div className="border-t border-cream/10 bg-cream/50 px-4 py-3">
             <div className="mb-2 flex items-center justify-between">
-              <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+              <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/60">
                 Stops · ETA · Status
               </div>
-              <div className="flex items-center gap-1.5 font-mono text-[8px] font-bold uppercase tracking-wider text-ink/50">
+              <div className="flex items-center gap-1.5 font-mono text-[8px] font-bold uppercase tracking-wider text-cream/50">
                 <span className="inline-flex items-center gap-1">
                   <span className="h-2 w-2 rounded-full bg-[#3FA66B] border border-ink" />
                   Done
@@ -923,16 +923,16 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                       : status === "current"
                         ? "bg-coral text-cream"
                         : status === "next"
-                          ? "bg-gold text-ink"
-                          : "bg-cream text-ink";
+                          ? "bg-gold text-cream"
+                          : "bg-cream text-cream";
                   const badgeClass =
                     status === "done"
                       ? "border-ink/40 bg-[#3FA66B]/15 text-[#1A1410]"
                       : status === "current"
                         ? "border-coral bg-coral text-cream"
                         : status === "next"
-                          ? "border-ink bg-gold text-ink"
-                          : "border-ink/30 bg-cream text-ink/70";
+                          ? "border-ink bg-gold text-cream"
+                          : "border-ink/30 bg-cream text-cream/70";
                   return (
                     <li key={s.id}>
                       <button
@@ -942,7 +942,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                         className={`group flex w-full items-center gap-2.5 rounded-xl border-2 px-2 py-1.5 text-left transition-pop ${
                           active
                             ? "border-ink bg-cream shadow-brut"
-                            : "border-transparent hover:border-ink/20 hover:bg-cream/70"
+                            : "border-transparent hover:border-cream/20 hover:bg-cream/70"
                         }`}
                       >
                         <span
@@ -951,14 +951,14 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                           {i + 1}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block truncate font-display text-[13px] font-extrabold leading-tight text-ink">
+                          <span className="block truncate font-display text-[13px] font-extrabold leading-tight text-cream">
                             {s.name}
                           </span>
-                          <span className="block truncate font-mono text-[10px] text-ink/55">
+                          <span className="block truncate font-mono text-[10px] text-cream/55">
                             {s.area || s.type}
                           </span>
                         </span>
-                        <span className="font-mono text-[11px] font-bold tabular-nums text-ink/80">
+                        <span className="font-mono text-[11px] font-bold tabular-nums text-cream/80">
                           {s.time || "—"}
                         </span>
                         <span
@@ -999,10 +999,10 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           ].map((s) => (
             <div
               key={s.label}
-              className="rounded-xl border border-ink/15 bg-card px-2 py-2 text-center"
+              className="rounded-xl border border-cream/15 bg-card px-2 py-2 text-center"
             >
               <div className="font-display text-base font-extrabold tracking-tight">{s.value}</div>
-              <div className="mt-0.5 font-mono text-[9px] uppercase tracking-widest text-ink/60">
+              <div className="mt-0.5 font-mono text-[9px] uppercase tracking-widest text-cream/60">
                 {s.label}
               </div>
             </div>
@@ -1014,7 +1014,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           <div className="flex items-center gap-3 min-w-0">
             <span className="text-2xl">🎊</span>
             <div className="min-w-0">
-              <div className="font-mono text-[9px] uppercase tracking-widest text-ink/60">
+              <div className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
                 Complete this plan to earn
               </div>
               <div className="font-display text-sm font-extrabold tracking-tight truncate">
@@ -1054,7 +1054,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         <button
           onClick={addToGoogleWallet}
           disabled={googleLoading}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-60"
         >
           {googleLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -1167,7 +1167,7 @@ function Barcode({ code }: { code: string }) {
           ),
         )}
       </svg>
-      <div className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-ink/70 truncate print:text-black">
+      <div className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-cream/70 truncate print:text-black">
         {label}
       </div>
     </div>
@@ -1432,7 +1432,7 @@ function StopCard({
             aria-label="Drag to reorder"
             {...sortable.attributes}
             {...sortable.listeners}
-            className="touch-none cursor-grab active:cursor-grabbing -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-ink/40 hover:bg-ink/8 hover:text-ink transition-colors"
+            className="touch-none cursor-grab active:cursor-grabbing -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-cream/40 hover:bg-ink/8 hover:text-cream transition-colors"
           >
             <GripVertical className="h-4 w-4" />
           </button>
@@ -1441,7 +1441,7 @@ function StopCard({
               <button
                 type="button"
                 aria-label="Stop actions"
-                className="-mr-1 -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-ink/50 hover:bg-ink/8 hover:text-ink transition-colors"
+                className="-mr-1 -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-cream/50 hover:bg-ink/8 hover:text-cream transition-colors"
                 onClick={(e) => e.stopPropagation()}
               >
                 <MoreVertical className="h-4 w-4" />
@@ -1481,7 +1481,7 @@ function StopCard({
         ) : (
           <div className="mt-0.5">{titleNode}</div>
         )}
-        <div className="mt-0.5 text-xs text-ink/70">
+        <div className="mt-0.5 text-xs text-cream/70">
           {stop.detail ?? `${stop.type}${stop.area ? ` · ${stop.area}` : ""}`}
         </div>
         {(stop.sponsored || stop.verified) && (
@@ -1493,13 +1493,13 @@ function StopCard({
 
         {/* EV */}
         {stop.ev && (
-          <div className="mt-2 rounded-xl border border-ink/20 bg-gold/20 p-2.5">
+          <div className="mt-2 rounded-xl border border-cream/20 bg-gold/20 p-2.5">
             <div className="flex items-center justify-between gap-2 text-[11px] font-bold">
               <span>{stop.ev.brand}</span>
-              <span className="text-ink/70">{stop.ev.spec}</span>
+              <span className="text-cream/70">{stop.ev.spec}</span>
               <span className="text-coral">{stop.ev.chargeTime}</span>
             </div>
-            {stop.ev.sub && <div className="mt-1 text-[10px] text-ink/60">{stop.ev.sub}</div>}
+            {stop.ev.sub && <div className="mt-1 text-[10px] text-cream/60">{stop.ev.sub}</div>}
           </div>
         )}
 
@@ -1508,9 +1508,9 @@ function StopCard({
           <div className="mt-2 flex gap-2 text-[11px]">
             <span aria-hidden>🅿</span>
             <div className="min-w-0">
-              <div className="font-semibold text-ink">{stop.parking.primary}</div>
+              <div className="font-semibold text-cream">{stop.parking.primary}</div>
               {stop.parking.secondary && (
-                <div className="text-ink/60">{stop.parking.secondary}</div>
+                <div className="text-cream/60">{stop.parking.secondary}</div>
               )}
             </div>
           </div>
@@ -1522,7 +1522,7 @@ function StopCard({
             <span className="rounded-md bg-ink px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest text-cream">
               SUN
             </span>
-            <span className="text-ink/70">{stop.sundayParking}</span>
+            <span className="text-cream/70">{stop.sundayParking}</span>
           </div>
         )}
 
@@ -1534,7 +1534,7 @@ function StopCard({
                 href={appleUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-ink hover:bg-ink hover:text-cream transition-colors"
+                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-cream hover:bg-ink hover:text-cream transition-colors"
               >
                 🍎 Apple Maps
               </a>
@@ -1544,7 +1544,7 @@ function StopCard({
                 href={googleUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-ink hover:bg-ink hover:text-cream transition-colors"
+                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-cream hover:bg-ink hover:text-cream transition-colors"
               >
                 📍 Google Maps
               </a>
@@ -1586,7 +1586,7 @@ function StopCard({
             disabled={stop.awarded}
             className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${
               stop.awarded
-                ? "bg-emerald-200/70 text-ink/70 cursor-default hover:translate-y-0"
+                ? "bg-emerald-200/70 text-cream/70 cursor-default hover:translate-y-0"
                 : "bg-coral text-cream"
             }`}
           >
@@ -1610,7 +1610,7 @@ function StopCard({
               fgColor="#1B1B1B"
               level="M"
             />
-            <span className="font-mono text-[9px] uppercase tracking-widest text-ink/60">
+            <span className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
               scan at venue
             </span>
           </div>
@@ -1638,13 +1638,13 @@ function StopCard({
 
           <div className="mt-2 text-[11px] space-y-1.5">
             {intelStatus === "loading" && (
-              <div className="flex items-center gap-2 text-ink/60">
+              <div className="flex items-center gap-2 text-cream/60">
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
                 <span>Fetching venue intel…</span>
               </div>
             )}
             {intelStatus === "not-found" && (
-              <div className="text-ink/60 italic">No deeper intel on file for this spot yet.</div>
+              <div className="text-cream/60 italic">No deeper intel on file for this spot yet.</div>
             )}
             {intelStatus === "error" && (
               <div className="text-red-600 font-medium">Something went wrong. Try again later.</div>
@@ -1652,36 +1652,36 @@ function StopCard({
             {intelStatus === "success" && intel && (
               <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
                 {intel.priceLevel && (
-                  <div><span className="font-bold text-ink/60">Price:</span> {intel.priceLevel}</div>
+                  <div><span className="font-bold text-cream/60">Price:</span> {intel.priceLevel}</div>
                 )}
                 {intel.dressCode && (
-                  <div><span className="font-bold text-ink/60">Dress:</span> {intel.dressCode}</div>
+                  <div><span className="font-bold text-cream/60">Dress:</span> {intel.dressCode}</div>
                 )}
                 {intel.signature && (
-                  <div className="col-span-2"><span className="font-bold text-ink/60">Signature:</span> {intel.signature}</div>
+                  <div className="col-span-2"><span className="font-bold text-cream/60">Signature:</span> {intel.signature}</div>
                 )}
                 {intel.crowd && (
-                  <div className="col-span-2"><span className="font-bold text-ink/60">Crowd:</span> {intel.crowd}</div>
+                  <div className="col-span-2"><span className="font-bold text-cream/60">Crowd:</span> {intel.crowd}</div>
                 )}
                 {intel.bestFor && (
-                  <div><span className="font-bold text-ink/60">Best for:</span> {intel.bestFor}</div>
+                  <div><span className="font-bold text-cream/60">Best for:</span> {intel.bestFor}</div>
                 )}
                 {intel.waitTime && (
-                  <div><span className="font-bold text-ink/60">Wait:</span> {intel.waitTime}</div>
+                  <div><span className="font-bold text-cream/60">Wait:</span> {intel.waitTime}</div>
                 )}
                 {intel.parking && !stop.parking && (
-                  <div className="col-span-2"><span className="font-bold text-ink/60">🅿 Parking:</span> {intel.parking}</div>
+                  <div className="col-span-2"><span className="font-bold text-cream/60">🅿 Parking:</span> {intel.parking}</div>
                 )}
                 {intel.phone && (
-                  <div className="col-span-2"><span className="font-bold text-ink/60">Phone:</span> <a href={`tel:${intel.phone}`} className="underline">{intel.phone}</a></div>
+                  <div className="col-span-2"><span className="font-bold text-cream/60">Phone:</span> <a href={`tel:${intel.phone}`} className="underline">{intel.phone}</a></div>
                 )}
                 {intel.address && !address && (
-                  <div className="col-span-2"><span className="font-bold text-ink/60">Address:</span> {intel.address}</div>
+                  <div className="col-span-2"><span className="font-bold text-cream/60">Address:</span> {intel.address}</div>
                 )}
                 {intel.rating && (
-                  <div><span className="font-bold text-ink/60">Rating:</span> {intel.rating}/5</div>
+                  <div><span className="font-bold text-cream/60">Rating:</span> {intel.rating}/5</div>
                 )}
-                <div className="col-span-2 mt-1 text-[9px] text-ink/40 uppercase tracking-widest">
+                <div className="col-span-2 mt-1 text-[9px] text-cream/40 uppercase tracking-widest">
                   Source: {intel.source === "local-kb" ? "Curated knowledge base" : "AI lookup"}
                 </div>
               </div>
@@ -1730,7 +1730,7 @@ function StopCard({
 // ─── Drive time chip ───────────────────────────────────────────────────
 function DriveTimeChip({ minutes, destination }: { minutes: number; destination: string }) {
   return (
-    <div className="ml-12 mb-3 -mt-2 inline-flex items-center gap-1.5 rounded-full border border-dashed border-ink/30 bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+    <div className="ml-12 mb-3 -mt-2 inline-flex items-center gap-1.5 rounded-full border border-dashed border-ink/30 bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70">
       🚗 ~{minutes} min drive → {destination}
     </div>
   );
@@ -1740,7 +1740,7 @@ function DriveTimeChip({ minutes, destination }: { minutes: number; destination:
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+      <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/60">
         {label}
       </div>
       <div className="mt-0.5 font-display text-base font-extrabold tracking-tight">{value}</div>
@@ -1893,10 +1893,10 @@ function BookingModal({
                   <div className="font-display text-sm font-extrabold tracking-tight truncate">
                     {stop.name}
                   </div>
-                  <div className="text-[11px] text-ink/60 truncate">
+                  <div className="text-[11px] text-cream/60 truncate">
                     {stop.time} · {typeLabel}
                     {refs[stop.id] && (
-                      <span className="ml-1 font-mono text-ink/80">· {refs[stop.id]}</span>
+                      <span className="ml-1 font-mono text-cream/80">· {refs[stop.id]}</span>
                     )}
                   </div>
                 </div>
@@ -1926,7 +1926,7 @@ function BookingModal({
               <div className="mt-1 font-display text-base font-extrabold tracking-tight">
                 Plan fully booked!
               </div>
-              <div className="mt-0.5 text-[11px] text-ink/70">
+              <div className="mt-0.5 text-[11px] text-cream/70">
                 +{reward} Confetti earned on completion
               </div>
             </div>
@@ -2077,7 +2077,7 @@ function WalletQrModal({
           ref={closeBtnRef}
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream text-ink hover:bg-coral hover:text-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+          className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream text-cream hover:bg-coral hover:text-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           <X className="h-4 w-4" />
         </button>
@@ -2085,24 +2085,24 @@ function WalletQrModal({
           <Smartphone className="h-4 w-4 text-coral" aria-hidden="true" />
           <h2
             id={headingId}
-            className="font-display text-lg font-extrabold tracking-tight text-ink"
+            className="font-display text-lg font-extrabold tracking-tight text-cream"
           >
             {pending ? "Google Wallet — preview" : "Scan to add to Google Wallet"}
           </h2>
         </div>
         {pending ? (
           <div className="mt-3 rounded-xl border-2 border-ink bg-gold/40 px-3 py-2">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
               ⚠ launching soon
             </p>
-            <p id={descId} className="mt-1 text-xs leading-snug text-ink/80">
+            <p id={descId} className="mt-1 text-xs leading-snug text-cream/80">
               Our Google Wallet issuer credentials aren't live yet, so this is a preview of how the
               hand-off will work. Once we're approved, the QR will sign you straight into your pass.
               Press Escape to close.
             </p>
           </div>
         ) : (
-          <p id={descId} className="mt-1 text-xs text-ink/70">
+          <p id={descId} className="mt-1 text-xs text-cream/70">
             Open your Android phone's camera and point it at this QR code. The pass will open in
             Google Wallet for you to save. Press Escape to close.
           </p>
@@ -2133,7 +2133,7 @@ function WalletQrModal({
         <button
           type="button"
           onClick={handlePrint}
-          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           <Printer className="h-4 w-4" aria-hidden="true" /> Print large QR
         </button>
@@ -2150,7 +2150,7 @@ function WalletQrModal({
               toast.error("Could not copy link");
             }
           }}
-          className="mt-2 w-full text-center font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:underline"
+          className="mt-2 w-full text-center font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60 hover:text-cream focus:outline-none focus-visible:text-cream focus-visible:underline"
         >
           Copy link instead
         </button>

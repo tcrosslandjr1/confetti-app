@@ -42,7 +42,7 @@ export function ReviewCard({
   }
 
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-white/60 p-4 backdrop-blur">
+    <div className="flex flex-col gap-3 rounded-2xl border border-cream/10 bg-white/60 p-4 backdrop-blur">
       {/* Header */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-2.5">
@@ -50,20 +50,20 @@ export function ReviewCard({
             <img
               src={review.userAvatar}
               alt=""
-              className="h-9 w-9 rounded-full border border-ink/10 object-cover"
+              className="h-9 w-9 rounded-full border border-cream/10 object-cover"
             />
           ) : (
-            <div className="grid h-9 w-9 place-items-center rounded-full border border-ink/10 bg-cream font-bold text-ink/50 text-sm">
+            <div className="grid h-9 w-9 place-items-center rounded-full border border-cream/10 bg-cream font-bold text-cream/50 text-sm">
               {review.userName.charAt(0).toUpperCase()}
             </div>
           )}
           <div>
-            <div className="font-display text-sm font-bold text-ink">
+            <div className="font-display text-sm font-bold text-cream">
               {review.userName}
             </div>
             <div className="flex items-center gap-2">
               <StarRating value={review.rating} size="sm" showLabel={false} />
-              <span className="text-[10px] text-ink/50">{ago}</span>
+              <span className="text-[10px] text-cream/50">{ago}</span>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ export function ReviewCard({
       )}
 
       {/* Body */}
-      <p className="text-[13px] leading-relaxed text-ink/80">{review.body}</p>
+      <p className="text-[13px] leading-relaxed text-cream/80">{review.body}</p>
 
       {/* Photos */}
       {review.photoUrls && review.photoUrls.length > 0 && (
@@ -100,7 +100,7 @@ export function ReviewCard({
               key={i}
               src={url}
               alt={`Review photo ${i + 1}`}
-              className="h-20 w-20 shrink-0 rounded-xl border border-ink/10 object-cover"
+              className="h-20 w-20 shrink-0 rounded-xl border border-cream/10 object-cover"
               loading="lazy"
             />
           ))}
@@ -113,7 +113,7 @@ export function ReviewCard({
           <div className="mb-1 flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-widest text-coral">
             <MessageSquare className="h-3 w-3" /> Owner response
           </div>
-          <p className="text-[12px] leading-relaxed text-ink/70">
+          <p className="text-[12px] leading-relaxed text-cream/70">
             {review.ownerResponse}
           </p>
         </div>
@@ -128,7 +128,7 @@ export function ReviewCard({
           className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
             liked
               ? "bg-coral/10 text-coral"
-              : "text-ink/50 hover:bg-ink/5 hover:text-ink"
+              : "text-cream/50 hover:bg-cream/5 hover:text-cream"
           }`}
         >
           <ThumbsUp className="h-3 w-3" />
@@ -144,7 +144,7 @@ export function ReviewCard({
 function SubRating({ label, value }: { label: string; value: number }) {
   return (
     <div className="flex items-center gap-1">
-      <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/50">
+      <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/50">
         {label}
       </span>
       <StarRating value={value} size="sm" showLabel={false} />

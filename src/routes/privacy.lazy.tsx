@@ -104,10 +104,10 @@ function PrivacyPage() {
 
         <Section id="sharing" title="5. Sharing & processors">
           <ul className="list-disc space-y-1.5 pl-5">
-            <li>Infrastructure: Lovable Cloud (Supabase), Cloudflare.</li>
+            <li>Infrastructure: Supabase, Vercel, Cloudflare.</li>
             <li>
-              AI providers: OpenAI, Google, Anthropic via the Lovable AI Gateway. Prompts are
-              processed transiently and not used for cross-customer training.
+              AI providers: OpenAI, Google, Anthropic. Prompts are processed transiently
+              and not used for cross-customer training.
             </li>
             <li>Payments: Stripe / Paddle (where applicable).</li>
             <li>

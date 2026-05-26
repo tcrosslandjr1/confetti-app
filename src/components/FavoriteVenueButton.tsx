@@ -70,7 +70,7 @@ export function FavoriteVenueButton({
       className={
         className ??
         `inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-2 text-xs font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none disabled:opacity-60 ${
-          on ? "bg-coral text-white" : "bg-white text-ink"
+          on ? "bg-coral text-white" : "bg-white text-cream"
         }`
       }
     >

@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { OCCASIONS } from "@/lib/occasions";
 import { CITIES } from "@/lib/cities";
 
-const BASE_URL = "https://confettiplan.lovable.app";
+const BASE_URL = process.env.SITE_URL ?? "https://confettiplan.com";
 
 interface SitemapEntry {
   path: string;

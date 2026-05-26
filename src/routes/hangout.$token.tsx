@@ -92,7 +92,7 @@ function SharedHangoutPage() {
   if (loading) {
     return (
       <div className="grid min-h-[60vh] place-items-center">
-        <Loader2 className="size-6 animate-spin text-ink/40" />
+        <Loader2 className="size-6 animate-spin text-cream/40" />
       </div>
     );
   }
@@ -102,7 +102,7 @@ function SharedHangoutPage() {
         <div className="rounded-2xl border-2 border-dashed border-red-500/30 bg-red-50 px-6 py-10 text-center">
           <p className="font-display text-lg font-bold text-red-700">Couldn't load this hangout</p>
           <p className="mt-1 text-sm text-red-600/80">{err ?? "Link may have expired."}</p>
-          <Link to="/app" className="mt-4 inline-block font-mono text-[10px] uppercase tracking-widest text-ink/60 underline">
+          <Link to="/app" className="mt-4 inline-block font-mono text-[10px] uppercase tracking-widest text-cream/60 underline">
             ← Back to Confetti
           </Link>
         </div>
@@ -130,8 +130,8 @@ function SharedHangoutPage() {
         <h1 className="mt-1 font-display text-3xl font-extrabold leading-tight tracking-tight">
           {p.title}
         </h1>
-        <p className="mt-2 text-sm text-ink/70">{p.summary}</p>
-        <div className="mt-4 flex flex-wrap gap-3 text-[12px] font-bold text-ink/80">
+        <p className="mt-2 text-sm text-cream/70">{p.summary}</p>
+        <div className="mt-4 flex flex-wrap gap-3 text-[12px] font-bold text-cream/80">
           <span className="inline-flex items-center gap-1"><Users className="size-3.5" /> {p.guest_count}</span>
           <span className="inline-flex items-center gap-1"><DollarSign className="size-3.5" /> {p.budget_estimate}</span>
           {h.start_time && (
@@ -144,9 +144,9 @@ function SharedHangoutPage() {
       </div>
 
       {/* Your name */}
-      <div className="mt-4 rounded-2xl border-2 border-ink/20 bg-cream/60 p-4">
+      <div className="mt-4 rounded-2xl border-2 border-cream/20 bg-cream/60 p-4">
         <label className="block">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
             Your name (so the host knows who's bringing what)
           </div>
           <input
@@ -154,7 +154,7 @@ function SharedHangoutPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g. Tyler"
-            className="mt-1 w-full rounded-xl border-2 border-ink/20 bg-white px-3 py-2 text-sm focus:border-ink focus:outline-none"
+            className="mt-1 w-full rounded-xl border-2 border-cream/20 bg-white px-3 py-2 text-sm focus:border-ink focus:outline-none"
             maxLength={40}
           />
         </label>
@@ -213,7 +213,7 @@ function ClaimSection({
 }) {
   if (items.length === 0) return null;
   return (
-    <section className="mt-4 rounded-2xl border-2 border-ink/15 bg-cream p-4">
+    <section className="mt-4 rounded-2xl border-2 border-cream/15 bg-cream p-4">
       <h2 className="font-display text-base font-extrabold tracking-tight">{title}</h2>
       <ul className="mt-2 space-y-1.5">
         {items.map((label, idx) => {
@@ -230,18 +230,18 @@ function ClaimSection({
                   mine
                     ? "border-emerald-500 bg-emerald-50 text-emerald-900"
                     : claim
-                      ? "border-ink/15 bg-ink/[0.04] text-ink/60"
-                      : "border-ink/15 bg-cream hover:border-ink hover:bg-gold/30"
+                      ? "border-cream/15 bg-cream/[0.04] text-cream/60"
+                      : "border-cream/15 bg-cream hover:border-ink hover:bg-gold/30"
                 }`}
               >
                 {claim ? (
-                  <CheckCircle2 className={`size-4 shrink-0 ${mine ? "text-emerald-600" : "text-ink/40"}`} />
+                  <CheckCircle2 className={`size-4 shrink-0 ${mine ? "text-emerald-600" : "text-cream/40"}`} />
                 ) : (
-                  <Circle className="size-4 shrink-0 text-ink/30" />
+                  <Circle className="size-4 shrink-0 text-cream/30" />
                 )}
                 <span className="flex-1">{label}</span>
                 {claim && (
-                  <span className="shrink-0 rounded-full bg-ink/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+                  <span className="shrink-0 rounded-full bg-cream/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70">
                     {claim.claimed_by_name}
                   </span>
                 )}

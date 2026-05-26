@@ -258,17 +258,17 @@ export function VenuePickerModal({
   return (
     <Dialog open={open} onOpenChange={(o) => { if (!o) onClose(); }}>
       <DialogContent className="max-w-lg p-0 overflow-hidden">
-        <DialogHeader className="border-b-2 border-ink/10 bg-cream px-4 py-3">
+        <DialogHeader className="border-b-2 border-cream/10 bg-cream px-4 py-3">
           <DialogTitle className="font-display text-lg font-extrabold tracking-tight">
             {title}
           </DialogTitle>
           {description && (
-            <DialogDescription className="text-xs text-ink/60">
+            <DialogDescription className="text-xs text-cream/60">
               {description}
             </DialogDescription>
           )}
           {city && mode === "curated" && (
-            <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+            <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-cream/50">
               {cityMatched.length} venues in {city}
             </div>
           )}
@@ -300,20 +300,20 @@ export function VenuePickerModal({
           <>
             <div className="px-4 py-3 space-y-3">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink/40" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-cream/40" />
                 <input
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search by name, neighborhood, or cuisine"
-                  className="w-full rounded-full border-2 border-ink/20 bg-cream pl-9 pr-9 py-2 text-sm focus:border-ink focus:outline-none"
+                  className="w-full rounded-full border-2 border-cream/20 bg-cream pl-9 pr-9 py-2 text-sm focus:border-ink focus:outline-none"
                   autoFocus
                 />
                 {query && (
                   <button
                     type="button"
                     onClick={() => setQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-ink/40 hover:text-ink"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream"
                     aria-label="Clear search"
                   >
                     <X className="h-4 w-4" />
@@ -352,13 +352,13 @@ export function VenuePickerModal({
               )}
             </div>
 
-            <div className="max-h-[55vh] overflow-y-auto border-t-2 border-ink/10 bg-cream/40">
+            <div className="max-h-[55vh] overflow-y-auto border-t-2 border-cream/10 bg-cream/40">
               {results.length === 0 ? (
-                <div className="px-4 py-12 text-center text-sm text-ink/60">
+                <div className="px-4 py-12 text-center text-sm text-cream/60">
                   No venues match. Try a different search or cuisine.
                 </div>
               ) : (
-                <ul className="divide-y divide-ink/8">
+                <ul className="divide-y divide-cream/10">
                   {results.map((v) => (
                     <li key={v.id}>
                       <button
@@ -368,15 +368,15 @@ export function VenuePickerModal({
                       >
                         <div className="flex items-baseline justify-between gap-3">
                           <div className="min-w-0 flex-1">
-                            <div className="line-clamp-1 font-display text-sm font-bold tracking-tight text-ink">
+                            <div className="line-clamp-1 font-display text-sm font-bold tracking-tight text-cream">
                               {v.name}
                             </div>
-                            <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/50">
+                            <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-cream/50">
                               {v.cuisine}
                               {v.neighborhood ? ` · ${v.neighborhood}` : ""}
                             </div>
                           </div>
-                          <div className="shrink-0 font-mono text-[11px] font-bold text-ink/70">
+                          <div className="shrink-0 font-mono text-[11px] font-bold text-cream/70">
                             {v.price}
                           </div>
                         </div>
@@ -388,9 +388,9 @@ export function VenuePickerModal({
             </div>
           </>
         ) : (
-          <div className="max-h-[60vh] overflow-y-auto border-t-2 border-ink/10 bg-purple/5 px-4 py-4">
+          <div className="max-h-[60vh] overflow-y-auto border-t-2 border-cream/10 bg-purple/5 px-4 py-4">
             {aiState === "loading" && (
-              <div className="flex items-center justify-center gap-2 py-12 text-sm text-ink/60">
+              <div className="flex items-center justify-center gap-2 py-12 text-sm text-cream/60">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Asking Claude for picks in {city ?? "your area"}…
               </div>
@@ -410,7 +410,7 @@ export function VenuePickerModal({
               </div>
             )}
             {aiState === "empty" && (
-              <div className="py-10 text-center text-sm text-ink/60">
+              <div className="py-10 text-center text-sm text-cream/60">
                 Claude couldn't find new picks for this city. Try the curated list.
               </div>
             )}
@@ -438,21 +438,21 @@ export function VenuePickerModal({
                         )}
                         <div className="min-w-0 flex-1">
                           <div className="flex items-baseline justify-between gap-2">
-                            <div className="line-clamp-1 font-display text-sm font-bold tracking-tight text-ink">
+                            <div className="line-clamp-1 font-display text-sm font-bold tracking-tight text-cream">
                               {rec.venue}
                             </div>
                             {typeof rec.priceLevel === "number" && rec.priceLevel > 0 && (
-                              <div className="shrink-0 font-mono text-[11px] font-bold text-ink/70">
+                              <div className="shrink-0 font-mono text-[11px] font-bold text-cream/70">
                                 {PRICE_LABEL[rec.priceLevel]}
                               </div>
                             )}
                           </div>
-                          <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/50">
+                          <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-cream/50">
                             {rec.category}
                             {rec.neighborhood ? ` · ${rec.neighborhood}` : ""}
                           </div>
                           {rec.reason && (
-                            <p className="mt-1.5 line-clamp-2 text-[11px] italic text-ink/70">
+                            <p className="mt-1.5 line-clamp-2 text-[11px] italic text-cream/70">
                               "{rec.reason}"
                             </p>
                           )}
@@ -469,7 +469,7 @@ export function VenuePickerModal({
                         </div>
                       </div>
                       {rec.address && (
-                        <div className="mt-2 flex items-center gap-1 text-[10px] text-ink/50">
+                        <div className="mt-2 flex items-center gap-1 text-[10px] text-cream/50">
                           <MapPin className="h-3 w-3" /> {rec.address}
                         </div>
                       )}

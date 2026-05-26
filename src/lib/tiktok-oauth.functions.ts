@@ -47,7 +47,7 @@ export const startTiktokLink = createServerFn({ method: "POST" })
     if (insErr) throw new Error(`Could not start TikTok flow: ${insErr.message}`);
 
     // Build the callback URL from the request host so it matches whatever
-    // domain the user is currently on (custom domain vs lovable.app).
+    // domain the user is currently on (custom domain vs production).
     const redirectUri = buildCallbackUrl("tiktok", getRequestHost());
 
     const params = new URLSearchParams({

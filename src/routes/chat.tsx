@@ -277,7 +277,7 @@ function ChatPage() {
           </span>
           <div>
             <div className="font-display text-sm font-bold">Confetti AI</div>
-            <div className="font-mono text-[9px] uppercase tracking-widest text-ink/60">Online</div>
+            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/60">Online</div>
           </div>
         </div>
       </header>
@@ -299,7 +299,7 @@ function ChatPage() {
                 className={`max-w-[78%] rounded-2xl border-2 border-ink px-3.5 py-2.5 text-sm shadow-brut ${
                   m.role === "user"
                     ? "rounded-br-sm bg-coral text-cream"
-                    : "rounded-bl-sm bg-white text-ink"
+                    : "rounded-bl-sm bg-white text-cream"
                 } ${m.reveal ? "animate-[reveal-up_0.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
               >
                 {m.role === "ai" && m.streaming ? (
@@ -322,23 +322,23 @@ function ChatPage() {
                           <MapPin className="h-3 w-3 text-coral" />
                           <span className="font-display text-xs font-bold">{v.name}</span>
                           {v.price && (
-                            <span className="ml-auto text-[10px] font-bold text-ink/60">
+                            <span className="ml-auto text-[10px] font-bold text-cream/60">
                               {v.price}
                             </span>
                           )}
                         </div>
                         {v.neighborhood && (
-                          <div className="mt-0.5 font-mono text-[9px] text-ink/50">{v.neighborhood}{v.cuisine ? ` — ${v.cuisine}` : ""}</div>
+                          <div className="mt-0.5 font-mono text-[9px] text-cream/50">{v.neighborhood}{v.cuisine ? ` — ${v.cuisine}` : ""}</div>
                         )}
                         {v.why && (
-                          <div className="mt-1 text-[11px] leading-snug text-ink/70">{v.why}</div>
+                          <div className="mt-1 text-[11px] leading-snug text-cream/70">{v.why}</div>
                         )}
                         {v.vibe && (
                           <div className="mt-1 flex flex-wrap gap-1">
                             {v.vibe.split(",").map((tag) => tag.trim()).filter(Boolean).slice(0, 3).map((tag) => (
                               <span
                                 key={tag}
-                                className="rounded-full border border-ink/10 bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-ink"
+                                className="rounded-full border border-cream/10 bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-cream"
                               >
                                 {tag}
                               </span>
@@ -350,7 +350,7 @@ function ChatPage() {
                             {v.best_for.map((bf) => (
                               <span
                                 key={bf}
-                                className="rounded-full border border-ink/10 bg-coral/15 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-coral"
+                                className="rounded-full border border-cream/10 bg-coral/15 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-coral"
                               >
                                 {bf}
                               </span>
@@ -378,7 +378,7 @@ function ChatPage() {
                             className="flex items-center gap-2 p-2.5 disabled:opacity-40"
                             as="div"
                           >
-                            <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut">
+                            <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-ink bg-white text-cream shadow-brut">
                               <Icon className="h-3.5 w-3.5" />
                             </span>
                             <span className="font-mono text-[10px] font-bold uppercase leading-tight tracking-widest">
@@ -426,7 +426,7 @@ function ChatPage() {
                     className="flex items-center gap-2 p-2 disabled:opacity-40"
                     as="div"
                   >
-                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut">
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-ink bg-white text-cream shadow-brut">
                       <Icon className="h-3 w-3" />
                     </span>
                     <span className="font-mono text-[9px] font-bold uppercase leading-tight tracking-widest">
@@ -449,7 +449,7 @@ function ChatPage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask anything…"
-              className="flex-1 bg-transparent text-sm outline-none placeholder:text-ink/40"
+              className="flex-1 bg-transparent text-sm outline-none placeholder:text-cream/40"
             />
             <button
               type="submit"

@@ -80,12 +80,12 @@ export function NotificationBell({ userId }: Props) {
 
       {open && (
         <div
-          className="absolute right-0 top-full mt-2 w-80 max-h-96 overflow-y-auto rounded-2xl border border-ink/10 bg-surface-1 shadow-lg z-50"
+          className="absolute right-0 top-full mt-2 w-80 max-h-96 overflow-y-auto rounded-2xl border border-cream/10 bg-cream/5 shadow-lg z-50"
           role="menu"
           aria-label="Notifications"
         >
-          <div className="flex items-center justify-between border-b border-ink/8 px-4 py-3">
-            <span className="font-display text-sm font-bold text-ink">Notifications</span>
+          <div className="flex items-center justify-between border-b border-cream/10 px-4 py-3">
+            <span className="font-display text-sm font-bold text-cream">Notifications</span>
             {unreadCount > 0 && (
               <button
                 className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral transition-colors hover:text-coral/80"
@@ -97,7 +97,7 @@ export function NotificationBell({ userId }: Props) {
           </div>
 
           {notifications.length === 0 ? (
-            <div className="p-6 text-center text-sm text-ink/45">
+            <div className="p-6 text-center text-sm text-cream/45">
               No notifications yet
             </div>
           ) : (
@@ -140,8 +140,8 @@ function NotifItem({
   return (
     <li
       className={cn(
-        "cursor-pointer px-4 py-3 transition-colors hover:bg-surface-2",
-        "focus-visible:outline-none focus-visible:bg-surface-2",
+        "cursor-pointer px-4 py-3 transition-colors hover:bg-cream/5",
+        "focus-visible:outline-none focus-visible:bg-cream/5",
         !notification.read && "bg-coral/[0.04]",
       )}
       role="menuitem"
@@ -159,13 +159,13 @@ function NotifItem({
           <span className="mt-1.5 size-2 shrink-0 rounded-full bg-coral" aria-label="Unread" />
         )}
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-medium text-ink">{notification.title}</p>
+          <p className="truncate text-sm font-medium text-cream">{notification.title}</p>
           {notification.body && (
-            <p className="mt-0.5 line-clamp-2 text-xs text-ink/55">
+            <p className="mt-0.5 line-clamp-2 text-xs text-cream/55">
               {notification.body}
             </p>
           )}
-          <span className="mt-1 block font-mono text-[10px] text-ink/40">
+          <span className="mt-1 block font-mono text-[10px] text-cream/40">
             {timeAgo}
           </span>
         </div>

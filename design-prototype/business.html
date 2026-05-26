@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Confetti for Business · Lupa Notte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --ui: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --bg: #f8f0dd;
+    --paper: #fffaf0;
+    --ink: #130b0d;
+    --a1: #ff5b3d;
+    --a2: #f7c83b;
+    --a3: #5b45d9;
+    --a4: #2bb673;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0;
+    font-family: var(--ui); background: var(--bg); color: var(--ink);
+    -webkit-font-smoothing: antialiased; }
+  button { font-family: var(--ui); cursor: pointer; }
+  .display { font-family: var(--display); font-weight: 900; letter-spacing: -0.025em; }
+  .mono { font-family: var(--mono); letter-spacing: 0.04em; }
+
+  .app {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 56px 1fr;
+  }
+  .side {
+    grid-row: 1 / 3;
+    background: var(--paper);
+    border-right: 3px solid var(--ink);
+    padding: 18px 14px;
+    display: flex; flex-direction: column;
+  }
+  .side-brand {
+    display: flex; align-items: center; gap: 7px;
+    font-family: var(--display); font-weight: 900; font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+  .side-brand span:first-child { color: var(--a1); }
+  .side-venue {
+    margin-top: 16px; padding: 12px 12px;
+    background: var(--a1); color: var(--ink);
+    border: 2.5px solid var(--ink); border-radius: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+    margin-bottom: 22px;
+  }
+  .side-venue .lbl {
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.65;
+  }
+  .side-venue .name {
+    font-family: var(--display); font-weight: 900; font-size: 18px;
+    letter-spacing: -0.025em; margin-top: 2px;
+  }
+  .side-venue .sub { font-family: var(--mono); font-size: 10px;
+    font-weight: 700; opacity: 0.65; margin-top: 4px; }
+  .side-nav { display: flex; flex-direction: column; gap: 2px; }
+  .side-nav h4 {
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.45; text-transform: uppercase;
+    margin: 14px 0 4px 8px;
+  }
+  .side-nav a {
+    text-decoration: none; color: var(--ink);
+    padding: 7px 10px; border-radius: 8px;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    opacity: 0.7;
+  }
+  .side-nav a:hover { opacity: 1; background: var(--bg); }
+  .side-nav a.on { background: var(--ink); color: var(--paper);
+    opacity: 1; box-shadow: 3px 3px 0 var(--a1); }
+  .side-nav a .badge {
+    margin-left: auto;
+    padding: 1px 6px; background: var(--a2); color: var(--ink);
+    border-radius: 999px;
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .04em;
+  }
+
+  .top {
+    border-bottom: 3px solid var(--ink); background: var(--paper);
+    padding: 0 22px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px;
+    border: 2px solid var(--ink); border-radius: 999px;
+    font-family: var(--mono); font-size: 10px; font-weight: 800;
+    letter-spacing: .12em; text-transform: uppercase;
+    background: var(--paper);
+  }
+  .pill.live { background: var(--a4); color: var(--paper); }
+  .pill .blink { width: 6px; height: 6px; border-radius: 999px;
+    background: currentColor; animation: blink 1.2s infinite; }
+  @keyframes blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .main { padding: 24px; overflow: auto; }
+  h1.title {
+    font-family: var(--display); font-weight: 900;
+    font-size: 44px; letter-spacing: -0.04em; line-height: 0.95;
+    margin: 0 0 6px;
+  }
+  .subtitle {
+    font-family: var(--mono); font-size: 11px; font-weight: 800;
+    letter-spacing: .12em; opacity: 0.55; text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  .card {
+    background: var(--paper);
+    border: 2.5px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 5px 5px 0 var(--ink);
+    padding: 18px;
+  }
+  .card-h {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .card-h h3 { margin: 0;
+    font-family: var(--display); font-weight: 900;
+    font-size: 18px; letter-spacing: -0.02em;
+  }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 22px; }
+  .stat {
+    background: var(--paper);
+    border: 2.5px solid var(--ink); border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .stat .lbl { font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.6; text-transform: uppercase; }
+  .stat .val { font-family: var(--display); font-weight: 900;
+    font-size: 32px; letter-spacing: -0.03em; margin-top: 4px; }
+  .stat .delta { font-family: var(--mono); font-size: 11px; font-weight: 800; margin-top: 2px; }
+  .delta.up   { color: var(--a4); }
+  .delta.down { color: var(--a1); }
+
+  .grid {
+    display: grid; gap: 14px;
+    grid-template-columns: 1.4fr 1fr;
+  }
+  .full { grid-column: 1 / -1; }
+
+  /* Bar chart */
+  .bars {
+    display: flex; align-items: flex-end; gap: 7px;
+    height: 180px; padding-top: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .bar {
+    flex: 1; background: var(--a1); border: 2px solid var(--ink);
+    border-radius: 4px 4px 0 0; position: relative;
+    transition: background .2s;
+  }
+  .bar:hover { background: var(--a2); }
+  .bar-lbls { display: flex; justify-content: space-between; gap: 7px; margin-top: 6px; }
+  .bar-lbls span {
+    flex: 1; text-align: center;
+    font-family: var(--mono); font-size: 9px; font-weight: 700;
+    opacity: 0.6; letter-spacing: .06em;
+  }
+
+  /* Booking calendar */
+  .cal {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+    margin-top: 4px;
+  }
+  .cal-dh {
+    text-align: center; padding: 4px 0;
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .12em; opacity: 0.55;
+  }
+  .cal-day {
+    aspect-ratio: 1;
+    border: 1.5px solid rgba(0,0,0,0.15); border-radius: 6px;
+    position: relative;
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    padding: 4px;
+    background: var(--bg);
+  }
+  .cal-day .n { opacity: 0.5; }
+  .cal-day.has {
+    background: var(--a2); border: 2px solid var(--ink);
+  }
+  .cal-day.hot {
+    background: var(--a1); border: 2px solid var(--ink);
+  }
+  .cal-day .ct {
+    position: absolute; bottom: 4px; right: 6px;
+    font-family: var(--display); font-weight: 900; font-size: 12px;
+  }
+  .cal-day.today { box-shadow: inset 0 0 0 2px var(--a3); }
+
+  /* Bookings table */
+  .tbl { width: 100%; border-collapse: collapse; }
+  .tbl th, .tbl td {
+    text-align: left; padding: 10px 10px;
+    border-bottom: 1.5px dashed rgba(0,0,0,0.18);
+    font-family: var(--ui); font-size: 12px; font-weight: 700;
+  }
+  .tbl th {
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.55; text-transform: uppercase;
+    border-bottom: 2px solid var(--ink);
+  }
+  .tbl tr:last-child td { border-bottom: 0; }
+  .tag {
+    display: inline-block; padding: 2px 7px;
+    border: 1.5px solid var(--ink); border-radius: 4px;
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .08em;
+  }
+  .tag.confirmed { background: var(--a4); color: var(--paper); }
+  .tag.pending  { background: var(--a2); }
+  .tag.cancelled { background: var(--paper); opacity: 0.55; }
+  .avatar {
+    width: 28px; height: 28px; border-radius: 999px;
+    border: 2px solid var(--ink);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-weight: 900; font-size: 11px;
+  }
+
+  .row { display: flex; align-items: center; gap: 8px; }
+  .gap-12 { gap: 12px; }
+
+  /* Promoter list */
+  .promoter {
+    display: grid; grid-template-columns: 28px 1fr auto; gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    border: 2px solid var(--ink); border-radius: 12px;
+    background: var(--paper); margin-bottom: 8px;
+  }
+
+  .insights-card {
+    background: var(--ink); color: var(--paper);
+    border: 2.5px solid var(--ink); border-radius: 16px;
+    box-shadow: 5px 5px 0 var(--a1);
+    padding: 18px;
+  }
+  .insights-card .ai-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border: 2px solid var(--paper); border-radius: 999px;
+    font-family: var(--mono); font-size: 9px; font-weight: 800;
+    letter-spacing: .14em; margin-bottom: 12px;
+  }
+  .insights-card h3 { margin: 0;
+    font-family: var(--display); font-weight: 900; font-size: 22px;
+    letter-spacing: -0.025em; line-height: 1.05;
+  }
+  .insights-card .ai-body {
+    margin-top: 10px;
+    font-family: var(--ui); font-size: 13px; font-weight: 600;
+    line-height: 1.45; opacity: 0.9;
+  }
+  .insights-card .ai-actions { display: flex; gap: 6px; margin-top: 14px; }
+  .insights-card .ai-actions button {
+    appearance: none; padding: 8px 12px;
+    border: 2px solid var(--paper); border-radius: 999px;
+    background: transparent; color: var(--paper);
+    font-family: var(--ui); font-size: 12px; font-weight: 800;
+  }
+  .insights-card .ai-actions button.primary {
+    background: var(--a1); color: var(--ink); border-color: var(--ink);
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="side-brand"><span>✣</span><span>confetti</span><span style="opacity:.4;font-size:14px">/biz</span></div>
+    <div class="side-venue">
+      <div class="lbl">YOUR VENUE</div>
+      <div class="name">Lupa Notte</div>
+      <div class="sub">italian · 88 N 6th · brooklyn</div>
+    </div>
+    <nav class="side-nav">
+      <h4>Today</h4>
+      <a class="on" href="#"><span style="width:6px;height:6px;border-radius:999px;background:currentColor"></span>Dashboard</a>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a1)"></span>Bookings<span class="badge">14</span></a>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a1)"></span>Tonight's covers</a>
+
+      <h4>Reach</h4>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a3)"></span>Events & specials</a>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a3)"></span>Promoters<span class="badge">3</span></a>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a3)"></span>Boost campaigns</a>
+
+      <h4>Insights</h4>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a2)"></span>Analytics</a>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a2)"></span>Reviews</a>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--a2)"></span>Stripe payouts</a>
+
+      <h4>Settings</h4>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--ink);opacity:0.35"></span>Profile</a>
+      <a href="#"><span style="width:6px;height:6px;border-radius:999px;background:var(--ink);opacity:0.35"></span>Team</a>
+    </nav>
+  </aside>
+
+  <div class="top">
+    <div class="row gap-12">
+      <span class="pill live"><span class="blink"></span>OPEN · 47/80 SEATED</span>
+      <span class="pill">SAT MAY 23 · 4:21 PM</span>
+    </div>
+    <div class="row gap-12">
+      <span class="pill" style="background:var(--a2)">3 ACTION ITEMS</span>
+      <span class="mono" style="font-size:11px;font-weight:700;opacity:0.65">jess@lupanotte.com</span>
+      <div style="width:34px;height:34px;border-radius:999px;border:2.5px solid var(--ink);background:var(--a3);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:13px;box-shadow:3px 3px 0 var(--ink)">JL</div>
+    </div>
+  </div>
+
+  <main class="main">
+    <h1 class="title">Saturday's looking busy.</h1>
+    <div class="subtitle">14 BOOKINGS · 12 FROM CONFETTI PASSES · 96% FILL ETA</div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="lbl">CONFETTI PASS BOOKINGS</div>
+        <div class="val">12</div>
+        <div class="delta up">▲ 50% vs last sat</div>
+      </div>
+      <div class="stat" style="background:var(--a2)">
+        <div class="lbl">REVENUE · TODAY</div>
+        <div class="val">$2,184</div>
+        <div class="delta up">▲ $612 vs avg</div>
+      </div>
+      <div class="stat">
+        <div class="lbl">AVG TABLE TIME</div>
+        <div class="val">68m</div>
+        <div class="delta down">▼ 4m (good)</div>
+      </div>
+      <div class="stat">
+        <div class="lbl">FILL ETA · 9 PM</div>
+        <div class="val">96%</div>
+        <div class="delta up">▲ on track</div>
+      </div>
+    </div>
+
+    <!-- AI insight card -->
+    <div class="insights-card" style="margin-bottom:14px">
+      <div class="ai-tag"><span style="color:var(--a1);font-size:11px">✣</span> CONFETTI INSIGHT · GENERATED 12M AGO</div>
+      <h3>Open 2 more 8:30 slots to capture the rooftop spillover.</h3>
+      <div class="ai-body">
+        Westlight (1.2mi north) is at 100% capacity since 7:30pm. The ranking agent has 23 active passes with you as their stop-2 — they'll arrive 8–9pm window. 8 of those passes had Lupa as a "soft" stop that could swap. Opening 2 walk-in slots between 8:20–8:45 captures ~$340 in expected revenue at our model's p70.
+      </div>
+      <div class="ai-actions">
+        <button class="primary">Open the slots →</button>
+        <button>Schedule for next sat too</button>
+        <button>See the math</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Bookings chart -->
+      <div class="card">
+        <div class="card-h">
+          <h3>This week · pass bookings vs walk-ins</h3>
+          <div class="row gap-12">
+            <span class="pill" style="background:var(--a1);font-size:9px">▮ confetti</span>
+            <span class="pill" style="font-size:9px">▮ walk-ins</span>
+          </div>
+        </div>
+        <div class="bars">
+          <div class="bar" style="height:32%;background:var(--a2)"></div>
+          <div class="bar" style="height:18%;background:var(--a1)"></div>
+          <div class="bar" style="height:38%"></div>
+          <div class="bar" style="height:48%;background:var(--a2)"></div>
+          <div class="bar" style="height:65%"></div>
+          <div class="bar" style="height:78%"></div>
+          <div class="bar" style="height:92%"></div>
+        </div>
+        <div class="bar-lbls">
+          <span>SUN</span><span>MON</span><span>TUE</span>
+          <span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+        </div>
+      </div>
+
+      <!-- Bookings calendar (this month) -->
+      <div class="card">
+        <div class="card-h">
+          <h3>May ahead</h3>
+          <span class="mono" style="font-size:10px;opacity:0.6">88 BOOKED · 34 OPEN</span>
+        </div>
+        <div class="cal" id="cal"></div>
+      </div>
+
+      <!-- Recent passes (table) -->
+      <div class="card full">
+        <div class="card-h">
+          <h3>Confetti pass bookings · tonight</h3>
+          <span class="pill" style="background:var(--ink);color:var(--paper)">SAT 5/23</span>
+        </div>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Time</th><th>Pass</th><th>Crew</th><th>Vibe</th>
+              <th>Spend est.</th><th>Source</th><th>Status</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>7:30</strong></td>
+              <td>#K9P2 · stop 2/3</td>
+              <td><div class="row">
+                <span class="avatar" style="background:var(--a1)">M</span>
+                <span class="avatar" style="background:var(--a3);color:var(--paper);margin-left:-8px">D</span>
+                <span style="margin-left:4px">@maya +1</span>
+              </div></td>
+              <td><span class="tag">romantic</span></td>
+              <td>$94</td>
+              <td>chat planner</td>
+              <td><span class="tag confirmed">CONFIRMED</span></td>
+              <td><span class="mono" style="opacity:0.5;font-size:14px">›</span></td>
+            </tr>
+            <tr>
+              <td><strong>8:00</strong></td>
+              <td>#A7K2 · stop 2/3</td>
+              <td><div class="row">
+                <span class="avatar" style="background:var(--a2)">JS</span>
+                <span class="avatar" style="background:var(--a1);margin-left:-8px">+</span>
+                <span style="margin-left:4px">@jess.s +1</span>
+              </div></td>
+              <td><span class="tag">foodie · chill</span></td>
+              <td>$78</td>
+              <td>vibe form</td>
+              <td><span class="tag confirmed">CONFIRMED</span></td>
+              <td><span class="mono" style="opacity:0.5;font-size:14px">›</span></td>
+            </tr>
+            <tr>
+              <td><strong>8:30</strong></td>
+              <td>#R2J4 · stop 1/3</td>
+              <td><div class="row">
+                <span class="avatar" style="background:var(--a3);color:var(--paper)">B</span>
+                <span style="margin-left:4px">@beck +3</span>
+              </div></td>
+              <td><span class="tag">hype · foodie</span></td>
+              <td>$216</td>
+              <td>crew night portal</td>
+              <td><span class="tag pending">DEPOSIT</span></td>
+              <td><span class="mono" style="opacity:0.5;font-size:14px">›</span></td>
+            </tr>
+            <tr>
+              <td><strong>8:45</strong></td>
+              <td>#N6Q9 · stop 2/3</td>
+              <td><div class="row">
+                <span class="avatar" style="background:var(--a1)">T</span>
+                <span style="margin-left:4px">@tay solo</span>
+              </div></td>
+              <td><span class="tag">solo culture</span></td>
+              <td>$48</td>
+              <td>surprise me</td>
+              <td><span class="tag confirmed">CONFIRMED</span></td>
+              <td><span class="mono" style="opacity:0.5;font-size:14px">›</span></td>
+            </tr>
+            <tr>
+              <td><strong>9:15</strong></td>
+              <td>#X1V8 · stop 1/3</td>
+              <td><div class="row">
+                <span class="avatar" style="background:var(--a2)">R</span>
+                <span class="avatar" style="background:var(--a3);color:var(--paper);margin-left:-8px">L</span>
+                <span style="margin-left:4px">@rio +1</span>
+              </div></td>
+              <td><span class="tag">first date</span></td>
+              <td>$86</td>
+              <td>chat planner</td>
+              <td><span class="tag pending">DEPOSIT</span></td>
+              <td><span class="mono" style="opacity:0.5;font-size:14px">›</span></td>
+            </tr>
+            <tr>
+              <td><strong>10:00</strong></td>
+              <td>#P3K7 · stop 2/3</td>
+              <td><div class="row">
+                <span class="avatar" style="background:var(--a1)">N</span>
+                <span class="avatar" style="background:var(--a2);margin-left:-8px">+</span>
+                <span style="margin-left:4px">@nat +2</span>
+              </div></td>
+              <td><span class="tag">walkable foodie</span></td>
+              <td>$132</td>
+              <td>chat planner</td>
+              <td><span class="tag cancelled">CANCEL · LATE</span></td>
+              <td><span class="mono" style="opacity:0.5;font-size:14px">›</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Promoters -->
+      <div class="card">
+        <div class="card-h">
+          <h3>Top promoters · this month</h3>
+          <button style="appearance:none;border:2px solid var(--ink);border-radius:999px;background:var(--a1);padding:6px 12px;font-family:var(--ui);font-size:11px;font-weight:800;box-shadow:3px 3px 0 var(--ink)">+ invite</button>
+        </div>
+        <div class="promoter">
+          <span class="avatar" style="background:var(--a1)">M</span>
+          <div>
+            <div style="font-weight:800;font-size:13px">@maya.brooklyn</div>
+            <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.08em">14.2K FOLLOWERS · 82 PASSES INFL.</div>
+          </div>
+          <div style="text-align:right">
+            <div class="display" style="font-size:18px">$1.4k</div>
+            <div class="mono" style="font-size:9px;opacity:0.55">PAYOUT</div>
+          </div>
+        </div>
+        <div class="promoter">
+          <span class="avatar" style="background:var(--a2)">DC</span>
+          <div>
+            <div style="font-weight:800;font-size:13px">@datecollective</div>
+            <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.08em">8.6K FOLLOWERS · 41 PASSES INFL.</div>
+          </div>
+          <div style="text-align:right">
+            <div class="display" style="font-size:18px">$680</div>
+            <div class="mono" style="font-size:9px;opacity:0.55">PAYOUT</div>
+          </div>
+        </div>
+        <div class="promoter">
+          <span class="avatar" style="background:var(--a3);color:var(--paper)">D</span>
+          <div>
+            <div style="font-weight:800;font-size:13px">@devon.eats</div>
+            <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.08em">3.1K FOLLOWERS · 22 PASSES INFL.</div>
+          </div>
+          <div style="text-align:right">
+            <div class="display" style="font-size:18px">$310</div>
+            <div class="mono" style="font-size:9px;opacity:0.55">PAYOUT</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews -->
+      <div class="card">
+        <div class="card-h">
+          <h3>Reviews · last 7d</h3>
+          <span class="pill" style="background:#d32323;color:#fff;border-color:var(--ink)">YELP · 4.7</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+          <div class="display" style="font-size:54px;line-height:1;letter-spacing:-0.045em">4.8</div>
+          <div style="flex:1">
+            <div style="font-family:var(--mono);font-size:10px;font-weight:700;opacity:0.55;letter-spacing:.1em;margin-bottom:4px">CONFETTI · LAST 7D</div>
+            <div style="display:flex;flex-direction:column;gap:3px">
+              <div style="display:flex;gap:6px;align-items:center;font-family:var(--mono);font-size:10px"><span style="width:10px">5</span><div style="flex:1;height:6px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);overflow:hidden"><div style="height:100%;width:78%;background:var(--a1)"></div></div><span style="opacity:0.55">42</span></div>
+              <div style="display:flex;gap:6px;align-items:center;font-family:var(--mono);font-size:10px"><span style="width:10px">4</span><div style="flex:1;height:6px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);overflow:hidden"><div style="height:100%;width:18%;background:var(--a2)"></div></div><span style="opacity:0.55">9</span></div>
+              <div style="display:flex;gap:6px;align-items:center;font-family:var(--mono);font-size:10px"><span style="width:10px">3</span><div style="flex:1;height:6px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);overflow:hidden"><div style="height:100%;width:4%;background:var(--a3)"></div></div><span style="opacity:0.55">2</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:10px 12px;background:var(--bg);border:2px solid var(--ink);border-radius:10px">
+          <div class="mono" style="font-size:9px;opacity:0.55;letter-spacing:.1em">@maya.brooklyn · 5★ · 2h AGO</div>
+          <div style="font-size:13px;font-weight:700;margin-top:4px;line-height:1.35">"Came in on a confetti pass. Sat us instantly, the carbonara — life-changing."</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  // Build a fake May calendar
+  const cal = document.getElementById('cal');
+  const dh = ['S','M','T','W','T','F','S'];
+  dh.forEach(d => {
+    const e = document.createElement('div'); e.className = 'cal-dh'; e.textContent = d;
+    cal.appendChild(e);
+  });
+  // May 2026 starts on a Friday
+  const startBlank = 5; // pad with blanks
+  for (let i = 0; i < startBlank; i++) {
+    const e = document.createElement('div'); e.className = 'cal-day';
+    e.style.opacity = '0.3'; cal.appendChild(e);
+  }
+  for (let d = 1; d <= 31; d++) {
+    const el = document.createElement('div');
+    el.className = 'cal-day';
+    const day = (d + startBlank - 1) % 7;
+    // weekend booked more
+    const baseBookings = day === 5 || day === 6 ? 8 + Math.floor(Math.random() * 8) :
+                         day === 4 ? 4 + Math.floor(Math.random() * 4) :
+                                     Math.floor(Math.random() * 4);
+    if (baseBookings > 10) el.classList.add('hot');
+    else if (baseBookings > 4) el.classList.add('has');
+    el.innerHTML = `<span class="n">${d}</span>${baseBookings > 0 ? `<span class="ct">${baseBookings}</span>` : ''}`;
+    if (d === 23) el.classList.add('today');
+    cal.appendChild(el);
+  }
+</script>
+</body>
+</html>

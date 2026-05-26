@@ -15,7 +15,7 @@ const PAID_FEATURES = [
 
 function PaywallPage() {
   const navigate = useNavigate();
-  const onPaid = () => navigate({ to: "/new/all-access" });
+  const onPaid = () => navigate({ to: "/new/stripe", search: { plan: "monthly" } });
   const onFree = () => navigate({ to: "/new/hub" });
 
   return (

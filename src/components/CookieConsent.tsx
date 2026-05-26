@@ -144,7 +144,7 @@ export function CookieConsent() {
           role="dialog"
           aria-live="polite"
           aria-label="Cookie and terms consent"
-          className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+7.5rem)] z-[80] mx-auto max-w-2xl rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg sm:bottom-6 sm:right-auto sm:left-4 sm:mx-0 sm:max-w-sm sm:p-5"
+          className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+7.5rem)] z-[80] mx-auto max-w-2xl rounded-2xl border-2 border-ink bg-cream p-4 text-cream shadow-brut-lg sm:bottom-6 sm:right-auto sm:left-4 sm:mx-0 sm:max-w-sm sm:p-5"
         >
           <div className="flex items-start gap-3">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border-2 border-ink bg-coral text-cream">
@@ -155,7 +155,7 @@ export function CookieConsent() {
                 <p className="font-display text-sm font-extrabold leading-tight">
                   A quick housekeeping note
                 </p>
-                <p className="text-xs leading-relaxed text-ink/75">
+                <p className="text-xs leading-relaxed text-cream/75">
                   Confetti uses cookies to keep you signed in, remember your taste, and learn what
                   picks land. By tapping <strong>Accept</strong> you also agree to our{" "}
                   <Link to="/privacy" hash="terms-note" className="font-bold underline underline-offset-2">
@@ -213,7 +213,7 @@ export function CookieConsent() {
           </DialogHeader>
 
           <div className="space-y-3">
-            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-ink/10 p-4">
+            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-cream/10 p-4">
               <div className="space-y-1">
                 <h3 className="font-display text-base font-bold">Strictly necessary</h3>
                 <p className="text-sm text-muted-foreground">
@@ -224,7 +224,7 @@ export function CookieConsent() {
               <Switch checked disabled aria-label="Necessary cookies (always on)" />
             </div>
 
-            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-ink/10 p-4">
+            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-cream/10 p-4">
               <div className="space-y-1">
                 <h3 className="font-display text-base font-bold">Functional</h3>
                 <p className="text-sm text-muted-foreground">
@@ -239,7 +239,7 @@ export function CookieConsent() {
               />
             </div>
 
-            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-ink/10 p-4">
+            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-cream/10 p-4">
               <div className="space-y-1">
                 <h3 className="font-display text-base font-bold">Analytics</h3>
                 <p className="text-sm text-muted-foreground">

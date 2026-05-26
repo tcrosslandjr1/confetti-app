@@ -4,14 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { getPartnerStats } from "@/lib/partner-stats.functions";
-import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
+import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car, Zap, Users, Globe } from "lucide-react";
 import { CityPickerTrigger } from "@/components/CitySearch";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RecapBanner } from "@/components/RecapBanner";
 import { TasteConfirmPrompt } from "@/components/TasteConfirmPrompt";
@@ -96,11 +90,11 @@ const SAMPLE_ITINERARY_SUMMARY = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Home — Confetti" },
+      { title: "Confetti — Plans with a pulse." },
       {
         name: "description",
         content:
-          "Confetti is the loud, opinionated planner that turns 'I'm bored' into a whole night. AI itineraries, door-to-door routing, reservations on lock.",
+          "Plan a night. Or a day. Or whatever. Confetti is the AI concierge that turns vibes into full itineraries with real venues, routes, and reservations.",
       },
       { property: "og:title", content: "Confetti — Plans with a pulse." },
       { property: "og:description", content: "From vibe to door-to-door plan in under a minute." },
@@ -180,16 +174,12 @@ const MARQUEE: MarqueeItem[] = [
 const PROOF = [
   {
     quote:
-      "It planned a Friday night that ended in a dive bar I’d driven past 100 times. New favorite.",
+      "It planned a Friday night that ended in a dive bar I'd driven past 100 times. New favorite.",
     name: "Mara K.",
     role: "Brooklyn",
     rating: 5,
     avatarBg: "bg-coral",
     initials: "MK",
-    // desktop scatter
-    pos: "lg:col-start-1 lg:row-start-1 lg:translate-y-2",
-    rot: "-rotate-3",
-    z: "z-20",
   },
   {
     quote: "Killed our 47-message group chat dead. Sent everyone the trip link, voted, done.",
@@ -198,21 +188,29 @@ const PROOF = [
     rating: 5,
     avatarBg: "bg-purple",
     initials: "DR",
-    pos: "lg:col-start-2 lg:row-start-1 lg:-translate-y-6 lg:translate-x-[-12%]",
-    rot: "rotate-2",
-    z: "z-30",
   },
   {
-    quote: "I’m the planner friend. This is the first thing that out-planned me.",
+    quote: "I'm the planner friend. This is the first thing that out-planned me.",
     name: "Priya S.",
     role: "Chicago",
     rating: 4,
     avatarBg: "bg-gold",
     initials: "PS",
-    pos: "lg:col-start-3 lg:row-start-1 lg:translate-y-10 lg:translate-x-[-18%]",
-    rot: "-rotate-1",
-    z: "z-10",
   },
+];
+
+// Vibe chips for the hero mood discovery section
+const VIBE_CHIPS = [
+  { label: "Date night", slug: "date-night", emoji: "🌹" },
+  { label: "Rooftop vibes", slug: "rooftop", emoji: "🌇" },
+  { label: "Dive bars", slug: "dive-bar-crawl", emoji: "🍻" },
+  { label: "Girls night", slug: "girls-night", emoji: "💃" },
+  { label: "Chill & cozy", slug: "cozy", emoji: "☕" },
+  { label: "Birthday", slug: "birthday", emoji: "🎂" },
+  { label: "Foodie crawl", slug: "foodie", emoji: "🍜" },
+  { label: "Live music", slug: "live-music", emoji: "🎵" },
+  { label: "Speakeasy", slug: "speakeasy", emoji: "🥃" },
+  { label: "Brunch", slug: "brunch", emoji: "🥂" },
 ];
 
 
@@ -254,7 +252,6 @@ function Landing() {
   useEffect(() => {
     const el = heroBgRef.current;
     if (!el) return;
-    // Respect prefers-reduced-motion — skip parallax entirely.
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) {
       el.style.transform = "none";
@@ -327,445 +324,188 @@ function Landing() {
     return { topItems: inject("top"), bottomItems: inject("bottom") };
   }, [dbSponsors]);
 
-  // Impressions are now logged per rendered slot when it enters the viewport.
-  // See <SponsoredTopSlot /> and <SponsoredBottomSlot /> below.
-
   return (
-    <div className="min-h-screen bg-cream text-ink">
+    <div className="min-h-screen bg-mocha text-cream">
       <SiteHeader />
       <RecapBanner />
       <TasteConfirmPrompt />
 
       {/* ============================ HERO ============================ */}
-      <section className="relative overflow-hidden border-b-2 border-ink">
+      <section className="relative overflow-hidden">
         <div ref={heroBgRef} className="absolute inset-0 -z-20 will-change-transform">
-          <div className="hero-gradient absolute inset-0" />
-          <div className="grid-paper absolute inset-0 opacity-50" />
-          <div className="absolute -right-24 -top-24 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
+          {/* Dark mocha ambient glow */}
+          <div className="absolute inset-0 bg-gradient-to-b from-mocha-dark via-mocha to-mocha-light" />
+          <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-coral/10 blur-[120px]" />
           <div
-            className="absolute -bottom-32 -left-24 h-96 w-96 animate-blob bg-gradient-cool opacity-50"
-            style={{ animationDelay: "-7s" }}
+            className="absolute -bottom-40 -left-32 h-[400px] w-[400px] rounded-full bg-purple/10 blur-[100px]"
           />
+          <div className="absolute right-1/4 top-1/3 h-64 w-64 rounded-full bg-gold/5 blur-[80px]" />
         </div>
 
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
-          {/* left — type */}
-          <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-coral text-coral animate-dot-pulse" />
-              <TypingCounter target={2847} suffix=" plans built today" className="text-[11px]" />
+        <div className="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-32 lg:pt-24">
+          {/* Stats bar */}
+          <div className="mb-10 flex flex-wrap items-center gap-3">
+            <span className="inline-flex items-center gap-2 rounded-chip border border-cream/20 bg-cream/5 px-4 py-2 backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
+              <TypingCounter target={2847} suffix=" plans built today" className="text-sm font-medium text-cream/90" />
             </span>
-
-            <h1 className="mt-5 font-display text-[12vw] font-extrabold leading-[0.9] tracking-[-0.04em] sm:text-[68px] lg:text-[96px]">
-              Your whole night out,
-              <br />
-              <span className="font-serif italic font-normal text-coral">planned for you.</span>
-            </h1>
-
-            <p className="mt-5 max-w-xl text-base leading-snug sm:text-lg">
-              Tell us the vibe — date night, rooftop drinks, dive bar crawl. Confetti picks the
-              venues, books the table, lines up the walking + Lyft route between stops, and hands
-              you a tap-to-go itinerary.{" "}
-              <span className="font-serif italic">Free, no signup to try.</span>
-            </p>
-
-            <ul className="mt-5 grid max-w-xl gap-2 text-sm sm:grid-cols-2">
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Real venues open right now, not a generic list
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Reservations booked in one tap
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Walking + Lyft routes between every stop
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Earn Confetti rewards every time you go out
-              </li>
-            </ul>
-
-            <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-              <span onClick={() => trackCta("plan_my_night_hero", { location: "hero_primary" })}>
-                <WizardButton
-                  ariaLabel="Plan my night"
-                  className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
-                >
-                  Plan my night — 60 sec <ArrowUpRight className="h-5 w-5" />
-                </WizardButton>
-              </span>
-              <a
-                href="#sample-plan"
-                onClick={() => trackCta("see_sample_plan", { location: "hero_secondary" })}
-                className="text-sm font-bold text-ink/70 underline-offset-4 hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 rounded-sm"
-              >
-                or peek at a sample plan ↓
-              </a>
-              <CityPickerTrigger />
-            </div>
-          </div>
-
-          {/* right — receipt-style mock plan (now obviously a sample) */}
-          <div id="sample-plan" className="relative mt-4 lg:col-span-5 lg:mt-0">
-            <div className="absolute -top-3 left-3 z-20 -rotate-6 rounded-md border-2 border-ink bg-gold px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut sm:-left-4 sm:-top-4">
-              ★ Sample plan
-            </div>
-
-            <div className="animate-float-card rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
-              <div className="flex items-center justify-between border-b-2 border-dashed border-ink pb-3">
-                <span className="font-mono text-[11px] uppercase tracking-widest">
-                  YOUR CITY // YOUR WAY · plan #A7K2
-                </span>
-                <span className="font-mono text-[11px]">SAT · 6:00p</span>
-              </div>
-
-              <h3 className="mt-4 font-serif text-2xl italic leading-tight sm:text-3xl">
-                "cute, walkable, ends with a slow drink"
-              </h3>
-
-              <div className="mt-5 space-y-3">
-                {[
-                  {
-                    t: "6:30",
-                    title: "Lila’s Patio",
-                    sub: "small plates · 12 min walk",
-                    chip: "RESY",
-                    color: "bg-coral",
-                    dot: "text-coral",
-                  },
-                  {
-                    t: "8:15",
-                    title: "Mason St. record bar",
-                    sub: "vinyl + nat wine · 6 min walk",
-                    chip: "WALK-IN",
-                    color: "bg-purple",
-                    dot: "text-purple",
-                  },
-                  {
-                    t: "10:00",
-                    title: "Aera rooftop",
-                    sub: "nightcap · 9 min Lyft",
-                    chip: "LYFT",
-                    color: "bg-gold",
-                    dot: "text-gold",
-                  },
-                ].map((s, i) => (
-                  <div
-                    key={s.t}
-                    className="flex items-center gap-3 rounded-xl border-2 border-ink bg-background p-3"
-                  >
-                    <div
-                      className={`relative grid h-14 w-14 shrink-0 place-items-center rounded-lg border-2 border-ink ${s.color} font-display text-base font-extrabold text-ink`}
-                    >
-                      {s.t}
-                      <span
-                        className={`absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-current animate-dot-pulse ${s.dot}`}
-                        style={{ animationDelay: `${i * 0.4}s` }}
-                      />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="truncate font-display text-base font-bold">{s.title}</div>
-                      <div className="truncate text-xs text-ink/60">{s.sub}</div>
-                    </div>
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest">
-                      {s.chip}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink pt-3 font-mono text-[11px] uppercase tracking-widest">
-                <span>3 stops · 4h · ~$92</span>
-                <span className="rounded-full bg-ink px-2 py-1 text-cream">booked ✓</span>
-              </div>
-
-              <WizardButton
-                ariaLabel="Try this sample plan"
-                preset={{
-                  title: "cute, walkable, ends with a slow drink",
-                  vibeKeys: ["bougie", "speakeasy"],
-                  vibeLabel: "cute, walkable, ends with a slow drink",
-                }}
-                className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
-              >
-                Try this plan <ArrowUpRight className="h-4 w-4" />
-              </WizardButton>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================ HOW IT WORKS — 3 STEPS ============================ */}
-      <section
-        aria-labelledby="how-it-works-heading"
-        className="border-b-2 border-ink bg-background"
-      >
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-          <div className="mb-6 flex items-end justify-between gap-4">
-            <h2
-              id="how-it-works-heading"
-              className="font-display text-2xl font-extrabold leading-tight sm:text-3xl"
-            >
-              How it works
-              <span className="font-serif italic font-normal text-coral"> in 4 steps.</span>
-            </h2>
-            <span className="hidden font-mono text-[11px] uppercase tracking-widest text-ink/60 sm:inline">
-              under 60 seconds
+            <span className="hidden sm:inline-flex items-center gap-2 rounded-chip border border-cream/20 bg-cream/5 px-4 py-2 backdrop-blur-sm text-sm text-cream/70">
+              <Globe className="h-3.5 w-3.5" /> 48 cities
+            </span>
+            <span className="hidden sm:inline-flex items-center gap-2 rounded-chip border border-cream/20 bg-cream/5 px-4 py-2 backdrop-blur-sm text-sm text-cream/70">
+              <Users className="h-3.5 w-3.5" /> 12k+ planners
             </span>
           </div>
 
-          <ol className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 lg:grid-cols-4">
-            {[
-              {
-                n: "1",
-                emoji: "🎯",
-                title: "Choose your vibe",
-                body: "Rooftop, dive bar, date night, brunch crawl. Plain English works.",
-                bg: "bg-coral",
-              },
-              {
-                n: "2",
-                emoji: "📍",
-                title: "Pick your venues",
-                body: "Swipe through real spots open tonight. Keep what you love, swap the rest.",
-                bg: "bg-gold",
-              },
-              {
-                n: "3",
-                emoji: "🛣️",
-                title: "Get your route",
-                body: "Timed stops with walking + Lyft directions stitched between them.",
-                bg: "bg-purple",
-              },
-              {
-                n: "4",
-                emoji: "🎟️",
-                title: "Tap-to-go booking",
-                body: "Resy, OpenTable, Eventbrite, rideshare — one tap, straight to checkout.",
-                bg: "bg-teal",
-              },
-            ].map((s) => (
-              <li
-                key={s.n}
-                className={`relative w-[78%] shrink-0 snap-center rounded-2xl border-2 border-ink ${s.bg} p-5 shadow-brut sm:w-auto`}
-              >
-                <span className="absolute -top-3 left-4 grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-xs font-extrabold">
-                  {s.n}
-                </span>
-                <div className="text-3xl">{s.emoji}</div>
-                <div className="mt-3 font-display text-lg font-extrabold leading-tight">
-                  {s.title}
-                </div>
-                <p className="mt-1 text-sm leading-snug text-ink/80">{s.body}</p>
-              </li>
-            ))}
-          </ol>
+          {/* Main hero content */}
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Left — headline + vibe chips */}
+            <div className="lg:col-span-7">
+              <h1 className="font-display text-[11vw] font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-[64px] lg:text-[88px]">
+                Plan a night.
+                <br />
+                <span className="text-cream/60">Or a day.</span>
+                <br />
+                <span className="font-serif italic font-normal text-coral">Or whatever.</span>
+              </h1>
 
-          <div className="mt-6 flex justify-center sm:hidden">
-            <WizardButton
-              ariaLabel="Plan my night"
-              className="inline-flex h-12 min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-sm font-bold text-cream shadow-brut transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
-            >
-              Start — Plan my night <ArrowUpRight className="h-4 w-4" />
-            </WizardButton>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================ SAMPLE ITINERARY ============================ */}
-      <section
-        id="sample-itinerary"
-        aria-labelledby="sample-itinerary-heading"
-        className="border-b-2 border-ink bg-cream"
-      >
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">
-                / a real Saturday in San Francisco
-              </span>
-              <h2
-                id="sample-itinerary-heading"
-                className="mt-2 font-display text-3xl font-extrabold leading-tight sm:text-4xl"
-              >
-                A sample night,
-                <span className="font-serif italic font-normal text-coral"> start to finish.</span>
-              </h2>
-              <p className="mt-3 max-w-xl text-sm text-ink/70 sm:text-base">
-                This is exactly what Confetti hands you after you pick a vibe — timed stops, real
-                venues, walking + Lyft routes between them, and one-tap booking links.
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-cream/80">
+                Tell us the vibe — we'll pick the venues, book the table, map the route between stops,
+                and hand you a tap-to-go boarding pass.{" "}
+                <span className="text-cream font-medium">Free, no signup to try.</span>
               </p>
-            </div>
-            <div className="rounded-2xl border-2 border-ink bg-background px-4 py-3 font-mono text-[11px] uppercase tracking-widest shadow-brut">
-              <div>SAT · 6:00p → 12:30a</div>
-              <div className="mt-1 text-ink/60">Mission → Hayes Valley → Nob Hill</div>
-            </div>
-          </div>
 
-          <div className="grid gap-6 lg:grid-cols-12">
-            {/* TIMELINE */}
-            <ol className="relative lg:col-span-8">
-              <span
-                aria-hidden
-                className="absolute left-[27px] top-3 bottom-3 w-0.5 bg-ink/20 sm:left-[31px]"
-              />
-              {(
-                [
-                  {
-                    t: "6:30p",
-                    title: "Lila’s Patio",
-                    type: "Small plates · Mission",
-                    desc: "Start with shared plates on the heated back patio. Reservation held for 90 min.",
-                    chip: "RESY",
-                    chipBg: "bg-coral",
-                    emoji: "🍽️",
-                    cost: "~$38/pp",
-                  },
-                  { leg: "12 min walk · 0.5 mi · down Valencia", legIcon: "🚶" },
-                  {
-                    t: "8:15p",
-                    title: "Mason St. Record Bar",
-                    type: "Vinyl + nat wine · Mission",
-                    desc: "Walk-in friendly. DJ set starts 8:30. Two glasses, then move on.",
-                    chip: "WALK-IN",
-                    chipBg: "bg-purple text-cream",
-                    emoji: "🎧",
-                    cost: "~$22/pp",
-                  },
-                  { leg: "9 min Lyft · ~$14 · pre-booked", legIcon: "🚗" },
-                  {
-                    t: "9:30p",
-                    title: "The Saratoga",
-                    type: "Cocktail bar · Tenderloin",
-                    desc: "Reserved bar seats. Order the Improved Whiskey Cocktail — house signature.",
-                    chip: "OPENTABLE",
-                    chipBg: "bg-gold",
-                    emoji: "🍸",
-                    cost: "~$28/pp",
-                  },
-                  { leg: "6 min walk · 0.3 mi · uphill, worth it", legIcon: "🚶" },
-                  {
-                    t: "11:00p",
-                    title: "Aera Rooftop",
-                    type: "Nightcap · Nob Hill",
-                    desc: "Skyline view, slow drink to close the night. Last call 12:30.",
-                    chip: "RESY",
-                    chipBg: "bg-coral",
-                    emoji: "🌃",
-                    cost: "~$24/pp",
-                  },
-                ] as Array<any>
-              ).map((row, i) =>
-                row.leg ? (
-                  <li
-                    key={`leg-${i}`}
-                    className="relative ml-12 flex items-center gap-2 py-2 pl-2 text-xs text-ink/60 sm:ml-14"
-                  >
-                    <span aria-hidden className="text-base">
-                      {row.legIcon}
-                    </span>
-                    <span className="font-mono uppercase tracking-widest">{row.leg}</span>
-                  </li>
-                ) : (
-                  <li key={`stop-${i}`} className="relative pl-12 sm:pl-14 pb-3">
-                    <div
-                      className={`absolute left-0 top-1 grid h-14 w-14 place-items-center rounded-full border-2 border-ink ${row.chipBg} font-mono text-[11px] font-extrabold shadow-brut`}
+              {/* Vibe chip bar */}
+              <div className="mt-8">
+                <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-cream/50">
+                  Pick a vibe to start
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {VIBE_CHIPS.map((chip) => (
+                    <Link
+                      key={chip.slug}
+                      to="/app/plan"
+                      search={{ vibe: chip.slug }}
+                      onClick={() => trackCta("vibe_chip", { vibe: chip.slug, location: "hero" })}
+                      className="group inline-flex items-center gap-2 rounded-chip border border-cream/20 bg-cream/5 px-4 py-2.5 text-sm font-medium text-cream/90 backdrop-blur-sm transition-all hover:border-coral/50 hover:bg-coral/10 hover:text-cream hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/50"
                     >
-                      {row.t}
+                      <span className="text-base">{chip.emoji}</span>
+                      {chip.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Primary CTAs */}
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <span onClick={() => trackCta("plan_something_hero", { location: "hero_primary" })}>
+                  <WizardButton
+                    ariaLabel="Plan something"
+                    className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-chip bg-coral px-8 text-base font-bold text-cream shadow-lg shadow-coral/25 transition-all hover:bg-coral/90 hover:shadow-xl hover:shadow-coral/30 hover:-translate-y-0.5 sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/50 focus-visible:ring-offset-2 focus-visible:ring-offset-mocha"
+                  >
+                    Plan something <ArrowUpRight className="h-5 w-5" />
+                  </WizardButton>
+                </span>
+                <Link
+                  to="/auth"
+                  onClick={() => trackCta("sign_in_hero", { location: "hero_secondary" })}
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-chip border border-cream/30 px-6 text-sm font-medium text-cream/80 transition-all hover:border-cream/50 hover:text-cream hover:bg-cream/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/30"
+                >
+                  Sign in
+                </Link>
+                <CityPickerTrigger />
+              </div>
+            </div>
+
+            {/* Right — boarding pass hero card */}
+            <div className="relative lg:col-span-5">
+              <div className="relative mx-auto max-w-sm">
+                {/* Glow behind card */}
+                <div className="absolute -inset-6 rounded-[32px] bg-gradient-to-br from-coral/20 via-purple/10 to-gold/15 blur-2xl" />
+
+                <div className="relative rounded-card border border-cream/15 bg-mocha-light/80 p-6 backdrop-blur-xl shadow-2xl">
+                  {/* Boarding pass header */}
+                  <div className="flex items-center justify-between border-b border-dashed border-cream/20 pb-4">
+                    <div>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/50">
+                        Boarding Pass
+                      </span>
+                      <div className="mt-1 font-display text-sm font-bold text-cream">
+                        SAT · 6:00p → 12:30a
+                      </div>
                     </div>
-                    <div className="rounded-2xl border-2 border-ink bg-background p-4 shadow-brut">
-                      <div className="flex flex-wrap items-start justify-between gap-2">
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span aria-hidden className="text-xl">
-                              {row.emoji}
-                            </span>
-                            <h3 className="font-display text-lg font-extrabold leading-tight">
-                              {row.title}
-                            </h3>
-                          </div>
-                          <div className="mt-0.5 text-xs text-ink/60">{row.type}</div>
-                        </div>
-                        <span
-                          className={`shrink-0 rounded-full border-2 border-ink px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest ${row.chipBg}`}
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-coral/20 text-coral">
+                      <Sparkles className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  {/* Vibe quote */}
+                  <h3 className="mt-4 font-serif text-xl italic leading-tight text-cream/90">
+                    "cute, walkable, ends with a slow drink"
+                  </h3>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-cream/40">
+                    Mission → Hayes Valley → Nob Hill
+                  </p>
+
+                  {/* Stops */}
+                  <div className="mt-5 space-y-2.5">
+                    {[
+                      { t: "6:30", title: "Lila's Patio", chip: "RESY", color: "bg-coral" },
+                      { t: "8:15", title: "Mason St. Record Bar", chip: "WALK-IN", color: "bg-purple" },
+                      { t: "10:00", title: "Aera Rooftop", chip: "RESY", color: "bg-gold" },
+                    ].map((s) => (
+                      <div
+                        key={s.t}
+                        className="flex items-center gap-3 rounded-xl border border-cream/10 bg-cream/5 p-3"
+                      >
+                        <div
+                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg ${s.color} font-mono text-xs font-bold text-mocha-dark`}
                         >
-                          {row.chip}
+                          {s.t}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="truncate text-sm font-semibold text-cream">{s.title}</div>
+                        </div>
+                        <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/50">
+                          {s.chip}
                         </span>
                       </div>
-                      <p className="mt-2 text-sm leading-snug text-ink/80">{row.desc}</p>
-                      <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-ink/60">
-                        {row.cost}
-                      </div>
-                    </div>
-                  </li>
-                ),
-              )}
-            </ol>
-
-            {/* SUMMARY CARD */}
-            <aside className="lg:col-span-4">
-              <div className="sticky top-24 rounded-2xl border-2 border-ink bg-background p-5 shadow-brut-lg">
-                <div className="border-b-2 border-dashed border-ink pb-3 font-mono text-[11px] uppercase tracking-widest">
-                  Route summary
-                </div>
-                <dl className="mt-4 space-y-3 text-sm">
-                  {[
-                    ["Stops", "4 venues"],
-                    ["Total time", "6 hours"],
-                    ["Walking", "0.8 mi · ~18 min"],
-                    ["Lyft", "1 ride · ~$14"],
-                    ["Bookings", "3 reservations"],
-                    ["Est. total", "~$112/pp"],
-                  ].map(([k, v]) => (
-                    <div
-                      key={k}
-                      className="flex items-baseline justify-between gap-3 border-b border-dashed border-ink/30 pb-2 last:border-0"
-                    >
-                      <dt className="font-mono text-[11px] uppercase tracking-widest text-ink/60">
-                        {k}
-                      </dt>
-                      <dd className="font-display text-base font-bold">{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-
-                <div className="mt-5 rounded-xl border-2 border-ink bg-gold/40 p-3 text-xs leading-snug">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-ink/70">
-                    Earned
+                    ))}
                   </div>
-                  <div className="mt-1 font-display text-base font-extrabold">+120 Confetti</div>
-                  <div className="text-ink/70">Auto-credited after the last booking.</div>
-                </div>
 
-                <button
-                  type="button"
-                  onClick={() => setBookingOpen(true)}
-                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
-                >
-                  Tap to go — book this plan <ArrowUpRight className="h-4 w-4" />
-                </button>
-                <WizardButton
-                  ariaLabel="Build my own night"
-                  className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-background px-5 text-xs font-bold text-ink transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
-                >
-                  Or build my own night
-                </WizardButton>
-                <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
-                  Free · no signup to try
-                </p>
+                  {/* Summary */}
+                  <div className="mt-4 flex items-center justify-between border-t border-dashed border-cream/20 pt-3">
+                    <span className="font-mono text-[11px] uppercase tracking-widest text-cream/50">
+                      3 stops · 4h · ~$92
+                    </span>
+                    <span className="rounded-chip bg-teal/20 px-2.5 py-1 font-mono text-[10px] font-bold text-teal">
+                      booked ✓
+                    </span>
+                  </div>
+
+                  {/* CTA */}
+                  <WizardButton
+                    ariaLabel="Try this plan"
+                    preset={{
+                      title: "cute, walkable, ends with a slow drink",
+                      vibeKeys: ["bougie", "speakeasy"],
+                      vibeLabel: "cute, walkable, ends with a slow drink",
+                    }}
+                    className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-chip bg-cream/10 border border-cream/20 text-sm font-semibold text-cream transition-all hover:bg-cream/15 hover:border-cream/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/30"
+                  >
+                    Try this plan <ArrowUpRight className="h-4 w-4" />
+                  </WizardButton>
+                </div>
               </div>
-            </aside>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ============================ MARQUEE ============================ */}
-      <section className="border-b-2 border-ink bg-ink py-4 text-cream">
+      <section className="border-y border-cream/10 bg-mocha-dark py-4">
         <div className="flex overflow-hidden">
-          <div className="flex shrink-0 animate-marquee items-center gap-10 whitespace-nowrap pr-10 font-display text-3xl font-extrabold uppercase tracking-tight">
+          <div className="flex shrink-0 animate-marquee items-center gap-10 whitespace-nowrap pr-10 font-display text-2xl font-extrabold uppercase tracking-tight text-cream/70">
             {[...topItems, ...topItems].map((m, i) => {
               const tone =
                 i % 3 === 1
@@ -796,22 +536,275 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============================ MANIFESTO / WHY ============================ */}
-      <section className="border-b-2 border-ink">
+      {/* ============================ HOW IT WORKS ============================ */}
+      <section aria-labelledby="how-it-works-heading" className="bg-mocha">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream/40">
+              / how it works
+            </span>
+            <h2
+              id="how-it-works-heading"
+              className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl"
+            >
+              Three steps.{" "}
+              <span className="font-serif italic font-normal text-coral">Zero spirals.</span>
+            </h2>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                n: "1",
+                emoji: "🎯",
+                title: "Choose your vibe",
+                body: "Rooftop, dive bar, date night, brunch crawl. Plain English works.",
+                accent: "border-coral/30 hover:border-coral/60",
+              },
+              {
+                n: "2",
+                emoji: "📍",
+                title: "Pick your venues",
+                body: "Swipe through real spots open tonight. Keep what you love, swap the rest.",
+                accent: "border-gold/30 hover:border-gold/60",
+              },
+              {
+                n: "3",
+                emoji: "🛣️",
+                title: "Get your route",
+                body: "Timed stops with walking + Lyft directions stitched between them.",
+                accent: "border-purple/30 hover:border-purple/60",
+              },
+              {
+                n: "4",
+                emoji: "🎟️",
+                title: "Tap-to-go booking",
+                body: "Resy, OpenTable, Eventbrite, rideshare — one tap, straight to checkout.",
+                accent: "border-teal/30 hover:border-teal/60",
+              },
+            ].map((s) => (
+              <div
+                key={s.n}
+                className={`relative rounded-card border ${s.accent} bg-cream/5 p-6 backdrop-blur-sm transition-all hover:bg-cream/[0.07]`}
+              >
+                <span className="absolute -top-3 left-5 grid h-7 w-7 place-items-center rounded-full bg-mocha border border-cream/30 font-mono text-xs font-bold text-cream">
+                  {s.n}
+                </span>
+                <div className="text-3xl">{s.emoji}</div>
+                <div className="mt-4 font-display text-lg font-bold text-cream">{s.title}</div>
+                <p className="mt-2 text-sm leading-relaxed text-cream/60">{s.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex justify-center sm:hidden">
+            <WizardButton
+              ariaLabel="Plan my night"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-chip bg-coral px-7 text-sm font-bold text-cream shadow-lg shadow-coral/20 transition-all hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/50"
+            >
+              Start planning <ArrowUpRight className="h-4 w-4" />
+            </WizardButton>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================ SAMPLE ITINERARY ============================ */}
+      <section
+        id="sample-itinerary"
+        aria-labelledby="sample-itinerary-heading"
+        className="border-t border-cream/10 bg-mocha-dark"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream/40">
+              / a real Saturday in San Francisco
+            </span>
+            <h2
+              id="sample-itinerary-heading"
+              className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl"
+            >
+              A sample night,{" "}
+              <span className="font-serif italic font-normal text-coral">start to finish.</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-base text-cream/60">
+              This is exactly what Confetti hands you — timed stops, real venues, walking + Lyft
+              routes, and one-tap booking links.
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-12">
+            {/* TIMELINE */}
+            <ol className="relative lg:col-span-8">
+              <span
+                aria-hidden
+                className="absolute left-[27px] top-3 bottom-3 w-px bg-cream/15 sm:left-[31px]"
+              />
+              {(
+                [
+                  {
+                    t: "6:30p",
+                    title: "Lila's Patio",
+                    type: "Small plates · Mission",
+                    desc: "Start with shared plates on the heated back patio. Reservation held for 90 min.",
+                    chip: "RESY",
+                    chipBg: "bg-coral",
+                    emoji: "🍽️",
+                    cost: "~$38/pp",
+                  },
+                  { leg: "12 min walk · 0.5 mi · down Valencia", legIcon: "🚶" },
+                  {
+                    t: "8:15p",
+                    title: "Mason St. Record Bar",
+                    type: "Vinyl + nat wine · Mission",
+                    desc: "Walk-in friendly. DJ set starts 8:30. Two glasses, then move on.",
+                    chip: "WALK-IN",
+                    chipBg: "bg-purple",
+                    emoji: "🎧",
+                    cost: "~$22/pp",
+                  },
+                  { leg: "9 min Lyft · ~$14 · pre-booked", legIcon: "🚗" },
+                  {
+                    t: "9:30p",
+                    title: "The Saratoga",
+                    type: "Cocktail bar · Tenderloin",
+                    desc: "Reserved bar seats. Order the Improved Whiskey Cocktail — house signature.",
+                    chip: "OPENTABLE",
+                    chipBg: "bg-gold",
+                    emoji: "🍸",
+                    cost: "~$28/pp",
+                  },
+                  { leg: "6 min walk · 0.3 mi · uphill, worth it", legIcon: "🚶" },
+                  {
+                    t: "11:00p",
+                    title: "Aera Rooftop",
+                    type: "Nightcap · Nob Hill",
+                    desc: "Skyline view, slow drink to close the night. Last call 12:30.",
+                    chip: "RESY",
+                    chipBg: "bg-coral",
+                    emoji: "🌃",
+                    cost: "~$24/pp",
+                  },
+                ] as Array<any>
+              ).map((row, i) =>
+                row.leg ? (
+                  <li
+                    key={`leg-${i}`}
+                    className="relative ml-12 flex items-center gap-2 py-2 pl-2 text-xs text-cream/40 sm:ml-14"
+                  >
+                    <span aria-hidden className="text-base">
+                      {row.legIcon}
+                    </span>
+                    <span className="font-mono uppercase tracking-widest">{row.leg}</span>
+                  </li>
+                ) : (
+                  <li key={`stop-${i}`} className="relative pl-12 sm:pl-14 pb-3">
+                    <div
+                      className={`absolute left-0 top-1 grid h-14 w-14 place-items-center rounded-full ${row.chipBg} font-mono text-[11px] font-extrabold text-mocha-dark shadow-lg`}
+                    >
+                      {row.t}
+                    </div>
+                    <div className="rounded-card border border-cream/10 bg-cream/5 p-4 backdrop-blur-sm">
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span aria-hidden className="text-xl">
+                              {row.emoji}
+                            </span>
+                            <h3 className="font-display text-lg font-bold text-cream">
+                              {row.title}
+                            </h3>
+                          </div>
+                          <div className="mt-0.5 text-xs text-cream/50">{row.type}</div>
+                        </div>
+                        <span
+                          className={`shrink-0 rounded-chip px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest ${row.chipBg} text-mocha-dark`}
+                        >
+                          {row.chip}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-cream/60">{row.desc}</p>
+                      <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-cream/40">
+                        {row.cost}
+                      </div>
+                    </div>
+                  </li>
+                ),
+              )}
+            </ol>
+
+            {/* SUMMARY CARD */}
+            <aside className="lg:col-span-4">
+              <div className="sticky top-24 rounded-card border border-cream/15 bg-cream/5 p-6 backdrop-blur-sm">
+                <div className="border-b border-dashed border-cream/15 pb-3 font-mono text-[11px] uppercase tracking-widest text-cream/50">
+                  Route summary
+                </div>
+                <dl className="mt-4 space-y-3 text-sm">
+                  {[
+                    ["Stops", "4 venues"],
+                    ["Total time", "6 hours"],
+                    ["Walking", "0.8 mi · ~18 min"],
+                    ["Lyft", "1 ride · ~$14"],
+                    ["Bookings", "3 reservations"],
+                    ["Est. total", "~$112/pp"],
+                  ].map(([k, v]) => (
+                    <div
+                      key={k}
+                      className="flex items-baseline justify-between gap-3 border-b border-dashed border-cream/10 pb-2 last:border-0"
+                    >
+                      <dt className="font-mono text-[11px] uppercase tracking-widest text-cream/40">
+                        {k}
+                      </dt>
+                      <dd className="font-display text-base font-bold text-cream">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <div className="mt-5 rounded-xl border border-teal/20 bg-teal/5 p-3 text-xs leading-snug">
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-teal/70">
+                    Earned
+                  </div>
+                  <div className="mt-1 font-display text-base font-extrabold text-teal">+120 Confetti</div>
+                  <div className="text-cream/50">Auto-credited after the last booking.</div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setBookingOpen(true)}
+                  className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-chip bg-coral px-5 text-sm font-bold text-cream shadow-lg shadow-coral/20 transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/50"
+                >
+                  Tap to go — book this plan <ArrowUpRight className="h-4 w-4" />
+                </button>
+                <WizardButton
+                  ariaLabel="Build my own night"
+                  className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-chip border border-cream/20 bg-cream/5 px-5 text-xs font-semibold text-cream transition-all hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/30"
+                >
+                  Or build my own night
+                </WizardButton>
+                <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-cream/40">
+                  Free · no signup to try
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================ MANIFESTO ============================ */}
+      <section className="border-t border-cream/10 bg-mocha">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-5">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream/40">
               / the manifesto
             </span>
-            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
-              We are <span className="font-serif italic font-normal">tired</span> of the group chat.
+            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl text-cream">
+              We are <span className="font-serif italic font-normal text-coral">tired</span> of the group chat.
             </h2>
           </Reveal>
-          <Reveal className="space-y-6 text-lg leading-relaxed lg:col-span-7" delay={120}>
+          <Reveal className="space-y-6 text-lg leading-relaxed text-cream/70 lg:col-span-7" delay={120}>
             <p>
               You know the loop. Someone says "we should do something." Three days pass. Yelp gets
               opened, then closed. Someone screenshots a TikTok. Friday becomes pizza on the couch.{" "}
-              <span className="font-serif italic">Again.</span>
+              <span className="font-serif italic text-cream">Again.</span>
             </p>
             <p>
               Confetti kills that loop. One vibe in — one full evening out. Stops, times, routes,
@@ -828,7 +821,7 @@ function Landing() {
               ].map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border-2 border-ink bg-cream px-3 py-1 text-sm font-semibold transition-pop hover:-translate-y-0.5 hover:bg-gold"
+                  className="rounded-chip border border-cream/20 bg-cream/5 px-3 py-1.5 text-sm font-medium text-cream/80 transition-all hover:bg-coral/10 hover:border-coral/30 hover:text-cream"
                 >
                   {t}
                 </span>
@@ -838,75 +831,51 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============================ HOW IT WORKS — color blocks ============================ */}
-      <section className="border-b-2 border-ink">
+      {/* ============================ STEPS SHOWCASE ============================ */}
+      <section className="border-t border-cream/10 bg-mocha-dark">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-6">
-            <h2 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
-              Three steps.
-              <br />
-              <span className="font-serif italic font-normal">Zero spirals.</span>
-            </h2>
-            <Link
-              to="/about"
-              className="hidden items-center gap-1 font-mono text-xs uppercase tracking-widest underline underline-offset-4 sm:inline-flex rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
-            >
-              full walkthrough <ArrowUpRight className="h-3 w-3" />
-            </Link>
-          </div>
-
-          <Suspense fallback={<div className="mt-12 h-72" aria-hidden />}>
+          <Suspense fallback={<div className="h-72" aria-hidden />}>
             <StepsShowcase />
           </Suspense>
         </div>
       </section>
 
       {/* ============================ OCCASIONS BENTO ============================ */}
-      <section className="relative overflow-hidden border-b-2 border-ink bg-cream text-ink">
-        {/* warm ambient washes */}
+      <section className="relative overflow-hidden border-t border-cream/10 bg-mocha">
+        {/* Ambient washes */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-coral/25 blur-3xl"
+          className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-coral/8 blur-[100px]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-gold/40 blur-3xl"
-        />
-        {/* subtle grid */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, var(--ink, #1a1a1a) 1px, transparent 1px), linear-gradient(to bottom, var(--ink, #1a1a1a) 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
+          className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-gold/8 blur-[120px]"
         />
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-ink shadow-brut">
-                <Sparkles className="h-3 w-3 text-coral" /> / pick a vibe
+              <span className="inline-flex items-center gap-2 rounded-chip border border-cream/20 bg-cream/5 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-cream/70 backdrop-blur-sm">
+                <Sparkles className="h-3 w-3 text-coral" /> pick a vibe
               </span>
-              <h2 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+              <h2 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl text-cream">
                 What's the{" "}
                 <span className="font-serif italic font-normal text-coral">occasion?</span>
               </h2>
-              <p className="mt-3 max-w-md font-mono text-sm text-ink/70">
+              <p className="mt-3 max-w-md text-sm text-cream/50">
                 Tap any vibe — we generate a full night around it in seconds.
               </p>
             </div>
             <GatedAction
               to="/chat"
               feature="planning"
-              className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+              className="inline-flex h-12 items-center gap-2 rounded-chip border border-cream/20 bg-cream/5 px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream/80 backdrop-blur-sm transition-all hover:bg-cream/10 hover:border-cream/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/30"
             >
               skip — just plan something <ArrowUpRight className="h-4 w-4" />
             </GatedAction>
           </div>
 
-          {/* mobile snap rail */}
+          {/* Mobile snap rail */}
           <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 sm:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {OCCASIONS.map((o) => {
               const Icon = o.icon;
@@ -916,7 +885,7 @@ function Landing() {
                   key={o.slug}
                   to="/app/explore"
                   params={{ slug: o.slug }}
-                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2`}
+                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-card border border-cream/15 bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40`}
                 >
                   <div className="flex items-start justify-between">
                     <Icon className="h-6 w-6 drop-shadow" />
@@ -926,11 +895,11 @@ function Landing() {
                     <div className="font-display text-2xl font-extrabold leading-tight drop-shadow">
                       {o.title}
                     </div>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cream/90">
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cream/80">
                       {o.tagline}
                     </div>
                     {ideaCount > 0 && (
-                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-ink/50 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
+                      <span className="mt-2 inline-flex items-center gap-1 rounded-chip bg-mocha/50 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
                         {ideaCount} idea{ideaCount === 1 ? "" : "s"}
                       </span>
                     )}
@@ -939,16 +908,15 @@ function Landing() {
               );
             })}
           </div>
-          <p className="text-center font-mono text-[10px] uppercase tracking-widest text-ink/50 sm:hidden">
+          <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream/30 sm:hidden">
             ← swipe vibes →
           </p>
 
-          {/* desktop bento grid */}
+          {/* Desktop bento grid */}
           <div className="mt-12 hidden gap-3 sm:grid sm:grid-cols-4 lg:grid-cols-6 lg:auto-rows-[150px]">
             {OCCASIONS.map((o, i) => {
               const Icon = o.icon;
               const ideaCount = getIdeaCount(o.slug);
-              // bento sizing: feature a few tiles
               const featured = i === 0 || i === 4 || i === 7;
               const wide = i === 2 || i === 9;
               const span = featured
@@ -957,30 +925,18 @@ function Landing() {
                   ? "lg:col-span-2"
                   : "lg:col-span-1";
               const isPopular = i === 0;
-              const tilt = ((i % 3) - 1) * 0.25;
 
               return (
                 <Reveal key={o.slug} delay={i * 50} className={`${span} sm:col-span-2 lg:col-auto`}>
                   <Link
                     to="/app/explore"
                     params={{ slug: o.slug }}
-                    style={{ transform: `rotate(${tilt}deg)` }}
-                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2`}
+                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-card border border-cream/10 bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-lg transition-all hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40`}
                   >
-                    {/* shimmer sweep on hover */}
+                    {/* shimmer */}
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-cream/25 to-transparent transition-transform duration-[1100ms] ease-out group-hover:translate-x-full"
-                    />
-                    {/* grain */}
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
-                      style={{
-                        backgroundImage:
-                          "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
-                        backgroundSize: "3px 3px",
-                      }}
+                      className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-cream/15 to-transparent transition-transform duration-[1100ms] ease-out group-hover:translate-x-full"
                     />
 
                     <div className="relative flex items-start justify-between">
@@ -993,7 +949,7 @@ function Landing() {
                     </div>
 
                     {isPopular && (
-                      <span className="absolute left-4 top-12 inline-flex items-center gap-1 rounded-full border border-ink/40 bg-ink/60 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream backdrop-blur">
+                      <span className="absolute left-4 top-12 inline-flex items-center gap-1 rounded-chip border border-cream/20 bg-mocha/60 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream backdrop-blur">
                         <Sparkles className="h-2.5 w-2.5 text-gold" /> popular
                       </span>
                     )}
@@ -1005,13 +961,13 @@ function Landing() {
                         {o.title}
                       </div>
                       <div
-                        className={`mt-1 font-mono uppercase tracking-wider text-cream/85 ${featured ? "text-xs" : "text-[10px]"}`}
+                        className={`mt-1 font-mono uppercase tracking-wider text-cream/75 ${featured ? "text-xs" : "text-[10px]"}`}
                       >
                         {o.tagline}
                       </div>
                       <div className="mt-3 flex items-center justify-between">
                         {ideaCount > 0 ? (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-ink/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
+                          <span className="inline-flex items-center gap-1 rounded-chip bg-mocha/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
                             <Star className="h-2.5 w-2.5 text-gold" /> {ideaCount} idea
                             {ideaCount === 1 ? "" : "s"}
                           </span>
@@ -1029,19 +985,19 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============================ QUICK PICKS — Steal a night ============================ */}
+      {/* ============================ QUICK PICKS ============================ */}
       <QuickPicks />
 
-      {/* ============================ FEATURE STRIP — three big claims ============================ */}
-      <section className="border-b-2 border-ink">
+      {/* ============================ FEATURE STRIP ============================ */}
+      <section className="border-t border-cream/10 bg-mocha-dark">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-          <div className="grid gap-px bg-ink lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             {[
               {
                 icon: Clock,
                 k: "timing",
                 t: "Down to the minute.",
-                b: "Reservations, sunset, last call — Confetti backs into the schedule so you’re never early or stranded.",
+                b: "Reservations, sunset, last call — Confetti backs into the schedule so you're never early or stranded.",
               },
               {
                 icon: Car,
@@ -1056,50 +1012,45 @@ function Landing() {
                 b: "A live taste profile that learns from chats, playlists, even pasted social posts. Skips the basics.",
               },
             ].map((f) => (
-              <div key={f.k} className="bg-cream p-8">
-                <f.icon className="h-8 w-8" />
-                <span className="mt-4 block font-mono text-[11px] uppercase tracking-[0.25em] text-ink/60">
+              <div key={f.k} className="rounded-card border border-cream/10 bg-cream/5 p-8 backdrop-blur-sm transition-all hover:border-cream/20 hover:bg-cream/[0.07]">
+                <f.icon className="h-8 w-8 text-coral" />
+                <span className="mt-4 block font-mono text-[11px] uppercase tracking-[0.2em] text-cream/40">
                   / {f.k}
                 </span>
-                <h3 className="mt-2 font-display text-3xl font-extrabold leading-tight">{f.t}</h3>
-                <p className="mt-3 text-base leading-snug">{f.b}</p>
+                <h3 className="mt-2 font-display text-2xl font-bold text-cream">{f.t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-cream/60">{f.b}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============================ TESTIMONIALS — sticky notes ============================ */}
-      <section className="border-b-2 border-ink bg-gradient-warm/40">
+      {/* ============================ TESTIMONIALS ============================ */}
+      <section className="border-t border-cream/10 bg-mocha">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-          <h2 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
-            People are <span className="font-serif italic font-normal">leaving the house</span>{" "}
+          <h2 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl text-cream">
+            People are{" "}
+            <span className="font-serif italic font-normal text-coral">leaving the house</span>{" "}
             again.
           </h2>
 
-          <div className="mt-16 flex flex-col gap-8 md:gap-10 lg:grid lg:grid-cols-3 lg:gap-0">
-            {PROOF.map((p, i) => (
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {PROOF.map((p) => (
               <figure
                 key={p.name}
-                className={`${p.rot} ${p.pos ?? ""} ${p.z ?? ""} relative rounded-2xl border-2 border-ink bg-cream p-7 shadow-brut transition-pop hover:z-40 hover:scale-[1.03] hover:rotate-0`}
+                className="rounded-card border border-cream/10 bg-cream/5 p-6 backdrop-blur-sm transition-all hover:border-cream/20 hover:bg-cream/[0.07]"
               >
-                {/* tape strip */}
-                <span
-                  aria-hidden
-                  className={`absolute -top-3 ${i % 2 === 0 ? "left-6" : "right-6"} h-5 w-16 -rotate-6 rounded-sm bg-gold/70 shadow-soft`}
-                />
-
                 <div className="flex items-center gap-3">
                   <div
-                    className={`grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-ink ${p.avatarBg} font-display text-base font-extrabold text-ink shadow-brut`}
+                    className={`grid h-11 w-11 shrink-0 place-items-center rounded-full ${p.avatarBg} font-display text-sm font-bold text-mocha-dark`}
                   >
                     {p.initials}
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-display text-base font-extrabold leading-tight">
+                    <span className="font-display text-sm font-bold text-cream">
                       {p.name}
                     </span>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-cream/40">
                       {p.role}
                     </span>
                   </div>
@@ -1107,47 +1058,47 @@ function Landing() {
                     {Array.from({ length: 5 }).map((_, idx) => (
                       <Star
                         key={idx}
-                        className={`h-4 w-4 stroke-ink ${idx < p.rating ? "fill-gold" : "fill-cream"}`}
+                        className={`h-3.5 w-3.5 ${idx < p.rating ? "fill-gold text-gold" : "fill-transparent text-cream/20"}`}
                       />
                     ))}
                   </div>
                 </div>
 
-                <blockquote className="mt-5 font-serif text-2xl italic leading-snug">
+                <blockquote className="mt-4 font-serif text-lg italic leading-snug text-cream/80">
                   "{p.quote}"
                 </blockquote>
 
-                <figcaption className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink/30 pt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                <div className="mt-4 flex items-center justify-between border-t border-dashed border-cream/10 pt-3 font-mono text-[10px] uppercase tracking-widest text-cream/30">
                   <span>verified planner</span>
                   <span>{p.rating}.0 / 5</span>
-                </figcaption>
+                </div>
               </figure>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============================ PRICING TEASER ============================ */}
-      <section className="border-b-2 border-ink">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
+      {/* ============================ PRICING ============================ */}
+      <section className="border-t border-cream/10 bg-mocha-dark">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-5">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream/40">
               / pricing
             </span>
-            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl text-cream">
               Free to start.
               <br />
               <span className="font-serif italic font-normal text-coral">
                 Plus when you're hooked.
               </span>
             </h2>
-            <p className="mt-5 max-w-md text-lg">
+            <p className="mt-5 max-w-md text-base text-cream/60">
               Three full plans a month, on the house. Upgrade for unlimited, the reservations vault,
               and a taste profile that gets sharper every week.
             </p>
             <Link
               to="/auth"
-              className="mt-7 inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-bold text-cream shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+              className="mt-7 inline-flex h-12 items-center gap-2 rounded-chip bg-coral px-6 font-bold text-cream shadow-lg shadow-coral/20 transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/50 focus-visible:ring-offset-2 focus-visible:ring-offset-mocha-dark"
             >
               Get started free <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -1161,7 +1112,7 @@ function Landing() {
                   price: "$0",
                   note: "first taste",
                   items: ["3 plans / month", "Multi-stop routing", "Save trips"],
-                  cls: "bg-cream",
+                  accent: "border-cream/15",
                   glow: false,
                 },
                 {
@@ -1169,35 +1120,34 @@ function Landing() {
                   price: "$8",
                   note: "the upgrade",
                   items: ["Unlimited plans", "Reservations vault", "Full taste profile"],
-                  cls: "bg-gold",
+                  accent: "border-coral/40",
                   glow: true,
                 },
               ].map((t) => (
                 <div
                   key={t.name}
-                  className={`flex flex-col rounded-3xl border-2 border-ink p-6 shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg ${t.glow ? "animate-pulse-glow relative" : ""}`}
-                  style={{ background: `var(--${t.cls === "bg-gold" ? "gold" : "cream"})` }}
+                  className={`flex flex-col rounded-card border ${t.accent} bg-cream/5 p-6 backdrop-blur-sm transition-all hover:-translate-y-1 hover:shadow-xl ${t.glow ? "relative shadow-lg shadow-coral/10" : ""}`}
                 >
                   {t.glow && (
-                    <span className="absolute -top-3 right-5 rounded-full border-2 border-ink bg-coral px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut">
+                    <span className="absolute -top-3 right-5 rounded-chip bg-coral px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-lg">
                       most popular
                     </span>
                   )}
                   <div className="flex items-baseline justify-between">
-                    <h3 className="font-display text-3xl font-extrabold">{t.name}</h3>
-                    <span className="font-mono text-[10px] uppercase tracking-widest opacity-70">
+                    <h3 className="font-display text-2xl font-bold text-cream">{t.name}</h3>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-cream/40">
                       / {t.note}
                     </span>
                   </div>
-                  <div className="mt-2 font-display text-5xl font-extrabold">
+                  <div className="mt-2 font-display text-5xl font-extrabold text-cream">
                     {t.price}
-                    <span className="font-mono text-sm font-normal">/mo</span>
+                    <span className="font-mono text-sm font-normal text-cream/50">/mo</span>
                   </div>
-                  <ul className="mt-6 space-y-2 text-sm">
-                    {t.items.map((i) => (
-                      <li key={i} className="flex gap-2">
-                        <span className="font-bold">✦</span>
-                        {i}
+                  <ul className="mt-6 space-y-2 text-sm text-cream/70">
+                    {t.items.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-coral font-bold">✦</span>
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -1208,364 +1158,135 @@ function Landing() {
         </div>
       </section>
 
-
       {/* ============================ BIG CTA ============================ */}
-      <section className="relative overflow-hidden border-b-2 border-ink bg-coral text-cream">
-        {/* Animated background blobs */}
-        <div className="absolute -right-20 -top-20 h-72 w-72 animate-blob bg-purple/40" />
-        <div
-          className="absolute -bottom-16 -left-16 h-64 w-64 animate-blob bg-gold/60"
-          style={{ animationDelay: "-4s" }}
-        />
-        <div
-          className="absolute right-1/4 bottom-10 h-40 w-40 animate-blob bg-cream/15 blur-2xl"
-          style={{ animationDelay: "-2s" }}
-        />
-
-        {/* Dot grid texture */}
+      <section className="relative overflow-hidden bg-coral">
+        {/* Texture */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.08]"
+          className="pointer-events-none absolute inset-0 opacity-10"
           style={{
-            backgroundImage: "radial-gradient(currentColor 1.2px, transparent 1.2px)",
-            backgroundSize: "22px 22px",
+            backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
+            backgroundSize: "20px 20px",
           }}
         />
-
-        {/* Floating confetti chips */}
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[8%] top-[18%] h-3 w-3 rotate-12 bg-gold animate-float-slow" />
-          <div className="absolute left-[14%] bottom-[22%] h-2 w-6 -rotate-6 bg-purple animate-float-slower" />
-          <div className="absolute right-[12%] top-[26%] h-4 w-4 rotate-45 border-2 border-cream animate-float-slower" />
-          <div className="absolute right-[20%] bottom-[18%] h-2.5 w-2.5 rounded-full bg-cream animate-float-slow" />
-          <div className="absolute left-[42%] top-[10%] h-2 w-8 rotate-12 bg-cream/70 animate-float-slow" />
-        </div>
-
-        <div className="relative mx-auto max-w-6xl px-4 py-32 text-center sm:px-6">
-          <Reveal>
-            {/* Eyebrow pill */}
-            <div className="mx-auto inline-flex items-center gap-2 rounded-full border-2 border-cream/80 bg-ink/20 px-4 py-1.5 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
-              </span>
-              <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]">
-                Tonight in your city
-              </span>
-            </div>
-
-            <Sparkles className="mx-auto mt-6 h-10 w-10 animate-pulse" />
-
-            <h2 className="mt-6 font-display text-7xl font-extrabold leading-[0.85] tracking-tight sm:text-[140px]">
-              <span className="relative inline-block">
-                Stop scrolling.
-                <span
-                  aria-hidden
-                  className="absolute -bottom-2 left-0 right-0 h-2 bg-gold/80"
-                  style={{ clipPath: "polygon(0 0,100% 0,98% 100%,2% 100%)" }}
-                />
-              </span>
-              <br />
-              <span className="font-serif italic font-normal text-gold drop-shadow-[3px_3px_0_var(--ink)]">
-                Start showing up.
-              </span>
-            </h2>
-
-            <p className="mx-auto mt-8 max-w-2xl text-lg font-medium text-cream/90 sm:text-xl">
-              One tap. A full night planned — vibes, venues, route, and reservations. No group chat
-              chaos. No FOMO.
-            </p>
-
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-4xl font-extrabold leading-tight sm:text-6xl text-cream">
+            Stop scrolling.
+            <br />
+            <span className="font-serif italic font-normal">Start showing up.</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-lg text-lg text-cream/80">
+            Your next great night is 60 seconds away. No signup. No credit card. Just tell us the
+            vibe.
+          </p>
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+            <span onClick={() => trackCta("plan_my_night_big_cta", { location: "big_cta" })}>
               <WizardButton
-                ariaLabel="Build my night"
-                className="group inline-flex h-16 items-center gap-2 rounded-full border-2 border-ink bg-cream px-10 font-bold text-ink shadow-brut-lg transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:bg-gold hover:shadow-brut-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
+                ariaLabel="Plan my night"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-chip bg-mocha px-8 text-base font-bold text-cream shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mocha/50 focus-visible:ring-offset-2 focus-visible:ring-offset-coral"
               >
-                Build my night
-                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:rotate-45" />
+                Plan my night <ArrowUpRight className="h-5 w-5" />
               </WizardButton>
-              <Link
-                to="/about"
-                className="inline-flex h-16 items-center rounded-full border-2 border-cream px-10 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
-              >
-                Learn more
-              </Link>
-            </div>
-
-            {/* Trust strip */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs font-bold uppercase tracking-widest text-cream/80">
-              <span className="inline-flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                Free to start
-              </span>
-              <span className="hidden sm:inline opacity-40">•</span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                No card required
-              </span>
-              <span className="hidden sm:inline opacity-40">•</span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                Plans in 8 seconds
-              </span>
-            </div>
-          </Reveal>
+            </span>
+            <Link
+              to="/auth"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-chip border-2 border-cream/40 px-6 text-sm font-bold text-cream transition-all hover:bg-cream/10 hover:border-cream/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40"
+            >
+              Sign up free
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ============================ TICKER (hover speeds up) ============================ */}
-      <section className="marquee-hover border-b-2 border-ink bg-gold py-3 text-ink">
-        <div className="flex overflow-hidden">
-          <div
-            className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest"
-            style={{ transition: "animation-duration 0.4s ease" }}
-          >
-            {[...bottomItems, ...bottomItems, ...bottomItems].map((m, i) =>
-              m.sponsored ? (
-                <SponsoredMarqueeSlot
-                  key={i}
-                  slot={`bottom-${i}`}
-                  surface="marquee_bottom"
-                  text={m.text}
-                  sponsored={m.sponsored}
-                  variant="ticker"
-                />
-              ) : (
-                <span key={i} className="inline-flex items-center gap-3">
-                  {m.text}
-                  <span className="opacity-40">/</span>
+      {/* ============================ BOTTOM TICKER ============================ */}
+      <section className="bg-gold py-3 overflow-hidden">
+        <div className="flex">
+          <div className="flex shrink-0 animate-marquee items-center gap-6 whitespace-nowrap pr-6 font-display text-lg font-bold uppercase tracking-tight text-mocha-dark">
+            {[...bottomItems, ...bottomItems].map((m, i) => {
+              if (m.sponsored) {
+                return (
+                  <SponsoredMarqueeSlot
+                    key={i}
+                    slot={`bottom-${i}`}
+                    surface="marquee_bottom"
+                    text={m.text}
+                    sponsored={m.sponsored}
+                    variant="ticker"
+                  />
+                );
+              }
+              return (
+                <span key={i}>
+                  {m.text} ✦
                 </span>
-              ),
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================ FOR BUSINESSES ============================ */}
+      <section className="bg-mocha-dark">
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream/40">
+                / for venues & brands
+              </span>
+              <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl text-cream">
+                Get discovered by{" "}
+                <span className="font-serif italic font-normal text-coral">people who go out.</span>
+              </h2>
+              <p className="mt-5 max-w-lg text-base text-cream/60">
+                Confetti sends real guests to your door. We're building the nightlife layer of the
+                internet — and your venue can be in every plan.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/for-businesses"
+                  onClick={() => trackCta("partner_learn_more", { location: "business_section" })}
+                  className="inline-flex h-12 items-center gap-2 rounded-chip bg-coral px-6 text-sm font-bold text-cream shadow-lg shadow-coral/20 transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/50"
+                >
+                  Partner with us <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/for-businesses"
+                  className="inline-flex h-12 items-center gap-2 rounded-chip border border-cream/20 px-6 text-sm font-medium text-cream/80 transition-all hover:bg-cream/5 hover:border-cream/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/30"
+                >
+                  See the data
+                </Link>
+              </div>
+            </div>
+
+            {/* Partner stats */}
+            {partnerStats && (
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Ad impressions", value: partnerStats.impressions.value.toLocaleString() },
+                  { label: "Clicks driven", value: partnerStats.clicks.value.toLocaleString() },
+                  { label: "Click-through rate", value: `${partnerStats.ctr.value.toFixed(1)}%` },
+                  { label: "30-day placements", value: partnerStats.placements30d.reduce((a, b) => a + b, 0).toLocaleString() },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-card border border-cream/10 bg-cream/5 p-5 backdrop-blur-sm"
+                  >
+                    <div className="font-display text-3xl font-extrabold text-cream">
+                      {stat.value}
+                    </div>
+                    <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-cream/40">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
-        </div>
-        <p className="mt-1 text-center font-mono text-[9px] uppercase tracking-[0.3em] text-ink/50">
-          hover to speed it up ↗
-        </p>
-      </section>
 
-      <section className="relative overflow-hidden border-t-2 border-ink bg-gradient-to-br from-ink via-ink to-[#1a0f0a] text-cream">
-        {/* Decorative glow blobs */}
-        <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-coral/30 blur-3xl" aria-hidden />
-        <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-gold/20 blur-3xl" aria-hidden />
-        {/* Confetti specks */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-          <span className="absolute left-[6%] top-10 h-2 w-2 rotate-12 bg-coral motion-reduce:rotate-0" />
-          <span className="absolute left-[18%] top-24 h-2.5 w-2.5 -rotate-12 rounded-sm bg-cream/70 motion-reduce:rotate-0" />
-          <span className="absolute left-[38%] top-6 h-1.5 w-1.5 bg-gold motion-reduce:rotate-0" />
-          <span className="absolute right-[12%] top-16 h-2 w-2 rotate-45 bg-purple motion-reduce:rotate-0" />
-          <span className="absolute right-[30%] bottom-12 h-2 w-2 -rotate-45 rounded-full bg-coral motion-reduce:rotate-0" />
-          <span className="absolute left-[10%] bottom-10 h-2.5 w-2.5 rotate-12 bg-cream/50 motion-reduce:rotate-0" />
-        </div>
-
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:px-8 lg:py-24">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/40 bg-cream/5 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80 backdrop-blur">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75 motion-reduce:animate-none" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
-              </span>
-              For businesses
-            </span>
-            <h2 className="mt-5 font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
-              Be the plan,{" "}
-              <span className="font-serif italic font-normal bg-gradient-to-r from-coral via-orange-400 to-gold bg-clip-text text-transparent">
-                not an afterthought.
-              </span>
-            </h2>
-            <p className="mt-4 max-w-xl text-base text-cream/80 sm:text-lg">
-              Get your venue in front of people the second they're choosing what to do tonight.
-              Promoted itinerary slots, home-page spotlights, and verified analytics.
-            </p>
-            <ul className="mt-6 grid max-w-xl gap-2.5 text-sm text-cream/85 sm:grid-cols-2">
-              {[
-                "Promoted in real itineraries",
-                "Claim & verify your venue free",
-                "Impressions, clicks, CTR dashboard",
-                "Pause anytime — no contracts",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-2.5 rounded-lg border border-cream/10 bg-cream/[0.03] px-3 py-2 transition hover:border-coral/40 hover:bg-cream/[0.06]"
-                >
-                  <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-coral text-[10px] font-bold text-ink">
-                    ✓
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                to="/business"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
-              >
-                See packages{" "}
-                <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-45" />
-              </Link>
-              <Link
-                to="/business/login"
-                className="inline-flex h-12 items-center justify-center rounded-full border-2 border-cream/60 px-6 text-sm font-bold text-cream transition-pop hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
-              >
-                Already a partner? Sign in
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            {(() => {
-              const fmtNum = (n: number) =>
-                n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k` : `${n}`;
-              const fmtDeltaPct = (n: number) =>
-                `${n >= 0 ? "+" : ""}${n.toFixed(n >= 10 || n <= -10 ? 0 : 1)}%`;
-              const fmtDeltaPts = (n: number) =>
-                `${n >= 0 ? "+" : ""}${n.toFixed(1)}pt`;
-
-              const imp = partnerStats?.impressions.value ?? 0;
-              const clk = partnerStats?.clicks.value ?? 0;
-              const ctr = partnerStats?.ctr.value ?? 0;
-              const impDelta = partnerStats?.impressions.deltaPct ?? 0;
-              const clkDelta = partnerStats?.clicks.deltaPct ?? 0;
-              const ctrDelta = partnerStats?.ctr.deltaPts ?? 0;
-
-              const stats = [
-                { k: "Impressions", v: fmtNum(imp), d: fmtDeltaPct(impDelta), up: impDelta >= 0 },
-                { k: "Clicks", v: fmtNum(clk), d: fmtDeltaPct(clkDelta), up: clkDelta >= 0 },
-                { k: "CTR", v: `${ctr.toFixed(1)}%`, d: fmtDeltaPts(ctrDelta), up: ctrDelta >= 0 },
-              ];
-
-              const placements = partnerStats?.placements30d ?? new Array(30).fill(0);
-              const maxP = Math.max(1, ...placements);
-
-              return (
-                <>
-                  <div className="absolute -left-3 -top-3 z-10 -rotate-6 rounded-full border-2 border-ink bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut">
-                    {impDelta >= 0 ? "↑" : "↓"} {fmtDeltaPct(impDelta)} MoM
-                  </div>
-                  <div className="rounded-2xl border-2 border-cream/30 bg-cream/[0.04] p-5 shadow-brut-lg backdrop-blur-xl">
-                    <div className="flex items-center justify-between border-b-2 border-dashed border-cream/30 pb-3">
-                      <span className="font-mono text-[11px] uppercase tracking-widest text-cream/70">
-                        PARTNER · last 30d
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-coral">
-                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral motion-reduce:animate-none" />
-                        LIVE
-                      </span>
-                    </div>
-                    <TooltipProvider delayDuration={200}>
-                      <div className="mt-4 grid grid-cols-3 gap-3">
-                        {stats.map((s) => {
-                          const tooltipText =
-                            s.k === "Impressions"
-                              ? "Times your venue appeared in an itinerary or home-page recommendation."
-                              : s.k === "Clicks"
-                                ? "Users who tapped through to view your venue details or booking link."
-                                : "Click-through rate = clicks ÷ impressions. Industry avg is ~2.5%.";
-                          return (
-                            <Tooltip key={s.k}>
-                              <TooltipTrigger asChild>
-                                <button
-                                  type="button"
-                                  className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 text-left transition hover:border-coral/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
-                                >
-                                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-cream/60">
-                                    {s.k}
-                                    <svg
-                                      className="h-3 w-3 opacity-40"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      strokeWidth="2.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      aria-hidden
-                                    >
-                                      <circle cx="12" cy="12" r="10" />
-                                      <path d="M12 16v-4" />
-                                      <path d="M12 8h.01" />
-                                    </svg>
-                                  </div>
-                                  <div className="mt-1 font-display text-2xl font-extrabold leading-none">
-                                    {s.v}
-                                  </div>
-                                  <div
-                                    className={`mt-1 font-mono text-[9px] font-bold ${
-                                      s.up ? "text-coral" : "text-cream/50"
-                                    }`}
-                                  >
-                                    {s.d}
-                                  </div>
-                                </button>
-                              </TooltipTrigger>
-                              <TooltipContent
-                                side="top"
-                                sideOffset={8}
-                                className="max-w-[220px] border-2 border-cream/30 bg-ink px-3 py-2 text-xs text-cream shadow-brut"
-                              >
-                                {tooltipText}
-                              </TooltipContent>
-                            </Tooltip>
-                          );
-                        })}
-                      </div>
-                    </TooltipProvider>
-                    <div className="mt-4 rounded-xl border-2 border-cream/15 bg-ink/40 p-3">
-                      <div className="mb-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/60">
-                        <span>Itinerary placements</span>
-                        <span className="text-cream/40">30d</span>
-                      </div>
-                      <div className="flex h-12 items-end gap-1">
-                        {placements.map((p, i) => {
-                          const h = Math.max(4, Math.round((p / maxP) * 100));
-                          return (
-                            <div
-                              key={i}
-                              className={`flex-1 rounded-sm ${
-                                p > 0
-                                  ? "bg-gradient-to-t from-coral/40 via-coral to-gold"
-                                  : "bg-cream/10"
-                              }`}
-                              style={{ height: `${h}%` }}
-                              title={`${p} placements`}
-                            />
-                          );
-                        })}
-                      </div>
-                    </div>
-                    <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/50">
-                      <span>Verified by Confetti</span>
-                      <span>◐ realtime</span>
-                    </div>
-                  </div>
-                </>
-              );
-            })()}
-          </div>
-        </div>
-
-        {/* Partner testimonials carousel + logo strip */}
-        <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+          {/* Partner testimonials (lazy) */}
           <Suspense fallback={null}>
             <PartnerTestimonials />
           </Suspense>
-        </div>
-
-        {/* FAQ CTA */}
-        <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-          <div className="mx-auto max-w-3xl rounded-2xl border-2 border-ink bg-cream p-8 text-center shadow-brut sm:p-12">
-            <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
-              Got questions?
-            </h3>
-            <p className="mx-auto mt-3 max-w-md text-ink/70">
-              Straight answers about how Confetti works, pricing, bookings, and everything else.
-            </p>
-            <Link
-              to="/about"
-              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
-            >
-              Learn more <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -1587,24 +1308,24 @@ function Landing() {
         summary={SAMPLE_ITINERARY_SUMMARY}
       />
 
-      {/* Scroll-triggered sticky CTA — appears after the hero is offscreen */}
+      {/* Scroll-triggered sticky CTA */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream shadow-[0_-6px_24px_-8px_rgba(0,0,0,0.25)] transition-transform duration-300 ${
+        className={`fixed inset-x-0 bottom-0 z-40 border-t border-cream/15 bg-mocha-dark/95 backdrop-blur-lg shadow-[0_-6px_24px_-8px_rgba(0,0,0,0.5)] transition-transform duration-300 ${
           showStickyCta ? "translate-y-0" : "translate-y-full"
         }`}
         aria-hidden={!showStickyCta}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <div className="min-w-0">
-            <p className="truncate font-display text-sm font-extrabold leading-tight text-ink sm:text-base">
+            <p className="truncate font-display text-sm font-bold leading-tight text-cream sm:text-base">
               Your whole night, planned in 60 sec.
             </p>
-            <p className="truncate text-xs font-semibold text-ink/80">Free · No signup to try</p>
+            <p className="truncate text-xs text-cream/50">Free · No signup to try</p>
           </div>
           <span onClick={() => trackCta("plan_my_night_sticky", { location: "sticky_bar" })}>
             <WizardButton
               ariaLabel="Plan my night"
-              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2"
+              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-chip bg-coral px-5 text-sm font-bold text-cream shadow-lg shadow-coral/20 transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/50"
             >
               Plan my night <ArrowUpRight className="h-4 w-4" />
             </WizardButton>
@@ -1655,10 +1376,10 @@ function SponsoredMarqueeSlot({
         ref={ref}
         to={href}
         onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
-        className={`relative inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2 ${debugRing}`}
+        className={`relative inline-flex items-center gap-2 rounded-chip border border-mocha-dark bg-mocha-dark px-3 py-1 text-gold hover:bg-cream hover:text-mocha-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 ${debugRing}`}
         data-ad-slot={slot}
       >
-        <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">
+        <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-mocha-dark font-bold">
           AD · {sponsored.brand}
         </span>
         <span>{text}</span>
@@ -1673,10 +1394,10 @@ function SponsoredMarqueeSlot({
       ref={ref}
       to={href}
       onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
-      className={`group relative inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 focus-visible:ring-offset-2 ${debugRing}`}
+      className={`group relative inline-flex items-center gap-3 rounded-chip border border-gold/40 bg-mocha-dark px-4 py-1.5 transition hover:bg-gold hover:text-mocha-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/60 ${debugRing}`}
       data-ad-slot={slot}
     >
-      <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
+      <span className="rounded-chip bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-mocha-dark group-hover:bg-mocha-dark group-hover:text-gold">
         Sponsored · {sponsored.brand}
       </span>
       <span className={tone}>{text}</span>
@@ -1692,8 +1413,8 @@ function SponsoredMarqueeSlot({
 function DebugBadge({ slot, flash }: { slot: string; flash: boolean }) {
   return (
     <span
-      className={`pointer-events-none absolute -top-2 -right-2 rounded-md border border-ink px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider shadow-sm transition-colors ${
-        flash ? "bg-coral text-cream" : "bg-cream text-ink"
+      className={`pointer-events-none absolute -top-2 -right-2 rounded-md border border-cream/20 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider shadow-sm transition-colors ${
+        flash ? "bg-coral text-cream" : "bg-mocha text-cream/70"
       }`}
     >
       {slot}

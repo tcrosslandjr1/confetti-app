@@ -9,7 +9,7 @@
 
 const corsHeaders = {
   "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.lovable.app",
+    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.com",
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -454,7 +454,7 @@ async function sendEmail(
     return false;
   }
 
-  const appUrl = Deno.env.get("APP_URL") ?? "https://confettiplan.lovable.app";
+  const appUrl = Deno.env.get("APP_URL") ?? "https://confettiplan.com";
 
   try {
     const resp = await fetch("https://api.resend.com/emails", {

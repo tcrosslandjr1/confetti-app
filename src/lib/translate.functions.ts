@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { generateText } from "ai";
 import { z } from "zod";
-import { createLovableAiGatewayProvider } from "./ai-gateway.server";
+import { getAiProvider } from "./ai-gateway.server";
 
 const inputSchema = z.object({
   text: z.string().trim().min(1, "Enter text to translate.").max(5000),
@@ -15,12 +15,7 @@ export const translateText = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => inputSchema.parse(data))
   .handler(async ({ data }) => {
-    const key = process.env.LOVABLE_API_KEY;
-    if (!key) {
-      throw new Error("Translator is not configured. Missing AI gateway credentials.");
-    }
-
-    const gateway = createLovableAiGatewayProvider(key);
+    const gateway = getAiProvider();
     const model = gateway("google/gemini-3-flash-preview");
 
     const source = data.sourceLanguage?.trim()

@@ -28,14 +28,14 @@ export function PriceLevel({
 
   return (
     <span className={`inline-flex items-center gap-1 font-mono ${textSize} font-bold`}>
-      <span className="text-ink/80">
+      <span className="text-cream/80">
         {"$".repeat(level)}
       </span>
-      <span className="text-ink/25">
+      <span className="text-cream/25">
         {"$".repeat(4 - level)}
       </span>
       {showLabel && (
-        <span className="ml-1 font-normal text-ink/50">{labels[level]}</span>
+        <span className="ml-1 font-normal text-cream/50">{labels[level]}</span>
       )}
     </span>
   );

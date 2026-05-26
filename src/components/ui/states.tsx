@@ -35,17 +35,17 @@ function StateShell({
     >
       <div
         className={cn(
-          "grid size-14 place-items-center rounded-2xl border-2 border-ink/10 bg-surface-2",
+          "grid size-14 place-items-center rounded-2xl border-2 border-cream/10 bg-cream/5",
           iconClassName,
         )}
       >
-        <Icon className="size-6 text-ink/40" strokeWidth={1.5} />
+        <Icon className="size-6 text-cream/40" strokeWidth={1.5} />
       </div>
-      <h3 className="font-display text-lg font-bold tracking-tight text-ink">
+      <h3 className="font-display text-lg font-bold tracking-tight text-cream">
         {title}
       </h3>
       {description && (
-        <p className="max-w-[260px] text-sm leading-relaxed text-ink/55">
+        <p className="max-w-[260px] text-sm leading-relaxed text-cream/55">
           {description}
         </p>
       )}
@@ -149,7 +149,7 @@ export function LoadingState({
         className="size-8 animate-spin text-coral"
         strokeWidth={2}
       />
-      <p className="font-mono text-xs font-medium uppercase tracking-widest text-ink/45">
+      <p className="font-mono text-xs font-medium uppercase tracking-widest text-cream/45">
         {message}
       </p>
     </div>
@@ -163,19 +163,19 @@ export function PageSkeleton({ className }: { className?: string }) {
     <div className={cn("space-y-4 px-5 pt-6", className)} role="status" aria-label="Loading page">
       {/* Header skeleton */}
       <div className="space-y-2">
-        <div className="h-3 w-20 rounded-full bg-ink/[0.06]" />
-        <div className="h-7 w-48 rounded-full bg-ink/[0.06]" />
+        <div className="h-3 w-20 rounded-full bg-cream/[0.06]" />
+        <div className="h-7 w-48 rounded-full bg-cream/[0.06]" />
       </div>
       {/* Card skeletons */}
       <div className="mt-6 space-y-3">
         {[1, 2, 3].map((i) => (
           <div
             key={i}
-            className="relative isolate overflow-hidden rounded-2xl border border-ink/8 bg-surface-1 p-5"
+            className="relative isolate overflow-hidden rounded-2xl border border-cream/10 bg-cream/5 p-5"
           >
             <div className="space-y-3">
-              <div className="h-4 w-3/4 rounded-full bg-ink/[0.06]" />
-              <div className="h-3 w-1/2 rounded-full bg-ink/[0.06]" />
+              <div className="h-4 w-3/4 rounded-full bg-cream/[0.06]" />
+              <div className="h-3 w-1/2 rounded-full bg-cream/[0.06]" />
             </div>
             {/* Shimmer overlay */}
             <div className="absolute inset-0 -translate-x-full animate-[skeleton-shimmer_1.8s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-ink/[0.04] to-transparent bg-[length:200%_100%]" />

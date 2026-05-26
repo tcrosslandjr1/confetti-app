@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Confetti for Teams — Plan offsites without 47 Slack threads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --ui:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --bg:#f8f0dd; --paper:#fffaf0; --ink:#130b0d;
+    --a1:#ff5b3d; --a2:#f7c83b; --a3:#5b45d9; --a4:#2bb673;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:var(--ui);background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(var(--ink) 1px,transparent 1px);
+    background-size:22px 22px;}
+  body::before{content:'';position:fixed;inset:0;
+    background:linear-gradient(180deg,rgba(248,240,221,0.85),rgba(248,240,221,0.95));
+    pointer-events:none;z-index:0}
+  .page{position:relative;z-index:1;max-width:1200px;margin:0 auto}
+  button{font-family:var(--ui);cursor:pointer}
+
+  header.bar{position:sticky;top:0;z-index:20;background:var(--paper);
+    border-bottom:3px solid var(--ink);padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:8px;
+    font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:-0.025em}
+  .brand span:first-child{color:var(--a1);font-size:22px}
+  .brand .tag{font-size:13px;opacity:0.55;margin-left:4px}
+  .bar-links{display:flex;gap:18px;font-size:13px;font-weight:700;opacity:0.75}
+  .bar-links a{color:inherit;text-decoration:none}
+  .bar-links a:hover{opacity:1}
+  .cta{appearance:none;cursor:pointer;padding:9px 16px;
+    border:2.5px solid var(--ink);border-radius:999px;
+    background:var(--a1);color:var(--ink);font-size:14px;font-weight:900;
+    box-shadow:4px 4px 0 var(--ink)}
+  .cta.ghost{background:var(--paper)}
+
+  /* Hero */
+  .hero{padding:80px 28px 60px;text-align:center;position:relative}
+  .stamp{display:inline-block;padding:8px 14px;
+    border:3px solid var(--ink);border-radius:999px;background:var(--a2);
+    font-family:var(--mono);font-size:12px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;
+    transform:rotate(-3deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:22px}
+  h1.h{font-family:var(--display);font-weight:900;
+    font-size:clamp(48px,7vw,84px);letter-spacing:-0.045em;
+    line-height:0.9;margin:0 0 18px}
+  h1.h em{font-style:normal;color:var(--a1)}
+  .sub{font-family:var(--ui);font-size:18px;font-weight:600;
+    color:var(--ink);opacity:0.7;max-width:620px;
+    margin:0 auto 28px;line-height:1.45}
+  .hero-cta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .hero-cta .cta{padding:14px 22px;font-size:16px}
+  .hero .trust{margin-top:36px;display:flex;justify-content:center;gap:24px;
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    opacity:0.55;letter-spacing:.14em;flex-wrap:wrap}
+
+  /* Floating tickets */
+  .floats{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .floats span{position:absolute;width:18px;height:30px;
+    border:2.5px solid var(--ink);border-radius:3px}
+  .floats span:nth-child(1){top:60px;left:6%;background:var(--a1);animation:float 4s 0s infinite ease-in-out}
+  .floats span:nth-child(2){top:96px;right:8%;background:var(--a2);animation:float 4s 0.4s infinite ease-in-out}
+  .floats span:nth-child(3){top:280px;left:10%;background:var(--a3);animation:float 4s 0.8s infinite ease-in-out}
+  .floats span:nth-child(4){top:300px;right:14%;background:var(--a1);animation:float 4s 1.2s infinite ease-in-out}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(14deg)}}
+
+  /* Problem strip */
+  .problem{padding:60px 28px;background:var(--ink);color:var(--paper);
+    margin:0 -28px;text-align:center}
+  .problem h2{font-family:var(--display);font-weight:900;font-size:44px;
+    letter-spacing:-0.04em;line-height:0.95;margin:0 0 18px}
+  .problem h2 em{font-style:normal;color:var(--a1)}
+  .problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    margin-top:32px;max-width:1000px;margin-left:auto;margin-right:auto}
+  .prob{padding:16px;border:2.5px solid var(--paper);border-radius:14px;
+    background:rgba(255,250,240,0.05);text-align:left}
+  .prob .n{font-family:var(--display);font-weight:900;font-size:48px;
+    letter-spacing:-0.04em;color:var(--a1)}
+  .prob .body{font-family:var(--ui);font-size:13px;font-weight:600;
+    opacity:0.85;line-height:1.4;margin-top:6px}
+
+  /* Section */
+  .section{padding:80px 28px}
+  .section h2.sh{font-family:var(--display);font-weight:900;font-size:56px;
+    letter-spacing:-0.045em;line-height:0.92;margin:0 0 14px;max-width:780px}
+  .section h2.sh em{font-style:normal;color:var(--a1)}
+  .section .lede{font-family:var(--ui);font-size:18px;font-weight:600;
+    color:var(--ink);opacity:0.7;max-width:560px;margin:0 0 36px;line-height:1.45}
+
+  .three-up{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feat{padding:22px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:18px;box-shadow:6px 6px 0 var(--ink)}
+  .feat .icon{font-size:32px;margin-bottom:10px}
+  .feat h3{font-family:var(--display);font-weight:900;font-size:22px;
+    letter-spacing:-0.025em;margin:0 0 6px;line-height:1}
+  .feat p{font-family:var(--ui);font-size:14px;font-weight:600;
+    opacity:0.7;line-height:1.4;margin:0}
+
+  /* Plan demo screenshot */
+  .demo-row{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+  .demo-card{background:var(--paper);border:3px solid var(--ink);
+    border-radius:22px;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+  .demo-top{background:var(--a1);padding:12px 18px;
+    border-bottom:3px solid var(--ink);
+    display:flex;justify-content:space-between;
+    font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.14em}
+  .demo-body{padding:20px}
+  .demo-body h4{font-family:var(--display);font-weight:900;
+    font-size:24px;letter-spacing:-0.025em;margin:0 0 12px}
+  .demo-stop{display:flex;gap:12px;padding:10px 0;
+    border-bottom:1.5px dashed rgba(0,0,0,0.18)}
+  .demo-stop:last-child{border-bottom:0}
+  .demo-stop .n{width:36px;height:36px;border-radius:999px;
+    border:2.5px solid var(--ink);background:var(--a2);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:16px;flex-shrink:0}
+  .demo-stop .nm{font-family:var(--display);font-weight:900;font-size:16px;
+    letter-spacing:-0.02em}
+  .demo-stop .sub{font-family:var(--mono);font-size:9px;font-weight:700;
+    opacity:0.6;letter-spacing:.08em;margin-top:1px;text-transform:uppercase}
+  .demo-stop .price{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:800}
+  .demo-footer{margin-top:14px;padding-top:14px;border-top:2.5px dashed var(--ink);
+    display:flex;justify-content:space-between;
+    font-family:var(--display);font-weight:900;font-size:18px}
+  .stamps{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+  .sm{padding:5px 11px;border:2px solid var(--ink);border-radius:999px;
+    font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.12em;
+    text-transform:uppercase;background:var(--a2);transform:rotate(-2deg)}
+  .sm.r2{background:var(--a1);transform:rotate(3deg)}
+  .sm.r3{background:var(--a3);color:var(--paper);transform:rotate(-1deg)}
+
+  .demo-copy h3{font-family:var(--display);font-weight:900;font-size:36px;
+    letter-spacing:-0.04em;line-height:0.95;margin:0 0 14px}
+  .demo-copy p{font-family:var(--ui);font-size:15px;font-weight:600;
+    opacity:0.75;line-height:1.5;margin:0 0 16px}
+  .demo-copy ul{list-style:none;padding:0;margin:0;
+    display:flex;flex-direction:column;gap:8px}
+  .demo-copy li{display:flex;gap:10px;font-weight:700;font-size:14px}
+  .demo-copy li::before{content:'✓';color:var(--a4);font-weight:900;
+    width:18px;display:inline-block;flex-shrink:0}
+
+  /* Workflow */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+  .step{padding:18px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:14px;box-shadow:4px 4px 0 var(--ink);position:relative}
+  .step .n{position:absolute;top:-14px;left:14px;
+    width:30px;height:30px;border-radius:999px;
+    background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:14px;
+    border:2.5px solid var(--paper)}
+  .step h4{font-family:var(--display);font-weight:900;font-size:18px;
+    letter-spacing:-0.025em;margin:14px 0 6px;line-height:1.1}
+  .step p{font-family:var(--ui);font-size:13px;font-weight:600;
+    opacity:0.65;line-height:1.4;margin:0}
+
+  /* Pricing */
+  .price-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;
+    margin-top:36px}
+  .tier{padding:24px;background:var(--paper);border:3px solid var(--ink);
+    border-radius:18px;box-shadow:6px 6px 0 var(--ink);position:relative}
+  .tier.best{background:var(--a1);color:var(--ink)}
+  .tier .lbl{font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;text-transform:uppercase}
+  .tier .p{font-family:var(--display);font-weight:900;font-size:48px;
+    letter-spacing:-0.04em;line-height:1;margin:6px 0 4px}
+  .tier .per{font-family:var(--mono);font-size:11px;font-weight:700;
+    opacity:0.6;letter-spacing:.04em}
+  .tier ul{list-style:none;padding:0;margin:18px 0 18px;
+    display:flex;flex-direction:column;gap:6px}
+  .tier li{font-size:13px;font-weight:700;line-height:1.4;
+    display:flex;gap:8px}
+  .tier li::before{content:'·';font-weight:900;opacity:0.5}
+  .tier .pick{appearance:none;width:100%;padding:14px;
+    border:3px solid var(--ink);border-radius:14px;
+    background:var(--ink);color:var(--paper);
+    font-family:var(--ui);font-weight:900;font-size:15px;cursor:pointer}
+  .tier.best .pick{background:var(--paper);color:var(--ink)}
+  .ribbon{position:absolute;top:-12px;right:20px;
+    padding:4px 12px;background:var(--ink);color:var(--paper);
+    border:2.5px solid var(--ink);border-radius:999px;
+    font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.14em}
+
+  /* Quotes */
+  .quotes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:36px}
+  .q{padding:22px;background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:16px;box-shadow:5px 5px 0 var(--ink)}
+  .q p{font-family:var(--display);font-weight:900;font-size:18px;
+    letter-spacing:-0.02em;line-height:1.3;margin:0 0 14px}
+  .q .who{display:flex;align-items:center;gap:10px}
+  .q .av{width:36px;height:36px;border-radius:999px;
+    border:2.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:14px}
+  .q .name{font-weight:800;font-size:13px}
+  .q .role{font-family:var(--mono);font-size:9px;font-weight:700;
+    opacity:0.55;margin-top:1px;letter-spacing:.08em;text-transform:uppercase}
+
+  /* FAQ */
+  .faq{margin-top:32px;display:flex;flex-direction:column;gap:10px;max-width:760px}
+  .faq details{padding:16px 18px;background:var(--paper);
+    border:2.5px solid var(--ink);border-radius:12px;
+    box-shadow:3px 3px 0 var(--ink)}
+  .faq summary{font-family:var(--display);font-weight:900;font-size:17px;
+    letter-spacing:-0.02em;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';font-size:24px;font-weight:900;opacity:0.5}
+  .faq details[open] summary::after{content:'−'}
+  .faq p{font-family:var(--ui);font-size:14px;font-weight:600;
+    opacity:0.75;line-height:1.5;margin:12px 0 0}
+
+  /* Final CTA */
+  .final{margin:60px 0 80px;padding:50px 28px;
+    background:var(--ink);color:var(--paper);
+    border:3px solid var(--ink);border-radius:28px;
+    box-shadow:12px 12px 0 var(--a1);text-align:center}
+  .final h2{font-family:var(--display);font-weight:900;font-size:56px;
+    letter-spacing:-0.045em;line-height:0.9;margin:0 0 14px}
+  .final h2 em{font-style:normal;color:var(--a1)}
+  .final p{font-family:var(--ui);font-size:17px;font-weight:600;
+    opacity:0.75;max-width:520px;margin:0 auto 24px;line-height:1.4}
+  .final .cta{padding:18px 28px;font-size:17px;
+    border:3px solid var(--paper);background:var(--a1);
+    box-shadow:6px 6px 0 var(--paper)}
+
+  footer.foot{padding:30px 28px;text-align:center;
+    border-top:2px solid var(--ink);
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    opacity:0.55;letter-spacing:.12em}
+
+  @media(max-width:800px){
+    .three-up,.demo-row,.flow,.price-row,.quotes,.problem-grid{grid-template-columns:1fr}
+    h1.h{font-size:48px}
+    .section h2.sh{font-size:38px}
+    .final h2{font-size:42px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="bar">
+  <div class="brand"><span>✣</span><span>confetti</span><span class="tag">for teams</span></div>
+  <nav class="bar-links">
+    <a href="#problem">why</a>
+    <a href="#how">how it works</a>
+    <a href="#pricing">pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="corporate.html">live demo</a>
+  </nav>
+  <div style="display:flex;gap:8px">
+    <button class="cta ghost">sign in</button>
+    <button class="cta">book a demo →</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="floats"><span></span><span></span><span></span><span></span></div>
+  <div class="stamp">for HR + People + Ops</div>
+  <h1 class="h">Plan offsites<br/>without<br/><em>47 Slack threads.</em></h1>
+  <p class="sub">Confetti is the AI planner for your team's nights out, dinners, retreats, and birthdays. It enforces your budget, accessibility, and conduct policies — automatically. People show up because the plan doesn't suck.</p>
+  <div class="hero-cta">
+    <button class="cta">book a 20-min demo →</button>
+    <button class="cta ghost">see the live dashboard</button>
+  </div>
+  <div class="trust">
+    <span>SOC 2 TYPE II</span>
+    <span>OKTA + GOOGLE SSO</span>
+    <span>STRIPE BILLING</span>
+    <span>148+ TEAMS IN BETA</span>
+  </div>
+</section>
+
+<section class="problem" id="problem">
+  <h2>Team outings are<br/><em>way too hard to plan.</em></h2>
+  <p style="font-family:var(--ui);font-size:17px;font-weight:600;opacity:0.75;max-width:560px;margin:0 auto;line-height:1.5">The Slack poll. The dietary-restrictions thread. The "is this within budget?" loop. The 3 people who can't make it. The receipt no one filed.</p>
+  <div class="problem-grid">
+    <div class="prob"><div class="n">47</div><div class="body">Average Slack messages to plan one team dinner. (Internal survey.)</div></div>
+    <div class="prob"><div class="n">5.2h</div><div class="body">Median People-Ops time spent per offsite, just on coordination.</div></div>
+    <div class="prob"><div class="n">22%</div><div class="body">Of approved outings get cancelled or rescheduled. Usually budget.</div></div>
+    <div class="prob"><div class="n">6.1</div><div class="body">Average NPS post-outing. The food was fine. The vibe was off.</div></div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <h2 class="sh">Tell Confetti the vibe.<br/>Get <em>3 plans</em> in 4 minutes.</h2>
+  <p class="lede">Your People team types a sentence. Claude routes it to the right specialist agent, enforces your policy, and prints 3 options ready for approval.</p>
+
+  <div class="demo-row">
+    <div class="demo-card">
+      <div class="demo-top">
+        <span>HUMMINGBIRD · EOQ ENG · OPTION A</span>
+        <span>#JQ-08</span>
+      </div>
+      <div class="demo-body">
+        <h4>Closeout Q2 with engineering · 14 ppl</h4>
+        <div class="demo-stop">
+          <div class="n" style="background:var(--a2)">1</div>
+          <div style="flex:1">
+            <div class="nm">Threes Brewing</div>
+            <div class="sub">6:30 PM · BREWERY · PRIVATE ROOM</div>
+          </div>
+          <div class="price">$182</div>
+        </div>
+        <div class="demo-stop">
+          <div class="n" style="background:var(--a1)">2</div>
+          <div style="flex:1">
+            <div class="nm">Oxomoco</div>
+            <div class="sub">8:00 PM · TACO BAR SETUP</div>
+          </div>
+          <div class="price">$310</div>
+        </div>
+        <div class="demo-stop">
+          <div class="n" style="background:var(--a3)">3</div>
+          <div style="flex:1">
+            <div class="nm">Cornhole + dessert</div>
+            <div class="sub">9:15 PM · OPTIONAL · WALK</div>
+          </div>
+          <div class="price">$40</div>
+        </div>
+        <div class="demo-footer"><span>14 PPL · 3H</span><span>$532</span></div>
+        <div class="stamps">
+          <span class="sm">walkable</span>
+          <span class="sm r2">within cap</span>
+          <span class="sm r3">veg + GF ok</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-copy">
+      <h3>It enforces your policy automatically.</h3>
+      <p>Set caps once. Confetti uses them every time. No more "did anyone check if this is within budget?" 30 minutes before the dinner.</p>
+      <ul>
+        <li>Per-person cap, alcohol rules, distance from HQ — all baked into ranking</li>
+        <li>Inclusive menus and accessibility verified before suggesting</li>
+        <li>Approver gets a one-tap approve / request-changes button</li>
+        <li>Stripe deposit + invoicing built in — no Concur expense filing</li>
+        <li>Calendar invite, Slack post, and check-in QR auto-generated</li>
+      </ul>
+      <button class="cta" style="margin-top:18px">try the live demo →</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="sh">A planner for the<br/>whole quarter — not <em>just dinner</em>.</h2>
+  <div class="three-up">
+    <div class="feat">
+      <div class="icon">🎯</div>
+      <h3>Team kickoffs</h3>
+      <p>Quarterly offsites, sales kickoffs, design retreats. Multi-day plans with travel + hotel.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">🍽</div>
+      <h3>Client dinners</h3>
+      <p>Confetti tracks deal-relevant context and routes to your CRM. Wine list, dietary, parking.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">🎂</div>
+      <h3>Birthdays + farewells</h3>
+      <p>People-Ops fires a Slack workflow → Confetti drafts → admin approves → invite goes out.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">🤝</div>
+      <h3>New hire welcome</h3>
+      <p>Auto-trigger on Day 1: lunch with manager + 5 buddies, paid, on the calendar.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">🏆</div>
+      <h3>All-hands events</h3>
+      <p>100+ people venues with pre-negotiated rates. Trivia, awards, holiday parties.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">🧘</div>
+      <h3>Wellness days</h3>
+      <p>Yoga + lunch, massage chairs, walking meetings. Includes remote-friendly options.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--paper);margin:0 -28px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)">
+  <div style="max-width:1200px;margin:0 auto">
+    <h2 class="sh">How it works.</h2>
+    <p class="lede">4 minutes from "we should do something" to "approved and on the calendar."</p>
+    <div class="flow">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>Describe</h4>
+        <p>"EOQ dinner for eng, walkable from HQ, $40/pp." That's it. No forms.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>Compare</h4>
+        <p>3 plans. Each with budget, route, RSVP estimate, and the "why this works" reasoning.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>Approve</h4>
+        <p>Approver gets a Slack DM. One tap to approve or request changes — Claude writes back.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h4>Show up</h4>
+        <p>Calendar invite, QR check-in, Stripe billing, NPS survey, auto receipt to Concur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <h2 class="sh">Pricing that<br/><em>scales with you</em>.</h2>
+  <p class="lede">Per-admin seats. Unlimited employees. Cancel any time.</p>
+  <div class="price-row">
+    <div class="tier">
+      <div class="lbl">STARTER · UP TO 25 EMPLOYEES</div>
+      <div class="p">$49</div>
+      <div class="per">/mo · 2 admin seats</div>
+      <ul>
+        <li>AI outing planner · unlimited</li>
+        <li>3 outing plans per request</li>
+        <li>Slack + Google Cal sync</li>
+        <li>Stripe billing + receipts</li>
+        <li>Basic policy enforcement</li>
+      </ul>
+      <button class="pick">start free trial</button>
+    </div>
+    <div class="tier best">
+      <div class="ribbon">MOST POPULAR</div>
+      <div class="lbl">PRO · 25–250 EMPLOYEES</div>
+      <div class="p">$99</div>
+      <div class="per">/seat / mo · 5+ admin seats</div>
+      <ul>
+        <li>Everything in Starter</li>
+        <li>Custom policies + approvals</li>
+        <li>Okta SSO + SCIM provisioning</li>
+        <li>Team budgets + departmental reporting</li>
+        <li>Pre-negotiated venue rates (50+ NYC)</li>
+        <li>Dedicated success manager</li>
+      </ul>
+      <button class="pick">book a demo →</button>
+    </div>
+    <div class="tier">
+      <div class="lbl">ENTERPRISE · 250+ EMPLOYEES</div>
+      <div class="p">talk</div>
+      <div class="per">custom · SOC 2, BAA, MSA</div>
+      <ul>
+        <li>Everything in Pro</li>
+        <li>Multi-city + global teams</li>
+        <li>Custom SLAs + 24/7 support</li>
+        <li>Concur / Workday integration</li>
+        <li>Private venue network</li>
+        <li>Anthropic API on your private VPC</li>
+      </ul>
+      <button class="pick">contact sales</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--paper);margin:0 -28px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)">
+  <div style="max-width:1200px;margin:0 auto">
+    <h2 class="sh">People who use it<br/><em>actually like it</em>.</h2>
+    <div class="quotes">
+      <div class="q">
+        <p>"I used to spend a whole Friday planning eng dinners. Now it's a Slack message and an approval tap."</p>
+        <div class="who">
+          <div class="av" style="background:var(--a1)">PR</div>
+          <div><div class="name">Priya Rao</div><div class="role">VP People · Hummingbird (148)</div></div>
+        </div>
+      </div>
+      <div class="q">
+        <p>"NPS post-outing went from 6.1 to 8.7. Turns out people like plans that aren't a Pinterest board."</p>
+        <div class="who">
+          <div class="av" style="background:var(--a3);color:var(--paper)">JM</div>
+          <div><div class="name">James Madsen</div><div class="role">COO · Mesa Health (310)</div></div>
+        </div>
+      </div>
+      <div class="q">
+        <p>"The policy enforcement is what sold us. Our auditors love it. No more 'is this within $40?' threads."</p>
+        <div class="who">
+          <div class="av" style="background:var(--a2)">EL</div>
+          <div><div class="name">Eva Lin</div><div class="role">Finance Lead · Citrus (1.2K)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <h2 class="sh">FAQ.</h2>
+  <div class="faq">
+    <details open>
+      <summary>How does Claude know our company policies?</summary>
+      <p>You set them once in Company Settings → Policies. Per-person cap, alcohol rules, distance from HQ, accessibility requirements. Claude bakes them into every plan and flags violations for approver review.</p>
+    </details>
+    <details>
+      <summary>Where does Claude run? Is our data exposed?</summary>
+      <p>Claude calls go through our backend, not the frontend. Enterprise plans run Anthropic via your private VPC. We never train on your data. SOC 2 Type II, BAA available on Pro+.</p>
+    </details>
+    <details>
+      <summary>How does billing work for outings?</summary>
+      <p>Stripe Connect. We hold deposits, release on completion, and auto-generate receipts in your accounting format (Concur, Expensify, Ramp). Enterprise can route through Workday.</p>
+    </details>
+    <details>
+      <summary>Does it work for multi-city / global teams?</summary>
+      <p>Yes — Pro and Enterprise. Confetti has live partners in 12 cities (NY, SF, LA, Chicago, Austin, Seattle, CDMX, London, Toronto, Berlin, Lisbon, Sydney). Custom city onboarding takes ~2 weeks.</p>
+    </details>
+    <details>
+      <summary>What if our approver is OOO?</summary>
+      <p>Set backup approvers per team. Auto-escalation rules. Threshold-based delegation (team leads can approve under $1K, VPs above).</p>
+    </details>
+    <details>
+      <summary>Can we white-label this?</summary>
+      <p>Enterprise only. We can run Confetti under your brand for internal events. Talk to sales.</p>
+    </details>
+  </div>
+</section>
+
+<div style="padding:0 28px">
+  <div class="final">
+    <h2>Stop planning offsites<br/>like it's <em>2017</em>.</h2>
+    <p>Book a 20-minute demo. We'll plan your next team thing live, on the call, while you watch. If you don't love it, no follow-up.</p>
+    <button class="cta">book a 20-min demo →</button>
+    <div style="margin-top:20px;font-family:var(--mono);font-size:11px;font-weight:700;opacity:0.55;letter-spacing:.12em">SOC 2 · OKTA · STRIPE · 148 TEAMS IN BETA</div>
+  </div>
+</div>
+
+<footer class="foot">
+  CONFETTI © 2026 · <a href="passport.html" style="color:inherit">consumer</a> · <a href="business.html" style="color:inherit">venues</a> · <a href="corporate.html" style="color:inherit">corporate</a> · <a href="admin.html" style="color:inherit">admin</a>
+</footer>
+
+</div>
+</body>
+</html>

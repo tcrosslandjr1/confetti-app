@@ -106,7 +106,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const showDetails =
     typeof window !== "undefined" &&
     (import.meta.env.DEV ||
-      /lovableproject\.com|lovable\.app|localhost/.test(window.location.hostname));
+      /confettiplan\.com|localhost/.test(window.location.hostname));
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -173,7 +173,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@ConfettiPlan" },
       { name: "twitter:title", content: "Confetti — Your city, curated" },
       {
         name: "twitter:description",
@@ -200,18 +200,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             {
               "@type": "Organization",
               name: "Confetti",
-              url: "https://confettiplan.lovable.app",
-              logo: "https://confettiplan.lovable.app/favicon.ico",
+              url: "https://confettiplan.com",
+              logo: "https://confettiplan.com/favicon.ico",
               description:
                 "Confetti curates city experiences, dining, and nightlife into ready-to-go itineraries.",
             },
             {
               "@type": "WebSite",
               name: "Confetti",
-              url: "https://confettiplan.lovable.app",
+              url: "https://confettiplan.com",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://confettiplan.lovable.app/discover?q={search_term_string}",
+                target: "https://confettiplan.com/discover?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             },

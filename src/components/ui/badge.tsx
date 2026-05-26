@@ -9,15 +9,15 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "border-ink/15 bg-coral text-cream",
+          "border-cream/15 bg-coral text-cream",
         secondary:
-          "border-ink/8 bg-surface-2 text-ink",
+          "border-cream/10 bg-cream/5 text-cream",
         destructive:
           "border-destructive/20 bg-destructive text-destructive-foreground",
         outline:
-          "border-ink/20 bg-transparent text-ink",
+          "border-cream/20 bg-transparent text-cream",
         gold:
-          "border-gold/25 bg-gold/15 text-ink",
+          "border-gold/25 bg-gold/15 text-cream",
         coral:
           "border-coral/25 bg-coral/10 text-coral",
         purple:

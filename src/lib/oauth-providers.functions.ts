@@ -6,7 +6,7 @@ import { getProvidersConfigStatus } from "./oauth-providers";
 
 /**
  * Public: which custom OAuth providers (TikTok / Instagram) have credentials
- * configured in Lovable Cloud secrets. Returns booleans + the names of any
+ * configured in environment variables. Returns booleans + the names of any
  * missing env vars — never the values themselves.
  *
  * Used by the ConnectionsPanel to disable "Connect" buttons + show actionable

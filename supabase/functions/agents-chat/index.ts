@@ -14,7 +14,7 @@ type Body = { targetAgentId?: string; messages: { role: "user" | "assistant"; co
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY")!;
-const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+const OPENROUTER_API_KEY = Deno.env.get("OPENROUTER_API_KEY");
 
 const adminClient = createClient(SUPABASE_URL, SERVICE_ROLE);
 
@@ -301,7 +301,7 @@ Deno.serve(async (req) => {
   try {
     const authHeader = req.headers.get("Authorization");
     if (!authHeader) return j({ error: "Unauthorized" }, 401);
-    if (!LOVABLE_API_KEY) return j({ error: "Missing LOVABLE_API_KEY" }, 500);
+    if (!OPENROUTER_API_KEY) return j({ error: "Missing OPENROUTER_API_KEY" }, 500);
 
     const userClient = createClient(SUPABASE_URL, ANON_KEY, {
       global: { headers: { Authorization: authHeader } },
@@ -367,9 +367,9 @@ Capabilities:
 
     // Tool loop, max 6 rounds
     for (let round = 0; round < 6; round++) {
-      const upstream = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      const upstream = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
-        headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+        headers: { Authorization: `Bearer ${OPENROUTER_API_KEY}`, "Content-Type": "application/json" },
         body: JSON.stringify({
           model: "google/gemini-2.5-flash",
           messages: conversation,

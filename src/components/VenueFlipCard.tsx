@@ -65,7 +65,7 @@ export function VenueFlipCard({
 }: VenueFlipCardProps) {
   const [flipped, setFlipped] = useState(false);
 
-  const accentBorder = accent === "purple" ? "border-purple/20" : "border-ink/8";
+  const accentBorder = accent === "purple" ? "border-purple/20" : "border-cream/10";
   const accentBg = accent === "purple" ? "bg-purple/8" : "bg-coral/8";
   const accentText = accent === "purple" ? "text-purple" : "text-coral";
 
@@ -116,7 +116,7 @@ export function VenueFlipCard({
         {/* ── FRONT ── */}
         <div
           className={cn(
-            "absolute inset-0 overflow-hidden rounded-2xl border-2 bg-surface-1 shadow-card [backface-visibility:hidden]",
+            "absolute inset-0 overflow-hidden rounded-2xl border-2 bg-cream/5 shadow-card [backface-visibility:hidden]",
             accentBorder,
           )}
         >
@@ -129,16 +129,16 @@ export function VenueFlipCard({
               decoding="async"
             />
           ) : (
-            <div className={cn("h-[130px] w-full", accent === "purple" ? "bg-gradient-to-br from-purple/10 to-coral/10" : "bg-ink/[0.04]")} />
+            <div className={cn("h-[130px] w-full", accent === "purple" ? "bg-gradient-to-br from-purple/10 to-coral/10" : "bg-cream/[0.04]")} />
           )}
           <div className="p-3">
             <div className="flex items-center gap-1">
-              <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">
+              <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-cream">
                 {venue.name}
               </div>
               {venue.verified && <VerifiedBadge variant="icon" />}
             </div>
-            <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/45">
+            <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-cream/45">
               {venue.category}
               {venue.neighborhood ? ` · ${venue.neighborhood}` : ""}
             </div>
@@ -165,28 +165,28 @@ export function VenueFlipCard({
         {/* ── BACK ── */}
         <div
           className={cn(
-            "absolute inset-0 overflow-hidden rounded-2xl border-2 bg-surface-1 shadow-card [backface-visibility:hidden] [transform:rotateY(180deg)]",
+            "absolute inset-0 overflow-hidden rounded-2xl border-2 bg-cream/5 shadow-card [backface-visibility:hidden] [transform:rotateY(180deg)]",
             accentBorder,
           )}
         >
           <div className={cn("px-3 pt-3 pb-1", accentBg)}>
             <div className="flex items-center gap-1">
-              <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-ink">
+              <div className="line-clamp-1 font-display text-[13px] font-bold tracking-tight text-cream">
                 {venue.name}
               </div>
               {venue.verified && <VerifiedBadge variant="icon" />}
             </div>
             <div className="flex items-center gap-2 mt-0.5">
               {venue.rating && (
-                <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-ink/70">
+                <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-cream/70">
                   <Star className="size-3 fill-gold text-gold" /> {venue.rating.toFixed(1)}
                 </span>
               )}
               {priceDollars && (
-                <span className="text-[11px] font-semibold text-ink/50">{priceDollars}</span>
+                <span className="text-[11px] font-semibold text-cream/50">{priceDollars}</span>
               )}
               {venue.category && (
-                <span className="font-mono text-[9px] uppercase tracking-wide text-ink/40">{venue.category}</span>
+                <span className="font-mono text-[9px] uppercase tracking-wide text-cream/40">{venue.category}</span>
               )}
             </div>
           </div>
@@ -211,7 +211,7 @@ export function VenueFlipCard({
 
             {/* AI reason */}
             {venue.reason && (
-              <p className="line-clamp-2 text-[10px] italic leading-snug text-ink/60">{venue.reason}</p>
+              <p className="line-clamp-2 text-[10px] italic leading-snug text-cream/60">{venue.reason}</p>
             )}
           </div>
 
@@ -260,8 +260,8 @@ function DetailRow({
   return (
     <div className="flex items-center gap-1.5">
       <Icon className={cn("size-3 shrink-0", accent)} />
-      <span className="text-[10px] font-semibold text-ink/70">{label}:</span>
-      <span className="line-clamp-1 text-[10px] text-ink/55">{value}</span>
+      <span className="text-[10px] font-semibold text-cream/70">{label}:</span>
+      <span className="line-clamp-1 text-[10px] text-cream/55">{value}</span>
     </div>
   );
 }

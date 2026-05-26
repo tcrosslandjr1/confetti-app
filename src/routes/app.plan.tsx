@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
-import { Sparkles, ArrowUpRight, Loader2, Home, Tent, Users, Wine, Heart, Trees } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Sparkles, ArrowUpRight, Loader2, Home, Tent, Users, Wine, Heart, Trees, MapPin, Clock, DollarSign } from "lucide-react";
 import { PageHero, BrandCard } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,9 @@ import {
   trackConversion,
 } from "@/lib/analytics";
 import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
+import type { ActiveLoop } from "@/lib/loop-store";
 import { getSelectedCity } from "@/lib/cities";
+import { generateAiPlan, type AiItinerary } from "@/lib/generate-plan-client";
 import {
   createSkeletonItinerary,
   populateItinerary,
@@ -95,6 +97,13 @@ function PlanMyNightPage() {
   const [hangoutNotes, setHangoutNotes] = useState("");
   const [buildingHangout, setBuildingHangout] = useState(false);
 
+  // AI plan generation state
+  const [generatingPlan, setGeneratingPlan] = useState(false);
+  const [aiItinerary, setAiItinerary] = useState<AiItinerary | null>(null);
+  const [aiLoop, setAiLoop] = useState<ActiveLoop | null>(null);
+  const [genError, setGenError] = useState<string | null>(null);
+  const generationTriggered = useRef(false);
+
   async function handleBuildHangout() {
     if (!hangoutOccasion || buildingHangout) return;
     setBuildingHangout(true);
@@ -155,6 +164,52 @@ function PlanMyNightPage() {
     }
   }
 
+  /* ── AI Plan Generation ── */
+  async function handleGeneratePlan(opts?: { surprise?: boolean }) {
+    if (generatingPlan) return;
+    setGeneratingPlan(true);
+    setGenError(null);
+    setAiItinerary(null);
+    setAiLoop(null);
+    try {
+      const { itinerary, loop } = await generateAiPlan({
+        occasion: occasion ?? "Night out",
+        vibe: vibe ?? undefined,
+        budget: budget ?? undefined,
+        timeOfDay: when ?? undefined,
+        groupSize,
+        planType: planType ?? "go-out",
+        surpriseMode: opts?.surprise ?? false,
+      });
+      setAiItinerary(itinerary);
+      setAiLoop(loop);
+    } catch (e) {
+      const msg = (e as Error).message;
+      setGenError(msg);
+      toast.error("Couldn't generate plan", { description: msg });
+    } finally {
+      setGeneratingPlan(false);
+    }
+  }
+
+  // Auto-trigger generation when wizard reaches results step
+  useEffect(() => {
+    if (step >= 4 && !generatingPlan && !aiItinerary && !genError && !generationTriggered.current) {
+      generationTriggered.current = true;
+      handleGeneratePlan({ surprise: mode === "surprise" });
+    }
+  }, [step]);
+
+  // Reset generation state when user starts over
+  useEffect(() => {
+    if (step < 4) {
+      generationTriggered.current = false;
+      setAiItinerary(null);
+      setAiLoop(null);
+      setGenError(null);
+    }
+  }, [step]);
+
   /* ── Surprise Me mode — auto-trigger from home feed ── */
   const { mode } = Route.useSearch();
   useEffect(() => {
@@ -179,23 +234,33 @@ function PlanMyNightPage() {
   }, [mode]);
 
   /* ── Book → boarding pass (localStorage-backed) ── */
-  function handleBook(planLabel: string) {
-    const loop = makeDemoLoop({
-      occasion: occasion ?? undefined,
-      planParams: {
-        occasionId: occasion ?? undefined,
-        vibeId: vibe ?? undefined,
+  function handleBook() {
+    if (aiLoop) {
+      // Use real AI-generated loop
+      aiLoop.passenger = user?.user_metadata?.display_name ?? user?.email ?? "YOU";
+      setActiveLoop(aiLoop);
+    } else {
+      // Fallback if AI generation failed
+      const loop = makeDemoLoop({
+        occasion: occasion ?? undefined,
+        planParams: {
+          occasionId: occasion ?? undefined,
+          vibeId: vibe ?? undefined,
+          groupSize,
+          budget: budget ? (Number(budget) as 1 | 2 | 3 | 4) : undefined,
+        },
         groupSize,
-        budget: budget ? (Number(budget) as 1 | 2 | 3 | 4) : undefined,
-      },
-      groupSize,
-      passenger: user?.user_metadata?.display_name ?? user?.email ?? "Guest",
-    });
-    loop.to = `${vibe ?? "Epic"} ${occasion ?? "Night"}`;
-    loop.gate = planLabel;
-    setActiveLoop(loop);
+        passenger: user?.user_metadata?.display_name ?? user?.email ?? "Guest",
+      });
+      loop.to = `${vibe ?? "Epic"} ${occasion ?? "Night"}`;
+      setActiveLoop(loop);
+    }
     const city = getSelectedCity();
-    trackConversion("plan_booked", { plan: planLabel, occasion, vibe, budget, groupSize, when, city: city?.name ?? null, citySlug: city?.slug ?? null });
+    trackConversion("plan_booked", {
+      plan: aiItinerary?.title ?? "AI Plan",
+      occasion, vibe, budget, groupSize, when,
+      city: city?.name ?? null, citySlug: city?.slug ?? null,
+    });
     toast.success("Boarding pass ready — let's go!");
     navigate({ to: "/boarding-pass" });
   }
@@ -250,8 +315,8 @@ function PlanMyNightPage() {
             <div
               key={i}
               className={cn(
-                "h-2 flex-1 rounded-full border-2 border-ink transition-all",
-                i < step ? "bg-coral" : i === step ? "bg-gold" : "bg-white",
+                "h-2 flex-1 rounded-full border-2 border-cream/20 transition-all",
+                i < step ? "bg-coral" : i === step ? "bg-gold" : "bg-cream/10",
               )}
             />
           ))}
@@ -274,10 +339,10 @@ function PlanMyNightPage() {
                   trackEngagement("plan_type_chosen", { type: key });
                 }}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
+                  "inline-flex items-center gap-1.5 rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
                   planType === key
-                    ? "bg-ink text-cream shadow-brut"
-                    : "bg-white text-ink hover:-translate-y-0.5 hover:shadow-brut",
+                    ? "bg-coral text-cream shadow-sm"
+                    : "bg-cream/5 text-cream/80 hover:-translate-y-0.5 hover:bg-cream/10",
                 )}
                 title={hint}
               >
@@ -289,8 +354,8 @@ function PlanMyNightPage() {
 
         {planType && isHangoutMode(planType) ? (
           <BrandCard className="p-6">
-            <div className="mb-5 rounded-2xl border-2 border-dashed border-ink/20 bg-cream/40 p-3">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+            <div className="mb-5 rounded-2xl border border-dashed border-cream/15 bg-cream/5 p-3">
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
                 Or try a demo
               </div>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -311,7 +376,7 @@ function PlanMyNightPage() {
                       setHangoutStart(d.start);
                       setHangoutNotes(d.notes);
                     }}
-                    className="rounded-full border-2 border-ink/30 bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:border-ink hover:bg-gold/40"
+                    className="rounded-full border border-cream/20 bg-cream/5 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70 hover:border-cream/40 hover:bg-gold/20 hover:text-cream"
                   >
                     {d.label}
                   </button>
@@ -322,7 +387,7 @@ function PlanMyNightPage() {
             <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
               Pick the hangout
             </div>
-            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight">
+            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight text-cream">
               What are we doing?
             </h2>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -332,10 +397,10 @@ function PlanMyNightPage() {
                   type="button"
                   onClick={() => setHangoutOccasion(o)}
                   className={cn(
-                    "rounded-full border-2 border-ink px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-pop",
+                    "rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-pop",
                     hangoutOccasion?.key === o.key
-                      ? "bg-ink text-cream shadow-brut"
-                      : "bg-white text-ink hover:-translate-y-0.5 hover:shadow-brut",
+                      ? "bg-coral text-cream shadow-sm"
+                      : "bg-cream/5 text-cream/70 hover:-translate-y-0.5 hover:bg-cream/10",
                   )}
                 >
                   {o.label}
@@ -345,7 +410,7 @@ function PlanMyNightPage() {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <label className="block">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
                   City
                 </div>
                 <input
@@ -353,46 +418,46 @@ function PlanMyNightPage() {
                   value={hangoutCity}
                   onChange={(e) => setHangoutCity(e.target.value)}
                   placeholder="Washington, Baltimore…"
-                  className="mt-1 w-full rounded-xl border-2 border-ink/20 bg-white px-3 py-2 text-sm focus:border-ink focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream placeholder:text-cream/30 focus:border-coral focus:outline-none"
                 />
               </label>
               <label className="block">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
                   Start time
                 </div>
                 <input
                   type="time"
                   value={hangoutStart}
                   onChange={(e) => setHangoutStart(e.target.value)}
-                  className="mt-1 w-full rounded-xl border-2 border-ink/20 bg-white px-3 py-2 text-sm focus:border-ink focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream focus:border-coral focus:outline-none"
                 />
               </label>
               <div>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
                   Guests
                 </div>
                 <div className="mt-1 flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => setHangoutGuests((g) => Math.max(2, g - 1))}
-                    className="grid size-10 place-items-center rounded-full border-2 border-ink bg-white text-lg shadow-brut transition-pop hover:-translate-y-0.5"
+                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
                   >
                     −
                   </button>
-                  <span className="w-10 text-center font-display text-2xl font-extrabold">
+                  <span className="w-10 text-center font-display text-2xl font-extrabold text-cream">
                     {hangoutGuests}
                   </span>
                   <button
                     type="button"
                     onClick={() => setHangoutGuests((g) => Math.min(60, g + 1))}
-                    className="grid size-10 place-items-center rounded-full border-2 border-ink bg-white text-lg shadow-brut transition-pop hover:-translate-y-0.5"
+                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
                   >
                     +
                   </button>
                 </div>
               </div>
               <div>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
                   Budget tier
                 </div>
                 <div className="mt-1 flex flex-wrap gap-2">
@@ -402,8 +467,8 @@ function PlanMyNightPage() {
                       type="button"
                       onClick={() => setHangoutBudget(b)}
                       className={cn(
-                        "rounded-full border-2 border-ink px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest",
-                        hangoutBudget === b ? "bg-ink text-cream shadow-brut" : "bg-white text-ink",
+                        "rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest",
+                        hangoutBudget === b ? "bg-coral text-cream shadow-sm" : "bg-cream/5 text-cream/70",
                       )}
                     >
                       {b}
@@ -414,7 +479,7 @@ function PlanMyNightPage() {
             </div>
 
             <label className="mt-4 block">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
                 Anything else? (dietary, theme, kids ages, etc.)
               </div>
               <textarea
@@ -422,7 +487,7 @@ function PlanMyNightPage() {
                 onChange={(e) => setHangoutNotes(e.target.value)}
                 rows={2}
                 placeholder="e.g. one vegetarian, gluten-free, two kids under 5"
-                className="mt-1 w-full resize-none rounded-xl border-2 border-ink/20 bg-white px-3 py-2 text-sm focus:border-ink focus:outline-none"
+                className="mt-1 w-full resize-none rounded-xl border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream placeholder:text-cream/30 focus:border-coral focus:outline-none"
               />
             </label>
 
@@ -430,7 +495,7 @@ function PlanMyNightPage() {
               <button
                 type="button"
                 onClick={() => setPlanType(null)}
-                className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
+                className="font-mono text-[11px] font-bold uppercase tracking-widest text-cream/50 hover:text-cream"
               >
                 ← Back
               </button>
@@ -458,7 +523,7 @@ function PlanMyNightPage() {
             <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
               Step {step + 1} of {steps.length}
             </div>
-            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight text-ink">
+            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight text-cream">
               {current.title}
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -470,11 +535,11 @@ function PlanMyNightPage() {
                     trackEngagement("plan_choice", { step: current.title, choice: c });
                   }}
                   className={cn(
-                    "rounded-full border-2 border-ink px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-white",
+                    "rounded-full border border-cream/20 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-mocha",
                     current.value === c
-                      ? "bg-ink text-cream shadow-brut"
-                      : "bg-white text-ink hover:-translate-y-0.5 hover:shadow-brut",
+                      ? "bg-coral text-cream shadow-sm"
+                      : "bg-cream/5 text-cream/70 hover:-translate-y-0.5 hover:bg-cream/10",
                   )}
                 >
                   {c}
@@ -483,21 +548,21 @@ function PlanMyNightPage() {
             </div>
             {step === 1 && (
               <div className="mt-6">
-                <label className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/60">
+                <label className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
                   Group size
                 </label>
                 <div className="mt-2 flex items-center gap-3">
                   <button
-                    className="grid size-10 place-items-center rounded-full border-2 border-ink bg-white text-lg shadow-brut transition-pop hover:-translate-y-0.5"
+                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
                     onClick={() => setGroupSize((g) => Math.max(1, g - 1))}
                   >
                     −
                   </button>
-                  <span className="w-10 text-center font-display text-2xl font-extrabold">
+                  <span className="w-10 text-center font-display text-2xl font-extrabold text-cream">
                     {groupSize}
                   </span>
                   <button
-                    className="grid size-10 place-items-center rounded-full border-2 border-ink bg-white text-lg shadow-brut transition-pop hover:-translate-y-0.5"
+                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
                     onClick={() => setGroupSize((g) => g + 1)}
                   >
                     +
@@ -509,7 +574,7 @@ function PlanMyNightPage() {
               <button
                 disabled={step === 0}
                 onClick={() => setStep((s) => s - 1)}
-                className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink disabled:opacity-40"
+                className="font-mono text-[11px] font-bold uppercase tracking-widest text-cream/50 hover:text-cream disabled:opacity-40"
               >
                 ← Back
               </button>
@@ -542,64 +607,190 @@ function PlanMyNightPage() {
           </BrandCard>
         ) : (
           <div className="space-y-4">
-            <BrandCard tone="ink">
-              <div className="relative p-5">
-                <div className="pointer-events-none absolute -right-6 -top-6 size-28 rounded-full bg-coral/40 blur-2xl" />
-                <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gold">
-                  <Sparkles className="size-3.5" /> 3 plans cooked up
-                </div>
-                <p className="mt-2 font-display text-base font-bold">
-                  {occasion} · {vibe} · {budget} · party of {groupSize} ·{" "}
-                  {when?.toLowerCase()}
-                </p>
-              </div>
-            </BrandCard>
-
-            {["A", "B", "C"].map((id, i) => {
-              const planLabel = ["Rooftop opener", "Classy crawl", "Late-night spin"][i];
-              return (
-                <BrandCard key={id} interactive className="p-5">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
-                        Plan {id}
+            {/* Loading state while AI generates */}
+            {generatingPlan && (
+              <BrandCard tone="ink">
+                <div className="relative p-6">
+                  <div className="pointer-events-none absolute -right-6 -top-6 size-28 rounded-full bg-coral/40 blur-2xl" />
+                  <div className="flex flex-col items-center gap-4 py-8">
+                    <div className="relative">
+                      <div className="absolute inset-0 animate-ping rounded-full bg-coral/20" />
+                      <div className="relative grid size-14 place-items-center rounded-full bg-coral/10">
+                        <Sparkles className="size-6 animate-pulse text-coral" />
                       </div>
-                      <h3 className="mt-1 font-display text-lg font-extrabold">
-                        {planLabel}
-                      </h3>
                     </div>
-                    <span className="rounded-full border-2 border-ink bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut">
-                      3 stops
-                    </span>
+                    <div className="text-center">
+                      <p className="font-display text-lg font-extrabold text-cream">Cooking your night…</p>
+                      <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cream/50">
+                        AI is finding real venues that match your vibe
+                      </p>
+                    </div>
                   </div>
-                  <p className="mt-2 text-sm text-ink/70">
-                    Vibe-matched stops with timing and estimated cost.
-                  </p>
-                  <div className="mt-4 flex gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1"
-                      disabled={saving}
-                      onClick={() => handleSave(planLabel)}
-                    >
-                      {saving ? <Loader2 className="size-3.5 animate-spin" /> : "Save"}
-                    </Button>
-                    <Button
-                      variant="default"
-                      size="sm"
-                      className="flex-1"
-                      onClick={() => handleBook(planLabel)}
-                    >
-                      Book
-                    </Button>
+                </div>
+              </BrandCard>
+            )}
+
+            {/* Error state */}
+            {genError && !generatingPlan && (
+              <BrandCard tone="ink">
+                <div className="p-5 text-center">
+                  <p className="font-display text-base font-bold text-cream">Couldn't generate your plan</p>
+                  <p className="mt-1 text-sm text-cream/60">{genError}</p>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    className="mt-4"
+                    onClick={() => {
+                      generationTriggered.current = false;
+                      setGenError(null);
+                      handleGeneratePlan({ surprise: mode === "surprise" });
+                    }}
+                  >
+                    Try again
+                  </Button>
+                </div>
+              </BrandCard>
+            )}
+
+            {/* AI-generated plan display */}
+            {aiItinerary && !generatingPlan && (
+              <>
+                <BrandCard tone="ink">
+                  <div className="relative p-5">
+                    <div className="pointer-events-none absolute -right-6 -top-6 size-28 rounded-full bg-coral/40 blur-2xl" />
+                    <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gold">
+                      <Sparkles className="size-3.5" /> {aiItinerary.mood_emoji} Your night is plotted
+                    </div>
+                    <h2 className="mt-2 font-display text-xl font-extrabold tracking-tight text-cream">
+                      {aiItinerary.title}
+                    </h2>
+                    <p className="mt-1 text-[13px] leading-relaxed text-cream/70">
+                      {aiItinerary.tagline}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+                        <DollarSign className="size-3" /> {aiItinerary.total_budget_estimate}
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+                        <Clock className="size-3" /> {aiItinerary.time_window}
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+                        <Users className="size-3" /> {aiItinerary.group_size}
+                      </span>
+                    </div>
                   </div>
                 </BrandCard>
-              );
-            })}
+
+                {/* Stops */}
+                {aiItinerary.stops.map((stop, i) => (
+                  <BrandCard key={`stop-${i}`} className="p-4">
+                    <div className="flex gap-3">
+                      <div className="flex flex-col items-center">
+                        <div className={cn(
+                          "grid size-8 shrink-0 place-items-center rounded-full font-mono text-[11px] font-bold",
+                          i === (aiItinerary.twist?.stop_number ?? 0) - 1
+                            ? "bg-gold text-mocha-dark"
+                            : "bg-coral/15 text-coral"
+                        )}>
+                          {i + 1}
+                        </div>
+                        {i < aiItinerary.stops.length - 1 && (
+                          <div className="mt-1 h-full w-px bg-cream/10" />
+                        )}
+                      </div>
+                      <div className="min-w-0 flex-1 pb-3">
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <h4 className="font-display text-[15px] font-extrabold tracking-tight text-cream">
+                              {stop.venue_name}
+                              {i === (aiItinerary.twist?.stop_number ?? 0) - 1 && " ✨"}
+                            </h4>
+                            <div className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wide text-cream/45">
+                              <MapPin className="size-3" />
+                              {stop.neighborhood}
+                            </div>
+                          </div>
+                          <span className="shrink-0 rounded-full border border-cream/15 bg-cream/5 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
+                            {stop.arrival}
+                          </span>
+                        </div>
+                        <p className="mt-1.5 text-[12px] leading-relaxed text-cream/60">
+                          {stop.purpose}
+                        </p>
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          <span className="rounded-full bg-cream/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream/40">
+                            {stop.vibe}
+                          </span>
+                          <span className="rounded-full bg-cream/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream/40">
+                            {stop.duration}
+                          </span>
+                          <span className="rounded-full bg-cream/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream/40">
+                            {stop.category.replace(/_/g, " ")}
+                          </span>
+                        </div>
+                        {stop.pro_tip && (
+                          <div className="mt-2 rounded-lg border border-gold/20 bg-gold/5 px-2.5 py-1.5">
+                            <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-gold/70">Pro tip: </span>
+                            <span className="text-[11px] text-cream/60">{stop.pro_tip}</span>
+                          </div>
+                        )}
+                        {stop.logistics && i > 0 && (
+                          <p className="mt-1.5 font-mono text-[10px] italic text-cream/30">
+                            {stop.logistics}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </BrandCard>
+                ))}
+
+                {/* Twist callout */}
+                {aiItinerary.twist && (
+                  <BrandCard className="border-gold/30 bg-gold/5 p-4">
+                    <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gold">
+                      ✨ Twist moment
+                    </div>
+                    <p className="mt-1 text-[13px] text-cream/70">{aiItinerary.twist.description}</p>
+                  </BrandCard>
+                )}
+
+                {/* Captain's note */}
+                {aiItinerary.boarding_pass?.captain_note && (
+                  <BrandCard className="p-4">
+                    <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/40">
+                      Captain's note
+                    </div>
+                    <p className="mt-1 text-[13px] italic text-cream/60">
+                      "{aiItinerary.boarding_pass.captain_note}"
+                    </p>
+                  </BrandCard>
+                )}
+
+                {/* Action buttons */}
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1"
+                    disabled={saving}
+                    onClick={() => handleSave(aiItinerary.title)}
+                  >
+                    {saving ? <Loader2 className="size-3.5 animate-spin" /> : "Save trip"}
+                  </Button>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    className="flex-1 gap-1.5"
+                    onClick={() => handleBook()}
+                  >
+                    <Sparkles className="size-3.5" /> Get boarding pass
+                  </Button>
+                </div>
+              </>
+            )}
 
             <button
-              className="w-full py-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
+              className="w-full py-3 font-mono text-[11px] font-bold uppercase tracking-widest text-cream/50 hover:text-cream"
               onClick={() => setStep(0)}
             >
               ↺ Start over

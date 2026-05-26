@@ -1,7 +1,7 @@
 import { createLazyFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
+import { confettiAuth } from "@/integrations/confetti";
 import {
   Sparkles,
   Loader2,
@@ -228,7 +228,7 @@ function AuthPage() {
     if (msg.includes("redirect") && msg.includes("uri"))
       return `${label} rejected the redirect URL. The app's OAuth config needs the current domain whitelisted.`;
     if (msg.includes("invalid_client") || msg.includes("client_id"))
-      return `${label} client credentials are invalid. Check the app configuration in Lovable Cloud → Auth.`;
+      return `${label} client credentials are invalid. Check the OAuth provider config in your Supabase dashboard → Auth → Providers.`;
     if (msg.includes("network") || msg.includes("failed to fetch"))
       return `Couldn't reach ${label}. Check your connection and try again.`;
     if (msg.includes("token"))
@@ -286,7 +286,7 @@ function AuthPage() {
     setError(null);
     setOauthBusy(provider);
     try {
-      const result = await lovable.auth.signInWithOAuth(provider, {
+      const result = await confettiAuth.signInWithOAuth(provider, {
         redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
         extraParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
       });
@@ -455,7 +455,7 @@ function AuthPage() {
   return (
     <div
       ref={parallaxRef}
-      className="relative min-h-screen overflow-x-clip bg-cream text-ink"
+      className="relative min-h-screen overflow-x-clip bg-cream text-cream"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 } as CSSProperties}
     >
       {/* Immersive background: animated orbs + ticker tape + grain */}
@@ -499,7 +499,7 @@ function AuthPage() {
 
           {/* Inner ticker strip */}
           <div className="absolute inset-x-6 top-6 -z-10 h-8 overflow-hidden rounded-t-[2.5rem] border-b-2 border-ink/30 bg-cream/90">
-            <div className="flex h-full w-max animate-[marquee_22s_linear_infinite] items-center whitespace-nowrap font-mono text-[10px] font-bold uppercase leading-none tracking-[0.25em] text-ink">
+            <div className="flex h-full w-max animate-[marquee_22s_linear_infinite] items-center whitespace-nowrap font-mono text-[10px] font-bold uppercase leading-none tracking-[0.25em] text-cream">
               <span className="px-4">★ tonight, sorted</span>
               <span className="px-4 text-coral">//</span>
               <span className="px-4">40+ cities</span>
@@ -536,7 +536,7 @@ function AuthPage() {
           />
 
           <div className="relative mt-10 flex items-center gap-3 text-cream">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform hover:-translate-y-0.5 hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-cream shadow-brut transition-transform hover:-translate-y-0.5 hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
               <Sparkles className="h-6 w-6" />
             </div>
             <div>
@@ -551,9 +551,9 @@ function AuthPage() {
 
           {/* Floating preview collage — fills the middle breathing space */}
           <div className="relative my-6 hidden h-[220px] lg:block">
-            <div className="auth-collage-card absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
+            <div className="auth-collage-card absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-cream shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-cream/60">
                   tonight · {pickTime.toLowerCase()}
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream">
@@ -563,7 +563,7 @@ function AuthPage() {
               <div className="mt-2 font-display text-lg font-extrabold leading-tight">
                 {tonightsPick.title}
               </div>
-              <div className="mt-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink/70">
+              <div className="mt-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-cream/70">
                 <MapPin className="h-3 w-3" /> {pickShortCity} · {pickSeats} seat
                 {pickSeats === 1 ? "" : "s"} left
               </div>
@@ -571,7 +571,7 @@ function AuthPage() {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={`pick-${i}`} className="h-3 w-3 fill-current" />
                 ))}
-                <span className="ml-1 font-mono text-[9px] uppercase tracking-widest text-ink/60">
+                <span className="ml-1 font-mono text-[9px] uppercase tracking-widest text-cream/60">
                   4.9 · 312
                 </span>
               </div>
@@ -598,7 +598,7 @@ function AuthPage() {
               </div>
             </div>
 
-            <div className="auth-collage-card absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
+            <div className="auth-collage-card absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-cream shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
               <ShieldCheck className="h-3 w-3 text-coral" /> skip the line
             </div>
 
@@ -618,7 +618,7 @@ function AuthPage() {
 
           <div className="relative space-y-6 text-cream">
             <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+              <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cream shadow-brut">
                 <span className="relative inline-flex h-2 w-2">
                   <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
                   <span className="relative inline-block h-2 w-2 rounded-full bg-coral" />
@@ -643,19 +643,19 @@ function AuthPage() {
             </p>
             <ul className="space-y-3 text-sm">
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-cream shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <PartyPopper className="h-4 w-4" />
                 </span>
                 Earn <span className="font-bold">Confetti</span> on every booking
               </li>
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-cream shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <MapPin className="h-4 w-4" />
                 </span>
                 Hand-picked spots in 40+ cities
               </li>
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-cream shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <ShieldCheck className="h-4 w-4" />
                 </span>
                 Skip-the-line perks at partner venues
@@ -671,10 +671,10 @@ function AuthPage() {
               ].map((s) => (
                 <div
                   key={s.l}
-                  className="rounded-2xl border-2 border-ink bg-cream/95 px-3 py-2 text-ink shadow-brut"
+                  className="rounded-2xl border-2 border-ink bg-cream/95 px-3 py-2 text-cream shadow-brut"
                 >
                   <div className="font-display text-xl font-extrabold leading-none">{s.v}</div>
-                  <div className="font-mono text-[9px] uppercase tracking-widest text-ink/60">
+                  <div className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
                     {s.l}
                   </div>
                 </div>
@@ -682,14 +682,14 @@ function AuthPage() {
             </div>
           </div>
 
-          <div className="relative rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut">
+          <div className="relative rounded-2xl border-2 border-ink bg-cream p-4 text-cream shadow-brut">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1 text-coral">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-3.5 w-3.5 fill-current" />
                 ))}
               </div>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                 verified
               </span>
             </div>
@@ -703,7 +703,7 @@ function AuthPage() {
               </div>
               <div className="leading-tight">
                 <div className="font-display text-sm font-bold">Maya R.</div>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                   Brooklyn, NY
                 </div>
               </div>
@@ -721,7 +721,7 @@ function AuthPage() {
                 className="absolute inset-0 bg-[radial-gradient(120%_80%_at_0%_0%,_oklch(1_0_0_/_0.22),_transparent_55%)]"
               />
               <div className="relative flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut">
+                <div className="grid h-11 w-11 place-items-center rounded-2xl border-2 border-ink bg-cream text-cream shadow-brut">
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
@@ -732,7 +732,7 @@ function AuthPage() {
                     your city insider
                   </div>
                 </div>
-                <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut">
+                <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut">
                   <span className="relative inline-flex h-1.5 w-1.5">
                     <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
                     <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-coral" />
@@ -749,7 +749,7 @@ function AuthPage() {
                 {["dining", "nightlife", "perks", "40+ cities"].map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border-2 border-ink bg-cream/95 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink"
+                    className="rounded-full border-2 border-ink bg-cream/95 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream"
                   >
                     {t}
                   </span>
@@ -758,9 +758,9 @@ function AuthPage() {
 
               {/* Mobile collage preview */}
               <div className="relative mt-4 flex gap-2.5">
-                <div className="flex-1 rounded-xl border-2 border-ink bg-cream p-3 text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
+                <div className="flex-1 rounded-xl border-2 border-ink bg-cream p-3 text-cream shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-ink/60">
+                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-cream/60">
                       tonight · {pickTime.toLowerCase()}
                     </span>
                     <span className="inline-flex items-center gap-1 rounded-full bg-coral px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-cream">
@@ -770,7 +770,7 @@ function AuthPage() {
                   <div className="mt-1 font-display text-sm font-extrabold leading-tight">
                     {tonightsPick.title}
                   </div>
-                  <div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-ink/70">
+                  <div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-cream/70">
                     <MapPin className="h-2.5 w-2.5" /> {pickShortCity} · {pickSeats} left
                   </div>
                 </div>
@@ -815,8 +815,8 @@ function AuthPage() {
                       role="tab"
                       aria-selected={active}
                       onClick={() => setMode(m)}
-                      className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
-                        active ? "bg-ink text-cream shadow-brut" : "text-ink/60 hover:text-ink"
+                      className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1 ${
+                        active ? "bg-ink text-cream shadow-brut" : "text-cream/60 hover:text-cream"
                       }`}
                     >
                       {m === "signup" ? "Sign up" : "Sign in"}
@@ -824,7 +824,7 @@ function AuthPage() {
                   );
                 })}
               </div>
-              <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+              <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cream shadow-brut">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
                 {mode === "signup" ? "Join the list" : "Welcome back"}
               </span>
@@ -845,7 +845,7 @@ function AuthPage() {
               )}
             </h1>
             <p
-              className="rise-in mt-3 max-w-md text-sm leading-relaxed text-ink/70"
+              className="rise-in mt-3 max-w-md text-sm leading-relaxed text-cream/70"
               style={{ ["--d" as never]: "240ms" } as CSSProperties}
             >
               {mode === "signup"
@@ -862,7 +862,7 @@ function AuthPage() {
                 {[
                   { i: "MR", c: "bg-coral text-cream" },
                   { i: "JT", c: "bg-ink text-cream" },
-                  { i: "AS", c: "bg-gold text-ink" },
+                  { i: "AS", c: "bg-gold text-cream" },
                   { i: "LK", c: "bg-purple text-cream" },
                 ].map((a) => (
                   <span
@@ -873,8 +873,8 @@ function AuthPage() {
                   </span>
                 ))}
               </div>
-              <span key={activityIdx} className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/65 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_both]">
-                <span className="font-bold text-ink">Join us</span> ·{" "}
+              <span key={activityIdx} className="font-mono text-[10px] uppercase tracking-[0.18em] text-cream/65 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_both]">
+                <span className="font-bold text-cream">Join us</span> ·{" "}
                 <span className="text-coral font-bold">{liveItem.who}</span> {liveItem.what}
               </span>
             </div>
@@ -884,7 +884,7 @@ function AuthPage() {
 
             <div className="mb-3 flex items-center gap-3">
               <span className="h-px flex-1 bg-ink/20" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/60">
                 one tap in
               </span>
               <span className="h-px flex-1 bg-ink/20" />
@@ -895,7 +895,7 @@ function AuthPage() {
                 onClick={() => onOAuth("google")}
                 disabled={oauthBusy !== null}
                 aria-busy={oauthBusy === "google"}
-                className="group relative inline-flex w-full items-center justify-between gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3.5 text-sm font-bold text-ink shadow-brut transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                className="group relative inline-flex w-full items-center justify-between gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3.5 text-sm font-bold text-cream shadow-brut transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
               >
                 <span className="flex items-center gap-3">
                   {oauthBusy === "google" ? (
@@ -963,7 +963,7 @@ function AuthPage() {
                 </span>
               </button>
 
-              <p className="pt-1 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45">
+              <p className="pt-1 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-cream/45">
                 TikTok &amp; Instagram · connect from your profile after sign-in
               </p>
             </div>
@@ -982,7 +982,7 @@ function AuthPage() {
 
           <div className="my-5 flex items-center gap-3">
             <div className="h-px flex-1 bg-ink/20" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">
+            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/60">
               or email
             </span>
             <div className="h-px flex-1 bg-ink/20" />
@@ -993,7 +993,7 @@ function AuthPage() {
               <>
                 <div className="relative">
                   <UserIcon
-                    className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                    className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-cream/40"
                     aria-hidden
                   />
                   <input
@@ -1001,11 +1001,11 @@ function AuthPage() {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
                     required
-                    className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus-visible:ring-2 focus-visible:ring-coral/40 transition"
+                    className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-4 py-4 text-sm font-semibold text-cream placeholder:text-cream/40 outline-none focus-visible:ring-2 focus-visible:ring-coral/40 transition"
                   />
                 </div>
                 <div className="relative">
-                  <span className="pointer-events-none absolute inset-y-0 left-4 my-auto flex h-4 items-center text-xs font-bold text-ink/40">
+                  <span className="pointer-events-none absolute inset-y-0 left-4 my-auto flex h-4 items-center text-xs font-bold text-cream/40">
                     @
                   </span>
                   <input
@@ -1014,7 +1014,7 @@ function AuthPage() {
                     placeholder="Pick a username"
                     required
                     maxLength={24}
-                    className={`w-full rounded-2xl border-2 bg-cream pl-9 pr-11 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus-visible:ring-2 focus-visible:ring-coral/40 ${
+                    className={`w-full rounded-2xl border-2 bg-cream pl-9 pr-11 py-4 text-sm font-semibold text-cream placeholder:text-cream/40 outline-none transition focus-visible:ring-2 focus-visible:ring-coral/40 ${
                       usernameStatus === "available"
                         ? "border-emerald-500"
                         : usernameStatus === "taken" || usernameStatus === "invalid"
@@ -1024,7 +1024,7 @@ function AuthPage() {
                   />
                   <span className="pointer-events-none absolute inset-y-0 right-4 my-auto flex h-4 items-center">
                     {usernameStatus === "checking" && (
-                      <Loader2 className="h-4 w-4 animate-spin text-ink/40" />
+                      <Loader2 className="h-4 w-4 animate-spin text-cream/40" />
                     )}
                     {usernameStatus === "available" && (
                       <Check className="h-4 w-4 text-emerald-500" />
@@ -1048,7 +1048,7 @@ function AuthPage() {
             )}
             <div className="relative">
               <Mail
-                className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-cream/40"
                 aria-hidden
               />
               <input
@@ -1057,7 +1057,7 @@ function AuthPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus-visible:ring-2 focus-visible:ring-coral/40"
+                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-cream placeholder:text-cream/40 outline-none transition focus-visible:ring-2 focus-visible:ring-coral/40"
               />
               {emailLooksValid && (
                 <span
@@ -1071,7 +1071,7 @@ function AuthPage() {
             {mode !== "reset" && (
             <div className="relative">
               <Lock
-                className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-cream/40"
                 aria-hidden
               />
               <input
@@ -1081,20 +1081,20 @@ function AuthPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus-visible:ring-2 focus-visible:ring-coral/40 transition"
+                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-cream placeholder:text-cream/40 outline-none focus-visible:ring-2 focus-visible:ring-coral/40 transition"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword((s) => !s)}
                 aria-label={showPassword ? "Hide password" : "Show password"}
-                className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl border-2 border-ink/20 text-ink/60 transition hover:border-ink hover:bg-cream hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl border-2 border-cream/20 text-cream/60 transition hover:border-ink hover:bg-cream hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
             )}
             {mode === "reset" && (
-              <p className="px-1 text-xs text-ink/60">
+              <p className="px-1 text-xs text-cream/60">
                 Enter your email and we'll send a link to reset your password.
               </p>
             )}
@@ -1112,12 +1112,12 @@ function AuthPage() {
                             : pwStrength === 2
                               ? "bg-amber-500"
                               : "bg-ink/60"
-                          : "bg-ink/10"
+                          : "bg-cream/10"
                       }`}
                     />
                   ))}
                 </div>
-                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-cream/60">
                   {pwLabel}
                 </span>
               </div>
@@ -1127,7 +1127,7 @@ function AuthPage() {
                 <Link
                   to="/auth"
                   search={{ mode: "reset" }}
-                  className="rounded-sm text-xs font-medium text-ink/60 hover:text-coral transition-colors underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                  className="rounded-sm text-xs font-medium text-cream/60 hover:text-coral transition-colors underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
                 >
                   Forgot password?
                 </Link>
@@ -1136,14 +1136,14 @@ function AuthPage() {
             {mode === "signup" && (
               <div className="relative">
                 <Ticket
-                  className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                  className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-cream/40"
                   aria-hidden
                 />
                 <input
                   value={refCode}
                   onChange={(e) => checkRefCode(e.target.value)}
                   placeholder="Referral code (optional)"
-                  className={`w-full rounded-2xl border-2 bg-cream/60 pl-11 pr-11 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-ink placeholder:text-ink/40 outline-none transition focus-visible:bg-cream focus-visible:ring-2 focus-visible:ring-coral/40 ${
+                  className={`w-full rounded-2xl border-2 bg-cream/60 pl-11 pr-11 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-cream placeholder:text-cream/40 outline-none transition focus-visible:bg-cream focus-visible:ring-2 focus-visible:ring-coral/40 ${
                     refStatus === "valid"
                       ? "border-emerald-500"
                       : refStatus === "invalid"
@@ -1153,7 +1153,7 @@ function AuthPage() {
                 />
                 <span className="pointer-events-none absolute inset-y-0 right-4 my-auto flex h-4 items-center">
                   {refStatus === "checking" && (
-                    <Loader2 className="h-4 w-4 animate-spin text-ink/40" />
+                    <Loader2 className="h-4 w-4 animate-spin text-cream/40" />
                   )}
                   {refStatus === "valid" && (
                     <Check className="h-4 w-4 text-emerald-500" />
@@ -1177,7 +1177,7 @@ function AuthPage() {
             {error && (
               <div
                 role="alert"
-                className="flex items-start gap-2 rounded-xl border-2 border-coral/60 bg-coral/10 p-3 text-xs text-ink"
+                className="flex items-start gap-2 rounded-xl border-2 border-coral/60 bg-coral/10 p-3 text-xs text-cream"
               >
                 <span aria-hidden className="mt-0.5 text-coral">
                   ⚠️
@@ -1191,7 +1191,7 @@ function AuthPage() {
             {notice && (
               <div
                 role="status"
-                className="flex items-start gap-2 rounded-xl border-2 border-ink/30 bg-cream p-3 text-xs text-ink"
+                className="flex items-start gap-2 rounded-xl border-2 border-ink/30 bg-cream p-3 text-xs text-cream"
               >
                 <Check className="mt-0.5 h-4 w-4 text-coral" />
                 <p className="font-semibold">{notice}</p>
@@ -1214,17 +1214,17 @@ function AuthPage() {
             </button>
 
             {/* Tonight counter */}
-            <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-ink/55">
+            <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-cream/55">
               People are joining <span className="text-coral font-bold">tonight</span>
             </p>
 
 
             {mode === "signup" && (
-              <p className="text-center text-[11px] leading-relaxed text-ink/60">
+              <p className="text-center text-[11px] leading-relaxed text-cream/60">
                 By creating an account you accept our{" "}
                 <Link
                   to="/privacy"
-                  className="rounded-sm font-bold text-ink underline underline-offset-2 hover:text-coral transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                  className="rounded-sm font-bold text-cream underline underline-offset-2 hover:text-coral transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
                 >
                   Data sharing terms
                 </Link>
@@ -1236,15 +1236,15 @@ function AuthPage() {
           <button
             type="button"
             onClick={() => setMode((m) => (m === "signin" ? "signup" : "signin"))}
-            className="group mt-6 inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 px-4 py-3 text-left transition-all hover:border-ink hover:bg-cream hover:shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+            className="group mt-6 inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 px-4 py-3 text-left transition-all hover:border-ink hover:bg-cream hover:shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
           >
-            <span className="text-sm text-ink/70">
+            <span className="text-sm text-cream/70">
               {mode === "reset" ? "Remember your password? " : mode === "signin" ? "Don't have an account? " : "Already have one? "}
-              <span className="font-display font-extrabold text-ink">
+              <span className="font-display font-extrabold text-cream">
                 {mode === "reset" ? "Sign in" : mode === "signin" ? "Sign up" : "Sign in"}
               </span>
             </span>
-            <ArrowRight className="h-4 w-4 text-ink/40 transition-transform group-hover:translate-x-1 group-hover:text-coral" />
+            <ArrowRight className="h-4 w-4 text-cream/40 transition-transform group-hover:translate-x-1 group-hover:text-coral" />
           </button>
 
           {import.meta.env.DEV && (
@@ -1287,16 +1287,16 @@ function AuthPage() {
             </div>
           )}
 
-          <div className="mt-auto pt-8 text-center text-[11px] text-ink/55">
-            <Link to="/privacy" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1">
+          <div className="mt-auto pt-8 text-center text-[11px] text-cream/55">
+            <Link to="/privacy" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1">
               Terms &amp; data policy
             </Link>
-            <span className="mx-2 text-ink/30">·</span>
-            <Link to="/events" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1">
+            <span className="mx-2 text-cream/30">·</span>
+            <Link to="/events" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1">
               Browse events
             </Link>
-            <span className="mx-2 text-ink/30">·</span>
-            <Link to="/business/login" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1">
+            <span className="mx-2 text-cream/30">·</span>
+            <Link to="/business/login" className="rounded-sm underline underline-offset-2 hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1">
               Business sign in
             </Link>
           </div>

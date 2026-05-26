@@ -1,4 +1,4 @@
-// Discover viral venues for a city using Firecrawl web search + Lovable AI extraction
+// Discover viral venues for a city using Firecrawl web search + AI extraction
 // + Google Places verification. Idempotent — upserts into viral_venues by (city, normalized_name).
 //
 // Auth: gated by `apikey` header equal to the Supabase anon key (for pg_cron + admin UI).
@@ -6,7 +6,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
 import { generateText, Output } from "ai";
 import { z } from "zod";
-import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
+import { getAiProvider } from "@/lib/ai-gateway.server";
 import {
   authorityFor,
   computeTrendScore,
@@ -114,7 +114,7 @@ function detectSignals(url: string, text: string): Signal[] {
 }
 
 async function extractCandidatesForResult(
-  model: ReturnType<ReturnType<typeof createLovableAiGatewayProvider>>,
+  model: ReturnType<ReturnType<typeof getAiProvider>>,
   result: FirecrawlSearchResult,
   city: string,
   query: string,
@@ -191,7 +191,7 @@ async function verifyWithGooglePlaces(
 }
 
 async function tagVenues(
-  model: ReturnType<ReturnType<typeof createLovableAiGatewayProvider>>,
+  model: ReturnType<ReturnType<typeof getAiProvider>>,
   rows: { normalized_name: string; venue_name: string; summary: string; signals: Signal[] }[],
 ): Promise<Map<string, ViralTag[]>> {
   if (!rows.length) return new Map();
@@ -227,12 +227,10 @@ ${rows.map((r) => `- ${r.normalized_name} | ${r.venue_name} | signals: ${r.signa
 }
 
 async function discoverForCity(city: string) {
-  const lovableKey = process.env.LOVABLE_API_KEY;
   const firecrawlKey = process.env.FIRECRAWL_API_KEY;
   const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const anonKey = process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_PUBLISHABLE_KEY;
-  if (!lovableKey) throw new Error("LOVABLE_API_KEY not set");
   if (!firecrawlKey) throw new Error("FIRECRAWL_API_KEY not set");
   if (!supabaseUrl || !serviceKey || !anonKey) throw new Error("Supabase env not set");
 
@@ -246,7 +244,7 @@ async function discoverForCity(city: string) {
   const runId = runRow?.id as string | undefined;
 
   try {
-    const provider = createLovableAiGatewayProvider(lovableKey);
+    const provider = getAiProvider();
     const model = provider("google/gemini-3-flash-preview");
 
     // 1. Search

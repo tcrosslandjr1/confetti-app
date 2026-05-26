@@ -7,12 +7,12 @@
  *   2. On-demand — generates for a specific city + occasion
  *   3. Feedback-driven — incorporates user_taste_signals to tune quality
  *
- * Uses the Lovable AI Gateway (Vercel AI SDK) for generation and
+ * Uses OpenRouter (Vercel AI SDK) for generation and
  * supabaseAdmin for persistence. Never runs client-side.
  */
 
 import { generateText } from "ai";
-import { createLovableAiGatewayProvider } from "../ai-gateway.server";
+import { getAiProvider } from "../ai-gateway.server";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { CITIES, type CityContext } from "./city-context";
 import { OCCASIONS, type Idea, type IdeaStep } from "../occasions";
@@ -205,12 +205,7 @@ NO markdown. NO explanation. ONLY the JSON array.`;
 // ─── AI Call Wrapper ──────────────────────────────────────────
 
 async function callAI(prompt: string): Promise<string> {
-  const apiKey = process.env.LOVABLE_API_KEY;
-  if (!apiKey) {
-    throw new Error("Missing LOVABLE_API_KEY for AI content generation");
-  }
-
-  const provider = createLovableAiGatewayProvider(apiKey);
+  const provider = getAiProvider();
   const { text } = await generateText({
     model: provider("gpt-4o-mini"),
     prompt,

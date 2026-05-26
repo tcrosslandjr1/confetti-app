@@ -7,7 +7,7 @@ export function PaymentTestModeBanner() {
       All payments in preview are in test mode. Use card{" "}
       <code className="font-mono">4242 4242 4242 4242</code>.{" "}
       <a
-        href="https://docs.lovable.dev/features/payments#test-and-live-environments"
+        href="https://docs.stripe.com/testing"
         target="_blank"
         rel="noopener noreferrer"
         className="underline font-medium"

@@ -64,20 +64,25 @@ function LearnExplorePage() {
           marginRight: -20, paddingRight: 20,
         }}>
           {LIBS.map((l, i) => (
-            <Ticket key={i} color={l.color} notch style={{ padding: 14, marginBottom: 10 }}>
-              <div style={{
-                fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                letterSpacing: ".14em", opacity: 0.7,
-              }}>LIBRARY · {l.n.toUpperCase()}</div>
-              <div style={{
-                fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
-                letterSpacing: "-0.03em", marginTop: 4,
-              }}>{l.name}</div>
-              <div style={{
-                fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-                letterSpacing: ".12em", marginTop: 8,
-              }}>OPEN →</div>
-            </Ticket>
+            <button key={i} onClick={() => navigate({ to: "/new/explore" })} style={{
+              appearance: "none", cursor: "pointer", textAlign: "left", width: "100%",
+              padding: 0, border: "none", background: "transparent",
+            }}>
+              <Ticket color={l.color} notch style={{ padding: 14, marginBottom: 10 }}>
+                <div style={{
+                  fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
+                  letterSpacing: ".14em", opacity: 0.7,
+                }}>LIBRARY · {l.n.toUpperCase()}</div>
+                <div style={{
+                  fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
+                  letterSpacing: "-0.03em", marginTop: 4,
+                }}>{l.name}</div>
+                <div style={{
+                  fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
+                  letterSpacing: ".12em", marginTop: 8,
+                }}>OPEN →</div>
+              </Ticket>
+            </button>
           ))}
         </div>
       </div>

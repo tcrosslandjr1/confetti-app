@@ -87,7 +87,7 @@ export function RerunButtons({ loop }: { loop: ActiveLoop }) {
 
   return (
     <div className="mb-3 print:hidden">
-      <div className="mb-1.5 flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+      <div className="mb-1.5 flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream/60">
         <Repeat className="h-3 w-3" />
         Re-run
       </div>
@@ -102,7 +102,7 @@ export function RerunButtons({ loop }: { loop: ActiveLoop }) {
               type="button"
               onClick={() => rerun(k)}
               disabled={busy !== null}
-              className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-cream px-2 py-2 text-[11px] font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-cream px-2 py-2 text-[11px] font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {active ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />

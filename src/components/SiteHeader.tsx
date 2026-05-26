@@ -33,7 +33,7 @@ function RotatingTagline({ className = "" }: { className?: string }) {
       <span className="relative inline-block h-[1em] overflow-hidden">
         <span
           key={i}
-          className="block animate-tagline-in whitespace-nowrap font-mono text-[11px] font-bold uppercase leading-none tracking-widest text-ink"
+          className="block animate-tagline-in whitespace-nowrap font-mono text-[11px] font-bold uppercase leading-none tracking-widest text-cream"
         >
           {TAGLINES[i].split(",")[0]}
           <span className="mx-1 text-coral/50">//</span>
@@ -84,7 +84,7 @@ export function SiteHeader() {
           className="group flex shrink-0 items-center gap-[2px]"
           aria-label="confetti — home"
         >
-          <span className="font-display text-xl font-extrabold leading-none tracking-tight text-ink sm:text-2xl">
+          <span className="font-display text-xl font-extrabold leading-none tracking-tight text-cream sm:text-2xl">
             confetti
           </span>
           <span className="font-serif text-xl italic leading-none text-coral sm:text-2xl">.</span>
@@ -96,8 +96,8 @@ export function SiteHeader() {
             <Link
               key={l.to}
               to={l.to}
-              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink lg:px-3 lg:text-xs"
-              activeProps={{ className: "text-ink" }}
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream/70 transition-colors hover:text-cream lg:px-3 lg:text-xs"
+              activeProps={{ className: "text-cream" }}
             >
               {l.label}
             </Link>
@@ -105,8 +105,8 @@ export function SiteHeader() {
           {showPortal && (
             <Link
               to="/app/profile"
-              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink lg:px-3 lg:text-xs"
-              activeProps={{ className: "text-ink" }}
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream/70 transition-colors hover:text-cream lg:px-3 lg:text-xs"
+              activeProps={{ className: "text-cream" }}
             >
               Profile
             </Link>
@@ -114,8 +114,8 @@ export function SiteHeader() {
           {showAdmin && (
             <Link
               to="/business/dashboard"
-              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-coral hover:text-ink lg:px-3 lg:text-xs"
-              activeProps={{ className: "text-ink" }}
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-coral hover:text-cream lg:px-3 lg:text-xs"
+              activeProps={{ className: "text-cream" }}
             >
               Business
             </Link>
@@ -130,14 +130,14 @@ export function SiteHeader() {
                 to="/auth"
                 search={{ mode: "signin" } as never}
                 preload="render"
-                className="hidden h-10 items-center whitespace-nowrap rounded-full px-3 font-mono text-xs font-bold uppercase tracking-widest text-ink/75 transition-colors hover:text-ink sm:inline-flex"
+                className="hidden h-10 items-center whitespace-nowrap rounded-full px-3 font-mono text-xs font-bold uppercase tracking-widest text-cream/75 transition-colors hover:text-cream sm:inline-flex"
               >
                 Log in
               </Link>
               <Link
                 to="/auth"
                 preload="render"
-                className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1100px]:inline-flex"
+                className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1100px]:inline-flex"
               >
                 Sign up free
               </Link>
@@ -149,7 +149,7 @@ export function SiteHeader() {
               <NotificationsBell />
               <button
                 onClick={() => void signOut()}
-                className="hidden h-10 items-center whitespace-nowrap px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
+                className="hidden h-10 items-center whitespace-nowrap px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream/70 transition-colors hover:text-cream sm:flex"
               >
                 Sign out
               </button>
@@ -174,7 +174,7 @@ export function SiteHeader() {
             <SheetTrigger asChild>
               <button
                 aria-label="Open menu"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-ink bg-cream text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none md:hidden"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-ink bg-cream text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none md:hidden"
               >
                 <Menu className="h-4 w-4" />
               </button>
@@ -221,7 +221,7 @@ function MobileMenu({
           className="flex items-center gap-[2px]"
           aria-label="confetti — home"
         >
-          <span className="font-display text-xl font-extrabold leading-none tracking-tight text-ink">
+          <span className="font-display text-xl font-extrabold leading-none tracking-tight text-cream">
             confetti
           </span>
           <span className="font-serif text-xl italic leading-none text-coral">.</span>
@@ -229,7 +229,7 @@ function MobileMenu({
         <button
           aria-label="Close menu"
           onClick={close}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink bg-white text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink bg-white text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
         >
           <X className="h-4 w-4" />
         </button>
@@ -237,7 +237,7 @@ function MobileMenu({
 
       {/* City picker */}
       <div className="border-b-2 border-ink bg-white/60 px-4 py-3">
-        <div className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/50">
+        <div className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
           City
         </div>
         <CitySelector />
@@ -245,7 +245,7 @@ function MobileMenu({
 
       {/* Nav links */}
       <nav className="flex-1 overflow-y-auto px-3 py-4">
-        <div className="mb-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/50">
+        <div className="mb-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
           Explore
         </div>
         <ul className="space-y-1">
@@ -254,7 +254,7 @@ function MobileMenu({
               <Link
                 to={l.to}
                 onClick={close}
-                className="flex items-center justify-between rounded-2xl border-2 border-transparent px-3 py-3 font-display text-lg font-bold text-ink transition-colors hover:border-ink hover:bg-white"
+                className="flex items-center justify-between rounded-2xl border-2 border-transparent px-3 py-3 font-display text-lg font-bold text-cream transition-colors hover:border-ink hover:bg-white"
                 activeProps={{ className: "border-ink bg-white" }}
               >
                 <span>{l.label}</span>
@@ -267,7 +267,7 @@ function MobileMenu({
               <Link
                 to="/app/profile"
                 onClick={close}
-                className="flex items-center justify-between rounded-2xl border-2 border-transparent px-3 py-3 font-display text-lg font-bold text-ink transition-colors hover:border-ink hover:bg-white"
+                className="flex items-center justify-between rounded-2xl border-2 border-transparent px-3 py-3 font-display text-lg font-bold text-cream transition-colors hover:border-ink hover:bg-white"
                 activeProps={{ className: "border-ink bg-white" }}
               >
                 <span>Profile</span>
@@ -306,7 +306,7 @@ function MobileMenu({
               to="/auth"
               search={{ mode: "signin" } as never}
               onClick={close}
-              className="flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ink bg-white font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+              className="flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ink bg-white font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
             >
               Log in
             </Link>
@@ -326,7 +326,7 @@ function MobileMenu({
               close();
               signOut();
             }}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-cream font-mono text-xs font-bold uppercase tracking-widest text-ink/70 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-cream font-mono text-xs font-bold uppercase tracking-widest text-cream/70 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
             <LogOut className="h-4 w-4" />
             Sign out

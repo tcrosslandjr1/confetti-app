@@ -118,7 +118,7 @@ export function StepsShowcase() {
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className={`tilt-3d grain ${s.glow} group relative w-full overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-left text-ink shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg`}
+                  className={`tilt-3d grain ${s.glow} group relative w-full overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-left text-cream shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg`}
                 >
                   <div className="flex items-baseline justify-between">
                     <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>

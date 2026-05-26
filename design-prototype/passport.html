@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jess's Brooklyn night — Confetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --ui: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --bg: #f8f0dd;
+    --paper: #fffaf0;
+    --ink: #130b0d;
+    --a1: #ff5b3d;
+    --a2: #f7c83b;
+    --a3: #5b45d9;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0;
+    font-family: var(--ui); background: var(--bg); color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(var(--ink) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: 0 0;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background: linear-gradient(180deg, rgba(248,240,221,0.85), rgba(248,240,221,0.95));
+    pointer-events: none; z-index: 0;
+  }
+  .page { position: relative; z-index: 1; }
+
+  /* Header bar */
+  header.bar {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--paper); border-bottom: 3px solid var(--ink);
+    padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 8px;
+    font-family: var(--display); font-weight: 900; font-size: 20px;
+    letter-spacing: -0.025em; }
+  .brand span:first-child { color: var(--a1); font-size: 22px; }
+  .bar .cta {
+    appearance: none; cursor: pointer;
+    padding: 9px 16px;
+    border: 2.5px solid var(--ink); border-radius: 999px;
+    background: var(--a1); color: var(--ink);
+    font-family: var(--ui); font-size: 14px; font-weight: 900;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  /* Hero */
+  .hero {
+    max-width: 980px; margin: 0 auto;
+    padding: 60px 24px 40px;
+    text-align: center;
+    position: relative;
+  }
+  /* Floating tickets */
+  .floats { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .floats span {
+    position: absolute;
+    width: 16px; height: 26px;
+    border: 2.5px solid var(--ink); border-radius: 3px;
+  }
+  .floats span:nth-child(1) { top: 38px; left: 6%;  background: var(--a1); animation: float 4s 0s   infinite ease-in-out; }
+  .floats span:nth-child(2) { top: 60px; right: 8%; background: var(--a2); animation: float 4s 0.5s infinite ease-in-out; }
+  .floats span:nth-child(3) { top: 220px; left: 14%; background: var(--a3); animation: float 4s 1s   infinite ease-in-out; }
+  .floats span:nth-child(4) { top: 260px; right: 12%; background: var(--a1); animation: float 4s 1.5s infinite ease-in-out; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50%      { transform: translateY(-22px) rotate(14deg); }
+  }
+  .stamp {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 3px solid var(--ink); border-radius: 999px;
+    background: var(--a2);
+    font-family: var(--mono); font-size: 12px; font-weight: 800;
+    letter-spacing: .14em; text-transform: uppercase;
+    transform: rotate(-3deg);
+    box-shadow: 3px 3px 0 var(--ink);
+    margin-bottom: 22px;
+  }
+  h1.h {
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(48px, 8vw, 96px); letter-spacing: -0.045em;
+    line-height: 0.9;
+    margin: 0 0 18px;
+  }
+  h1.h em { font-style: normal; color: var(--a1); }
+  .sub {
+    font-family: var(--ui); font-size: 18px; font-weight: 600;
+    color: var(--ink); opacity: 0.7; max-width: 540px;
+    margin: 0 auto 24px; line-height: 1.4;
+  }
+  .meta {
+    display: inline-flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border: 2.5px solid var(--ink); border-radius: 999px;
+    background: var(--paper);
+    box-shadow: 4px 4px 0 var(--ink);
+    font-family: var(--mono); font-size: 11px; font-weight: 800;
+    letter-spacing: .12em; text-transform: uppercase;
+  }
+  .meta strong { color: var(--a1); }
+
+  /* Big pass card */
+  .pass-wrap { max-width: 760px; margin: 30px auto 60px; padding: 0 24px;
+    position: relative; z-index: 2; }
+  .pass {
+    position: relative;
+    background: var(--paper);
+    border: 3px solid var(--ink); border-radius: 24px;
+    box-shadow: 10px 10px 0 var(--ink);
+    overflow: hidden;
+  }
+  .pass-top {
+    background: var(--a1); color: var(--ink);
+    padding: 16px 24px;
+    border-bottom: 3px solid var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--mono); font-size: 12px; font-weight: 800;
+    letter-spacing: .14em; text-transform: uppercase;
+  }
+  .pass-body { padding: 24px; }
+  .pass-headline {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-bottom: 18px; margin-bottom: 18px;
+    border-bottom: 2.5px dashed var(--ink);
+  }
+  .pass-headline .l {
+    font-family: var(--mono); font-size: 10px; font-weight: 800;
+    letter-spacing: .14em; opacity: 0.55; text-transform: uppercase;
+  }
+  .pass-headline .v {
+    font-family: var(--display); font-weight: 900; font-size: 28px;
+    letter-spacing: -0.03em; margin-top: 2px; line-height: 1;
+  }
+
+  /* Stops */
+  .stops { display: flex; flex-direction: column; gap: 0; }
+  .stop {
+    display: grid; grid-template-columns: 50px 1fr auto; gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1.5px dashed rgba(0,0,0,0.18);
+  }
+  .stop:last-child { border-bottom: 0; }
+  .stop-rail {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .stop-num {
+    width: 44px; height: 44px; border-radius: 999px;
+    border: 3px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-weight: 900; font-size: 22px;
+  }
+  .stop-rail .line {
+    flex: 1; width: 3px; margin-top: 6px; margin-bottom: -14px;
+    background: repeating-linear-gradient(180deg, var(--ink) 0 4px, transparent 4px 9px);
+  }
+  .stop-body .head {
+    font-family: var(--mono); font-size: 10px; font-weight: 800;
+    letter-spacing: .12em; opacity: 0.6; text-transform: uppercase;
+  }
+  .stop-body .name {
+    font-family: var(--display); font-weight: 900;
+    font-size: 26px; letter-spacing: -0.03em; line-height: 1.05;
+    margin-top: 4px;
+  }
+  .stop-body .desc {
+    font-family: var(--ui); font-size: 14px; font-weight: 600;
+    opacity: 0.7; margin-top: 4px; line-height: 1.4;
+  }
+  .stop-body .checkin {
+    margin-top: 10px;
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 10px 12px;
+    border: 2px solid var(--ink); border-radius: 10px;
+    background: var(--bg);
+  }
+  .checkin .photo {
+    width: 56px; height: 70px; flex-shrink: 0;
+    border: 2px solid var(--ink); border-radius: 6px;
+    background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.1) 0 6px, transparent 6px 12px);
+  }
+  .checkin .quote {
+    font-family: var(--ui); font-size: 13px; font-weight: 700;
+    line-height: 1.35;
+  }
+  .checkin .who {
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    opacity: 0.6; margin-top: 4px; letter-spacing: .08em;
+  }
+  .stop-cost {
+    text-align: right;
+    font-family: var(--mono); font-size: 12px; font-weight: 800;
+    letter-spacing: .04em;
+  }
+  .stop-cost .h {
+    font-family: var(--display); font-weight: 900; font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+  .stop-cost .l { opacity: 0.55; margin-top: 4px; font-size: 10px; }
+
+  .pass-stamps {
+    margin-top: 16px;
+    padding-top: 18px;
+    border-top: 2.5px dashed var(--ink);
+    display: flex; gap: 8px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .sm {
+    padding: 6px 12px;
+    border: 2.5px solid var(--ink); border-radius: 999px;
+    font-family: var(--mono); font-size: 11px; font-weight: 800;
+    letter-spacing: .12em; text-transform: uppercase;
+    transform: rotate(-2deg);
+    background: var(--a2);
+  }
+  .sm.r2 { background: var(--a1); transform: rotate(3deg); }
+  .sm.r3 { background: var(--a3); color: var(--paper); transform: rotate(-1deg); }
+  .pass-stamps .code {
+    margin-left: auto;
+    font-family: var(--mono); font-size: 11px; font-weight: 800;
+    letter-spacing: .12em; opacity: 0.6;
+  }
+
+  /* Reel preview */
+  .reel-row {
+    max-width: 980px; margin: 0 auto 60px;
+    padding: 0 24px;
+    display: grid; grid-template-columns: auto 1fr; gap: 28px;
+    align-items: center;
+  }
+  .reel-card {
+    width: 180px; aspect-ratio: 9/16;
+    border: 3px solid var(--ink); border-radius: 16px;
+    background: var(--a3); color: var(--paper);
+    position: relative; overflow: hidden;
+    box-shadow: 6px 6px 0 var(--ink);
+    background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.1) 0 10px, transparent 10px 20px);
+  }
+  .reel-progress {
+    position: absolute; top: 8px; left: 8px; right: 8px;
+    display: flex; gap: 3px;
+  }
+  .reel-progress span {
+    flex: 1; height: 3px; border-radius: 999px;
+    background: rgba(255,255,255,0.4);
+    border: 1px solid rgba(0,0,0,0.4);
+    overflow: hidden;
+  }
+  .reel-progress span i {
+    display: block; height: 100%; background: var(--paper);
+    width: 0;
+    animation: reelProg 7s linear infinite;
+  }
+  .reel-progress span:nth-child(1) i { animation-delay: 0s; }
+  .reel-progress span:nth-child(2) i { animation-delay: 2.3s; }
+  .reel-progress span:nth-child(3) i { animation-delay: 4.6s; }
+  @keyframes reelProg {
+    0% { width: 0; } 33% { width: 100%; } 100% { width: 100%; }
+  }
+  .reel-text {
+    position: absolute; bottom: 14px; left: 12px; right: 12px;
+    font-family: var(--display); font-weight: 900;
+    font-size: 16px; letter-spacing: -0.025em;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  }
+  .reel-tag {
+    position: absolute; top: 24px; left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 10px; background: var(--ink); color: var(--paper);
+    border-radius: 4px;
+    font-family: var(--mono); font-size: 10px; font-weight: 800;
+    letter-spacing: .14em;
+  }
+  .reel-copy h2 {
+    font-family: var(--display); font-weight: 900; font-size: 38px;
+    letter-spacing: -0.04em; line-height: 0.95; margin: 0 0 10px;
+  }
+  .reel-copy p {
+    font-family: var(--ui); font-size: 16px; font-weight: 600;
+    color: var(--ink); opacity: 0.7; margin: 0 0 16px; line-height: 1.45;
+  }
+  .reel-copy .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .reel-copy .row button {
+    appearance: none; cursor: pointer;
+    padding: 10px 16px;
+    border: 2.5px solid var(--ink); border-radius: 999px;
+    background: var(--paper);
+    font-family: var(--ui); font-size: 13px; font-weight: 800;
+    box-shadow: 3px 3px 0 var(--ink);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .reel-copy .row button.primary { background: var(--ink); color: var(--paper); }
+
+  /* CTA */
+  .cta-block {
+    max-width: 760px; margin: 0 auto 80px;
+    padding: 36px 36px;
+    background: var(--ink); color: var(--paper);
+    border: 3px solid var(--ink); border-radius: 24px;
+    box-shadow: 10px 10px 0 var(--a1);
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--display); font-weight: 900; font-size: 44px;
+    letter-spacing: -0.04em; line-height: 0.95; margin: 0 0 8px;
+  }
+  .cta-block h2 em { font-style: normal; color: var(--a1); }
+  .cta-block p {
+    font-family: var(--ui); font-size: 16px; font-weight: 600;
+    opacity: 0.75; margin: 0 0 22px; line-height: 1.45;
+  }
+  .cta-block .cta-big {
+    appearance: none; cursor: pointer;
+    padding: 18px 28px;
+    border: 3px solid var(--paper); border-radius: 999px;
+    background: var(--a1); color: var(--ink);
+    font-family: var(--ui); font-size: 18px; font-weight: 900;
+    box-shadow: 6px 6px 0 var(--paper);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .cta-block .footnote {
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    margin-top: 18px; opacity: 0.55; letter-spacing: .08em;
+  }
+
+  /* Footer */
+  footer.foot {
+    border-top: 2px solid var(--ink);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    opacity: 0.55; letter-spacing: .12em;
+  }
+  footer.foot a { color: inherit; }
+
+  @media (max-width: 700px) {
+    .reel-row { grid-template-columns: 1fr; }
+    .reel-card { margin: 0 auto; }
+    h1.h { font-size: 52px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="bar">
+    <div class="brand"><span>✣</span><span>confetti</span></div>
+    <button class="cta">Print one for me →</button>
+  </header>
+
+  <section class="hero">
+    <div class="floats"><span></span><span></span><span></span><span></span></div>
+    <div class="stamp">@jess.s's pass · saturday</div>
+    <h1 class="h">Brooklyn date<br/><em>night.</em></h1>
+    <p class="sub">3 stops · 4h 30m · ~$92. Foodie + chill, walkable. Made by Confetti, lived in by Jess and Sam.</p>
+    <div class="meta">
+      <span>SAT MAY 23</span>
+      <span>·</span>
+      <span><strong>3 STOPS</strong></span>
+      <span>·</span>
+      <span><strong>$92</strong> SPENT</span>
+      <span>·</span>
+      <span>2 PHOTOS</span>
+      <span>·</span>
+      <span>#A7K2</span>
+    </div>
+  </section>
+
+  <div class="pass-wrap">
+    <div class="pass">
+      <div class="pass-top">
+        <span>TONIGHT PASS · BROOKLYN</span>
+        <span>#A7K2 · CLOSED</span>
+      </div>
+      <div class="pass-body">
+        <div class="pass-headline">
+          <div>
+            <div class="l">summary</div>
+            <div class="v">3 stops · 4h 30m</div>
+          </div>
+          <div style="text-align:right">
+            <div class="l">total spent</div>
+            <div class="v">$92</div>
+          </div>
+        </div>
+
+        <div class="stops">
+          <div class="stop">
+            <div class="stop-rail">
+              <div class="stop-num" style="background:var(--a2)">1</div>
+              <div class="line"></div>
+            </div>
+            <div class="stop-body">
+              <div class="head">7:30 PM · DIVE BAR · WILLIAMSBURG</div>
+              <div class="name">Skinny Pete's</div>
+              <div class="desc">A beer + pretzel warm-up. Vinyl playing low, half-empty.</div>
+              <div class="checkin">
+                <div class="photo" style="background-color:var(--a1)"></div>
+                <div>
+                  <div class="quote">"first round, she's late ☔"</div>
+                  <div class="who">@jess.s · 7:38 PM</div>
+                </div>
+              </div>
+            </div>
+            <div class="stop-cost">
+              <div class="h">$14</div>
+              <div class="l">45m</div>
+            </div>
+          </div>
+
+          <div class="stop">
+            <div class="stop-rail">
+              <div class="stop-num" style="background:var(--a1)">2</div>
+              <div class="line"></div>
+            </div>
+            <div class="stop-body">
+              <div class="head">8:30 PM · ITALIAN · 88 N 6TH ST</div>
+              <div class="name">Lupa Notte</div>
+              <div class="desc">Handmade pasta by candlelight. Counter seats. The carbonara, dude.</div>
+              <div class="checkin">
+                <div class="photo" style="background-color:var(--a2)"></div>
+                <div>
+                  <div class="quote">"this carbonara healed me 🍝"</div>
+                  <div class="who">@jess.s · 9:12 PM</div>
+                </div>
+              </div>
+            </div>
+            <div class="stop-cost">
+              <div class="h">$52</div>
+              <div class="l">90m</div>
+            </div>
+          </div>
+
+          <div class="stop">
+            <div class="stop-rail">
+              <div class="stop-num" style="background:var(--a3)">3</div>
+            </div>
+            <div class="stop-body">
+              <div class="head">10:30 PM · LIVE SHOW · METROPOLITAN AVE</div>
+              <div class="name">Quartz Room</div>
+              <div class="desc">Indie 4-piece, doors at 10. Pearl Charles. Cash bar, sticky floor.</div>
+              <div class="checkin">
+                <div class="photo" style="background-color:var(--a3)"></div>
+                <div>
+                  <div class="quote">"pearl charles unreal live, we yelled"</div>
+                  <div class="who">@sam · 11:24 PM</div>
+                </div>
+              </div>
+            </div>
+            <div class="stop-cost">
+              <div class="h">$26</div>
+              <div class="l">90m</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pass-stamps">
+          <span class="sm">foodie</span>
+          <span class="sm r2">chill</span>
+          <span class="sm r3">walkable</span>
+          <span class="code">#A7K2 · STAMPED</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel section -->
+  <section class="reel-row">
+    <div class="reel-card">
+      <div class="reel-progress"><span><i></i></span><span><i></i></span><span><i></i></span></div>
+      <div class="reel-tag">9 SEC RECAP</div>
+      <div class="reel-text">Pearl Charles, the carbonara, and a pretzel.</div>
+    </div>
+    <div class="reel-copy">
+      <h2>9 seconds of the night,<br/>auto-cut for you.</h2>
+      <p>Three check-ins, the route map, captions auto-set, music auto-picked from the vibe. Posted to TikTok at 12:08 AM — 14k views since.</p>
+      <div class="row">
+        <button>↗ open on tiktok</button>
+        <button>♥ 1,420</button>
+        <button class="primary">make my own night →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Like Jess's night?<br/><em>Print your own.</em></h2>
+    <p>Tell Confetti a vibe. Get a 3-stop pass — real venues, real timing, a budget on it. 4 minutes from chat to walking out the door.</p>
+    <button class="cta-big">✣ Plan my night →</button>
+    <div class="footnote">FREE TO START · NYC · LA · SF · CDMX · LDN · 12 MORE</div>
+  </div>
+
+  <footer class="foot">
+    CONFETTI © 2026 · <a href="#">about</a> · <a href="#">for venues</a> · <a href="#">careers</a> · <a href="#">privacy</a>
+  </footer>
+</div>
+</body>
+</html>

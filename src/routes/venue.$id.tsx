@@ -37,7 +37,7 @@ import { PriceLevel } from "@/components/PriceLevel";
 import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
 import { submitVenueReview } from "@/lib/review-taste-bridge";
 
-const SITE_ORIGIN = "https://confettiplan.lovable.app";
+const SITE_ORIGIN = process.env.SITE_URL ?? "https://confettiplan.com";
 
 export const Route = createFileRoute("/venue/$id")({
   loader: ({ params }) => {
@@ -326,7 +326,7 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
       <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 py-3 sm:px-6">
         <button
           onClick={onBack}
-          className="grid h-10 w-10 place-items-center rounded-full border-2 border-ink bg-white text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="grid h-10 w-10 place-items-center rounded-full border-2 border-ink bg-white text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
           aria-label="Back"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -342,7 +342,7 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
             </div>
           ))}
         </div>
-        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/70">
+        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-cream/70">
           {step}/4 · {labels[step - 1]}
         </span>
       </div>
@@ -539,7 +539,7 @@ function VenueEvents({ venue }: { venue: Venue }) {
     <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
       <div className="flex items-center gap-2">
         <CalendarIcon className="h-4 w-4 text-coral" />
-        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
           Upcoming events
         </p>
       </div>
@@ -549,18 +549,18 @@ function VenueEvents({ venue }: { venue: Venue }) {
           return (
             <li
               key={e.title}
-              className="flex gap-3 rounded-xl border-2 border-ink/10 bg-cream/40 p-3"
+              className="flex gap-3 rounded-xl border-2 border-cream/10 bg-cream/40 p-3"
             >
               <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg border-2 border-ink bg-white text-center">
                 <span className="font-mono text-[9px] font-bold text-coral">{f.day}</span>
-                <span className="font-mono text-xs font-bold leading-tight text-ink">{f.date}</span>
+                <span className="font-mono text-xs font-bold leading-tight text-cream">{f.date}</span>
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-2">
-                  <p className="font-semibold text-ink">{e.title}</p>
-                  <span className="font-mono text-[10px] text-ink/60">{f.time}</span>
+                  <p className="font-semibold text-cream">{e.title}</p>
+                  <span className="font-mono text-[10px] text-cream/60">{f.time}</span>
                 </div>
-                <p className="mt-0.5 text-sm leading-snug text-ink/70">{e.description}</p>
+                <p className="mt-0.5 text-sm leading-snug text-cream/70">{e.description}</p>
                 <a
                   href={e.rsvpHref}
                   target="_blank"
@@ -611,7 +611,7 @@ function ShareVenue({ venue }: { venue: Venue }) {
     <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
       <div className="flex items-center gap-2">
         <Share2 className="h-4 w-4 text-coral" />
-        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
           Share this spot
         </p>
       </div>
@@ -619,14 +619,14 @@ function ShareVenue({ venue }: { venue: Venue }) {
         <button
           type="button"
           onClick={nativeShare}
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-coral px-3 py-2.5 text-xs font-bold text-white shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-coral px-3 py-2.5 text-xs font-bold text-white shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         >
           <Share2 className="h-3.5 w-3.5" /> Share
         </button>
         <button
           type="button"
           onClick={copyLink}
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         >
           Copy link
         </button>
@@ -634,7 +634,7 @@ function ShareVenue({ venue }: { venue: Venue }) {
           href={twitterHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         >
           Twitter / X
         </a>
@@ -642,7 +642,7 @@ function ShareVenue({ venue }: { venue: Venue }) {
           href={facebookHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         >
           Facebook
         </a>
@@ -675,7 +675,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         />
         {/* Gold Confetti Exclusive badge */}
         <div className="absolute left-4 top-4">
-          <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gradient-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+          <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gradient-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cream shadow-brut">
             <Sparkles className="h-3 w-3" /> Confetti Exclusive
           </span>
         </div>
@@ -771,7 +771,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-teal">
               Why Confetti picked this
             </p>
-            <p className="text-sm leading-relaxed text-ink/85">
+            <p className="text-sm leading-relaxed text-cream/85">
               You loved <span className="font-semibold">Maison Pickle</span> and{" "}
               <span className="font-semibold">Attaboy</span>. {venue.name} hits the same
               intimate-but-buzzy note — low-lit booths, a bartender who actually asks what you're
@@ -785,7 +785,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
       <div className="grid grid-cols-2 gap-3">
         {DETAILS.map((d) => (
           <div key={d.label} className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
-            <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+            <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
               <d.icon className="h-3.5 w-3.5 text-coral" /> {d.label}
             </div>
             <p className="mt-1 font-display text-lg font-bold leading-tight">{d.value}</p>
@@ -851,7 +851,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         />
         <Link
           to="/app/profile"
-          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3 py-2 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3 py-2 text-xs font-bold text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
         >
           View all favorites
         </Link>
@@ -913,7 +913,7 @@ function StepTime({
   return (
     <div className="space-y-5">
       <div>
-        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink/60">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-cream/60">
           Pick your time
         </p>
         <h2 className="mt-1 font-display text-3xl font-extrabold tracking-tight">
@@ -933,13 +933,13 @@ function StepTime({
               <button
                 key={d.iso}
                 onClick={() => setDateIdx(i)}
-                className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
-                  selected ? "bg-coral text-white" : "bg-white text-ink"
+                className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1 ${
+                  selected ? "bg-coral text-white" : "bg-white text-cream"
                 }`}
               >
                 <span
                   className={`font-mono text-[10px] font-bold uppercase tracking-widest ${
-                    selected ? "text-white/85" : "text-ink/60"
+                    selected ? "text-white/85" : "text-cream/60"
                   }`}
                 >
                   {d.dow}
@@ -947,7 +947,7 @@ function StepTime({
                 <span className="font-display text-xl font-extrabold leading-none">{d.day}</span>
                 <span
                   className={`font-mono text-[10px] uppercase ${
-                    selected ? "text-white/85" : "text-ink/50"
+                    selected ? "text-white/85" : "text-cream/50"
                   }`}
                 >
                   {d.mon}
@@ -962,7 +962,7 @@ function StepTime({
       <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
         <div className="mb-3 flex items-center gap-2">
           <Clock className="h-4 w-4 text-coral" />
-          <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
             Available times
           </p>
         </div>
@@ -975,12 +975,12 @@ function StepTime({
                 key={t}
                 disabled={unavail}
                 onClick={() => setTime(t)}
-                className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
+                className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1 ${
                   unavail
-                    ? "cursor-not-allowed border-ink/20 bg-ink/5 text-ink/30 line-through"
+                    ? "cursor-not-allowed border-cream/20 bg-cream/5 text-cream/30 line-through"
                     : selected
                       ? "border-ink bg-teal text-white shadow-brut"
-                      : "border-ink bg-white text-ink hover:-translate-y-0.5 hover:shadow-brut"
+                      : "border-ink bg-white text-cream hover:-translate-y-0.5 hover:shadow-brut"
                 }`}
               >
                 {t}
@@ -994,12 +994,12 @@ function StepTime({
       <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
         <div className="flex items-center justify-between">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
               Party size
             </p>
             <p className="mt-0.5 font-display text-2xl font-extrabold">
               {party}{" "}
-              <span className="text-base font-normal text-ink/60">
+              <span className="text-base font-normal text-cream/60">
                 {party === 1 ? "guest" : "guests"}
               </span>
             </p>
@@ -1008,14 +1008,14 @@ function StepTime({
             <button
               aria-label="Decrease party size"
               onClick={() => setParty(Math.max(1, party - 1))}
-              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-cream text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-cream text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
             >
               <Minus className="h-4 w-4" />
             </button>
             <button
               aria-label="Increase party size"
               onClick={() => setParty(Math.min(20, party + 1))}
-              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-ink text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+              className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink bg-ink text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
             >
               <Plus className="h-4 w-4" />
             </button>
@@ -1025,7 +1025,7 @@ function StepTime({
 
       {/* Special requests */}
       <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
-        <label className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+        <label className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
           Special requests
         </label>
         <textarea
@@ -1034,9 +1034,9 @@ function StepTime({
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Birthday? Allergies? Booth preference?"
-          className="mt-2 w-full resize-none rounded-xl border-2 border-ink bg-cream px-3 py-2.5 text-sm outline-none transition focus:-translate-y-0.5 focus:shadow-brut focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="mt-2 w-full resize-none rounded-xl border-2 border-ink bg-cream px-3 py-2.5 text-sm outline-none transition focus:-translate-y-0.5 focus:shadow-brut focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         />
-        <div className="mt-1 text-right font-mono text-[10px] text-ink/40">{notes.length}/280</div>
+        <div className="mt-1 text-right font-mono text-[10px] text-cream/40">{notes.length}/280</div>
       </div>
 
       <GradientCTA onClick={onNext} label="Review Booking" disabled={!time} />
@@ -1075,7 +1075,7 @@ function StepConfirm({
   return (
     <div className="space-y-5">
       <div>
-        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink/60">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-cream/60">
           Final look
         </p>
         <h2 className="mt-1 font-display text-3xl font-extrabold tracking-tight">
@@ -1104,7 +1104,7 @@ function StepConfirm({
                 {venue.neighborhood || venue.city || "Downtown"}
               </p>
             </div>
-            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-gold px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-gold px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
               <Sparkles className="h-3 w-3" /> VIP
             </span>
           </div>
@@ -1132,10 +1132,10 @@ function StepConfirm({
           />
           <PassCell label="Table" value="Booth · garden side" icon={Sparkles} />
           <div className="col-span-2 bg-white p-4">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
               Confirmation
             </p>
-            <p className="mt-1 font-mono text-lg font-bold tracking-[0.25em] text-ink">{code}</p>
+            <p className="mt-1 font-mono text-lg font-bold tracking-[0.25em] text-cream">{code}</p>
           </div>
         </div>
       </div>
@@ -1148,7 +1148,7 @@ function StepConfirm({
           </span>
           <div className="text-sm">
             <p className="font-semibold">$25 deposit per guest</p>
-            <p className="text-ink/60">
+            <p className="text-cream/60">
               ${deposit} total. Fully credited toward your bill. Refundable up to 24h before.
             </p>
           </div>
@@ -1156,8 +1156,8 @@ function StepConfirm({
       </div>
 
       {/* Cancellation policy */}
-      <div className="rounded-2xl border-2 border-dashed border-ink/40 bg-cream/60 p-4 text-xs text-ink/70">
-        <span className="font-bold text-ink">Cancellation:</span> Free up to 24 hours before. After
+      <div className="rounded-2xl border-2 border-dashed border-ink/40 bg-cream/60 p-4 text-xs text-cream/70">
+        <span className="font-bold text-cream">Cancellation:</span> Free up to 24 hours before. After
         that the deposit is forfeit. Reschedule any time from your boarding pass.
       </div>
 
@@ -1174,7 +1174,7 @@ function StepConfirm({
 function PassCell({ label, value, icon: Icon }: { label: string; value: string; icon: any }) {
   return (
     <div className="bg-white p-4">
-      <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+      <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
         <Icon className="h-3 w-3 text-coral" />
         {label}
       </div>
@@ -1245,7 +1245,7 @@ function StepDone({
         <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight">
           See you {date.dow}, <span className="text-gradient">{time}</span>
         </h2>
-        <p className="mt-1 text-sm text-ink/60">
+        <p className="mt-1 text-sm text-cream/60">
           We sent your boarding pass to your wallet & inbox.
         </p>
       </div>
@@ -1290,19 +1290,19 @@ function StepDone({
         <div className="space-y-3 p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                 Confirmation
               </p>
-              <p className="mt-1 font-mono text-xl font-bold tracking-[0.25em] text-ink">{code}</p>
+              <p className="mt-1 font-mono text-xl font-bold tracking-[0.25em] text-cream">{code}</p>
             </div>
-            <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gradient-gold px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+            <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gradient-gold px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
               VIP
             </span>
           </div>
 
           {/* Barcode */}
           <Barcode value={code} />
-          <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-ink/50">
+          <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
             Show at door · skip-the-line
           </p>
         </div>
@@ -1314,7 +1314,7 @@ function StepDone({
           showXp ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0"
         }`}
       >
-        <div className="flex items-center gap-3 rounded-2xl border-2 border-ink bg-gradient-gold p-3 text-ink shadow-brut-lg">
+        <div className="flex items-center gap-3 rounded-2xl border-2 border-ink bg-gradient-gold p-3 text-cream shadow-brut-lg">
           <Sparkles className="h-5 w-5" />
           <div className="flex-1">
             <p className="font-mono text-[10px] font-bold uppercase tracking-widest">
@@ -1332,7 +1332,7 @@ function StepDone({
       <div className="grid grid-cols-2 gap-3">
         <button
           onClick={() => toast.success("Added to your calendar")}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         >
           <CalendarPlus className="h-4 w-4" /> Add to Calendar
         </button>
@@ -1348,7 +1348,7 @@ function StepDone({
               toast.success("Link copied — share it with your crew");
             }
           }}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         >
           <Share2 className="h-4 w-4" /> Share with Crew
         </button>
@@ -1357,7 +1357,7 @@ function StepDone({
       <Link
         to="/app/explore"
         search={{ venueId: id }}
-        className="block text-center font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink/60 underline-offset-4 hover:underline"
+        className="block text-center font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-cream/60 underline-offset-4 hover:underline"
       >
         Browse more spots →
       </Link>
@@ -1425,7 +1425,7 @@ function ReservationModal({
             {/* Header */}
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/60">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cream/60">
                   Reserve a table
                 </p>
                 <h2 className="mt-1 font-display text-2xl font-extrabold tracking-tight">
@@ -1434,7 +1434,7 @@ function ReservationModal({
               </div>
               <button
                 onClick={onClose}
-                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-white font-bold shadow-brut transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-white font-bold shadow-brut transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
                 aria-label="Close"
               >
                 <X className="h-3.5 w-3.5" />
@@ -1443,7 +1443,7 @@ function ReservationModal({
 
             {/* Date chips */}
             <div>
-              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                 <CalendarIcon className="mr-1 inline h-3 w-3" /> Choose a date
               </p>
               <div
@@ -1456,12 +1456,12 @@ function ReservationModal({
                     <button
                       key={d.iso}
                       onClick={() => setDateIdx(i)}
-                      className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
-                        selected ? "bg-coral text-white" : "bg-white text-ink"
+                      className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1 ${
+                        selected ? "bg-coral text-white" : "bg-white text-cream"
                       }`}
                     >
                       <span
-                        className={`font-mono text-[10px] font-bold uppercase tracking-widest ${selected ? "text-white/85" : "text-ink/60"}`}
+                        className={`font-mono text-[10px] font-bold uppercase tracking-widest ${selected ? "text-white/85" : "text-cream/60"}`}
                       >
                         {d.dow}
                       </span>
@@ -1469,7 +1469,7 @@ function ReservationModal({
                         {d.day}
                       </span>
                       <span
-                        className={`font-mono text-[10px] uppercase ${selected ? "text-white/85" : "text-ink/50"}`}
+                        className={`font-mono text-[10px] uppercase ${selected ? "text-white/85" : "text-cream/50"}`}
                       >
                         {d.mon}
                       </span>
@@ -1481,7 +1481,7 @@ function ReservationModal({
 
             {/* Time grid */}
             <div>
-              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                 <Clock className="mr-1 inline h-3 w-3" /> Available times
               </p>
               <div className="grid grid-cols-3 gap-2">
@@ -1493,12 +1493,12 @@ function ReservationModal({
                       key={t}
                       disabled={unavail}
                       onClick={() => setTime(t)}
-                      className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1 ${
+                      className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1 ${
                         unavail
-                          ? "cursor-not-allowed border-ink/20 bg-ink/5 text-ink/30 line-through"
+                          ? "cursor-not-allowed border-cream/20 bg-cream/5 text-cream/30 line-through"
                           : selected
                             ? "border-ink bg-teal text-white shadow-brut"
-                            : "border-ink bg-white text-ink hover:-translate-y-0.5 hover:shadow-brut"
+                            : "border-ink bg-white text-cream hover:-translate-y-0.5 hover:shadow-brut"
                       }`}
                     >
                       {t}
@@ -1513,14 +1513,14 @@ function ReservationModal({
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-coral" />
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                     Party size
                   </span>
                 </div>
                 <div className="inline-flex items-center gap-2">
                   <button
                     onClick={() => setParty(Math.max(1, party - 1))}
-                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
                     aria-label="Decrease"
                   >
                     <Minus className="h-3.5 w-3.5" />
@@ -1530,7 +1530,7 @@ function ReservationModal({
                   </span>
                   <button
                     onClick={() => setParty(Math.min(20, party + 1))}
-                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
                     aria-label="Increase"
                   >
                     <Plus className="h-3.5 w-3.5" />
@@ -1541,14 +1541,14 @@ function ReservationModal({
 
             {/* Notes */}
             <div>
-              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                 Special requests (optional)
               </p>
               <textarea
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Allergies, seating preference, celebration…"
-                className="min-h-[80px] w-full rounded-2xl border-2 border-ink bg-white p-3 text-sm text-ink placeholder:text-ink/40 shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+                className="min-h-[80px] w-full rounded-2xl border-2 border-ink bg-white p-3 text-sm text-cream placeholder:text-cream/40 shadow-brut focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
               />
             </div>
 
@@ -1568,7 +1568,7 @@ function ReservationModal({
             </div>
             <div>
               <h3 className="font-display text-2xl font-extrabold tracking-tight">You're in!</h3>
-              <p className="mt-1 text-sm text-ink/70">
+              <p className="mt-1 text-sm text-cream/70">
                 {venue.name} · {dates[dateIdx]?.dow} {dates[dateIdx]?.day} {dates[dateIdx]?.mon} at{" "}
                 {time}
               </p>
@@ -1581,7 +1581,7 @@ function ReservationModal({
             </div>
             <button
               onClick={onClose}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-3.5 font-mono text-xs font-bold uppercase tracking-[0.18em] text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-3.5 font-mono text-xs font-bold uppercase tracking-[0.18em] text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
             >
               Done
             </button>
@@ -1678,7 +1678,7 @@ function GradientCTA({
       <button
         onClick={onClick}
         disabled={disabled}
-        className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-white shadow-brut-lg transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-1"
+        className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-white shadow-brut-lg transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         style={{
           backgroundImage: "linear-gradient(95deg, #F05537 0%, #E94584 45%, #7C3AED 100%)",
           backgroundSize: "180% 100%",

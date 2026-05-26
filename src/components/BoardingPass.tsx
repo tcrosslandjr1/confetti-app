@@ -238,7 +238,7 @@ export function BoardingPass({
 
   return (
     <article
-      className={`relative overflow-hidden rounded-3xl border-2 border-ink/20 bg-gradient-to-br ${theme.bg} ${theme.ink} shadow-pop`}
+      className={`relative overflow-hidden rounded-3xl border-2 border-cream/20 bg-gradient-to-br ${theme.bg} ${theme.ink} shadow-pop`}
       aria-label="Itinerary boarding pass"
     >
       {/* perforated edge */}
@@ -287,7 +287,7 @@ export function BoardingPass({
                 <>
                   <Button
                     size="sm"
-                    className="h-8 gap-1 bg-cream text-ink hover:bg-cream/90"
+                    className="h-8 gap-1 bg-cream text-cream hover:bg-cream/90"
                     onClick={save}
                     disabled={saving}
                   >
@@ -436,7 +436,7 @@ export function BoardingPass({
                 <Button
                   onClick={rebook}
                   disabled={rebooking}
-                  className="h-10 bg-cream text-ink hover:bg-cream/90"
+                  className="h-10 bg-cream text-cream hover:bg-cream/90"
                 >
                   {rebooking ? "Cloning…" : "Rebook"}
                 </Button>
@@ -447,7 +447,7 @@ export function BoardingPass({
 
         {/* Tear-off stub */}
         <div
-          className={`relative flex flex-col justify-between border-t-2 border-dashed border-cream/30 bg-gradient-to-br ${theme.stub} p-6 text-ink sm:border-l-2 sm:border-t-0`}
+          className={`relative flex flex-col justify-between border-t-2 border-dashed border-cream/30 bg-gradient-to-br ${theme.stub} p-6 text-cream sm:border-l-2 sm:border-t-0`}
         >
           <div>
             <div className="font-mono text-[10px] uppercase tracking-widest opacity-80">Gate</div>

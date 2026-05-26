@@ -59,23 +59,23 @@ export function WaitlistButton({
       <button
         type="button"
         onClick={() => setExpanded(!expanded)}
-        className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition hover:-translate-y-0.5"
+        className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition hover:-translate-y-0.5"
       >
         <Bell className="h-3.5 w-3.5" /> Notify me
       </button>
 
       {expanded && (
         <div className="absolute right-0 top-full z-10 mt-2 flex flex-col gap-3 rounded-xl border-2 border-ink bg-white p-4 shadow-brut">
-          <span className="font-display text-sm font-bold text-ink">
+          <span className="font-display text-sm font-bold text-cream">
             Join waitlist
           </span>
 
           <div>
-            <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+            <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
               Party size
             </label>
             <div className="flex items-center gap-2">
-              <Users className="h-3.5 w-3.5 text-ink/40" />
+              <Users className="h-3.5 w-3.5 text-cream/40" />
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <button
                   key={n}
@@ -84,7 +84,7 @@ export function WaitlistButton({
                   className={`grid h-7 w-7 place-items-center rounded-full font-mono text-[11px] font-bold transition ${
                     partySize === n
                       ? "bg-ink text-cream"
-                      : "border border-ink/15 text-ink/60 hover:border-ink/30"
+                      : "border border-cream/15 text-cream/60 hover:border-ink/30"
                   }`}
                 >
                   {n}
@@ -93,7 +93,7 @@ export function WaitlistButton({
               <button
                 type="button"
                 onClick={() => setPartySize(Math.min(partySize + 1, 20))}
-                className="grid h-7 w-7 place-items-center rounded-full border border-ink/15 font-mono text-[11px] font-bold text-ink/60 hover:border-ink/30"
+                className="grid h-7 w-7 place-items-center rounded-full border border-cream/15 font-mono text-[11px] font-bold text-cream/60 hover:border-ink/30"
               >
                 {partySize > 6 ? partySize : "7+"}
               </button>

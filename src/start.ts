@@ -19,7 +19,7 @@ const SECURITY_HEADERS: Record<string, string> = {
     // 'unsafe-inline' / 'unsafe-eval' are required by Vite SSR hydration +
     // some shadcn/Radix runtime helpers. Tighten with nonces in a future pass.
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://maps.googleapis.com",
-    "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com https://connector-gateway.lovable.dev https://ai.gateway.lovable.dev https://maps.googleapis.com https://places.googleapis.com",
+    "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com https://openrouter.ai https://api.resend.com https://maps.googleapis.com https://places.googleapis.com",
     "frame-src https://js.stripe.com https://hooks.stripe.com",
     "worker-src 'self' blob:",
     "manifest-src 'self'",

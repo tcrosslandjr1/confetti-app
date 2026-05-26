@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Confetti — Plan a night</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --cf-display: 'Bricolage Grotesque', 'Archivo Black', system-ui, sans-serif;
+    --cf-ui: 'Inter', system-ui, sans-serif;
+    --cf-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: var(--cf-ui);
+    -webkit-font-smoothing: antialiased;
+    background: #0a0a0a; color: #fff;
+    min-height: 100vh; overflow: hidden;
+  }
+
+  .cf-root {
+    --bg: #f8f0dd;
+    --paper: #fffaf0;
+    --ink: #130b0d;
+    --accent-1: #ff5b3d;
+    --accent-2: #f7c83b;
+    --accent-3: #5b45d9;
+    --accent-4: #2bb673;
+    height: 100%;
+    color: var(--ink);
+  }
+  .cf-root[data-palette="cool"] {
+    --bg: #e6eef3;
+    --paper: #f7fbfd;
+    --ink: #0c1820;
+    --accent-1: #00a896;
+    --accent-2: #ffd166;
+    --accent-3: #ef476f;
+    --accent-4: #4cc9f0;
+  }
+  .cf-root[data-palette="mono"] {
+    --bg: #eae8e0;
+    --paper: #ffffff;
+    --ink: #0a0a0a;
+    --accent-1: #0a0a0a;
+    --accent-2: #c8c5b9;
+    --accent-3: #6e6c63;
+    --accent-4: #999;
+  }
+  body[data-palette="warm"] { background: #2b1410; }
+  body[data-palette="cool"] { background: #0c1820; }
+  body[data-palette="mono"] { background: #1a1a1a; }
+
+  .cf-stage {
+    position: relative; width: 100vw; height: 100vh;
+    display: grid; place-items: center;
+    background-image:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.04), transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(255,255,255,0.03), transparent 50%);
+  }
+
+  @keyframes cf-float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50%     { transform: translateY(-18px) rotate(12deg); }
+  }
+  @keyframes cf-spin { to { transform: rotate(360deg); } }
+  @keyframes cf-pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%     { opacity: 0.4; transform: scale(0.7); }
+  }
+  @keyframes cf-print {
+    0%   { transform: translateY(-8px); }
+    50%, 90% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+  @keyframes cf-route {
+    0%, 12% { transform: translateY(-50%) scaleX(0); }
+    55%, 100% { transform: translateY(-50%) scaleX(1); }
+  }
+  @keyframes cf-pop {
+    0%   { opacity: 0; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes cf-slideup {
+    0%   { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+  }
+  @keyframes cf-slideup-text {
+    0%   { opacity: 0; transform: translateY(14px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes cf-bubble {
+    0%   { opacity: 0; transform: translateY(8px) scale(0.94); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes cf-vibe-pop {
+    0%   { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
+  }
+  @keyframes cf-typing {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30%           { opacity: 1;   transform: translateY(-3px); }
+  }
+  @keyframes cf-print-anim {
+    0%       { transform: translateY(-40px); }
+    40%, 90% { transform: translateY(0); }
+    100%     { transform: translateY(-40px); }
+  }
+  @keyframes cf-push-in {
+    0%   { opacity: 0; transform: translateY(-30px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0)     scale(1); }
+  }
+  @keyframes cf-fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes cf-screen-in {
+    0%   { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes cf-scan {
+    0%, 100% { top: 8px; }
+    50%      { top: calc(100% - 11px); }
+  }
+
+  .cf-screen *::-webkit-scrollbar { display: none; }
+  .cf-screen { animation: cf-screen-in 0.32s cubic-bezier(.2,.8,.2,1); }
+
+  .cf-nav {
+    position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+    z-index: 100; display: flex; gap: 4px;
+    padding: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-family: var(--cf-mono); font-size: 9px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.08em;
+    max-width: calc(100vw - 32px);
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .cf-nav::-webkit-scrollbar { display: none; }
+  .cf-nav button {
+    appearance: none; cursor: pointer;
+    background: transparent; border: none;
+    color: inherit; font: inherit;
+    padding: 5px 9px; border-radius: 999px;
+    text-transform: uppercase;
+    white-space: nowrap; font-weight: 700;
+  }
+  .cf-nav button[data-on="1"] { background: #fff; color: #111; }
+
+  button { font-family: var(--cf-ui); }
+  input, textarea, select { font-family: var(--cf-ui); }
+</style>
+</head>
+<body>
+  <div class="cf-stage" id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="social.jsx"></script>
+  <script type="text/babel" src="screens.jsx"></script>
+  <script type="text/babel" src="extras.jsx"></script>
+  <script type="text/babel" src="discover.jsx"></script>
+  <script type="text/babel" src="profile.jsx"></script>
+  <script type="text/babel" src="auth.jsx"></script>
+  <script type="text/babel" src="more.jsx"></script>
+  <script type="text/babel" src="family.jsx"></script>
+  <script type="text/babel" src="learn.jsx"></script>
+  <script type="text/babel" src="adult.jsx"></script>
+  <script type="text/babel" src="agents.jsx"></script>
+  <script type="text/babel" src="loyalty.jsx"></script>
+  <script type="text/babel" src="places.jsx"></script>
+  <script type="text/babel" src="auth-flow.jsx"></script>
+  <script type="text/babel" src="signals.jsx"></script>
+  <script type="text/babel" src="taste.jsx"></script>
+  <script type="text/babel" src="arrival.jsx"></script>
+  <script type="text/babel" src="confetti-cam.jsx"></script>
+  <script type="text/babel" src="crews.jsx"></script>
+  <script type="text/babel" src="venue-media.jsx"></script>
+  <script type="text/babel" src="stripe.jsx"></script>
+  <script type="text/babel" src="draft.jsx"></script>
+  <script type="text/babel" src="booking.jsx"></script>
+  <script type="text/babel" src="flipcard.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "palette": "warm",
+      "showNav": true,
+      "startScreen": "welcome",
+      "mode": "adults"
+    }/*EDITMODE-END*/;
+
+    const SCREENS = [
+      'welcome', 'signin', 'signup', 'referral',
+      'explainer', 'hub',
+      'chat', 'plan', 'family-plan',
+      'loader', 'pass', 'family-pass',
+      'night', 'finished',
+      'explore', 'reels', 'venue', 'crew-map',
+      'profile', 'wallet', 'settings',
+      'trips', 'qrcheckin', 'checkout-return',
+      'events', 'event-detail',
+      'about', 'privacy',
+      'influencer', 'for-business',
+      'all-access',
+      'learn-explore', 'command-center',
+      'phone-verify', 'email-verify',
+      'age-gate', 'parental-consent',
+      'forgot-pw', '2fa',
+      'locked', 'paywall',
+      'whats-hot',
+      'taste',
+      'confetti-cam',
+      'crews', 'night-together',
+      'stripe',
+    ];
+    const SCREEN_LABELS = SCREENS.reduce((acc, s, i) => {
+      acc[s] = String(i + 1).padStart(2, '0') + ' ' + s;
+      return acc;
+    }, {});
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      const [screen, setScreen] = useState(t.startScreen || 'welcome');
+      const [push, setPush] = useState(null);
+      const [activeVenue, setActiveVenue] = useState(null);
+      const [activeEvent, setActiveEvent] = useState(null);
+      const [activePortal, setActivePortal] = useState('park');
+      const [parkingOpen, setParkingOpen] = useState(false);
+      const [autoCheckinOpen, setAutoCheckinOpen] = useState(false);
+      const [reviseOpen, setReviseOpen] = useState(false);
+      const [addPlaceOpen, setAddPlaceOpen] = useState(false);
+      const [arrivalOpen, setArrivalOpen] = useState(false);
+      const [draft, setDraft] = useState([]);
+      const [draftOpen, setDraftOpen] = useState(false);
+      const [checkinReward, setCheckinReward] = useState(false);
+      const [planState, setPlanState] = useState({
+        city: 'Brooklyn, NY', when: 'Tonight',
+        vibes: ['foodie', 'chill'], budget: '$$', crew: 2, addons: ['walk'],
+      });
+
+      useEffect(() => {
+        document.body.setAttribute('data-palette', t.palette);
+      }, [t.palette]);
+
+      const go = (s) => setScreen(s);
+      const setMode = (m) => setTweak('mode', m);
+      const notify = (cfg) => setPush(cfg);
+      const dismissPush = () => setPush(null);
+
+      const [scale, setScale] = useState(1);
+      useEffect(() => {
+        const fit = () => {
+          const W = window.innerWidth, H = window.innerHeight;
+          const margin = 80;
+          const s = Math.min(1, (W - margin) / 402, (H - margin) / 874);
+          setScale(s);
+        };
+        fit();
+        window.addEventListener('resize', fit);
+        return () => window.removeEventListener('resize', fit);
+      }, []);
+
+      const dark = ['night', 'reels', 'explore', 'qrcheckin', 'crew-map',
+                    'influencer', 'wallet'].includes(screen);
+
+      const tabActive =
+        ['hub'].includes(screen) ? 'hub' :
+        ['plan', 'chat', 'family-plan'].includes(screen) ? 'plan' :
+        ['explore', 'events', 'event-detail'].includes(screen) ? 'feed' :
+        ['reels', 'crew-map'].includes(screen) ? 'crew' :
+        ['profile', 'trips', 'wallet', 'settings'].includes(screen) ? 'you' : 'hub';
+
+      const showTabBar = ['hub', 'explore', 'profile', 'trips'].includes(screen);
+
+      // Plan routing depends on mode
+      const planRoute = (t.mode === 'family' || t.mode === 'kids') ? 'family-plan' : 'plan';
+
+      return (
+        <div className="cf-root" data-palette={t.palette}
+             style={{ width: '100%', height: '100%',
+                      display: 'grid', placeItems: 'center' }}>
+          <div style={{ transform: `scale(${scale})`, transformOrigin: 'center center' }}>
+            <IOSDevice width={402} height={874} dark={dark}>
+              <div style={{ height: '100%', position: 'relative' }}
+                   data-screen-label={SCREEN_LABELS[screen]}>
+
+                {screen === 'welcome' && (
+                  <WelcomeScreen onStart={() => go('signup')} />
+                )}
+                {screen === 'signin' && (
+                  <SignInScreen
+                    onSignIn={() => go('hub')}
+                    onSignUp={() => go('signup')}
+                  />
+                )}
+                {screen === 'signup' && (
+                  <SignUpScreen
+                    onDone={() => go('explainer')}
+                    onSignIn={() => go('signin')}
+                  />
+                )}
+                {screen === 'referral' && (
+                  <ReferralScreen
+                    onSignUp={() => go('signup')}
+                    onBack={() => go('welcome')}
+                  />
+                )}
+                {screen === 'explainer' && (
+                  <ExplainerScreen onDone={() => go('hub')} />
+                )}
+                {screen === 'hub' && (
+                  <HubWithMode
+                    mode={t.mode}
+                    setMode={setMode}
+                    planState={planState}
+                    onGo={(target) => {
+                      if (target === 'chat') go('chat');
+                      else if (target === 'plan') go(planRoute);
+                      else if (target === 'loader') go('loader');
+                      else if (target === 'feed') go('reels');
+                      else if (target === 'night') go('night');
+                      else if (target === 'explore') go('explore');
+                      else if (target === 'profile') go('profile');
+                      else if (target === 'wallet') go('wallet');
+                      else if (target === 'crew-map') go('crew-map');
+                      else if (target === 'family-portal') go('family-plan');
+                      else if (target === 'all-access' || target === 'kids-upgrade') go('all-access');
+                      else go(target);
+                    }}
+                    onPickFamilyPortal={(p) => {
+                      setActivePortal(p.id);
+                      go('family-plan');
+                    }}
+                  />
+                )}
+                {screen === 'chat' && (
+                  <ChatScreen
+                    onPlan={() => go('loader')}
+                    onBack={() => go('hub')}
+                  />
+                )}
+                {screen === 'plan' && (
+                  <PlanScreen
+                    state={planState}
+                    setState={setPlanState}
+                    onPlan={(dir) => go(dir === 'back' ? 'hub' : 'loader')}
+                  />
+                )}
+                {screen === 'family-plan' && (
+                  <FamilyPlanScreen
+                    portalType={activePortal}
+                    mode={t.mode}
+                    onBack={() => go('hub')}
+                    onPlan={() => go('loader')}
+                  />
+                )}
+                {screen === 'loader' && (
+                  <LoaderScreen
+                    agentLeader={(t.mode === 'family' || t.mode === 'kids') ? 'family' : 'night'}
+                    onDone={() =>
+                      go(t.mode === 'family' || t.mode === 'kids' ? 'family-pass' : 'pass')
+                    }
+                  />
+                )}
+                {screen === 'pass' && (
+                  <PassScreen
+                    planState={planState}
+                    onStart={() => go('night')}
+                  />
+                )}
+                {screen === 'family-pass' && (
+                  <FamilyPassScreen
+                    portalType={activePortal}
+                    onBack={() => go('hub')}
+                    onStart={() => go('night')}
+                  />
+                )}
+                {screen === 'night' && (
+                  <NightOfScreen
+                    planState={planState}
+                    onRestart={() => go('finished')}
+                    onNotify={notify}
+                  />
+                )}
+                {screen === 'finished' && (
+                  <NightFinished onRestart={() => go('hub')} />
+                )}
+                {screen === 'explore' && (
+                  <ExploreScreen
+                    mode={t.mode}
+                    onBack={() => go('hub')}
+                    onVenue={(v) => { setActiveVenue(v); go('venue'); }}
+                    onAdd={(v) => { setDraft([...draft, v]); }}
+                  />
+                )}
+                {screen === 'reels' && (
+                  <ReelsScreen onBack={() => go('hub')} />
+                )}
+                {screen === 'venue' && (
+                  <VenueDetailScreen
+                    venue={activeVenue}
+                    onBack={() => go('explore')}
+                    onAdd={() => go('pass')}
+                  />
+                )}
+                {screen === 'crew-map' && (
+                  <CrewMapScreen onBack={() => go('hub')} />
+                )}
+                {screen === 'profile' && (
+                  <ProfileScreen
+                    onBack={() => go('hub')}
+                    onOpenWallet={() => go('wallet')}
+                  />
+                )}
+                {screen === 'wallet' && (
+                  <WalletPassScreen onBack={() => go('profile')} />
+                )}
+                {screen === 'settings' && (
+                  <SettingsScreen onBack={() => go('profile')} />
+                )}
+                {screen === 'trips' && (
+                  <TripsListScreen
+                    onBack={() => go('hub')}
+                    onOpen={() => go('pass')}
+                  />
+                )}
+                {screen === 'qrcheckin' && (
+                  <QRCheckInScreen
+                    onBack={() => go('night')}
+                    onScanned={() => { setCheckinReward(true); }}
+                  />
+                )}
+                {screen === 'checkout-return' && (
+                  <CheckoutReturnScreen
+                    onContinue={() => go('wallet')}
+                    onBack={() => go('pass')}
+                  />
+                )}
+                {screen === 'events' && (
+                  <EventsListScreen
+                    onBack={() => go('hub')}
+                    onOpen={(e) => { setActiveEvent(e); go('event-detail'); }}
+                  />
+                )}
+                {screen === 'event-detail' && (
+                  <EventDetailScreen
+                    event={activeEvent}
+                    onBack={() => go('events')}
+                    onAdd={() => go('chat')}
+                  />
+                )}
+                {screen === 'about' && (
+                  <AboutScreen onBack={() => go('hub')} />
+                )}
+                {screen === 'privacy' && (
+                  <PrivacyScreen onBack={() => go('settings')} />
+                )}
+                {screen === 'influencer' && (
+                  <InfluencerScreen
+                    onBack={() => go('hub')}
+                    onApply={() => go('signup')}
+                  />
+                )}
+                {screen === 'for-business' && (
+                  <ForBusinessScreen
+                    onBack={() => go('hub')}
+                    onSignUp={() => window.open('business.html', '_blank')}
+                  />
+                )}
+                {screen === 'all-access' && (
+                  <KidsPassUpgradeScreen
+                    onBack={() => go('hub')}
+                    onSubscribe={() => go('checkout-return')}
+                  />
+                )}
+                {screen === 'learn-explore' && (
+                  <LearnExploreScreen
+                    onBack={() => go('hub')}
+                    onPickPortal={(p) => { setActivePortal(p.id); go('family-plan'); }}
+                    onOpenLibrary={() => go('venue')}
+                    onOpenVenue={() => go('venue')}
+                  />
+                )}
+                {screen === 'command-center' && (
+                  <CommandCenterScreen onBack={() => go('hub')} />
+                )}
+                {screen === 'phone-verify' && (
+                  <PhoneVerifyScreen
+                    onVerified={() => go('age-gate')}
+                    onBack={() => go('signin')} />
+                )}
+                {screen === 'email-verify' && (
+                  <EmailVerifyScreen
+                    onContinue={() => go('hub')}
+                    onBack={() => go('signin')} />
+                )}
+                {screen === 'age-gate' && (
+                  <AgeGateScreen
+                    onAdult={() => go('paywall')}
+                    onUnder13={() => go('parental-consent')}
+                    onBack={() => go('signup')} />
+                )}
+                {screen === 'parental-consent' && (
+                  <ParentalConsentScreen
+                    onSent={() => go('hub')}
+                    onBack={() => go('age-gate')} />
+                )}
+                {screen === 'forgot-pw' && (
+                  <ForgotPwScreen
+                    onSent={() => go('email-verify')}
+                    onBack={() => go('signin')} />
+                )}
+                {screen === '2fa' && (
+                  <TwoFactorScreen
+                    onEnabled={() => go('settings')}
+                    onBack={() => go('settings')} />
+                )}
+                {screen === 'locked' && (
+                  <AccountLockedScreen
+                    onRecover={() => go('forgot-pw')}
+                    onContactSupport={() => go('signin')} />
+                )}
+                {screen === 'paywall' && (
+                  <PaywallGateScreen
+                    onFree={() => go('explainer')}
+                    onPaid={() => go('stripe')}
+                    onBack={() => go('signup')} />
+                )}
+                {screen === 'whats-hot' && (
+                  <WhatsHotScreen
+                    onBack={() => go('hub')}
+                    onAddToPlan={() => go('chat')} />
+                )}
+                {screen === 'taste' && (
+                  <TasteProfileScreen onBack={() => go('profile')} />
+                )}
+                {screen === 'confetti-cam' && (
+                  <ConfettiCamScreen
+                    onBack={() => go('night')}
+                    onPosted={() => go('finished')} />
+                )}
+                {screen === 'crews' && (
+                  <CrewsScreen
+                    onBack={() => go('hub')}
+                    onOpenNightTogether={() => go('night-together')}
+                    onOpenCrew={() => go('night-together')} />
+                )}
+                {screen === 'night-together' && (
+                  <NightTogetherScreen
+                    onBack={() => go('crews')}
+                    onPrint={() => go('loader')} />
+                )}
+                {screen === 'stripe' && (
+                  <StripeCheckoutScreen
+                    plan="yearly"
+                    onBack={() => go('all-access')}
+                    onSuccess={() => go('hub')} />
+                )}
+
+                {showTabBar && (
+                  <TabBar
+                    active={tabActive}
+                    dark={dark}
+                    onChange={(id) => {
+                      if (id === 'hub') go('hub');
+                      if (id === 'plan') go(planRoute);
+                      if (id === 'feed') go('explore');
+                      if (id === 'crew') go('crews');
+                      if (id === 'you') go('profile');
+                    }}
+                  />
+                )}
+
+                {/* Sheets / Overlays */}
+                <ParkingSheet
+                  open={parkingOpen}
+                  venueName="Lupa Notte"
+                  onClose={() => setParkingOpen(false)}
+                />
+                <ReviseSheet
+                  open={reviseOpen}
+                  planSummary={null}
+                  onClose={() => setReviseOpen(false)}
+                  onRevised={() => setReviseOpen(false)}
+                />
+                <AddPlaceSheet
+                  open={addPlaceOpen}
+                  onClose={() => setAddPlaceOpen(false)}
+                  onPick={(p) => { setActiveVenue(p); go('venue'); }}
+                />
+                <ArrivalSheet
+                  open={arrivalOpen}
+                  stop={{ name: 'Lupa Notte' }}
+                  onClose={() => setArrivalOpen(false)}
+                  onConfirm={() => { setArrivalOpen(false); go('night'); }}
+                />
+                <DraftTraySheet
+                  open={draftOpen}
+                  stops={draft}
+                  onClose={() => setDraftOpen(false)}
+                  onRemove={(i) => setDraft(draft.filter((_, j) => j !== i))}
+                  onClear={() => { setDraft([]); setDraftOpen(false); }}
+                  onFillWithClaude={() => { setDraftOpen(false); go('loader'); }}
+                />
+                {['hub', 'explore', 'reels', 'events', 'whats-hot'].includes(screen) && (
+                  <DraftTrayPill stops={draft} onOpen={() => setDraftOpen(true)} />
+                )}
+                {/* Floating Add-a-place pill on Explore/Hub */}
+                {['hub', 'explore', 'trips'].includes(screen) && (
+                  <button onClick={() => setAddPlaceOpen(true)} style={{
+                    position: 'absolute', right: 16, bottom: showTabBar ? 78 : 90, zIndex: 25,
+                    appearance: 'none', cursor: 'pointer',
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                    padding: '8px 14px',
+                    border: '2.5px solid var(--ink)', borderRadius: 999,
+                    background: 'var(--paper)', color: 'var(--ink)',
+                    fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 900,
+                    boxShadow: '3px 3px 0 var(--ink)',
+                  }}>
+                    ➕ add a place
+                  </button>
+                )}
+                {/* Floating Revise pill on pass-like screens */}
+                {['pass', 'family-pass', 'night', 'finished'].includes(screen) && (
+                  <button onClick={() => setReviseOpen(true)} style={{
+                    position: 'absolute', left: 16, bottom: 24, zIndex: 25,
+                    appearance: 'none', cursor: 'pointer',
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                    padding: '8px 14px',
+                    border: '2.5px solid var(--ink)', borderRadius: 999,
+                    background: 'var(--accent-1)', color: 'var(--ink)',
+                    fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 900,
+                    boxShadow: '3px 3px 0 var(--ink)',
+                  }}>
+                    <span style={{ color: 'var(--ink)' }}>✣</span> revise with claude
+                  </button>
+                )}
+                <AutoCheckInPrompt
+                  open={autoCheckinOpen}
+                  stop={{ name: 'Lupa Notte' }}
+                  distance={0.4}
+                  onCheckIn={() => { setAutoCheckinOpen(false); go('night'); }}
+                  onCancel={() => setAutoCheckinOpen(false)}
+                  onDisable={() => setAutoCheckinOpen(false)}
+                />
+
+                <PushNotification
+                  open={!!push}
+                  title={push?.title}
+                  body={push?.body}
+                  kind={push?.kind}
+                  onAccept={() => { push?.onAccept?.(); dismissPush(); }}
+                  onDismiss={dismissPush}
+                />
+                {typeof CheckinReward !== 'undefined' && (
+                  <CheckinReward
+                    open={checkinReward}
+                    points={125}
+                    billOff={4}
+                    onClose={() => { setCheckinReward(false); go('night'); }}
+                  />
+                )}
+              </div>
+            </IOSDevice>
+          </div>
+
+          {t.showNav && (
+            <nav className="cf-nav" aria-label="screen nav">
+              {SCREENS.map(s => (
+                <button key={s} data-on={screen === s ? '1' : '0'}
+                        onClick={() => go(s)}>{s}</button>
+              ))}
+            </nav>
+          )}
+
+          <TweaksPanel>
+            <TweakSection label="Mode" />
+            <TweakRadio
+              label="Audience"
+              value={t.mode}
+              options={['adults', 'family', 'kids', 'all']}
+              onChange={v => setTweak('mode', v)}
+            />
+
+            <TweakSection label="Palette" />
+            <TweakColor
+              label="Theme"
+              value={
+                t.palette === 'warm' ? ['#ff5b3d', '#f7c83b', '#5b45d9', '#f8f0dd'] :
+                t.palette === 'cool' ? ['#00a896', '#ffd166', '#ef476f', '#e6eef3'] :
+                                       ['#0a0a0a', '#c8c5b9', '#6e6c63', '#eae8e0']
+              }
+              options={[
+                ['#ff5b3d', '#f7c83b', '#5b45d9', '#f8f0dd'],
+                ['#00a896', '#ffd166', '#ef476f', '#e6eef3'],
+                ['#0a0a0a', '#c8c5b9', '#6e6c63', '#eae8e0'],
+              ]}
+              onChange={(arr) => {
+                const map = { '#ff5b3d': 'warm', '#00a896': 'cool', '#0a0a0a': 'mono' };
+                setTweak('palette', map[arr[0]] || 'warm');
+              }}
+            />
+
+            <TweakSection label="Demo controls" />
+            <TweakSelect
+              label="Jump to"
+              value={screen}
+              options={SCREENS}
+              onChange={v => go(v)}
+            />
+            <TweakToggle
+              label="Show screen nav"
+              value={t.showNav}
+              onChange={v => setTweak('showNav', v)}
+            />
+            <TweakButton label="Open parking sheet" secondary
+              onClick={() => setParkingOpen(true)} />
+            <TweakButton label="Open revise sheet (Claude)" secondary
+              onClick={() => setReviseOpen(true)} />
+            <TweakButton label="Add fake stop to draft" secondary
+              onClick={() => setDraft([...draft, {
+                name: ['Skinny Pete\'s', 'Lupa Notte', 'Quartz Room'][draft.length % 3],
+                tag: ['dive bar', 'italian', 'live show'][draft.length % 3],
+                color: ['var(--accent-2)', 'var(--accent-1)', 'var(--accent-3)'][draft.length % 3],
+                cost: ['$14', '$52', '$26'][draft.length % 3],
+              }])} />
+            <TweakButton label="Open add-a-place search" secondary
+              onClick={() => setAddPlaceOpen(true)} />
+            <TweakButton label="Open 1-mi arrival sheet" secondary
+              onClick={() => setArrivalOpen(true)} />
+            <TweakButton label="Trigger auto check-in" secondary
+              onClick={() => setAutoCheckinOpen(true)} />
+            <TweakButton label="Fire check-in push" secondary
+              onClick={() => notify({
+                kind: 'check-in',
+                title: "You're at Lupa Notte",
+                body: 'Tap to drop a photo + caption — crew sees it live.',
+                onAccept: () => go('night'),
+              })} />
+            <TweakButton label="Fire crew ping" secondary
+              onClick={() => notify({
+                kind: 'crew-ping',
+                title: '@maya is at Westlight rooftop',
+                body: '2 stops from your route. View her live pass?',
+              })} />
+            <TweakButton label="Fire 'on my way' push" secondary
+              onClick={() => notify({
+                kind: 'omw',
+                title: 'Devon is OMW',
+                body: '6 min out via L train. Share your ETA back.',
+                onAccept: () => go('night'),
+              })} />
+
+            <TweakSection label="Companion screens" />
+            <TweakButton label="Admin · Trend Radar + console" secondary
+              onClick={() => window.open('admin.html', '_blank')} />
+            <TweakButton label="Business · Vendor dashboard" secondary
+              onClick={() => window.open('business.html', '_blank')} />
+            <TweakButton label="Corporate · Team outings" secondary
+              onClick={() => window.open('corporate.html', '_blank')} />
+            <TweakButton label="Corporate · Create account + Google Cal" secondary
+              onClick={() => window.open('corporate-signup.html', '_blank')} />
+            <TweakButton label="For Corporate · B2B landing" secondary
+              onClick={() => window.open('forcorporate.html', '_blank')} />
+            <TweakButton label="Investor kit" secondary
+              onClick={() => window.open('investors.html', '_blank')} />
+            <TweakButton label="Ops · Support + Mod + Analytics" secondary
+              onClick={() => window.open('ops.html', '_blank')} />
+            <TweakButton label="Public · Shareable trip passport" secondary
+              onClick={() => window.open('passport.html', '_blank')} />
+            <TweakButton label="Reset flow"
+              onClick={() => { go('welcome'); dismissPush(); }} />
+          </TweaksPanel>
+        </div>
+      );
+    }
+
+    // ── Hub w/ mode awareness ─────────────────────────────────────
+    function HubWithMode({ mode, setMode, planState, onGo, onPickFamilyPortal }) {
+      const familyish = mode === 'family' || mode === 'kids';
+
+      return (
+        <div className="cf-screen" style={{
+          position: 'relative', height: '100%',
+          background: 'var(--bg)',
+          display: 'flex', flexDirection: 'column',
+          padding: '56px 22px 76px',
+          overflow: 'hidden',
+        }}>
+          <DotsBg opacity={0.06} />
+
+          <div style={{
+            position: 'relative', zIndex: 2,
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            marginBottom: 12,
+          }}>
+            <BrandMark size={18} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <PointsPill onClick={() => onGo('profile')} />
+              <button onClick={() => onGo('profile')} style={{
+                appearance: 'none', cursor: 'pointer',
+                width: 38, height: 38, borderRadius: 999,
+                border: '2.5px solid var(--ink)', background: 'var(--accent-2)',
+                fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 14,
+                color: 'var(--ink)', boxShadow: '3px 3px 0 var(--ink)',
+              }}>JS</button>
+            </div>
+          </div>
+
+          {/* Mode pill */}
+          <div style={{
+            position: 'relative', zIndex: 2,
+            marginBottom: 14,
+          }}>
+            <ModePill value={mode} onChange={setMode} />
+          </div>
+
+          <div style={{
+            position: 'relative', zIndex: 2,
+            flex: 1, overflowY: 'auto', overflowX: 'hidden',
+            marginRight: -22, paddingRight: 22, scrollbarWidth: 'none',
+          }}>
+            <h2 style={{
+              fontFamily: 'var(--cf-display)', fontWeight: 900,
+              fontSize: 36, lineHeight: 0.95, letterSpacing: '-0.04em',
+              color: 'var(--ink)', margin: '0 0 4px',
+            }}>{familyish ? "Hey, Jess + family." : "Hey, Jess."}</h2>
+            <p style={{
+              fontFamily: 'var(--cf-ui)', fontSize: 13, fontWeight: 600,
+              color: 'var(--ink)', opacity: 0.6, margin: '0 0 18px',
+            }}>{familyish
+              ? "Mia napped well. Want to print a sunny afternoon?"
+              : "Saturday's wide open. Print one?"}</p>
+
+          {/* Family banner */}
+          <FamilyBanner mode={mode} onUpgrade={() => onGo('all-access')} onGo={onGo} />
+
+          {/* Adult Life Mode hub */}
+          {mode === 'adults' && (
+            <AdultLifeHubSections
+              onPickPortal={(p) => onGo('chat')}
+              onOpenCommand={() => onGo('command-center')}
+            />
+          )}
+
+            {/* Big planner CTA */}
+            {!familyish && (
+              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 10, marginBottom: 18 }}>
+                <button onClick={() => onGo('chat')} style={{
+                  appearance: 'none', cursor: 'pointer', textAlign: 'left',
+                  padding: '16px 14px',
+                  border: '3px solid var(--ink)', borderRadius: 18,
+                  background: 'var(--accent-1)', color: 'var(--ink)',
+                  boxShadow: '5px 5px 0 var(--ink)',
+                  display: 'flex', flexDirection: 'column', gap: 6, minHeight: 130,
+                }}>
+                  <span style={{
+                    fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800,
+                    letterSpacing: '.14em', opacity: 0.7,
+                  }}>NEW · BETA</span>
+                  <span style={{
+                    fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 22,
+                    letterSpacing: '-0.03em', lineHeight: 0.95,
+                  }}>chat with<br/>confetti</span>
+                  <span style={{
+                    fontFamily: 'var(--cf-ui)', fontSize: 11, fontWeight: 700,
+                    opacity: 0.75, marginTop: 'auto',
+                  }}>talk it out, get a pass</span>
+                </button>
+                <button onClick={() => onGo('plan')} style={{
+                  appearance: 'none', cursor: 'pointer', textAlign: 'left',
+                  padding: '16px 14px',
+                  border: '3px solid var(--ink)', borderRadius: 18,
+                  background: 'var(--paper)', color: 'var(--ink)',
+                  boxShadow: '5px 5px 0 var(--ink)',
+                  display: 'flex', flexDirection: 'column', gap: 6, minHeight: 130,
+                }}>
+                  <span style={{
+                    fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800,
+                    letterSpacing: '.14em', opacity: 0.55,
+                  }}>CLASSIC</span>
+                  <span style={{
+                    fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 22,
+                    letterSpacing: '-0.03em', lineHeight: 0.95,
+                  }}>vibe<br/>form</span>
+                  <span style={{
+                    fontFamily: 'var(--cf-ui)', fontSize: 11, fontWeight: 700,
+                    opacity: 0.55, marginTop: 'auto',
+                  }}>chips + sliders</span>
+                </button>
+              </div>
+            )}
+
+            {/* Tonight pass (only for adults) */}
+            {!familyish && (
+              <>
+                <SectionLabel>tonight</SectionLabel>
+                <button onClick={() => onGo('night')} style={{
+                  appearance: 'none', cursor: 'pointer', textAlign: 'left', width: '100%',
+                  padding: 0, border: 'none', background: 'transparent', marginBottom: 18,
+                }}>
+                  <Ticket color="var(--paper)" notch={false} style={{ padding: 14 }}>
+                    <div style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      marginBottom: 8,
+                    }}>
+                      <span style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 6,
+                        padding: '4px 8px', background: 'var(--accent-1)',
+                        border: '2px solid var(--ink)', borderRadius: 999,
+                        fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800,
+                        letterSpacing: '.14em',
+                      }}>
+                        <span style={{
+                          width: 5, height: 5, borderRadius: 999, background: 'var(--ink)',
+                          animation: 'cf-pulse 1.2s infinite',
+                        }} />
+                        IN PROGRESS · STOP 2/3
+                      </span>
+                      <span style={{
+                        fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800,
+                        opacity: 0.55, letterSpacing: '.12em',
+                      }}>#A7K2</span>
+                    </div>
+                    <div style={{
+                      fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 22,
+                      letterSpacing: '-0.03em', lineHeight: 1,
+                    }}>Lupa Notte</div>
+                    <div style={{
+                      fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 700,
+                      opacity: 0.6, marginTop: 3,
+                    }}>8:30 PM · italian · 88 N 6th St</div>
+                    <div style={{ marginTop: 10 }}>
+                      <RouteDots progress={0.5} size={14} />
+                    </div>
+                  </Ticket>
+                </button>
+              </>
+            )}
+
+            {/* Portals */}
+            {familyish ? (
+              <>
+                {/* Learn & Explore entry */}
+                <button onClick={() => onGo('learn-explore')} style={{
+                  appearance: 'none', cursor: 'pointer', textAlign: 'left', width: '100%',
+                  padding: 14, marginBottom: 14,
+                  border: '3px solid var(--ink)', borderRadius: 16,
+                  background: 'var(--accent-2)', color: 'var(--ink)',
+                  boxShadow: '5px 5px 0 var(--ink)',
+                  display: 'flex', alignItems: 'center', gap: 12,
+                }}>
+                  <span style={{
+                    fontSize: 28, width: 50, height: 50, borderRadius: 12,
+                    background: 'var(--paper)', border: '2.5px solid var(--ink)',
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  }}>📚</span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{
+                      fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800,
+                      letterSpacing: '.16em', opacity: 0.7,
+                    }}>NEW</div>
+                    <div style={{
+                      fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 20,
+                      letterSpacing: '-0.03em', lineHeight: 1, marginTop: 2,
+                    }}>Learn &amp; Explore</div>
+                    <div style={{
+                      fontFamily: 'var(--cf-ui)', fontSize: 11, fontWeight: 700,
+                      opacity: 0.75, marginTop: 3,
+                    }}>library days, STEM, museums, classes</div>
+                  </div>
+                  <span style={{ fontSize: 20, fontWeight: 900 }}>›</span>
+                </button>
+                <SectionLabel>family portals</SectionLabel>
+                <FamilyPortals onPick={onPickFamilyPortal} />
+              </>
+            ) : mode === 'all' ? (
+              <>
+                <SectionLabel>portals · all ages</SectionLabel>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, marginBottom: 18 }}>
+                  <Portal icon="🌳" label="park day" sub="all ages" onClick={() => onGo('family-portal')} />
+                  <Portal icon="🍷" label="adults night" sub="21+" onClick={() => onGo('plan')} />
+                  <Portal icon="🎪" label="event" sub="3 tonight" onClick={() => onGo('events')} />
+                  <Portal icon="📍" label="crew map" sub="3 live" onClick={() => onGo('crew-map')} />
+                  <Portal icon="🗺" label="explore" sub="nearby" onClick={() => onGo('explore')} />
+                  <Portal icon="🎂" label="birthday" sub="kids · 4y" onClick={() => onGo('family-portal')} />
+                </div>
+              </>
+            ) : mode === 'adults' ? null : (
+              <>
+                <SectionLabel>portals</SectionLabel>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, marginBottom: 18 }}>
+                  <Portal icon="🗺" label="explore" sub="venues nearby" onClick={() => onGo('explore')} />
+                  <Portal icon="🎬" label="crew reels" sub="3 new" onClick={() => onGo('feed')} />
+                  <Portal icon="📍" label="crew map" sub="3 live now" onClick={() => onGo('crew-map')} />
+                  <Portal icon="📅" label="this week" sub="3 ideas" onClick={() => onGo('plan')} />
+                  <Portal icon="💳" label="wallet" sub="1 active" onClick={() => onGo('wallet')} />
+                  <Portal icon="🎲" label="surprise me" sub="full random" onClick={() => onGo('loader')} />
+                </div>
+              </>
+            )}
+
+            {/* Events strip */}
+            <SectionLabel>events this week</SectionLabel>
+            <button onClick={() => onGo('events')} style={{
+              appearance: 'none', cursor: 'pointer', width: '100%', textAlign: 'left',
+              padding: 0, border: 'none', background: 'transparent', marginBottom: 18,
+            }}>
+              <div style={{
+                padding: '12px 14px',
+                border: '2.5px solid var(--ink)', borderRadius: 12,
+                background: 'var(--accent-2)',
+                boxShadow: '3px 3px 0 var(--ink)',
+                display: 'flex', alignItems: 'center', gap: 10,
+              }}>
+                <span style={{ fontSize: 22 }}>🎟</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{
+                    fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 15,
+                    letterSpacing: '-0.02em',
+                  }}>5 events tonight</div>
+                  <div style={{
+                    fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 700,
+                    opacity: 0.65, marginTop: 1, letterSpacing: '.08em',
+                  }}>PEARL CHARLES · WONG-KAR WAI · 3 MORE</div>
+                </div>
+                <span style={{ opacity: 0.5, fontSize: 18, fontWeight: 900 }}>›</span>
+              </div>
+            </button>
+
+            {/* Scrapbook strip */}
+            <SectionLabel>your scrapbook · 18 nights</SectionLabel>
+            <div style={{
+              display: 'flex', gap: 10, overflowX: 'auto', scrollbarWidth: 'none',
+              marginRight: -22, paddingRight: 22, marginBottom: 18,
+            }}>
+              {[
+                { date: 'fri may 16', n: 'Bushwick crawl', cost: '$48', color: 'var(--accent-2)' },
+                { date: 'sat may 10', n: 'Date night LES', cost: '$92', color: 'var(--accent-1)' },
+                { date: 'thu may 1', n: 'Solo culture',   cost: '$26', color: 'var(--accent-3)' },
+                { date: 'fri apr 25', n: 'Weird brunch',   cost: '$54', color: 'var(--accent-2)' },
+              ].map((p, i) => (
+                <button key={i} onClick={() => onGo('trips')} style={{
+                  appearance: 'none', cursor: 'pointer', textAlign: 'left',
+                  flexShrink: 0, width: 130,
+                  border: '2.5px solid var(--ink)', borderRadius: 12,
+                  background: p.color, padding: 10,
+                  boxShadow: '3px 3px 0 var(--ink)',
+                  transform: `rotate(${[-2, 1, -1, 2][i]}deg)`,
+                  color: 'var(--ink)',
+                }}>
+                  <div style={{
+                    fontFamily: 'var(--cf-mono)', fontSize: 8, fontWeight: 800,
+                    letterSpacing: '.14em', opacity: 0.6,
+                  }}>{p.date.toUpperCase()}</div>
+                  <div style={{
+                    fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 15,
+                    letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.05,
+                  }}>{p.n}</div>
+                  <div style={{
+                    fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800,
+                    opacity: 0.7, marginTop: 6,
+                  }}>{p.cost} · 3 stops</div>
+                </button>
+              ))}
+            </div>
+
+            {/* Bottom links */}
+            <SectionLabel>more</SectionLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+              <MiniLink icon="✣" label="all-access · $9.99/mo" onClick={() => onGo('all-access')} />
+              <MiniLink icon="ℹ" label="about" onClick={() => onGo('about')} />
+              <MiniLink icon="⚙" label="settings" onClick={() => onGo('settings')} />
+              <MiniLink icon="🏪" label="for venues" onClick={() => onGo('for-business')} />
+              <MiniLink icon="✨" label="be a promoter" onClick={() => onGo('influencer')} />
+            </div>
+
+            <div style={{ height: 8 }} />
+          </div>
+        </div>
+      );
+    }
+
+    function MiniLink({ icon, label, onClick }) {
+      return (
+        <button onClick={onClick} style={{
+          appearance: 'none', cursor: 'pointer', textAlign: 'left',
+          padding: '10px 12px',
+          border: '2px solid var(--ink)', borderRadius: 10,
+          background: 'var(--paper)', color: 'var(--ink)',
+          display: 'flex', alignItems: 'center', gap: 8,
+          fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 800,
+        }}>
+          <span style={{ fontSize: 14 }}>{icon}</span>
+          {label}
+        </button>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

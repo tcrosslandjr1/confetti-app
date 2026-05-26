@@ -1,4 +1,4 @@
-// Confetti auth middleware — hardcoded fallbacks prevent Lovable .env overwrites
+// Confetti auth middleware — hardcoded fallbacks prevent stale .env overwrites
 import { createMiddleware } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
 import { createClient } from "@supabase/supabase-js";

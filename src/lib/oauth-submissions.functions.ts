@@ -9,7 +9,7 @@ import { OAUTH_PROVIDERS, type CustomOAuthProvider } from "./oauth-providers";
  * Lets a signed-in user submit the client_id / client_secret for their
  * own TikTok or Instagram developer app. Submissions land in
  * oauth_credential_submissions with status='pending' for an admin to
- * review and promote into Lovable Cloud secrets.
+ * review and promote into environment variables.
  *
  * RLS guarantees the user can only read their own rows, so we just rely
  * on the user-scoped supabase client from the middleware.
@@ -32,7 +32,7 @@ export const submitProviderCredentials = createServerFn({ method: "POST" })
     const spec = OAUTH_PROVIDERS[provider];
     // Build the canonical callback URL based on the request origin so
     // reviewers know exactly what to whitelist in the developer portal.
-    const origin = process.env.SITE_URL ?? "https://confettiplan.lovable.app";
+    const origin = process.env.SITE_URL ?? "https://confettiplan.com";
     const callbackUrl = `${origin.replace(/\/$/, "")}${spec.callbackPath}`;
 
     const { error } = await context.supabase.from("oauth_credential_submissions").insert({

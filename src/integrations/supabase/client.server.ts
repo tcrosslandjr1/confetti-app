@@ -1,4 +1,4 @@
-// Confetti server-side Supabase client — hardcoded URL fallback prevents Lovable .env overwrites
+// Confetti server-side Supabase client — hardcoded URL fallback prevents stale .env overwrites
 // Uses service role key (bypasses RLS). For admin operations in server functions only.
 // For user-authenticated queries (with RLS), use the auth middleware instead.
 import { createClient } from "@supabase/supabase-js";
@@ -22,7 +22,7 @@ function createSupabaseAdminClient() {
   SUPABASE_URL = SUPABASE_URL || CONFETTI_SUPABASE_URL;
 
   if (!SUPABASE_SERVICE_ROLE_KEY) {
-    const message = `Missing SUPABASE_SERVICE_ROLE_KEY. Connect Supabase in Lovable Cloud.`;
+    const message = `Missing SUPABASE_SERVICE_ROLE_KEY. Set it in your Vercel environment variables.`;
     console.error(`[Supabase Admin] ${message}`);
     throw new Error(message);
   }

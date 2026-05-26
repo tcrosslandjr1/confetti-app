@@ -172,10 +172,10 @@ export function WhyThisPick({
   return (
     <div
       ref={rootRef}
-      className={`rounded-xl border border-dashed border-ink/20 bg-background/60 px-2.5 py-2 ${className}`}
+      className={`rounded-xl border border-dashed border-cream/20 bg-background/60 px-2.5 py-2 ${className}`}
       aria-label="Why this pick"
     >
-      <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+      <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
         <Info className="h-3 w-3" /> Why this pick
       </div>
       {trimmed.length > 0 && (
@@ -198,7 +198,7 @@ export function WhyThisPick({
         <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{rationale}</p>
       )}
       {pickId && (
-        <div className="mt-1.5 flex items-center justify-between gap-2 border-t border-ink/10 pt-1.5">
+        <div className="mt-1.5 flex items-center justify-between gap-2 border-t border-cream/10 pt-1.5">
           <span className="text-[10px] text-muted-foreground">Was this helpful?</span>
           <div className="flex items-center gap-1">
             <button
@@ -214,7 +214,7 @@ export function WhyThisPick({
               className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition ${
                 vote === "up"
                   ? "border-emerald-500/50 bg-emerald-500/15 text-emerald-700"
-                  : "border-ink/15 text-ink/60 hover:border-ink/30 hover:text-ink"
+                  : "border-cream/15 text-cream/60 hover:border-ink/30 hover:text-cream"
               }`}
             >
               <ThumbsUp className="h-3 w-3" />
@@ -232,7 +232,7 @@ export function WhyThisPick({
               className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition ${
                 vote === "down"
                   ? "border-rose-500/50 bg-rose-500/15 text-rose-700"
-                  : "border-ink/15 text-ink/60 hover:border-ink/30 hover:text-ink"
+                  : "border-cream/15 text-cream/60 hover:border-ink/30 hover:text-cream"
               }`}
             >
               <ThumbsDown className="h-3 w-3" />

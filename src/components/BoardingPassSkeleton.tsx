@@ -9,7 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export function BoardingPassSkeleton() {
   return (
     <article
-      className="relative overflow-hidden rounded-3xl border-2 border-ink/20 bg-gradient-to-br from-stone-900 via-stone-800 to-zinc-900 text-cream shadow-pop"
+      className="relative overflow-hidden rounded-3xl border-2 border-cream/20 bg-gradient-to-br from-stone-900 via-stone-800 to-zinc-900 text-cream shadow-pop"
       aria-label="Loading itinerary"
     >
       {/* perforated edge */}
@@ -73,18 +73,18 @@ export function BoardingPassSkeleton() {
         </div>
 
         {/* Tear-off stub */}
-        <div className="relative flex flex-col justify-between border-t-2 border-dashed border-cream/30 bg-gradient-to-br from-amber-400 to-yellow-500 p-6 text-ink sm:border-l-2 sm:border-t-0">
+        <div className="relative flex flex-col justify-between border-t-2 border-dashed border-cream/30 bg-gradient-to-br from-amber-400 to-yellow-500 p-6 text-cream sm:border-l-2 sm:border-t-0">
           <div>
             <div className="font-mono text-[10px] uppercase tracking-widest opacity-80">Gate</div>
-            <Skeleton className="mt-1 h-12 w-16 rounded bg-ink/10" />
+            <Skeleton className="mt-1 h-12 w-16 rounded bg-cream/10" />
           </div>
           <div className="mt-6">
             <div className="font-mono text-[10px] uppercase tracking-widest opacity-80">Flight</div>
-            <Skeleton className="mt-1 h-7 w-20 rounded bg-ink/10" />
+            <Skeleton className="mt-1 h-7 w-20 rounded bg-cream/10" />
           </div>
           <div className="mt-6">
             <div className="font-mono text-[10px] uppercase tracking-widest opacity-80">Seat</div>
-            <Skeleton className="mt-1 h-7 w-12 rounded bg-ink/10" />
+            <Skeleton className="mt-1 h-7 w-12 rounded bg-cream/10" />
           </div>
 
           {/* faux barcode */}

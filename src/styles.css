@@ -43,6 +43,11 @@
   --color-tangerine: var(--coral);
   --color-grape: var(--purple);
 
+  --color-mocha: var(--mocha);
+  --color-mocha-dark: var(--mocha-dark);
+  --color-mocha-light: var(--mocha-light);
+  --color-mocha-foreground: var(--mocha-foreground);
+
   --font-display: "Bricolage Grotesque", "Bricolage Fallback", "Inter", sans-serif;
   --font-serif: "Instrument Serif", "Instrument Serif Fallback", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
@@ -126,10 +131,18 @@
   --surface-2: oklch(0.95 0.008 88); /* raised / nested bg */
   --surface-3: oklch(0.92 0.012 88); /* input / well bg */
 
+  /* -- Dark mocha surface tier (new landing/hero) -- */
+  --mocha: oklch(0.20 0.04 30);         /* #2B1410 dark brown */
+  --mocha-dark: oklch(0.12 0.03 340);   /* #130B0D near-black brown */
+  --mocha-light: oklch(0.26 0.05 30);   /* #3D1E18 lighter brown */
+  --mocha-foreground: oklch(0.97 0.015 88); /* cream text on dark */
+
   /* -- Premium glass tokens -- */
   --glass-bg: oklch(1 0 0 / 0.72);
   --glass-border: oklch(1 0 0 / 0.2);
   --glass-blur: 20px;
+  --glass-dark-bg: oklch(0.20 0.04 30 / 0.72);
+  --glass-dark-border: oklch(1 0 0 / 0.08);
 
   /* -- Spacing scale (4px base) -- */
   --space-0: 0px;
@@ -170,6 +183,9 @@
   --gradient-text: linear-gradient(90deg, oklch(0.68 0.22 32), oklch(0.66 0.24 12));
   --gradient-gold: linear-gradient(135deg, oklch(0.84 0.17 85), oklch(0.68 0.22 32));
   --gradient-subtle: linear-gradient(180deg, oklch(0.97 0.022 88) 0%, oklch(0.95 0.015 88) 100%);
+  --gradient-mocha: linear-gradient(180deg, oklch(0.20 0.04 30) 0%, oklch(0.12 0.03 340) 100%);
+  --gradient-mocha-warm: linear-gradient(135deg, oklch(0.20 0.04 30), oklch(0.26 0.06 35) 50%, oklch(0.12 0.03 340));
+  --gradient-mocha-glow: radial-gradient(ellipse at 50% 0%, oklch(0.30 0.08 35 / 0.4) 0%, transparent 60%);
 
   /* -- Shadows -- layered for depth -- */
   --shadow-xs: 0 1px 2px oklch(0.16 0.02 50 / 0.04);
@@ -445,7 +461,19 @@
   .bg-surface-1 { background-color: var(--surface-1); }
   .bg-surface-2 { background-color: var(--surface-2); }
   .bg-surface-3 { background-color: var(--surface-3); }
+  .bg-mocha { background-color: var(--mocha); color: var(--mocha-foreground); }
+  .bg-mocha-dark { background-color: var(--mocha-dark); color: var(--mocha-foreground); }
+  .bg-mocha-light { background-color: var(--mocha-light); color: var(--mocha-foreground); }
+  .glass-dark {
+    background: var(--glass-dark-bg);
+    border-color: var(--glass-dark-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+  }
   .bg-gradient-subtle { background-image: var(--gradient-subtle); }
+  .bg-gradient-mocha { background-image: var(--gradient-mocha); }
+  .bg-gradient-mocha-warm { background-image: var(--gradient-mocha-warm); }
+  .bg-gradient-mocha-glow { background-image: var(--gradient-mocha-glow); }
   .shadow-card-hover { box-shadow: var(--shadow-card-hover); }
   .safe-bottom {
     padding-bottom: max(env(safe-area-inset-bottom), 1rem);

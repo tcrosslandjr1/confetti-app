@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Confetti · Ops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --ui:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --bg:#f8f0dd;--paper:#fffaf0;--ink:#130b0d;
+    --a1:#ff5b3d;--a2:#f7c83b;--a3:#5b45d9;--a4:#2bb673;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:var(--ui);background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased}
+  button{font-family:var(--ui);cursor:pointer}
+  .mono{font-family:var(--mono);letter-spacing:.04em}
+  .display{font-family:var(--display);font-weight:900;letter-spacing:-0.025em}
+
+  .app{min-height:100vh;display:grid;
+    grid-template-columns:220px 1fr;grid-template-rows:56px 1fr}
+  .side{grid-row:1/3;background:var(--ink);color:var(--paper);
+    padding:18px 14px;border-right:3px solid var(--ink)}
+  .side-brand{display:flex;align-items:center;gap:7px;
+    font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:-0.02em;margin-bottom:18px}
+  .side-brand span:first-child{color:var(--a1)}
+  .side-nav{display:flex;flex-direction:column;gap:2px}
+  .side-nav h4{font-family:var(--mono);font-size:9px;font-weight:800;
+    letter-spacing:.14em;opacity:0.45;text-transform:uppercase;margin:14px 0 4px 8px}
+  .side-nav a{color:var(--paper);padding:7px 10px;border-radius:8px;
+    font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;
+    opacity:0.78;cursor:pointer}
+  .side-nav a:hover{opacity:1;background:rgba(255,250,240,0.08)}
+  .side-nav a.on{background:var(--a1);color:var(--ink);opacity:1;
+    box-shadow:3px 3px 0 var(--paper)}
+  .side-nav a .dot{width:6px;height:6px;border-radius:999px;background:var(--a1)}
+  .side-nav a.on .dot{background:var(--ink)}
+  .side-nav a .b{margin-left:auto;padding:1px 6px;
+    background:var(--a1);color:var(--ink);border-radius:999px;
+    font-family:var(--mono);font-size:9px;font-weight:800}
+
+  .top{border-bottom:3px solid var(--ink);background:var(--paper);
+    padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;
+    border:2px solid var(--ink);border-radius:999px;
+    font-family:var(--mono);font-size:10px;font-weight:800;
+    letter-spacing:.12em;text-transform:uppercase;background:var(--paper)}
+  .pill.green{background:var(--a4);color:var(--paper)}
+  .pill.red{background:#d32323;color:var(--paper)}
+  .pill .blink{width:6px;height:6px;border-radius:999px;background:currentColor;
+    animation:blink 1.2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+  .main{padding:24px;overflow:auto}
+  h1.t{font-family:var(--display);font-weight:900;font-size:38px;
+    letter-spacing:-0.04em;line-height:0.95;margin:0 0 6px}
+  .subtitle{font-family:var(--mono);font-size:11px;font-weight:800;
+    letter-spacing:.12em;opacity:0.55;text-transform:uppercase;margin-bottom:20px}
+
+  .card{background:var(--paper);border:2.5px solid var(--ink);
+    border-radius:16px;box-shadow:5px 5px 0 var(--ink);padding:18px;margin-bottom:14px}
+  .card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .card-h h3{margin:0;font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:-0.02em}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .stat{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;
+    padding:14px;box-shadow:4px 4px 0 var(--ink)}
+  .stat .lbl{font-family:var(--mono);font-size:9px;font-weight:800;
+    letter-spacing:.14em;opacity:0.6;text-transform:uppercase}
+  .stat .val{font-family:var(--display);font-weight:900;font-size:30px;
+    letter-spacing:-0.03em;margin-top:4px}
+  .stat .d{font-family:var(--mono);font-size:11px;font-weight:800;margin-top:2px}
+  .d.up{color:var(--a4)} .d.down{color:#d32323}
+
+  .grid{display:grid;gap:14px;grid-template-columns:1.4fr 1fr}
+  .full{grid-column:1/-1}
+
+  .tbl{width:100%;border-collapse:collapse}
+  .tbl th,.tbl td{text-align:left;padding:10px;
+    border-bottom:1.5px dashed rgba(0,0,0,0.18);
+    font-family:var(--ui);font-size:12px;font-weight:700}
+  .tbl th{font-family:var(--mono);font-size:9px;font-weight:800;
+    letter-spacing:.14em;opacity:0.55;text-transform:uppercase;
+    border-bottom:2px solid var(--ink)}
+  .tag{display:inline-block;padding:2px 7px;
+    border:1.5px solid var(--ink);border-radius:4px;
+    font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.08em}
+  .tag.open{background:var(--a2)}
+  .tag.urgent{background:#d32323;color:#fff}
+  .tag.resolved{background:var(--a4);color:#fff}
+  .tag.bot{background:var(--ink);color:#fff}
+  .tag.flag{background:#d32323;color:#fff}
+
+  /* Inbox */
+  .inbox{display:grid;grid-template-columns:300px 1fr;gap:0;
+    border:2.5px solid var(--ink);border-radius:16px;
+    background:var(--paper);box-shadow:5px 5px 0 var(--ink);overflow:hidden;height:620px}
+  .inbox-list{border-right:2px solid var(--ink);overflow-y:auto}
+  .inbox-row{padding:12px 14px;border-bottom:1.5px dashed rgba(0,0,0,0.15);cursor:pointer}
+  .inbox-row.on{background:var(--a2)}
+  .inbox-row .who{font-family:var(--ui);font-size:13px;font-weight:800;
+    display:flex;justify-content:space-between}
+  .inbox-row .who .t{font-family:var(--mono);font-size:9px;font-weight:700;opacity:0.5}
+  .inbox-row .preview{font-family:var(--ui);font-size:11px;font-weight:600;
+    opacity:0.7;margin-top:3px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .inbox-thread{padding:18px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+  .msg{padding:12px 14px;border:2px solid var(--ink);border-radius:14px;
+    max-width:75%;font-size:13px;font-weight:700;line-height:1.4}
+  .msg.user{background:var(--bg);border-radius:14px 14px 14px 4px;align-self:flex-start}
+  .msg.agent{background:var(--a1);align-self:flex-end;border-radius:14px 14px 4px 14px}
+  .msg.bot{background:var(--ink);color:var(--paper);align-self:flex-end;border-radius:14px 14px 4px 14px}
+  .msg .who{font-family:var(--mono);font-size:9px;font-weight:800;
+    letter-spacing:.1em;opacity:0.7;margin-bottom:4px}
+  .reply-bar{margin-top:10px;padding:10px;
+    border:2.5px solid var(--ink);border-radius:12px;background:var(--bg);
+    display:flex;gap:6px}
+  .reply-bar input{flex:1;border:0;background:transparent;outline:none;
+    font-family:var(--ui);font-size:13px;font-weight:700}
+  .reply-bar button{padding:6px 10px;background:var(--ink);color:var(--paper);
+    border:0;border-radius:8px;font-family:var(--ui);font-size:11px;font-weight:800}
+
+  /* Mod queue card */
+  .mod-card{display:grid;grid-template-columns:90px 1fr auto;gap:14px;
+    padding:14px;border:2.5px solid var(--ink);border-radius:14px;
+    background:var(--paper);box-shadow:3px 3px 0 var(--ink);margin-bottom:10px}
+  .mod-thumb{aspect-ratio:1;border:2px solid var(--ink);border-radius:8px;
+    background-image:repeating-linear-gradient(135deg,rgba(0,0,0,0.1) 0 6px,transparent 6px 12px);
+    display:flex;align-items:center;justify-content:center;font-size:24px}
+  .mod-thumb.red{background-color:rgba(211,35,35,0.2)}
+  .mod-actions{display:flex;flex-direction:column;gap:6px}
+  .mod-actions button{padding:6px 12px;border:2px solid var(--ink);
+    border-radius:8px;font-family:var(--ui);font-size:11px;font-weight:800;cursor:pointer}
+  .mod-actions .approve{background:var(--a4);color:#fff}
+  .mod-actions .reject{background:#d32323;color:#fff}
+  .mod-actions .escalate{background:var(--paper)}
+
+  /* Chart */
+  .bars{display:flex;align-items:flex-end;gap:6px;height:160px;
+    padding-top:10px;border-bottom:2px solid var(--ink)}
+  .bar{flex:1;background:var(--a1);border:2px solid var(--ink);
+    border-radius:4px 4px 0 0}
+  .bar-lbls{display:flex;justify-content:space-between;gap:6px;margin-top:6px}
+  .bar-lbls span{flex:1;text-align:center;font-family:var(--mono);
+    font-size:9px;font-weight:700;opacity:0.6}
+
+  .section{display:none}
+  .section.on{display:block}
+
+  /* Status badge */
+  .stt{display:flex;align-items:center;gap:10px;padding:10px 14px;
+    border:2px solid var(--ink);border-radius:12px;background:var(--paper);margin-bottom:6px}
+  .stt .nm{flex:1;font-weight:800;font-size:13px}
+  .stt .lat{font-family:var(--mono);font-size:10px;font-weight:700;opacity:0.6}
+  .dot{width:10px;height:10px;border-radius:999px;border:1.5px solid var(--ink)}
+  .dot.ok{background:var(--a4)}
+  .dot.warn{background:var(--a2)}
+  .dot.down{background:#d32323}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="side-brand"><span>✣</span><span>confetti</span><span style="opacity:.4;font-size:13px">/ops</span></div>
+    <nav class="side-nav" id="nav">
+      <h4>Customer</h4>
+      <a data-sec="inbox" class="on"><span class="dot"></span>Support inbox<span class="b">12</span></a>
+      <a data-sec="mod"><span class="dot"></span>Moderation<span class="b">28</span></a>
+      <h4>Insight</h4>
+      <a data-sec="anal"><span class="dot"></span>Product analytics</a>
+      <a data-sec="biz"><span class="dot"></span>Business / billing</a>
+      <h4>System</h4>
+      <a data-sec="status"><span class="dot"></span>Status &amp; health</a>
+      <a data-sec="logs"><span class="dot"></span>Logs &amp; audit</a>
+      <a data-sec="flags"><span class="dot"></span>Feature flags</a>
+    </nav>
+  </aside>
+
+  <div class="top">
+    <div style="display:flex;gap:10px;align-items:center">
+      <span class="pill green"><span class="blink"></span>ALL SYSTEMS OK</span>
+      <span class="pill">P50 · 3.8S</span>
+      <span class="pill">CACHE 91%</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <span class="mono" style="font-size:11px;font-weight:700;opacity:0.65">jess@confetti.app</span>
+      <div style="width:34px;height:34px;border-radius:999px;border:2.5px solid var(--ink);background:var(--a1);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:13px;box-shadow:3px 3px 0 var(--ink)">JS</div>
+    </div>
+  </div>
+
+  <main class="main">
+
+    <!-- INBOX -->
+    <section class="section on" id="sec-inbox">
+      <h1 class="t">Support inbox</h1>
+      <div class="subtitle">12 OPEN · 8 AI-HANDLED · 4 ESCALATED · AVG FIRST REPLY 2M14S</div>
+
+      <div class="stat-row">
+        <div class="stat"><div class="lbl">OPEN TICKETS</div><div class="val">12</div><div class="d up">▼ 18% vs yest</div></div>
+        <div class="stat" style="background:var(--a2)"><div class="lbl">SPARKLE RESOLVED</div><div class="val">142</div><div class="d up">▲ 64% of tickets</div></div>
+        <div class="stat"><div class="lbl">SLA P95</div><div class="val">4m 12s</div><div class="d up">under 5m target</div></div>
+        <div class="stat"><div class="lbl">CSAT · LAST 7D</div><div class="val">9.2/10</div><div class="d up">▲ +0.4</div></div>
+      </div>
+
+      <div class="inbox">
+        <div class="inbox-list" id="inboxList"></div>
+        <div class="inbox-thread">
+          <div class="msg user"><div class="who">@MAYA.BROOKLYN · 8M AGO</div>my pass said the bar would comp the first round and they said no. wtf</div>
+          <div class="msg bot"><div class="who">✣ SPARKLE · AUTO · 6M AGO</div>got it, sorry maya. checking with skinny pete's now — they confirmed your pass is valid. i've issued you 100 pts ($1) credit + a $14 refund to your card. should hit in 24h.</div>
+          <div class="msg user"><div class="who">@MAYA · 3M AGO</div>ok thank you 🙏</div>
+          <div class="msg agent"><div class="who">@JESS · OPS · 1M AGO</div>followed up with skinny pete's owner — they re-trained the host. won't happen again.</div>
+
+          <div class="reply-bar">
+            <input placeholder="reply as @jess · drafted by sparkle…" value="thanks for flagging this maya — taken care of and we're on it with the venue too" />
+            <button>send</button>
+            <button style="background:var(--a1);color:var(--ink)">✣ regen</button>
+            <button style="background:var(--paper);color:var(--ink)">templates</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODERATION -->
+    <section class="section" id="sec-mod">
+      <h1 class="t">Moderation queue</h1>
+      <div class="subtitle">28 ITEMS · 14 AUTO-FLAGGED BY SIGHTENGINE · 6 USER-REPORTED · 8 NEW VENUES</div>
+
+      <div class="stat-row">
+        <div class="stat"><div class="lbl">PENDING REVIEW</div><div class="val">28</div></div>
+        <div class="stat" style="background:#d32323;color:#fff"><div class="lbl">URGENT · KID-RELATED</div><div class="val">3</div></div>
+        <div class="stat"><div class="lbl">AUTO-FLAGGED</div><div class="val">14</div></div>
+        <div class="stat"><div class="lbl">USER REPORTS</div><div class="val">6</div></div>
+      </div>
+
+      <div class="mod-card" style="background:rgba(211,35,35,0.1)">
+        <div class="mod-thumb red">⚠</div>
+        <div>
+          <div style="display:flex;gap:6px;margin-bottom:4px">
+            <span class="tag urgent">URGENT</span>
+            <span class="tag flag">KID-RELATED</span>
+          </div>
+          <div style="font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-0.02em">Check-in photo shows under-13 face · @user_X9K2</div>
+          <div class="mono" style="font-size:10px;opacity:0.6;margin-top:4px;letter-spacing:.06em">SIGHTENGINE · FACE DETECT + AGE EST < 13 · 94% CONFIDENCE · POSTED 11M AGO</div>
+        </div>
+        <div class="mod-actions">
+          <button class="approve">✓ blur + approve</button>
+          <button class="reject">✕ reject + hide</button>
+          <button class="escalate">↑ escalate</button>
+        </div>
+      </div>
+
+      <div class="mod-card">
+        <div class="mod-thumb" style="background-color:var(--a1)">🎬</div>
+        <div>
+          <div style="display:flex;gap:6px;margin-bottom:4px">
+            <span class="tag flag">SCREENSHOT REPORTED</span>
+          </div>
+          <div style="font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-0.02em">Reel: "they were rude to my friend" · @user_R8X2</div>
+          <div class="mono" style="font-size:10px;opacity:0.6;margin-top:4px;letter-spacing:.06em">2 REPORTS · MENTIONS VENUE BY NAME · TRANSCRIPT CLEAN BUT VISUAL UNCLEAR</div>
+        </div>
+        <div class="mod-actions">
+          <button class="approve">✓ approve</button>
+          <button class="reject">✕ hide + DM</button>
+          <button class="escalate">↑ T&amp;S</button>
+        </div>
+      </div>
+
+      <div class="mod-card">
+        <div class="mod-thumb" style="background-color:var(--a3)">🏪</div>
+        <div>
+          <div style="display:flex;gap:6px;margin-bottom:4px">
+            <span class="tag" style="background:var(--a2)">NEW VENUE CLAIM</span>
+          </div>
+          <div style="font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-0.02em">"Misi Brooklyn" claimed by m@misibk.com</div>
+          <div class="mono" style="font-size:10px;opacity:0.6;margin-top:4px;letter-spacing:.06em">EMAIL OTP VERIFIED · DOMAIN MATCH · UPLOADED LIQUOR LICENSE PDF · 4 MIN AGO</div>
+        </div>
+        <div class="mod-actions">
+          <button class="approve">✓ verify · premium</button>
+          <button class="reject">✕ deny</button>
+          <button class="escalate">request more</button>
+        </div>
+      </div>
+
+      <div class="mod-card">
+        <div class="mod-thumb" style="background-color:var(--a2)">💬</div>
+        <div>
+          <div style="display:flex;gap:6px;margin-bottom:4px">
+            <span class="tag bot">AI SAYS · LOW RISK</span>
+          </div>
+          <div style="font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-0.02em">Caption: "the carbonara healed me" · 4-stack repost detected</div>
+          <div class="mono" style="font-size:10px;opacity:0.6;margin-top:4px;letter-spacing:.06em">SPARKLE ANALYSIS · BENIGN · LIKELY ORGANIC DUPLICATE · AUTO-APPROVING IN 24H</div>
+        </div>
+        <div class="mod-actions">
+          <button class="approve">✓ approve now</button>
+          <button class="reject">✕ hide</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYTICS -->
+    <section class="section" id="sec-anal">
+      <h1 class="t">Product analytics</h1>
+      <div class="subtitle">L7D · ROLLING · POSTHOG + INTERNAL</div>
+
+      <div class="stat-row">
+        <div class="stat"><div class="lbl">MAU</div><div class="val">42,180</div><div class="d up">▲ 18% W/W</div></div>
+        <div class="stat" style="background:var(--a1)"><div class="lbl">W4 RETENTION</div><div class="val">38%</div><div class="d up">▲ 2.1× industry</div></div>
+        <div class="stat"><div class="lbl">DAU/MAU</div><div class="val">0.21</div><div class="d up">▲ 0.18 last mo</div></div>
+        <div class="stat"><div class="lbl">PAYING %</div><div class="val">14.2%</div><div class="d up">▲ +1.8pt</div></div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-h"><h3>Activation funnel · last 7d signups</h3><span class="pill">8,420 SIGNUPS</span></div>
+          <table class="tbl">
+            <thead><tr><th>Step</th><th>Count</th><th>Conv.</th><th>Drop</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1 · Welcome view</strong></td><td>8,420</td><td>100%</td><td>—</td></tr>
+              <tr><td>2 · Sign up start</td><td>6,902</td><td>82%</td><td>18% bounce</td></tr>
+              <tr><td>3 · TikTok connect</td><td>4,521</td><td>54%</td><td>⚠ 28% drop here</td></tr>
+              <tr><td>4 · Permissions</td><td>4,118</td><td>49%</td><td>5%</td></tr>
+              <tr><td>5 · Age gate</td><td>4,032</td><td>48%</td><td>2%</td></tr>
+              <tr><td>6 · Paywall (free chosen)</td><td>3,468</td><td>41%</td><td>14%</td></tr>
+              <tr><td>7 · First chat</td><td>2,841</td><td>34%</td><td>18%</td></tr>
+              <tr><td><strong>8 · First pass printed</strong></td><td>2,108</td><td>25%</td><td>—</td></tr>
+              <tr><td>9 · First check-in (activation)</td><td>1,202</td><td>14%</td><td>43%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-h"><h3>TTFP · time to first pass</h3></div>
+          <div style="font-family:var(--display);font-weight:900;font-size:48px;letter-spacing:-0.045em;line-height:1">4m 22s</div>
+          <div class="mono" style="font-size:10px;opacity:0.6;margin-top:4px;letter-spacing:.06em">MEDIAN · TARGET &lt; 4M FOR 80%</div>
+          <div style="margin-top:18px">
+            <div style="font-family:var(--mono);font-size:10px;opacity:0.55;letter-spacing:.1em;margin-bottom:6px">BY ROUTE</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;justify-content:space-between"><span>chat planner</span><span class="mono" style="font-weight:800">3m 18s</span></div>
+              <div style="display:flex;justify-content:space-between"><span>vibe form</span><span class="mono" style="font-weight:800">5m 02s</span></div>
+              <div style="display:flex;justify-content:space-between"><span>surprise me</span><span class="mono" style="font-weight:800">1m 44s</span></div>
+              <div style="display:flex;justify-content:space-between"><span>family mode</span><span class="mono" style="font-weight:800">6m 51s</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card full">
+          <div class="card-h"><h3>Passes printed · last 14d</h3>
+            <div style="display:flex;gap:6px"><span class="pill" style="background:var(--a1)">▮ family</span><span class="pill" style="background:var(--a3);color:#fff">▮ adult</span></div>
+          </div>
+          <div class="bars">
+            <div class="bar" style="height:30%"></div>
+            <div class="bar" style="height:38%;background:var(--a3)"></div>
+            <div class="bar" style="height:42%"></div>
+            <div class="bar" style="height:48%;background:var(--a3)"></div>
+            <div class="bar" style="height:55%"></div>
+            <div class="bar" style="height:80%"></div>
+            <div class="bar" style="height:92%;background:var(--a3)"></div>
+            <div class="bar" style="height:34%"></div>
+            <div class="bar" style="height:46%;background:var(--a3)"></div>
+            <div class="bar" style="height:52%"></div>
+            <div class="bar" style="height:60%;background:var(--a3)"></div>
+            <div class="bar" style="height:72%"></div>
+            <div class="bar" style="height:88%"></div>
+            <div class="bar" style="height:100%;background:var(--a3)"></div>
+          </div>
+          <div class="bar-lbls">
+            <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+            <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS -->
+    <section class="section" id="sec-biz">
+      <h1 class="t">Billing &amp; revenue</h1>
+      <div class="subtitle">STRIPE · MRR · CHURN · CAC · LTV</div>
+      <div class="stat-row">
+        <div class="stat"><div class="lbl">MRR</div><div class="val">$58,420</div><div class="d up">▲ 12% MoM</div></div>
+        <div class="stat" style="background:var(--a4);color:#fff"><div class="lbl">ARR</div><div class="val">$701K</div><div class="d up">▲ track to $1.2M</div></div>
+        <div class="stat"><div class="lbl">CHURN · 30D</div><div class="val">3.8%</div><div class="d down">▲ +0.4pt watch</div></div>
+        <div class="stat"><div class="lbl">CAC PAYBACK</div><div class="val">5.2 wk</div><div class="d up">▼ from 7.4</div></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Recent Stripe events</h3></div>
+        <table class="tbl">
+          <thead><tr><th>When</th><th>Event</th><th>Customer</th><th>Amount</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>2m ago</td><td>invoice.paid · all-access yr</td><td>jess@brooklyn.com</td><td>$99.00</td><td><span class="tag resolved">PAID</span></td></tr>
+            <tr><td>8m ago</td><td>subscription.created</td><td>marcus@hummingbird.io</td><td>$495/mo × 5</td><td><span class="tag resolved">PAID</span></td></tr>
+            <tr><td>22m ago</td><td>charge.refunded</td><td>nat@gmail.com</td><td>−$10.00</td><td><span class="tag">REFUNDED</span></td></tr>
+            <tr><td>1h ago</td><td>invoice.payment_failed</td><td>rio@ny.com</td><td>$9.99</td><td><span class="tag urgent">DUNNING</span></td></tr>
+            <tr><td>3h ago</td><td>customer.subscription.deleted</td><td>tay@gmail.com</td><td>$9.99 lost</td><td><span class="tag">CHURNED</span></td></tr>
+            <tr><td>5h ago</td><td>checkout.session.completed</td><td>+8 new subs</td><td>$792</td><td><span class="tag resolved">PAID</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="section" id="sec-status">
+      <h1 class="t">System health</h1>
+      <div class="subtitle">LIVE · STATUSPAGE.IO MIRROR · INCIDENTS LAST 30D · 1</div>
+      <div class="card">
+        <div class="card-h"><h3>Services</h3><span class="pill green"><span class="blink"></span>ALL OK</span></div>
+        <div class="stt"><span class="dot ok"></span><span class="nm">API · createServerFn</span><span class="lat">P50 184MS · P99 612MS</span></div>
+        <div class="stt"><span class="dot ok"></span><span class="nm">Supabase Postgres</span><span class="lat">CPU 38% · 124 CONN</span></div>
+        <div class="stt"><span class="dot ok"></span><span class="nm">Claude (Anthropic)</span><span class="lat">P50 1.2S · CACHE 91%</span></div>
+        <div class="stt"><span class="dot warn"></span><span class="nm">OpenAI fallback</span><span class="lat">P99 6.4S · DEGRADED</span></div>
+        <div class="stt"><span class="dot ok"></span><span class="nm">Stripe webhooks</span><span class="lat">0 RETRIES · ALL 2XX</span></div>
+        <div class="stt"><span class="dot ok"></span><span class="nm">Twilio SMS</span><span class="lat">P50 800MS · 0.02% FAIL</span></div>
+        <div class="stt"><span class="dot ok"></span><span class="nm">SendGrid</span><span class="lat">P50 1.1S · 99.97% DELIVERED</span></div>
+        <div class="stt"><span class="dot ok"></span><span class="nm">Firebase push</span><span class="lat">P50 240MS · 98.4% DELIVERED</span></div>
+        <div class="stt"><span class="dot down"></span><span class="nm">Yelp API · venue enrich</span><span class="lat">RATE LIMITED · USING CACHE · -3% FRESHNESS</span></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Active incidents</h3></div>
+        <div style="padding:12px;border:2px solid #d32323;border-radius:10px;background:rgba(211,35,35,0.08)">
+          <div class="mono" style="font-size:10px;font-weight:800;letter-spacing:.14em;color:#d32323">DEGRADED · YELP API · STARTED 14M AGO</div>
+          <div style="font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:-0.025em;margin-top:4px">Yelp daily quota exhausted</div>
+          <div style="font-family:var(--ui);font-size:12px;font-weight:700;opacity:0.75;margin-top:4px">Falling back to internal cache. Venue ratings up to 6h stale. Owner notified, quota raise requested. No user-facing failures.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGS -->
+    <section class="section" id="sec-logs">
+      <h1 class="t">Audit log</h1>
+      <div class="subtitle">ALL ADMIN ACTIONS · ROLE CHANGES · DATA ACCESS · 30D RETAINED</div>
+      <div class="card">
+        <table class="tbl">
+          <thead><tr><th>When</th><th>Actor</th><th>Action</th><th>Target</th><th>IP</th></tr></thead>
+          <tbody>
+            <tr><td>4m ago</td><td>@jess (ops)</td><td>approved venue claim</td><td>misi-brooklyn</td><td>74.x.x.x · BK</td></tr>
+            <tr><td>11m ago</td><td>@sparkle (auto)</td><td>refunded charge</td><td>maya@brooklyn $14</td><td>—</td></tr>
+            <tr><td>28m ago</td><td>@jess</td><td>blurred image</td><td>checkin#88f2 (under-13)</td><td>74.x.x.x</td></tr>
+            <tr><td>1h ago</td><td>@jess</td><td>changed feature flag</td><td>family_mode_v2 · ON for 5% cohort</td><td>74.x.x.x</td></tr>
+            <tr><td>2h ago</td><td>@cron</td><td>nightly TikTok sync</td><td>247 users · 8,420 saves pulled</td><td>internal</td></tr>
+            <tr><td>4h ago</td><td>@amir (dev)</td><td>deployed</td><td>api · v4.2.3</td><td>vercel</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FLAGS -->
+    <section class="section" id="sec-flags">
+      <h1 class="t">Feature flags</h1>
+      <div class="subtitle">POSTHOG · ROLLOUT % BY COHORT</div>
+      <div class="card">
+        <table class="tbl">
+          <thead><tr><th>Flag</th><th>Status</th><th>Rollout</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td><strong>family_mode_v2</strong></td><td><span class="tag open">ROLLING</span></td><td>5% NYC · 0% other</td><td>@jess</td></tr>
+            <tr><td><strong>night_together_voting</strong></td><td><span class="tag resolved">GA</span></td><td>100%</td><td>@jess</td></tr>
+            <tr><td><strong>tiktok_taste_sync</strong></td><td><span class="tag open">ROLLING</span></td><td>40% w/ TikTok connected</td><td>@amir</td></tr>
+            <tr><td><strong>stripe_corp_invoicing</strong></td><td><span class="tag open">BETA</span></td><td>corp only · 12 logos</td><td>@jess</td></tr>
+            <tr><td><strong>auto_checkin_geofence</strong></td><td><span class="tag urgent">PAUSED</span></td><td>0% · battery issue investigation</td><td>@amir</td></tr>
+            <tr><td><strong>reels_per_stop_clone</strong></td><td><span class="tag bot">EXPERIMENT</span></td><td>50/50 A/B · BK only</td><td>@jess</td></tr>
+            <tr><td><strong>kids_pass_addon_pricing</strong></td><td><span class="tag bot">EXPERIMENT</span></td><td>$4.99 vs $7.99 · 50/50</td><td>@jess</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Inbox list
+  const inbox = [
+    { who: '@maya.brooklyn', t: '8m', preview: 'my pass said the bar would comp the first round and they said no…', urgent: true, on: true },
+    { who: '@beck', t: '14m', preview: 'how do i cancel my subscription', urgent: false },
+    { who: '@rio', t: '22m', preview: 'reel won\'t upload — keeps failing at 88%', urgent: false },
+    { who: '@nat', t: '38m', preview: 'i was charged twice for the same trip?', urgent: true },
+    { who: '@sam', t: '1h', preview: 'venue closed early, can i swap stop 3?', urgent: false },
+    { who: '@tay', t: '2h', preview: 'love the app! one feature request:', urgent: false },
+    { who: '@devon.eats', t: '3h', preview: 'my promoter payout shows $0 but i had 12 passes…', urgent: true },
+  ];
+  const list = document.getElementById('inboxList');
+  inbox.forEach((it, i) => {
+    const row = document.createElement('div');
+    row.className = 'inbox-row' + (it.on ? ' on' : '');
+    row.innerHTML = `<div class="who">${it.who}${it.urgent ? ' <span class="tag urgent" style="margin-left:5px">URGENT</span>' : ''}<span class="t">${it.t}</span></div><div class="preview">${it.preview}</div>`;
+    list.appendChild(row);
+  });
+
+  // Section nav
+  const nav = document.getElementById('nav');
+  nav.addEventListener('click', e => {
+    const a = e.target.closest('a[data-sec]');
+    if (!a) return;
+    nav.querySelectorAll('a').forEach(x => x.classList.remove('on'));
+    a.classList.add('on');
+    document.querySelectorAll('section.section').forEach(s => s.classList.remove('on'));
+    document.getElementById('sec-' + a.dataset.sec)?.classList.add('on');
+  });
+</script>
+</body>
+</html>

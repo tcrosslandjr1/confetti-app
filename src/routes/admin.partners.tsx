@@ -184,18 +184,18 @@ function AdminPartners() {
 
   return (
     <div className="min-h-screen bg-cream">
-      <header className="border-b-2 border-ink/10 bg-cream">
+      <header className="border-b-2 border-cream/10 bg-cream">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4">
           <div className="flex items-center gap-3">
             <Link
               to="/admin/console"
-              className="inline-flex items-center gap-1 rounded-full border-2 border-ink/20 bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold"
+              className="inline-flex items-center gap-1 rounded-full border-2 border-cream/20 bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold"
             >
               <ArrowLeft className="h-3 w-3" /> Admin
             </Link>
             <div>
               <h1 className="font-display text-2xl font-black tracking-tight">Partner Ads</h1>
-              <p className="font-mono text-[11px] uppercase tracking-widest text-ink/50">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-cream/50">
                 Approve, pause, and audit sponsored placements
               </p>
             </div>
@@ -245,7 +245,7 @@ function AdminPartners() {
               className={`shrink-0 rounded-full border-2 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition-colors ${
                 tab === t.key
                   ? "border-ink bg-ink text-cream"
-                  : "border-ink/20 bg-cream hover:bg-gold"
+                  : "border-cream/20 bg-cream hover:bg-gold"
               }`}
             >
               {t.label}
@@ -266,12 +266,12 @@ function AdminPartners() {
           </div>
         )}
         {loading && campaigns.length === 0 ? (
-          <div className="py-16 text-center text-sm text-ink/60">Loading campaigns…</div>
+          <div className="py-16 text-center text-sm text-cream/60">Loading campaigns…</div>
         ) : campaigns.length === 0 ? (
-          <div className="rounded-2xl border-2 border-dashed border-ink/20 bg-cream/40 px-6 py-12 text-center">
-            <Megaphone className="mx-auto h-8 w-8 text-ink/30" />
+          <div className="rounded-2xl border-2 border-dashed border-cream/20 bg-cream/40 px-6 py-12 text-center">
+            <Megaphone className="mx-auto h-8 w-8 text-cream/30" />
             <p className="mt-3 font-display text-lg font-bold">No campaigns in this bucket</p>
-            <p className="mt-1 text-sm text-ink/60">
+            <p className="mt-1 text-sm text-cream/60">
               {tab === "pending"
                 ? "Nothing waiting for review. Try the Live tab, or create a demo sponsorship to test the flow."
                 : "Try a different tab."}
@@ -281,7 +281,7 @@ function AdminPartners() {
           <ul className="space-y-3">
             {campaigns.map((c) => (
               <li key={c.id}>
-                <article className="rounded-2xl border-2 border-ink/10 bg-cream p-4 shadow-card">
+                <article className="rounded-2xl border-2 border-cream/10 bg-cream p-4 shadow-card">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
@@ -290,30 +290,30 @@ function AdminPartners() {
                             c.status === "active"
                               ? "bg-emerald-500 text-cream"
                               : c.status === "pending"
-                                ? "bg-amber-500 text-ink"
+                                ? "bg-amber-500 text-cream"
                                 : c.status === "paused"
                                   ? "bg-ink/30 text-cream"
                                   : c.status === "expired"
-                                    ? "bg-ink/15 text-ink/60"
+                                    ? "bg-ink/15 text-cream/60"
                                     : "bg-coral/80 text-cream"
                           }`}
                         >
                           {c.status}
                         </span>
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
                           Boost {c.boost_strength}/10
                         </span>
                       </div>
                       <h3 className="mt-1 font-display text-lg font-bold leading-snug">
                         {c.name}
                       </h3>
-                      <div className="mt-0.5 text-sm text-ink/70">
+                      <div className="mt-0.5 text-sm text-cream/70">
                         {c.venue_name}
                         {c.venue_city ? ` · ${c.venue_city}` : ""}
                         {c.business_name ? ` · ${c.business_name}` : ""}
                         {c.business_tier ? ` (${c.business_tier})` : ""}
                       </div>
-                      <div className="mt-2 grid gap-1 text-[11px] text-ink/60 sm:grid-cols-2">
+                      <div className="mt-2 grid gap-1 text-[11px] text-cream/60 sm:grid-cols-2">
                         <div>
                           <span className="font-bold">Cities:</span>{" "}
                           {(c.target_cities ?? []).join(", ") || "—"}
@@ -332,7 +332,7 @@ function AdminPartners() {
                           {c.end_date ? new Date(c.end_date).toLocaleDateString() : "no end"}
                         </div>
                       </div>
-                      <div className="mt-2 flex flex-wrap gap-3 text-[11px] text-ink/70">
+                      <div className="mt-2 flex flex-wrap gap-3 text-[11px] text-cream/70">
                         <span>
                           <span className="font-bold">{c.impressions}</span> impressions
                         </span>

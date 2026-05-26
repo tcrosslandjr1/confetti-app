@@ -81,7 +81,7 @@ const PICKS: Pick[] = [
     title: "Bougie Birthday Dinner",
     vibe: "Tasting menu · champagne",
     vibeKeys: ["bougie"],
-    vibeTone: "bg-gold text-ink",
+    vibeTone: "bg-gold text-cream",
     bg: "bg-cream",
     duration: "4.5h",
     cost: "$160–$240 pp",
@@ -110,7 +110,7 @@ const PICKS: Pick[] = [
     title: "Dance Floor Saturday",
     vibe: "Hi-energy · late night",
     vibeKeys: ["dance", "late"],
-    vibeTone: "bg-pink-400 text-ink",
+    vibeTone: "bg-pink-400 text-cream",
     bg: "bg-purple/15",
     duration: "5h",
     cost: "$60–$110 pp",
@@ -139,7 +139,7 @@ const PICKS: Pick[] = [
     title: "Sunday Slow",
     vibe: "Lazy brunch · garden walk",
     vibeKeys: ["bougie"],
-    vibeTone: "bg-emerald-400 text-ink",
+    vibeTone: "bg-emerald-400 text-cream",
     bg: "bg-cream",
     duration: "5h",
     cost: "$45–$75 pp",
@@ -168,7 +168,7 @@ const PICKS: Pick[] = [
     title: "Live Music Wander",
     vibe: "Jazz, soul, vinyl",
     vibeKeys: ["live"],
-    vibeTone: "bg-amber-400 text-ink",
+    vibeTone: "bg-amber-400 text-cream",
     bg: "bg-coral/20",
     duration: "4h",
     cost: "$55–$95 pp",
@@ -217,7 +217,7 @@ export function QuickPicks() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-cream/60">
                 / steal a night
               </span>
               <h2 className="mt-2 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
@@ -227,18 +227,18 @@ export function QuickPicks() {
                 Grab a ready-made plan and go. Tap, tweak, show up.
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-2">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                   Picks for
                 </span>
                 <CitySelector compact />
                 {!isCurated && (
-                  <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gold/40 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                  <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gold/40 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
                     <Sparkles className="h-3 w-3" /> Live picks
                   </span>
                 )}
               </div>
             </div>
-            <span className="hidden font-mono text-[11px] uppercase tracking-widest text-ink/60 sm:inline">
+            <span className="hidden font-mono text-[11px] uppercase tracking-widest text-cream/60 sm:inline">
               ← drag to scroll →
             </span>
           </div>
@@ -289,7 +289,7 @@ function PickCard({ pick: p, isCurated, city }: { pick: Pick; isCurated: boolean
           aria-label={saved ? "Saved" : "Save this pick"}
           aria-pressed={saved}
           className={`ml-auto grid h-8 w-8 place-items-center rounded-full border-2 border-ink transition-colors ${
-            saved ? "bg-coral text-cream" : "bg-cream text-ink hover:bg-coral/10"
+            saved ? "bg-coral text-cream" : "bg-cream text-cream hover:bg-coral/10"
           }`}
         >
           <Heart className={`h-3.5 w-3.5 ${saved ? "fill-current" : ""}`} />
@@ -307,23 +307,23 @@ function PickCard({ pick: p, isCurated, city }: { pick: Pick; isCurated: boolean
               <span className="min-w-0 flex-1 truncate font-display text-base font-bold">
                 {s.venue}
               </span>
-              <span className="font-mono text-[10px] font-bold text-ink/40">0{idx + 1}</span>
+              <span className="font-mono text-[10px] font-bold text-cream/40">0{idx + 1}</span>
             </li>
           ))}
         </ol>
       ) : (
         <div className="mt-5 flex flex-1 flex-col justify-between gap-3 border-t-2 border-dashed border-ink/30 pt-4">
-          <p className="font-mono text-[11px] leading-relaxed text-ink/70">
-            We'll pull 3 real venues in <span className="font-bold text-ink">{city.name}</span> that
+          <p className="font-mono text-[11px] leading-relaxed text-cream/70">
+            We'll pull 3 real venues in <span className="font-bold text-cream">{city.name}</span> that
             match this vibe — based on live ratings &amp; hours.
           </p>
-          <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+          <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-cream/60">
             <MapPin className="h-3 w-3 text-coral" /> {city.region}
           </div>
         </div>
       )}
 
-      <div className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink/30 pt-3 font-mono text-[11px] uppercase tracking-widest text-ink/70">
+      <div className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink/30 pt-3 font-mono text-[11px] uppercase tracking-widest text-cream/70">
         <span className="inline-flex items-center gap-1.5">
           <Clock className="h-3.5 w-3.5" /> {p.duration}
         </span>

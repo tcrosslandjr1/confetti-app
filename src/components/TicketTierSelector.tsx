@@ -48,7 +48,7 @@ export function TicketTierSelector({
 
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="flex items-center gap-2 font-display text-lg font-bold text-ink">
+      <h3 className="flex items-center gap-2 font-display text-lg font-bold text-cream">
         <Ticket className="h-5 w-5" /> Tickets
       </h3>
 
@@ -65,13 +65,13 @@ export function TicketTierSelector({
               qty > 0
                 ? "border-coral bg-coral/5"
                 : soldOut
-                  ? "border-ink/10 bg-ink/5 opacity-60"
-                  : "border-ink/10 bg-white/60"
+                  ? "border-cream/10 bg-cream/5 opacity-60"
+                  : "border-cream/10 bg-white/60"
             }`}
           >
             <div className="flex items-start justify-between">
               <div>
-                <span className="font-display text-sm font-bold text-ink">
+                <span className="font-display text-sm font-bold text-cream">
                   {tier.name}
                 </span>
                 {almostGone && (
@@ -81,13 +81,13 @@ export function TicketTierSelector({
                   </span>
                 )}
               </div>
-              <span className="font-mono text-sm font-bold text-ink">
+              <span className="font-mono text-sm font-bold text-cream">
                 {tier.price === 0 ? "Free" : `$${tier.price.toFixed(2)}`}
               </span>
             </div>
 
             {tier.description && (
-              <p className="text-[12px] leading-relaxed text-ink/60">
+              <p className="text-[12px] leading-relaxed text-cream/60">
                 {tier.description}
               </p>
             )}
@@ -102,11 +102,11 @@ export function TicketTierSelector({
                   type="button"
                   onClick={() => setQty(tier.id, qty - 1)}
                   disabled={qty === 0}
-                  className="grid h-7 w-7 place-items-center rounded-full border border-ink/20 text-ink/60 transition hover:bg-ink/5 disabled:opacity-30"
+                  className="grid h-7 w-7 place-items-center rounded-full border border-cream/20 text-cream/60 transition hover:bg-cream/5 disabled:opacity-30"
                 >
                   <Minus className="h-3.5 w-3.5" />
                 </button>
-                <span className="w-6 text-center font-mono text-sm font-bold text-ink">
+                <span className="w-6 text-center font-mono text-sm font-bold text-cream">
                   {qty}
                 </span>
                 <button
@@ -115,7 +115,7 @@ export function TicketTierSelector({
                     setQty(tier.id, Math.min(qty + 1, remaining, 10))
                   }
                   disabled={qty >= remaining || qty >= 10}
-                  className="grid h-7 w-7 place-items-center rounded-full border border-ink/20 text-ink/60 transition hover:bg-ink/5 disabled:opacity-30"
+                  className="grid h-7 w-7 place-items-center rounded-full border border-cream/20 text-cream/60 transition hover:bg-cream/5 disabled:opacity-30"
                 >
                   <Plus className="h-3.5 w-3.5" />
                 </button>
@@ -129,10 +129,10 @@ export function TicketTierSelector({
       {totalItems > 0 && (
         <div className="flex items-center justify-between rounded-xl border-2 border-ink bg-cream p-3 shadow-brut">
           <div>
-            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
               {totalItems} ticket{totalItems !== 1 ? "s" : ""}
             </span>
-            <span className="ml-2 font-display text-lg font-bold text-ink">
+            <span className="ml-2 font-display text-lg font-bold text-cream">
               ${totalPrice.toFixed(2)}
             </span>
           </div>

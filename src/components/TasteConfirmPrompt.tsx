@@ -94,17 +94,17 @@ export function TasteConfirmPrompt() {
         <div className="flex items-center gap-2 border-b-2 border-ink bg-gold px-4 py-3">
           <Sparkles className="h-4 w-4 text-coral" />
           <div>
-            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70">
               Weekly check-in
             </div>
-            <div className="font-display text-base font-extrabold text-ink">
+            <div className="font-display text-base font-extrabold text-cream">
               Confirm what you actually like
             </div>
           </div>
           <button
             aria-label="Skip for now"
             onClick={skip}
-            className="ml-auto grid h-8 w-8 place-items-center rounded-full hover:bg-ink/5"
+            className="ml-auto grid h-8 w-8 place-items-center rounded-full hover:bg-cream/5"
           >
             <X className="h-4 w-4" />
           </button>
@@ -165,7 +165,7 @@ export function TasteConfirmPrompt() {
         <div className="flex items-center gap-2 border-t-2 border-ink bg-cream p-3">
           <button
             onClick={skip}
-            className="flex-1 rounded-xl border-2 border-ink bg-cream px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink hover:bg-ink/5"
+            className="flex-1 rounded-xl border-2 border-ink bg-cream px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream hover:bg-cream/5"
           >
             Ask later
           </button>
@@ -199,13 +199,13 @@ function PillButton({
       ? "border-ink bg-coral text-cream"
       : tone === "avoid"
         ? "border-ink bg-ink text-cream"
-        : "border-ink bg-gold text-ink";
+        : "border-ink bg-gold text-cream";
   return (
     <button
       type="button"
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-1 rounded-lg border-2 px-2 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-colors ${
-        active ? activeCls : "border-ink bg-cream text-ink hover:bg-ink/5"
+        active ? activeCls : "border-ink bg-cream text-cream hover:bg-cream/5"
       }`}
     >
       {children}

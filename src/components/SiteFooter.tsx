@@ -51,7 +51,7 @@ const socials = [
     Icon: Twitter,
     label: "Twitter",
     href: "https://twitter.com/confettiplan",
-    hover: "hover:bg-teal   hover:text-ink   hover:border-teal",
+    hover: "hover:bg-teal   hover:text-cream   hover:border-teal",
   },
   {
     Icon: Music2,
@@ -63,7 +63,7 @@ const socials = [
     Icon: Youtube,
     label: "YouTube",
     href: "https://youtube.com/@confettiplan",
-    hover: "hover:bg-gold   hover:text-ink   hover:border-gold",
+    hover: "hover:bg-gold   hover:text-cream   hover:border-gold",
   },
   {
     Icon: Github,

@@ -3,7 +3,7 @@ import { createServerFn } from "@tanstack/react-start";
 
 import { z } from "zod";
 import { generateText, Output } from "ai";
-import { createLovableAiGatewayProvider } from "./ai-gateway.server";
+import { getAiProvider } from "./ai-gateway.server";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { findCity } from "./agents/city-context";
 import { findTemplate } from "./agents/templates";
@@ -362,9 +362,6 @@ const PlanOutputSchema = z.object({
 export const generatePlan = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => PlanRequestSchema.parse(input))
   .handler(async ({ data: req }): Promise<GeneratedPlan> => {
-    const apiKey = process.env.LOVABLE_API_KEY;
-    if (!apiKey) throw new Error("Missing LOVABLE_API_KEY — Lovable AI Gateway is not configured.");
-
     // 1. City Context Agent
     const cityCtx = findCity(req.city);
 
@@ -415,7 +412,7 @@ export const generatePlan = createServerFn({ method: "POST" })
     }
 
     // 4 + 5 + 6. Itinerary + Naming + Impromptu + Relevance — single AI call.
-    const gateway = createLovableAiGatewayProvider(apiKey);
+    const gateway = getAiProvider();
     const model = gateway("google/gemini-3-flash-preview");
 
     const startTime = req.startTime ?? "19:00";

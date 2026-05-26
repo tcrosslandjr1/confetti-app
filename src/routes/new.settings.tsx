@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { BrandMark, DotsBg, Frame, TOKENS } from "@/components/new-confetti/shell";
+import { useAuth } from "@/lib/auth-context";
 
 // Slim port — design/new-confetti/project/auth.jsx (SettingsScreen, line 1026)
 export const Route = createFileRoute("/new/settings")({
@@ -29,6 +30,27 @@ const LINKS: { label: string; sub: string; danger?: boolean }[] = [
 
 function SettingsPage() {
   const navigate = useNavigate();
+  const { signOut } = useAuth();
+
+  const handleLinkClick = async (label: string) => {
+    switch (label) {
+      case "manage subscription":
+        navigate({ to: "/new/all-access" });
+        break;
+      case "connected accounts":
+        navigate({ to: "/new/profile" });
+        break;
+      case "help & feedback":
+        // Opens default mail client — production-grade placeholder
+        window.open("mailto:hello@confetti.app?subject=Feedback", "_blank");
+        break;
+      case "log out":
+        await signOut();
+        navigate({ to: "/new/signin" });
+        break;
+    }
+  };
+
   const [state, setState] = useState<Record<string, boolean>>({
     "night reminders": true,
     "crew activity": true,
@@ -88,7 +110,7 @@ function SettingsPage() {
             textTransform: "uppercase",
           }}>account</div>
           {LINKS.map((l) => (
-            <button key={l.label} style={{
+            <button key={l.label} onClick={() => handleLinkClick(l.label)} style={{
               appearance: "none", cursor: "pointer", textAlign: "left", width: "100%",
               display: "flex", alignItems: "center", justifyContent: "space-between",
               padding: "12px 14px", marginBottom: 6,

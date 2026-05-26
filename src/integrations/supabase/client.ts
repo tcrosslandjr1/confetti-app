@@ -1,4 +1,4 @@
-// Confetti Supabase client — hardcoded fallbacks prevent Lovable .env overwrites
+// Confetti Supabase client — hardcoded fallbacks prevent accidental .env overwrites
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "./types";
 
@@ -9,7 +9,7 @@ const CONFETTI_ANON_KEY =
 
 function createSupabaseClient() {
   // Env vars take priority, but fall back to hardcoded Confetti values
-  // so a Lovable .env overwrite can never break the connection.
+  // so an accidental .env overwrite can never break the connection.
   const SUPABASE_URL =
     import.meta.env.VITE_SUPABASE_URL ||
     process.env.SUPABASE_URL ||

@@ -1,4 +1,4 @@
-const STALE_RELOAD_KEY = "__lovable_stale_module_reload__";
+const STALE_RELOAD_KEY = "__confetti_stale_module_reload__";
 
 export function isStaleModuleError(error: unknown): boolean {
   const msg =

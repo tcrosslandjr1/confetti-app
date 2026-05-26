@@ -36,10 +36,10 @@ export function RecapBanner() {
           <Sparkles className="h-4 w-4 text-coral" />
         </span>
         <div className="min-w-0 flex-1">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70">
             Morning recap ready
           </div>
-          <div className="truncate font-display text-sm font-extrabold text-ink">
+          <div className="truncate font-display text-sm font-extrabold text-cream">
             How was {pending.title}?
           </div>
         </div>
@@ -56,7 +56,7 @@ export function RecapBanner() {
             localStorage.setItem(DISMISS_KEY, pending.id);
             setPending(null);
           }}
-          className="ml-1 grid h-6 w-6 place-items-center rounded-full text-ink/60 hover:bg-ink/5"
+          className="ml-1 grid h-6 w-6 place-items-center rounded-full text-cream/60 hover:bg-cream/5"
         >
           <X className="h-3.5 w-3.5" />
         </button>

@@ -77,14 +77,14 @@ export function ReviewForm({
       className="flex flex-col gap-4 rounded-2xl border-2 border-ink bg-white p-5 shadow-brut"
     >
       <div className="flex items-center justify-between">
-        <h3 className="font-display text-lg font-bold text-ink">
+        <h3 className="font-display text-lg font-bold text-cream">
           Review {venueName}
         </h3>
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-full p-1 text-ink/50 hover:bg-ink/5"
+            className="rounded-full p-1 text-cream/50 hover:bg-cream/5"
           >
             <X className="h-5 w-5" />
           </button>
@@ -93,7 +93,7 @@ export function ReviewForm({
 
       {/* Overall rating */}
       <div>
-        <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+        <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
           Overall rating *
         </label>
         <StarRating value={rating} onChange={setRating} size="lg" showLabel={false} />
@@ -102,19 +102,19 @@ export function ReviewForm({
       {/* Sub-ratings */}
       <div className="flex flex-wrap gap-4">
         <div>
-          <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/50">
+          <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
             Food
           </label>
           <StarRating value={foodRating} onChange={setFoodRating} size="sm" showLabel={false} />
         </div>
         <div>
-          <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/50">
+          <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
             Vibe
           </label>
           <StarRating value={ambianceRating} onChange={setAmbianceRating} size="sm" showLabel={false} />
         </div>
         <div>
-          <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/50">
+          <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
             Service
           </label>
           <StarRating value={serviceRating} onChange={setServiceRating} size="sm" showLabel={false} />
@@ -123,7 +123,7 @@ export function ReviewForm({
 
       {/* Occasion tag */}
       <div>
-        <label className="mb-1.5 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+        <label className="mb-1.5 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
           Occasion
         </label>
         <div className="flex flex-wrap gap-1.5">
@@ -135,7 +135,7 @@ export function ReviewForm({
               className={`rounded-full border px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
                 occasion === tag
                   ? "border-coral bg-coral/10 text-coral"
-                  : "border-ink/15 text-ink/60 hover:border-ink/30"
+                  : "border-cream/15 text-cream/60 hover:border-ink/30"
               }`}
             >
               {tag}
@@ -146,7 +146,7 @@ export function ReviewForm({
 
       {/* Review body */}
       <div>
-        <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+        <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
           Your review *
         </label>
         <textarea
@@ -154,9 +154,9 @@ export function ReviewForm({
           onChange={(e) => setBody(e.target.value)}
           rows={4}
           placeholder="How was your experience? What would you tell a friend?"
-          className="w-full rounded-xl border border-ink/15 bg-cream/50 px-3 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:border-coral focus:outline-none focus:ring-1 focus:ring-coral/50"
+          className="w-full rounded-xl border border-cream/15 bg-cream/50 px-3 py-2.5 text-sm text-cream placeholder:text-cream/40 focus:border-coral focus:outline-none focus:ring-1 focus:ring-coral/50"
         />
-        <div className="mt-1 text-right font-mono text-[10px] text-ink/40">
+        <div className="mt-1 text-right font-mono text-[10px] text-cream/40">
           {body.length} characters
         </div>
       </div>
@@ -169,7 +169,7 @@ export function ReviewForm({
               <img
                 src={url}
                 alt=""
-                className="h-16 w-16 rounded-lg border border-ink/10 object-cover"
+                className="h-16 w-16 rounded-lg border border-cream/10 object-cover"
               />
               <button
                 type="button"
@@ -188,7 +188,7 @@ export function ReviewForm({
         <button
           type="button"
           onClick={() => toast("Photo upload coming soon!")}
-          className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:border-ink/30"
+          className="inline-flex items-center gap-1.5 rounded-full border border-cream/15 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60 hover:border-ink/30"
         >
           <Camera className="h-3.5 w-3.5" /> Add photos
         </button>

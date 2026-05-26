@@ -95,7 +95,7 @@ function AboutPage() {
                 cancelAnimationFrame(raf);
         };
     }, []);
-    return (<div className="min-h-screen bg-cream text-ink">
+    return (<div className="min-h-screen bg-cream text-cream">
       <SiteHeader />
 
       {/* HERO */}
@@ -128,7 +128,7 @@ function AboutPage() {
       <section className="border-b-2 border-ink">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:px-8">
           <Reveal className="lg:col-span-5">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-cream/60">
               / the story
             </span>
             <h2 className="mt-3 font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl">
@@ -158,7 +158,7 @@ function AboutPage() {
             <h2 className="font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl">
               What we <span className="font-serif italic font-normal">stand for.</span>
             </h2>
-            <span className="hidden font-mono text-xs uppercase tracking-widest text-ink/60 sm:inline">
+            <span className="hidden font-mono text-xs uppercase tracking-widest text-cream/60 sm:inline">
               / four rules
             </span>
           </div>
@@ -169,12 +169,12 @@ function AboutPage() {
             return (<Reveal key={v.title} delay={i * 60}>
                   <div className={`h-full rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg ${rot}`}>
                     <div className={`grid h-12 w-12 place-items-center rounded-xl border-2 border-ink ${v.color}`}>
-                      <Icon className="h-6 w-6 text-ink"/>
+                      <Icon className="h-6 w-6 text-cream"/>
                     </div>
                     <h3 className="mt-5 font-display text-2xl font-extrabold leading-tight">
                       {v.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/70">{v.body}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-cream/70">{v.body}</p>
                   </div>
                 </Reveal>);
         })}
@@ -189,7 +189,7 @@ function AboutPage() {
             <h2 className="font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl">
               Meet the <span className="font-serif italic font-normal text-coral">team.</span>
             </h2>
-            <span className="hidden font-mono text-xs uppercase tracking-widest text-ink/60 sm:inline">
+            <span className="hidden font-mono text-xs uppercase tracking-widest text-cream/60 sm:inline">
               / small + loud
             </span>
           </div>
@@ -202,10 +202,10 @@ function AboutPage() {
                   <h3 className="mt-5 font-display text-xl font-extrabold leading-tight">
                     {t.name}
                   </h3>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ink/60">
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cream/60">
                     {t.role}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/70">{t.bio}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-cream/70">{t.bio}</p>
                 </div>
               </Reveal>))}
           </div>
@@ -224,7 +224,7 @@ function AboutPage() {
           <p className="mx-auto mt-5 max-w-xl text-lg text-cream/80">
             We're building this in the open and we read everything.
           </p>
-          <a href="mailto:hello@confetti.app" className="mt-8 inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-coral px-7 text-base font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg">
+          <a href="mailto:hello@confetti.app" className="mt-8 inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-coral px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg">
             Say hi <ArrowUpRight className="h-5 w-5"/>
           </a>
         </div>

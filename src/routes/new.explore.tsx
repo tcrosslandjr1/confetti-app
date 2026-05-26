@@ -1,28 +1,101 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { BrandMark, Chip, DotsBg, Frame, TOKENS } from "@/components/new-confetti/shell";
+import { useNewAuth } from "@/hooks/useNewAuth";
+import { supabase } from "@/integrations/supabase/client";
+import { getSelectedCity } from "@/lib/cities";
 
 // Slim port — design/new-confetti/project/discover.jsx (ExploreScreen, line 90)
 export const Route = createFileRoute("/new/explore")({
   component: ExplorePage,
 });
 
-const VENUES = [
-  { name: "Lupa Notte",   tag: "italian · wine",    n: "88 N 6th",      heat: TOKENS.accent1 },
-  { name: "Daughter",     tag: "coffee · small",    n: "112 N 6th",     heat: TOKENS.accent2 },
-  { name: "Skinny Dennis", tag: "honky tonk",       n: "152 Metro",     heat: TOKENS.accent3 },
-  { name: "Misi",         tag: "pasta hall",        n: "329 Kent",      heat: TOKENS.accent2 },
-  { name: "Union Pool",   tag: "patio + tacos",     n: "484 Union",     heat: TOKENS.accent1 },
-  { name: "Joe's Tavern", tag: "cocktails · jazz",  n: "22 Berry",      heat: TOKENS.accent3 },
-];
+type Venue = {
+  id: string;
+  name: string;
+  category: string | null;
+  neighborhood: string | null;
+  description: string | null;
+  hero_image_url: string | null;
+  image_url: string | null;
+  price_band: string | null;
+  rating: number | null;
+  tags: string[] | null;
+};
 
 const FILTERS = ["near me", "open now", "walkable", "$", "$$", "rooftop", "cocktails", "weird"];
 
+// Map filter labels to query logic
+const TAG_FILTERS = ["rooftop", "cocktails", "weird", "walkable"];
+const PRICE_MAP: Record<string, string> = { "$": "$", "$$": "$$" };
+
 function ExplorePage() {
+  const { ready } = useNewAuth();
   const navigate = useNavigate();
-  const [active, setActive] = useState<string[]>(["near me"]);
+  const [active, setActive] = useState<string[]>([]);
+  const [venues, setVenues] = useState<Venue[]>([]);
+  const [loading, setLoading] = useState(true);
   const toggle = (f: string) =>
     setActive((a) => a.includes(f) ? a.filter((x) => x !== f) : [...a, f]);
+
+  // Resolve city
+  const city = useMemo(() => {
+    const sel = getSelectedCity();
+    return sel?.name ?? "Washington DC";
+  }, []);
+
+  // Fetch venues from Supabase
+  useEffect(() => {
+    if (!ready) return;
+    let cancelled = false;
+
+    async function fetchVenues() {
+      setLoading(true);
+      let query = supabase
+        .from("venues")
+        .select("id,name,category,neighborhood,description,hero_image_url,image_url,price_band,rating,tags")
+        .eq("active", true)
+        .order("trending_score", { ascending: false, nullsFirst: false })
+        .limit(20);
+
+      // City filter
+      const cityBase = city.replace(/,.*/, "").trim();
+      if (cityBase) query = query.ilike("city", `%${cityBase}%`);
+
+      // Price filter
+      const priceFilters = active.filter((f) => f in PRICE_MAP);
+      if (priceFilters.length === 1) {
+        query = query.eq("price_band", PRICE_MAP[priceFilters[0]]);
+      }
+
+      // Tag filters (rooftop, cocktails, weird, walkable)
+      const tagFilters = active.filter((f) => TAG_FILTERS.includes(f));
+      if (tagFilters.length > 0) {
+        query = query.overlaps("tags", tagFilters);
+      }
+
+      const { data, error } = await query;
+      if (!cancelled && !error) {
+        setVenues((data ?? []) as Venue[]);
+      }
+      if (!cancelled) setLoading(false);
+    }
+
+    fetchVenues();
+    return () => { cancelled = true; };
+  }, [ready, active, city]);
+
+  if (!ready) {
+    return (
+      <Frame>
+        <div style={{
+          height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
+          background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
+          color: TOKENS.ink, opacity: 0.5,
+        }}>loading...</div>
+      </Frame>
+    );
+  }
 
   return (
     <Frame>
@@ -48,11 +121,11 @@ function ExplorePage() {
             fontFamily: TOKENS.display, fontWeight: 900,
             fontSize: 32, lineHeight: 0.95, letterSpacing: "-0.04em",
             margin: "0 0 4px",
-          }}>Brooklyn,<br/>tonight.</h2>
+          }}>{city.replace(/,.*/, "")},<br/>tonight.</h2>
           <p style={{
             fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, opacity: 0.55,
             margin: "0 0 12px",
-          }}>42 spots live · 12 popping right now</p>
+          }}>{loading ? "searching..." : `${venues.length} spots found`}</p>
         </div>
 
         {/* Filter chips */}
@@ -74,38 +147,54 @@ function ExplorePage() {
           marginRight: -20, paddingRight: 20,
         }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-            {VENUES.map((v) => (
-              <button key={v.name} onClick={() => navigate({ to: "/new/venue" })} style={{
-                appearance: "none", cursor: "pointer", textAlign: "left",
-                padding: 0,
-                border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14,
-                background: TOKENS.paper,
-                boxShadow: `4px 4px 0 ${TOKENS.ink}`,
-                overflow: "hidden",
-              }}>
-                <div style={{
-                  height: 90, background: v.heat,
-                  borderBottom: `2.5px solid ${TOKENS.ink}`,
-                  display: "grid", placeItems: "center",
-                  fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                  letterSpacing: ".14em", opacity: 0.6, color: TOKENS.ink,
-                }}>VENUE</div>
-                <div style={{ padding: "10px 12px" }}>
-                  <div style={{
-                    fontFamily: TOKENS.display, fontWeight: 900, fontSize: 15,
-                    letterSpacing: "-0.02em", lineHeight: 1.05,
-                  }}>{v.name}</div>
-                  <div style={{
-                    fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700,
-                    opacity: 0.6, marginTop: 4, letterSpacing: ".06em",
-                  }}>{v.tag}</div>
-                  <div style={{
-                    fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 700,
-                    opacity: 0.45, marginTop: 2, letterSpacing: ".06em",
-                  }}>📍 {v.n}</div>
-                </div>
-              </button>
-            ))}
+            {venues.map((v, i) => {
+              const heatColors = [TOKENS.accent1, TOKENS.accent2, TOKENS.accent3];
+              const heat = heatColors[i % heatColors.length];
+              return (
+                <button key={v.id} onClick={() => navigate({ to: "/new/venue/$id", params: { id: v.id } })} style={{
+                  appearance: "none", cursor: "pointer", textAlign: "left",
+                  padding: 0,
+                  border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14,
+                  background: TOKENS.paper,
+                  boxShadow: `4px 4px 0 ${TOKENS.ink}`,
+                  overflow: "hidden",
+                }}>
+                  {v.hero_image_url || v.image_url ? (
+                    <div style={{
+                      height: 90, borderBottom: `2.5px solid ${TOKENS.ink}`,
+                      overflow: "hidden",
+                    }}>
+                      <img src={v.hero_image_url ?? v.image_url ?? ""} alt={v.name}
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
+                  ) : (
+                    <div style={{
+                      height: 90, background: heat,
+                      borderBottom: `2.5px solid ${TOKENS.ink}`,
+                      display: "grid", placeItems: "center",
+                      fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
+                      letterSpacing: ".14em", opacity: 0.6, color: TOKENS.ink,
+                    }}>{(v.category ?? "VENUE").toUpperCase()}</div>
+                  )}
+                  <div style={{ padding: "10px 12px" }}>
+                    <div style={{
+                      fontFamily: TOKENS.display, fontWeight: 900, fontSize: 15,
+                      letterSpacing: "-0.02em", lineHeight: 1.05,
+                    }}>{v.name}</div>
+                    <div style={{
+                      fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700,
+                      opacity: 0.6, marginTop: 4, letterSpacing: ".06em",
+                    }}>{v.category}{v.price_band ? ` · ${v.price_band}` : ""}</div>
+                    {v.neighborhood && (
+                      <div style={{
+                        fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 700,
+                        opacity: 0.45, marginTop: 2, letterSpacing: ".06em",
+                      }}>📍 {v.neighborhood}</div>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
           </div>
           <div style={{ height: 12 }} />
         </div>

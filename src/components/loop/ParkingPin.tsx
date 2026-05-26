@@ -138,10 +138,10 @@ export function ParkingPin() {
           <Car className="h-4 w-4" />
         </span>
         <div className="min-w-0 flex-1">
-          <div className="font-display text-[15px] font-extrabold leading-tight text-ink">
+          <div className="font-display text-[15px] font-extrabold leading-tight text-cream">
             Find my car
           </div>
-          <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
             {spot ? `Saved ${relativeTime(spot.savedAt)}` : "Drop a pin where you parked"}
           </div>
         </div>
@@ -165,7 +165,7 @@ export function ParkingPin() {
             onClick={captureLocation}
             disabled={busy}
             title="Update with current location"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink transition-pop hover:bg-gold disabled:opacity-60"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream transition-pop hover:bg-gold disabled:opacity-60"
           >
             {busy ? (
               <Loader2 className="h-3 w-3 animate-spin" />
@@ -179,11 +179,11 @@ export function ParkingPin() {
 
       {spot && (
         <div className="mt-3 space-y-2">
-          <div className="rounded-xl border border-ink/15 bg-cream/70 px-3 py-2 font-mono text-[11px] tabular-nums text-ink/80">
-            <span className="text-ink/55">Pin · </span>
+          <div className="rounded-xl border border-cream/15 bg-cream/70 px-3 py-2 font-mono text-[11px] tabular-nums text-cream/80">
+            <span className="text-cream/55">Pin · </span>
             {spot.lat.toFixed(5)}, {spot.lng.toFixed(5)}
             {typeof spot.accuracy === "number" && (
-              <span className="text-ink/50"> · ±{Math.round(spot.accuracy)}m</span>
+              <span className="text-cream/50"> · ±{Math.round(spot.accuracy)}m</span>
             )}
           </div>
 
@@ -195,7 +195,7 @@ export function ParkingPin() {
                 placeholder="e.g. Level 3, spot B12"
                 maxLength={80}
                 autoFocus
-                className="flex-1 rounded-xl border-2 border-ink bg-cream px-2.5 py-1.5 text-[12px] text-ink placeholder:text-ink/40 focus:outline-none focus:ring-2 focus:ring-coral/40"
+                className="flex-1 rounded-xl border-2 border-ink bg-cream px-2.5 py-1.5 text-[12px] text-cream placeholder:text-cream/40 focus:outline-none focus:ring-2 focus:ring-coral/40"
               />
               <button
                 type="button"
@@ -210,9 +210,9 @@ export function ParkingPin() {
             <button
               type="button"
               onClick={startEditNote}
-              className="flex w-full items-center gap-1.5 rounded-xl border border-dashed border-ink/30 px-3 py-1.5 text-left text-[12px] text-ink/80 hover:border-ink/60 hover:bg-cream"
+              className="flex w-full items-center gap-1.5 rounded-xl border border-dashed border-ink/30 px-3 py-1.5 text-left text-[12px] text-cream/80 hover:border-ink/60 hover:bg-cream"
             >
-              <Pencil className="h-3 w-3 text-ink/50" />
+              <Pencil className="h-3 w-3 text-cream/50" />
               <span className="truncate">{spot.note || "Add a note (level, spot, landmark…)"}</span>
             </button>
           )}
@@ -233,7 +233,7 @@ export function ParkingPin() {
                   href={googleUrl ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-2 text-[11px] font-bold text-ink transition-pop hover:bg-gold"
+                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-2 text-[11px] font-bold text-cream transition-pop hover:bg-gold"
                 >
                   <Navigation className="h-3.5 w-3.5" />
                   Google Maps
@@ -254,7 +254,7 @@ export function ParkingPin() {
                   href={appleUrl ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-2 text-[11px] font-bold text-ink transition-pop hover:bg-gold"
+                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-2 text-[11px] font-bold text-cream transition-pop hover:bg-gold"
                 >
                   <Navigation className="h-3.5 w-3.5" />
                   Apple Maps
@@ -266,7 +266,7 @@ export function ParkingPin() {
           <button
             type="button"
             onClick={clearSpot}
-            className="inline-flex items-center gap-1 text-[11px] font-bold text-ink/55 hover:text-coral"
+            className="inline-flex items-center gap-1 text-[11px] font-bold text-cream/55 hover:text-coral"
           >
             <Trash2 className="h-3 w-3" />
             Clear parking pin

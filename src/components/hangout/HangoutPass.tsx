@@ -127,7 +127,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
         <button
           type="button"
           onClick={handleCancel}
-          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink/40 bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70 hover:border-red-600 hover:bg-red-50 hover:text-red-700"
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink/40 bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70 hover:border-red-600 hover:bg-red-50 hover:text-red-700"
         >
           <XCircle className="h-3.5 w-3.5" /> Cancel
         </button>
@@ -180,8 +180,8 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
         <h1 className="mt-1 font-display text-3xl font-extrabold leading-tight tracking-tight">
           {plan.title}
         </h1>
-        <p className="mt-2 text-sm text-ink/70">{plan.summary}</p>
-        <div className="mt-4 flex flex-wrap gap-3 text-[12px] font-bold text-ink/80">
+        <p className="mt-2 text-sm text-cream/70">{plan.summary}</p>
+        <div className="mt-4 flex flex-wrap gap-3 text-[12px] font-bold text-cream/80">
           <span className="inline-flex items-center gap-1">
             <Users className="h-3.5 w-3.5" /> {plan.guest_count} guests
           </span>
@@ -189,7 +189,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
             <DollarSign className="h-3.5 w-3.5" /> {plan.budget_estimate}
           </span>
           {plan.setting && (
-            <span className="rounded-full border-2 border-ink/20 bg-cream px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+            <span className="rounded-full border-2 border-cream/20 bg-cream px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
               {plan.setting}
             </span>
           )}
@@ -207,8 +207,8 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
           {plan.menu.map((m, i) => (
             <li key={i} className="text-[13px]">
               <span className="font-bold">{m.quantity}</span>{" "}
-              <span className="text-ink/80">{m.item}</span>
-              {m.notes && <span className="ml-1 text-ink/50"> — {m.notes}</span>}
+              <span className="text-cream/80">{m.item}</span>
+              {m.notes && <span className="ml-1 text-cream/50"> — {m.notes}</span>}
             </li>
           ))}
         </ul>
@@ -221,7 +221,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
             {plan.drinks.map((d, i) => (
               <li key={i} className="text-[13px]">
                 <span className="font-bold">{d.quantity}</span>{" "}
-                <span className="text-ink/80">{d.item}</span>
+                <span className="text-cream/80">{d.item}</span>
               </li>
             ))}
           </ul>
@@ -262,7 +262,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
               <span className="w-14 shrink-0 rounded-full bg-ink px-2 py-0.5 text-center font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
                 {t.when}
               </span>
-              <span className="text-ink/80">{t.task}</span>
+              <span className="text-cream/80">{t.task}</span>
             </li>
           ))}
         </ol>
@@ -271,7 +271,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
       {/* Music */}
       {plan.music && (plan.music.vibe || (plan.music.playlist_hints && plan.music.playlist_hints.length > 0)) && (
         <Section icon={Music} title="Music vibe" accent="purple">
-          {plan.music.vibe && <p className="text-[13px] text-ink/80">{plan.music.vibe}</p>}
+          {plan.music.vibe && <p className="text-[13px] text-cream/80">{plan.music.vibe}</p>}
           {plan.music.playlist_hints && plan.music.playlist_hints.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1.5">
               {plan.music.playlist_hints.map((p, i) => (
@@ -291,7 +291,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
             {plan.games_activities.map((g, i) => (
               <li key={i} className="text-[13px]">
                 <span className="font-bold">{g.name}</span>
-                {g.why && <span className="ml-1 text-ink/60"> — {g.why}</span>}
+                {g.why && <span className="ml-1 text-cream/60"> — {g.why}</span>}
               </li>
             ))}
           </ul>
@@ -305,7 +305,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
             {plan.nearby_stores.map((s, i) => (
               <li key={i} className="text-[13px]">
                 <div className="font-bold">{s.name}</div>
-                <div className="text-ink/60">
+                <div className="text-cream/60">
                   for {s.purpose}
                   {s.neighborhood ? ` · ${s.neighborhood}` : ""}
                   {s.address ? ` · ${s.address}` : ""}
@@ -342,10 +342,10 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
                   href={l.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="block rounded-xl border-2 border-ink/15 bg-cream p-3 text-[13px] font-bold hover:border-ink hover:bg-gold/40"
+                  className="block rounded-xl border-2 border-cream/15 bg-cream p-3 text-[13px] font-bold hover:border-ink hover:bg-gold/40"
                 >
                   {l.label}
-                  {l.notes && <span className="ml-1 block text-[11px] font-normal text-ink/60">{l.notes}</span>}
+                  {l.notes && <span className="ml-1 block text-[11px] font-normal text-cream/60">{l.notes}</span>}
                 </a>
               </li>
             ))}

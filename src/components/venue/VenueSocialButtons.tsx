@@ -50,7 +50,7 @@ export function VenueSocialButtons({
           rel="noopener noreferrer"
           aria-label={label}
           title={label}
-          className="group inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-xs font-mono font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="group inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-xs font-mono font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
         >
           <Icon className="h-3.5 w-3.5 text-coral" />
           <span>{label}</span>

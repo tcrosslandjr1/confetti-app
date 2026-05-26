@@ -53,7 +53,7 @@ export function StarRating({
                     ? "fill-amber-400 text-amber-400"
                     : half
                       ? "fill-amber-400/50 text-amber-400"
-                      : "fill-transparent text-ink/25"
+                      : "fill-transparent text-cream/25"
                 }`}
               />
             </button>
@@ -61,10 +61,10 @@ export function StarRating({
         })}
       </div>
       {showLabel && (
-        <span className={`${textSize} font-bold text-ink/70`}>
+        <span className={`${textSize} font-bold text-cream/70`}>
           {value > 0 ? value.toFixed(1) : "—"}
           {count != null && (
-            <span className="ml-1 font-normal text-ink/50">
+            <span className="ml-1 font-normal text-cream/50">
               ({count.toLocaleString()})
             </span>
           )}

@@ -138,9 +138,9 @@ supabase functions deploy generate-wallet-pass
 supabase functions deploy update-wallet-pass
 ```
 
-### Via Lovable (if using Lovable's Supabase integration)
+### Via GitHub (auto-deploy)
 
-Push to your repo — Lovable auto-deploys edge functions from `supabase/functions/`.
+Push to your repo — Vercel/Supabase CI auto-deploys edge functions from `supabase/functions/`.
 
 ---
 

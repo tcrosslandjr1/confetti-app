@@ -1,19 +1,61 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import {
   BrandMark, ChunkyButton, DotsBg, FloatingTickets, Frame, Icons, Stamp, TOKENS,
 } from "@/components/new-confetti/shell";
+import { supabase } from "@/integrations/supabase/client";
 
-// Ported from design/new-confetti/project/auth.jsx (SignInScreen, line 8)
 export const Route = createFileRoute("/new/signin")({
   component: SignInPage,
 });
 
+type OAuthProvider = "apple" | "google" | "spotify";
+
 function SignInPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("jess@brooklyn.com");
+  const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
-  const onSignIn = () => navigate({ to: "/new/hub" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Listen for auth state changes — redirect on sign-in
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (event === "SIGNED_IN" && session) {
+          navigate({ to: "/new/hub" });
+        }
+      }
+    );
+    // Check if already signed in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) navigate({ to: "/new/hub" });
+    });
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  const handleMagicLink = async () => {
+    if (!email.trim()) { setError("Enter your email"); return; }
+    setLoading(true);
+    setError(null);
+    const { error: authError } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: { emailRedirectTo: `${window.location.origin}/new/hub` },
+    });
+    setLoading(false);
+    if (authError) { setError(authError.message); return; }
+    setSent(true);
+  };
+
+  const handleOAuth = async (provider: OAuthProvider) => {
+    setError(null);
+    const { error: authError } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: `${window.location.origin}/new/hub` },
+    });
+    if (authError) setError(authError.message);
+  };
+
   const onSignUp = () => navigate({ to: "/new/signup" });
 
   return (
@@ -41,6 +83,14 @@ function SignInPage() {
             color: TOKENS.ink, margin: 0,
           }}>Pick up<br/>where you left.</h1>
 
+          {error && (
+            <div style={{
+              padding: "10px 14px", borderRadius: 10,
+              background: "#fee2e2", border: "2px solid #ef4444",
+              fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 600, color: "#991b1b",
+            }}>{error}</div>
+          )}
+
           {!sent ? (
             <>
               <div>
@@ -57,15 +107,23 @@ function SignInPage() {
                   boxShadow: `4px 4px 0 ${TOKENS.ink}`,
                 }}>
                   <span style={{ color: TOKENS.accent1 }}>✉</span>
-                  <input value={email} onChange={(e) => setEmail(e.target.value)} style={{
-                    appearance: "none", border: "none", outline: "none",
-                    background: "transparent", flex: 1,
-                    fontFamily: TOKENS.ui, fontSize: 16, fontWeight: 700, color: TOKENS.ink,
-                  }} />
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleMagicLink()}
+                    placeholder="you@email.com"
+                    type="email"
+                    autoComplete="email"
+                    style={{
+                      appearance: "none", border: "none", outline: "none",
+                      background: "transparent", flex: 1,
+                      fontFamily: TOKENS.ui, fontSize: 16, fontWeight: 700, color: TOKENS.ink,
+                    }}
+                  />
                 </div>
               </div>
-              <ChunkyButton variant="accent" onClick={() => setSent(true)} icon={Icons.arrow}>
-                send magic link
+              <ChunkyButton variant="accent" onClick={handleMagicLink} icon={Icons.arrow} disabled={loading}>
+                {loading ? "sending..." : "send magic link"}
               </ChunkyButton>
 
               <div style={{
@@ -78,12 +136,12 @@ function SignInPage() {
                 <div style={{ flex: 1, height: 2, background: TOKENS.ink, opacity: 0.15 }} />
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-                <SSOTile label="Apple" glyph="" bg={TOKENS.ink} fg={TOKENS.paper} />
-                <SSOTile label="Google" glyph="G" bg={TOKENS.paper} fg={TOKENS.ink} />
-                <SSOTile label="TikTok" glyph="♪" bg={TOKENS.ink} fg={TOKENS.paper} />
-                <SSOTile label="Instagram" glyph="◍" bg={TOKENS.accent3} fg={TOKENS.paper} />
-                <SSOTile label="X" glyph="✕" bg={TOKENS.ink} fg={TOKENS.paper} />
-                <SSOTile label="Spotify" glyph="♫" bg="#1DB954" fg={TOKENS.ink} />
+                <SSOTile label="Apple" glyph="" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => handleOAuth("apple")} />
+                <SSOTile label="Google" glyph="G" bg={TOKENS.paper} fg={TOKENS.ink} onClick={() => handleOAuth("google")} />
+                <SSOTile label="TikTok" glyph="♪" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => {}} />
+                <SSOTile label="Instagram" glyph="◍" bg={TOKENS.accent3} fg={TOKENS.paper} onClick={() => {}} />
+                <SSOTile label="X" glyph="✕" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => {}} />
+                <SSOTile label="Spotify" glyph="♫" bg="#1DB954" fg={TOKENS.ink} onClick={() => handleOAuth("spotify")} />
               </div>
               <button style={{
                 appearance: "none", cursor: "pointer", width: "100%",
@@ -109,13 +167,13 @@ function SignInPage() {
                 fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
                 letterSpacing: "-0.025em", marginTop: 6, lineHeight: 1.1,
               }}>We sent a link to<br/>{email}.</div>
-              <button onClick={onSignIn} style={{
+              <button onClick={() => { setSent(false); setEmail(""); }} style={{
                 appearance: "none", cursor: "pointer",
                 marginTop: 14, padding: "10px 16px",
                 border: `2.5px solid ${TOKENS.ink}`, borderRadius: 999,
                 background: TOKENS.ink, color: TOKENS.paper,
                 fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800,
-              }}>simulate click →</button>
+              }}>try different email →</button>
             </div>
           )}
         </div>
@@ -139,9 +197,9 @@ function SignInPage() {
   );
 }
 
-function SSOTile({ label, glyph, bg, fg }: { label: string; glyph: ReactNode; bg: string; fg: string }) {
+function SSOTile({ label, glyph, bg, fg, onClick }: { label: string; glyph: ReactNode; bg: string; fg: string; onClick?: () => void }) {
   return (
-    <button style={{
+    <button onClick={onClick} style={{
       appearance: "none", cursor: "pointer",
       display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6,
       padding: "12px 10px",

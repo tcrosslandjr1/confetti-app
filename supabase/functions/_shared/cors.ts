@@ -9,7 +9,7 @@ function getAllowedOrigin(request?: Request): string {
     // Fallback: allow common dev/preview patterns when env not set
     if (
       origin.startsWith("http://localhost") ||
-      origin.endsWith(".lovable.app") ||
+      origin.endsWith(".confettiplan.com") ||
       origin.endsWith(".vercel.app")
     ) {
       return origin;

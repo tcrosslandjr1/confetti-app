@@ -5,7 +5,7 @@ import { buildOutreachRanking, rankingToCsv } from "@/lib/outreach-ranking.serve
 // Hit by pg_cron every Monday. Recomputes the 30d unclaimed-venue ranking,
 // dedupes by venue name, and stores the CSV snapshot in outreach_snapshots.
 // Auth: must present the Supabase anon key in the `apikey` header (matches
-// the standard Lovable cron pattern).
+// the standard cron pattern).
 export const Route = createFileRoute("/api/public/hooks/refresh-outreach-csv")({
   server: {
     handlers: {

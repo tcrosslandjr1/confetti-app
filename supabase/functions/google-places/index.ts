@@ -109,11 +109,11 @@ async function diagnose(key: string | undefined) {
         {
           name: "Secret configured",
           ok: false,
-          detail: "GOOGLE_PLACES_API_KEY is not set in Lovable Cloud secrets.",
+          detail: "GOOGLE_PLACES_API_KEY is not set in Supabase secrets.",
         },
       ],
       remediation:
-        "Open Lovable Cloud → Secrets and add GOOGLE_PLACES_API_KEY (server-side key with Places API (New) enabled).",
+        "Open Supabase Dashboard → Edge Functions → Secrets and add GOOGLE_PLACES_API_KEY (server-side key with Places API (New) enabled).",
     };
   }
   const masked = `${key.slice(0, 6)}…${key.slice(-4)} (len ${key.length})`;

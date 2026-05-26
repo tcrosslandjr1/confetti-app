@@ -97,7 +97,7 @@ function TabItem({
         </Link>
         <span
           id={labelId}
-          className={`mt-1 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-ink"}`}
+          className={`mt-1 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-cream"}`}
         >
           {label}
         </span>
@@ -115,7 +115,7 @@ function TabItem({
       <motion.span
         whileTap={{ scale: 0.88 }}
         transition={{ type: "spring", stiffness: 500, damping: 20 }}
-        className={`p-1.5 transition-colors ${active ? "text-coral" : "text-ink"}`}
+        className={`p-1.5 transition-colors ${active ? "text-coral" : "text-cream"}`}
       >
         <Icon
           className="h-5 w-5 sm:h-6 sm:w-6"
@@ -127,7 +127,7 @@ function TabItem({
       </motion.span>
       <span
         id={labelId}
-        className={`relative block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none transition-colors ${active ? "text-coral" : "text-ink/60"}`}
+        className={`relative block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none transition-colors ${active ? "text-coral" : "text-cream/60"}`}
       >
         {label}
         {active && (

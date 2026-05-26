@@ -1,7 +1,7 @@
-// Lovable AI Gateway — extract taste-profile signals from a user's pasted social content.
+// Confetti AI — extract taste-profile signals from a user's pasted social content.
 const corsHeaders = {
   "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.lovable.app",
+    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.com",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
@@ -31,8 +31,8 @@ Deno.serve(async (req) => {
     if (!b.pasted || b.pasted.trim().length < 5)
       return json({ error: "Need some pasted content" }, 400);
 
-    const apiKey = Deno.env.get("LOVABLE_API_KEY");
-    if (!apiKey) return json({ error: "missing LOVABLE_API_KEY" }, 500);
+    const apiKey = Deno.env.get("OPENROUTER_API_KEY");
+    if (!apiKey) return json({ error: "missing OPENROUTER_API_KEY" }, 500);
 
     const handlesBlock =
       Object.entries(b.handles ?? {})
@@ -87,7 +87,7 @@ Rules:
       },
     };
 
-    const resp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({

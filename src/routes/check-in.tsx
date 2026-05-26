@@ -54,10 +54,10 @@ function CheckInPage() {
   }, [loopParam, stopParam]);
 
   return (
-    <main className="min-h-screen bg-cream text-ink grid place-items-center p-6">
+    <main className="min-h-screen bg-cream text-cream grid place-items-center p-6">
       <div className="w-full max-w-md rounded-3xl border-2 border-ink bg-cream p-6 shadow-brut-lg">
         {state.status === "idle" && (
-          <p className="font-mono text-xs uppercase tracking-widest text-ink/60">
+          <p className="font-mono text-xs uppercase tracking-widest text-cream/60">
             Verifying check-in…
           </p>
         )}
@@ -70,7 +70,7 @@ function CheckInPage() {
             <h1 className="font-display text-3xl font-extrabold leading-tight">
               Hmm — <span className="font-serif italic font-normal text-coral">no match.</span>
             </h1>
-            <p className="text-sm text-ink/70">{state.reason}</p>
+            <p className="text-sm text-cream/70">{state.reason}</p>
             <Link
               to="/"
               className="mt-2 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-4 py-2 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
@@ -100,7 +100,7 @@ function CheckInPage() {
                     </>
                   )}
                 </h1>
-                <p className="mt-1 text-sm text-ink/70">
+                <p className="mt-1 text-sm text-cream/70">
                   Stop · <span className="font-bold">{state.result.stop.name}</span>
                   {state.result.stop.area ? ` · ${state.result.stop.area}` : ""}
                 </p>
@@ -108,7 +108,7 @@ function CheckInPage() {
             </div>
 
             <div className="rounded-2xl border-2 border-ink bg-background p-4">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                 Confetti reward
               </div>
               <div className="mt-1 flex items-center gap-2 font-display text-3xl font-extrabold">
@@ -116,7 +116,7 @@ function CheckInPage() {
                 {state.result.alreadyAwarded ? "0" : `+${state.result.awarded}`}
               </div>
               {state.result.alreadyAwarded && (
-                <p className="mt-1 text-xs text-ink/60">
+                <p className="mt-1 text-xs text-cream/60">
                   Already awarded earlier — no double-dipping 🎉
                 </p>
               )}

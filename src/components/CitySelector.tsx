@@ -126,14 +126,14 @@ export function CitySelector({ compact = false, className = "" }: Props) {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={`Change city (current: ${city.name})`}
-        className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream font-mono font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral/10 ${
+        className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream font-mono font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral/10 ${
           compact ? "h-9 px-3 text-[10px]" : "h-10 px-4 text-xs"
         }`}
       >
         <MapPin className="h-3.5 w-3.5 text-coral" aria-hidden />
         <span className="max-w-[8rem] truncate">{city.name}</span>
         <ChevronDown
-          className={`h-3.5 w-3.5 text-ink/60 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-3.5 w-3.5 text-cream/60 transition-transform ${open ? "rotate-180" : ""}`}
           aria-hidden
         />
       </button>
@@ -151,7 +151,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search cities…"
-              className="h-9 w-full rounded-full border-2 border-ink bg-cream px-3 font-mono text-xs text-ink placeholder:text-ink/40 focus:outline-none focus:ring-2 focus:ring-coral"
+              className="h-9 w-full rounded-full border-2 border-ink bg-cream px-3 font-mono text-xs text-cream placeholder:text-cream/40 focus:outline-none focus:ring-2 focus:ring-coral"
               autoFocus
             />
           </div>
@@ -160,7 +160,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
             type="button"
             onClick={useMyLocation}
             disabled={locating}
-            className="flex w-full items-center gap-2 border-b-2 border-dashed border-ink/30 px-4 py-2.5 text-left font-mono text-[11px] font-bold uppercase tracking-widest text-ink hover:bg-coral/10 disabled:opacity-50"
+            className="flex w-full items-center gap-2 border-b-2 border-dashed border-ink/30 px-4 py-2.5 text-left font-mono text-[11px] font-bold uppercase tracking-widest text-cream hover:bg-coral/10 disabled:opacity-50"
           >
             <Navigation className={`h-3.5 w-3.5 text-coral ${locating ? "animate-spin" : ""}`} />
             {locating
@@ -175,7 +175,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
               <div className="flex items-start gap-2">
                 <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral" aria-hidden />
                 <div className="min-w-0 flex-1">
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
                     {locError.error === "permission_denied"
                       ? "Permission blocked"
                       : locError.error === "iframe_blocked"
@@ -186,10 +186,10 @@ export function CitySelector({ compact = false, className = "" }: Props) {
                             ? "Not supported"
                             : "Location unavailable"}
                     {locError.attempts > 1 && (
-                      <span className="ml-1 text-ink/50">· tried {locError.attempts}×</span>
+                      <span className="ml-1 text-cream/50">· tried {locError.attempts}×</span>
                     )}
                   </p>
-                  <p className="mt-1 font-mono text-[11px] leading-snug text-ink/70">
+                  <p className="mt-1 font-mono text-[11px] leading-snug text-cream/70">
                     {locError.message}
                   </p>
                   <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -197,7 +197,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
                       <button
                         type="button"
                         onClick={useMyLocation}
-                        className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
+                        className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
                       >
                         <RefreshCw className="h-3 w-3" aria-hidden /> Retry
                       </button>
@@ -207,7 +207,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
                         href={window.location.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
+                        className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
                       >
                         <ExternalLink className="h-3 w-3" aria-hidden /> Open in new tab
                       </a>
@@ -215,12 +215,12 @@ export function CitySelector({ compact = false, className = "" }: Props) {
                     <button
                       type="button"
                       onClick={() => setLocError(null)}
-                      className="font-mono text-[10px] uppercase tracking-widest text-ink/50 hover:text-ink"
+                      className="font-mono text-[10px] uppercase tracking-widest text-cream/50 hover:text-cream"
                     >
                       Dismiss
                     </button>
                   </div>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-cream/50">
                     Or pick a city below ↓
                   </p>
                 </div>
@@ -247,10 +247,10 @@ export function CitySelector({ compact = false, className = "" }: Props) {
                         {c.emoji}
                       </span>
                       <span className="min-w-0">
-                        <span className="block truncate font-display text-sm font-bold text-ink">
+                        <span className="block truncate font-display text-sm font-bold text-cream">
                           {c.name}
                         </span>
-                        <span className="block truncate font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                        <span className="block truncate font-mono text-[10px] uppercase tracking-widest text-cream/60">
                           {c.region}
                         </span>
                       </span>
@@ -261,7 +261,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
               );
             })}
             {filtered.length === 0 && (
-              <li className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-ink/50">
+              <li className="px-4 py-3 font-mono text-[11px] uppercase tracking-widest text-cream/50">
                 No cities match.
               </li>
             )}
@@ -270,7 +270,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
           <button
             type="button"
             onClick={clear}
-            className="block w-full border-t-2 border-dashed border-ink/30 px-4 py-2 text-left font-mono text-[10px] uppercase tracking-widest text-ink/60 hover:bg-coral/10 hover:text-ink"
+            className="block w-full border-t-2 border-dashed border-ink/30 px-4 py-2 text-left font-mono text-[10px] uppercase tracking-widest text-cream/60 hover:bg-coral/10 hover:text-cream"
           >
             Reset to default
           </button>

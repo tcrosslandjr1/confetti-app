@@ -206,7 +206,7 @@ export function TapToGoBookingModal({
                           {s.title}
                         </div>
                       </div>
-                      <div className="truncate text-[11px] text-ink/60">
+                      <div className="truncate text-[11px] text-cream/60">
                         {s.type} · {s.cost}
                       </div>
                     </div>
@@ -263,7 +263,7 @@ export function TapToGoBookingModal({
                   key={k}
                   className="flex items-baseline justify-between gap-2 border-b border-dashed border-ink/30 pb-1.5"
                 >
-                  <dt className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                  <dt className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                     {k}
                   </dt>
                   <dd className="font-display text-[13px] font-extrabold">{v}</dd>
@@ -274,11 +274,11 @@ export function TapToGoBookingModal({
 
           {planRef && (
             <div className="mt-4 rounded-2xl border-2 border-ink bg-gold/40 p-4 text-center animate-fade-in">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-ink/70">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
                 Confirmation
               </div>
               <div className="mt-1 font-display text-xl font-extrabold">{planRef}</div>
-              <div className="mt-1 text-xs text-ink/70">
+              <div className="mt-1 text-xs text-cream/70">
                 Itinerary, route, and tickets sent to your wallet.
               </div>
             </div>
@@ -298,7 +298,7 @@ export function TapToGoBookingModal({
               >
                 Confirm itinerary — tap to book all <ArrowUpRight className="h-4 w-4" />
               </button>
-              <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
+              <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-cream/50">
                 {bookable.length} reservations · no charge until you arrive
               </p>
             </>

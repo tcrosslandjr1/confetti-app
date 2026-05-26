@@ -124,7 +124,7 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
   )
   .handler(async ({ data, context }) => {
     // returnUrl must point to our own origin — prevents open-redirect abuse.
-    const siteUrl = (process.env.SITE_URL ?? "https://confettiplan.lovable.app").replace(/\/$/, "");
+    const siteUrl = (process.env.SITE_URL ?? "https://confettiplan.com").replace(/\/$/, "");
     if (!data.returnUrl.startsWith(siteUrl + "/") && data.returnUrl !== siteUrl) {
       throw new Error("Invalid returnUrl");
     }

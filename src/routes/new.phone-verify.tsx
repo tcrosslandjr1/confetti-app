@@ -63,7 +63,12 @@ function PhoneVerifyPage() {
         <div style={{
           fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800,
           letterSpacing: ".1em", opacity: 0.6, textAlign: "center",
-        }}>didn't get it? <span style={{ textDecoration: "underline", cursor: "pointer" }}>resend in 0:42</span></div>
+        }}>didn't get it? <button onClick={() => navigate({ to: "/new/phone-verify" })} style={{
+          appearance: "none", background: "none", border: "none", padding: 0,
+          fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800,
+          letterSpacing: ".1em", textDecoration: "underline", cursor: "pointer",
+          color: "inherit", opacity: 1,
+        }}>resend code</button></div>
 
         <div style={{ flex: 1 }} />
 

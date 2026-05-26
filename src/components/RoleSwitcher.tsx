@@ -62,7 +62,7 @@ const OPTIONS: Option[] = [
     Icon: Eye,
     blurb: "Marketing pages only",
     home: "/",
-    tone: "bg-gold text-ink",
+    tone: "bg-gold text-cream",
   },
 ];
 
@@ -202,12 +202,12 @@ export function RoleSwitcher() {
         {open ? (
           <div className="space-y-2 p-2">
             <div className="flex items-center justify-between gap-3 px-2 pt-1">
-              <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+              <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70">
                 <Repeat className="h-3 w-3" /> View as
               </div>
               <button
                 onClick={() => setOpen(false)}
-                className="rounded-md p-1 text-ink/60 transition hover:text-ink"
+                className="rounded-md p-1 text-cream/60 transition hover:text-cream"
                 aria-label="Hide switcher"
               >
                 <ChevronDown className="h-3.5 w-3.5" />
@@ -224,7 +224,7 @@ export function RoleSwitcher() {
                     className={`group flex flex-col items-start gap-0.5 rounded-xl border-2 px-3 py-2 text-left text-xs font-bold transition-pop ${
                       active
                         ? `${tone} border-ink shadow-brut`
-                        : "border-transparent text-ink/70 hover:-translate-y-0.5 hover:border-ink hover:bg-cream hover:text-ink"
+                        : "border-transparent text-cream/70 hover:-translate-y-0.5 hover:border-ink hover:bg-cream hover:text-cream"
                     }`}
                     aria-pressed={active}
                     title={blurb}
@@ -258,7 +258,7 @@ export function RoleSwitcher() {
           <button
             onClick={() => setOpen(true)}
             className={`inline-flex items-center gap-2 rounded-2xl px-3 py-2 text-xs font-bold ${
-              isImpersonating ? "text-coral" : "text-ink"
+              isImpersonating ? "text-coral" : "text-cream"
             }`}
             title={`Currently viewing as ${current.label}`}
           >
@@ -268,7 +268,7 @@ export function RoleSwitcher() {
             >
               <current.Icon className="h-3 w-3" />
             </span>
-            <span className="hidden sm:inline text-ink/60 font-mono text-[10px] uppercase tracking-widest">
+            <span className="hidden sm:inline text-cream/60 font-mono text-[10px] uppercase tracking-widest">
               View as
             </span>
             <span className="font-mono text-[11px] uppercase tracking-widest">{current.label}</span>

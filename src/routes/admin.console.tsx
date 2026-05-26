@@ -12,103 +12,18 @@ import {
   Users,
   CalendarCheck,
   AlertCircle,
-  Lock,
-  Eye,
-  EyeOff,
   RefreshCw,
   Store,
   Clock,
   ChevronRight,
   Zap,
 } from "lucide-react";
+import { AdminPinGate, isAdminPinVerified } from "@/components/admin/AdminPinGate";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin/console")({
   component: AdminConsole,
 });
-
-/* ─────────────── PIN Gate ─────────────── */
-
-const ADMIN_PIN = "236166";
-const PIN_KEY = "confetti.admin.pinOk";
-
-function PinGate({ onUnlock }: { onUnlock: () => void }) {
-  const [pin, setPin] = useState("");
-  const [error, setError] = useState(false);
-  const [show, setShow] = useState(false);
-
-  const submit = () => {
-    if (pin === ADMIN_PIN) {
-      sessionStorage.setItem(PIN_KEY, "1");
-      onUnlock();
-    } else {
-      setError(true);
-      setPin("");
-    }
-  };
-
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-ink px-4">
-      <div className="w-full max-w-sm space-y-6 rounded-2xl border-2 border-cream/20 bg-ink p-8 text-center shadow-brut">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-coral bg-coral/10">
-          <Lock className="h-7 w-7 text-coral" />
-        </div>
-        <div>
-          <h1 className="font-display text-2xl font-black tracking-tight text-cream">
-            Admin Console
-          </h1>
-          <p className="mt-1 font-mono text-xs uppercase tracking-widest text-cream/50">
-            Enter your PIN to continue
-          </p>
-        </div>
-
-        <div className="space-y-3">
-          <div className="relative">
-            <input
-              type={show ? "text" : "password"}
-              inputMode="numeric"
-              maxLength={6}
-              value={pin}
-              onChange={(e) => {
-                setError(false);
-                setPin(e.target.value.replace(/\D/g, ""));
-              }}
-              onKeyDown={(e) => e.key === "Enter" && submit()}
-              placeholder="••••••"
-              className={`w-full rounded-xl border-2 bg-cream/5 px-4 py-3 text-center font-mono text-2xl tracking-[0.5em] text-cream placeholder:text-cream/20 focus:outline-none ${
-                error
-                  ? "border-red-500 shake"
-                  : "border-cream/20 focus:border-coral"
-              }`}
-              autoFocus
-            />
-            <button
-              type="button"
-              onClick={() => setShow(!show)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream/70"
-            >
-              {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-            </button>
-          </div>
-
-          {error && (
-            <p className="flex items-center justify-center gap-1 text-xs text-red-400">
-              <AlertCircle className="h-3 w-3" /> Wrong PIN — try again
-            </p>
-          )}
-
-          <button
-            onClick={submit}
-            disabled={pin.length < 4}
-            className="w-full rounded-xl border-2 border-coral bg-coral px-4 py-3 font-mono text-sm font-bold uppercase tracking-widest text-cream transition-all hover:-translate-y-0.5 hover:shadow-brut disabled:opacity-40 disabled:hover:translate-y-0"
-          >
-            Unlock
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ─────────────── Dashboard ─────────────── */
 
@@ -565,13 +480,7 @@ function BookingsTab({
 
 function AdminConsole() {
   const { isAdmin, loading } = useAuth();
-  const [pinOk, setPinOk] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setPinOk(sessionStorage.getItem(PIN_KEY) === "1");
-    }
-  }, []);
+  const [pinOk, setPinOk] = useState(() => isAdminPinVerified());
 
   if (loading) {
     return (
@@ -596,7 +505,7 @@ function AdminConsole() {
   }
 
   if (!pinOk) {
-    return <PinGate onUnlock={() => setPinOk(true)} />;
+    return <AdminPinGate onUnlock={() => setPinOk(true)} />;
   }
 
   return <AdminDashboard />;

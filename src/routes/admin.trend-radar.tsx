@@ -4,14 +4,12 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Zap,
-  Lock,
-  Eye,
-  EyeOff,
   Check,
   X,
   ExternalLink,
   Flame,
 } from "lucide-react";
+import { AdminPinGate, isAdminPinVerified } from "@/components/admin/AdminPinGate";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -19,63 +17,6 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/admin/trend-radar")({
   component: TrendRadarPage,
 });
-
-/* ─────────────── PIN Gate (same pattern as admin.console) ─────────────── */
-
-const ADMIN_PIN = "236166";
-const PIN_KEY = "confetti.admin.pinOk";
-
-function PinGate({ onUnlock }: { onUnlock: () => void }) {
-  const [pin, setPin] = useState("");
-  const [error, setError] = useState(false);
-  const [show, setShow] = useState(false);
-
-  const submit = () => {
-    if (pin === ADMIN_PIN) {
-      sessionStorage.setItem(PIN_KEY, "1");
-      onUnlock();
-    } else {
-      setError(true);
-      setPin("");
-    }
-  };
-
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-ink px-4">
-      <div className="w-full max-w-sm space-y-6 rounded-2xl border-2 border-cream/20 bg-ink p-8 text-center shadow-brut">
-        <Lock className="mx-auto size-10 text-coral" />
-        <h1 className="font-display text-2xl font-extrabold text-cream">Trend Radar</h1>
-        <p className="text-sm text-cream/60">Enter admin PIN to continue</p>
-        <div className="relative">
-          <input
-            type={show ? "text" : "password"}
-            value={pin}
-            onChange={(e) => {
-              setPin(e.target.value);
-              setError(false);
-            }}
-            onKeyDown={(e) => e.key === "Enter" && submit()}
-            maxLength={6}
-            className="w-full rounded-xl border-2 border-cream/20 bg-ink px-4 py-3 text-center font-mono text-lg tracking-[0.3em] text-cream focus:border-coral focus:outline-none"
-            placeholder="• • • • • •"
-            autoFocus
-          />
-          <button
-            type="button"
-            onClick={() => setShow(!show)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream"
-          >
-            {show ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
-          </button>
-        </div>
-        {error && <p className="text-sm font-bold text-red-400">Wrong PIN</p>}
-        <Button variant="default" className="w-full" onClick={submit}>
-          Unlock
-        </Button>
-      </div>
-    </div>
-  );
-}
 
 /* ─────────────── Trend Radar Dashboard ─────────────── */
 
@@ -326,12 +267,10 @@ function TrendRadarDashboard() {
 /* ─────────────── Page Wrapper ─────────────── */
 
 function TrendRadarPage() {
-  const [pinOk, setPinOk] = useState(
-    () => sessionStorage.getItem(PIN_KEY) === "1",
-  );
+  const [pinOk, setPinOk] = useState(() => isAdminPinVerified());
 
   if (!pinOk) {
-    return <PinGate onUnlock={() => setPinOk(true)} />;
+    return <AdminPinGate onUnlock={() => setPinOk(true)} />;
   }
 
   return <TrendRadarDashboard />;

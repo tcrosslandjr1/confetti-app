@@ -1,15 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, BarChart3, Eye, MousePointerClick, Sparkles, RefreshCw, Lock } from "lucide-react";
+import { ArrowLeft, BarChart3, Eye, MousePointerClick, Sparkles, RefreshCw } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CITIES } from "@/lib/cities";
+import { AdminPinGate, isAdminPinVerified } from "@/components/admin/AdminPinGate";
 
 export const Route = createFileRoute("/admin/city-analytics")({
   component: AdminCityAnalyticsPage,
 });
-
-const ADMIN_PIN = "236166";
-const PIN_KEY = "confetti.admin.pinOk";
 
 type RangeKey = "24h" | "7d" | "30d";
 
@@ -38,60 +36,9 @@ type CityStat = {
   ctaClicks: number;
 };
 
-function PinGate({ onUnlock }: { onUnlock: () => void }) {
-  const [pin, setPin] = useState("");
-  const [error, setError] = useState(false);
-
-  const submit = () => {
-    if (pin === ADMIN_PIN) {
-      sessionStorage.setItem(PIN_KEY, "1");
-      onUnlock();
-    } else {
-      setError(true);
-      setPin("");
-    }
-  };
-
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="w-full max-w-sm space-y-6 rounded-2xl border-2 border-border bg-card p-8 text-center shadow-md">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-primary/10">
-          <Lock className="h-7 w-7 text-primary" />
-        </div>
-        <h1 className="font-display text-2xl font-black tracking-tight">City Analytics</h1>
-        <input
-          type="password"
-          inputMode="numeric"
-          maxLength={6}
-          value={pin}
-          onChange={(e) => {
-            setError(false);
-            setPin(e.target.value.replace(/\D/g, ""));
-          }}
-          onKeyDown={(e) => e.key === "Enter" && submit()}
-          placeholder="••••••"
-          className={`w-full rounded-xl border-2 bg-muted/30 px-4 py-3 text-center font-mono text-2xl tracking-[0.5em] focus:outline-none ${
-            error ? "border-destructive" : "border-border focus:border-primary"
-          }`}
-        />
-        <button
-          onClick={submit}
-          disabled={pin.length < 4}
-          className="w-full rounded-xl bg-primary px-4 py-3 font-mono text-sm font-bold uppercase tracking-widest text-primary-foreground disabled:opacity-40"
-        >
-          Unlock
-        </button>
-      </div>
-    </div>
-  );
-}
-
 function AdminCityAnalyticsPage() {
-  const [unlocked, setUnlocked] = useState(false);
-  useEffect(() => {
-    setUnlocked(sessionStorage.getItem(PIN_KEY) === "1");
-  }, []);
-  if (!unlocked) return <PinGate onUnlock={() => setUnlocked(true)} />;
+  const [unlocked, setUnlocked] = useState(() => isAdminPinVerified());
+  if (!unlocked) return <AdminPinGate onUnlock={() => setUnlocked(true)} />;
   return <Dashboard />;
 }
 

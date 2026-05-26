@@ -17,8 +17,9 @@ import {
   type SocialContext,
   type CollectionResult,
   type SignalType,
-} from "./agents/social-signal-collector";
+} from "./agents/social-signal-collector.server";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 // ─── Schemas ────────────────────────────────────────────────
 
@@ -50,6 +51,7 @@ const BatchSchema = z.object({
  * Optionally filter by signal type (trending, popular, etc.).
  */
 export const fetchTrendingByCity = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => CitySignalSchema.parse(input))
   .handler(async ({ data: req }) => {
     let query = supabaseAdmin
@@ -86,6 +88,7 @@ export const fetchTrendingByCity = createServerFn({ method: "POST" })
  * structured social context.
  */
 export const refreshSocialSignals = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => RefreshSchema.parse(input))
   .handler(async ({ data: req }): Promise<{
     success: boolean;
@@ -110,6 +113,7 @@ export const refreshSocialSignals = createServerFn({ method: "POST" })
  * This is the primary entry point for injecting social data into AI prompts.
  */
 export const getSocialContext = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => ContextSchema.parse(input))
   .handler(async ({ data: req }): Promise<{
     success: boolean;
@@ -127,6 +131,7 @@ export const getSocialContext = createServerFn({ method: "POST" })
  * AI Content Engine batch.
  */
 export const runSocialBatch = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => BatchSchema.parse(input))
   .handler(async ({ data: req }): Promise<CollectionResult> => {
     return runSocialSignalBatch({

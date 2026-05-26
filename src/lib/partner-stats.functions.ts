@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 export type PartnerStatsDTO = {
   impressions: { value: number; deltaPct: number };
@@ -17,7 +18,9 @@ function startOfUtcDay(d: Date): Date {
   return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
 }
 
-export const getPartnerStats = createServerFn({ method: "GET" }).handler(
+export const getPartnerStats = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(
   async (): Promise<PartnerStatsDTO> => {
     const now = new Date();
     const today = startOfUtcDay(now);

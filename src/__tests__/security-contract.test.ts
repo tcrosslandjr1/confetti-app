@@ -13,7 +13,7 @@ const ROOT = process.cwd();
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
-    if (entry === "node_modules" || entry === ".git" || entry === "dist") continue;
+    if (["node_modules", ".git", "dist", "_repo-backups", "contracts"].includes(entry)) continue;
     const p = join(dir, entry);
     const s = statSync(p);
     if (s.isDirectory()) walk(p, out);

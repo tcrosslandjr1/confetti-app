@@ -13,13 +13,14 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import {
   generateOnDemand,
   runDailyBatch,
   fetchGeneratedIdeas,
   fetchDiscoveredVenues,
   type GenerationResult,
-} from "./agents/idea-generator";
+} from "./agents/idea-generator.server";
 import type { Idea } from "./occasions";
 
 // ─── Schemas ────────────────────────────────────────────────
@@ -60,6 +61,7 @@ const FetchVenuesSchema = z.object({
 // ─── 1. On-Demand Generation ────────────────────────────────
 
 export const generateIdeasOnDemand = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => OnDemandSchema.parse(input))
   .handler(async ({ data: req }) => {
     const { ideas, venues } = await generateOnDemand(
@@ -90,6 +92,7 @@ export const generateIdeasOnDemand = createServerFn({ method: "POST" })
 // ─── 2. Daily Batch Generation ──────────────────────────────
 
 export const runDailyGeneration = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => DailyBatchSchema.parse(input))
   .handler(async ({ data: req }): Promise<GenerationResult> => {
     return runDailyBatch({
@@ -107,6 +110,7 @@ export const runDailyGeneration = createServerFn({ method: "POST" })
  * then adjusts the content's quality_score accordingly.
  */
 export const recordContentFeedback = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => FeedbackSchema.parse(input))
   .handler(async ({ data: req }) => {
     // Determine the user — for now use anon tracking; future: auth middleware
@@ -169,6 +173,7 @@ export const recordContentFeedback = createServerFn({ method: "POST" })
 // ─── 4. Fetch AI Ideas ──────────────────────────────────────
 
 export const fetchAIIdeas = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => FetchIdeasSchema.parse(input))
   .handler(async ({ data: req }): Promise<Idea[]> => {
     return fetchGeneratedIdeas(
@@ -181,6 +186,7 @@ export const fetchAIIdeas = createServerFn({ method: "POST" })
 // ─── 5. Fetch AI Venues ────────────────────────────────────
 
 export const fetchAIVenues = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => FetchVenuesSchema.parse(input))
   .handler(async ({ data: req }) => {
     return fetchDiscoveredVenues(req.citySlug, req.limit ?? 20);
@@ -193,6 +199,7 @@ export const fetchAIVenues = createServerFn({ method: "POST" })
  * Called after feedback is recorded to keep the taste profile fresh.
  */
 export const rebuildUserTasteSignals = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) =>
     z.object({ userId: z.string().uuid() }).parse(input),
   )

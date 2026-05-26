@@ -20,7 +20,7 @@ import {
   loadSocialContext,
   formatSocialContextBlock,
   type SocialContext,
-} from "./social-signal-collector";
+} from "./social-signal-collector.server";
 
 // ─── Types ────────────────────────────────────────────────────
 

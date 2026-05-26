@@ -3,6 +3,7 @@ import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
 import { getAuthedUserId } from "@/lib/require-auth.server";
+import { corsHeaders, preflightResponse } from "@/lib/cors";
 
 const EventSchema = z.object({
   name: z.enum(["pick_impression", "pick_click", "pick_feedback_up", "pick_feedback_down"]),
@@ -19,17 +20,13 @@ const BodySchema = z.object({
   events: z.array(EventSchema).min(1).max(50),
 });
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
-};
-
 export const Route = createFileRoute("/api/public/pick-events")({
   server: {
     handlers: {
-      OPTIONS: async () => new Response(null, { status: 204, headers: corsHeaders }),
+      OPTIONS: async ({ request }) => preflightResponse(request),
       POST: async ({ request }) => {
+        const origin = request.headers.get("Origin");
+        const hdrs = corsHeaders(origin);
         // Optional auth: anonymous analytics are allowed, but if a Bearer token
         // is present we use it as the source of truth for user_id. Clients can
         // no longer spoof another user's id by passing it in the body.
@@ -40,14 +37,14 @@ export const Route = createFileRoute("/api/public/pick-events")({
         } catch {
           return new Response(JSON.stringify({ error: "invalid json" }), {
             status: 400,
-            headers: { "Content-Type": "application/json", ...corsHeaders },
+            headers: { "Content-Type": "application/json", ...hdrs },
           });
         }
         const parsed = BodySchema.safeParse(payload);
         if (!parsed.success) {
           return new Response(
             JSON.stringify({ error: "invalid payload", issues: parsed.error.issues }),
-            { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } },
+            { status: 400, headers: { "Content-Type": "application/json", ...hdrs } },
           );
         }
         const rows = parsed.data.events.map((e) => ({
@@ -65,12 +62,12 @@ export const Route = createFileRoute("/api/public/pick-events")({
           console.error("[pick-events] insert failed", error);
           return new Response(JSON.stringify({ error: "insert failed" }), {
             status: 500,
-            headers: { "Content-Type": "application/json", ...corsHeaders },
+            headers: { "Content-Type": "application/json", ...hdrs },
           });
         }
         return new Response(JSON.stringify({ ok: true, count: rows.length }), {
           status: 200,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
+          headers: { "Content-Type": "application/json", ...hdrs },
         });
       },
     },

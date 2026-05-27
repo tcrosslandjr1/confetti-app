@@ -1,6 +1,6 @@
 // Confetti AI Concierge — client bridge
-// Sends messages to the chat-concierge edge function and applies
-// plan edits to the active loop via loop-store mutations.
+// Routes messages through the deployed ai-chat edge function on the
+// Confetti Supabase project, with the concierge system prompt injected.
 
 import {
   type ActiveLoop,
@@ -50,26 +50,63 @@ export type ConciergeResponse = {
 };
 
 // ─── Endpoint ───────────────────────────────────────────────────────
+// Hardcode the canonical Confetti project — the .env file currently
+// points to the wrong project and Vercel has no env overrides set.
+// This mirrors the same defensive pattern used in client.ts.
 
-const SUPABASE_URL =
-  import.meta.env.VITE_SUPABASE_URL ??
-  "https://zfeckvxkulreyapadanf.supabase.co";
+const CONFETTI_SUPABASE_URL = "https://zfeckvxkulreyapadanf.supabase.co";
+const CONFETTI_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmZWNrdnhrdWxyZXlhcGFkYW5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NzU1MDgsImV4cCI6MjA5NDA1MTUwOH0.KPYif0ntCEVwqOIUWX8r3ZYGI2xGmYIU3oKgnI8aYM0";
 
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY ?? "";
+const ENDPOINT = `${CONFETTI_SUPABASE_URL}/functions/v1/ai-chat`;
 
-const ENDPOINT = `${SUPABASE_URL}/functions/v1/chat-concierge`;
+// ─── System prompt ──────────────────────────────────────────────────
+
+function buildSystemPrompt(loop: ActiveLoop): string {
+  const city = loop.city ?? loop.toName ?? "Washington DC";
+  const occasion = loop.occasion ?? loop.experienceName ?? "a night out";
+  const vibe = loop.vibe ?? loop.vibes?.[0] ?? "fun";
+  const budget = budgetLabel(loop.planParams?.budget);
+  const stopsJSON = JSON.stringify(loop.stops.map(minimalStop), null, 2);
+
+  return `You are the Confetti Concierge — a warm, witty AI guide that helps people have the best nights out. You speak like a trusted friend who knows every great spot in town.
+
+CONTEXT:
+- City: ${city}
+- Occasion: ${occasion}
+- Vibe: ${vibe}
+- Budget: ${budget}
+- Current itinerary (JSON):
+${stopsJSON}
+
+CAPABILITIES:
+You can chat naturally AND modify the user's itinerary. When the user wants changes, respond with a JSON block wrapped in \`\`\`json ... \`\`\` containing an "edits" array. Each edit has:
+- action: "replace" | "add" | "remove" | "reorder"
+- For "replace": stop_id + stop object with updated fields
+- For "add": stop object + optional position (0-indexed)
+- For "remove": stop_id
+- For "reorder": ordered_ids array
+
+Example response with edits:
+"I swapped Cafe Luna for Miso — better cocktail program and it fits the date-night vibe."
+\`\`\`json
+{"edits":[{"action":"replace","stop_id":"s1","stop":{"name":"Miso","type":"bar","time":"9:00 PM","area":"Logan Circle","rationale":"Elevated cocktails in an intimate setting"}}]}
+\`\`\`
+
+RULES:
+- Keep responses concise and fun — max 2-3 sentences for chat, plus edits if needed
+- Always explain WHY you're suggesting a change
+- Respect the budget level
+- If you don't know a venue, say so honestly — never make up a fake place
+- When no edit is needed, just chat naturally without any JSON block`;
+}
 
 // ─── Send message ───────────────────────────────────────────────────
 
 /**
- * Send a user message to the Confetti Concierge and optionally apply
- * any returned plan edits to the active loop.
- *
- * @param message      The user's natural-language message
- * @param loop         The current ActiveLoop (stops + metadata)
- * @param history      Previous chat messages (trimmed to last 10 internally)
- * @param autoApply    If true (default), edits are applied to localStorage immediately
- * @returns            The assistant reply + any edits
+ * Send a user message to the Confetti Concierge via the ai-chat edge
+ * function, which proxies to OpenAI. The concierge personality is
+ * injected as a system prompt with the current itinerary context.
  */
 export async function sendConciergeMessage(
   message: string,
@@ -77,28 +114,32 @@ export async function sendConciergeMessage(
   history: ChatMessage[] = [],
   autoApply = true,
 ): Promise<ConciergeResponse> {
-  // Build the conversation history the edge function expects
-  const trimmedHistory = history.slice(-10).map((m) => ({
-    role: m.role,
+  // Build OpenAI-format messages array
+  const systemMsg = { role: "system" as const, content: buildSystemPrompt(loop) };
+
+  const historyMsgs = history.slice(-10).map((m) => ({
+    role: m.role as "user" | "assistant",
     content: m.content,
   }));
 
+  const userMsg = { role: "user" as const, content: message };
+
+  const messages = [systemMsg, ...historyMsgs, userMsg];
+
+  // ai-chat expects: { messages, model?, temperature?, max_tokens? }
   const body = {
-    message,
-    stops: loop.stops.map(minimalStop),
-    city: loop.city ?? loop.toName ?? "Washington DC",
-    occasion: loop.occasion ?? loop.experienceName,
-    vibe: loop.vibe ?? loop.vibes?.[0],
-    budget: budgetLabel(loop.planParams?.budget),
-    history: trimmedHistory,
+    messages,
+    model: "gpt-4o-mini",
+    temperature: 0.8,
+    max_tokens: 1024,
   };
 
   const res = await fetch(ENDPOINT, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-      apikey: SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${CONFETTI_ANON_KEY}`,
+      apikey: CONFETTI_ANON_KEY,
     },
     body: JSON.stringify(body),
   });
@@ -108,7 +149,23 @@ export async function sendConciergeMessage(
     throw new Error(err.error ?? `Concierge error ${res.status}`);
   }
 
-  const data = (await res.json()) as ConciergeResponse;
+  const raw = await res.json();
+
+  // ai-chat returns OpenAI-format: { choices: [{ message: { content } }] }
+  const content: string =
+    raw?.choices?.[0]?.message?.content ??
+    raw?.reply ??
+    raw?.content ??
+    "Sorry, I couldn't process that. Try again?";
+
+  // Parse edits from the response if present
+  const parsed = parseEditsFromContent(content);
+
+  const data: ConciergeResponse = {
+    reply: parsed.reply,
+    edits: parsed.edits,
+    type: parsed.edits ? "edit" : "chat",
+  };
 
   // Auto-apply edits to the active loop in localStorage
   if (autoApply && data.edits?.length) {
@@ -116,6 +173,41 @@ export async function sendConciergeMessage(
   }
 
   return data;
+}
+
+// ─── Parse edits from assistant content ─────────────────────────────
+
+/**
+ * Extract a JSON edits block from the assistant's response content.
+ * The concierge is prompted to wrap edits in ```json ... ```.
+ */
+function parseEditsFromContent(content: string): {
+  reply: string;
+  edits: StopEdit[] | null;
+} {
+  const jsonBlockRegex = /```json\s*([\s\S]*?)```/;
+  const match = content.match(jsonBlockRegex);
+
+  if (!match) {
+    return { reply: content.trim(), edits: null };
+  }
+
+  try {
+    const parsed = JSON.parse(match[1]);
+    const edits: StopEdit[] = Array.isArray(parsed.edits)
+      ? parsed.edits
+      : Array.isArray(parsed)
+        ? parsed
+        : null;
+
+    // Strip the JSON block from the display reply
+    const reply = content.replace(jsonBlockRegex, "").trim();
+
+    return { reply: reply || "Done! I updated your plan.", edits };
+  } catch {
+    // JSON parse failed — treat the whole thing as a chat reply
+    return { reply: content.trim(), edits: null };
+  }
 }
 
 // ─── Apply edits to loop-store ──────────────────────────────────────

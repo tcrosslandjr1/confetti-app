@@ -1,6 +1,6 @@
-// Confetti AI Concierge — client bridge
-// Routes messages through the deployed ai-chat edge function on the
-// Confetti Supabase project, with the concierge system prompt injected.
+// Confetti AI Concierge â client bridge
+// Routes messages through /api/concierge (Vercel serverless function)
+// which calls Anthropic Claude directly. Same-origin = no CORS issues.
 
 import {
   type ActiveLoop,
@@ -12,7 +12,7 @@ import {
   reorderStops,
 } from "./loop-store";
 
-// ─── Types ──────────────────────────────────────────────────────────────────
+// âââ Types ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 export type ChatMessage = {
   id: string;
@@ -49,64 +49,17 @@ export type ConciergeResponse = {
   type: "edit" | "chat";
 };
 
-// ─── Endpoint ───────────────────────────────────────────────────────────────
-// Hardcode the canonical Confetti project — the .env file currently
-// points to the wrong project and Vercel has no env overrides set.
-// This mirrors the same defensive pattern used in client.ts.
+// âââ Endpoint âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// Same-origin Vercel serverless function â no CORS, no Supabase dependency.
 
-const CONFETTI_SUPABASE_URL = "https://zfeckvxkulreyapadanf.supabase.co";
-const CONFETTI_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmZWNrdnhrdWxyZXlhcGFkYW5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NzU1MDgsImV4cCI6MjA5NDA1MTUwOH0.KPYif0ntCEVwqOIUWX8r3ZYGI2xGmYIU3oKgnI8aYM0";
+const ENDPOINT = "/api/concierge";
 
-const ENDPOINT = `${CONFETTI_SUPABASE_URL}/functions/v1/ai-chat`;
-
-// ─── System prompt ──────────────────────────────────────────────────────────
-
-function buildSystemPrompt(loop: ActiveLoop): string {
-  const city = loop.city ?? loop.toName ?? "Washington DC";
-  const occasion = loop.occasion ?? loop.experienceName ?? "a night out";
-  const vibe = loop.vibe ?? loop.vibes?.[0] ?? "fun";
-  const budget = budgetLabel(loop.planParams?.budget);
-  const stopsJSON = JSON.stringify(loop.stops.map(minimalStop), null, 2);
-
-  return `You are the Confetti Concierge — a warm, witty AI guide that helps people have the best nights out. You speak like a trusted friend who knows every great spot in town.
-
-CONTEXT:
-- City: ${city}
-- Occasion: ${occasion}
-- Vibe: ${vibe}
-- Budget: ${budget}
-- Current itinerary (JSON):
-${stopsJSON}
-
-CAPABILITIES:
-You can chat naturally AND modify the user's itinerary. When the user wants changes, respond with a JSON block wrapped in \`\`\`json ... \`\`\` containing an "edits" array. Each edit has:
-- action: "replace" | "add" | "remove" | "reorder"
-- For "replace": stop_id + stop object with updated fields
-- For "add": stop object + optional position (0-indexed)
-- For "remove": stop_id
-- For "reorder": ordered_ids array
-
-Example response with edits:
-"I swapped Cafe Luna for Miso — better cocktail program and it fits the date-night vibe."
-\`\`\`json
-{"edits":[{"action":"replace","stop_id":"s1","stop":{"name":"Miso","type":"bar","time":"9:00 PM","area":"Logan Circle","rationale":"Elevated cocktails in an intimate setting"}}]}
-\`\`\`
-
-RULES:
-- Keep responses concise and fun — max 2-3 sentences for chat, plus edits if needed
-- Always explain WHY you're suggesting a change
-- Respect the budget level
-- If you don't know a venue, say so honestly — never make up a fake place
-- When no edit is needed, just chat naturally without any JSON block`;
-}
-
-// ─── Send message ───────────────────────────────────────────────────────────
+// âââ Send message âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 /**
- * Send a user message to the Confetti Concierge via the ai-chat edge
- * function, which proxies to OpenAI. The concierge personality is
- * injected as a system prompt with the current itinerary context.
+ * Send a user message to the Confetti Concierge via the Vercel API route,
+ * which proxies to Anthropic Claude. The concierge system prompt is built
+ * server-side from the itinerary context we send.
  */
 export async function sendConciergeMessage(
   message: string,
@@ -114,33 +67,29 @@ export async function sendConciergeMessage(
   history: ChatMessage[] = [],
   autoApply = true,
 ): Promise<ConciergeResponse> {
-  // Build OpenAI-format messages array
-  const systemMsg = { role: "system" as const, content: buildSystemPrompt(loop) };
+  const city = loop.city ?? loop.toName ?? "Washington DC";
+  const occasion = loop.occasion ?? loop.experienceName ?? "a night out";
+  const vibe = loop.vibe ?? loop.vibes?.[0] ?? "fun";
+  const budget = budgetLabel(loop.planParams?.budget);
 
   const historyMsgs = history.slice(-10).map((m) => ({
     role: m.role as "user" | "assistant",
     content: m.content,
   }));
 
-  const userMsg = { role: "user" as const, content: message };
-
-  const messages = [systemMsg, ...historyMsgs, userMsg];
-
-  // ai-chat expects: { messages, model?, temperature?, max_tokens? }
   const body = {
-    messages,
-    model: "gpt-4o-mini",
-    temperature: 0.8,
-    max_tokens: 1024,
+    message,
+    stops: loop.stops.map(minimalStop),
+    city,
+    occasion,
+    vibe,
+    budget,
+    history: historyMsgs,
   };
 
   const res = await fetch(ENDPOINT, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${CONFETTI_ANON_KEY}`,
-      apikey: CONFETTI_ANON_KEY,
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
 
@@ -149,23 +98,7 @@ export async function sendConciergeMessage(
     throw new Error(err.error ?? `Concierge error ${res.status}`);
   }
 
-  const raw = await res.json();
-
-  // ai-chat returns OpenAI-format: { choices: [{ message: { content } }] }
-  const content: string =
-    raw?.choices?.[0]?.message?.content ??
-    raw?.reply ??
-    raw?.content ??
-    "Sorry, I couldn't process that. Try again?";
-
-  // Parse edits from the response if present
-  const parsed = parseEditsFromContent(content);
-
-  const data: ConciergeResponse = {
-    reply: parsed.reply,
-    edits: parsed.edits,
-    type: parsed.edits ? "edit" : "chat",
-  };
+  const data: ConciergeResponse = await res.json();
 
   // Auto-apply edits to the active loop in localStorage
   if (autoApply && data.edits?.length) {
@@ -175,42 +108,7 @@ export async function sendConciergeMessage(
   return data;
 }
 
-// ─── Parse edits from assistant content ───────────────────────────────────────
-
-/**
- * Extract a JSON edits block from the assistant's response content.
- * The concierge is prompted to wrap edits in \`\`\`json ... \`\`\`.
- */
-function parseEditsFromContent(content: string): {
-  reply: string;
-  edits: StopEdit[] | null;
-} {
-  const jsonBlockRegex = /\`\`\`json\s*([\s\S]*?)\`\`\`/;
-  const match = content.match(jsonBlockRegex);
-
-  if (!match) {
-    return { reply: content.trim(), edits: null };
-  }
-
-  try {
-    const parsed = JSON.parse(match[1]);
-    const edits: StopEdit[] = Array.isArray(parsed.edits)
-      ? parsed.edits
-      : Array.isArray(parsed)
-        ? parsed
-        : null;
-
-    // Strip the JSON block from the display reply
-    const reply = content.replace(jsonBlockRegex, "").trim();
-
-    return { reply: reply || "Done! I updated your plan.", edits };
-  } catch {
-    // JSON parse failed — treat the whole thing as a chat reply
-    return { reply: content.trim(), edits: null };
-  }
-}
-
-// ─── Apply edits to loop-store ──────────────────────────────────────────────
+// âââ Apply edits to loop-store ââââââââââââââââââââââââââââââââââââââââââââââ
 
 /**
  * Apply an array of StopEdits from the concierge to the active loop.
@@ -281,9 +179,9 @@ export function applyEdits(edits: StopEdit[]): ActiveLoop | null {
   return loop;
 }
 
-// ─── Helpers ────────────────────────────────────────────────────────────────
+// âââ Helpers ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
-/** Trim a LoopStop to only the fields the edge function needs. */
+/** Trim a LoopStop to only the fields the API route needs. */
 function minimalStop(s: LoopStop) {
   return {
     id: s.id,

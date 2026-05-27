@@ -12,7 +12,7 @@ import {
   reorderStops,
 } from "./loop-store";
 
-// ─── Types ──────────────────────────────────────────────────────────
+// ─── Types ──────────────────────────────────────────────────────────────────
 
 export type ChatMessage = {
   id: string;
@@ -49,7 +49,7 @@ export type ConciergeResponse = {
   type: "edit" | "chat";
 };
 
-// ─── Endpoint ───────────────────────────────────────────────────────
+// ─── Endpoint ───────────────────────────────────────────────────────────────
 // Hardcode the canonical Confetti project — the .env file currently
 // points to the wrong project and Vercel has no env overrides set.
 // This mirrors the same defensive pattern used in client.ts.
@@ -60,7 +60,7 @@ const CONFETTI_ANON_KEY =
 
 const ENDPOINT = `${CONFETTI_SUPABASE_URL}/functions/v1/ai-chat`;
 
-// ─── System prompt ──────────────────────────────────────────────────
+// ─── System prompt ──────────────────────────────────────────────────────────
 
 function buildSystemPrompt(loop: ActiveLoop): string {
   const city = loop.city ?? loop.toName ?? "Washington DC";
@@ -101,7 +101,7 @@ RULES:
 - When no edit is needed, just chat naturally without any JSON block`;
 }
 
-// ─── Send message ───────────────────────────────────────────────────
+// ─── Send message ───────────────────────────────────────────────────────────
 
 /**
  * Send a user message to the Confetti Concierge via the ai-chat edge
@@ -175,17 +175,17 @@ export async function sendConciergeMessage(
   return data;
 }
 
-// ─── Parse edits from assistant content ─────────────────────────────
+// ─── Parse edits from assistant content ───────────────────────────────────────
 
 /**
  * Extract a JSON edits block from the assistant's response content.
- * The concierge is prompted to wrap edits in ```json ... ```.
+ * The concierge is prompted to wrap edits in \`\`\`json ... \`\`\`.
  */
 function parseEditsFromContent(content: string): {
   reply: string;
   edits: StopEdit[] | null;
 } {
-  const jsonBlockRegex = /```json\s*([\s\S]*?)```/;
+  const jsonBlockRegex = /\`\`\`json\s*([\s\S]*?)\`\`\`/;
   const match = content.match(jsonBlockRegex);
 
   if (!match) {
@@ -210,7 +210,7 @@ function parseEditsFromContent(content: string): {
   }
 }
 
-// ─── Apply edits to loop-store ──────────────────────────────────────
+// ─── Apply edits to loop-store ──────────────────────────────────────────────
 
 /**
  * Apply an array of StopEdits from the concierge to the active loop.
@@ -281,7 +281,7 @@ export function applyEdits(edits: StopEdit[]): ActiveLoop | null {
   return loop;
 }
 
-// ─── Helpers ────────────────────────────────────────────────────────
+// ─── Helpers ────────────────────────────────────────────────────────────────
 
 /** Trim a LoopStop to only the fields the edge function needs. */
 function minimalStop(s: LoopStop) {

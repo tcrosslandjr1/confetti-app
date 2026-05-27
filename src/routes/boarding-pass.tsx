@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { getActiveLoop, subscribeActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { BoardingPass } from "@/components/loop/BoardingPass";
+import { ConciergeChat } from "@/components/loop/ConciergeChat";
 import { MobileHeader, BottomNav } from "@/components/AppShell";
 import { usePageview } from "@/lib/analytics";
 
@@ -52,6 +53,7 @@ function BoardingPassPage() {
         <BoardingPass loop={loop} />
       </div>
       <BottomNav />
+      <ConciergeChat />
     </div>
   );
 }

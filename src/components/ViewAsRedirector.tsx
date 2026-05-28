@@ -34,6 +34,14 @@ const LOGIN_PATHS = new Set([
   "/login",
 ]);
 
+// Public /app/* routes that visitors can browse without auth.
+// These are discovery / marketing surfaces — no account required.
+const PUBLIC_APP_PREFIXES = [
+  "/app/explore",
+  "/app/happy-hour",
+  "/app/reels",
+];
+
 function pathBelongsTo(path: string, role: ViewAs): boolean {
   if (role === "visitor") {
     // Visitor owns anything that is NOT a portal route.
@@ -61,6 +69,12 @@ export function ViewAsRedirector() {
 
     // Skip when we're on a login route — let auth flows complete.
     if (LOGIN_PATHS.has(path)) {
+      lastViewAs.current = viewAs;
+      return;
+    }
+
+    // Skip when we're on a public app route — visitors can browse these.
+    if (PUBLIC_APP_PREFIXES.some((p) => path === p || path.startsWith(p + "/"))) {
       lastViewAs.current = viewAs;
       return;
     }

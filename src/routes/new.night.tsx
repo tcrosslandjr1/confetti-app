@@ -36,6 +36,13 @@ function NightPage() {
           display: "flex", alignItems: "center", justifyContent: "space-between",
           marginBottom: 14,
         }}>
+          <button onClick={() => navigate({ to: "/new/hub" })} style={{
+            appearance: "none", cursor: "pointer",
+            width: 36, height: 36, borderRadius: 999,
+            border: `2px solid ${TOKENS.paper}`, background: "rgba(0,0,0,0.4)",
+            color: TOKENS.paper, fontSize: 14, fontWeight: 900,
+            backdropFilter: "blur(8px)",
+          }}>←</button>
           <div style={{ color: TOKENS.paper }}>
             <BrandMark size={17} />
           </div>

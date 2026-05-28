@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
-  BrandMark, ChunkyButton, Frame, Stamp, Ticket, TOKENS,
+  BackButton, BrandMark, ChunkyButton, Frame, Stamp, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
 
 // Slim port — design/new-confetti/project/auth-flow.jsx (AccountLockedScreen, line 617)
@@ -18,9 +18,11 @@ function LockedPage() {
         padding: "56px 20px 22px", overflow: "hidden",
       }}>
         <div style={{
-          display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24,
+          display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24,
         }}>
+          <BackButton onClick={() => navigate({ to: "/new/signin" })} />
           <BrandMark size={17} />
+          <span style={{ width: 36 }} />
         </div>
 
         <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>

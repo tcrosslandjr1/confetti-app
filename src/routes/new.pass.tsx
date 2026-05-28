@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
-  BrandMark, ChunkyButton, DotsBg, Frame, Icons, RouteDots, Ticket, TOKENS,
+  BackButton, BrandMark, ChunkyButton, DotsBg, Frame, Icons, RouteDots, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
 
 // Ported from design/new-confetti/project/screens.jsx (PassScreen, line 677)
@@ -38,6 +38,7 @@ function PassPage() {
           display: "flex", alignItems: "center", justifyContent: "space-between",
           marginBottom: 14,
         }}>
+          <BackButton onClick={() => navigate({ to: "/new/hub" })} />
           <BrandMark size={17} />
           <span style={{
             fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,

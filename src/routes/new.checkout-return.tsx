@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  BrandMark, ChunkyButton, DotsBg, Frame, Icons, Stamp, Ticket, TOKENS,
+  BackButton, BrandMark, ChunkyButton, DotsBg, Frame, Icons, Stamp, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
 import { getCheckoutSession } from "@/lib/checkout.functions";
 import { getStripeEnvironment } from "@/lib/stripe";
@@ -81,10 +81,12 @@ function CheckoutReturnPage() {
 
         <div style={{
           position: "relative", zIndex: 2,
-          display: "flex", alignItems: "center", justifyContent: "center",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
           marginBottom: 24,
         }}>
+          <BackButton onClick={() => navigate({ to: "/new/hub" })} />
           <BrandMark size={17} />
+          <span style={{ width: 36 }} />
         </div>
 
         <div style={{

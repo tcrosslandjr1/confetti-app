@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  BrandMark, DotsBg, FloatingTickets, Frame, RouteDots, TOKENS,
+  BackButton, BrandMark, DotsBg, FloatingTickets, Frame, RouteDots, TOKENS,
 } from "@/components/new-confetti/shell";
 
 // Ported from design/new-confetti/project/screens.jsx (LoaderScreen, line 442)
@@ -62,7 +62,11 @@ function LoaderPage() {
           position: "relative", zIndex: 2,
           width: "100%", maxWidth: 340, textAlign: "center",
         }}>
-          <div style={{ marginBottom: 14 }}><BrandMark size={22} spin /></div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+            <BackButton onClick={() => navigate({ to: "/new/hub" })} />
+            <BrandMark size={22} spin />
+            <span style={{ width: 36 }} />
+          </div>
 
           {/* Ticket machine */}
           <div style={{

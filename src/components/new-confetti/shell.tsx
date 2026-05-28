@@ -85,6 +85,44 @@ export function Frame({ children }: { children: ReactNode }) {
   );
 }
 
+/* ── Back button ──────────────────────────────────────────────────── */
+/**
+ * Chunky circle back button — used in the top-left of inner screens.
+ * Accepts an `onClick` handler (typically `() => navigate({ to: ... })`).
+ */
+export function BackButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button onClick={onClick} style={{
+      appearance: "none", cursor: "pointer",
+      width: 36, height: 36, borderRadius: 999,
+      border: `2.5px solid ${TOKENS.ink}`, background: TOKENS.paper,
+      fontSize: 14, fontWeight: 900,
+      boxShadow: `3px 3px 0 ${TOKENS.ink}`,
+      display: "inline-flex", alignItems: "center", justifyContent: "center",
+      flexShrink: 0, color: TOKENS.ink,
+    }}>←</button>
+  );
+}
+
+/* ── Top bar (back + brand + spacer) ─────────────────────────────── */
+/**
+ * Standard top bar layout: BackButton | BrandMark | 36px spacer.
+ * Drop this at the top of any inner screen for consistent nav.
+ */
+export function TopBar({ onBack, brandSize = 17 }: { onBack: () => void; brandSize?: number }) {
+  return (
+    <div style={{
+      position: "relative", zIndex: 2,
+      display: "flex", alignItems: "center", justifyContent: "space-between",
+      marginBottom: 14,
+    }}>
+      <BackButton onClick={onBack} />
+      <BrandMark size={brandSize} />
+      <span style={{ width: 36 }} />
+    </div>
+  );
+}
+
 /* ── Brand mark ────────────────────────────────────────────────────── */
 export function BrandMark({ size = 22, spin = false }: { size?: number; spin?: boolean }) {
   return (

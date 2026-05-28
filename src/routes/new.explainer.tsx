@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  BrandMark, ChunkyButton, DotsBg, Frame, Icons, Stamp, TOKENS,
+  BackButton, BrandMark, ChunkyButton, DotsBg, Frame, Icons, Stamp, TOKENS,
 } from "@/components/new-confetti/shell";
 
 // Ported from design/new-confetti/project/extras.jsx (ExplainerScreen, line 76)
@@ -41,6 +41,7 @@ function ExplainerPage() {
           position: "relative", zIndex: 2,
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
+          <BackButton onClick={() => navigate({ to: "/new/hub" })} />
           <BrandMark size={17} />
           <button onClick={onDone} style={{
             appearance: "none", cursor: "pointer", background: "transparent",

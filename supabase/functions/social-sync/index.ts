@@ -431,7 +431,7 @@ Deno.serve(async (req) => {
     ).join("\n");
 
     const { data: profile } = await supabaseAdmin
-      .from("user_taste_profiles")
+      .from("taste_profiles")
       .select("taste_data")
       .eq("user_id", user_id)
       .single();
@@ -451,7 +451,7 @@ Deno.serve(async (req) => {
     // ── 6. Update user taste profile ─────────────────────────
 
     if (learnRes.data?.profile) {
-      await supabaseAdmin.from("user_taste_profiles").upsert({
+      await supabaseAdmin.from("taste_profiles").upsert({
         user_id,
         taste_data: learnRes.data.profile,
         social_signals: taste,

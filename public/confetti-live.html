@@ -30,6 +30,177 @@
   </noscript>
 </head>
 <body>
+  <!-- ═══ City Gate: DMV-first launch ═══ -->
+  <div id="__city_gate_splash" style="display:none;position:fixed;inset:0;z-index:99999;background:#130b0d;color:#faf9f5;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;overflow-y:auto;">
+    <div style="max-width:460px;margin:0 auto;padding:48px 24px 80px;text-align:center;">
+      <div style="font-size:48px;margin-bottom:8px;">✣</div>
+      <h1 style="font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:32px;font-weight:900;margin-bottom:4px;color:#faf9f5;">Confetti</h1>
+      <p style="font-size:14px;color:rgba(250,249,245,0.5);margin-bottom:32px;">Plan a night</p>
+      <div style="background:linear-gradient(135deg,#ff5b3d 0%,#f0a030 100%);border-radius:16px;padding:28px 24px;margin-bottom:32px;box-shadow:4px 4px 0 rgba(0,0,0,0.3);">
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:6px;">Coming Soon</h2>
+        <p style="font-size:14px;opacity:0.9;">We're live in DC, Maryland &amp; Virginia.<br>Your city is next.</p>
+      </div>
+      <p style="font-size:13px;color:rgba(250,249,245,0.5);margin-bottom:12px;">Vote for your city &amp; get early access</p>
+      <div id="__cg_cities" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px;"></div>
+      <form id="__cg_form" style="display:flex;gap:8px;margin-bottom:24px;">
+        <input id="__cg_email" type="email" placeholder="your@email.com" required style="flex:1;padding:12px 14px;border-radius:12px;border:2px solid rgba(250,249,245,0.15);background:rgba(250,249,245,0.06);color:#faf9f5;font-size:14px;outline:none;" />
+        <button type="submit" style="padding:12px 20px;border-radius:12px;border:2px solid #130b0d;background:#ff5b3d;color:#faf9f5;font-weight:700;font-size:14px;cursor:pointer;box-shadow:3px 3px 0 rgba(0,0,0,0.3);white-space:nowrap;">Notify Me</button>
+      </form>
+      <p id="__cg_status" style="font-size:13px;color:rgba(250,249,245,0.5);min-height:20px;"></p>
+      <div style="margin-top:36px;padding-top:20px;border-top:1px solid rgba(250,249,245,0.08);">
+        <a href="?city=dmv" id="__cg_dmv_link" style="font-size:12px;color:rgba(250,249,245,0.35);text-decoration:none;">I'm in the DMV &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <script>
+  // City Gate — self-contained, runs before the bundled app.
+  (function(){
+    var OVERRIDE_KEY = 'concierge:city-gate-override';
+    var DMV_LAT = 38.9072, DMV_LNG = -77.0369, DMV_R = 80;
+    var SB_URL = 'https://zfeckvxkulreyapadanf.supabase.co';
+    var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmZWNrdnhrdWxyZXlhcGFkYW5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NzU1MDgsImV4cCI6MjA5NDA1MTUwOH0.KPYif0ntCEVwqOIUWX8r3ZYGI2xGmYIU3oKgnI8aYM0';
+    var CITIES = [
+      {slug:'nyc',name:'New York',emoji:'🗽',region:'Manhattan · BK'},
+      {slug:'la',name:'Los Angeles',emoji:'🌴',region:'LA County'},
+      {slug:'mia',name:'Miami',emoji:'🌊',region:'Miami-Dade'},
+      {slug:'atl',name:'Atlanta',emoji:'🍑',region:'Metro ATL'},
+      {slug:'chi',name:'Chicago',emoji:'🌭',region:'Cook County'},
+      {slug:'hou',name:'Houston',emoji:'🤠',region:'Harris County'}
+    ];
+    var selectedCity = null;
+
+    // --- Quick sync checks ---
+    try { if(localStorage.getItem(OVERRIDE_KEY)==='dmv') return; } catch(e){}
+    var params = new URLSearchParams(location.search);
+    if(params.get('city') && params.get('city').toLowerCase()==='dmv'){
+      try{localStorage.setItem(OVERRIDE_KEY,'dmv');}catch(e){}
+      return;
+    }
+
+    // --- Haversine ---
+    function hav(a,b){
+      var R=Math.PI/180, dLat=(b.lat-a.lat)*R, dLng=(b.lng-a.lng)*R;
+      var x=Math.sin(dLat/2), y=Math.sin(dLng/2);
+      var h=x*x+Math.cos(a.lat*R)*Math.cos(b.lat*R)*y*y;
+      return 6371*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h));
+    }
+    function inDMV(lat,lng){ return hav({lat:lat,lng:lng},{lat:DMV_LAT,lng:DMV_LNG})<=DMV_R; }
+
+    // --- Show splash & try geo ---
+    var splash = document.getElementById('__city_gate_splash');
+    // Hide the bundled app elements while we check
+    var thumb = document.getElementById('__bundler_thumbnail');
+    var loadEl = document.getElementById('__bundler_loading');
+
+    function showSplash(){
+      splash.style.display='block';
+      if(thumb) thumb.style.display='none';
+      if(loadEl) loadEl.style.display='none';
+      // Stop the bundled app from loading by removing manifest scripts
+      var scripts = document.querySelectorAll('script[type="__bundler/manifest"],script[type="__bundler/template"],script[type="__bundler/ext_resources"]');
+      scripts.forEach(function(s){ s.remove(); });
+      initSplash();
+    }
+
+    function allowApp(){
+      splash.style.display='none';
+    }
+
+    // Try geolocation
+    if(navigator.geolocation){
+      // Show loading state while checking
+      if(thumb) thumb.style.display='flex';
+      navigator.geolocation.getCurrentPosition(
+        function(pos){
+          if(inDMV(pos.coords.latitude,pos.coords.longitude)){
+            allowApp();
+          } else {
+            showSplash();
+          }
+        },
+        function(){ showSplash(); }, // denied or error → block
+        {enableHighAccuracy:false,timeout:8000,maximumAge:300000}
+      );
+    } else {
+      showSplash();
+    }
+
+    // --- Splash interactivity ---
+    function initSplash(){
+      // Render city cards
+      var grid = document.getElementById('__cg_cities');
+      var voteCounts = {};
+      CITIES.forEach(function(c){
+        voteCounts[c.slug]=0;
+        var btn = document.createElement('button');
+        btn.id = '__cg_btn_'+c.slug;
+        btn.setAttribute('type','button');
+        btn.style.cssText='display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 8px;border-radius:14px;border:2px solid rgba(250,249,245,0.12);background:rgba(250,249,245,0.04);cursor:pointer;transition:all 0.2s;';
+        btn.innerHTML='<span style="font-size:28px">'+c.emoji+'</span><span style="font-size:12px;font-weight:700;color:#faf9f5">'+c.name+'</span><span style="font-size:10px;color:rgba(250,249,245,0.4)">'+c.region+'</span><span id="__cg_votes_'+c.slug+'" style="font-size:10px;color:#ff5b3d;font-weight:700;margin-top:2px;min-height:14px"></span>';
+        btn.onclick=function(){
+          selectedCity=c.slug;
+          CITIES.forEach(function(cc){
+            var b=document.getElementById('__cg_btn_'+cc.slug);
+            if(b) b.style.borderColor = cc.slug===selectedCity ? '#ff5b3d' : 'rgba(250,249,245,0.12)';
+            if(b) b.style.background = cc.slug===selectedCity ? 'rgba(255,91,61,0.12)' : 'rgba(250,249,245,0.04)';
+          });
+        };
+        grid.appendChild(btn);
+      });
+
+      // Load vote counts from Supabase
+      fetch(SB_URL+'/rest/v1/city_waitlist?select=city_voted,email&order=created_at.desc',{
+        headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+      }).then(function(r){return r.json()}).then(function(rows){
+        if(!Array.isArray(rows))return;
+        rows.forEach(function(r){
+          if(r.city_voted && voteCounts.hasOwnProperty(r.city_voted)){
+            voteCounts[r.city_voted]++;
+          }
+        });
+        Object.keys(voteCounts).forEach(function(slug){
+          var el=document.getElementById('__cg_votes_'+slug);
+          if(el && voteCounts[slug]>0) el.textContent=voteCounts[slug]+' vote'+(voteCounts[slug]!==1?'s':'');
+        });
+      }).catch(function(){});
+
+      // Form submit
+      document.getElementById('__cg_form').onsubmit=function(e){
+        e.preventDefault();
+        var email=document.getElementById('__cg_email').value.trim();
+        var status=document.getElementById('__cg_status');
+        if(!email){status.textContent='Enter your email';return;}
+        status.textContent='Submitting...';
+        var body={email:email};
+        if(selectedCity) body.city_voted=selectedCity;
+        fetch(SB_URL+'/rest/v1/city_waitlist',{
+          method:'POST',
+          headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},
+          body:JSON.stringify(body)
+        }).then(function(r){
+          if(r.ok||r.status===201||r.status===200||r.status===409){
+            status.style.color='#ff5b3d';
+            status.textContent='You\'re on the list! We\'ll let you know when Confetti hits your city.';
+            document.getElementById('__cg_email').value='';
+          } else {
+            status.textContent='Something went wrong — try again.';
+          }
+        }).catch(function(){
+          status.textContent='Network error — try again.';
+        });
+      };
+
+      // DMV override link
+      document.getElementById('__cg_dmv_link').onclick=function(e){
+        e.preventDefault();
+        try{localStorage.setItem(OVERRIDE_KEY,'dmv');}catch(ex){}
+        location.reload();
+      };
+    }
+  })();
+  </script>
+  <!-- ═══ End City Gate ═══ -->
+
   <div id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#f8f0dd"></rect><circle cx="100" cy="100" r="56" fill="#ff5b3d"></circle><text x="100" y="118" font-family="system-ui" font-weight="900" font-size="64" text-anchor="middle" fill="#130b0d">✣</text></svg></div>
   <div id="__bundler_loading">Unpacking...</div>
 

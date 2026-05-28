@@ -13,21 +13,38 @@ Deno.serve(async (req: Request) => {
   const results: string[] = [];
 
   try {
-    // Add social columns to taste_profiles (the real table name)
+    // Create facebook_oauth_states table (mirrors tiktok/instagram oauth states)
     await client.queryArray(`
-      ALTER TABLE taste_profiles
-        ADD COLUMN IF NOT EXISTS social_signals        jsonb DEFAULT '{}'::jsonb,
-        ADD COLUMN IF NOT EXISTS last_synced_at        timestamptz,
-        ADD COLUMN IF NOT EXISTS platforms_connected   text[] DEFAULT '{}'
+      CREATE TABLE IF NOT EXISTS facebook_oauth_states (
+        id           uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+        state        text NOT NULL UNIQUE,
+        user_id      uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+        redirect_to  text,
+        expires_at   timestamptz NOT NULL,
+        consumed_at  timestamptz,
+        created_at   timestamptz DEFAULT now()
+      )
     `);
-    results.push("taste_profiles social columns added ✓");
+    results.push("facebook_oauth_states table created ✓");
 
-    // Verify social_posts_raw exists
+    await client.queryArray(`
+      CREATE INDEX IF NOT EXISTS idx_facebook_oauth_states_state
+        ON facebook_oauth_states (state)
+        WHERE consumed_at IS NULL
+    `);
+    results.push("facebook_oauth_states index created ✓");
+
+    await client.queryArray(`
+      ALTER TABLE facebook_oauth_states ENABLE ROW LEVEL SECURITY
+    `);
+    results.push("facebook_oauth_states RLS enabled ✓");
+
+    // Verify the table exists
     const { rows } = await client.queryArray(`
       SELECT COUNT(*) FROM information_schema.tables
-      WHERE table_schema = 'public' AND table_name = 'social_posts_raw'
+      WHERE table_schema = 'public' AND table_name = 'facebook_oauth_states'
     `);
-    results.push(`social_posts_raw exists: ${rows[0][0] === '1' || Number(rows[0][0]) === 1 ? 'YES ✓' : 'NO ✗'}`);
+    results.push(`facebook_oauth_states exists: ${Number(rows[0][0]) === 1 ? 'YES ✓' : 'NO ✗'}`);
 
   } catch (err) {
     results.push(`ERROR: ${err}`);

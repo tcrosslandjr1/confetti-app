@@ -350,13 +350,14 @@ document.addEventListener('DOMContentLoaded', async function() {
       old.replaceWith(s);
       if (p) await p;
     }
-    // Live venue component overrides (stored as factory before bundler ran)
-    if (window.__defineLiveComponents) { window.__defineLiveComponents(); }
     // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
     // which fired before we swapped the document. Trigger manually if present.
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
     }
+    // Live venue component overrides AFTER Babel — factory overwrites the old
+    // ExploreScreen / VenueDetailScreen that Babel just compiled from the blob.
+    if (window.__defineLiveComponents) { window.__defineLiveComponents(); }
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);
     console.error('Bundle unpack error:', err);

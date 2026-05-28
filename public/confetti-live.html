@@ -1073,31 +1073,42 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.head.appendChild(style);
   }
 
-  // ── Override globals AFTER bundle unpacks ──────────────────────────
-  function patchComponents() {
-    if (typeof window.ExploreScreen === 'function') {
-      window._OrigExploreScreen = window.ExploreScreen;
-      window.ExploreScreen = LiveExploreScreen;
-    }
-    if (typeof window.VenueDetailScreen === 'function') {
-      window._OrigVenueDetailScreen = window.VenueDetailScreen;
-      window.VenueDetailScreen = LiveVenueDetailScreen;
-    }
+  // ── Expose live components to window immediately ───────────────────
+  window.LiveExploreScreen = LiveExploreScreen;
+  window.LiveVenueDetailScreen = LiveVenueDetailScreen;
+
+  // ── Override globals: use defineProperty trap so bundle can't overwrite ──
+  var _origES = null, _origVDS = null;
+
+  // Set them now (bundle hasn't loaded yet, these will be the values)
+  window.ExploreScreen = LiveExploreScreen;
+  window.VenueDetailScreen = LiveVenueDetailScreen;
+
+  // Intercept future assignments from the bundle's Object.assign(window, {...})
+  // by using a setter trap. When the bundle tries to set ExploreScreen,
+  // we save the original but keep our live version.
+  try {
+    Object.defineProperty(window, 'ExploreScreen', {
+      get: function() { return LiveExploreScreen; },
+      set: function(v) { if (v !== LiveExploreScreen) _origES = v; },
+      configurable: true
+    });
+    Object.defineProperty(window, 'VenueDetailScreen', {
+      get: function() { return LiveVenueDetailScreen; },
+      set: function(v) { if (v !== LiveVenueDetailScreen) _origVDS = v; },
+      configurable: true
+    });
+  } catch(e) {
+    // Fallback: poll-based override
+    var _patch = function() {
+      if (window.ExploreScreen !== LiveExploreScreen) window.ExploreScreen = LiveExploreScreen;
+      if (window.VenueDetailScreen !== LiveVenueDetailScreen) window.VenueDetailScreen = LiveVenueDetailScreen;
+    };
+    setTimeout(_patch, 500);
+    setTimeout(_patch, 1500);
+    setTimeout(_patch, 3000);
+    setTimeout(_patch, 5000);
   }
-
-  patchComponents();
-  setTimeout(patchComponents, 500);
-  setTimeout(patchComponents, 1500);
-  setTimeout(patchComponents, 3000);
-
-  var obs = new MutationObserver(function() {
-    if (typeof window.ExploreScreen === 'function' &&
-        window.ExploreScreen !== LiveExploreScreen) {
-      patchComponents();
-    }
-  });
-  obs.observe(document.body, { childList: true, subtree: true });
-  setTimeout(function() { obs.disconnect(); }, 10000);
 })();
 </script>
 

@@ -31,6 +31,9 @@ interface PlanState {
   budget: string;
   crew: number;
   addons: string[];
+  surpriseMode: boolean;
+  localsMode: boolean;
+  trendingMode: boolean;
 }
 
 function PlanPage() {
@@ -40,6 +43,7 @@ function PlanPage() {
     city: getSelectedCity()?.name ?? "Washington DC",
     when: "Tonight",
     vibes: [], budget: "$$", crew: 2, addons: [],
+    surpriseMode: false, localsMode: false, trendingMode: false,
   });
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -50,7 +54,7 @@ function PlanPage() {
       : state.vibes.length < 3 ? [...state.vibes, id] : state.vibes;
     setState({ ...state, vibes: next });
   };
-  const canPlan = state.vibes.length > 0 && !generating;
+  const canPlan = (state.surpriseMode || state.vibes.length > 0) && !generating;
 
   async function handleGenerate() {
     if (!canPlan) return;
@@ -59,10 +63,13 @@ function PlanPage() {
     try {
       const { loop } = await generateAiPlan({
         occasion: state.when.toLowerCase(),
-        vibe: state.vibes.join(", "),
+        vibe: state.surpriseMode ? undefined : state.vibes.join(", ") || undefined,
         budget: state.budget,
         timeOfDay: state.when.toLowerCase(),
         groupSize: state.crew,
+        surpriseMode: state.surpriseMode || undefined,
+        localsMode: state.localsMode || undefined,
+        trendBias: state.trendingMode || undefined,
         notes: state.addons.length > 0 ? `Preferences: ${state.addons.join(", ")}` : undefined,
       });
       setActiveLoop(loop);
@@ -231,7 +238,7 @@ function PlanPage() {
           </div>
 
           {/* Add-ons */}
-          <div style={{ marginBottom: 28 }}>
+          <div style={{ marginBottom: 22 }}>
             <Label>Add-ons</Label>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
               {[
@@ -251,6 +258,45 @@ function PlanPage() {
               ))}
             </div>
           </div>
+
+          {/* Mode */}
+          <div style={{ marginBottom: 28 }}>
+            <Label>Mode</Label>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {/* Surprise Me */}
+              <ModeToggle
+                emoji="🎲"
+                label="Surprise me"
+                sub="AI picks everything — no vibe needed"
+                active={state.surpriseMode}
+                color={TOKENS.accent1}
+                onClick={() => setState({
+                  ...state,
+                  surpriseMode: !state.surpriseMode,
+                  // clear vibes when surprise mode enabled — AI takes the wheel
+                  vibes: !state.surpriseMode ? [] : state.vibes,
+                })}
+              />
+              {/* Locals picks */}
+              <ModeToggle
+                emoji="🏠"
+                label="Locals picks"
+                sub="Hidden gems, zero tourist traps"
+                active={state.localsMode}
+                color={TOKENS.accent2}
+                onClick={() => setState({ ...state, localsMode: !state.localsMode })}
+              />
+              {/* Trending */}
+              <ModeToggle
+                emoji="🔥"
+                label="Trending now"
+                sub="What's buzzing this week in the city"
+                active={state.trendingMode}
+                color={TOKENS.accent3}
+                onClick={() => setState({ ...state, trendingMode: !state.trendingMode })}
+              />
+            </div>
+          </div>
         </div>
 
         <div style={{ position: "relative", zIndex: 2, paddingTop: 12 }}>
@@ -266,7 +312,13 @@ function PlanPage() {
             disabled={!canPlan}
             onClick={handleGenerate}
             icon={Icons.arrow}>
-            {generating ? "Building your night…" : canPlan ? "Generate my plan" : "Pick a vibe first"}
+            {generating
+              ? "Building your night…"
+              : canPlan
+                ? state.surpriseMode
+                  ? "🎲 Surprise me"
+                  : "Generate my plan"
+                : "Pick a vibe first"}
           </ChunkyButton>
         </div>
       </div>
@@ -283,6 +335,61 @@ function Label({ children }: { children: ReactNode }) {
       marginBottom: 10,
       display: "flex", alignItems: "center",
     }}>{children}</div>
+  );
+}
+
+function ModeToggle({
+  emoji, label, sub, active, color, onClick,
+}: {
+  emoji: string; label: string; sub: string;
+  active: boolean; color: string; onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        appearance: "none", cursor: "pointer", width: "100%",
+        display: "flex", alignItems: "center", gap: 14,
+        padding: "13px 16px",
+        border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14,
+        background: active ? color : TOKENS.paper,
+        boxShadow: active ? `4px 4px 0 ${TOKENS.ink}` : `2px 2px 0 ${TOKENS.ink}`,
+        transform: active ? "translate(-1px,-1px)" : "none",
+        transition: "all .12s",
+        textAlign: "left",
+      }}
+    >
+      <span style={{ fontSize: 22, lineHeight: 1 }}>{emoji}</span>
+      <div style={{ flex: 1 }}>
+        <div style={{
+          fontFamily: TOKENS.ui, fontSize: 15, fontWeight: 900,
+          color: active ? TOKENS.paper : TOKENS.ink,
+          lineHeight: 1.1,
+        }}>{label}</div>
+        <div style={{
+          fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700,
+          color: active ? TOKENS.paper : TOKENS.ink,
+          opacity: active ? 0.8 : 0.5,
+          letterSpacing: ".05em", textTransform: "uppercase",
+          marginTop: 2,
+        }}>{sub}</div>
+      </div>
+      <div style={{
+        width: 22, height: 22, borderRadius: 999,
+        border: `2.5px solid ${active ? TOKENS.paper : TOKENS.ink}`,
+        background: active ? TOKENS.paper : "transparent",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        flexShrink: 0,
+        transition: "all .12s",
+      }}>
+        {active && (
+          <div style={{
+            width: 10, height: 10, borderRadius: 999,
+            background: color,
+          }} />
+        )}
+      </div>
+    </button>
   );
 }
 

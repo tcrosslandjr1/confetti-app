@@ -62,6 +62,8 @@ export type GeneratePlanInput = {
   groupSize?: number;
   planType?: string;
   surpriseMode?: boolean;
+  localsMode?: boolean;
+  trendBias?: boolean;
   notes?: string;
 };
 
@@ -104,7 +106,7 @@ export async function generateAiPlan(input: GeneratePlanInput): Promise<{
     },
     body: JSON.stringify({
       occasion: input.occasion,
-      vibe: input.vibe,
+      vibe: input.surpriseMode ? undefined : input.vibe,
       budget: input.budget,
       timeOfDay: input.timeOfDay,
       city,
@@ -112,7 +114,21 @@ export async function generateAiPlan(input: GeneratePlanInput): Promise<{
       tasteSummary: summary || undefined,
       planType: input.planType,
       surpriseMode: input.surpriseMode,
-      notes: input.notes,
+      localFlavorLevel: input.localsMode ? "heavy" : "medium",
+      notes: [
+        input.notes,
+        input.trendBias
+          ? "TRENDING BIAS: Strongly prefer venues with high trend_score and recent buzz. Prioritize what is hot right now over evergreen classics. Mention why each spot is trending."
+          : null,
+        input.surpriseMode
+          ? "SURPRISE MODE: Ignore all vibe inputs. Pick the most unexpected, memorable combination of venues and experiences. Prioritize places the user has likely never been — the weirder and more delightful the better."
+          : null,
+        input.localsMode
+          ? "LOCALS MODE: Skip tourist traps entirely. Every stop should be a place locals actually go — neighborhood gems, off-menu spots, hidden bars, community anchors."
+          : null,
+      ]
+        .filter(Boolean)
+        .join(" ") || undefined,
     }),
   });
 

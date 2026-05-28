@@ -101,6 +101,7 @@ import { Route as BusinessAdsRouteImport } from './routes/business.ads'
 import { Route as AppReelsRouteImport } from './routes/app.reels'
 import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppPlanRouteImport } from './routes/app.plan'
+import { Route as AppHappyHourRouteImport } from './routes/app.happy-hour'
 import { Route as AppExploreRouteImport } from './routes/app.explore'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -111,6 +112,7 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminConsoleRouteImport } from './routes/admin.console'
 import { Route as AdminCityAnalyticsRouteImport } from './routes/admin.city-analytics'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
+import { Route as AppHappyHourCrawlRouteImport } from './routes/app.happy-hour.crawl'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiMapsSatelliteRouteImport } from './routes/api/maps/satellite'
 import { Route as ApiPublicWebhooksPartnerRouteImport } from './routes/api/public/webhooks/partner'
@@ -592,6 +594,11 @@ const AppPlanRoute = AppPlanRouteImport.update({
   path: '/plan',
   getParentRoute: () => AppRoute,
 } as any)
+const AppHappyHourRoute = AppHappyHourRouteImport.update({
+  id: '/happy-hour',
+  path: '/happy-hour',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppExploreRoute = AppExploreRouteImport.update({
   id: '/explore',
   path: '/explore',
@@ -641,6 +648,11 @@ const TripsIdPassportRoute = TripsIdPassportRouteImport.update({
   id: '/passport',
   path: '/passport',
   getParentRoute: () => TripsIdRoute,
+} as any)
+const AppHappyHourCrawlRoute = AppHappyHourCrawlRouteImport.update({
+  id: '/crawl',
+  path: '/crawl',
+  getParentRoute: () => AppHappyHourRoute,
 } as any)
 const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
   id: '/api/public/pick-events',
@@ -786,6 +798,7 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
+  '/app/happy-hour': typeof AppHappyHourRouteWithChildren
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
@@ -862,6 +875,7 @@ export interface FileRoutesByFullPath {
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/app/happy-hour/crawl': typeof AppHappyHourCrawlRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
@@ -909,6 +923,7 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
+  '/app/happy-hour': typeof AppHappyHourRouteWithChildren
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
@@ -985,6 +1000,7 @@ export interface FileRoutesByTo {
   '/trips': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/app/happy-hour/crawl': typeof AppHappyHourCrawlRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
@@ -1034,6 +1050,7 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
+  '/app/happy-hour': typeof AppHappyHourRouteWithChildren
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
@@ -1110,6 +1127,7 @@ export interface FileRoutesById {
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/app/happy-hour/crawl': typeof AppHappyHourCrawlRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
@@ -1160,6 +1178,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
+    | '/app/happy-hour'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
@@ -1236,6 +1255,7 @@ export interface FileRouteTypes {
     | '/trips/'
     | '/api/maps/satellite'
     | '/api/public/pick-events'
+    | '/app/happy-hour/crawl'
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
@@ -1283,6 +1303,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
+    | '/app/happy-hour'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
@@ -1359,6 +1380,7 @@ export interface FileRouteTypes {
     | '/trips'
     | '/api/maps/satellite'
     | '/api/public/pick-events'
+    | '/app/happy-hour/crawl'
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
@@ -1407,6 +1429,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
+    | '/app/happy-hour'
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
@@ -1483,6 +1506,7 @@ export interface FileRouteTypes {
     | '/trips/'
     | '/api/maps/satellite'
     | '/api/public/pick-events'
+    | '/app/happy-hour/crawl'
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
@@ -2267,6 +2291,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppPlanRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/happy-hour': {
+      id: '/app/happy-hour'
+      path: '/happy-hour'
+      fullPath: '/app/happy-hour'
+      preLoaderRoute: typeof AppHappyHourRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/explore': {
       id: '/app/explore'
       path: '/explore'
@@ -2336,6 +2367,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/trips/$id/passport'
       preLoaderRoute: typeof TripsIdPassportRouteImport
       parentRoute: typeof TripsIdRoute
+    }
+    '/app/happy-hour/crawl': {
+      id: '/app/happy-hour/crawl'
+      path: '/crawl'
+      fullPath: '/app/happy-hour/crawl'
+      preLoaderRoute: typeof AppHappyHourCrawlRouteImport
+      parentRoute: typeof AppHappyHourRoute
     }
     '/api/public/pick-events': {
       id: '/api/public/pick-events'
@@ -2480,8 +2518,21 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AppHappyHourRouteChildren {
+  AppHappyHourCrawlRoute: typeof AppHappyHourCrawlRoute
+}
+
+const AppHappyHourRouteChildren: AppHappyHourRouteChildren = {
+  AppHappyHourCrawlRoute: AppHappyHourCrawlRoute,
+}
+
+const AppHappyHourRouteWithChildren = AppHappyHourRoute._addFileChildren(
+  AppHappyHourRouteChildren,
+)
+
 interface AppRouteChildren {
   AppExploreRoute: typeof AppExploreRoute
+  AppHappyHourRoute: typeof AppHappyHourRouteWithChildren
   AppPlanRoute: typeof AppPlanRoute
   AppProfileRoute: typeof AppProfileRoute
   AppReelsRoute: typeof AppReelsRoute
@@ -2490,6 +2541,7 @@ interface AppRouteChildren {
 
 const AppRouteChildren: AppRouteChildren = {
   AppExploreRoute: AppExploreRoute,
+  AppHappyHourRoute: AppHappyHourRouteWithChildren,
   AppPlanRoute: AppPlanRoute,
   AppProfileRoute: AppProfileRoute,
   AppReelsRoute: AppReelsRoute,

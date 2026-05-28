@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confetti Design Audit — May 27, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #1a1a1a; color: #f5f0e8; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; }
+  .subtitle { color: #b0a89e; font-size: 1rem; margin-bottom: 40px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+  .summary-card { background: #2a2520; border-radius: 12px; padding: 20px; text-align: center; }
+  .summary-card .number { font-size: 2rem; font-weight: 800; }
+  .summary-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #b0a89e; margin-top: 4px; }
+  .critical .number { color: #ff4d4d; }
+  .high .number { color: #ff9933; }
+  .medium .number { color: #ffcc00; }
+  .low .number { color: #66cc66; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  .section-desc { color: #b0a89e; font-size: 0.9rem; margin-bottom: 20px; }
+
+  .issue { background: #2a2520; border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; border-left: 4px solid; }
+  .issue.critical { border-left-color: #ff4d4d; }
+  .issue.high { border-left-color: #ff9933; }
+  .issue.medium { border-left-color: #ffcc00; }
+  .issue.low { border-left-color: #66cc66; }
+
+  .issue-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .issue-title { font-weight: 700; font-size: 1rem; }
+  .severity { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 20px; font-weight: 700; }
+  .severity.critical { background: #ff4d4d22; color: #ff4d4d; }
+  .severity.high { background: #ff993322; color: #ff9933; }
+  .severity.medium { background: #ffcc0022; color: #ffcc00; }
+  .severity.low { background: #66cc6622; color: #66cc66; }
+
+  .issue-location { font-size: 0.8rem; color: #b0a89e; margin-bottom: 6px; }
+  .issue-body { font-size: 0.9rem; color: #d4cfc7; }
+  .fix { margin-top: 8px; padding: 10px 14px; background: #1a1a1a; border-radius: 8px; font-size: 0.85rem; color: #b0a89e; }
+  .fix strong { color: #f5f0e8; }
+
+  .divider { border: none; border-top: 1px solid #3a352f; margin: 48px 0; }
+  .note { background: #2a2520; border-radius: 12px; padding: 20px 24px; margin-top: 32px; }
+  .note-title { font-weight: 700; margin-bottom: 8px; }
+  .note-body { font-size: 0.9rem; color: #d4cfc7; }
+
+  .pages-audited { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .page-tag { background: #3a352f; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: #b0a89e; }
+
+  @media (max-width: 600px) {
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Confetti Design Audit</h1>
+<p class="subtitle">Visual audit of ai-lifestyle-concierge.vercel.app/confetti-live.html — May 27, 2026</p>
+
+<div class="summary-grid">
+  <div class="summary-card critical"><div class="number">5</div><div class="label">Critical</div></div>
+  <div class="summary-card high"><div class="number">7</div><div class="label">High</div></div>
+  <div class="summary-card medium"><div class="number">6</div><div class="label">Medium</div></div>
+  <div class="summary-card low"><div class="number">4</div><div class="label">Low</div></div>
+</div>
+
+<!-- ============ CRITICAL ============ -->
+<div class="section">
+<div class="section-title">🔴 Critical — Blocks core usage</div>
+<p class="section-desc">Users cannot complete essential tasks or get trapped in dead-end screens.</p>
+
+<div class="issue critical">
+  <div class="issue-header">
+    <span class="issue-title">Active pass has no back button or navigation</span>
+    <span class="severity critical">Critical</span>
+  </div>
+  <div class="issue-location">Page: Active Pass Detail (Boarding Pass view)</div>
+  <div class="issue-body">The active pass detail view (accessed from TONIGHT section or Your Trips) has no back arrow, no close button, and no bottom navigation bar. Users are completely trapped — the only escape is browser back, which exits the entire app to the root URL and resets the session.</div>
+  <div class="fix"><strong>Fix:</strong> Add a back arrow in the top-left corner and restore the bottom navigation bar. Implement proper in-app routing so browser back stays within the app.</div>
+</div>
+
+<div class="issue critical">
+  <div class="issue-header">
+    <span class="issue-title">Browser back exits entire app</span>
+    <span class="severity critical">Critical</span>
+  </div>
+  <div class="issue-location">Page: Any detail view → browser back</div>
+  <div class="issue-body">Pressing the browser back button from any detail view (active pass, settings, about, etc.) navigates to the root URL "/" instead of the previous in-app screen. The app resets completely — user must re-enter through onboarding/login. This is because the app doesn't use proper history management for internal navigation.</div>
+  <div class="fix"><strong>Fix:</strong> Implement pushState/replaceState history management or use TanStack Router's history API so in-app navigation creates proper history entries. Browser back should return to the previous in-app screen.</div>
+</div>
+
+<div class="issue critical">
+  <div class="issue-header">
+    <span class="issue-title">Explore/Feed — nearly invisible UI elements</span>
+    <span class="severity critical">Critical</span>
+  </div>
+  <div class="issue-location">Page: Explore / Feed (TikTok-style venue swipe)</div>
+  <div class="issue-body">The coral/salmon background on venue cards makes multiple critical UI elements nearly invisible: the back arrow (dark on coral), the three-dot menu (dark on coral), filter chips at the top, and the venue description text. Users cannot see how to navigate back or access filters.</div>
+  <div class="fix"><strong>Fix:</strong> Add a dark semi-transparent gradient overlay at the top of the card for the back arrow and menu. Use white or high-contrast text/icons over the coral background. Give filter chips a solid background with sufficient contrast.</div>
+</div>
+
+<div class="issue critical">
+  <div class="issue-header">
+    <span class="issue-title">Settings gear icon non-functional</span>
+    <span class="severity critical">Critical</span>
+  </div>
+  <div class="issue-location">Page: Profile → gear icon (top right)</div>
+  <div class="issue-body">The settings gear icon on the Profile page does not respond to clicks. Tested twice across sessions — no action occurs. Users can only reach Settings through the MORE section on the dashboard, which is not discoverable.</div>
+  <div class="fix"><strong>Fix:</strong> Wire up the gear icon's onClick handler to navigate to the Settings page.</div>
+</div>
+
+<div class="issue critical">
+  <div class="issue-header">
+    <span class="issue-title">App resets to onboarding on every fresh load</span>
+    <span class="severity critical">Critical</span>
+  </div>
+  <div class="issue-location">Page: App entry / confetti-live.html</div>
+  <div class="issue-body">Navigating directly to confetti-live.html always shows the onboarding flow (Step 1) even for returning users. There is no session persistence — if the browser back bug ejects the user or they refresh, they must click through all 5 onboarding steps plus the intro carousel to return to their dashboard.</div>
+  <div class="fix"><strong>Fix:</strong> Persist onboarding completion state (localStorage or auth token). If the user has completed onboarding, skip directly to dashboard or login screen.</div>
+</div>
+</div>
+
+<!-- ============ HIGH ============ -->
+<div class="section">
+<div class="section-title">🟠 High — Significant UX friction</div>
+<p class="section-desc">Navigation gaps, missing controls, and visibility issues that degrade the experience.</p>
+
+<div class="issue high">
+  <div class="issue-header">
+    <span class="issue-title">Bottom nav missing on 8+ pages</span>
+    <span class="severity high">High</span>
+  </div>
+  <div class="issue-location">Pages: Crews, Command Center (all 6 tabs), Sparkle Chat, About, Settings, For Venues, Promoters, Events, Active Pass, Your Trips</div>
+  <div class="issue-body">The bottom navigation bar disappears on the majority of detail and sub-pages. Users lose their primary navigation method and must rely on back arrows (when present) to return to the dashboard. Some pages have neither back buttons NOR bottom nav, creating dead ends.</div>
+  <div class="fix"><strong>Fix:</strong> Show the bottom nav bar consistently on all pages except full-screen modals (like Add a Place). At minimum, ensure every page without bottom nav has a visible back button.</div>
+</div>
+
+<div class="issue high">
+  <div class="issue-header">
+    <span class="issue-title">Sparkle chat send button — low contrast</span>
+    <span class="severity high">High</span>
+  </div>
+  <div class="issue-location">Page: Sparkle AI Chat</div>
+  <div class="issue-body">The send arrow button in the Sparkle chat input area is a light gray arrow on a cream/off-white background. It's nearly invisible and doesn't look interactive. Users may not realize how to send their message.</div>
+  <div class="fix"><strong>Fix:</strong> Use the coral/salmon brand color for the send button, or place it inside a solid circle background. Ensure WCAG AA contrast ratio (4.5:1) against the input background.</div>
+</div>
+
+<div class="issue high">
+  <div class="issue-header">
+    <span class="issue-title">Active pass timeline dots not interactive</span>
+    <span class="severity high">High</span>
+  </div>
+  <div class="issue-location">Page: Active Pass (in-progress boarding pass)</div>
+  <div class="issue-body">The numbered timeline dots (1, 2, 3) on the active pass look like tappable navigation elements but do not respond to clicks. Users expect to tap a stop number to jump to that stop's details, but nothing happens.</div>
+  <div class="fix"><strong>Fix:</strong> Either make the dots tappable to jump between stops, or change the visual treatment so they don't look like buttons (remove the circular affordance).</div>
+</div>
+
+<div class="issue high">
+  <div class="issue-header">
+    <span class="issue-title">Settings back nav goes to Profile, not dashboard</span>
+    <span class="severity high">High</span>
+  </div>
+  <div class="issue-location">Page: Settings → back arrow</div>
+  <div class="issue-body">The back arrow on Settings navigates to the Profile page instead of the dashboard. Since Settings is accessed from the dashboard MORE section (not from Profile), this is disorienting. Combined with no bottom nav on Settings, users must tap back again from Profile and then use the home tab.</div>
+  <div class="fix"><strong>Fix:</strong> Back button should return to the previous screen (use navigation stack), or at minimum go to the dashboard since Settings is accessed from MORE.</div>
+</div>
+
+<div class="issue high">
+  <div class="issue-header">
+    <span class="issue-title">Onboarding step number mismatch</span>
+    <span class="severity high">High</span>
+  </div>
+  <div class="issue-location">Page: Onboarding Step 5</div>
+  <div class="issue-body">The last onboarding step shows the label "STEP 04" but the progress bar reads "5/5". This creates confusion about whether there are 4 or 5 steps. The numbering is inconsistent.</div>
+  <div class="fix"><strong>Fix:</strong> Update the label to "STEP 05" to match the progress bar, or re-number steps consistently.</div>
+</div>
+
+<div class="issue high">
+  <div class="issue-header">
+    <span class="issue-title">Pass detail view has no back button</span>
+    <span class="severity high">High</span>
+  </div>
+  <div class="issue-location">Page: "Your night, printed." (pass detail from Your Trips)</div>
+  <div class="issue-body">The full pass detail view ("Your night, printed.") has no back arrow, close button, or bottom navigation. Users viewing a past or planned pass have no way to return to the trips list or dashboard without browser back (which exits the app).</div>
+  <div class="fix"><strong>Fix:</strong> Add a back arrow in the top-left area next to the confetti logo. This page already has a header area with space for navigation.</div>
+</div>
+
+<div class="issue high">
+  <div class="issue-header">
+    <span class="issue-title">No responsive layout — app locked in phone frame</span>
+    <span class="severity high">High</span>
+  </div>
+  <div class="issue-location">Page: All pages</div>
+  <div class="issue-body">The entire app renders inside a fixed-width phone mockup frame at every viewport size. On desktop browsers, the content area is a narrow centered column surrounded by a large dark background. The app has zero responsive behavior — mobile and desktop views are identical pixel-for-pixel. Desktop users get a phone-sized experience.</div>
+  <div class="fix"><strong>Fix:</strong> For the prototype/demo, this is acceptable. For production, consider removing the phone frame on mobile devices (where it's redundant) and potentially offering a wider layout on tablet/desktop.</div>
+</div>
+</div>
+
+<!-- ============ MEDIUM ============ -->
+<div class="section">
+<div class="section-title">🟡 Medium — Design inconsistencies</div>
+<p class="section-desc">Confusing patterns, unclear affordances, and content issues.</p>
+
+<div class="issue medium">
+  <div class="issue-header">
+    <span class="issue-title">Day type filters reorder but don't filter</span>
+    <span class="severity medium">Medium</span>
+  </div>
+  <div class="issue-location">Page: Dashboard — "WHAT KIND OF DAY?" buttons</div>
+  <div class="issue-body">The day type buttons (go out, stay in, host, recharge) reorder the category sections on the dashboard but don't actually filter or hide irrelevant categories. Selecting "stay in" still shows outdoor-focused categories like "Active" — they just move lower. Users expect filtering behavior from filter-styled buttons.</div>
+  <div class="fix"><strong>Fix:</strong> Either hide irrelevant categories when a filter is selected, or change the visual language to indicate these are "sort by priority" controls, not filters.</div>
+</div>
+
+<div class="issue medium">
+  <div class="issue-header">
+    <span class="issue-title">All plan cards route to Sparkle chat — no plan detail</span>
+    <span class="severity medium">Medium</span>
+  </div>
+  <div class="issue-location">Page: Dashboard — all plan type cards (museum + lunch, gallery hop, etc.)</div>
+  <div class="issue-body">Every plan type card on the dashboard navigates to the same Sparkle AI chat interface regardless of which plan was tapped. There are no plan-specific detail pages showing what's included, example itineraries, or pricing. Users don't get any preview before committing to a chat conversation.</div>
+  <div class="fix"><strong>Fix:</strong> Consider adding a brief plan detail overlay or bottom sheet that shows what the plan type includes before launching into Sparkle chat. At minimum, pre-fill the Sparkle chat with context about the selected plan type.</div>
+</div>
+
+<div class="issue medium">
+  <div class="issue-header">
+    <span class="issue-title">Kids tab shows identical content to Family tab</span>
+    <span class="severity medium">Medium</span>
+  </div>
+  <div class="issue-location">Page: Dashboard — Kids audience tab</div>
+  <div class="issue-body">The Kids tab appears to show the exact same category sections and plan types as the Family tab. If these are intended to be different audiences, the content should differ. If they share content, consider merging them to reduce confusion.</div>
+  <div class="fix"><strong>Fix:</strong> Differentiate Kids content (age-appropriate activities, kid-focused venues) or merge Kids into Family as a sub-filter.</div>
+</div>
+
+<div class="issue medium">
+  <div class="issue-header">
+    <span class="issue-title">Promoters "HOW IT WORKS" label — low contrast</span>
+    <span class="severity medium">Medium</span>
+  </div>
+  <div class="issue-location">Page: Be a Promoter</div>
+  <div class="issue-body">The "HOW IT WORKS" section label appears in light gray text on the dark background. It doesn't stand out as a section header and could be easily missed.</div>
+  <div class="fix"><strong>Fix:</strong> Use the cream/off-white color for section headers on dark backgrounds to maintain hierarchy and readability.</div>
+</div>
+
+<div class="issue medium">
+  <div class="issue-header">
+    <span class="issue-title">Command Center tab bar requires horizontal scroll</span>
+    <span class="severity medium">Medium</span>
+  </div>
+  <div class="issue-location">Page: Command Center</div>
+  <div class="issue-body">The Command Center has 6 sub-tabs (saved spots, people, prefs, host templates, upcoming, vibe profile) but only 4 are visible. "Upcoming" and "vibe profile" are hidden off-screen with no scroll indicator. Users may not discover these tabs exist.</div>
+  <div class="fix"><strong>Fix:</strong> Add a subtle scroll fade or arrow indicator on the right side of the tab bar to signal more tabs exist. Or reorganize into a 2-row grid if all tabs are equally important.</div>
+</div>
+
+<div class="issue medium">
+  <div class="issue-header">
+    <span class="issue-title">Scrapbook cards lack tap affordance</span>
+    <span class="severity medium">Medium</span>
+  </div>
+  <div class="issue-location">Page: Dashboard — YOUR SCRAPBOOK section</div>
+  <div class="issue-body">The scrapbook cards (Bushwick crawl, Date night LES, Solo culture) look like decorative summary cards rather than tappable elements. There's no arrow, chevron, or "view" indicator to signal they lead to the full trip list page.</div>
+  <div class="fix"><strong>Fix:</strong> Add a subtle chevron or "view all →" link to indicate these cards are interactive.</div>
+</div>
+</div>
+
+<!-- ============ LOW ============ -->
+<div class="section">
+<div class="section-title">🟢 Low — Polish items</div>
+<p class="section-desc">Minor visual inconsistencies and refinement opportunities.</p>
+
+<div class="issue low">
+  <div class="issue-header">
+    <span class="issue-title">Intro carousel "next →" button style inconsistency</span>
+    <span class="severity low">Low</span>
+  </div>
+  <div class="issue-location">Page: Intro Carousel (3-step)</div>
+  <div class="issue-body">The intro carousel uses a dark/black "next →" button, while all onboarding steps use the coral/salmon CTA button. This creates a visual inconsistency in the first-run experience.</div>
+  <div class="fix"><strong>Fix:</strong> Standardize button style — use coral for all primary CTAs throughout the onboarding flow.</div>
+</div>
+
+<div class="issue low">
+  <div class="issue-header">
+    <span class="issue-title">Events page capacity bars lack labels</span>
+    <span class="severity low">Low</span>
+  </div>
+  <div class="issue-location">Page: Events ("What's on.")</div>
+  <div class="issue-body">Event cards show colored fill bars (32%-94% full) but there's no label explaining what the bar represents. Users may not understand these indicate remaining capacity.</div>
+  <div class="fix"><strong>Fix:</strong> Add a "capacity" or "% full" label near the bars, or use a tooltip on tap.</div>
+</div>
+
+<div class="issue low">
+  <div class="issue-header">
+    <span class="issue-title">Your Trips — Draft card uses diagonal stripes</span>
+    <span class="severity low">Low</span>
+  </div>
+  <div class="issue-location">Page: Your Trips list</div>
+  <div class="issue-body">The draft trip card ("Crew night out") uses a diagonal stripe pattern that looks like a rendering artifact or broken texture rather than a deliberate "draft" visual treatment. It doesn't match the clean visual language of the other cards.</div>
+  <div class="fix"><strong>Fix:</strong> Use a more intentional draft indicator — a dashed border, a "DRAFT" badge, or a muted/desaturated version of the card color.</div>
+</div>
+
+<div class="issue low">
+  <div class="issue-header">
+    <span class="issue-title">"+add a place" button appears in multiple contexts</span>
+    <span class="severity low">Low</span>
+  </div>
+  <div class="issue-location">Pages: Dashboard MORE section, Your Trips, Social section cards</div>
+  <div class="issue-body">The "+add a place" button appears in the dashboard MORE grid, inside the Social section card grid, and in the Your Trips list — all with the same label but potentially different purposes. In the Social section it occupies a plan card slot, which is confusing.</div>
+  <div class="fix"><strong>Fix:</strong> Differentiate the actions (e.g., "suggest a venue" vs "add a stop to this trip") or consolidate to one entry point.</div>
+</div>
+</div>
+
+<hr class="divider">
+
+<div class="note">
+  <div class="note-title">Audit Methodology</div>
+  <div class="note-body">
+    This audit was conducted by navigating every reachable page and interactive element in the Confetti app at ai-lifestyle-concierge.vercel.app/confetti-live.html. Screenshots were captured at both desktop (1568×745) and mobile (375×812) viewport widths. The app renders inside a fixed-width phone mockup frame, so content is identical at both sizes — no responsive layout differences were found.
+  </div>
+</div>
+
+<div class="note" style="margin-top: 16px;">
+  <div class="note-title">Pages Audited (30+)</div>
+  <div class="pages-audited">
+    <span class="page-tag">Login</span>
+    <span class="page-tag">Onboarding (5 steps)</span>
+    <span class="page-tag">Intro Carousel (3 steps)</span>
+    <span class="page-tag">Dashboard — Adults</span>
+    <span class="page-tag">Dashboard — Family</span>
+    <span class="page-tag">Dashboard — Kids</span>
+    <span class="page-tag">Dashboard — All Ages</span>
+    <span class="page-tag">Dashboard — Go Out</span>
+    <span class="page-tag">Dashboard — Stay In</span>
+    <span class="page-tag">Dashboard — Host</span>
+    <span class="page-tag">Dashboard — Recharge</span>
+    <span class="page-tag">Plan Builder</span>
+    <span class="page-tag">Sparkle AI Chat</span>
+    <span class="page-tag">Explore / Feed</span>
+    <span class="page-tag">Crews</span>
+    <span class="page-tag">Profile — Scrapbook</span>
+    <span class="page-tag">Profile — Stamps</span>
+    <span class="page-tag">Profile — Crew</span>
+    <span class="page-tag">Command Center (6 tabs)</span>
+    <span class="page-tag">Active Pass Detail</span>
+    <span class="page-tag">Your Trips</span>
+    <span class="page-tag">Pass Detail</span>
+    <span class="page-tag">Events</span>
+    <span class="page-tag">All-Access Upsell</span>
+    <span class="page-tag">About</span>
+    <span class="page-tag">Settings</span>
+    <span class="page-tag">For Venues</span>
+    <span class="page-tag">Be a Promoter</span>
+    <span class="page-tag">Add a Place</span>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

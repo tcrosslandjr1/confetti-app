@@ -2,8 +2,12 @@
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "buildCommand": "vite build",
     "outputDirectory": "dist",
+    "redirects": [
+          { "source": "/", "destination": "/confetti-live.html", "statusCode": 302 },
+          { "source": "/app/:path*", "destination": "/confetti-live.html", "statusCode": 302 }
+    ],
     "rewrites": [
-          { "source": "/(.*)", "destination": "/index.html" }
+          { "source": "/confetti-live.html", "destination": "/confetti-live.html" }
     ],
     "headers": [
           {

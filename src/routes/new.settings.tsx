@@ -38,7 +38,7 @@ function SettingsPage() {
         navigate({ to: "/new/all-access" });
         break;
       case "connected accounts":
-        navigate({ to: "/new/profile" });
+        navigate({ to: "/new/socials" });
         break;
       case "help & feedback":
         // Opens default mail client — production-grade placeholder

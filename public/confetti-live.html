@@ -628,10 +628,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 <!-- Live venue components (override bundled mocks) -->
 <script>
 (function waitForReact() {
+  console.log('[CF-LIVE] waitForReact called, React=' + (typeof React));
   if (typeof React === 'undefined' || typeof React.createElement !== 'function') {
     setTimeout(waitForReact, 50);
     return;
   }
+  console.log('[CF-LIVE] React found, defining components...');
   var h = React.createElement;
   var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback;
 
@@ -1078,8 +1080,10 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
 
   // ── Expose live components to window immediately ───────────────────
+  console.log('[CF-LIVE] Assigning to window. LiveExploreScreen type=' + typeof LiveExploreScreen);
   window.LiveExploreScreen = LiveExploreScreen;
   window.LiveVenueDetailScreen = LiveVenueDetailScreen;
+  console.log('[CF-LIVE] Assignment done. window.LiveExploreScreen=' + typeof window.LiveExploreScreen);
 
   // ── Override globals: use defineProperty trap so bundle can't overwrite ──
   var _origES = null, _origVDS = null;

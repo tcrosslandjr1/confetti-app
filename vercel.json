@@ -1,6 +1,6 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
-    "buildCommand": "vite build",
+    "buildCommand": "vite build && cp public/confetti-live.html dist/confetti-live.html",
     "outputDirectory": "dist",
     "rewrites": [
           { "source": "/", "destination": "/confetti-live.html" },

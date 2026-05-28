@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Search, SlidersHorizontal, MapPin } from "lucide-react";
+import { Search, SlidersHorizontal, MapPin, Wine, ChevronRight, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { MobileHeader } from "@/components/AppShell";
 import { Input } from "@/components/ui/input";
@@ -132,6 +132,32 @@ function ExplorePage() {
             </button>
           ))}
         </div>
+
+        {/* ── Happy Hour Promo Card ──────────────────── */}
+        <Link
+          to="/app/happy-hour"
+          onClick={() => trackEngagement("explore_happy_hour_tap", { source: "explore_banner" })}
+          className="group mt-4 flex items-center gap-3.5 overflow-hidden rounded-2xl border border-coral/20 bg-gradient-to-r from-coral/15 via-coral/10 to-transparent p-3.5 shadow-card transition-all duration-200 active:scale-[0.98] hover:border-coral/30 hover:shadow-card-hover"
+        >
+          <div className="grid size-12 shrink-0 place-items-center rounded-xl bg-coral/20">
+            <Wine className="size-5 text-coral" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-1.5">
+              <span className="font-display text-[14px] font-bold tracking-tight text-cream">
+                Happy Hour Deals
+              </span>
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-coral opacity-75" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-coral" />
+              </span>
+            </div>
+            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-cream/50">
+              20+ DMV deals · Curated crawls · Metro-friendly
+            </p>
+          </div>
+          <ChevronRight className="size-4 shrink-0 text-cream/30 transition-transform group-hover:translate-x-0.5" />
+        </Link>
 
         <div className="mt-4 flex items-center gap-1 rounded-lg bg-cream/5 p-1">
           <button

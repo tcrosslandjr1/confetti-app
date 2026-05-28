@@ -626,59 +626,50 @@ document.addEventListener('DOMContentLoaded', async function() {
 </script>
 
 <!-- Live venue components (override bundled mocks) -->
-<script type="text/babel">
+<script>
 (function() {
-  const { useState, useEffect, useRef, useCallback } = React;
+  var h = React.createElement;
+  var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback;
 
-  // ── Color helpers ─────────────────────────────────────────────────
-  const ACCENT_CYCLE = ['var(--accent-1)','var(--accent-2)','var(--accent-3)','var(--accent-4)'];
-  const accent = (i) => ACCENT_CYCLE[i % ACCENT_CYCLE.length];
+  var ACCENT_CYCLE = ['var(--accent-1)','var(--accent-2)','var(--accent-3)','var(--accent-4)'];
+  var accent = function(i) { return ACCENT_CYCLE[i % ACCENT_CYCLE.length]; };
 
   // ── Live ExploreScreen ────────────────────────────────────────────
-  const LiveExploreScreen = ({ mode, onBack, onVenue, onAdd }) => {
-    const [venues, setVenues] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [query, setQuery] = useState('');
-    const [filter, setFilter] = useState('all');
-    const [showMap, setShowMap] = useState(false);
-    const mapRef = useRef(null);
-    const mapInstance = useRef(null);
-    const markersRef = useRef([]);
+  var LiveExploreScreen = function(props) {
+    var mode = props.mode, onBack = props.onBack, onVenue = props.onVenue, onAdd = props.onAdd;
+    var _v = useState([]), venues = _v[0], setVenues = _v[1];
+    var _l = useState(true), loading = _l[0], setLoading = _l[1];
+    var _e = useState(null), error = _e[0], setError = _e[1];
+    var _q = useState(''), query = _q[0], setQuery = _q[1];
+    var _f = useState('all'), filter = _f[0], setFilter = _f[1];
+    var _m = useState(false), showMap = _m[0], setShowMap = _m[1];
+    var mapRef = useRef(null);
+    var mapInstance = useRef(null);
+    var markersRef = useRef([]);
 
-    const fetchVenues = useCallback(async (searchQuery, typeFilter) => {
+    var fetchVenues = useCallback(function(searchQuery, typeFilter) {
       setLoading(true);
       setError(null);
-      try {
-        const loc = await ConfettiPlaces.getUserLocation();
-        let results;
+      return ConfettiPlaces.getUserLocation().then(function(loc) {
         if (searchQuery && searchQuery.trim()) {
-          results = await ConfettiPlaces.textSearch(searchQuery, { lat: loc.lat, lng: loc.lng });
+          return ConfettiPlaces.textSearch(searchQuery, { lat: loc.lat, lng: loc.lng });
         } else {
-          const typeMap = {
-            all: 'restaurant',
-            bars: 'bar',
-            restaurants: 'restaurant',
-            nightlife: 'night_club',
-            cafes: 'cafe'
-          };
-          results = await ConfettiPlaces.searchNearby({
-            lat: loc.lat, lng: loc.lng,
-            type: typeMap[typeFilter] || 'restaurant',
-            radius: 3000
-          });
+          var typeMap = { all: 'restaurant', bars: 'bar', restaurants: 'restaurant', nightlife: 'night_club', cafes: 'cafe' };
+          return ConfettiPlaces.searchNearby({ lat: loc.lat, lng: loc.lng, type: typeMap[typeFilter] || 'restaurant', radius: 3000 });
         }
+      }).then(function(results) {
         setVenues(results.slice(0, 20));
         window._cfVenueCache.explore = results;
         window._cfVenueCache.ts = Date.now();
-      } catch (e) {
+        setLoading(false);
+      }).catch(function(e) {
         console.error('Places fetch error:', e);
-        setError('Couldn’t load venues. Check your connection.');
-      }
-      setLoading(false);
+        setError("Couldn’t load venues. Check your connection.");
+        setLoading(false);
+      });
     }, []);
 
-    useEffect(() => {
+    useEffect(function() {
       if (window._cfVenueCache.explore && Date.now() - window._cfVenueCache.ts < 120000) {
         setVenues(window._cfVenueCache.explore.slice(0, 20));
         setLoading(false);
@@ -687,294 +678,265 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     }, []);
 
-    useEffect(() => {
-      const t = setTimeout(() => fetchVenues(query, filter), query ? 600 : 0);
-      return () => clearTimeout(t);
+    useEffect(function() {
+      var t = setTimeout(function() { fetchVenues(query, filter); }, query ? 600 : 0);
+      return function() { clearTimeout(t); };
     }, [filter]);
 
-    const doSearch = () => { if (query.trim()) fetchVenues(query, filter); };
+    var doSearch = function() { if (query.trim()) fetchVenues(query, filter); };
 
     // Map rendering
-    useEffect(() => {
+    useEffect(function() {
       if (!showMap || !mapRef.current || venues.length === 0) return;
       if (!mapInstance.current) {
         mapInstance.current = new google.maps.Map(mapRef.current, {
           zoom: 13,
           center: { lat: venues[0].lat, lng: venues[0].lng },
-          disableDefaultUI: true,
-          zoomControl: true,
+          disableDefaultUI: true, zoomControl: true,
           styles: [
             { featureType: 'poi', stylers: [{ visibility: 'off' }] },
             { featureType: 'transit', stylers: [{ visibility: 'off' }] }
           ]
         });
       }
-      // Clear old markers
-      markersRef.current.forEach(m => m.setMap(null));
+      markersRef.current.forEach(function(m) { m.setMap(null); });
       markersRef.current = [];
-      const bounds = new google.maps.LatLngBounds();
-      venues.forEach((v, i) => {
+      var bounds = new google.maps.LatLngBounds();
+      venues.forEach(function(v, i) {
         if (!v.lat || !v.lng) return;
-        const marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: { lat: v.lat, lng: v.lng },
           map: mapInstance.current,
           title: v.name,
           label: { text: String(i + 1), color: '#fff', fontWeight: '900', fontSize: '11px' }
         });
-        marker.addListener('click', () => onVenue && onVenue(v));
+        marker.addListener('click', function() { onVenue && onVenue(v); });
         markersRef.current.push(marker);
         bounds.extend(marker.getPosition());
       });
       if (markersRef.current.length > 1) mapInstance.current.fitBounds(bounds);
     }, [showMap, venues]);
 
-    const filters = ['all', 'restaurants', 'bars', 'nightlife', 'cafes'];
+    var filters = ['all', 'restaurants', 'bars', 'nightlife', 'cafes'];
 
-    return (
-      <div className="cf-screen" style={{
-        position: 'relative', height: '100%', background: 'var(--bg)',
-        display: 'flex', flexDirection: 'column', padding: '50px 0 72px',
-        overflow: 'hidden'
-      }}>
-        {/* Header */}
-        <div style={{ padding: '0 20px', marginBottom: 10 }}>
-          <div style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            marginBottom: 10
-          }}>
-            <button onClick={onBack} style={{
-              appearance: 'none', cursor: 'pointer', background: 'var(--paper)',
-              border: '2.5px solid var(--ink)', borderRadius: 999,
-              width: 34, height: 34, fontSize: 14, fontWeight: 900,
-              boxShadow: '3px 3px 0 var(--ink)'
-            }}>{'←'}</button>
-            <h2 style={{
-              fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 24,
-              letterSpacing: '-0.03em', color: 'var(--ink)', margin: 0
-            }}>Explore</h2>
-            <button onClick={() => setShowMap(!showMap)} style={{
-              appearance: 'none', cursor: 'pointer', background: showMap ? 'var(--ink)' : 'var(--paper)',
-              color: showMap ? 'var(--paper)' : 'var(--ink)',
-              border: '2.5px solid var(--ink)', borderRadius: 999,
-              width: 34, height: 34, fontSize: 16, fontWeight: 900,
-              boxShadow: '3px 3px 0 var(--ink)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center'
-            }}>{showMap ? '☰' : '🗺'}</button>
-          </div>
-
-          {/* Search */}
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 8,
-            padding: '10px 14px', border: '2.5px solid var(--ink)',
-            borderRadius: 14, background: 'var(--paper)',
-            boxShadow: '4px 4px 0 var(--ink)', marginBottom: 10
-          }}>
-            <span style={{ fontSize: 16, opacity: 0.5 }}>{'⌕'}</span>
-            <input value={query}
-              onChange={e => setQuery(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && doSearch()}
-              placeholder="search venues near you…"
-              style={{
-                flex: 1, appearance: 'none', border: 'none', outline: 'none',
-                background: 'transparent', fontFamily: 'var(--cf-ui)',
-                fontSize: 14, fontWeight: 700, color: 'var(--ink)'
-              }} />
-            {query && <button onClick={() => { setQuery(''); fetchVenues('', filter); }} style={{
-              appearance: 'none', cursor: 'pointer', width: 20, height: 20,
-              borderRadius: 999, border: '1.5px solid var(--ink)',
-              background: 'var(--bg)', fontSize: 10, fontWeight: 900
-            }}>{'✕'}</button>}
-            <button onClick={doSearch} style={{
-              appearance: 'none', cursor: 'pointer', padding: '5px 10px',
-              border: '2px solid var(--ink)', borderRadius: 8,
-              background: 'var(--accent-1)', fontFamily: 'var(--cf-mono)',
-              fontSize: 9, fontWeight: 800, letterSpacing: '.1em'
-            }}>GO</button>
-          </div>
-
-          {/* Filters */}
-          <div style={{ display: 'flex', gap: 6, overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: 2 }}>
-            {filters.map(f => (
-              <button key={f} onClick={() => setFilter(f)} style={{
-                appearance: 'none', cursor: 'pointer', whiteSpace: 'nowrap',
-                padding: '6px 12px', border: '2px solid var(--ink)',
-                borderRadius: 999, fontFamily: 'var(--cf-ui)',
-                fontSize: 11, fontWeight: 800,
-                background: f === filter ? 'var(--ink)' : 'var(--paper)',
-                color: f === filter ? 'var(--paper)' : 'var(--ink)',
-                flexShrink: 0
-              }}>{f}</button>
-            ))}
-          </div>
-        </div>
-
-        {/* Map view */}
-        {showMap && (
-          <div ref={mapRef} style={{
-            flex: 1, margin: '0 20px', borderRadius: 16,
-            border: '3px solid var(--ink)', boxShadow: '5px 5px 0 var(--ink)',
-            minHeight: 300, overflow: 'hidden'
-          }} />
-        )}
-
-        {/* List view */}
-        {!showMap && (
-          <div style={{
-            flex: 1, overflowY: 'auto', padding: '0 20px',
-            scrollbarWidth: 'none'
-          }}>
-            {loading && (
-              <div style={{
-                textAlign: 'center', padding: '40px 0',
+    return h('div', { className: 'cf-screen', style: {
+      position: 'relative', height: '100%', background: 'var(--bg)',
+      display: 'flex', flexDirection: 'column', padding: '50px 0 72px', overflow: 'hidden'
+    }},
+      // Header
+      h('div', { style: { padding: '0 20px', marginBottom: 10 } },
+        h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 } },
+          h('button', { onClick: onBack, style: {
+            appearance: 'none', cursor: 'pointer', background: 'var(--paper)',
+            border: '2.5px solid var(--ink)', borderRadius: 999,
+            width: 34, height: 34, fontSize: 14, fontWeight: 900,
+            boxShadow: '3px 3px 0 var(--ink)'
+          } }, '←'),
+          h('h2', { style: {
+            fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 24,
+            letterSpacing: '-0.03em', color: 'var(--ink)', margin: 0
+          } }, 'Explore'),
+          h('button', { onClick: function() { setShowMap(!showMap); }, style: {
+            appearance: 'none', cursor: 'pointer',
+            background: showMap ? 'var(--ink)' : 'var(--paper)',
+            color: showMap ? 'var(--paper)' : 'var(--ink)',
+            border: '2.5px solid var(--ink)', borderRadius: 999,
+            width: 34, height: 34, fontSize: 16, fontWeight: 900,
+            boxShadow: '3px 3px 0 var(--ink)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center'
+          } }, showMap ? '☰' : '🗺')
+        ),
+        // Search
+        h('div', { style: {
+          display: 'flex', alignItems: 'center', gap: 8,
+          padding: '10px 14px', border: '2.5px solid var(--ink)',
+          borderRadius: 14, background: 'var(--paper)',
+          boxShadow: '4px 4px 0 var(--ink)', marginBottom: 10
+        } },
+          h('span', { style: { fontSize: 16, opacity: 0.5 } }, '⌕'),
+          h('input', { value: query,
+            onChange: function(e) { setQuery(e.target.value); },
+            onKeyDown: function(e) { if (e.key === 'Enter') doSearch(); },
+            placeholder: 'search venues near you…',
+            style: {
+              flex: 1, appearance: 'none', border: 'none', outline: 'none',
+              background: 'transparent', fontFamily: 'var(--cf-ui)',
+              fontSize: 14, fontWeight: 700, color: 'var(--ink)'
+            }
+          }),
+          query && h('button', { onClick: function() { setQuery(''); fetchVenues('', filter); }, style: {
+            appearance: 'none', cursor: 'pointer', width: 20, height: 20,
+            borderRadius: 999, border: '1.5px solid var(--ink)',
+            background: 'var(--bg)', fontSize: 10, fontWeight: 900
+          } }, '✕'),
+          h('button', { onClick: doSearch, style: {
+            appearance: 'none', cursor: 'pointer', padding: '5px 10px',
+            border: '2px solid var(--ink)', borderRadius: 8,
+            background: 'var(--accent-1)', fontFamily: 'var(--cf-mono)',
+            fontSize: 9, fontWeight: 800, letterSpacing: '.1em'
+          } }, 'GO')
+        ),
+        // Filters
+        h('div', { style: { display: 'flex', gap: 6, overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: 2 } },
+          filters.map(function(f) {
+            return h('button', { key: f, onClick: function() { setFilter(f); }, style: {
+              appearance: 'none', cursor: 'pointer', whiteSpace: 'nowrap',
+              padding: '6px 12px', border: '2px solid var(--ink)',
+              borderRadius: 999, fontFamily: 'var(--cf-ui)',
+              fontSize: 11, fontWeight: 800,
+              background: f === filter ? 'var(--ink)' : 'var(--paper)',
+              color: f === filter ? 'var(--paper)' : 'var(--ink)', flexShrink: 0
+            } }, f);
+          })
+        )
+      ),
+      // Map view
+      showMap && h('div', { ref: mapRef, style: {
+        flex: 1, margin: '0 20px', borderRadius: 16,
+        border: '3px solid var(--ink)', boxShadow: '5px 5px 0 var(--ink)',
+        minHeight: 300, overflow: 'hidden'
+      } }),
+      // List view
+      !showMap && h('div', { style: {
+        flex: 1, overflowY: 'auto', padding: '0 20px', scrollbarWidth: 'none'
+      } },
+        loading && h('div', { style: {
+          textAlign: 'center', padding: '40px 0',
+          fontFamily: 'var(--cf-display)', fontWeight: 900,
+          fontSize: 18, color: 'var(--ink)', opacity: 0.6
+        } },
+          h('div', { style: {
+            width: 48, height: 48, borderRadius: 999,
+            border: '4px solid var(--ink)', borderTopColor: 'var(--accent-1)',
+            margin: '0 auto 14px',
+            animation: 'cf-spin 0.8s linear infinite'
+          } }),
+          'finding spots near you…'
+        ),
+        error && h('div', { style: {
+          textAlign: 'center', padding: '30px 20px',
+          fontFamily: 'var(--cf-ui)', fontSize: 14, fontWeight: 700,
+          color: 'var(--ink)', opacity: 0.7
+        } },
+          error,
+          h('br'),
+          h('button', { onClick: function() { fetchVenues(query, filter); }, style: {
+            appearance: 'none', cursor: 'pointer', marginTop: 12,
+            padding: '8px 20px', border: '2.5px solid var(--ink)',
+            borderRadius: 10, background: 'var(--accent-1)',
+            fontFamily: 'var(--cf-ui)', fontSize: 13, fontWeight: 800,
+            boxShadow: '3px 3px 0 var(--ink)'
+          } }, 'retry')
+        ),
+        !loading && !error && venues.length === 0 && h('div', { style: {
+          textAlign: 'center', padding: '40px 20px',
+          fontFamily: 'var(--cf-ui)', fontSize: 14, fontWeight: 700,
+          color: 'var(--ink)', opacity: 0.6
+        } }, 'No venues found. Try a different search or filter.'),
+        !loading && venues.map(function(v, i) {
+          return h('button', { key: v.id, onClick: function() { onVenue && onVenue(v); }, style: {
+            appearance: 'none', cursor: 'pointer', width: '100%',
+            textAlign: 'left', display: 'flex', gap: 12,
+            padding: 12, marginBottom: 10,
+            border: '2.5px solid var(--ink)', borderRadius: 16,
+            background: 'var(--paper)', boxShadow: '4px 4px 0 var(--ink)',
+            overflow: 'hidden', alignItems: 'stretch'
+          } },
+            // Photo
+            h('div', { style: {
+              width: 80, minHeight: 80, borderRadius: 10,
+              border: '2px solid var(--ink)', flexShrink: 0,
+              background: v.photo ? 'url(' + v.photo + ') center/cover no-repeat' : accent(i),
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: v.photo ? 0 : 28
+            } }, v.photo ? '' : '🍽'),
+            // Info
+            h('div', { style: { flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 3 } },
+              h('div', { style: {
                 fontFamily: 'var(--cf-display)', fontWeight: 900,
-                fontSize: 18, color: 'var(--ink)', opacity: 0.6
-              }}>
-                <div style={{
-                  width: 48, height: 48, borderRadius: 999,
-                  border: '4px solid var(--ink)', borderTopColor: 'var(--accent-1)',
-                  margin: '0 auto 14px',
-                  animation: 'cf-spin 0.8s linear infinite'
-                }} />
-                finding spots near you{'…'}
-              </div>
-            )}
-
-            {error && (
-              <div style={{
-                textAlign: 'center', padding: '30px 20px',
-                fontFamily: 'var(--cf-ui)', fontSize: 14, fontWeight: 700,
-                color: 'var(--ink)', opacity: 0.7
-              }}>
-                {error}
-                <br/>
-                <button onClick={() => fetchVenues(query, filter)} style={{
-                  appearance: 'none', cursor: 'pointer', marginTop: 12,
-                  padding: '8px 20px', border: '2.5px solid var(--ink)',
-                  borderRadius: 10, background: 'var(--accent-1)',
-                  fontFamily: 'var(--cf-ui)', fontSize: 13, fontWeight: 800,
-                  boxShadow: '3px 3px 0 var(--ink)'
-                }}>retry</button>
-              </div>
-            )}
-
-            {!loading && !error && venues.length === 0 && (
-              <div style={{
-                textAlign: 'center', padding: '40px 20px',
-                fontFamily: 'var(--cf-ui)', fontSize: 14, fontWeight: 700,
-                color: 'var(--ink)', opacity: 0.6
-              }}>No venues found. Try a different search or filter.</div>
-            )}
-
-            {!loading && venues.map((v, i) => (
-              <button key={v.id} onClick={() => onVenue && onVenue(v)}
-                style={{
-                  appearance: 'none', cursor: 'pointer', width: '100%',
-                  textAlign: 'left', display: 'flex', gap: 12,
-                  padding: 12, marginBottom: 10,
-                  border: '2.5px solid var(--ink)', borderRadius: 16,
-                  background: 'var(--paper)', boxShadow: '4px 4px 0 var(--ink)',
-                  overflow: 'hidden', alignItems: 'stretch'
-                }}>
-                {/* Photo */}
-                <div style={{
-                  width: 80, minHeight: 80, borderRadius: 10,
-                  border: '2px solid var(--ink)', flexShrink: 0,
-                  background: v.photo
-                    ? `url(${v.photo}) center/cover no-repeat`
-                    : accent(i),
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: v.photo ? 0 : 28
-                }}>{v.photo ? '' : '🍽'}</div>
-                {/* Info */}
-                <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
-                  <div style={{
-                    fontFamily: 'var(--cf-display)', fontWeight: 900,
-                    fontSize: 15, letterSpacing: '-0.02em',
-                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
-                  }}>{v.name}</div>
-                  <div style={{
-                    fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 700,
-                    opacity: 0.6, letterSpacing: '.06em', textTransform: 'uppercase'
-                  }}>{v.tag}</div>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', gap: 6,
-                    flexWrap: 'wrap', marginTop: 'auto'
-                  }}>
-                    {v.rating > 0 && <span style={{
-                      padding: '2px 7px', background: '#fbbc04', color: '#000',
-                      border: '1.5px solid var(--ink)', borderRadius: 4,
-                      fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 800
-                    }}>{'★'} {v.rating}</span>}
-                    {v.totalRatings > 0 && <span style={{
-                      fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 700,
-                      opacity: 0.5
-                    }}>({v.totalRatings})</span>}
-                    {v.priceStr && <span style={{
-                      padding: '2px 6px', background: 'var(--accent-3)',
-                      border: '1.5px solid var(--ink)', borderRadius: 4,
-                      fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800
-                    }}>{v.priceStr}</span>}
-                    {v.openNow !== null && <span style={{
-                      padding: '2px 6px',
-                      background: v.openNow ? '#34a853' : '#ea4335',
-                      color: '#fff', border: '1.5px solid var(--ink)',
-                      borderRadius: 4, fontFamily: 'var(--cf-mono)',
-                      fontSize: 8, fontWeight: 800, letterSpacing: '.06em'
-                    }}>{v.openNow ? 'OPEN' : 'CLOSED'}</span>}
-                  </div>
-                  <div style={{
-                    fontFamily: 'var(--cf-ui)', fontSize: 10, fontWeight: 600,
-                    opacity: 0.5, overflow: 'hidden', textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap', marginTop: 2
-                  }}>{v.vicinity || v.address}</div>
-                </div>
-                {/* Add button */}
-                <div style={{
-                  display: 'flex', flexDirection: 'column', alignItems: 'center',
-                  justifyContent: 'center', flexShrink: 0, gap: 4
-                }}>
-                  <button onClick={(e) => { e.stopPropagation(); onAdd && onAdd(v); }}
-                    style={{
-                      appearance: 'none', cursor: 'pointer',
-                      width: 32, height: 32, borderRadius: 999,
-                      border: '2px solid var(--ink)', background: 'var(--accent-1)',
-                      fontSize: 16, fontWeight: 900, display: 'flex',
-                      alignItems: 'center', justifyContent: 'center',
-                      boxShadow: '2px 2px 0 var(--ink)'
-                    }}>+</button>
-                  <span style={{
-                    fontFamily: 'var(--cf-mono)', fontSize: 7, fontWeight: 700,
-                    opacity: 0.5, letterSpacing: '.06em'
-                  }}>ADD</span>
-                </div>
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+                fontSize: 15, letterSpacing: '-0.02em',
+                overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
+              } }, v.name),
+              h('div', { style: {
+                fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 700,
+                opacity: 0.6, letterSpacing: '.06em', textTransform: 'uppercase'
+              } }, v.tag),
+              h('div', { style: {
+                display: 'flex', alignItems: 'center', gap: 6,
+                flexWrap: 'wrap', marginTop: 'auto'
+              } },
+                v.rating > 0 && h('span', { style: {
+                  padding: '2px 7px', background: '#fbbc04', color: '#000',
+                  border: '1.5px solid var(--ink)', borderRadius: 4,
+                  fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 800
+                } }, '★ ' + v.rating),
+                v.totalRatings > 0 && h('span', { style: {
+                  fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 700, opacity: 0.5
+                } }, '(' + v.totalRatings + ')'),
+                v.priceStr && h('span', { style: {
+                  padding: '2px 6px', background: 'var(--accent-3)',
+                  border: '1.5px solid var(--ink)', borderRadius: 4,
+                  fontFamily: 'var(--cf-mono)', fontSize: 9, fontWeight: 800
+                } }, v.priceStr),
+                v.openNow !== null && h('span', { style: {
+                  padding: '2px 6px',
+                  background: v.openNow ? '#34a853' : '#ea4335',
+                  color: '#fff', border: '1.5px solid var(--ink)',
+                  borderRadius: 4, fontFamily: 'var(--cf-mono)',
+                  fontSize: 8, fontWeight: 800, letterSpacing: '.06em'
+                } }, v.openNow ? 'OPEN' : 'CLOSED')
+              ),
+              h('div', { style: {
+                fontFamily: 'var(--cf-ui)', fontSize: 10, fontWeight: 600,
+                opacity: 0.5, overflow: 'hidden', textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap', marginTop: 2
+              } }, v.vicinity || v.address)
+            ),
+            // Add button
+            h('div', { style: {
+              display: 'flex', flexDirection: 'column', alignItems: 'center',
+              justifyContent: 'center', flexShrink: 0, gap: 4
+            } },
+              h('button', { onClick: function(e) { e.stopPropagation(); onAdd && onAdd(v); }, style: {
+                appearance: 'none', cursor: 'pointer',
+                width: 32, height: 32, borderRadius: 999,
+                border: '2px solid var(--ink)', background: 'var(--accent-1)',
+                fontSize: 16, fontWeight: 900, display: 'flex',
+                alignItems: 'center', justifyContent: 'center',
+                boxShadow: '2px 2px 0 var(--ink)'
+              } }, '+'),
+              h('span', { style: {
+                fontFamily: 'var(--cf-mono)', fontSize: 7, fontWeight: 700,
+                opacity: 0.5, letterSpacing: '.06em'
+              } }, 'ADD')
+            )
+          );
+        })
+      )
     );
   };
 
   // ── Live VenueDetailScreen ────────────────────────────────────────
-  const LiveVenueDetailScreen = ({ venue, onBack, onAdd }) => {
-    const [details, setDetails] = useState(venue);
-    const [loading, setLoading] = useState(false);
-    const [photoIdx, setPhotoIdx] = useState(0);
-    const mapRef = useRef(null);
+  var LiveVenueDetailScreen = function(props) {
+    var venue = props.venue, onBack = props.onBack, onAdd = props.onAdd;
+    var _d = useState(venue), details = _d[0], setDetails = _d[1];
+    var _l2 = useState(false), loading = _l2[0], setLoading = _l2[1];
+    var _p = useState(0), photoIdx = _p[0], setPhotoIdx = _p[1];
+    var mapRef = useRef(null);
 
-    useEffect(() => {
+    useEffect(function() {
       if (venue && venue.placeId && !venue.phone) {
         setLoading(true);
-        ConfettiPlaces.getDetails(venue.placeId).then(d => {
-          setDetails({ ...venue, ...d });
+        ConfettiPlaces.getDetails(venue.placeId).then(function(d) {
+          setDetails(Object.assign({}, venue, d));
           setLoading(false);
-        }).catch(() => setLoading(false));
+        }).catch(function() { setLoading(false); });
       }
     }, [venue]);
 
-    useEffect(() => {
+    useEffect(function() {
       if (mapRef.current && details.lat && details.lng) {
-        const map = new google.maps.Map(mapRef.current, {
+        var map = new google.maps.Map(mapRef.current, {
           center: { lat: details.lat, lng: details.lng }, zoom: 16,
           disableDefaultUI: true, zoomControl: true,
           styles: [{ featureType: 'poi', stylers: [{ visibility: 'off' }] }]
@@ -984,143 +946,128 @@ document.addEventListener('DOMContentLoaded', async function() {
     }, [details.lat, details.lng]);
 
     if (!venue) return null;
-    const photos = details.photos || (details.photo ? [details.photo] : []);
+    var photos = details.photos || (details.photo ? [details.photo] : []);
 
-    return (
-      <div className="cf-screen" style={{
-        position: 'relative', height: '100%', background: 'var(--bg)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden'
-      }}>
-        {/* Photo header */}
-        <div style={{
-          position: 'relative', height: 220, flexShrink: 0,
-          background: photos[photoIdx]
-            ? `url(${photos[photoIdx]}) center/cover`
-            : 'var(--accent-2)',
-          borderBottom: '3px solid var(--ink)'
-        }}>
-          <button onClick={onBack} style={{
-            position: 'absolute', top: 52, left: 16,
-            appearance: 'none', cursor: 'pointer', width: 36, height: 36,
-            borderRadius: 999, border: '2.5px solid var(--ink)',
-            background: 'var(--paper)', fontSize: 14, fontWeight: 900,
-            boxShadow: '3px 3px 0 var(--ink)', zIndex: 2
-          }}>{'←'}</button>
-          {photos.length > 1 && (
-            <div style={{
-              position: 'absolute', bottom: 10, left: '50%', transform: 'translateX(-50%)',
-              display: 'flex', gap: 4
-            }}>
-              {photos.slice(0, 5).map((_, i) => (
-                <button key={i} onClick={() => setPhotoIdx(i)} style={{
-                  appearance: 'none', cursor: 'pointer',
-                  width: i === photoIdx ? 18 : 8, height: 8, borderRadius: 999,
-                  border: '1.5px solid var(--ink)',
-                  background: i === photoIdx ? 'var(--accent-1)' : 'var(--paper)',
-                  transition: 'width 0.2s'
-                }} />
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div style={{
-          flex: 1, overflowY: 'auto', padding: '16px 20px 90px',
-          scrollbarWidth: 'none'
-        }}>
-          <h2 style={{
-            fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 26,
-            letterSpacing: '-0.03em', margin: '0 0 6px', color: 'var(--ink)'
-          }}>{details.name}</h2>
-
-          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
-            {details.rating > 0 && <span style={{
-              padding: '3px 8px', background: '#fbbc04', color: '#000',
-              border: '2px solid var(--ink)', borderRadius: 6,
-              fontFamily: 'var(--cf-mono)', fontSize: 11, fontWeight: 800
-            }}>{'★'} {details.rating}</span>}
-            {details.totalRatings > 0 && <span style={{
-              fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 700, opacity: 0.5,
-              display: 'inline-flex', alignItems: 'center'
-            }}>({details.totalRatings} reviews)</span>}
-            {details.priceStr && <span style={{
-              padding: '3px 8px', background: 'var(--accent-3)',
-              border: '2px solid var(--ink)', borderRadius: 6,
-              fontFamily: 'var(--cf-mono)', fontSize: 11, fontWeight: 800
-            }}>{details.priceStr}</span>}
-            {details.openNow !== null && <span style={{
-              padding: '3px 8px',
-              background: details.openNow ? '#34a853' : '#ea4335',
-              color: '#fff', border: '2px solid var(--ink)', borderRadius: 6,
-              fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 800
-            }}>{details.openNow ? 'OPEN NOW' : 'CLOSED'}</span>}
-          </div>
-
-          <div style={{
-            fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 700,
-            opacity: 0.55, letterSpacing: '.06em', textTransform: 'uppercase',
-            marginBottom: 4
-          }}>{details.tag}</div>
-          <div style={{
-            fontFamily: 'var(--cf-ui)', fontSize: 13, fontWeight: 600,
-            opacity: 0.7, marginBottom: 16
-          }}>{details.address}</div>
-
-          {/* Quick actions */}
-          <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
-            {details.phone && <a href={`tel:${details.phone}`} style={{
-              flex: 1, padding: '10px 0', textAlign: 'center',
-              border: '2.5px solid var(--ink)', borderRadius: 12,
-              background: 'var(--paper)', textDecoration: 'none',
-              fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 800,
-              color: 'var(--ink)', boxShadow: '3px 3px 0 var(--ink)'
-            }}>{'📞'} Call</a>}
-            {details.mapsUrl && <a href={details.mapsUrl} target="_blank" rel="noopener" style={{
-              flex: 1, padding: '10px 0', textAlign: 'center',
-              border: '2.5px solid var(--ink)', borderRadius: 12,
-              background: 'var(--paper)', textDecoration: 'none',
-              fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 800,
-              color: 'var(--ink)', boxShadow: '3px 3px 0 var(--ink)'
-            }}>{'🗺'} Directions</a>}
-            {details.website && <a href={details.website} target="_blank" rel="noopener" style={{
-              flex: 1, padding: '10px 0', textAlign: 'center',
-              border: '2.5px solid var(--ink)', borderRadius: 12,
-              background: 'var(--paper)', textDecoration: 'none',
-              fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 800,
-              color: 'var(--ink)', boxShadow: '3px 3px 0 var(--ink)'
-            }}>{'🌐'} Website</a>}
-          </div>
-
-          {/* Mini map */}
-          {details.lat && details.lng && (
-            <div ref={mapRef} style={{
-              width: '100%', height: 160, borderRadius: 14,
-              border: '2.5px solid var(--ink)', boxShadow: '4px 4px 0 var(--ink)',
-              overflow: 'hidden', marginBottom: 16
-            }} />
-          )}
-        </div>
-
-        {/* Sticky add CTA */}
-        <div style={{
-          position: 'absolute', bottom: 72, left: 0, right: 0,
-          padding: '0 20px'
-        }}>
-          <button onClick={onAdd} style={{
-            appearance: 'none', cursor: 'pointer', width: '100%',
-            padding: '14px', border: '3px solid var(--ink)', borderRadius: 16,
-            background: 'var(--accent-1)', color: 'var(--ink)',
-            fontFamily: 'var(--cf-display)', fontSize: 16, fontWeight: 900,
-            boxShadow: '5px 5px 0 var(--ink)', letterSpacing: '-0.02em'
-          }}>Add to my plan {'→'}</button>
-        </div>
-      </div>
+    return h('div', { className: 'cf-screen', style: {
+      position: 'relative', height: '100%', background: 'var(--bg)',
+      display: 'flex', flexDirection: 'column', overflow: 'hidden'
+    } },
+      // Photo header
+      h('div', { style: {
+        position: 'relative', height: 220, flexShrink: 0,
+        background: photos[photoIdx] ? 'url(' + photos[photoIdx] + ') center/cover' : 'var(--accent-2)',
+        borderBottom: '3px solid var(--ink)'
+      } },
+        h('button', { onClick: onBack, style: {
+          position: 'absolute', top: 52, left: 16,
+          appearance: 'none', cursor: 'pointer', width: 36, height: 36,
+          borderRadius: 999, border: '2.5px solid var(--ink)',
+          background: 'var(--paper)', fontSize: 14, fontWeight: 900,
+          boxShadow: '3px 3px 0 var(--ink)', zIndex: 2
+        } }, '←'),
+        photos.length > 1 && h('div', { style: {
+          position: 'absolute', bottom: 10, left: '50%', transform: 'translateX(-50%)',
+          display: 'flex', gap: 4
+        } },
+          photos.slice(0, 5).map(function(_, i) {
+            return h('button', { key: i, onClick: function() { setPhotoIdx(i); }, style: {
+              appearance: 'none', cursor: 'pointer',
+              width: i === photoIdx ? 18 : 8, height: 8, borderRadius: 999,
+              border: '1.5px solid var(--ink)',
+              background: i === photoIdx ? 'var(--accent-1)' : 'var(--paper)',
+              transition: 'width 0.2s'
+            } });
+          })
+        )
+      ),
+      // Content
+      h('div', { style: {
+        flex: 1, overflowY: 'auto', padding: '16px 20px 90px', scrollbarWidth: 'none'
+      } },
+        h('h2', { style: {
+          fontFamily: 'var(--cf-display)', fontWeight: 900, fontSize: 26,
+          letterSpacing: '-0.03em', margin: '0 0 6px', color: 'var(--ink)'
+        } }, details.name),
+        // Badges
+        h('div', { style: { display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 } },
+          details.rating > 0 && h('span', { style: {
+            padding: '3px 8px', background: '#fbbc04', color: '#000',
+            border: '2px solid var(--ink)', borderRadius: 6,
+            fontFamily: 'var(--cf-mono)', fontSize: 11, fontWeight: 800
+          } }, '★ ' + details.rating),
+          details.totalRatings > 0 && h('span', { style: {
+            fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 700, opacity: 0.5,
+            display: 'inline-flex', alignItems: 'center'
+          } }, '(' + details.totalRatings + ' reviews)'),
+          details.priceStr && h('span', { style: {
+            padding: '3px 8px', background: 'var(--accent-3)',
+            border: '2px solid var(--ink)', borderRadius: 6,
+            fontFamily: 'var(--cf-mono)', fontSize: 11, fontWeight: 800
+          } }, details.priceStr),
+          details.openNow !== null && h('span', { style: {
+            padding: '3px 8px',
+            background: details.openNow ? '#34a853' : '#ea4335',
+            color: '#fff', border: '2px solid var(--ink)', borderRadius: 6,
+            fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 800
+          } }, details.openNow ? 'OPEN NOW' : 'CLOSED')
+        ),
+        h('div', { style: {
+          fontFamily: 'var(--cf-mono)', fontSize: 10, fontWeight: 700,
+          opacity: 0.55, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 4
+        } }, details.tag),
+        h('div', { style: {
+          fontFamily: 'var(--cf-ui)', fontSize: 13, fontWeight: 600,
+          opacity: 0.7, marginBottom: 16
+        } }, details.address),
+        // Quick actions
+        h('div', { style: { display: 'flex', gap: 8, marginBottom: 16 } },
+          details.phone && h('a', { href: 'tel:' + details.phone, style: {
+            flex: 1, padding: '10px 0', textAlign: 'center',
+            border: '2.5px solid var(--ink)', borderRadius: 12,
+            background: 'var(--paper)', textDecoration: 'none',
+            fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 800,
+            color: 'var(--ink)', boxShadow: '3px 3px 0 var(--ink)'
+          } }, '📞 Call'),
+          details.mapsUrl && h('a', { href: details.mapsUrl, target: '_blank', rel: 'noopener', style: {
+            flex: 1, padding: '10px 0', textAlign: 'center',
+            border: '2.5px solid var(--ink)', borderRadius: 12,
+            background: 'var(--paper)', textDecoration: 'none',
+            fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 800,
+            color: 'var(--ink)', boxShadow: '3px 3px 0 var(--ink)'
+          } }, '🗺 Directions'),
+          details.website && h('a', { href: details.website, target: '_blank', rel: 'noopener', style: {
+            flex: 1, padding: '10px 0', textAlign: 'center',
+            border: '2.5px solid var(--ink)', borderRadius: 12,
+            background: 'var(--paper)', textDecoration: 'none',
+            fontFamily: 'var(--cf-ui)', fontSize: 12, fontWeight: 800,
+            color: 'var(--ink)', boxShadow: '3px 3px 0 var(--ink)'
+          } }, '🌐 Website')
+        ),
+        // Mini map
+        details.lat && details.lng && h('div', { ref: mapRef, style: {
+          width: '100%', height: 160, borderRadius: 14,
+          border: '2.5px solid var(--ink)', boxShadow: '4px 4px 0 var(--ink)',
+          overflow: 'hidden', marginBottom: 16
+        } })
+      ),
+      // Sticky add CTA
+      h('div', { style: {
+        position: 'absolute', bottom: 72, left: 0, right: 0, padding: '0 20px'
+      } },
+        h('button', { onClick: onAdd, style: {
+          appearance: 'none', cursor: 'pointer', width: '100%',
+          padding: '14px', border: '3px solid var(--ink)', borderRadius: 16,
+          background: 'var(--accent-1)', color: 'var(--ink)',
+          fontFamily: 'var(--cf-display)', fontSize: 16, fontWeight: 900,
+          boxShadow: '5px 5px 0 var(--ink)', letterSpacing: '-0.02em'
+        } }, 'Add to my plan →')
+      )
     );
   };
 
-  // ── Spin animation (needed for loading) ───────────────────────────
+  // ── Spin animation ───────────────────────────────────────────────
   if (!document.getElementById('cf-spin-style')) {
-    const style = document.createElement('style');
+    var style = document.createElement('style');
     style.id = 'cf-spin-style';
     style.textContent = '@keyframes cf-spin { to { transform: rotate(360deg); } }';
     document.head.appendChild(style);
@@ -1138,21 +1085,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
   }
 
-  // Try patching immediately and on delays (bundle may load async)
   patchComponents();
   setTimeout(patchComponents, 500);
   setTimeout(patchComponents, 1500);
   setTimeout(patchComponents, 3000);
 
-  // Also observe for bundle load
-  const obs = new MutationObserver(() => {
+  var obs = new MutationObserver(function() {
     if (typeof window.ExploreScreen === 'function' &&
         window.ExploreScreen !== LiveExploreScreen) {
       patchComponents();
     }
   });
   obs.observe(document.body, { childList: true, subtree: true });
-  setTimeout(() => obs.disconnect(), 10000);
+  setTimeout(function() { obs.disconnect(); }, 10000);
 })();
 </script>
 

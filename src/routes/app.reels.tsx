@@ -271,7 +271,7 @@ function VibeCheckDivider() {
   return (
     <div className="relative my-4 flex items-center justify-center">
       <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-coral/40 to-transparent" />
-      <span className="relative z-10 rounded-full bg-cream px-4 py-1.5 font-display text-xs font-bold tracking-wide text-coral shadow-sm">
+      <span className="relative z-10 rounded-full bg-mocha-dark px-4 py-1.5 font-display text-xs font-bold tracking-wide text-coral shadow-sm">
         <Sparkles className="mr-1 inline size-3" />
         the vibe check
       </span>
@@ -285,7 +285,7 @@ function ReelCard({ reel, onPlay }: { reel: ReelData; onPlay: () => void }) {
   const [liked, setLiked] = useState(false);
 
   return (
-    <div className="group relative aspect-[9/16] w-full overflow-hidden rounded-3xl border-2 border-cream-muted shadow-lg">
+    <div className="group relative aspect-[9/16] w-full overflow-hidden rounded-3xl border-2 border-cream/15 shadow-lg">
       {/* Gradient placeholder */}
       <div className={cn("absolute inset-0 bg-gradient-to-br", reel.gradient)} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
@@ -374,18 +374,18 @@ function ReelCard({ reel, onPlay }: { reel: ReelData; onPlay: () => void }) {
 
 function ReviewCard({ review }: { review: ReviewData }) {
   return (
-    <div className="rounded-2xl border-2 border-cream-muted bg-cream-light p-4 shadow-sm">
+    <div className="rounded-2xl border-2 border-cream/12 bg-mocha-dark/60 p-4 shadow-sm">
       <div className="mb-2 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="grid size-8 place-items-center rounded-full bg-purple font-mono text-xs font-bold text-cream">
             {review.author[0]}
           </span>
           <div>
-            <span className="text-sm font-bold text-mocha-dark">{review.author}</span>
-            <span className="ml-2 font-mono text-[10px] text-mocha-dark/50">{review.timeAgo}</span>
+            <span className="text-sm font-bold text-cream">{review.author}</span>
+            <span className="ml-2 font-mono text-[10px] text-cream/50">{review.timeAgo}</span>
           </div>
         </div>
-        <span className="rounded-full bg-cream-muted px-2 py-0.5 font-mono text-[10px] font-bold text-mocha-dark/60">
+        <span className="rounded-full bg-cream/10 px-2 py-0.5 font-mono text-[10px] font-bold text-cream/60">
           {review.source}
         </span>
       </div>
@@ -393,12 +393,12 @@ function ReviewCard({ review }: { review: ReviewData }) {
         {Array.from({ length: 5 }, (_, i) => (
           <Star
             key={i}
-            className={cn("size-3.5", i < review.rating ? "text-gold" : "text-cream-muted")}
+            className={cn("size-3.5", i < review.rating ? "text-gold" : "text-cream/20")}
             fill={i < review.rating ? "currentColor" : "none"}
           />
         ))}
       </div>
-      <p className="text-sm leading-relaxed text-mocha-dark/80">{review.text}</p>
+      <p className="text-sm leading-relaxed text-cream/80">{review.text}</p>
       <div className="mt-2 flex items-center gap-1 text-coral">
         <MapPin className="size-3" />
         <span className="font-mono text-[10px] font-bold">{review.venue}</span>
@@ -422,7 +422,7 @@ function DiscoveryCard({
     <div className="flex-none w-[220px] snap-start">
       <div
         className={cn(
-          "relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-cream-muted shadow-sm",
+          "relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-cream/15 shadow-sm",
         )}
       >
         <div className={cn("absolute inset-0 bg-gradient-to-br", venue.gradient)} />
@@ -438,8 +438,8 @@ function DiscoveryCard({
       </div>
       <div className="mt-2 flex items-center justify-between px-1">
         <div>
-          <span className="font-mono text-[10px] text-mocha-dark/50">{venue.distance} · {venue.reviews} reviews</span>
-          <p className="text-xs text-mocha-dark/60">{venue.vibe}</p>
+          <span className="font-mono text-[10px] text-cream/50">{venue.distance} · {venue.reviews} reviews</span>
+          <p className="text-xs text-cream/60">{venue.vibe}</p>
         </div>
         <button
           onClick={onAdd}
@@ -471,10 +471,10 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-3 flex items-center gap-2">
-      <div className={cn("grid size-7 place-items-center rounded-full bg-cream-muted", accent)}>
+      <div className={cn("grid size-7 place-items-center rounded-full bg-cream/10", accent)}>
         <Icon className="size-3.5" />
       </div>
-      <h3 className="font-display text-sm font-bold tracking-tight text-mocha-dark">{label}</h3>
+      <h3 className="font-display text-sm font-bold tracking-tight text-cream">{label}</h3>
     </div>
   );
 }
@@ -532,7 +532,7 @@ function ReelsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cream pb-28">
+    <div className="min-h-screen pb-28">
       <div className="mx-auto max-w-md px-4 pt-4">
         {/* ── Boarding Pass Timeline ────────────────────────────── */}
         <PassTimelineStrip loop={loop} />
@@ -583,10 +583,10 @@ function ReelsPage() {
         {!loop && (
           <div className="mb-6 rounded-3xl border-2 border-coral/20 bg-gradient-to-br from-coral/10 to-pink/10 p-6 text-center">
             <Sparkles className="mx-auto mb-2 size-8 text-coral" />
-            <h3 className="mb-1 font-display text-lg font-bold text-mocha-dark">
+            <h3 className="mb-1 font-display text-lg font-bold text-cream">
               Build your night
             </h3>
-            <p className="mb-4 text-sm text-mocha-dark/60">
+            <p className="mb-4 text-sm text-cream/60">
               Get a personalized boarding pass with AI-curated stops
             </p>
             <Link

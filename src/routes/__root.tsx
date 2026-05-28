@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
+import { useCityGate } from "@/hooks/useCityGate";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -57,6 +58,9 @@ const BusinessAnalyticsTracker = lazy(() =>
   import("@/components/BusinessAnalyticsTracker").then((m) => ({
     default: m.BusinessAnalyticsTracker,
   })),
+);
+const ComingSoonSplash = lazy(() =>
+  import("@/components/ComingSoonSplash").then((m) => ({ default: m.ComingSoonSplash })),
 );
 
 function NotFoundComponent() {
@@ -243,6 +247,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const gate = useCityGate();
 
   // Warm the HTTP cache for Unsplash venue-card fallbacks so the first
   // render swaps in instantly without flicker or layout shift.
@@ -250,6 +255,33 @@ function RootComponent() {
     preloadFallbackImages();
     installErrorTracking();
   }, []);
+
+  // ─── City gate: DMV-first launch ───────────────────────────────
+  if (gate.phase === "loading") {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-ink">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cream/20 border-t-coral" />
+          <p className="font-display text-sm text-cream/40">Checking your location…</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (gate.phase === "blocked") {
+    return (
+      <Suspense
+        fallback={
+          <div className="flex min-h-screen items-center justify-center bg-ink">
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-cream/20 border-t-coral" />
+          </div>
+        }
+      >
+        <ComingSoonSplash />
+        <Toaster />
+      </Suspense>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient}>

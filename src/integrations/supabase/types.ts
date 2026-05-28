@@ -1277,6 +1277,33 @@ export type Database = {
         }
         Relationships: []
       }
+      city_waitlist: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          source: string | null
+          updated_at: string
+          voted_city: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          source?: string | null
+          updated_at?: string
+          voted_city?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          source?: string | null
+          updated_at?: string
+          voted_city?: string | null
+        }
+        Relationships: []
+      }
       confetti_grants: {
         Row: {
           advertiser_id: string | null

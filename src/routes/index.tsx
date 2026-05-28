@@ -41,37 +41,37 @@ import { TapToGoBookingModal } from "@/components/TapToGoBookingModal";
 
 const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
   {
-    id: "lilas",
+    id: "dauphines",
     time: "6:30p",
-    title: "Lila's Patio",
-    type: "Small plates · Mission",
+    title: "Dauphine's",
+    type: "Small plates · 14th Street",
     source: "RESY",
-    cost: "~$38/pp",
+    cost: "~$42/pp",
     emoji: "🍽️",
   },
   {
-    id: "mason",
+    id: "decades",
     time: "8:15p",
-    title: "Mason St. Record Bar",
-    type: "Vinyl + nat wine",
+    title: "Decades DC",
+    type: "Vinyl + nat wine · U Street",
     source: "WALK-IN",
-    cost: "~$22/pp",
+    cost: "~$24/pp",
     emoji: "🎧",
   },
   {
-    id: "saratoga",
+    id: "gibson",
     time: "9:30p",
-    title: "The Saratoga",
-    type: "Cocktail bar · Tenderloin",
+    title: "The Gibson",
+    type: "Speakeasy · U Street Corridor",
     source: "OPENTABLE",
-    cost: "~$28/pp",
+    cost: "~$30/pp",
     emoji: "🍸",
   },
   {
-    id: "aera",
+    id: "perrys",
     time: "11:00p",
-    title: "Aera Rooftop",
-    type: "Nightcap · Nob Hill",
+    title: "Perry's Rooftop",
+    type: "Nightcap · Adams Morgan",
     source: "RESY",
     cost: "~$24/pp",
     emoji: "🌃",
@@ -444,15 +444,15 @@ function Landing() {
                     "cute, walkable, ends with a slow drink"
                   </h3>
                   <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-cream/40">
-                    Mission → Hayes Valley → Nob Hill
+                    14th St → U Street → Adams Morgan
                   </p>
 
                   {/* Stops */}
                   <div className="mt-5 space-y-2.5">
                     {[
-                      { t: "6:30", title: "Lila's Patio", chip: "RESY", color: "bg-coral" },
-                      { t: "8:15", title: "Mason St. Record Bar", chip: "WALK-IN", color: "bg-purple" },
-                      { t: "10:00", title: "Aera Rooftop", chip: "RESY", color: "bg-gold" },
+                      { t: "6:30", title: "Dauphine's", chip: "RESY", color: "bg-coral" },
+                      { t: "8:15", title: "Decades DC", chip: "WALK-IN", color: "bg-purple" },
+                      { t: "10:00", title: "Perry's Rooftop", chip: "RESY", color: "bg-gold" },
                     ].map((s) => (
                       <div
                         key={s.t}
@@ -617,7 +617,7 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="mb-10">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream/40">
-              / a real Saturday in San Francisco
+              / a real Saturday in Washington, DC
             </span>
             <h2
               id="sample-itinerary-heading"
@@ -643,41 +643,41 @@ function Landing() {
                 [
                   {
                     t: "6:30p",
-                    title: "Lila's Patio",
-                    type: "Small plates · Mission",
-                    desc: "Start with shared plates on the heated back patio. Reservation held for 90 min.",
+                    title: "Dauphine's",
+                    type: "Small plates · 14th Street",
+                    desc: "Start with shared plates and craft cocktails on the patio. Reservation held for 90 min.",
                     chip: "RESY",
                     chipBg: "bg-coral",
                     emoji: "🍽️",
-                    cost: "~$38/pp",
+                    cost: "~$42/pp",
                   },
-                  { leg: "12 min walk · 0.5 mi · down Valencia", legIcon: "🚶" },
+                  { leg: "8 min walk · 0.4 mi · down U Street", legIcon: "🚶" },
                   {
                     t: "8:15p",
-                    title: "Mason St. Record Bar",
-                    type: "Vinyl + nat wine · Mission",
+                    title: "Decades DC",
+                    type: "Vinyl + nat wine · U Street",
                     desc: "Walk-in friendly. DJ set starts 8:30. Two glasses, then move on.",
                     chip: "WALK-IN",
                     chipBg: "bg-purple",
                     emoji: "🎧",
-                    cost: "~$22/pp",
+                    cost: "~$24/pp",
                   },
-                  { leg: "9 min Lyft · ~$14 · pre-booked", legIcon: "🚗" },
+                  { leg: "7 min Lyft · ~$12 · pre-booked", legIcon: "🚗" },
                   {
                     t: "9:30p",
-                    title: "The Saratoga",
-                    type: "Cocktail bar · Tenderloin",
-                    desc: "Reserved bar seats. Order the Improved Whiskey Cocktail — house signature.",
+                    title: "The Gibson",
+                    type: "Speakeasy · U Street Corridor",
+                    desc: "Ring the bell. Reserved bar seats. Order the house Old Fashioned — legendary.",
                     chip: "OPENTABLE",
                     chipBg: "bg-gold",
                     emoji: "🍸",
-                    cost: "~$28/pp",
+                    cost: "~$30/pp",
                   },
-                  { leg: "6 min walk · 0.3 mi · uphill, worth it", legIcon: "🚶" },
+                  { leg: "6 min walk · 0.3 mi · toward Adams Morgan", legIcon: "🚶" },
                   {
                     t: "11:00p",
-                    title: "Aera Rooftop",
-                    type: "Nightcap · Nob Hill",
+                    title: "Perry's Rooftop",
+                    type: "Nightcap · Adams Morgan",
                     desc: "Skyline view, slow drink to close the night. Last call 12:30.",
                     chip: "RESY",
                     chipBg: "bg-coral",
@@ -1301,7 +1301,7 @@ function Landing() {
         open={bookingOpen}
         onClose={() => setBookingOpen(false)}
         title="cute, walkable, ends with a slow drink"
-        subtitle="San Francisco · Mission → Hayes Valley → Nob Hill"
+        subtitle="Washington, DC · 14th St → U Street → Adams Morgan"
         date="Sat, 6:00p"
         guests={2}
         stops={SAMPLE_ITINERARY_STOPS}

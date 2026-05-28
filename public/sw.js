@@ -5,7 +5,7 @@
  * - Push notification handling
  */
 
-const CACHE_NAME = "confetti-v2";
+const CACHE_NAME = "confetti-v3";
 const STATIC_ASSETS = [
   "/",
   "/manifest.webmanifest",

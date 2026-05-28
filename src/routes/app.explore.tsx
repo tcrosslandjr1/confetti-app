@@ -10,6 +10,7 @@ import { NotificationBell } from "@/components/NotificationBell";
 import { useAuth } from "@/lib/auth-context";
 import { usePageview, trackEngagement } from "@/lib/analytics";
 import { Reveal } from "@/components/Reveal";
+import { ExploreMap } from "@/components/maps/ExploreMap";
 
 export const Route = createFileRoute("/app/explore")({
   component: ExplorePage,
@@ -182,14 +183,7 @@ function ExplorePage() {
       </div>
 
       {mapView ? (
-        <div className="mx-5 mt-4 grid h-[60vh] place-items-center rounded-2xl border-2 border-dashed border-cream/10 bg-cream/[0.03]">
-          <div className="flex flex-col items-center gap-2.5">
-            <div className="grid size-11 place-items-center rounded-xl bg-cream/[0.06]">
-              <MapPin className="size-5 text-cream/30" />
-            </div>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-cream/30">Map view coming online</span>
-          </div>
-        </div>
+        <ExploreMap venues={venues ?? []} />
       ) : (
         <ul className="mt-4 space-y-2.5 px-5">
           {(venues ?? []).map((v, i) => (

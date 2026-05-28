@@ -29,7 +29,16 @@ export function useCityGate(): CityGateState {
     (async () => {
       const result = await checkCityGateAsync();
       if (cancelled) return;
-      setState(result.allowed ? { phase: "allowed" } : { phase: "blocked" });
+      // If geolocation was denied or timed out ("no_location"), let the user
+      // through — only block when we *know* they're outside DMV.
+      if (result.allowed) {
+        setState({ phase: "allowed" });
+      } else if (!result.allowed && result.reason === "outside_dmv") {
+        setState({ phase: "blocked" });
+      } else {
+        // no_location / denied / timeout → benefit of the doubt
+        setState({ phase: "allowed" });
+      }
     })();
 
     return () => {

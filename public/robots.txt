@@ -13,4 +13,4 @@ Disallow: /rsvp
 Disallow: /scan
 Disallow: /check-in
 
-Sitemap: https://confettiplan.lovable.app/sitemap.xml
+Sitemap: https://ai-lifestyle-concierge.vercel.app/sitemap.xml

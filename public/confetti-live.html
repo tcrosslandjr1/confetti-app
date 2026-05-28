@@ -627,7 +627,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 <!-- Live venue components (override bundled mocks) -->
 <script>
-(function() {
+(function waitForReact() {
+  if (typeof React === 'undefined' || typeof React.createElement !== 'function') {
+    setTimeout(waitForReact, 50);
+    return;
+  }
   var h = React.createElement;
   var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback;
 

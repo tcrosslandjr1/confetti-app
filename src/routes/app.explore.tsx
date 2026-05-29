@@ -52,7 +52,13 @@ function ExplorePage() {
           apikey: key,
           Authorization: `Bearer ${key}`,
         },
-        body: JSON.stringify({ city: cityHint, minThreshold: 20, requestCount: 25 }),
+        body: JSON.stringify({
+          city: cityHint,
+          minThreshold: 20,
+          requestCount: 25,
+          ...(q ? { q } : {}),
+          ...(cat ? { category: cat } : {}),
+        }),
       });
       if (!res.ok) return [];
       const data = (await res.json()) as {

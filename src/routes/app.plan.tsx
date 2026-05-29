@@ -28,6 +28,7 @@ export const Route = createFileRoute("/app/plan")({
   component: PlanMyNightPage,
   validateSearch: (search: Record<string, unknown>) => ({
     mode: (search.mode as string) || undefined,
+    vibe: (search.vibe as string) || undefined,
   }),
 });
 
@@ -69,6 +70,23 @@ const HANGOUT_OCCASIONS: Array<{ key: string; label: string }> = [
   { key: "low-key-hang",       label: "Low-key hang" },
   { key: "theme-park",         label: "Theme park day" },
 ];
+
+/**
+ * Maps home-page vibe chip slugs → plan wizard preset values.
+ * Lets every chip produce a distinct, pre-populated plan.
+ */
+const VIBE_CHIP_PRESETS: Record<string, { occasion: string; vibe: string; planType: PlanType }> = {
+  "date-night":     { occasion: "Date",      vibe: "Classy",     planType: "date"    },
+  "rooftop":        { occasion: "Friends",   vibe: "Rooftop",    planType: "go-out"  },
+  "dive-bar-crawl": { occasion: "Friends",   vibe: "Chill",      planType: "go-out"  },
+  "girls-night":    { occasion: "Friends",   vibe: "Turn-up",    planType: "friends" },
+  "cozy":           { occasion: "Solo",      vibe: "Chill",      planType: "go-out"  },
+  "birthday":       { occasion: "Birthday",  vibe: "Turn-up",    planType: "go-out"  },
+  "foodie":         { occasion: "Friends",   vibe: "Chill",      planType: "go-out"  },
+  "live-music":     { occasion: "Friends",   vibe: "Live music", planType: "go-out"  },
+  "speakeasy":      { occasion: "Date",      vibe: "Classy",     planType: "go-out"  },
+  "brunch":         { occasion: "Friends",   vibe: "Chill",      planType: "go-out"  },
+};
 
 /** Which plan-type modes route through build-hangout vs the existing nightlife wizard. */
 function isHangoutMode(t: PlanType): boolean {
@@ -211,7 +229,7 @@ function PlanMyNightPage() {
   }, [step]);
 
   /* ── Surprise Me mode — auto-trigger from home feed ── */
-  const { mode } = Route.useSearch();
+  const { mode, vibe: vibeParam } = Route.useSearch();
   useEffect(() => {
     if (mode === "surprise") {
       setOccasion("Solo");
@@ -232,6 +250,32 @@ function PlanMyNightPage() {
       });
     }
   }, [mode]);
+
+  /* ── Vibe chip — pre-populate from home page chip slug ── */
+  useEffect(() => {
+    if (!vibeParam) return;
+    const preset = VIBE_CHIP_PRESETS[vibeParam];
+    if (!preset) return;
+    // Seed all wizard state from the chip so the right plan generates immediately.
+    generationTriggered.current = false;
+    setPlanType(preset.planType);
+    setOccasion(preset.occasion);
+    setVibe(preset.vibe);
+    setBudget("$$");
+    setWhen("Tonight");
+    setStep(4); // jump straight to results — user already told us what they want
+    const city = getSelectedCity();
+    trackConversion("plan_completed", {
+      occasion: preset.occasion,
+      vibe: preset.vibe,
+      budget: "$$",
+      groupSize,
+      when: "Tonight",
+      vibeChip: vibeParam,
+      city: city?.name ?? null,
+      citySlug: city?.slug ?? null,
+    });
+  }, [vibeParam]);
 
   /* ── Book → boarding pass (localStorage-backed) ── */
   function handleBook() {

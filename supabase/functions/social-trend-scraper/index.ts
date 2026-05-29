@@ -54,12 +54,13 @@ interface ExtractedSignal {
 // ── Active cities for cron mode ────────────────────────────────
 
 const CRON_CITIES = [
-  { city_slug: "dc",    city_name: "Washington DC" },
-  { city_slug: "nyc",   city_name: "New York City" },
-  { city_slug: "miami", city_name: "Miami" },
-  { city_slug: "la",    city_name: "Los Angeles" },
-  { city_slug: "chicago", city_name: "Chicago" },
-  { city_slug: "atlanta", city_name: "Atlanta" },
+  { city_slug: "dc",        city_name: "Washington DC" },
+  { city_slug: "baltimore", city_name: "Baltimore" },
+  { city_slug: "nyc",       city_name: "New York City" },
+  { city_slug: "miami",     city_name: "Miami" },
+  { city_slug: "la",        city_name: "Los Angeles" },
+  { city_slug: "chicago",   city_name: "Chicago" },
+  { city_slug: "atlanta",   city_name: "Atlanta" },
 ];
 
 // ── Default search queries per city ───────────────────────────

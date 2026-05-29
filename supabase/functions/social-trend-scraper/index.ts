@@ -137,7 +137,7 @@ async function extractVenueSignals(
       "Content-Type":      "application/json",
     },
     body: JSON.stringify({
-      model: "claude-3-5-sonnet-20241022",
+      model: "claude-haiku-4-5-20251001",
       max_tokens: 4096,
       tools: [{
         name: "return_venue_signals",
@@ -301,7 +301,7 @@ async function scrapeCity(
           status: "completed",
           signals_collected: signals.length,
           signals_by_type: byType,
-          model_used: "claude-3-5-sonnet",
+          model_used: "claude-haiku-4-5",
           duration_ms,
           completed_at: new Date().toISOString(),
         })

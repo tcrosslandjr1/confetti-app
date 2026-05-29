@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect, useMemo, useRef } from "react";
-import { BrandMark, DotsBg, Frame, TOKENS } from "@/components/new-confetti/shell";
+import { BrandMark, DotsBg, Frame, TOKENS, contrastText } from "@/components/new-confetti/shell";
 import { useNewAuth } from "@/hooks/useNewAuth";
 import { getSelectedCity } from "@/lib/cities";
 import { useNightBuilder, togglePinnedVenue } from "@/lib/night-builder-store";
@@ -175,7 +175,7 @@ function ExplorePage() {
         <div style={{
           height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
           background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24,
-          fontWeight: 900, color: TOKENS.ink, opacity: 0.5,
+          fontWeight: 900, color: TOKENS.inkMuted,
         }}>loading...</div>
       </Frame>
     );
@@ -210,7 +210,7 @@ function ExplorePage() {
             {cityLabel}, tonight.
           </h2>
           <p style={{
-            fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700, opacity: 0.5, margin: 0,
+            fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700, color: TOKENS.inkMuted, margin: 0,
           }}>
             {selectedOuting
               ? loading
@@ -441,7 +441,7 @@ function VenueCard({
               fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 800,
               letterSpacing: ".12em", padding: "2px 7px",
               background: accent, border: `1.5px solid ${TOKENS.ink}`,
-              borderRadius: 4, color: TOKENS.ink,
+              borderRadius: 4, color: contrastText(accent),
             }}>
               {venue.category.toUpperCase()}
             </span>
@@ -449,7 +449,7 @@ function VenueCard({
           {venue.neighborhood && (
             <span style={{
               fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 700,
-              opacity: 0.55, letterSpacing: ".06em",
+              color: TOKENS.inkHint, letterSpacing: ".06em",
             }}>
               📍 {venue.neighborhood}
             </span>
@@ -472,7 +472,7 @@ function VenueCard({
         }}>
           <span style={{
             fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 700,
-            opacity: 0.4, letterSpacing: ".1em",
+            color: TOKENS.inkHint, letterSpacing: ".1em",
           }}>
             via {platformLabel}
           </span>
@@ -504,7 +504,7 @@ function EmptyState({ cityLabel }: { cityLabel: string }) {
       </div>
       <p style={{
         fontFamily: TOKENS.ui, fontWeight: 700, fontSize: 14,
-        opacity: 0.6, textAlign: "center",
+        color: TOKENS.inkMuted, textAlign: "center",
       }}>
         Pick a vibe and we'll find<br />the best spots in {cityLabel}.
       </p>
@@ -532,7 +532,7 @@ function LoadingState({ outing }: { outing: string }) {
       ))}
       <p style={{
         fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-        letterSpacing: ".14em", textAlign: "center", opacity: 0.4, marginTop: 4,
+        letterSpacing: ".14em", textAlign: "center", color: TOKENS.inkHint, marginTop: 4,
       }}>
         FINDING {outing.toUpperCase()} SPOTS...
       </p>
@@ -548,7 +548,7 @@ function NoResults({ outing, cityLabel }: { outing: string; cityLabel: string })
       <div style={{ fontSize: 40 }}>🔍</div>
       <p style={{
         fontFamily: TOKENS.ui, fontWeight: 700, fontSize: 13,
-        opacity: 0.5, textAlign: "center",
+        color: TOKENS.inkMuted, textAlign: "center",
       }}>
         No {outing} spots indexed for {cityLabel} yet.<br />More venues coming soon.
       </p>

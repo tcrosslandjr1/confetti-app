@@ -94,7 +94,7 @@ function PlanPage() {
         <div style={{
           height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
           background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
-          color: TOKENS.ink, opacity: 0.5,
+          color: TOKENS.inkMuted,
         }}>loading...</div>
       </Frame>
     );
@@ -121,7 +121,7 @@ function PlanPage() {
             appearance: "none", cursor: "pointer", background: "transparent",
             border: "none", padding: 6,
             fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 800,
-            color: TOKENS.ink, opacity: 0.55,
+            color: TOKENS.inkHint,
           }}>← back</button>
         </div>
 

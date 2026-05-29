@@ -107,7 +107,7 @@ function PlatformBadge({ platform }: { platform: string }) {
           ? "bg-black/70 text-white"
           : platform === "instagram"
           ? "bg-gradient-to-r from-pink/80 to-purple/80 text-white"
-          : "bg-cream/20 text-cream",
+          : "bg-ink/10 text-ink",
       )}
     >
       {label}
@@ -144,10 +144,10 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-3 flex items-center gap-2">
-      <div className={cn("grid size-7 place-items-center rounded-full bg-cream/10", accent)}>
+      <div className={cn("grid size-7 place-items-center rounded-full bg-white", accent)}>
         <Icon className="size-3.5" />
       </div>
-      <h3 className="font-display text-sm font-bold tracking-tight text-cream">{label}</h3>
+      <h3 className="font-display text-sm font-bold tracking-tight text-ink">{label}</h3>
     </div>
   );
 }
@@ -156,7 +156,7 @@ function VibeCheckDivider() {
   return (
     <div className="relative my-4 flex items-center justify-center">
       <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-coral/40 to-transparent" />
-      <span className="relative z-10 rounded-full bg-mocha-dark px-4 py-1.5 font-display text-xs font-bold tracking-wide text-coral shadow-sm">
+      <span className="relative z-10 rounded-full border-2 border-ink bg-cream px-4 py-1.5 font-display text-xs font-bold tracking-wide text-coral shadow-brut">
         <Sparkles className="mr-1 inline size-3" />
         the vibe check
       </span>
@@ -167,7 +167,7 @@ function VibeCheckDivider() {
 function PassTimelineStrip({ loop }: { loop: ActiveLoop | null }) {
   if (!loop?.stops?.length) return null;
   return (
-    <div className="rounded-3xl border-2 border-cream/20 bg-gradient-to-r from-indigo-950 via-purple-900 to-fuchsia-900 px-4 py-3 shadow-pop">
+    <div className="rounded-2xl border-2 border-ink bg-gradient-to-r from-indigo-950 via-purple-900 to-fuchsia-900 px-4 py-3 shadow-brut">
       <div className="mb-2 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="rounded-full bg-fuchsia-400 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-fuchsia-950">
@@ -231,7 +231,7 @@ function ReelCard({ signal, onPlay }: { signal: Signal; onPlay: () => void }) {
   const tags = parseHashtags(signal.hashtags);
 
   return (
-    <div className="group relative aspect-[9/16] w-full overflow-hidden rounded-3xl border-2 border-cream/15 shadow-lg">
+    <div className="group relative aspect-[9/16] w-full overflow-hidden rounded-2xl border-2 border-ink shadow-brut">
       <div className={cn("absolute inset-0 bg-gradient-to-br", gradientFor(signal.category))} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/25" />
 
@@ -242,7 +242,7 @@ function ReelCard({ signal, onPlay }: { signal: Signal; onPlay: () => void }) {
         aria-label="Play reel"
       >
         <span className="grid size-16 place-items-center rounded-full bg-cream/90 shadow-lg transition-transform group-hover:scale-110 active:scale-95">
-          <Play className="ml-1 size-7 text-mocha-dark" fill="currentColor" />
+          <Play className="ml-1 size-7 text-ink" fill="currentColor" />
         </span>
       </button>
 
@@ -354,7 +354,7 @@ function ReelCard({ signal, onPlay }: { signal: Signal; onPlay: () => void }) {
 function QuoteCard({ signal }: { signal: Signal }) {
   const tags = parseHashtags(signal.hashtags);
   return (
-    <div className="rounded-2xl border-2 border-cream/12 bg-mocha-dark/60 p-4 shadow-sm">
+    <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
       <div className="mb-2 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div
@@ -366,9 +366,9 @@ function QuoteCard({ signal }: { signal: Signal }) {
             {signal.venue_name[0]}
           </div>
           <div>
-            <span className="text-sm font-bold text-cream">{signal.venue_name}</span>
+            <span className="text-sm font-bold text-ink">{signal.venue_name}</span>
             {signal.neighborhood && (
-              <span className="ml-2 font-mono text-[10px] text-cream/50">{signal.neighborhood}</span>
+              <span className="ml-2 font-mono text-[10px] text-ink/50">{signal.neighborhood}</span>
             )}
           </div>
         </div>
@@ -377,13 +377,13 @@ function QuoteCard({ signal }: { signal: Signal }) {
       {tags.length > 0 && (
         <div className="mb-2 flex flex-wrap gap-1.5">
           {tags.map((t) => (
-            <span key={t} className="rounded-full bg-cream/8 px-2 py-0.5 font-mono text-[9px] font-bold text-cream/50">
+            <span key={t} className="rounded-full bg-ink/5 px-2 py-0.5 font-mono text-[9px] font-bold text-ink/50">
               {t}
             </span>
           ))}
         </div>
       )}
-      <p className="text-sm leading-relaxed text-cream/80">
+      <p className="text-sm leading-relaxed text-ink/80">
         {signal.snippet ?? `Worth a visit at ${signal.venue_name}.`}
       </p>
       <div className="mt-2 flex items-center gap-2">
@@ -412,7 +412,7 @@ function DiscoveryCard({
   return (
     <div className="w-[220px] flex-none snap-start">
       <Link to="/venue/$id" params={{ id: signal.venue_slug }}>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-cream/15 shadow-sm">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-ink shadow-brut">
           <div className={cn("absolute inset-0 bg-gradient-to-br", gradientFor(signal.category))} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-3">
@@ -428,7 +428,7 @@ function DiscoveryCard({
         </div>
       </Link>
       <div className="mt-2 flex items-center justify-between px-1">
-        <p className="line-clamp-1 min-w-0 flex-1 text-xs text-cream/55">
+        <p className="line-clamp-1 min-w-0 flex-1 text-xs text-ink/55">
           {tags[0] ?? signal.category ?? ""}
         </p>
         <button
@@ -449,7 +449,7 @@ function DiscoveryCard({
 /* ─── Skeleton ────────────────────────────────────────────────────── */
 
 function ReelSkeleton() {
-  return <div className="aspect-[9/16] w-full animate-pulse rounded-3xl bg-cream/8" />;
+  return <div className="aspect-[9/16] w-full animate-pulse rounded-2xl border-2 border-ink/15 bg-white" />;
 }
 
 /* ─── Main Page ───────────────────────────────────────────────────── */
@@ -533,8 +533,8 @@ function ReelsPage() {
               <ReelCard key={`${s.venue_slug}-${s.platform}`} signal={s} onPlay={() => handlePlay(s)} />
             ))
           ) : (
-            <div className="flex aspect-[9/16] w-full items-center justify-center rounded-3xl border-2 border-dashed border-cream/10 bg-cream/[0.03]">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cream/30">
+            <div className="flex aspect-[9/16] w-full items-center justify-center rounded-2xl border-2 border-dashed border-ink/15 bg-white">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink/30">
                 No signals yet
               </span>
             </div>
@@ -585,15 +585,15 @@ function ReelsPage() {
 
         {/* ── CTA ─────────────────────────────────────────────────── */}
         {!loop && (
-          <div className="mb-6 rounded-3xl border-2 border-coral/20 bg-gradient-to-br from-coral/10 to-pink/10 p-6 text-center">
+          <div className="mb-6 rounded-2xl border-2 border-ink bg-white p-6 text-center shadow-brut">
             <Sparkles className="mx-auto mb-2 size-8 text-coral" />
-            <h3 className="mb-1 font-display text-lg font-bold text-cream">Build your night</h3>
-            <p className="mb-4 text-sm text-cream/60">
+            <h3 className="mb-1 font-display text-lg font-bold text-ink">Build your night</h3>
+            <p className="mb-4 text-sm text-ink/60">
               Get a personalized boarding pass with AI-curated stops
             </p>
             <Link
               to="/app/plan"
-              className="inline-flex items-center gap-2 rounded-full bg-coral px-6 py-3 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-lg transition-transform hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-coral px-6 py-3 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-transform hover:scale-105 active:scale-95"
             >
               Plan my night <ArrowRight className="size-4" />
             </Link>

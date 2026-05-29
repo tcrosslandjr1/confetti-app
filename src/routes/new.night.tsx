@@ -69,7 +69,7 @@ function NightPage() {
         }}>
           <div style={{
             fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-            letterSpacing: ".18em", opacity: 0.6,
+            letterSpacing: ".18em", color: TOKENS.paperMuted,
             textTransform: "uppercase", marginBottom: 6,
           }}>YOU ARE HERE</div>
           <h2 style={{
@@ -79,13 +79,13 @@ function NightPage() {
           }}>Lupa Notte.</h2>
           <p style={{
             fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 700,
-            color: TOKENS.paper, opacity: 0.75, margin: "0 0 18px",
+            color: TOKENS.paperMuted, margin: "0 0 18px",
           }}>8:30 PM · 88 N 6th St · ask for table 12</p>
 
           <Ticket color={TOKENS.paper} notch={false} style={{ padding: 14, marginBottom: 14 }}>
             <div style={{
               fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-              letterSpacing: ".14em", opacity: 0.6, color: TOKENS.ink,
+              letterSpacing: ".14em", color: TOKENS.inkHint,
             }}>WHAT TO DO HERE</div>
             <div style={{
               fontFamily: TOKENS.display, fontWeight: 900, fontSize: 18,
@@ -96,7 +96,7 @@ function NightPage() {
             </div>
             <div style={{
               marginTop: 8, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-              letterSpacing: ".1em", opacity: 0.7, color: TOKENS.ink,
+              letterSpacing: ".1em", color: TOKENS.inkHint,
               display: "flex", justifyContent: "space-between",
             }}>
               <span>1 · DAUGHTER ✓</span><span>2 · LUPA NOTTE</span><span>3 · SKINNY DENNIS</span>
@@ -114,7 +114,7 @@ function NightPage() {
           {/* Crew live preview */}
           <div style={{
             fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-            letterSpacing: ".18em", color: TOKENS.paper, opacity: 0.55,
+            letterSpacing: ".18em", color: TOKENS.paperMuted,
             textTransform: "uppercase", marginBottom: 8, marginTop: 6,
           }}>crew is on it</div>
           <div style={{
@@ -144,7 +144,7 @@ function NightPage() {
                 }}>{c.who}</div>
                 <div style={{
                   fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700,
-                  opacity: 0.65, marginTop: 4, color: TOKENS.paper,
+                  color: TOKENS.paperMuted, marginTop: 4,
                 }}>{c.at}</div>
               </div>
             ))}

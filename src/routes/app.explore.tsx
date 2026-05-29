@@ -107,16 +107,16 @@ function ExplorePage() {
 
       <div className="px-5">
         <div className="relative">
-          <Search className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-cream/35" />
+          <Search className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-ink/35" />
           <Input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search venues, vibes, neighborhoods"
-            className="h-12 rounded-xl border border-cream/20 bg-cream/5 pl-10 pr-12 text-cream placeholder:text-cream/30 focus:border-coral"
+            className="h-12 rounded-2xl border-2 border-ink bg-white pl-10 pr-12 text-ink placeholder:text-ink/30 focus:border-coral shadow-brut"
           />
           <button
             onClick={() => setMapView((v) => !v)}
-            className="absolute right-2 top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-lg bg-cream/10 text-cream/60 transition-colors hover:bg-cream/15 hover:text-cream"
+            className="absolute right-2 top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-lg bg-ink/10 text-ink/60 transition-colors hover:bg-ink/15 hover:text-ink"
             aria-label={mapView ? "Switch to list view" : "Switch to map view"}
             title={mapView ? "Switch to list view" : "Switch to map view"}
           >
@@ -132,8 +132,8 @@ function ExplorePage() {
               className={cn(
                 "shrink-0 rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-all duration-200 active:scale-[0.97]",
                 cat === c.key
-                  ? "border-coral bg-coral text-cream shadow-sm"
-                  : "border-cream/15 bg-cream/5 text-cream/60 hover:border-cream/25 hover:text-cream",
+                  ? "border-2 border-coral bg-coral text-cream shadow-brut"
+                  : "border-2 border-ink/15 bg-white text-ink/60 hover:border-ink/25 hover:text-ink",
               )}
             >
               {c.label}
@@ -145,14 +145,14 @@ function ExplorePage() {
         <Link
           to="/app/happy-hour"
           onClick={() => trackEngagement("explore_happy_hour_tap", { source: "explore_banner" })}
-          className="group mt-4 flex items-center gap-3.5 overflow-hidden rounded-2xl border border-coral/20 bg-gradient-to-r from-coral/15 via-coral/10 to-transparent p-3.5 shadow-card transition-all duration-200 active:scale-[0.98] hover:border-coral/30 hover:shadow-card-hover"
+          className="group mt-4 flex items-center gap-3.5 overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-r from-coral/15 via-coral/10 to-transparent p-3.5 shadow-brut transition-all duration-200 active:scale-[0.98] hover:border-coral/30 hover:shadow-card-hover"
         >
           <div className="grid size-12 shrink-0 place-items-center rounded-xl bg-coral/20">
             <Wine className="size-5 text-coral" />
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-1.5">
-              <span className="font-display text-[14px] font-bold tracking-tight text-cream">
+              <span className="font-display text-[14px] font-bold tracking-tight text-ink">
                 Happy Hour Deals
               </span>
               <span className="relative flex size-1.5">
@@ -160,18 +160,18 @@ function ExplorePage() {
                 <span className="relative inline-flex size-1.5 rounded-full bg-coral" />
               </span>
             </div>
-            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-cream/50">
+            <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/50">
               20+ DMV deals · Curated crawls · Metro-friendly
             </p>
           </div>
-          <ChevronRight className="size-4 shrink-0 text-cream/30 transition-transform group-hover:translate-x-0.5" />
+          <ChevronRight className="size-4 shrink-0 text-ink/30 transition-transform group-hover:translate-x-0.5" />
         </Link>
 
-        <div className="mt-4 flex items-center gap-1 rounded-lg bg-cream/5 p-1">
+        <div className="mt-4 flex items-center gap-1 rounded-2xl border-2 border-ink bg-white p-1 shadow-brut">
           <button
             className={cn(
-              "flex-1 rounded-md px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-all duration-200",
-              !mapView ? "bg-coral text-cream shadow-sm" : "text-cream/40 hover:text-cream/60",
+              "flex-1 rounded-xl px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-all duration-200",
+              !mapView ? "bg-coral text-cream shadow-sm" : "text-ink/40 hover:text-ink/60",
             )}
             onClick={() => setMapView(false)}
           >
@@ -179,8 +179,8 @@ function ExplorePage() {
           </button>
           <button
             className={cn(
-              "flex-1 rounded-md px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-all duration-200",
-              mapView ? "bg-coral text-cream shadow-sm" : "text-cream/40 hover:text-cream/60",
+              "flex-1 rounded-xl px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-all duration-200",
+              mapView ? "bg-coral text-cream shadow-sm" : "text-ink/40 hover:text-ink/60",
             )}
             onClick={() => setMapView(true)}
           >
@@ -198,9 +198,9 @@ function ExplorePage() {
               <Link
                 to="/venue/$id"
                 params={{ id: v.id }}
-                className="flex gap-3.5 rounded-2xl border border-cream/10 bg-cream/5 p-3 shadow-card transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover"
+                className="flex gap-3.5 rounded-2xl border-2 border-ink bg-white p-3 shadow-brut transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover"
               >
-                <div className="size-16 shrink-0 overflow-hidden rounded-xl bg-cream/[0.04]">
+                <div className="size-16 shrink-0 overflow-hidden rounded-xl bg-ink/[0.04]">
                   {v.photo_url && (
                     <img
                       src={v.photo_url}
@@ -212,13 +212,13 @@ function ExplorePage() {
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="line-clamp-1 font-display text-[14px] font-bold tracking-tight text-cream">{v.name}</div>
-                  <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-cream/45">
+                  <div className="line-clamp-1 font-display text-[14px] font-bold tracking-tight text-ink">{v.name}</div>
+                  <div className="mt-0.5 line-clamp-1 font-mono text-[10px] uppercase tracking-wide text-ink/45">
                     {v.cuisine}
                     {v.neighborhood ? ` · ${v.neighborhood}` : ""}
                     {v.city ? ` · ${v.city}` : ""}
                   </div>
-                  <div className="mt-1 font-mono text-[11px] font-bold tracking-wider text-cream/35">
+                  <div className="mt-1 font-mono text-[11px] font-bold tracking-wider text-ink/35">
                     {v.price ?? "$".repeat(Math.max(1, Math.min(4, v.price_level ?? 2)))}
                   </div>
                 </div>
@@ -226,8 +226,8 @@ function ExplorePage() {
             </Reveal>
           ))}
           {!venues?.length && (
-            <li className="rounded-2xl border-2 border-dashed border-cream/10 bg-cream/[0.03] p-6 text-center">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cream/30">No venues match yet</span>
+            <li className="rounded-2xl border-2 border-dashed border-ink/15 bg-ink/[0.03] p-6 text-center">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink/30">No venues match yet</span>
             </li>
           )}
         </ul>

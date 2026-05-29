@@ -132,7 +132,7 @@ function ChatPage() {
         <div style={{
           height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
           background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
-          color: TOKENS.ink, opacity: 0.5,
+          color: TOKENS.inkMuted,
         }}>loading...</div>
       </Frame>
     );

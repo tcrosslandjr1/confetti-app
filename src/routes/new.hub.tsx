@@ -3,6 +3,7 @@ import { type ReactNode } from "react";
 import {
   BrandMark, DotsBg, Frame, RouteDots, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
+// inkMuted/inkHint imported via TOKENS — no opacity hacks
 import { useNewAuth } from "@/hooks/useNewAuth";
 
 export const Route = createFileRoute("/new/hub")({
@@ -19,7 +20,7 @@ function HubPage() {
         <div style={{
           height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
           background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
-          color: TOKENS.ink, opacity: 0.5,
+          color: TOKENS.inkMuted,
         }}>loading...</div>
       </Frame>
     );
@@ -76,7 +77,7 @@ function HubPage() {
           }}>Hey, Jess.</h2>
           <p style={{
             fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 600,
-            color: TOKENS.ink, opacity: 0.6, margin: "0 0 18px",
+            color: TOKENS.inkMuted, margin: "0 0 18px",
           }}>Saturday's wide open. Print one?</p>
 
           {/* Big planner CTAs — two paths */}
@@ -92,7 +93,7 @@ function HubPage() {
             }}>
               <span style={{
                 fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                letterSpacing: ".14em", opacity: 0.7,
+                letterSpacing: ".14em", color: TOKENS.inkMuted,
               }}>NEW · BETA</span>
               <span style={{
                 fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
@@ -100,7 +101,7 @@ function HubPage() {
               }}>chat with<br/>confetti</span>
               <span style={{
                 fontFamily: TOKENS.ui, fontSize: 11, fontWeight: 700,
-                opacity: 0.75, marginTop: "auto",
+                color: TOKENS.inkHint, marginTop: "auto",
               }}>talk it out, get a pass</span>
             </button>
             <button onClick={() => onGo("plan")} style={{
@@ -114,7 +115,7 @@ function HubPage() {
             }}>
               <span style={{
                 fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                letterSpacing: ".14em", opacity: 0.55,
+                letterSpacing: ".14em", color: TOKENS.inkHint,
               }}>CLASSIC</span>
               <span style={{
                 fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
@@ -122,7 +123,7 @@ function HubPage() {
               }}>vibe<br/>form</span>
               <span style={{
                 fontFamily: TOKENS.ui, fontSize: 11, fontWeight: 700,
-                opacity: 0.55, marginTop: "auto",
+                color: TOKENS.inkHint, marginTop: "auto",
               }}>chips + sliders</span>
             </button>
           </div>
@@ -154,7 +155,7 @@ function HubPage() {
                 </span>
                 <span style={{
                   fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                  opacity: 0.55, letterSpacing: ".12em",
+                  color: TOKENS.inkHint, letterSpacing: ".12em",
                 }}>#A7K2</span>
               </div>
               <div style={{
@@ -163,7 +164,7 @@ function HubPage() {
               }}>Lupa Notte</div>
               <div style={{
                 fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700,
-                opacity: 0.6, marginTop: 3,
+                color: TOKENS.inkMuted, marginTop: 3,
               }}>8:30 PM · italian · 88 N 6th St</div>
               <div style={{ marginTop: 10 }}>
                 <RouteDots progress={0.5} size={14} />
@@ -211,7 +212,7 @@ function HubPage() {
               }}>
                 <div style={{
                   fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 800,
-                  letterSpacing: ".14em", opacity: 0.6,
+                  letterSpacing: ".14em", color: TOKENS.inkHint,
                 }}>{p.date.toUpperCase()}</div>
                 <div style={{
                   fontFamily: TOKENS.display, fontWeight: 900, fontSize: 15,
@@ -219,7 +220,7 @@ function HubPage() {
                 }}>{p.n}</div>
                 <div style={{
                   fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                  opacity: 0.7, marginTop: 6,
+                  color: TOKENS.inkHint, marginTop: 6,
                 }}>{p.cost} · 3 stops</div>
               </div>
             ))}
@@ -235,7 +236,7 @@ function SectionLabel({ children }: { children: ReactNode }) {
     <div style={{
       fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
       letterSpacing: ".18em", textTransform: "uppercase",
-      color: TOKENS.ink, opacity: 0.55,
+      color: TOKENS.inkHint,
       marginBottom: 10,
     }}>{children}</div>
   );
@@ -258,7 +259,7 @@ function Portal({ icon, label, sub, onClick }: { icon: string; label: string; su
       }}>{label}</span>
       <span style={{
         fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700,
-        opacity: 0.55, letterSpacing: ".06em",
+        color: TOKENS.inkHint, letterSpacing: ".06em",
       }}>{sub}</span>
     </button>
   );

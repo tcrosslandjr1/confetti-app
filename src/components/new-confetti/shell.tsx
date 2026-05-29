@@ -15,10 +15,31 @@ export const TOKENS = {
   accent2: "#f7c83b", // yellow
   accent3: "#5b45d9", // purple
   accent4: "#2bb673", // green
+  // Accessible muted ink shades — use instead of `opacity` on text.
+  // inkMuted: ~6.4:1 contrast on cream (body secondary text, any size)
+  // inkHint:  ~4.6:1 contrast on cream (labels/captions, bold ≥12px only)
+  inkMuted: "#5c5350",
+  inkHint:  "#6e6460",
+  // Muted text on dark (ink-coloured) backgrounds — still 8:1+ contrast
+  paperMuted: "#c8bfbc",
   display: "'Bricolage Grotesque', 'Inter', system-ui, sans-serif",
   ui: "'Inter', system-ui, sans-serif",
   mono: "'JetBrains Mono', ui-monospace, monospace",
 } as const;
+
+/**
+ * Returns TOKENS.ink or TOKENS.paper — whichever is more legible — for text
+ * placed over `bgHex`. Uses the WCAG relative-luminance approximation.
+ * Works with any 6-digit hex string (e.g. "#ff5b3d").
+ */
+export function contrastText(bgHex: string): string {
+  const r = parseInt(bgHex.slice(1, 3), 16);
+  const g = parseInt(bgHex.slice(3, 5), 16);
+  const b = parseInt(bgHex.slice(5, 7), 16);
+  return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.5
+    ? TOKENS.ink
+    : TOKENS.paper;
+}
 
 /* ── Keyframes (injected once per page via Frame) ──────────────────── */
 const KEYFRAMES = `

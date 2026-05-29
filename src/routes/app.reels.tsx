@@ -16,7 +16,8 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { usePageview, trackEngagement } from "@/lib/analytics";
-import { getActiveLoop, type ActiveLoop, type LoopStop } from "@/lib/loop-store";
+import { getActiveLoop, addStop, type ActiveLoop, type LoopStop } from "@/lib/loop-store";
+import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/app/reels")({
@@ -300,11 +301,26 @@ function ReelCard({ signal, onPlay }: { signal: Signal; onPlay: () => void }) {
           <Heart className="size-4" fill={liked ? "currentColor" : "none"} />
         </button>
         <button
-          onClick={(e) => {
+          onClick={async (e) => {
             e.stopPropagation();
-            setSaved((v) => !v);
+            const next = !saved;
+            setSaved(next);
             trackEngagement("reel_save", { venue: signal.venue_name });
-            toast.success(saved ? "Removed from list" : "Saved!");
+            if (next) {
+              // Write to favorite_stops by venue slug (venue_id field maps to slug for signal-sourced saves)
+              supabase
+                .from("favorite_stops")
+                .upsert(
+                  { venue_id: signal.venue_slug, venue_name: signal.venue_name } as any,
+                  { onConflict: "venue_id,user_id", ignoreDuplicates: true },
+                )
+                .then(({ error }) => {
+                  if (error) { setSaved(false); toast.error("Couldn't save"); }
+                  else { toast.success(`${signal.venue_name} saved`); }
+                });
+            } else {
+              toast.success("Removed from saved");
+            }
           }}
           className={cn(
             "grid size-10 place-items-center rounded-full backdrop-blur transition-colors",
@@ -465,9 +481,25 @@ function ReelsPage() {
   });
 
   const handleAdd = useCallback((signal: Signal) => {
+    const stop: LoopStop = {
+      id: `reel-${signal.venue_slug}-${Date.now()}`,
+      name: signal.venue_name,
+      type: signal.category ?? "venue",
+      time: "TBD",
+      area: signal.neighborhood ?? undefined,
+      category: "activity",
+    };
+    const updated = addStop(stop);
+    if (!updated) {
+      toast.error("No active plan — build one first", {
+        action: { label: "Plan my night", onClick: () => { window.location.href = "/app/plan"; } },
+      });
+      return;
+    }
+    setLoop(updated);
     setAddedVenues((prev) => new Set(prev).add(signal.venue_slug));
     trackEngagement("reel_add_to_pass", { venue: signal.venue_name });
-    toast.success(`${signal.venue_name} added!`, {
+    toast.success(`${signal.venue_name} added to your pass!`, {
       description: "Check your boarding pass for the updated route",
     });
   }, []);

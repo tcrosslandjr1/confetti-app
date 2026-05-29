@@ -2,7 +2,7 @@
  * Confetti /api/chat — Vercel Edge Function
  * Handles AI concierge streaming chat. Self-contained to avoid @/ alias issues.
  */
-import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
+import { createAnthropic } from "@ai-sdk/anthropic";
 import { streamText, type ModelMessage } from "ai";
 import { createClient } from "@supabase/supabase-js";
 import { findCityLoose, type CityContext } from "../src/lib/agents/city-context";
@@ -23,11 +23,14 @@ const SUPABASE_ANON_KEY =
   process.env.SUPABASE_PUBLISHABLE_KEY ??
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmZWNrdnhrdWxyZXlhcGFkYW5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NzU1MDgsImV4cCI6MjA5NDA1MTUwOH0.KPYif0ntCEVwqOIUWX8r3ZYGI2xGmYIU3oKgnI8aYM0";
 
-const supabaseAdmin = createClient(
-  SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY ?? "",
-  { auth: { autoRefreshToken: false, persistSession: false } },
-);
+// Admin client is optional — only used for trending context queries.
+// If SUPABASE_SERVICE_ROLE_KEY is not set, trending data is simply skipped.
+const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
+const supabaseAdmin = SERVICE_ROLE_KEY
+  ? createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    })
+  : null;
 
 // ─── Types ───────────────────────────────────────────────────────
 type Prefs = {
@@ -135,6 +138,7 @@ function profileStrength(eventCount: number): "cold" | "warming" | "strong" {
 }
 
 async function loadUserTasteContext(userId: string): Promise<UserTasteContext | null> {
+  if (!supabaseAdmin) return null;
   const [profileRes, prefsRes] = await Promise.all([
     supabaseAdmin.from("taste_profiles").select("*").eq("user_id", userId).maybeSingle(),
     supabaseAdmin.from("user_preferences").select("*").eq("user_id", userId).maybeSingle(),
@@ -415,7 +419,9 @@ export default async function handler(req: Request): Promise<Response> {
   }
 
   // Live intelligence: trending + most-booked + most-saved
+  // Only runs when SUPABASE_SERVICE_ROLE_KEY is configured.
   try {
+    if (!supabaseAdmin) throw new Error("no admin client");
     const [viralRes, bookingRes, savedRes] = await Promise.all([
       supabaseAdmin
         .from("viral_venues")
@@ -495,30 +501,25 @@ export default async function handler(req: Request): Promise<Response> {
     content: m.content,
   })) as ModelMessage[];
 
-  // Create OpenRouter provider
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) {
-    return new Response(JSON.stringify({ error: "Server misconfiguration: missing API key" }), {
-      status: 500,
-      headers: { ...CORS, "Content-Type": "application/json" },
-    });
+  // Create Anthropic provider using the key already configured in Vercel.
+  const anthropicKey = process.env.ANTHROPIC_API_KEY;
+  if (!anthropicKey) {
+    return new Response(
+      JSON.stringify({ error: "Server misconfiguration: ANTHROPIC_API_KEY not set" }),
+      { status: 500, headers: { ...CORS, "Content-Type": "application/json" } },
+    );
   }
 
-  const provider = createOpenAICompatible({
-    name: "confetti-ai",
-    baseURL: "https://openrouter.ai/api/v1",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "HTTP-Referer": process.env.SITE_URL ?? "https://confettiplan.com",
-      "X-Title": "Confetti",
-    },
-  });
+  const anthropic = createAnthropic({ apiKey: anthropicKey });
 
   const result = streamText({
-    model: provider("google/gemini-2.0-flash-001"),
+    // claude-3-5-haiku: fast, smart, cost-effective for conversational recommendations
+    model: anthropic("claude-3-5-haiku-20241022"),
     system,
     messages: modelMessages,
+    maxTokens: 2048,
   });
 
-  return result.toDataStreamResponse({ headers: CORS });
+  // toTextStreamResponse returns raw text chunks — matches the manual reader in new.chat.tsx
+  return result.toTextStreamResponse({ headers: CORS });
 }

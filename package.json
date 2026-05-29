@@ -17,6 +17,7 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css,md}\" \"*.{ts,js,json,md}\""
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^2.0.0",
     "@ai-sdk/openai-compatible": "^2.0.47",
     "@ai-sdk/react": "^3.0.178",
     "@dnd-kit/core": "^6.3.1",

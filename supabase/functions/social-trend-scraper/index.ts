@@ -10,8 +10,8 @@
 //
 // Env vars required:
 //   BRIGHTDATA_API_KEY       — from Bright Data Control Panel
-//   BRIGHTDATA_SERP_ZONE     — your SERP zone name (e.g. "serp_api")
-//   OPENROUTER_API_KEY       — for Claude extraction
+//   BRIGHTDATA_SERP_ZONE     — your SERP zone name (e.g. "confetti_serp")
+//   ANTHROPIC_API_KEY        — for Claude extraction (tool use)
 // ============================================================
 
 import { serve } from "../_shared/server.ts";
@@ -121,7 +121,7 @@ async function extractVenueSignals(
   serpResults: SerpResult[],
   cityName: string,
   citySlug: string,
-  openRouterKey: string,
+  anthropicKey: string,
 ): Promise<ExtractedSignal[]> {
   if (serpResults.length === 0) return [];
 
@@ -129,51 +129,47 @@ async function extractVenueSignals(
     `[${i + 1}] ${r.title}\n${r.link}\n${r.description}`
   ).join("\n\n");
 
-  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${openRouterKey}`,
-      "Content-Type": "application/json",
+      "x-api-key":         anthropicKey,
+      "anthropic-version": "2023-06-01",
+      "Content-Type":      "application/json",
     },
     body: JSON.stringify({
-      model: "anthropic/claude-3-5-sonnet",
+      model: "claude-3-5-sonnet-20241022",
+      max_tokens: 4096,
       tools: [{
-        type: "function",
-        function: {
-          name: "return_venue_signals",
-          description: "Return venue signals extracted from social search results",
-          parameters: {
-            type: "object",
-            required: ["venues"],
-            properties: {
-              venues: {
-                type: "array",
-                items: {
-                  type: "object",
-                  required: ["venue_name", "venue_slug", "signal_type", "platform", "engagement_score", "sentiment", "hashtags", "snippet"],
-                  properties: {
-                    venue_name:       { type: "string", description: "Exact venue name as it appears" },
-                    venue_slug:       { type: "string", description: "kebab-case slug, e.g. 'le-diplomate'" },
-                    signal_type:      { type: "string", enum: ["trending", "popular", "new", "lowkey", "unique"] },
-                    platform:         { type: "string", enum: ["tiktok", "instagram", "multi"] },
-                    engagement_score: { type: "number", description: "0.0 to 1.0 — relative social buzz" },
-                    sentiment:        { type: "string", enum: ["positive", "neutral", "mixed", "negative"] },
-                    hashtags:         { type: "array", items: { type: "string" }, description: "Hashtags seen in results" },
-                    snippet:          { type: "string", description: "1-2 sentence social proof blurb for the app" },
-                    neighborhood:     { type: "string", description: "Neighborhood if identifiable" },
-                    category:         { type: "string", description: "Dining | Nightlife | Rooftops | Brunch | Cocktails | Live Music | Café | Experience" },
-                  },
+        name: "return_venue_signals",
+        description: "Return venue signals extracted from social search results",
+        input_schema: {
+          type: "object",
+          required: ["venues"],
+          properties: {
+            venues: {
+              type: "array",
+              items: {
+                type: "object",
+                required: ["venue_name", "venue_slug", "signal_type", "platform", "engagement_score", "sentiment", "hashtags", "snippet"],
+                properties: {
+                  venue_name:       { type: "string", description: "Exact venue name as it appears" },
+                  venue_slug:       { type: "string", description: "kebab-case slug, e.g. 'le-diplomate'" },
+                  signal_type:      { type: "string", enum: ["trending", "popular", "new", "lowkey", "unique"] },
+                  platform:         { type: "string", enum: ["tiktok", "instagram", "multi"] },
+                  engagement_score: { type: "number", description: "0.0 to 1.0 — relative social buzz" },
+                  sentiment:        { type: "string", enum: ["positive", "neutral", "mixed", "negative"] },
+                  hashtags:         { type: "array", items: { type: "string" }, description: "Hashtags seen in results" },
+                  snippet:          { type: "string", description: "1-2 sentence social proof blurb for the app" },
+                  neighborhood:     { type: "string", description: "Neighborhood if identifiable" },
+                  category:         { type: "string", description: "Dining | Nightlife | Rooftops | Brunch | Cocktails | Live Music | Café | Experience" },
                 },
               },
             },
           },
         },
       }],
-      tool_choice: { type: "function", function: { name: "return_venue_signals" } },
-      messages: [
-        {
-          role: "system",
-          content: `You are a venue intelligence engine for Confetti, an AI nightlife & dining concierge app in ${cityName}.
+      tool_choice: { type: "tool", name: "return_venue_signals" },
+      system: `You are a venue intelligence engine for Confetti, an AI nightlife & dining concierge app in ${cityName}.
 
 Extract SPECIFIC, NAMED venues from these social media search results. Rules:
 - Only extract venues you can clearly identify by name (restaurant, bar, club, rooftop, experience venue, café, etc.)
@@ -183,7 +179,7 @@ Extract SPECIFIC, NAMED venues from these social media search results. Rules:
 - Ignore generic listicles with no specific venue names
 - Max 15 venues per call — pick the most signal-rich ones
 - DO NOT invent venues. Only extract what's clearly in the search results.`,
-        },
+      messages: [
         {
           role: "user",
           content: `Extract venue social signals from these ${cityName} search results:\n\n${resultsText}`,
@@ -192,15 +188,19 @@ Extract SPECIFIC, NAMED venues from these social media search results. Rules:
     }),
   });
 
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Anthropic API error ${res.status}: ${text.slice(0, 300)}`);
+  }
+
   const data = await res.json();
-  const toolCall = data.choices?.[0]?.message?.tool_calls?.[0];
-  if (!toolCall) {
-    console.error("No tool call from Claude:", JSON.stringify(data).slice(0, 500));
+  const toolUse = data.content?.find((c: Record<string, unknown>) => c.type === "tool_use");
+  if (!toolUse) {
+    console.error("No tool_use block from Claude:", JSON.stringify(data).slice(0, 500));
     return [];
   }
 
-  const parsed = JSON.parse(toolCall.function.arguments);
-  return (parsed.venues ?? []) as ExtractedSignal[];
+  return ((toolUse.input as Record<string, unknown>).venues ?? []) as ExtractedSignal[];
 }
 
 // ── Main scrape for a single city ─────────────────────────────
@@ -211,7 +211,7 @@ async function scrapeCity(
   queries: string[],
   apiKey: string,
   serpZone: string,
-  openRouterKey: string,
+  anthropicKey: string,
   dryRun = false,
 ): Promise<{ signals: ExtractedSignal[]; duration_ms: number; error?: string }> {
   const batchId = `social-${citySlug}-${new Date().toISOString().slice(0, 10)}`;
@@ -256,7 +256,7 @@ async function scrapeCity(
       dedupedResults,
       cityName,
       citySlug,
-      openRouterKey,
+      anthropicKey,
     );
 
     console.log(`[${citySlug}] Extracted ${signals.length} venue signals`);
@@ -336,12 +336,12 @@ serve(async (req: Request) => {
     return new Response("ok", { headers: corsHeaders() });
   }
 
-  const apiKey      = Deno.env.get("BRIGHTDATA_API_KEY");
-  const serpZone    = Deno.env.get("BRIGHTDATA_SERP_ZONE") ?? "serp_api";
-  const openRouterKey = Deno.env.get("OPENROUTER_API_KEY");
+  const apiKey       = Deno.env.get("BRIGHTDATA_API_KEY");
+  const serpZone     = Deno.env.get("BRIGHTDATA_SERP_ZONE") ?? "confetti_serp";
+  const anthropicKey = Deno.env.get("ANTHROPIC_API_KEY");
 
-  if (!apiKey)       return errorResponse("BRIGHTDATA_API_KEY not configured", 503);
-  if (!openRouterKey) return errorResponse("OPENROUTER_API_KEY not configured", 503);
+  if (!apiKey)        return errorResponse("BRIGHTDATA_API_KEY not configured", 503);
+  if (!anthropicKey)  return errorResponse("ANTHROPIC_API_KEY not configured", 503);
 
   // ── Cron / GET mode — scrape all cities ──────────────────────
   if (req.method === "GET") {
@@ -354,7 +354,7 @@ serve(async (req: Request) => {
     const results: Record<string, unknown> = {};
     for (const { city_slug, city_name } of CRON_CITIES) {
       const queries = buildQueries(city_name);
-      const result  = await scrapeCity(city_slug, city_name, queries, apiKey, serpZone, openRouterKey);
+      const result  = await scrapeCity(city_slug, city_name, queries, apiKey, serpZone, anthropicKey);
       results[city_slug] = {
         signals: result.signals.length,
         duration_ms: result.duration_ms,
@@ -384,7 +384,7 @@ serve(async (req: Request) => {
     queries,
     apiKey,
     serpZone,
-    openRouterKey,
+    anthropicKey,
     body.dry_run ?? false,
   );
 

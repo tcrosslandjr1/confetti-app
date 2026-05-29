@@ -5,8 +5,11 @@
 // using Bright Data's SERP API (no user OAuth required).
 // Claude extracts venue signals → social_venue_signals table.
 //
-// POST { city_slug, city_name, queries?: string[] }
-// or GET (cron mode — scrapes all active cities)
+// POST { city_slug, city_name, category?, dry_run? }
+//   - city_slug + city_name: single city, all bundled categories
+//   - city_slug + city_name + category: single city, one category
+//   - category only: all DMV cities, one category (batch mode)
+// GET (cron mode — scrapes all active cities, bundled queries)
 //
 // Env vars required:
 //   BRIGHTDATA_API_KEY       — from Bright Data Control Panel
@@ -25,10 +28,11 @@ import {
 // ── Types ─────────────────────────────────────────────────────
 
 interface ScrapeBody {
-  city_slug: string;    // e.g. "dc", "nyc", "miami"
-  city_name: string;   // e.g. "Washington DC", "New York City", "Miami"
+  city_slug?: string;   // e.g. "dc", "nyc"
+  city_name?: string;   // e.g. "Washington DC"
+  category?: string;    // e.g. "Jazz" — triggers per-category mode
   queries?: string[];   // override default queries
-  dry_run?: boolean;   // extract but don't write to DB
+  dry_run?: boolean;    // extract but don't write to DB
 }
 
 interface SerpResult {
@@ -43,7 +47,7 @@ interface ExtractedSignal {
   venue_slug: string;
   signal_type: "trending" | "popular" | "new" | "lowkey" | "unique";
   platform: "tiktok" | "instagram" | "multi";
-  engagement_score: number;   // 0..1
+  engagement_score: number;
   sentiment: "positive" | "neutral" | "mixed" | "negative";
   hashtags: string[];
   snippet: string;
@@ -51,45 +55,134 @@ interface ExtractedSignal {
   category?: string;
 }
 
-// ── Active cities for cron mode ────────────────────────────────
+// ── Active cities for cron / batch mode ───────────────────────
 
-const CRON_CITIES = [
-  // DMV region
-  { city_slug: "dc",              city_name: "Washington DC" },
-  { city_slug: "baltimore",       city_name: "Baltimore" },
-  { city_slug: "arlington-va",    city_name: "Arlington Virginia" },
-  { city_slug: "alexandria-va",   city_name: "Alexandria Virginia" },
-  { city_slug: "richmond-va",     city_name: "Richmond Virginia" },
-  { city_slug: "virginia-beach",  city_name: "Virginia Beach" },
-  { city_slug: "bethesda-md",     city_name: "Bethesda Maryland" },
-  { city_slug: "annapolis-md",    city_name: "Annapolis Maryland" },
-  // Other major metros
-  { city_slug: "nyc",             city_name: "New York City" },
-  { city_slug: "miami",           city_name: "Miami" },
-  { city_slug: "la",              city_name: "Los Angeles" },
-  { city_slug: "chicago",         city_name: "Chicago" },
-  { city_slug: "atlanta",         city_name: "Atlanta" },
+const DMV_CITIES = [
+  { city_slug: "dc",             city_name: "Washington DC" },
+  { city_slug: "baltimore",      city_name: "Baltimore" },
+  { city_slug: "arlington-va",   city_name: "Arlington Virginia" },
+  { city_slug: "alexandria-va",  city_name: "Alexandria Virginia" },
+  { city_slug: "richmond-va",    city_name: "Richmond Virginia" },
+  { city_slug: "virginia-beach", city_name: "Virginia Beach" },
+  { city_slug: "bethesda-md",    city_name: "Bethesda Maryland" },
+  { city_slug: "annapolis-md",   city_name: "Annapolis Maryland" },
 ];
 
-// ── Default search queries per city ───────────────────────────
+const CRON_CITIES = [
+  ...DMV_CITIES,
+  { city_slug: "nyc",     city_name: "New York City" },
+  { city_slug: "miami",   city_name: "Miami" },
+  { city_slug: "la",      city_name: "Los Angeles" },
+  { city_slug: "chicago", city_name: "Chicago" },
+  { city_slug: "atlanta", city_name: "Atlanta" },
+];
 
-function buildQueries(cityName: string): string[] {
+// ── Per-category targeted queries ─────────────────────────────
+// Each category gets 3 focused queries: TikTok, Instagram, general web.
+// This keeps Claude's 25-venue cap fully allocated to ONE category.
+
+const CATEGORY_QUERIES: Record<string, (cityName: string) => string[]> = {
+  "Rooftops": (city) => [
+    `site:tiktok.com "${city}" rooftop bar restaurant outdoor views 2025`,
+    `site:instagram.com "${city}" rooftop bar skyline outdoor dining`,
+    `"${city}" best rooftop bars restaurants terraces trending viral 2025`,
+  ],
+  "Brunch": (city) => [
+    `site:tiktok.com "${city}" brunch bottomless mimosas must try 2025`,
+    `site:instagram.com "${city}" brunch spot aesthetic food weekend`,
+    `"${city}" best brunch spots going viral TikTok Instagram 2025`,
+  ],
+  "Nightlife": (city) => [
+    `site:tiktok.com "${city}" club nightclub lounge night out 2025`,
+    `site:instagram.com "${city}" nightclub lounge nightlife bar scene`,
+    `"${city}" best nightclubs lounges nightlife trending 2025`,
+  ],
+  "Cocktails": (city) => [
+    `site:tiktok.com "${city}" craft cocktails cocktail bar mixology drinks 2025`,
+    `site:instagram.com "${city}" cocktail bar craft drinks mixology aesthetic`,
+    `"${city}" best cocktail bars craft drinks trending viral 2025`,
+  ],
+  "Speakeasy": (city) => [
+    `site:tiktok.com "${city}" speakeasy hidden bar secret entrance underground 2025`,
+    `site:instagram.com "${city}" speakeasy hidden gem secret bar underground`,
+    `"${city}" speakeasy hidden bar secret cocktail lounge going viral 2025`,
+  ],
+  "Live Music": (city) => [
+    `site:tiktok.com "${city}" live music venue concert bar performance 2025`,
+    `site:instagram.com "${city}" live music venue performance bar concert`,
+    `"${city}" best live music venues bars trending 2025`,
+  ],
+  "Jazz": (city) => [
+    `site:tiktok.com "${city}" jazz bar live jazz club lounge music 2025`,
+    `site:instagram.com "${city}" jazz club bar live music lounge`,
+    `"${city}" best jazz bars clubs live jazz trending 2025`,
+  ],
+  "Wine Bar": (city) => [
+    `site:tiktok.com "${city}" wine bar natural wine tasting bottle 2025`,
+    `site:instagram.com "${city}" wine bar natural wine aesthetic tasting`,
+    `"${city}" best wine bars natural wine trending viral 2025`,
+  ],
+  "Café": (city) => [
+    `site:tiktok.com "${city}" cafe coffee shop aesthetic cozy must visit 2025`,
+    `site:instagram.com "${city}" cafe coffee aesthetic interior cozy`,
+    `"${city}" best cafes coffee shops aesthetic trending 2025`,
+  ],
+  "Fine Dining": (city) => [
+    `site:tiktok.com "${city}" fine dining tasting menu upscale restaurant special occasion 2025`,
+    `site:instagram.com "${city}" fine dining upscale restaurant tasting menu chef`,
+    `"${city}" best fine dining restaurants tasting menu viral 2025`,
+  ],
+  "Happy Hour": (city) => [
+    `site:tiktok.com "${city}" happy hour deals drinks bar food specials 2025`,
+    `site:instagram.com "${city}" happy hour deals drinks specials bar`,
+    `"${city}" best happy hour bars restaurants deals trending 2025`,
+  ],
+  "Late Night": (city) => [
+    `site:tiktok.com "${city}" late night food eats bar open late after hours 2025`,
+    `site:instagram.com "${city}" late night food eats open late bar`,
+    `"${city}" best late night spots food bars open late 2025`,
+  ],
+  "Dining": (city) => [
+    `site:tiktok.com "${city}" restaurant must try new opening viral food 2025`,
+    `site:instagram.com "${city}" restaurant food viral trending must try`,
+    `"${city}" best restaurants trending viral new opening 2025`,
+  ],
+  "Experience": (city) => [
+    `site:tiktok.com "${city}" unique experience activity date night immersive 2025`,
+    `site:instagram.com "${city}" unique experience interactive immersive attraction`,
+    `"${city}" unique experiences activities things to do viral 2025`,
+  ],
+  "Pop-Up": (city) => [
+    `site:tiktok.com "${city}" pop up event food market experience limited 2025`,
+    `site:instagram.com "${city}" pop up event market food experience`,
+    `"${city}" pop up events food market experience trending 2025`,
+  ],
+  "Seafood": (city) => [
+    `site:tiktok.com "${city}" seafood restaurant oysters lobster shrimp fresh 2025`,
+    `site:instagram.com "${city}" seafood restaurant oysters lobster fresh fish`,
+    `"${city}" best seafood restaurants oyster bar trending 2025`,
+  ],
+};
+
+// ── Bundled fallback queries (cron mode) ─────────────────────
+
+function buildBundledQueries(cityName: string): string[] {
   return [
-    // TikTok — dining, rooftops, brunch
     `site:tiktok.com "${cityName}" restaurant rooftop bar brunch cocktails 2025`,
-    // TikTok — nightlife, speakeasies, live music, jazz
     `site:tiktok.com "${cityName}" speakeasy jazz live music club nightlife hidden gem`,
-    // TikTok — wine bars, fine dining, cafes, happy hour
     `site:tiktok.com "${cityName}" wine bar fine dining tasting menu cafe happy hour`,
-    // Instagram — dining & vibes
     `site:instagram.com "${cityName}" restaurant rooftop bar cocktails date night`,
-    // Instagram — nightlife, music, unique experiences
     `site:instagram.com "${cityName}" speakeasy jazz live music unique experience pop-up`,
-    // General — trending & viral across all categories
     `"${cityName}" trending viral restaurant bar nightclub brunch TikTok Instagram 2025`,
-    // General — hidden gems and new openings all categories
     `"${cityName}" hidden gem new opening speakeasy jazz wine bar cafe going viral`,
   ];
+}
+
+function buildQueries(cityName: string, category?: string): string[] {
+  if (category && CATEGORY_QUERIES[category]) {
+    return CATEGORY_QUERIES[category](cityName);
+  }
+  return buildBundledQueries(cityName);
 }
 
 // ── Bright Data SERP fetch ─────────────────────────────────────
@@ -135,12 +228,22 @@ async function extractVenueSignals(
   cityName: string,
   citySlug: string,
   anthropicKey: string,
+  category?: string,
 ): Promise<ExtractedSignal[]> {
   if (serpResults.length === 0) return [];
 
   const resultsText = serpResults.map((r, i) =>
     `[${i + 1}] ${r.title}\n${r.link}\n${r.description}`
   ).join("\n\n");
+
+  // Build focused or broad system prompt depending on category mode
+  const categoryInstruction = category
+    ? `You are extracting ONLY "${category}" venues. Every venue you return MUST be a ${category} — discard anything that doesn't fit.`
+    : `Cover ALL categories: rooftops, brunch, nightlife, cocktails, speakeasies, live music, jazz, wine bars, cafés, fine dining, happy hour, late night, pop-ups, unique experiences. Maximize variety across ALL categories, not just one.`;
+
+  const forcedCategory = category
+    ? `- Set category = "${category}" for every venue you extract.`
+    : `- Assign the most accurate category from: Dining | Nightlife | Rooftops | Brunch | Cocktails | Speakeasy | Live Music | Jazz | Wine Bar | Café | Happy Hour | Late Night | Fine Dining | Experience | Pop-Up | Seafood`;
 
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -171,10 +274,10 @@ async function extractVenueSignals(
                   platform:         { type: "string", enum: ["tiktok", "instagram", "multi"] },
                   engagement_score: { type: "number", description: "0.0 to 1.0 — relative social buzz" },
                   sentiment:        { type: "string", enum: ["positive", "neutral", "mixed", "negative"] },
-                  hashtags:         { type: "array", items: { type: "string" }, description: "Hashtags seen in results" },
+                  hashtags:         { type: "array", items: { type: "string" } },
                   snippet:          { type: "string", description: "1-2 sentence social proof blurb for the app" },
                   neighborhood:     { type: "string", description: "Neighborhood if identifiable" },
-                  category:         { type: "string", description: "Dining | Nightlife | Rooftops | Brunch | Cocktails | Speakeasy | Live Music | Jazz | Wine Bar | Café | Happy Hour | Late Night | Fine Dining | Experience | Pop-Up" },
+                  category:         { type: "string", description: "Dining | Nightlife | Rooftops | Brunch | Cocktails | Speakeasy | Live Music | Jazz | Wine Bar | Café | Happy Hour | Late Night | Fine Dining | Experience | Pop-Up | Seafood" },
                 },
               },
             },
@@ -184,15 +287,16 @@ async function extractVenueSignals(
       tool_choice: { type: "tool", name: "return_venue_signals" },
       system: `You are a venue intelligence engine for Confetti, an AI nightlife & dining concierge app in ${cityName}.
 
-Extract SPECIFIC, NAMED venues from these social media search results. Rules:
-- Only extract venues you can clearly identify by name (restaurant, bar, club, rooftop, experience venue, café, etc.)
-- signal_type: "trending" = going viral now, "popular" = well-established buzz, "new" = recently opened, "lowkey" = hidden gem vibe, "unique" = one-of-a-kind experience
-- engagement_score: estimate 0.1 (mild) → 1.0 (massively viral) based on how it's described
+${categoryInstruction}
+
+Rules:
+- Only extract SPECIFIC, NAMED venues you can clearly identify (restaurant, bar, club, café, experience, etc.)
+- signal_type: "trending" = going viral now, "popular" = well-established buzz, "new" = recently opened, "lowkey" = hidden gem, "unique" = one-of-a-kind
+- engagement_score: 0.1 (mild) → 1.0 (massively viral) based on how it's described
 - snippet: write like a friend recommending it — exciting, specific, 1-2 sentences
-- Cover ALL categories: rooftops, brunch, nightlife, cocktails, speakeasies, live music, jazz, wine bars, cafés, fine dining, happy hour, late night, pop-ups, unique experiences
-- signal_type: "trending" = going viral now, "popular" = well-established buzz, "new" = recently opened, "lowkey" = hidden gem vibe, "unique" = one-of-a-kind experience
+${forcedCategory}
 - Ignore generic listicles with no specific venue names
-- Max 25 venues per call — maximize variety across ALL categories, not just rooftops
+- Max 25 venues per call
 - DO NOT invent venues. Only extract what's clearly in the search results.`,
       messages: [
         {
@@ -218,7 +322,7 @@ Extract SPECIFIC, NAMED venues from these social media search results. Rules:
   return ((toolUse.input as Record<string, unknown>).venues ?? []) as ExtractedSignal[];
 }
 
-// ── Main scrape for a single city ─────────────────────────────
+// ── Scrape a single city (one category or bundled) ────────────
 
 async function scrapeCity(
   citySlug: string,
@@ -227,12 +331,13 @@ async function scrapeCity(
   apiKey: string,
   serpZone: string,
   anthropicKey: string,
+  category: string | undefined,
   dryRun = false,
 ): Promise<{ signals: ExtractedSignal[]; duration_ms: number; error?: string }> {
-  const batchId = `social-${citySlug}-${new Date().toISOString().slice(0, 10)}`;
+  const catTag   = category ? `-${category.toLowerCase().replace(/\s+/g, "-")}` : "";
+  const batchId  = `social-${citySlug}${catTag}-${new Date().toISOString().slice(0, 10)}`;
   const startTime = Date.now();
 
-  // Log batch start
   if (!dryRun) {
     await supabaseAdmin.from("social_collection_log").insert({
       batch_id: batchId,
@@ -243,20 +348,17 @@ async function scrapeCity(
   }
 
   try {
-    // 1. Fetch SERP results for all queries (sequential to respect rate limits)
     const allResults: SerpResult[] = [];
     for (const query of queries) {
       try {
         const results = await fetchSerpResults(query, apiKey, serpZone);
         allResults.push(...results);
-        // Small delay between requests
         await new Promise(r => setTimeout(r, 500));
       } catch (err) {
         console.warn(`SERP query failed: "${query}" — ${err}`);
       }
     }
 
-    // Deduplicate by URL
     const seen = new Set<string>();
     const dedupedResults = allResults.filter(r => {
       if (seen.has(r.link)) return false;
@@ -264,19 +366,18 @@ async function scrapeCity(
       return true;
     });
 
-    console.log(`[${citySlug}] Got ${dedupedResults.length} unique SERP results`);
+    console.log(`[${citySlug}${catTag}] ${dedupedResults.length} unique SERP results`);
 
-    // 2. Extract venue signals via Claude
     const signals = await extractVenueSignals(
       dedupedResults,
       cityName,
       citySlug,
       anthropicKey,
+      category,
     );
 
-    console.log(`[${citySlug}] Extracted ${signals.length} venue signals`);
+    console.log(`[${citySlug}${catTag}] Extracted ${signals.length} venue signals`);
 
-    // 3. Upsert to social_venue_signals
     if (!dryRun && signals.length > 0) {
       const rows = signals.map(s => ({
         city_slug:        citySlug,
@@ -289,7 +390,7 @@ async function scrapeCity(
         hashtags:         JSON.stringify(s.hashtags),
         snippet:          s.snippet,
         neighborhood:     s.neighborhood ?? null,
-        category:         s.category ?? null,
+        category:         s.category ?? category ?? null,
         generation_batch: batchId,
         collected_at:     new Date().toISOString(),
         is_active:        true,
@@ -304,7 +405,6 @@ async function scrapeCity(
 
     const duration_ms = Date.now() - startTime;
 
-    // Log completion
     if (!dryRun) {
       const byType = signals.reduce((acc, s) => {
         acc[s.signal_type] = (acc[s.signal_type] ?? 0) + 1;
@@ -358,7 +458,7 @@ serve(async (req: Request) => {
   if (!apiKey)        return errorResponse("BRIGHTDATA_API_KEY not configured", 503);
   if (!anthropicKey)  return errorResponse("ANTHROPIC_API_KEY not configured", 503);
 
-  // ── Cron / GET mode — scrape all cities ──────────────────────
+  // ── GET — cron mode, all cities, bundled queries ─────────────
   if (req.method === "GET") {
     const authHeader = req.headers.get("Authorization");
     const cronSecret = Deno.env.get("CRON_SECRET");
@@ -368,8 +468,8 @@ serve(async (req: Request) => {
 
     const results: Record<string, unknown> = {};
     for (const { city_slug, city_name } of CRON_CITIES) {
-      const queries = buildQueries(city_name);
-      const result  = await scrapeCity(city_slug, city_name, queries, apiKey, serpZone, anthropicKey);
+      const queries = buildBundledQueries(city_name);
+      const result  = await scrapeCity(city_slug, city_name, queries, apiKey, serpZone, anthropicKey, undefined);
       results[city_slug] = {
         signals: result.signals.length,
         duration_ms: result.duration_ms,
@@ -380,7 +480,7 @@ serve(async (req: Request) => {
     return jsonResponse({ ok: true, cities: results });
   }
 
-  // ── POST mode — single city on-demand ────────────────────────
+  // ── POST ─────────────────────────────────────────────────────
   let body: ScrapeBody;
   try {
     body = await req.json();
@@ -388,28 +488,53 @@ serve(async (req: Request) => {
     return errorResponse("Invalid JSON body", 400);
   }
 
-  if (!body.city_slug || !body.city_name) {
-    return errorResponse("city_slug and city_name are required", 400);
+  const { city_slug, city_name, category, dry_run } = body;
+
+  // Mode A: single city + single category (or bundled)
+  if (city_slug && city_name) {
+    const queries = body.queries ?? buildQueries(city_name, category);
+    const result  = await scrapeCity(
+      city_slug, city_name, queries,
+      apiKey, serpZone, anthropicKey,
+      category, dry_run ?? false,
+    );
+    return jsonResponse({
+      ok:          !result.error,
+      mode:        category ? "single-city-category" : "single-city-bundled",
+      city_slug,
+      city_name,
+      category:    category ?? null,
+      count:       result.signals.length,
+      signals:     result.signals,
+      duration_ms: result.duration_ms,
+      error:       result.error ?? null,
+    });
   }
 
-  const queries  = body.queries ?? buildQueries(body.city_name);
-  const result   = await scrapeCity(
-    body.city_slug,
-    body.city_name,
-    queries,
-    apiKey,
-    serpZone,
-    anthropicKey,
-    body.dry_run ?? false,
-  );
+  // Mode B: category only → run all DMV cities for that one category
+  if (category) {
+    if (!CATEGORY_QUERIES[category]) {
+      return errorResponse(`Unknown category: "${category}". Valid: ${Object.keys(CATEGORY_QUERIES).join(", ")}`, 400);
+    }
 
-  return jsonResponse({
-    ok:         !result.error,
-    city_slug:  body.city_slug,
-    city_name:  body.city_name,
-    signals:    result.signals,
-    count:      result.signals.length,
-    duration_ms: result.duration_ms,
-    error:      result.error ?? null,
-  });
+    const cityResults: Record<string, unknown> = {};
+    let totalCount = 0;
+
+    for (const { city_slug: cs, city_name: cn } of DMV_CITIES) {
+      const queries = CATEGORY_QUERIES[category](cn);
+      const result  = await scrapeCity(cs, cn, queries, apiKey, serpZone, anthropicKey, category, dry_run ?? false);
+      cityResults[cs] = { count: result.signals.length, duration_ms: result.duration_ms, error: result.error ?? null };
+      totalCount += result.signals.length;
+    }
+
+    return jsonResponse({
+      ok:       true,
+      mode:     "all-dmv-cities-category",
+      category,
+      total:    totalCount,
+      cities:   cityResults,
+    });
+  }
+
+  return errorResponse("Provide city_slug+city_name (single city) or category (all DMV cities for that category)", 400);
 });

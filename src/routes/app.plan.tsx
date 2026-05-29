@@ -359,8 +359,8 @@ function PlanMyNightPage() {
             <div
               key={i}
               className={cn(
-                "h-2 flex-1 rounded-full border-2 border-cream/20 transition-all",
-                i < step ? "bg-coral" : i === step ? "bg-gold" : "bg-cream/10",
+                "h-2 flex-1 rounded-full border-2 border-ink/20 transition-all",
+                i < step ? "bg-coral" : i === step ? "bg-gold" : "bg-ink/10",
               )}
             />
           ))}
@@ -383,10 +383,10 @@ function PlanMyNightPage() {
                   trackEngagement("plan_type_chosen", { type: key });
                 }}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
+                  "inline-flex items-center gap-1.5 rounded-full border border-ink/20 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
                   planType === key
                     ? "bg-coral text-cream shadow-sm"
-                    : "bg-cream/5 text-cream/80 hover:-translate-y-0.5 hover:bg-cream/10",
+                    : "bg-white text-ink/80 hover:-translate-y-0.5 hover:bg-ink/10",
                 )}
                 title={hint}
               >
@@ -398,8 +398,8 @@ function PlanMyNightPage() {
 
         {planType && isHangoutMode(planType) ? (
           <BrandCard className="p-6">
-            <div className="mb-5 rounded-2xl border border-dashed border-cream/15 bg-cream/5 p-3">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
+            <div className="mb-5 rounded-2xl border border-dashed border-ink/15 bg-white p-3">
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50">
                 Or try a demo
               </div>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -420,7 +420,7 @@ function PlanMyNightPage() {
                       setHangoutStart(d.start);
                       setHangoutNotes(d.notes);
                     }}
-                    className="rounded-full border border-cream/20 bg-cream/5 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/70 hover:border-cream/40 hover:bg-gold/20 hover:text-cream"
+                    className="rounded-full border border-ink/20 bg-white px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70 hover:border-ink/40 hover:bg-gold/20 hover:text-ink"
                   >
                     {d.label}
                   </button>
@@ -431,7 +431,7 @@ function PlanMyNightPage() {
             <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
               Pick the hangout
             </div>
-            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight text-cream">
+            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight text-ink">
               What are we doing?
             </h2>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -441,10 +441,10 @@ function PlanMyNightPage() {
                   type="button"
                   onClick={() => setHangoutOccasion(o)}
                   className={cn(
-                    "rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-pop",
+                    "rounded-full border border-ink/20 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-pop",
                     hangoutOccasion?.key === o.key
                       ? "bg-coral text-cream shadow-sm"
-                      : "bg-cream/5 text-cream/70 hover:-translate-y-0.5 hover:bg-cream/10",
+                      : "bg-white text-ink/70 hover:-translate-y-0.5 hover:bg-ink/10",
                   )}
                 >
                   {o.label}
@@ -454,7 +454,7 @@ function PlanMyNightPage() {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <label className="block">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50">
                   City
                 </div>
                 <input
@@ -462,46 +462,46 @@ function PlanMyNightPage() {
                   value={hangoutCity}
                   onChange={(e) => setHangoutCity(e.target.value)}
                   placeholder="Washington, Baltimore…"
-                  className="mt-1 w-full rounded-xl border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream placeholder:text-cream/30 focus:border-coral focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-ink/20 bg-white px-3 py-2 text-sm text-ink placeholder:text-ink/30 focus:border-coral focus:outline-none"
                 />
               </label>
               <label className="block">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50">
                   Start time
                 </div>
                 <input
                   type="time"
                   value={hangoutStart}
                   onChange={(e) => setHangoutStart(e.target.value)}
-                  className="mt-1 w-full rounded-xl border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream focus:border-coral focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-ink/20 bg-white px-3 py-2 text-sm text-ink focus:border-coral focus:outline-none"
                 />
               </label>
               <div>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50">
                   Guests
                 </div>
                 <div className="mt-1 flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => setHangoutGuests((g) => Math.max(2, g - 1))}
-                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
+                    className="grid size-10 place-items-center rounded-full border border-ink/20 bg-white text-lg text-ink transition-pop hover:-translate-y-0.5 hover:bg-ink/10"
                   >
                     −
                   </button>
-                  <span className="w-10 text-center font-display text-2xl font-extrabold text-cream">
+                  <span className="w-10 text-center font-display text-2xl font-extrabold text-ink">
                     {hangoutGuests}
                   </span>
                   <button
                     type="button"
                     onClick={() => setHangoutGuests((g) => Math.min(60, g + 1))}
-                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
+                    className="grid size-10 place-items-center rounded-full border border-ink/20 bg-white text-lg text-ink transition-pop hover:-translate-y-0.5 hover:bg-ink/10"
                   >
                     +
                   </button>
                 </div>
               </div>
               <div>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50">
                   Budget tier
                 </div>
                 <div className="mt-1 flex flex-wrap gap-2">
@@ -511,8 +511,8 @@ function PlanMyNightPage() {
                       type="button"
                       onClick={() => setHangoutBudget(b)}
                       className={cn(
-                        "rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest",
-                        hangoutBudget === b ? "bg-coral text-cream shadow-sm" : "bg-cream/5 text-cream/70",
+                        "rounded-full border border-ink/20 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest",
+                        hangoutBudget === b ? "bg-coral text-cream shadow-sm" : "bg-white text-ink/70",
                       )}
                     >
                       {b}
@@ -523,7 +523,7 @@ function PlanMyNightPage() {
             </div>
 
             <label className="mt-4 block">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50">
                 Anything else? (dietary, theme, kids ages, etc.)
               </div>
               <textarea
@@ -531,7 +531,7 @@ function PlanMyNightPage() {
                 onChange={(e) => setHangoutNotes(e.target.value)}
                 rows={2}
                 placeholder="e.g. one vegetarian, gluten-free, two kids under 5"
-                className="mt-1 w-full resize-none rounded-xl border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream placeholder:text-cream/30 focus:border-coral focus:outline-none"
+                className="mt-1 w-full resize-none rounded-xl border border-ink/20 bg-white px-3 py-2 text-sm text-ink placeholder:text-ink/30 focus:border-coral focus:outline-none"
               />
             </label>
 
@@ -539,7 +539,7 @@ function PlanMyNightPage() {
               <button
                 type="button"
                 onClick={() => setPlanType(null)}
-                className="font-mono text-[11px] font-bold uppercase tracking-widest text-cream/50 hover:text-cream"
+                className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink/50 hover:text-ink"
               >
                 ← Back
               </button>
@@ -567,7 +567,7 @@ function PlanMyNightPage() {
             <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
               Step {step + 1} of {steps.length}
             </div>
-            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight text-cream">
+            <h2 className="mt-1 font-display text-xl font-extrabold tracking-tight text-ink">
               {current.title}
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -579,11 +579,11 @@ function PlanMyNightPage() {
                     trackEngagement("plan_choice", { step: current.title, choice: c });
                   }}
                   className={cn(
-                    "rounded-full border border-cream/20 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-mocha",
+                    "rounded-full border border-ink/20 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
                     current.value === c
                       ? "bg-coral text-cream shadow-sm"
-                      : "bg-cream/5 text-cream/70 hover:-translate-y-0.5 hover:bg-cream/10",
+                      : "bg-white text-ink/70 hover:-translate-y-0.5 hover:bg-ink/10",
                   )}
                 >
                   {c}
@@ -592,21 +592,21 @@ function PlanMyNightPage() {
             </div>
             {step === 1 && (
               <div className="mt-6">
-                <label className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/50">
+                <label className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50">
                   Group size
                 </label>
                 <div className="mt-2 flex items-center gap-3">
                   <button
-                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
+                    className="grid size-10 place-items-center rounded-full border border-ink/20 bg-white text-lg text-ink transition-pop hover:-translate-y-0.5 hover:bg-ink/10"
                     onClick={() => setGroupSize((g) => Math.max(1, g - 1))}
                   >
                     −
                   </button>
-                  <span className="w-10 text-center font-display text-2xl font-extrabold text-cream">
+                  <span className="w-10 text-center font-display text-2xl font-extrabold text-ink">
                     {groupSize}
                   </span>
                   <button
-                    className="grid size-10 place-items-center rounded-full border border-cream/20 bg-cream/5 text-lg text-cream transition-pop hover:-translate-y-0.5 hover:bg-cream/10"
+                    className="grid size-10 place-items-center rounded-full border border-ink/20 bg-white text-lg text-ink transition-pop hover:-translate-y-0.5 hover:bg-ink/10"
                     onClick={() => setGroupSize((g) => g + 1)}
                   >
                     +
@@ -618,7 +618,7 @@ function PlanMyNightPage() {
               <button
                 disabled={step === 0}
                 onClick={() => setStep((s) => s - 1)}
-                className="font-mono text-[11px] font-bold uppercase tracking-widest text-cream/50 hover:text-cream disabled:opacity-40"
+                className="font-mono text-[11px] font-bold uppercase tracking-widest text-ink/50 hover:text-ink disabled:opacity-40"
               >
                 ← Back
               </button>
@@ -712,13 +712,13 @@ function PlanMyNightPage() {
                       {aiItinerary.tagline}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                         <DollarSign className="size-3" /> {aiItinerary.total_budget_estimate}
                       </span>
-                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                         <Clock className="size-3" /> {aiItinerary.time_window}
                       </span>
-                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-cream/15 bg-cream/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                         <Users className="size-3" /> {aiItinerary.group_size}
                       </span>
                     </div>
@@ -733,53 +733,53 @@ function PlanMyNightPage() {
                         <div className={cn(
                           "grid size-8 shrink-0 place-items-center rounded-full font-mono text-[11px] font-bold",
                           i === (aiItinerary.twist?.stop_number ?? 0) - 1
-                            ? "bg-gold text-mocha-dark"
+                            ? "bg-gold text-ink"
                             : "bg-coral/15 text-coral"
                         )}>
                           {i + 1}
                         </div>
                         {i < aiItinerary.stops.length - 1 && (
-                          <div className="mt-1 h-full w-px bg-cream/10" />
+                          <div className="mt-1 h-full w-px bg-ink/10" />
                         )}
                       </div>
                       <div className="min-w-0 flex-1 pb-3">
                         <div className="flex items-start justify-between gap-2">
                           <div>
-                            <h4 className="font-display text-[15px] font-extrabold tracking-tight text-cream">
+                            <h4 className="font-display text-[15px] font-extrabold tracking-tight text-ink">
                               {stop.venue_name}
                               {i === (aiItinerary.twist?.stop_number ?? 0) - 1 && " ✨"}
                             </h4>
-                            <div className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wide text-cream/45">
+                            <div className="mt-0.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
                               <MapPin className="size-3" />
                               {stop.neighborhood}
                             </div>
                           </div>
-                          <span className="shrink-0 rounded-full border border-cream/15 bg-cream/5 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
+                          <span className="shrink-0 rounded-full border border-ink/15 bg-white px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/50">
                             {stop.arrival}
                           </span>
                         </div>
-                        <p className="mt-1.5 text-[12px] leading-relaxed text-cream/60">
+                        <p className="mt-1.5 text-[12px] leading-relaxed text-ink/60">
                           {stop.purpose}
                         </p>
                         <div className="mt-2 flex flex-wrap gap-1.5">
-                          <span className="rounded-full bg-cream/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream/40">
+                          <span className="rounded-full bg-ink/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
                             {stop.vibe}
                           </span>
-                          <span className="rounded-full bg-cream/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream/40">
+                          <span className="rounded-full bg-ink/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
                             {stop.duration}
                           </span>
-                          <span className="rounded-full bg-cream/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream/40">
+                          <span className="rounded-full bg-ink/5 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/40">
                             {stop.category.replace(/_/g, " ")}
                           </span>
                         </div>
                         {stop.pro_tip && (
                           <div className="mt-2 rounded-lg border border-gold/20 bg-gold/5 px-2.5 py-1.5">
                             <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-gold/70">Pro tip: </span>
-                            <span className="text-[11px] text-cream/60">{stop.pro_tip}</span>
+                            <span className="text-[11px] text-ink/60">{stop.pro_tip}</span>
                           </div>
                         )}
                         {stop.logistics && i > 0 && (
-                          <p className="mt-1.5 font-mono text-[10px] italic text-cream/30">
+                          <p className="mt-1.5 font-mono text-[10px] italic text-ink/30">
                             {stop.logistics}
                           </p>
                         )}
@@ -794,17 +794,17 @@ function PlanMyNightPage() {
                     <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gold">
                       ✨ Twist moment
                     </div>
-                    <p className="mt-1 text-[13px] text-cream/70">{aiItinerary.twist.description}</p>
+                    <p className="mt-1 text-[13px] text-ink/70">{aiItinerary.twist.description}</p>
                   </BrandCard>
                 )}
 
                 {/* Captain's note */}
                 {aiItinerary.boarding_pass?.captain_note && (
                   <BrandCard className="p-4">
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cream/40">
+                    <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/40">
                       Captain's note
                     </div>
-                    <p className="mt-1 text-[13px] italic text-cream/60">
+                    <p className="mt-1 text-[13px] italic text-ink/60">
                       "{aiItinerary.boarding_pass.captain_note}"
                     </p>
                   </BrandCard>
@@ -834,7 +834,7 @@ function PlanMyNightPage() {
             )}
 
             <button
-              className="w-full py-3 font-mono text-[11px] font-bold uppercase tracking-widest text-cream/50 hover:text-cream"
+              className="w-full py-3 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/50 hover:text-ink"
               onClick={() => setStep(0)}
             >
               ↺ Start over

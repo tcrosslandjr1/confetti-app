@@ -8,7 +8,7 @@ import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
  * Env: OPENROUTER_API_KEY
  *
  * Model strings keep the same format the codebase already uses:
- *   - "google/gemini-3-flash-preview"
+ *   - "google/gemini-2.0-flash-001"
  *   - "gpt-4o-mini"
  */
 export const createAiProvider = (apiKey: string) =>

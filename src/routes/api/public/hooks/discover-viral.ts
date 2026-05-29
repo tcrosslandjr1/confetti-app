@@ -245,7 +245,7 @@ async function discoverForCity(city: string) {
 
   try {
     const provider = getAiProvider();
-    const model = provider("google/gemini-3-flash-preview");
+    const model = provider("google/gemini-2.0-flash-001");
 
     // 1. Search
     const allResults: { result: FirecrawlSearchResult; query: string }[] = [];

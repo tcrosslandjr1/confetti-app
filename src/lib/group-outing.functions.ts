@@ -149,7 +149,7 @@ export const generateGroupOutingPlan = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => InputSchema.parse(d))
   .handler(async ({ data }) => {
     const gateway = getAiProvider();
-    const model = gateway("google/gemini-3-flash-preview");
+    const model = gateway("google/gemini-2.0-flash-001");
 
     const prompt =
       `Audience: ${AUDIENCE_LABELS[data.audience]} (${data.audience})\n` +

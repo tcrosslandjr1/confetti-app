@@ -30,7 +30,7 @@ const IntentSchema = z.object({
 
 async function intentAgent(rawRequest: string) {
   const provider = getAiProvider();
-  const model = provider("google/gemini-3-flash-preview");
+  const model = provider("google/gemini-2.0-flash-001");
   const { experimental_output: out } = await generateText({
     model,
     system:

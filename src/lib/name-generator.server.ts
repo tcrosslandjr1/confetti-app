@@ -88,7 +88,7 @@ export async function generateNamesInternal(
   input: GenerateNamesInput,
 ): Promise<{ names: string[] }> {
   const gateway = getAiProvider();
-  const model = gateway("google/gemini-3-flash-preview");
+  const model = gateway("google/gemini-2.0-flash-001");
 
   const count = input.count ?? 10;
   const prompt =
@@ -117,7 +117,7 @@ export async function rankNamesInternal(
 ): Promise<{ ranked: { name: string; score: number }[] }> {
   if (!names.length) return { ranked: [] };
   const gateway = getAiProvider();
-  const model = gateway("google/gemini-3-flash-preview");
+  const model = gateway("google/gemini-2.0-flash-001");
 
   const prompt =
     `Candidate names:\n${names.map((n) => `- ${n}`).join("\n")}\n\n` +

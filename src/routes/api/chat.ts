@@ -247,7 +247,7 @@ export const Route = createFileRoute("/api/chat")({
         })) as ModelMessage[];
 
         const result = streamText({
-          model: gateway("google/gemini-3-flash-preview"),
+          model: gateway("google/gemini-2.0-flash-001"),
           system,
           messages: modelMessages,
         });

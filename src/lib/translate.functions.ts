@@ -16,7 +16,7 @@ export const translateText = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => inputSchema.parse(data))
   .handler(async ({ data }) => {
     const gateway = getAiProvider();
-    const model = gateway("google/gemini-3-flash-preview");
+    const model = gateway("google/gemini-2.0-flash-001");
 
     const source = data.sourceLanguage?.trim()
       ? `from ${data.sourceLanguage}`

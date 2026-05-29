@@ -25,7 +25,7 @@ export const classifyOuting = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => InputSchema.parse(d))
   .handler(async ({ data }) => {
     const gateway = getAiProvider();
-    const model = gateway("google/gemini-3-flash-preview");
+    const model = gateway("google/gemini-2.0-flash-001");
 
     const catalogue = OUTING_CATEGORIES.map(
       (c) => `${c.id} — ${c.name} (${c.group}): ${c.description}`,

@@ -431,7 +431,7 @@ export const generatePlan = createServerFn({ method: "POST" })
 
     // 4 + 5 + 6. Itinerary + Naming + Impromptu + Relevance — single AI call.
     const gateway = getAiProvider();
-    const model = gateway("google/gemini-3-flash-preview");
+    const model = gateway("google/gemini-2.0-flash-001");
 
     const startTime = req.startTime ?? "19:00";
     const occasion = req.occasionLabel ?? template.blueprintName;

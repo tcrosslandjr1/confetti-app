@@ -54,13 +54,21 @@ interface ExtractedSignal {
 // ── Active cities for cron mode ────────────────────────────────
 
 const CRON_CITIES = [
-  { city_slug: "dc",        city_name: "Washington DC" },
-  { city_slug: "baltimore", city_name: "Baltimore" },
-  { city_slug: "nyc",       city_name: "New York City" },
-  { city_slug: "miami",     city_name: "Miami" },
-  { city_slug: "la",        city_name: "Los Angeles" },
-  { city_slug: "chicago",   city_name: "Chicago" },
-  { city_slug: "atlanta",   city_name: "Atlanta" },
+  // DMV region
+  { city_slug: "dc",              city_name: "Washington DC" },
+  { city_slug: "baltimore",       city_name: "Baltimore" },
+  { city_slug: "arlington-va",    city_name: "Arlington Virginia" },
+  { city_slug: "alexandria-va",   city_name: "Alexandria Virginia" },
+  { city_slug: "richmond-va",     city_name: "Richmond Virginia" },
+  { city_slug: "virginia-beach",  city_name: "Virginia Beach" },
+  { city_slug: "bethesda-md",     city_name: "Bethesda Maryland" },
+  { city_slug: "annapolis-md",    city_name: "Annapolis Maryland" },
+  // Other major metros
+  { city_slug: "nyc",             city_name: "New York City" },
+  { city_slug: "miami",           city_name: "Miami" },
+  { city_slug: "la",              city_name: "Los Angeles" },
+  { city_slug: "chicago",         city_name: "Chicago" },
+  { city_slug: "atlanta",         city_name: "Atlanta" },
 ];
 
 // ── Default search queries per city ───────────────────────────
@@ -71,12 +79,31 @@ function buildQueries(cityName: string): string[] {
     `site:tiktok.com "${cityName}" restaurant rooftop bar 2025`,
     `site:tiktok.com "${cityName}" hidden gem food spot viral`,
     `site:tiktok.com "${cityName}" best brunch cocktails nightlife`,
-    // Instagram — location posts
+    // TikTok — nightlife & experiences
+    `site:tiktok.com "${cityName}" speakeasy hidden bar cocktail lounge`,
+    `site:tiktok.com "${cityName}" live music jazz blues venue`,
+    `site:tiktok.com "${cityName}" wine bar fine dining tasting menu`,
+    `site:tiktok.com "${cityName}" late night after hours club nightlife`,
+    `site:tiktok.com "${cityName}" unique experience pop-up event venue`,
+    `site:tiktok.com "${cityName}" happy hour best deal bar`,
+    `site:tiktok.com "${cityName}" coffee cafe aesthetic spot`,
+    // Instagram — dining & ambiance
     `site:instagram.com "${cityName}" restaurant bar dinner date night`,
     `site:instagram.com "${cityName}" rooftop views cocktails vibes`,
+    `site:instagram.com "${cityName}" speakeasy cocktail bar hidden gem`,
+    `site:instagram.com "${cityName}" brunch bottomless mimosas weekend`,
+    `site:instagram.com "${cityName}" live music jazz nightlife venue`,
+    `site:instagram.com "${cityName}" wine bar natural wine lounge`,
+    `site:instagram.com "${cityName}" fine dining tasting menu experience`,
+    `site:instagram.com "${cityName}" cafe coffee aesthetic instagrammable`,
     // General social discovery
     `"${cityName}" trending restaurant bar TikTok Instagram 2025`,
     `"${cityName}" hidden gem speakeasy rooftop going viral social media`,
+    `"${cityName}" best cocktail bar nightclub going viral 2025`,
+    `"${cityName}" new restaurant opening 2025 buzz social media`,
+    `"${cityName}" best brunch bottomless date night spot social media`,
+    `"${cityName}" jazz blues live music bar venue TikTok`,
+    `"${cityName}" unique one-of-a-kind experience venue going viral`,
   ];
 }
 
@@ -162,7 +189,7 @@ async function extractVenueSignals(
                   hashtags:         { type: "array", items: { type: "string" }, description: "Hashtags seen in results" },
                   snippet:          { type: "string", description: "1-2 sentence social proof blurb for the app" },
                   neighborhood:     { type: "string", description: "Neighborhood if identifiable" },
-                  category:         { type: "string", description: "Dining | Nightlife | Rooftops | Brunch | Cocktails | Live Music | Café | Experience" },
+                  category:         { type: "string", description: "Dining | Nightlife | Rooftops | Brunch | Cocktails | Speakeasy | Live Music | Jazz | Wine Bar | Café | Happy Hour | Late Night | Fine Dining | Experience | Pop-Up" },
                 },
               },
             },
@@ -177,8 +204,10 @@ Extract SPECIFIC, NAMED venues from these social media search results. Rules:
 - signal_type: "trending" = going viral now, "popular" = well-established buzz, "new" = recently opened, "lowkey" = hidden gem vibe, "unique" = one-of-a-kind experience
 - engagement_score: estimate 0.1 (mild) → 1.0 (massively viral) based on how it's described
 - snippet: write like a friend recommending it — exciting, specific, 1-2 sentences
+- Cover ALL categories: rooftops, brunch, nightlife, cocktails, speakeasies, live music, jazz, wine bars, cafés, fine dining, happy hour, late night, pop-ups, unique experiences
+- signal_type: "trending" = going viral now, "popular" = well-established buzz, "new" = recently opened, "lowkey" = hidden gem vibe, "unique" = one-of-a-kind experience
 - Ignore generic listicles with no specific venue names
-- Max 15 venues per call — pick the most signal-rich ones
+- Max 25 venues per call — maximize variety across ALL categories, not just rooftops
 - DO NOT invent venues. Only extract what's clearly in the search results.`,
       messages: [
         {

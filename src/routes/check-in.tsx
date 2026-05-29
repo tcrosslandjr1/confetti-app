@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CheckCircle2, Sparkles, Ticket, AlertTriangle } from "lucide-react";
 import { checkInStop, getActiveLoop, type CheckInResult } from "@/lib/loop-store";
 import { logActivity } from "@/lib/activity-log";
+import { recordCheckInAttribution } from "@/lib/attribution";
 
 export const Route = createFileRoute("/check-in")({
   head: () => ({
@@ -48,6 +49,15 @@ function CheckInPage() {
         kind: "check_in",
         message: `Checked in at ${result.stop.name}`,
         detail: `+${result.awarded} Confetti`,
+      });
+      // Fire-and-forget attribution — writes to attribution_events and
+      // triggers venue_quality_scores recompute so recommendations improve.
+      void recordCheckInAttribution({
+        itineraryId: result.loop.id,
+        stopId: result.stop.id,
+        venueId: result.stop.venueId ?? result.stop.id,
+        venueName: result.stop.name,
+        cityCode: result.loop.city ?? undefined,
       });
     }
     setState({ status: "ok", result });

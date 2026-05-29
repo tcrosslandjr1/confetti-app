@@ -298,6 +298,43 @@ function popScore(v: VenueRow): number {
   return r * Math.log10(n + 10);
 }
 
+// ── Quality score reranking ───────────────────────────────────────────────────
+// Fetches rolling 30-day quality scores and re-sorts candidates so
+// higher-quality (by real engagement) venues rank higher in Claude's list.
+// Formula: effective_score = popularity × (0.7 + 0.3 × quality_score)
+// Falls back silently — unchanged sort if table has no rows yet.
+
+async function applyQualityReranking(venues: VenueRow[]): Promise<VenueRow[]> {
+  if (venues.length === 0) return venues;
+  try {
+    const ids = venues.map((v) => v.id);
+    const { data, error } = await supabaseAdmin
+      .from("venue_quality_scores")
+      .select("venue_id, quality_score, confidence")
+      .in("venue_id", ids);
+
+    if (error || !data || data.length === 0) return venues;
+
+    const scoreMap = new Map<string, number>();
+    for (const row of data as { venue_id: string; quality_score: number; confidence: number }[]) {
+      // Only weight quality when we have meaningful data (confidence ramps at sample_size/50)
+      scoreMap.set(row.venue_id, row.confidence > 0.2 ? row.quality_score : 0.5);
+    }
+
+    return [...venues].sort((a, b) => {
+      const popA = a.popularity_score ?? 0.5;
+      const popB = b.popularity_score ?? 0.5;
+      const qA = scoreMap.get(a.id) ?? 0.5;
+      const qB = scoreMap.get(b.id) ?? 0.5;
+      const scoreA = popA * (0.7 + 0.3 * qA);
+      const scoreB = popB * (0.7 + 0.3 * qB);
+      return scoreB - scoreA;
+    });
+  } catch {
+    return venues; // non-fatal
+  }
+}
+
 /**
  * Pull candidate venues from Supabase. Filter by city (loose match) and an
  * optional section bias (tag overlap or cuisine substring).
@@ -712,7 +749,9 @@ serve(async (req: Request) => {
         if (!all.some((x) => x.id === v.id)) all.push(v);
       }
     }
-    return all.slice(0, Math.max(limit * 2, 8));
+    const raw = all.slice(0, Math.max(limit * 2, 8));
+    // Re-sort by quality-adjusted score so Claude sees better venues first.
+    return applyQualityReranking(raw);
   }
 
   // Helper: pick the dominant vibe tag for the section so we can match

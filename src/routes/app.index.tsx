@@ -1,12 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Sparkles, MapPin, Flame, Zap } from "lucide-react";
+import { Sparkles, MapPin, Flame, Zap, ArrowRight, Users, ChevronRight } from "lucide-react";
 import { VenueFlipCard } from "@/components/VenueFlipCard";
 import type { FlipVenue } from "@/components/VenueFlipCard";
 import { supabase } from "@/integrations/supabase/client";
 import { MobileHeader } from "@/components/AppShell";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { NotificationBell } from "@/components/NotificationBell";
 import { useAuth } from "@/lib/auth-context";
 import { usePageview, trackEngagement } from "@/lib/analytics";
@@ -77,7 +75,7 @@ function TonightFeedPage() {
       });
       return [...(feed.picks ?? []), ...(feed.surprise ?? [])].slice(0, 6);
     },
-    staleTime: 5 * 60_000, // cache for 5 min
+    staleTime: 5 * 60_000,
     retry: 1,
   });
 
@@ -91,40 +89,45 @@ function TonightFeedPage() {
         right={<NotificationBell userId={user?.id} />}
       />
 
+      {/* ── AI Planner Card ─────────────────────────────────── */}
       <Reveal delay={80}>
       <section className="px-5 pt-1 space-y-3">
-        <Card className="relative overflow-hidden border border-cream/10 bg-cream/5 p-5 text-cream backdrop-blur-sm">
-          <div className="absolute -right-6 -top-6 size-28 rounded-full bg-gold/15 blur-2xl" />
+        <div className="relative overflow-hidden rounded-2xl border-2 border-ink bg-gold p-5 shadow-brut">
           <div className="relative">
-            <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gold">
+            <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/70">
               <Sparkles className="size-3.5" /> AI Planner
             </div>
-            <h2 className="mt-2.5 font-display text-xl font-extrabold tracking-tight text-cream">Want me to plan your night?</h2>
-            <p className="mt-1 text-[13px] leading-relaxed text-cream/70">Two-tap itinerary, perfectly your vibe.</p>
-            <Button asChild variant="gold" size="sm" className="mt-4">
-              <Link to="/app/plan">Plan my night</Link>
-            </Button>
+            <h2 className="mt-2.5 font-display text-xl font-extrabold tracking-tight text-ink">Want me to plan your night?</h2>
+            <p className="mt-1 text-[13px] leading-relaxed text-ink/60">Two-tap itinerary, perfectly your vibe.</p>
+            <Link
+              to="/app/plan"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl border-2 border-ink bg-ink px-5 py-2.5 font-display text-sm font-bold text-cream shadow-brut transition-all active:scale-[0.97] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            >
+              Plan my night <ArrowRight className="size-4" strokeWidth={2.5} />
+            </Link>
           </div>
-        </Card>
+        </div>
 
-        <Card className="relative overflow-hidden border border-cream/10 bg-cream/5 p-5 backdrop-blur-sm">
-          <div className="absolute -right-10 -bottom-10 size-32 rounded-full bg-coral/20 blur-2xl" />
-          <div className="relative">
-            <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
-              <Sparkles className="size-3.5" /> Stay In · Host · Outdoor
+        <div className="relative overflow-hidden rounded-2xl border-2 border-ink bg-coral p-5 shadow-brut">
+          <div className="relative flex items-center justify-between">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-cream/80">
+                <Sparkles className="size-3.5" /> Stay In · Host · Outdoor
+              </div>
+              <h2 className="mt-2.5 font-display text-xl font-extrabold tracking-tight text-cream">Plan a hangout.</h2>
+              <p className="mt-1 text-[13px] leading-relaxed text-cream/70">
+                Crabs, game night, cookout — sorted.
+              </p>
             </div>
-            <h2 className="mt-2.5 font-display text-xl font-extrabold tracking-tight text-cream">Plan a hangout.</h2>
-            <p className="mt-1 text-[13px] leading-relaxed text-cream/60">
-              Crabs in the backyard, game night, cookout, picnic — menu, supplies, timeline, all sorted.
-            </p>
-            <Button asChild variant="default" size="sm" className="mt-4">
-              <Link to="/app/plan">Plan a hangout</Link>
-            </Button>
+            <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-cream/20">
+              <Users className="size-6 text-cream" strokeWidth={2.5} />
+            </div>
           </div>
-        </Card>
+        </div>
       </section>
       </Reveal>
 
+      {/* ── Trending Venues ─────────────────────────────────── */}
       <Reveal delay={200}>
       <section className="mt-8">
         <SectionHeading icon={Flame} title="Trending venues" />
@@ -152,12 +155,13 @@ function TonightFeedPage() {
       </section>
       </Reveal>
 
+      {/* ── For You (AI picks) ──────────────────────────────── */}
       <Reveal delay={280}>
       <section className="mt-8">
         <SectionHeading icon={Zap} title="For you" />
         <div className="mt-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-pl-5 px-5 pb-2 scrollbar-none">
           {aiLoading && (
-            <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/20 bg-purple/[0.03]">
+            <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/30 bg-purple/5">
               <div className="flex flex-col items-center gap-2">
                 <Sparkles className="size-5 animate-pulse text-purple" />
                 <span className="font-mono text-[10px] uppercase tracking-widest text-purple/60">Finding your vibe…</span>
@@ -189,10 +193,10 @@ function TonightFeedPage() {
             />
           ))}
           {!aiLoading && !aiPicks?.length && (
-            <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/15 bg-cream/5">
+            <div className="grid h-52 w-full place-items-center rounded-2xl border-2 border-dashed border-purple/20 bg-purple/5">
               <div className="flex flex-col items-center gap-2 px-6 text-center">
                 <Sparkles className="size-5 text-purple/40" />
-                <span className="font-mono text-[10px] uppercase tracking-widest text-cream/30">Personalized picks coming soon</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/30">Personalized picks coming soon</span>
               </div>
             </div>
           )}
@@ -200,10 +204,11 @@ function TonightFeedPage() {
       </section>
       </Reveal>
 
+      {/* ── Surprise Me ─────────────────────────────────────── */}
       <Reveal delay={340}>
         <section className="mt-8 px-5">
-          <Card
-            className="relative cursor-pointer overflow-hidden border border-coral/40 bg-gradient-to-br from-coral/10 via-mocha-light to-gold/10 p-5 shadow-lg transition-all active:scale-[0.98]"
+          <div
+            className="relative cursor-pointer overflow-hidden rounded-2xl border-2 border-ink bg-ink p-5 shadow-brut transition-all active:scale-[0.98] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             onClick={() => {
               trackEngagement("surprise_me_tap", { source: "tonight_feed" });
               navigate({ to: "/app/plan", search: { mode: "surprise" } });
@@ -211,24 +216,25 @@ function TonightFeedPage() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
+                <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gold">
                   <Sparkles className="size-3.5" /> Surprise Me
                 </div>
                 <h2 className="mt-2 font-display text-lg font-extrabold tracking-tight text-cream">
                   Feeling adventurous?
                 </h2>
                 <p className="mt-1 text-[13px] leading-relaxed text-cream/60">
-                  We'll pick trending spots you'd never find on your own.
+                  Spots you'd never find on your own.
                 </p>
               </div>
-              <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-coral/15">
-                <Zap className="size-7 text-coral" strokeWidth={2} />
+              <div className="grid size-14 shrink-0 place-items-center rounded-2xl bg-coral">
+                <Zap className="size-7 text-cream" strokeWidth={2.5} />
               </div>
             </div>
-          </Card>
+          </div>
         </section>
       </Reveal>
 
+      {/* ── Reels ───────────────────────────────────────────── */}
       <Reveal delay={400}>
       <section className="mt-8">
         <SectionHeading title="Reels you should see" />
@@ -237,7 +243,7 @@ function TonightFeedPage() {
             <Link
               key={r.id}
               to="/app/reels"
-              className="relative h-56 w-36 shrink-0 overflow-hidden rounded-2xl border border-cream/10 bg-cream/5 shadow-card transition-all duration-200 active:scale-[0.97] hover:shadow-card-hover"
+              className="relative h-56 w-36 shrink-0 overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut transition-all duration-200 active:scale-[0.97]"
               onClick={() => trackEngagement("reel_tap", { reelId: r.id, reelTitle: r.title, source: "tonight_reels" })}
             >
               {r.thumbnail_url && (
@@ -261,19 +267,20 @@ function TonightFeedPage() {
       </section>
       </Reveal>
 
+      {/* ── Starting Soon ───────────────────────────────────── */}
       <Reveal delay={520}>
       <section className="mt-8 px-5">
         <SectionHeading title="Starting soon" />
         <div className="mt-3.5 space-y-2.5">
           {(events ?? []).map((e) => (
             <Link key={e.id} to="/events/$eventId" params={{ eventId: e.id }} onClick={() => trackEngagement("event_tap", { eventId: e.id, eventTitle: e.title, source: "tonight_starting_soon" })}>
-              <Card className="flex items-center gap-3.5 border border-cream/10 bg-cream/5 p-3.5">
-                <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-coral/10 text-coral">
+              <div className="flex items-center gap-3.5 rounded-2xl border-2 border-ink bg-white p-3.5 shadow-brut">
+                <div className="grid size-11 shrink-0 place-items-center rounded-xl border-2 border-ink bg-coral/10 text-coral">
                   <MapPin className="size-[18px]" strokeWidth={2.25} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="line-clamp-1 font-display text-[14px] font-bold tracking-tight text-cream">{e.title}</div>
-                  <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-cream/45">
+                  <div className="line-clamp-1 font-display text-[14px] font-bold tracking-tight text-ink">{e.title}</div>
+                  <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-ink/45">
                     {new Date(e.starts_at).toLocaleString(undefined, {
                       weekday: "short",
                       hour: "numeric",
@@ -282,13 +289,14 @@ function TonightFeedPage() {
                     · {e.venue_name ?? e.city}
                   </div>
                 </div>
-              </Card>
+                <ChevronRight className="size-5 text-ink/30" />
+              </div>
             </Link>
           ))}
           {!events?.length && (
-            <Card className="border border-cream/10 bg-cream/5 p-5 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-cream/35">Nothing on the calendar yet</p>
-            </Card>
+            <div className="rounded-2xl border-2 border-dashed border-ink/20 bg-white p-5 text-center">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-ink/35">Nothing on the calendar yet</p>
+            </div>
           )}
         </div>
       </section>
@@ -307,15 +315,15 @@ function SectionHeading({
   return (
     <div className="flex items-center gap-2 px-5">
       {Icon && <Icon className="size-4 text-coral" strokeWidth={2.5} />}
-      <h3 className="font-display text-[15px] font-extrabold tracking-tight text-cream">{title}</h3>
+      <h3 className="font-display text-[15px] font-extrabold tracking-tight text-ink">{title}</h3>
     </div>
   );
 }
 
 function Placeholder({ text }: { text: string }) {
   return (
-    <div className="grid h-44 w-full place-items-center rounded-2xl border-2 border-dashed border-cream/10 bg-cream/[0.03]">
-      <span className="font-mono text-[10px] uppercase tracking-widest text-cream/30">{text}</span>
+    <div className="grid h-44 w-full place-items-center rounded-2xl border-2 border-dashed border-ink/15 bg-white">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-ink/30">{text}</span>
     </div>
   );
 }

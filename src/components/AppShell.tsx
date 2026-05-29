@@ -10,6 +10,7 @@ type Tab = {
   label: string;
   icon: typeof Home;
   exact?: boolean;
+  isYou?: boolean;
 };
 
 const TABS: readonly Tab[] = [
@@ -17,7 +18,7 @@ const TABS: readonly Tab[] = [
   { to: "/app/explore", label: "Explore", icon: Compass },
   { to: "/app/plan", label: "Plan", icon: Sparkles },
   { to: "/boarding-pass", label: "Pass", icon: Ticket },
-  { to: "/app/profile", label: "Profile", icon: User },
+  { to: "/app/profile", label: "you", icon: User, isYou: true },
 ];
 
 /* ── BottomNav ──────────────────────────────────────────────────────── */
@@ -27,14 +28,38 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-[var(--z-nav)] mx-auto w-full max-w-md border-t border-cream/10 bg-mocha-dark/92 backdrop-blur-2xl safe-bottom"
+      className="fixed inset-x-0 bottom-0 z-[var(--z-nav)] mx-auto w-full max-w-md border-t-2 border-ink bg-cream/95 backdrop-blur-xl pb-[env(safe-area-inset-bottom)]"
       aria-label="Main navigation"
     >
-      <ul className="grid grid-cols-5 px-1 pt-2 pb-1" role="list">
-        {TABS.map(({ to, label, icon: Icon, exact }) => {
+      <ul className="grid min-h-[72px] grid-cols-5 place-items-center px-2" role="list">
+        {TABS.map(({ to, label, icon: Icon, exact, isYou }) => {
           const active = exact
             ? location.pathname === to
             : location.pathname.startsWith(to);
+
+          if (isYou) {
+            return (
+              <li key={to}>
+                <Link
+                  to={to}
+                  aria-current={active ? "page" : undefined}
+                  className="flex flex-col items-center gap-1 focus-visible:outline-none"
+                >
+                  <span
+                    className={cn(
+                      "flex items-center gap-1.5 rounded-full px-3.5 py-2 transition-all duration-200",
+                      active
+                        ? "bg-ink text-cream"
+                        : "bg-transparent text-ink/40 hover:text-ink/70",
+                    )}
+                  >
+                    <Icon className="size-[18px]" strokeWidth={2.5} strokeLinecap="square" strokeLinejoin="miter" />
+                    <span className="font-mono text-[10px] font-bold">{label}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          }
 
           return (
             <li key={to}>
@@ -42,28 +67,32 @@ export function BottomNav() {
                 to={to}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex flex-col items-center gap-0.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.14em] transition-colors duration-200",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-mocha-dark rounded-xl",
-                  active ? "text-cream" : "text-cream/35 hover:text-cream/60",
+                  "flex flex-col items-center gap-1 py-1 transition-colors duration-200",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-cream rounded-xl",
                 )}
               >
-                <span
-                  className={cn(
-                    "grid size-10 place-items-center rounded-2xl transition-all duration-200",
-                    active
-                      ? "bg-coral text-cream shadow-sm scale-100"
-                      : "text-cream/35",
-                  )}
-                >
+                <span className="relative">
                   <Icon
                     className={cn(
-                      "size-[18px] transition-transform duration-200",
-                      active && "scale-110",
+                      "size-[22px] transition-all duration-200",
+                      active ? "text-coral" : "text-ink/30 hover:text-ink/50",
                     )}
-                    strokeWidth={active ? 2.5 : 1.75}
+                    strokeWidth={2.5}
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
                   />
+                  {active && (
+                    <span className="absolute -bottom-1.5 left-1/2 h-[3px] w-4 -translate-x-1/2 rounded-full bg-coral" />
+                  )}
                 </span>
-                <span className="select-none">{label}</span>
+                <span
+                  className={cn(
+                    "font-mono text-[9px] font-bold uppercase tracking-widest select-none",
+                    active ? "text-coral" : "text-ink/30",
+                  )}
+                >
+                  {label}
+                </span>
               </Link>
             </li>
           );
@@ -79,7 +108,7 @@ export function AppShell() {
   useLocationTracking();
 
   return (
-    <div className="relative mx-auto min-h-screen w-full max-w-md bg-mocha text-cream pb-24">
+    <div className="relative mx-auto min-h-screen w-full max-w-md bg-cream text-ink pb-24">
       <Outlet />
       <BottomNav />
     </div>
@@ -104,7 +133,7 @@ export function MobileHeader({
   return (
     <header
       className={cn(
-        "sticky top-0 z-[var(--z-sticky)] border-b border-cream/8 bg-mocha-dark/95 backdrop-blur-2xl px-5 pb-3.5 pt-5",
+        "sticky top-0 z-[var(--z-sticky)] bg-cream px-5 pb-3.5 pt-5",
         className,
       )}
     >
@@ -113,11 +142,11 @@ export function MobileHeader({
           {left}
           <div className="min-w-0">
             {eyebrow && (
-              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-cream/45 mb-1">
+              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-coral mb-1">
                 {eyebrow}
               </p>
             )}
-            <h1 className="truncate font-display text-[22px] font-extrabold tracking-[-0.02em] text-cream leading-none">
+            <h1 className="truncate font-display text-[22px] font-extrabold tracking-[-0.02em] text-ink leading-none">
               {title}
             </h1>
           </div>

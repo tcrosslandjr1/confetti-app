@@ -3,21 +3,27 @@ import { useState } from "react";
 import {
   BackButton, BrandMark, ChunkyButton, DotsBg, FloatingTickets, Frame, Icons, Stamp, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
+import { getActiveLoop } from "@/lib/loop-store";
 
 // Ported from design/new-confetti/project/screens.jsx (NightFinished, line 1336)
 export const Route = createFileRoute("/new/finished")({
   component: FinishedPage,
 });
 
-const STOPS = [
-  { time: "6:30", name: "Daughter Coffee", cost: "$12", color: TOKENS.accent2 },
-  { time: "8:30", name: "Lupa Notte",      cost: "$58", color: TOKENS.accent1 },
-  { time: "10:45", name: "Skinny Dennis",  cost: "$22", color: TOKENS.accent3 },
-];
+const STOP_COLORS = [TOKENS.accent2, TOKENS.accent1, TOKENS.accent3];
 
 function FinishedPage() {
   const navigate = useNavigate();
   const [shared, setShared] = useState<string | null>(null);
+
+  const loop = getActiveLoop();
+  const stops = (loop?.stops?.slice(0, 3) ?? []).map((s, i) => ({
+    time: s.time,
+    name: s.name,
+    cost: s.priceLevel || "—",
+    color: STOP_COLORS[i % 3],
+  }));
+  const passCode = loop?.id ?? "—";
 
   return (
     <Frame>
@@ -40,8 +46,8 @@ function FinishedPage() {
           <BrandMark size={17} />
           <span style={{
             fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-            letterSpacing: ".14em", opacity: 0.55,
-          }}>PASS · #A7K2 · CLOSED</span>
+            letterSpacing: ".14em", color: TOKENS.inkHint,
+          }}>PASS · {passCode} · CLOSED</span>
         </div>
 
         <div style={{
@@ -62,19 +68,19 @@ function FinishedPage() {
           <div style={{
             display: "flex", gap: 8, marginBottom: 18,
           }}>
-            {STOPS.map((s, i) => (
+            {stops.map((s, i) => (
               <div key={i} style={{
                 flex: 1, aspectRatio: "3 / 4",
                 border: `2.5px solid ${TOKENS.ink}`, borderRadius: 10,
                 background: s.color,
                 boxShadow: `3px 3px 0 ${TOKENS.ink}`,
-                transform: `rotate(${[-3, 1, -1][i]}deg)`,
+                transform: `rotate(${[-3, 1, -1][i % 3]}deg)`,
                 display: "flex", flexDirection: "column", justifyContent: "flex-end",
                 padding: 8,
               }}>
                 <div style={{
                   fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 800,
-                  letterSpacing: ".14em", color: TOKENS.ink, opacity: 0.7,
+                  letterSpacing: ".14em", color: TOKENS.inkHint,
                 }}>{s.time}</div>
                 <div style={{
                   fontFamily: TOKENS.display, fontWeight: 900, fontSize: 12,
@@ -87,7 +93,7 @@ function FinishedPage() {
           {/* Share rail */}
           <div style={{
             fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-            letterSpacing: ".16em", opacity: 0.55, marginBottom: 10,
+            letterSpacing: ".16em", color: TOKENS.inkHint, marginBottom: 10,
           }}>SHARE</div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             {["tiktok", "ig", "imessage", "copy"].map((k) => (
@@ -116,27 +122,27 @@ function FinishedPage() {
           {/* Receipt */}
           <div style={{
             fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-            letterSpacing: ".16em", opacity: 0.55, marginBottom: 10, marginTop: 18,
+            letterSpacing: ".16em", color: TOKENS.inkHint, marginBottom: 10, marginTop: 18,
           }}>RECEIPT</div>
           <Ticket color={TOKENS.paper} notch={false} style={{ padding: 16 }}>
             <div style={{
               display: "flex", justifyContent: "space-between",
               fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
-              letterSpacing: ".12em", marginBottom: 10, opacity: 0.6,
+              letterSpacing: ".12em", marginBottom: 10, color: TOKENS.inkMuted,
             }}>
-              <span>SAT MAY 23 · BROOKLYN</span><span>#A7K2</span>
+              <span>{loop?.date?.toUpperCase() ?? "TONIGHT"}</span><span>{passCode}</span>
             </div>
-            {STOPS.map((s, i) => (
+            {stops.map((s, i) => (
               <div key={i} style={{
                 display: "flex", justifyContent: "space-between", gap: 10,
                 padding: "6px 0",
-                borderBottom: i < 2 ? "1.5px dashed rgba(0,0,0,0.15)" : "none",
+                borderBottom: i < stops.length - 1 ? "1.5px dashed rgba(0,0,0,0.15)" : "none",
                 fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700,
               }}>
                 <span style={{
                   fontFamily: TOKENS.mono, fontSize: 10,
-                  opacity: 0.55, width: 64,
-                }}>{s.time} PM</span>
+                  color: TOKENS.inkHint, width: 64,
+                }}>{s.time}</span>
                 <span style={{ flex: 1 }}>{s.name}</span>
                 <span style={{ fontFamily: TOKENS.mono, fontWeight: 800 }}>{s.cost}</span>
               </div>
@@ -147,7 +153,7 @@ function FinishedPage() {
               display: "flex", justifyContent: "space-between",
               fontFamily: TOKENS.display, fontWeight: 900, fontSize: 18,
             }}>
-              <span>TOTAL</span><span>$92</span>
+              <span>TOTAL</span><span>{loop?.estimatedSpend ?? "—"}</span>
             </div>
             <div style={{ display: "flex", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
               <Stamp color={TOKENS.accent2} rotate={-3} style={{ fontSize: 10 }}>foodie</Stamp>

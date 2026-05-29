@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {
   BackButton, BrandMark, DotsBg, FloatingTickets, Frame, RouteDots, TOKENS,
 } from "@/components/new-confetti/shell";
+import { getActiveLoop } from "@/lib/loop-store";
 
 // Ported from design/new-confetti/project/screens.jsx (LoaderScreen, line 442)
 export const Route = createFileRoute("/new/printing")({
@@ -22,6 +23,11 @@ function LoaderPage() {
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
+
+  const loop = getActiveLoop();
+  const passCode = loop?.id ?? "—";
+  const stopCount = loop?.stops?.length ?? 3;
+  const vibeLabel = loop?.occasion || loop?.vibe || "your night";
 
   useEffect(() => {
     const start = Date.now();
@@ -106,7 +112,7 @@ function LoaderPage() {
                 fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
                 letterSpacing: ".14em",
               }}>
-                <span>YOUR PASS</span><span>#A7K2</span>
+                <span>YOUR PASS</span><span>{passCode}</span>
               </div>
               <RouteDots progress={progress} size={18} />
               <div style={{
@@ -154,7 +160,7 @@ function LoaderPage() {
                 fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
                 letterSpacing: ".14em", marginTop: 4,
               }}>
-                <span>3 STOPS</span><span>~4H</span><span>~$92</span>
+                <span>{stopCount} STOPS</span><span>{vibeLabel.toUpperCase()}</span>
               </div>
             </div>
           </div>

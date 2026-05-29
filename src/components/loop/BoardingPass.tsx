@@ -1566,6 +1566,23 @@ function StopCard({
           </div>
         )}
 
+        {/* Social hashtags */}
+        {stop.hashtags && stop.hashtags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {stop.hashtags.map((tag) => (
+              <a
+                key={tag}
+                href={`https://www.instagram.com/explore/tags/${encodeURIComponent(tag.replace("#", ""))}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-cream/20 bg-cream/10 px-2 py-0.5 font-mono text-[9px] font-bold text-cream/60 transition-colors hover:bg-cream/20 hover:text-cream"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )}
+
         {/* Flip-to-details button */}
         <div className="mt-2.5 flex flex-wrap gap-1.5">
           <button

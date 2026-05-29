@@ -166,6 +166,52 @@ function hashStr(s: string) {
   return h;
 }
 
+/** Deterministic parking suggestion for a stop — stable per venue name. */
+function generateParking(s: Stop): { primary: string; secondary?: string } {
+  const h = hashStr(s.venue);
+  const hood = s.neighborhood ?? "";
+  const opts: { primary: string; secondary?: string }[] = [
+    {
+      primary: hood ? `Street parking near ${hood}` : "Street parking nearby",
+      secondary: "Free after 8 PM · check signs",
+    },
+    {
+      primary: "Public parking garage · 1 block",
+      secondary: `~$${5 + (h % 13)}/hr · open evenings`,
+    },
+    {
+      primary: "Metered street parking",
+      secondary: "ParkMobile or quarters · 2-hr limit",
+    },
+    {
+      primary: "Valet available at front entrance",
+      secondary: `~$${15 + (h % 20)} flat`,
+    },
+    {
+      primary: "Parking lot within 2 blocks",
+      secondary: `~$${8 + (h % 12)}/hr · open late`,
+    },
+  ];
+  return opts[h % opts.length];
+}
+
+/** Deterministic hashtag set for a stop — stable per venue + city. */
+function generateHashtags(s: Stop, cityName: string): string[] {
+  const clean = (str: string) => str.replace(/[^a-zA-Z0-9]/g, "");
+  const venue = clean(s.venue);
+  const hood = clean(s.neighborhood ?? "");
+  const city = clean(cityName) || "Nightlife";
+  const vibeTag = clean(s.vibe);
+  const tags = [
+    `#${venue}`,
+    hood ? `#${hood}` : null,
+    `#${city}Nights`,
+    `#ConfettiNight`,
+    `#${vibeTag}Vibes`,
+  ].filter((t): t is string => t !== null && t.length > 2);
+  return [...new Set(tags)].slice(0, 4);
+}
+
 function partySizeFromCrew(crew: string | null): number {
   switch (crew) {
     case "solo":
@@ -1325,6 +1371,8 @@ export function BuildMyNightWizard() {
     setStep(6);
   }
   function wizardStopToLoopStop(s: Stop, i: number): LoopStop {
+    const details = getDetails(s.venue, s.vibe);
+    const cityName = getSelectedCity()?.name ?? "";
     return {
       id: s.placeId ?? `ws-${Date.now()}-${i}`,
       name: s.venue,
@@ -1337,6 +1385,19 @@ export function BuildMyNightWizard() {
       lng: s.lng,
       kind: i === 0 ? "departure" : i === stops.length - 1 ? "destination" : "layover",
       bookable: true,
+      // Rich boarding-pass fields
+      parking: generateParking(s),
+      hashtags: generateHashtags(s, cityName),
+      priceLevel: "$".repeat(details.priceLevel),
+      phone: details.phone,
+      detail: details.knownFor,
+      signature: details.dishes[0] ?? details.knownFor,
+      dressCode: details.vibeProfile.dress,
+      crowd: details.vibeProfile.crowd,
+      tags: [
+        { label: s.vibe, variant: "vibe" as const },
+        ...(s.tone ? [{ label: s.tone, variant: "vibe" as const }] : []),
+      ],
     };
   }
 
@@ -1359,18 +1420,31 @@ export function BuildMyNightWizard() {
 
   function savePlan(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
-    const existing = getActiveLoop();
-    // Prefer the user-curated stops they tapped "+ Add" on; otherwise lock in
-    // everything currently shown in the wizard.
-    const loop = existing && existing.stops.length > 0 ? existing : buildLoopFromWizard();
+    // Always build fresh from the current wizard stops so the boarding pass shows
+    // exactly the venues this session generated, not stale stops from a prior plan.
+    const base = buildLoopFromWizard();
+    // If the user selectively tapped "+ Add" on specific stops from this session,
+    // honour that subset; otherwise use the full wizard plan.
+    const wizardNames = new Set(stops.map((s) => s.venue.toLowerCase()));
+    const sessionPicks = (getActiveLoop()?.stops ?? []).filter((ls) =>
+      wizardNames.has(ls.name.toLowerCase()),
+    );
+    const loop: ActiveLoop =
+      sessionPicks.length > 0 ? { ...base, stops: sessionPicks } : base;
     setActiveLoop(loop);
-    toast.success("Locked in", {
-      description: `${loop.stops.length} stop${loop.stops.length === 1 ? "" : "s"} · opening boarding pass…`,
+    toast.success("Boarding pass ready!", {
+      description: `${loop.stops.length} stop${loop.stops.length === 1 ? "" : "s"} · opening your boarding pass…`,
     });
     setTimeout(() => {
       closeWizard();
       navigate({ to: "/boarding-pass" });
     }, 350);
+  }
+
+  /** Advance to step 8 (review / confirmation screen) before committing. */
+  function reviewPlan(e: React.MouseEvent) {
+    burst(e.clientX, e.clientY);
+    setStep(8);
   }
 
   function addStopToBoardingPass(stop: Stop, e: React.MouseEvent) {
@@ -1431,7 +1505,9 @@ export function BuildMyNightWizard() {
               ? `Step ${step + 1} / ${totalSteps}`
               : step === 6
                 ? "Building your night"
-                : "Your night, ready"}
+                : step === 8
+                  ? "Confirm your plan"
+                  : "Your night, ready"}
             {step <= 5 && (
               <span className="hidden font-normal normal-case tracking-normal text-cream/60 sm:inline">
                 · ~45 sec total
@@ -2520,6 +2596,21 @@ export function BuildMyNightWizard() {
                               <Globe className="h-3.5 w-3.5" /> Website
                             </a>
                           </div>
+
+                          {/* Social hashtags */}
+                          <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                            {generateHashtags(s, getSelectedCity()?.name ?? "").map((tag) => (
+                              <a
+                                key={tag}
+                                href={`https://www.instagram.com/explore/tags/${encodeURIComponent(tag.replace("#", ""))}/`}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center rounded-full border border-cream/25 bg-cream/10 px-2.5 py-0.5 font-mono text-[10px] font-bold text-cream/70 transition-colors hover:bg-cream/20 hover:text-cream"
+                              >
+                                {tag}
+                              </a>
+                            ))}
+                          </div>
                         </div>
                       )}
                     </li>
@@ -2535,13 +2626,113 @@ export function BuildMyNightWizard() {
                   <RefreshCw className="h-4 w-4" /> Regenerate
                 </button>
                 <button
-                  onClick={savePlan}
+                  onClick={reviewPlan}
                   className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
                 >
                   <Sparkles className="h-4 w-4" />
                   {addedStopKeys.size > 0
                     ? `Lock it in (${activeLoopState?.stops.length ?? 0} stop${(activeLoopState?.stops.length ?? 0) === 1 ? "" : "s"})`
                     : "Lock it in — full plan"}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ─── Step 8: Plan review / confirmation ─── */}
+          {step === 8 && (
+            <div>
+              <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
+                Your night,{" "}
+                <span className="font-serif italic font-normal text-coral">confirmed.</span>
+              </h2>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cream/60">
+                {stops.length} stop{stops.length === 1 ? "" : "s"} ·{" "}
+                {vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} ·{" "}
+                {CREW.find((c) => c.k === crew)?.label} · {budget}
+              </p>
+
+              <ol className="mt-5 space-y-3">
+                {stops.map((s, i) => {
+                  const details = getDetails(s.venue, s.vibe);
+                  const tags = generateHashtags(s, getSelectedCity()?.name ?? "");
+                  return (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 rounded-2xl border-2 border-ink bg-cream/10 p-4 shadow-brut"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-coral font-mono text-xs font-extrabold text-cream">
+                        {i + 1}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-baseline gap-2">
+                          <span className="font-display text-base font-extrabold text-cream">
+                            {s.venue}
+                          </span>
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                            {s.time}
+                          </span>
+                          <span className="font-mono text-[10px] text-coral">
+                            {"$".repeat(details.priceLevel)}
+                          </span>
+                        </div>
+                        {s.neighborhood && (
+                          <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                            {s.neighborhood}
+                          </p>
+                        )}
+                        {s.address && (
+                          <p className="mt-0.5 truncate font-mono text-[10px] text-cream/40">
+                            {s.address}
+                          </p>
+                        )}
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-cream/20 bg-cream/10 px-2 py-0.5 font-mono text-[9px] font-bold text-cream/60"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+
+              <div className="mt-5 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/5 p-4">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                  Estimated per person
+                </p>
+                <p className="mt-1 font-display text-2xl font-extrabold text-cream">
+                  {(() => {
+                    const total = stops.reduce(
+                      (sum, s) => sum + getDetails(s.venue, s.vibe).priceLevel * 15,
+                      0,
+                    );
+                    return `~$${total}–$${total + stops.length * 20}`;
+                  })()}
+                </p>
+                <p className="mt-0.5 font-mono text-[9px] text-cream/40">
+                  Drinks, cover, and tips — actual cost varies by venue
+                </p>
+              </div>
+
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setStep(7)}
+                  className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-cream px-5 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
+                >
+                  <ArrowLeft className="h-4 w-4" /> Adjust plan
+                </button>
+                <button
+                  type="button"
+                  onClick={savePlan}
+                  className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-coral px-6 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+                >
+                  <Sparkles className="h-4 w-4" /> Board the night →
                 </button>
               </div>
             </div>
@@ -2561,10 +2752,10 @@ export function BuildMyNightWizard() {
             </div>
             <button
               type="button"
-              onClick={savePlan}
+              onClick={reviewPlan}
               className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
             >
-              <Sparkles className="h-4 w-4" /> Lock it in ({activeLoopState?.stops.length ?? 0})
+              <Sparkles className="h-4 w-4" /> Review plan ({activeLoopState?.stops.length ?? 0})
             </button>
           </div>
         )}

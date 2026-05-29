@@ -61,6 +61,8 @@ export type LoopStop = {
   boostCampaignId?: string;
   /** True when the venue's web/social presence has been verified. */
   verified?: boolean;
+  /** Social media hashtags linked to this stop / venue. */
+  hashtags?: string[];
 };
 
 export type LoopBonusMove = {

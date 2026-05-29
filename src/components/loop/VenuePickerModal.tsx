@@ -171,10 +171,17 @@ export function VenuePickerModal({
       .map(([c]) => c);
   }, [cityMatched]);
 
+  // Normalized set of already-in-plan stop names for UI-level dedup.
+  const existingNormalized = useMemo(
+    () => new Set((existingStopNames ?? []).map((n) => normalize(n))),
+    [existingStopNames],
+  );
+
   const results = useMemo(() => {
     const q = normalize(query);
     return cityMatched
       .filter((v) => !exclude.has(v.id))
+      .filter((v) => !existingNormalized.has(normalize(v.name)))
       .filter((v) => !activeCuisine || v.cuisine === activeCuisine)
       .filter((v) => {
         if (!q) return true;
@@ -187,7 +194,7 @@ export function VenuePickerModal({
         );
       })
       .slice(0, 60);
-  }, [cityMatched, query, activeCuisine, exclude]);
+  }, [cityMatched, query, activeCuisine, exclude, existingNormalized]);
 
   // Stable signature of the avoid-list so a new array reference each render
   // doesn't refire the AI fetch unnecessarily.
@@ -232,7 +239,7 @@ export function VenuePickerModal({
           setAiState("empty");
           setAiResults([]);
         } else {
-          setAiResults(picks);
+          setAiResults(picks); // store raw; filtered at render time
           setAiState("success");
         }
       } catch {

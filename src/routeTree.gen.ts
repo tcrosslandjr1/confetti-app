@@ -42,6 +42,7 @@ import { Route as NewVenueRouteImport } from './routes/new.venue'
 import { Route as NewTripsRouteImport } from './routes/new.trips'
 import { Route as NewTasteRouteImport } from './routes/new.taste'
 import { Route as NewStripeRouteImport } from './routes/new.stripe'
+import { Route as NewSocialsRouteImport } from './routes/new.socials'
 import { Route as NewSignupRouteImport } from './routes/new.signup'
 import { Route as NewSigninRouteImport } from './routes/new.signin'
 import { Route as NewSettingsRouteImport } from './routes/new.settings'
@@ -117,14 +118,18 @@ import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pic
 import { Route as ApiMapsSatelliteRouteImport } from './routes/api/maps/satellite'
 import { Route as ApiPublicWebhooksPartnerRouteImport } from './routes/api/public/webhooks/partner'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
+import { Route as ApiPublicTiktokInitiateRouteImport } from './routes/api/public/tiktok.initiate'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
+import { Route as ApiPublicInstagramInitiateRouteImport } from './routes/api/public/instagram.initiate'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 import { Route as ApiPublicHooksRefreshVenueMediaRouteImport } from './routes/api/public/hooks/refresh-venue-media'
 import { Route as ApiPublicHooksRefreshTrendingVenuesRouteImport } from './routes/api/public/hooks/refresh-trending-venues'
 import { Route as ApiPublicHooksRefreshOutreachCsvRouteImport } from './routes/api/public/hooks/refresh-outreach-csv'
 import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/public/hooks/discover-viral'
+import { Route as ApiPublicFacebookInitiateRouteImport } from './routes/api/public/facebook.initiate'
+import { Route as ApiPublicFacebookCallbackRouteImport } from './routes/api/public/facebook.callback'
 import { Route as ApiAdminWalletGoogleDebugRouteImport } from './routes/api/admin/wallet/google-debug'
 import { Route as ApiAdminWalletGoogleClassRouteImport } from './routes/api/admin/wallet/google-class'
 import { Route as ApiPublicPartnerV1MenuRouteImport } from './routes/api/public/partner/v1/menu'
@@ -297,6 +302,11 @@ const NewTasteRoute = NewTasteRouteImport.update({
 const NewStripeRoute = NewStripeRouteImport.update({
   id: '/new/stripe',
   path: '/new/stripe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewSocialsRoute = NewSocialsRouteImport.update({
+  id: '/new/socials',
+  path: '/new/socials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewSignupRoute = NewSignupRouteImport.update({
@@ -675,6 +685,11 @@ const ApiPublicWalletGoogleRoute = ApiPublicWalletGoogleRouteImport.update({
   path: '/api/public/wallet/google',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicTiktokInitiateRoute = ApiPublicTiktokInitiateRouteImport.update({
+  id: '/api/public/tiktok/initiate',
+  path: '/api/public/tiktok/initiate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicTiktokCallbackRoute = ApiPublicTiktokCallbackRouteImport.update({
   id: '/api/public/tiktok/callback',
   path: '/api/public/tiktok/callback',
@@ -684,6 +699,12 @@ const ApiPublicPaymentsWebhookRoute =
   ApiPublicPaymentsWebhookRouteImport.update({
     id: '/api/public/payments/webhook',
     path: '/api/public/payments/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicInstagramInitiateRoute =
+  ApiPublicInstagramInitiateRouteImport.update({
+    id: '/api/public/instagram/initiate',
+    path: '/api/public/instagram/initiate',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ApiPublicInstagramCallbackRoute =
@@ -720,6 +741,18 @@ const ApiPublicHooksDiscoverViralRoute =
   ApiPublicHooksDiscoverViralRouteImport.update({
     id: '/api/public/hooks/discover-viral',
     path: '/api/public/hooks/discover-viral',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicFacebookInitiateRoute =
+  ApiPublicFacebookInitiateRouteImport.update({
+    id: '/api/public/facebook/initiate',
+    path: '/api/public/facebook/initiate',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicFacebookCallbackRoute =
+  ApiPublicFacebookCallbackRouteImport.update({
+    id: '/api/public/facebook/callback',
+    path: '/api/public/facebook/callback',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ApiAdminWalletGoogleDebugRoute =
@@ -858,6 +891,7 @@ export interface FileRoutesByFullPath {
   '/new/settings': typeof NewSettingsRoute
   '/new/signin': typeof NewSigninRoute
   '/new/signup': typeof NewSignupRoute
+  '/new/socials': typeof NewSocialsRoute
   '/new/stripe': typeof NewStripeRoute
   '/new/taste': typeof NewTasteRoute
   '/new/trips': typeof NewTripsRoute
@@ -879,14 +913,18 @@ export interface FileRoutesByFullPath {
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
+  '/api/public/facebook/callback': typeof ApiPublicFacebookCallbackRoute
+  '/api/public/facebook/initiate': typeof ApiPublicFacebookInitiateRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
   '/api/public/hooks/refresh-trending-venues': typeof ApiPublicHooksRefreshTrendingVenuesRoute
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
+  '/api/public/instagram/initiate': typeof ApiPublicInstagramInitiateRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
+  '/api/public/tiktok/initiate': typeof ApiPublicTiktokInitiateRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
   '/api/public/webhooks/partner': typeof ApiPublicWebhooksPartnerRoute
   '/api/public/partner/v1/availability': typeof ApiPublicPartnerV1AvailabilityRoute
@@ -983,6 +1021,7 @@ export interface FileRoutesByTo {
   '/new/settings': typeof NewSettingsRoute
   '/new/signin': typeof NewSigninRoute
   '/new/signup': typeof NewSignupRoute
+  '/new/socials': typeof NewSocialsRoute
   '/new/stripe': typeof NewStripeRoute
   '/new/taste': typeof NewTasteRoute
   '/new/trips': typeof NewTripsRoute
@@ -1004,14 +1043,18 @@ export interface FileRoutesByTo {
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
+  '/api/public/facebook/callback': typeof ApiPublicFacebookCallbackRoute
+  '/api/public/facebook/initiate': typeof ApiPublicFacebookInitiateRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
   '/api/public/hooks/refresh-trending-venues': typeof ApiPublicHooksRefreshTrendingVenuesRoute
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
+  '/api/public/instagram/initiate': typeof ApiPublicInstagramInitiateRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
+  '/api/public/tiktok/initiate': typeof ApiPublicTiktokInitiateRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
   '/api/public/webhooks/partner': typeof ApiPublicWebhooksPartnerRoute
   '/api/public/partner/v1/availability': typeof ApiPublicPartnerV1AvailabilityRoute
@@ -1110,6 +1153,7 @@ export interface FileRoutesById {
   '/new/settings': typeof NewSettingsRoute
   '/new/signin': typeof NewSigninRoute
   '/new/signup': typeof NewSignupRoute
+  '/new/socials': typeof NewSocialsRoute
   '/new/stripe': typeof NewStripeRoute
   '/new/taste': typeof NewTasteRoute
   '/new/trips': typeof NewTripsRoute
@@ -1131,14 +1175,18 @@ export interface FileRoutesById {
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
+  '/api/public/facebook/callback': typeof ApiPublicFacebookCallbackRoute
+  '/api/public/facebook/initiate': typeof ApiPublicFacebookInitiateRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
   '/api/public/hooks/refresh-trending-venues': typeof ApiPublicHooksRefreshTrendingVenuesRoute
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
+  '/api/public/instagram/initiate': typeof ApiPublicInstagramInitiateRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
+  '/api/public/tiktok/initiate': typeof ApiPublicTiktokInitiateRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
   '/api/public/webhooks/partner': typeof ApiPublicWebhooksPartnerRoute
   '/api/public/partner/v1/availability': typeof ApiPublicPartnerV1AvailabilityRoute
@@ -1238,6 +1286,7 @@ export interface FileRouteTypes {
     | '/new/settings'
     | '/new/signin'
     | '/new/signup'
+    | '/new/socials'
     | '/new/stripe'
     | '/new/taste'
     | '/new/trips'
@@ -1259,14 +1308,18 @@ export interface FileRouteTypes {
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
+    | '/api/public/facebook/callback'
+    | '/api/public/facebook/initiate'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/refresh-outreach-csv'
     | '/api/public/hooks/refresh-trending-venues'
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
+    | '/api/public/instagram/initiate'
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
+    | '/api/public/tiktok/initiate'
     | '/api/public/wallet/google'
     | '/api/public/webhooks/partner'
     | '/api/public/partner/v1/availability'
@@ -1363,6 +1416,7 @@ export interface FileRouteTypes {
     | '/new/settings'
     | '/new/signin'
     | '/new/signup'
+    | '/new/socials'
     | '/new/stripe'
     | '/new/taste'
     | '/new/trips'
@@ -1384,14 +1438,18 @@ export interface FileRouteTypes {
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
+    | '/api/public/facebook/callback'
+    | '/api/public/facebook/initiate'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/refresh-outreach-csv'
     | '/api/public/hooks/refresh-trending-venues'
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
+    | '/api/public/instagram/initiate'
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
+    | '/api/public/tiktok/initiate'
     | '/api/public/wallet/google'
     | '/api/public/webhooks/partner'
     | '/api/public/partner/v1/availability'
@@ -1489,6 +1547,7 @@ export interface FileRouteTypes {
     | '/new/settings'
     | '/new/signin'
     | '/new/signup'
+    | '/new/socials'
     | '/new/stripe'
     | '/new/taste'
     | '/new/trips'
@@ -1510,14 +1569,18 @@ export interface FileRouteTypes {
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
+    | '/api/public/facebook/callback'
+    | '/api/public/facebook/initiate'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/refresh-outreach-csv'
     | '/api/public/hooks/refresh-trending-venues'
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
+    | '/api/public/instagram/initiate'
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
+    | '/api/public/tiktok/initiate'
     | '/api/public/wallet/google'
     | '/api/public/webhooks/partner'
     | '/api/public/partner/v1/availability'
@@ -1610,6 +1673,7 @@ export interface RootRouteChildren {
   NewSettingsRoute: typeof NewSettingsRoute
   NewSigninRoute: typeof NewSigninRoute
   NewSignupRoute: typeof NewSignupRoute
+  NewSocialsRoute: typeof NewSocialsRoute
   NewStripeRoute: typeof NewStripeRoute
   NewTasteRoute: typeof NewTasteRoute
   NewTripsRoute: typeof NewTripsRoute
@@ -1627,14 +1691,18 @@ export interface RootRouteChildren {
   ApiPublicPickEventsRoute: typeof ApiPublicPickEventsRoute
   ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
   ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
+  ApiPublicFacebookCallbackRoute: typeof ApiPublicFacebookCallbackRoute
+  ApiPublicFacebookInitiateRoute: typeof ApiPublicFacebookInitiateRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
   ApiPublicHooksRefreshOutreachCsvRoute: typeof ApiPublicHooksRefreshOutreachCsvRoute
   ApiPublicHooksRefreshTrendingVenuesRoute: typeof ApiPublicHooksRefreshTrendingVenuesRoute
   ApiPublicHooksRefreshVenueMediaRoute: typeof ApiPublicHooksRefreshVenueMediaRoute
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
+  ApiPublicInstagramInitiateRoute: typeof ApiPublicInstagramInitiateRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
+  ApiPublicTiktokInitiateRoute: typeof ApiPublicTiktokInitiateRoute
   ApiPublicWalletGoogleRoute: typeof ApiPublicWalletGoogleRoute
   ApiPublicWebhooksPartnerRoute: typeof ApiPublicWebhooksPartnerRoute
   ApiPublicPartnerV1AvailabilityRoute: typeof ApiPublicPartnerV1AvailabilityRoute
@@ -1876,6 +1944,13 @@ declare module '@tanstack/react-router' {
       path: '/new/stripe'
       fullPath: '/new/stripe'
       preLoaderRoute: typeof NewStripeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/socials': {
+      id: '/new/socials'
+      path: '/new/socials'
+      fullPath: '/new/socials'
+      preLoaderRoute: typeof NewSocialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new/signup': {
@@ -2403,6 +2478,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicWalletGoogleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/tiktok/initiate': {
+      id: '/api/public/tiktok/initiate'
+      path: '/api/public/tiktok/initiate'
+      fullPath: '/api/public/tiktok/initiate'
+      preLoaderRoute: typeof ApiPublicTiktokInitiateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/tiktok/callback': {
       id: '/api/public/tiktok/callback'
       path: '/api/public/tiktok/callback'
@@ -2415,6 +2497,13 @@ declare module '@tanstack/react-router' {
       path: '/api/public/payments/webhook'
       fullPath: '/api/public/payments/webhook'
       preLoaderRoute: typeof ApiPublicPaymentsWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/instagram/initiate': {
+      id: '/api/public/instagram/initiate'
+      path: '/api/public/instagram/initiate'
+      fullPath: '/api/public/instagram/initiate'
+      preLoaderRoute: typeof ApiPublicInstagramInitiateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/instagram/callback': {
@@ -2457,6 +2546,20 @@ declare module '@tanstack/react-router' {
       path: '/api/public/hooks/discover-viral'
       fullPath: '/api/public/hooks/discover-viral'
       preLoaderRoute: typeof ApiPublicHooksDiscoverViralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/facebook/initiate': {
+      id: '/api/public/facebook/initiate'
+      path: '/api/public/facebook/initiate'
+      fullPath: '/api/public/facebook/initiate'
+      preLoaderRoute: typeof ApiPublicFacebookInitiateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/facebook/callback': {
+      id: '/api/public/facebook/callback'
+      path: '/api/public/facebook/callback'
+      fullPath: '/api/public/facebook/callback'
+      preLoaderRoute: typeof ApiPublicFacebookCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/admin/wallet/google-debug': {
@@ -2666,6 +2769,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewSettingsRoute: NewSettingsRoute,
   NewSigninRoute: NewSigninRoute,
   NewSignupRoute: NewSignupRoute,
+  NewSocialsRoute: NewSocialsRoute,
   NewStripeRoute: NewStripeRoute,
   NewTasteRoute: NewTasteRoute,
   NewTripsRoute: NewTripsRoute,
@@ -2683,6 +2787,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicPickEventsRoute: ApiPublicPickEventsRoute,
   ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
   ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,
+  ApiPublicFacebookCallbackRoute: ApiPublicFacebookCallbackRoute,
+  ApiPublicFacebookInitiateRoute: ApiPublicFacebookInitiateRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,
   ApiPublicHooksRefreshOutreachCsvRoute: ApiPublicHooksRefreshOutreachCsvRoute,
   ApiPublicHooksRefreshTrendingVenuesRoute:
@@ -2690,8 +2796,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksRefreshVenueMediaRoute: ApiPublicHooksRefreshVenueMediaRoute,
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,
+  ApiPublicInstagramInitiateRoute: ApiPublicInstagramInitiateRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
+  ApiPublicTiktokInitiateRoute: ApiPublicTiktokInitiateRoute,
   ApiPublicWalletGoogleRoute: ApiPublicWalletGoogleRoute,
   ApiPublicWebhooksPartnerRoute: ApiPublicWebhooksPartnerRoute,
   ApiPublicPartnerV1AvailabilityRoute: ApiPublicPartnerV1AvailabilityRoute,

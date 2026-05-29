@@ -24,6 +24,7 @@ import {
   type LocalFlavorLevel,
 } from "./agents/v6-engines";
 import type { GeneratedPlan } from "./agents/types";
+import { fetchVenueIntelCandidates } from "./venue-intel.server";
 
 const PlanRequestSchema = z.object({
   city: z.string().min(1).max(80).optional(),
@@ -369,16 +370,33 @@ export const generatePlan = createServerFn({ method: "POST" })
     const template = findTemplate(req.occasionId);
 
     // 3. Quality Guardrail — pull candidate venues for the city
-    //    Merge curated local knowledge (Excel guides) + viral_venues (discovered)
-    const [viralCandidates, curatedCandidates] = await Promise.all([
+    //    Merge: venue_intel (NAS cron — TikTok/Google/Yelp enriched + trending)
+    //         + curated local knowledge (Excel guides)
+    //         + viral_venues (discovered)
+    const [viralCandidates, curatedCandidates, intelCandidates] = await Promise.all([
       fetchQualifiedVenues(cityCtx.city),
       fetchCuratedVenues(cityCtx.city, req.occasionId, req.vibeLabel),
+      fetchVenueIntelCandidates(cityCtx.city, {
+        occasionId: req.occasionId,
+        vibeLabel: req.vibeLabel,
+        limit: 40,
+        minTrendingScore: 20,
+      }).catch((e) => {
+        // Non-fatal: if venue_intel is empty or unavailable, continue without it
+        console.warn("[generatePlan] venue_intel fetch failed, continuing without it:", e?.message);
+        return [];
+      }),
     ]);
 
-    // Merge: curated first (higher trust), then viral, deduplicated by name
+    // Merge order: venue_intel first (real TikTok+Google+Yelp trending data)
+    //              → curated (hand-picked, high trust)
+    //              → viral (discovered pool)
+    // Deduplicate by normalized name so the same venue from multiple sources appears once.
+    // venue_intel entries carry trending_score and isTrending flags that inform
+    // the prompt candidateBlock; the AI will naturally prioritize high-trendScore picks.
     const seenNames = new Set<string>();
     let candidates: CandidateVenue[] = [];
-    for (const c of [...curatedCandidates, ...viralCandidates]) {
+    for (const c of [...intelCandidates, ...curatedCandidates, ...viralCandidates]) {
       const key = c.name.toLowerCase().trim();
       if (!seenNames.has(key)) {
         seenNames.add(key);
@@ -423,10 +441,14 @@ export const generatePlan = createServerFn({ method: "POST" })
 
     const candidateBlock = topCandidates.length
       ? topCandidates
-          .map(
-            (c, i) =>
-              `${i + 1}.${c.promoted ? " [PROMOTED]" : ""} id=${c.id} | "${c.name}" | ${c.category} | ${c.neighborhood ?? "—"} | rating=${c.rating ?? "?"} | trend=${(c.trendScore ?? 0).toFixed(2)} | tags=[${c.tags.slice(0, 4).join(", ")}] | ${c.summary?.slice(0, 110) ?? ""}`,
-          )
+          .map((c, i) => {
+            // Detect venue_intel entries (id starts with "intel:")
+            const isIntel = c.id.startsWith("intel:");
+            const intelBadge = isIntel
+              ? ` [TRENDING:${(c as typeof c & { tiktokCount?: number }).tiktokCount ?? 0}🎵]`
+              : "";
+            return `${i + 1}.${c.promoted ? " [PROMOTED]" : ""}${intelBadge} id=${c.id} | "${c.name}" | ${c.category} | ${c.neighborhood ?? "—"} | rating=${c.rating ?? "?"} | trend=${(c.trendScore ?? 0).toFixed(2)} | tags=[${c.tags.slice(0, 4).join(", ")}] | ${c.summary?.slice(0, 110) ?? ""}`;
+          })
           .join("\n")
       : "(no discovered venues — invent on-vibe placeholders that match the city's allowed activities)";
 
@@ -450,6 +472,7 @@ export const generatePlan = createServerFn({ method: "POST" })
       "",
       "[7] NAMING STYLE GUIDE — Pattern: [City Element] + [Vibe Element] + [Twist]. Examples: 'Harbor Lights & Late Bites', 'Dice & Dazzle on the Strip', 'Pier Pressure & Prosecco', 'Boardroom to Barstools', 'Salsa, Skylines & Secrets'. Must be clever, readable, on-brand for the city + occasion. Never cringe, never generic, never reuse the same pattern twice in a row. Plus a single confident one-line tagline.",
       "",
+      "Candidate list key: [TRENDING:N🎵] = venue has N TikTok mentions from our social media data pipeline — real trending signal, not editorial. Prefer these for vibe-sensitive occasions (nightlife, girls night, guys night, date night). [PROMOTED] = paid placement — only pick if it genuinely fits.",
       "If the candidate list is empty, you may invent realistic on-vibe places that match the city's allowed activities — mark them with venueId='invent:<short-slug>' so the app knows they aren't in our DB.",
     ].join("\n");
 

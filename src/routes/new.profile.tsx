@@ -1,8 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  BrandMark, ChunkyButton, DotsBg, Frame, Stamp, Ticket, TOKENS,
+  BrandMark, ChunkyButton, DotsBg, FloatingTickets, Frame, Icons, Stamp, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
+import { useAuth } from "@/lib/auth-context";
 
 // Slim port — design/new-confetti/project/profile.jsx (ProfileScreen, line 8)
 export const Route = createFileRoute("/new/profile")({
@@ -36,7 +37,86 @@ const CREW = [
 
 function ProfilePage() {
   const navigate = useNavigate();
+  const { user, loading } = useAuth();
   const [tab, setTab] = useState<Tab>("scrapbook");
+
+  // Logged-out state
+  if (!loading && !user) {
+    return (
+      <Frame>
+        <div style={{
+          position: "relative", height: "100%", background: TOKENS.bg,
+          display: "flex", flexDirection: "column",
+          padding: "70px 28px 36px", overflow: "hidden",
+        }}>
+          <DotsBg opacity={0.06} />
+          <FloatingTickets density={3} />
+
+          <div style={{ position: "relative", zIndex: 2 }}><BrandMark size={17} spin /></div>
+
+          <div style={{
+            position: "relative", zIndex: 2,
+            flex: 1, display: "flex", flexDirection: "column",
+            justifyContent: "center", gap: 20,
+          }}>
+            <Stamp color={TOKENS.accent1} rotate={-3} style={{ alignSelf: "flex-start" }}>your profile</Stamp>
+
+            <h1 style={{
+              fontFamily: TOKENS.display, fontWeight: 900,
+              fontSize: 44, lineHeight: 0.92, letterSpacing: "-0.04em",
+              color: TOKENS.ink, margin: 0,
+            }}>Sign in to<br/>print nights.</h1>
+
+            <p style={{
+              fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 600,
+              color: TOKENS.ink, opacity: 0.6, margin: 0, lineHeight: 1.5,
+            }}>
+              Save your scrapbook, earn stamps,<br/>and keep up with your crew.
+            </p>
+
+            {/* Teaser stamp grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
+              {[
+                { ico: "🌃", label: "night owl" },
+                { ico: "🍝", label: "pasta hunter" },
+                { ico: "🎟️", label: "first timer" },
+              ].map((s) => (
+                <div key={s.label} style={{
+                  padding: "12px 8px",
+                  border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14,
+                  background: TOKENS.paper,
+                  boxShadow: `3px 3px 0 ${TOKENS.ink}`,
+                  textAlign: "center", opacity: 0.45, filter: "grayscale(0.3)",
+                }}>
+                  <div style={{ fontSize: 26 }}>{s.ico}</div>
+                  <div style={{
+                    fontFamily: TOKENS.display, fontWeight: 900, fontSize: 11,
+                    letterSpacing: "-0.01em", marginTop: 4,
+                  }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <ChunkyButton variant="accent" icon={Icons.arrow}
+              onClick={() => navigate({ to: "/new/signin" })}>
+              sign in
+            </ChunkyButton>
+
+            <button onClick={() => navigate({ to: "/new/signup" })} style={{
+              appearance: "none", cursor: "pointer", width: "100%",
+              padding: "14px",
+              border: `2.5px dashed ${TOKENS.ink}`, borderRadius: 14,
+              background: "transparent",
+              fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 800,
+              color: TOKENS.ink,
+            }}>
+              new here? print your first night →
+            </button>
+          </div>
+        </div>
+      </Frame>
+    );
+  }
 
   return (
     <Frame>

@@ -75,35 +75,20 @@ const CRON_CITIES = [
 
 function buildQueries(cityName: string): string[] {
   return [
-    // TikTok — food & dining
-    `site:tiktok.com "${cityName}" restaurant rooftop bar 2025`,
-    `site:tiktok.com "${cityName}" hidden gem food spot viral`,
-    `site:tiktok.com "${cityName}" best brunch cocktails nightlife`,
-    // TikTok — nightlife & experiences
-    `site:tiktok.com "${cityName}" speakeasy hidden bar cocktail lounge`,
-    `site:tiktok.com "${cityName}" live music jazz blues venue`,
-    `site:tiktok.com "${cityName}" wine bar fine dining tasting menu`,
-    `site:tiktok.com "${cityName}" late night after hours club nightlife`,
-    `site:tiktok.com "${cityName}" unique experience pop-up event venue`,
-    `site:tiktok.com "${cityName}" happy hour best deal bar`,
-    `site:tiktok.com "${cityName}" coffee cafe aesthetic spot`,
-    // Instagram — dining & ambiance
-    `site:instagram.com "${cityName}" restaurant bar dinner date night`,
-    `site:instagram.com "${cityName}" rooftop views cocktails vibes`,
-    `site:instagram.com "${cityName}" speakeasy cocktail bar hidden gem`,
-    `site:instagram.com "${cityName}" brunch bottomless mimosas weekend`,
-    `site:instagram.com "${cityName}" live music jazz nightlife venue`,
-    `site:instagram.com "${cityName}" wine bar natural wine lounge`,
-    `site:instagram.com "${cityName}" fine dining tasting menu experience`,
-    `site:instagram.com "${cityName}" cafe coffee aesthetic instagrammable`,
-    // General social discovery
-    `"${cityName}" trending restaurant bar TikTok Instagram 2025`,
-    `"${cityName}" hidden gem speakeasy rooftop going viral social media`,
-    `"${cityName}" best cocktail bar nightclub going viral 2025`,
-    `"${cityName}" new restaurant opening 2025 buzz social media`,
-    `"${cityName}" best brunch bottomless date night spot social media`,
-    `"${cityName}" jazz blues live music bar venue TikTok`,
-    `"${cityName}" unique one-of-a-kind experience venue going viral`,
+    // TikTok — dining, rooftops, brunch
+    `site:tiktok.com "${cityName}" restaurant rooftop bar brunch cocktails 2025`,
+    // TikTok — nightlife, speakeasies, live music, jazz
+    `site:tiktok.com "${cityName}" speakeasy jazz live music club nightlife hidden gem`,
+    // TikTok — wine bars, fine dining, cafes, happy hour
+    `site:tiktok.com "${cityName}" wine bar fine dining tasting menu cafe happy hour`,
+    // Instagram — dining & vibes
+    `site:instagram.com "${cityName}" restaurant rooftop bar cocktails date night`,
+    // Instagram — nightlife, music, unique experiences
+    `site:instagram.com "${cityName}" speakeasy jazz live music unique experience pop-up`,
+    // General — trending & viral across all categories
+    `"${cityName}" trending viral restaurant bar nightclub brunch TikTok Instagram 2025`,
+    // General — hidden gems and new openings all categories
+    `"${cityName}" hidden gem new opening speakeasy jazz wine bar cafe going viral`,
   ];
 }
 

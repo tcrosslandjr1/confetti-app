@@ -1,7 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   BrandMark, ChunkyButton, Frame, Icons, Stamp, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
+import { supabase } from "@/integrations/supabase/client";
 
 // Slim port — design/new-confetti/project/auth-flow.jsx (EmailVerifyScreen, line 130)
 export const Route = createFileRoute("/new/email-verify")({
@@ -10,6 +12,33 @@ export const Route = createFileRoute("/new/email-verify")({
 
 function EmailVerifyPage() {
   const navigate = useNavigate();
+  const [checking, setChecking] = useState(false);
+  const [sessionError, setSessionError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Auto-redirect when magic link triggers SIGNED_IN
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN" && session) navigate({ to: "/new/hub" });
+    });
+    // Also check immediately in case already signed in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) navigate({ to: "/new/hub" });
+    });
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  const handleContinue = async () => {
+    setChecking(true);
+    setSessionError(null);
+    const { data: { session } } = await supabase.auth.getSession();
+    setChecking(false);
+    if (session) {
+      navigate({ to: "/new/hub" });
+    } else {
+      setSessionError("Link not detected yet — check your email and click the link first.");
+    }
+  };
+
   return (
     <Frame>
       <div style={{
@@ -21,7 +50,7 @@ function EmailVerifyPage() {
           display: "flex", alignItems: "center", justifyContent: "space-between",
           marginBottom: 24,
         }}>
-          <button onClick={() => navigate({ to: "/new/phone-verify" })} style={backBtn()}>←</button>
+          <button onClick={() => navigate({ to: "/new/signin" })} style={backBtn()}>←</button>
           <BrandMark size={17} />
           <span style={{ width: 36 }} />
         </div>
@@ -44,14 +73,14 @@ function EmailVerifyPage() {
             margin: "0 0 6px", textAlign: "center",
           }}>Check your<br/>inbox.</h1>
           <p style={{
-            fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, opacity: 0.6,
+            fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, color: TOKENS.inkMuted,
             margin: "0 0 18px", textAlign: "center",
-          }}>We sent a magic link to <strong>jess@brooklyn.com</strong>.</p>
+          }}>We sent a magic link to your email. Click it to sign in.</p>
 
           <Ticket color={TOKENS.paper} notch={false} style={{ padding: 12 }}>
             <div style={{
               fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-              letterSpacing: ".14em", opacity: 0.6,
+              letterSpacing: ".14em", color: TOKENS.inkHint,
             }}>NOT IN INBOX?</div>
             <div style={{
               fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, marginTop: 4,
@@ -59,10 +88,15 @@ function EmailVerifyPage() {
           </Ticket>
         </div>
 
-        <div style={{ display: "flex", gap: 8 }}>
+        {sessionError && (
+          <div style={{ marginTop: 12, padding: "10px 14px", borderRadius: 10, background: "#fee2e2", border: "2px solid #ef4444", fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 600, color: "#991b1b" }}>
+            {sessionError}
+          </div>
+        )}
+        <div style={{ display: "flex", gap: 8, marginTop: sessionError ? 8 : 0 }}>
           <ChunkyButton variant="ghost" onClick={() => navigate({ to: "/new/email-verify" })}>resend</ChunkyButton>
-          <ChunkyButton variant="accent" onClick={() => navigate({ to: "/new/age-gate" })}
-            icon={Icons.arrow}>i clicked it</ChunkyButton>
+          <ChunkyButton variant="accent" onClick={handleContinue} disabled={checking}
+            icon={Icons.arrow}>{checking ? "checking..." : "i clicked it"}</ChunkyButton>
         </div>
       </div>
     </Frame>

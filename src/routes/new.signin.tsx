@@ -17,19 +17,24 @@ function SignInPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [comingSoon, setComingSoon] = useState<string | null>(null);
 
-  // Listen for auth state changes — redirect on sign-in
+  useEffect(() => {
+    if (!comingSoon) return;
+    const t = setTimeout(() => setComingSoon(null), 3500);
+    return () => clearTimeout(t);
+  }, [comingSoon]);
+
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         if (event === "SIGNED_IN" && session) {
-          navigate({ to: "/new/hub" });
+          navigate({ to: "/app" });
         }
       }
     );
-    // Check if already signed in
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) navigate({ to: "/new/hub" });
+      if (session) navigate({ to: "/app" });
     });
     return () => subscription.unsubscribe();
   }, [navigate]);
@@ -40,7 +45,7 @@ function SignInPage() {
     setError(null);
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: `${window.location.origin}/new/hub` },
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
     });
     setLoading(false);
     if (authError) { setError(authError.message); return; }
@@ -51,7 +56,7 @@ function SignInPage() {
     setError(null);
     const { error: authError } = await supabase.auth.signInWithOAuth({
       provider,
-      options: { redirectTo: `${window.location.origin}/new/hub` },
+      options: { redirectTo: `${window.location.origin}/auth/callback` },
     });
     if (authError) setError(authError.message);
   };
@@ -96,7 +101,7 @@ function SignInPage() {
               <div>
                 <div style={{
                   fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800,
-                  letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase",
+                  letterSpacing: ".14em", color: TOKENS.inkHint, textTransform: "uppercase",
                   marginBottom: 8,
                 }}>email · we'll send a magic link</div>
                 <div style={{
@@ -126,6 +131,22 @@ function SignInPage() {
                 {loading ? "sending..." : "send magic link"}
               </ChunkyButton>
 
+              {comingSoon && (
+                <div style={{
+                  padding: "10px 14px", borderRadius: 10,
+                  background: TOKENS.accent2, border: `2px solid ${TOKENS.ink}`,
+                  fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, color: TOKENS.ink,
+                  display: "flex", justifyContent: "space-between", alignItems: "center",
+                  gap: 8,
+                }}>
+                  <span>{comingSoon}</span>
+                  <button onClick={() => setComingSoon(null)} style={{
+                    appearance: "none", background: "none", border: "none",
+                    cursor: "pointer", fontWeight: 900, fontSize: 16, color: TOKENS.ink, lineHeight: 1,
+                  }}>×</button>
+                </div>
+              )}
+
               <div style={{
                 display: "flex", alignItems: "center", gap: 10,
                 fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700,
@@ -138,12 +159,12 @@ function SignInPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
                 <SSOTile label="Apple" glyph="" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => handleOAuth("apple")} />
                 <SSOTile label="Google" glyph="G" bg={TOKENS.paper} fg={TOKENS.ink} onClick={() => handleOAuth("google")} />
-                <SSOTile label="TikTok" glyph="♪" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => {}} />
-                <SSOTile label="Instagram" glyph="◍" bg={TOKENS.accent3} fg={TOKENS.paper} onClick={() => {}} />
-                <SSOTile label="X" glyph="✕" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => {}} />
+                <SSOTile label="TikTok" glyph="♪" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => setComingSoon("TikTok login coming soon — use email or Google for now.")} />
+                <SSOTile label="Instagram" glyph="◍" bg={TOKENS.accent3} fg={TOKENS.paper} onClick={() => setComingSoon("Instagram login coming soon — use email or Google for now.")} />
+                <SSOTile label="X" glyph="✕" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => setComingSoon("X login coming soon — use email or Google for now.")} />
                 <SSOTile label="Spotify" glyph="♫" bg="#1DB954" fg={TOKENS.ink} onClick={() => handleOAuth("spotify")} />
               </div>
-              <button style={{
+              <button onClick={() => setComingSoon("Phone login coming soon — use email for now.")} style={{
                 appearance: "none", cursor: "pointer", width: "100%",
                 padding: "12px 14px",
                 border: `2px dashed ${TOKENS.ink}`, borderRadius: 12,

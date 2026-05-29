@@ -1,7 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   BrandMark, ChunkyButton, Frame, Icons, RouteDots, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
+import { getActiveLoop } from "@/lib/loop-store";
 
 // Slim "Night Of" port — design/new-confetti/project/screens.jsx
 // (NightOfScreen, line 1009). Full 5-component composition (OnMyWay,
@@ -13,6 +15,47 @@ export const Route = createFileRoute("/new/night")({
 
 function NightPage() {
   const navigate = useNavigate();
+  const [toast, setToast] = useState<string | null>(null);
+  const loop = getActiveLoop();
+  const stops = loop?.stops ?? [];
+  const currentStop = stops.find(s => !s.done) ?? stops[0];
+  const nextStop = (() => {
+    const idx = stops.indexOf(currentStop!);
+    return idx >= 0 && idx < stops.length - 1 ? stops[idx + 1] : null;
+  })();
+
+  const showToast = (msg: string) => {
+    setToast(msg);
+    setTimeout(() => setToast(null), 2500);
+  };
+
+  if (loop === null) {
+    return (
+      <Frame>
+        <div style={{
+          position: "relative", height: "100%", background: TOKENS.ink,
+          color: TOKENS.paper, display: "flex", flexDirection: "column",
+          alignItems: "center", justifyContent: "center",
+          padding: "56px 22px 22px", gap: 16,
+        }}>
+          <div style={{
+            fontFamily: TOKENS.display, fontWeight: 900, fontSize: 28,
+            letterSpacing: "-0.03em", textAlign: "center", lineHeight: 1.1,
+          }}>No active loop.</div>
+          <div style={{
+            fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 700,
+            color: TOKENS.paperMuted, textAlign: "center",
+          }}>Head back and print a night.</div>
+          <button onClick={() => navigate({ to: "/new/hub" })} style={{
+            appearance: "none", cursor: "pointer",
+            padding: "12px 20px", border: `2px solid ${TOKENS.paper}`,
+            borderRadius: 12, background: "transparent",
+            color: TOKENS.paper, fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 800,
+          }}>← back to hub</button>
+        </div>
+      </Frame>
+    );
+  }
 
   return (
     <Frame>
@@ -57,7 +100,7 @@ function NightPage() {
               width: 6, height: 6, borderRadius: 999, background: TOKENS.ink,
               animation: "cf-pulse 1.2s infinite",
             }} />
-            LIVE · STOP 2/3
+            {`LIVE · STOP ${(stops.findIndex(s => !s.done) + 1) || stops.length}/${stops.length}`}
           </span>
         </div>
 
@@ -76,11 +119,11 @@ function NightPage() {
             fontFamily: TOKENS.display, fontWeight: 900,
             fontSize: 44, lineHeight: 0.95, letterSpacing: "-0.04em",
             color: TOKENS.paper, margin: "0 0 6px",
-          }}>Lupa Notte.</h2>
+          }}>{currentStop?.name ?? "Your stop"}.</h2>
           <p style={{
             fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 700,
             color: TOKENS.paperMuted, margin: "0 0 18px",
-          }}>8:30 PM · 88 N 6th St · ask for table 12</p>
+          }}>{currentStop?.time ?? ""}{currentStop?.address ? ` · ${currentStop.address}` : currentStop?.area ? ` · ${currentStop.area}` : ""}{currentStop?.detail ? ` · ${currentStop.detail}` : ""}</p>
 
           <Ticket color={TOKENS.paper} notch={false} style={{ padding: 14, marginBottom: 14 }}>
             <div style={{
@@ -90,25 +133,45 @@ function NightPage() {
             <div style={{
               fontFamily: TOKENS.display, fontWeight: 900, fontSize: 18,
               letterSpacing: "-0.02em", lineHeight: 1.1, marginTop: 4, color: TOKENS.ink,
-            }}>Order the cacio e pepe + house red.<br/>Save room for tiramisu.</div>
+            }}>{currentStop?.rationale || currentStop?.detail || "Enjoy the experience."}</div>
             <div style={{ marginTop: 12 }}>
-              <RouteDots progress={0.5} size={16} />
+              <RouteDots progress={stops.length > 0 ? (stops.findIndex(s => !s.done) + 1) / stops.length : 0.5} size={16} />
             </div>
             <div style={{
               marginTop: 8, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
               letterSpacing: ".1em", color: TOKENS.inkHint,
               display: "flex", justifyContent: "space-between",
             }}>
-              <span>1 · DAUGHTER ✓</span><span>2 · LUPA NOTTE</span><span>3 · SKINNY DENNIS</span>
+              {stops.map((s, idx) => (
+                <span key={s.id}>{idx + 1} · {s.name.toUpperCase()}{s.done ? " ✓" : ""}</span>
+              ))}
             </div>
           </Ticket>
 
           {/* Quick actions */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 14 }}>
-            <button style={action()}>📸 check in</button>
-            <button style={action()}>🚖 ride to next</button>
-            <button style={action()}>📞 call ahead</button>
-            <button style={action()}>↻ revise plan</button>
+            {toast && (
+              <div style={{
+                gridColumn: "1 / -1",
+                marginBottom: 4, padding: "10px 14px", borderRadius: 12,
+                background: TOKENS.accent2, border: `2px solid ${TOKENS.ink}`,
+                fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, color: TOKENS.ink,
+              }}>{toast}</div>
+            )}
+            <button onClick={() => navigate({ to: "/new/check-in" })} style={action()}>📸 check in</button>
+            <button onClick={() => {
+              const dest = nextStop?.name || nextStop?.area || "";
+              const addr = nextStop?.address || "";
+              const uberUrl = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=${encodeURIComponent(addr || dest)}`;
+              if (dest) window.open(uberUrl, "_blank");
+              else showToast("No next stop found on your pass.");
+            }} style={action()}>🚖 ride to next</button>
+            <button onClick={() => {
+              const phone = currentStop?.phone;
+              if (phone) { window.open(`tel:${phone}`, "_blank"); }
+              else showToast("No phone number on file for this stop.");
+            }} style={action()}>📞 call ahead</button>
+            <button onClick={() => navigate({ to: "/new/plan" })} style={action()}>↻ revise plan</button>
           </div>
 
           {/* Crew live preview */}

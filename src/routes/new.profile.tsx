@@ -4,6 +4,7 @@ import {
   BrandMark, ChunkyButton, DotsBg, FloatingTickets, Frame, Icons, Stamp, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
 import { useAuth } from "@/lib/auth-context";
+import { getConfetti } from "@/lib/loop-store";
 
 // Slim port — design/new-confetti/project/profile.jsx (ProfileScreen, line 8)
 export const Route = createFileRoute("/new/profile")({
@@ -40,6 +41,14 @@ function ProfilePage() {
   const { user, loading } = useAuth();
   const [tab, setTab] = useState<Tab>("scrapbook");
 
+  // Derived real user data
+  const displayName = user?.user_metadata?.display_name || user?.email?.split("@")[0] || "hey";
+  const firstName = displayName.split(/[\s_\.@]+/)[0];
+  const profileName = firstName.charAt(0).toUpperCase() + firstName.slice(1) + ".";
+  const joinYear = user?.created_at ? `'${new Date(user.created_at).getFullYear().toString().slice(2)}` : null;
+  const cityMeta = [user?.user_metadata?.city, joinYear ? `since ${joinYear}` : null].filter(Boolean).join(" · ") || "";
+  const confettiPoints = getConfetti();
+
   // Logged-out state
   if (!loading && !user) {
     return (
@@ -69,7 +78,7 @@ function ProfilePage() {
 
             <p style={{
               fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 600,
-              color: TOKENS.ink, opacity: 0.6, margin: 0, lineHeight: 1.5,
+              color: TOKENS.inkMuted, margin: 0, lineHeight: 1.5,
             }}>
               Save your scrapbook, earn stamps,<br/>and keep up with your crew.
             </p>
@@ -139,16 +148,18 @@ function ProfilePage() {
 
         {/* Big name + stamp */}
         <div style={{ position: "relative", zIndex: 2 }}>
-          <Stamp color={TOKENS.accent1} rotate={-3} style={{ alignSelf: "flex-start", marginBottom: 10 }}>nyc · since '24</Stamp>
+          {cityMeta && (
+            <Stamp color={TOKENS.accent1} rotate={-3} style={{ alignSelf: "flex-start", marginBottom: 10 }}>{cityMeta}</Stamp>
+          )}
           <h1 style={{
             fontFamily: TOKENS.display, fontWeight: 900,
             fontSize: 44, lineHeight: 0.92, letterSpacing: "-0.04em",
             margin: "0 0 6px",
-          }}>Jess.</h1>
+          }}>{profileName}</h1>
           <p style={{
-            fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, opacity: 0.55,
+            fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, color: TOKENS.inkHint,
             margin: 0,
-          }}>32 nights printed · 18 stamps · 4 in crew</p>
+          }}>0 nights printed · {STAMPS.length} stamps · 0 in crew</p>
         </div>
 
         {/* Wallet pass ticket */}
@@ -159,12 +170,12 @@ function ProfilePage() {
               <div>
                 <div style={{
                   fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                  letterSpacing: ".14em", opacity: 0.7,
+                  letterSpacing: ".14em", color: TOKENS.inkHint,
                 }}>WALLET</div>
                 <div style={{
                   fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
                   letterSpacing: "-0.02em", marginTop: 2,
-                }}>1,420 confetti</div>
+                }}>{confettiPoints.toLocaleString()} confetti</div>
               </div>
               <div style={{
                 fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800,
@@ -212,7 +223,7 @@ function ProfilePage() {
               <div style={{ flex: 1 }}>
                 <div style={{
                   fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                  letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase",
+                  letterSpacing: ".14em", color: TOKENS.inkHint, textTransform: "uppercase",
                 }}>{s.who}</div>
                 <div style={{
                   fontFamily: TOKENS.display, fontWeight: 900, fontSize: 16,
@@ -242,7 +253,7 @@ function ProfilePage() {
                   }}>{s.label}</div>
                   <div style={{
                     fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 700,
-                    opacity: 0.55, marginTop: 2, letterSpacing: ".06em",
+                    color: TOKENS.inkHint, marginTop: 2, letterSpacing: ".06em",
                   }}>{s.sub}</div>
                 </div>
               ))}
@@ -271,7 +282,7 @@ function ProfilePage() {
                     }}>{c.who}</div>
                     <div style={{
                       fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700,
-                      opacity: 0.55, marginTop: 2, letterSpacing: ".06em",
+                      color: TOKENS.inkHint, marginTop: 2, letterSpacing: ".06em",
                     }}>{c.last}</div>
                   </div>
                 </div>

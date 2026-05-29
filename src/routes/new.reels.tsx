@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { TOKENS } from "@/components/new-confetti/shell";
+import { togglePinnedVenue } from "@/lib/night-builder-store";
 
 // Slim port — design/new-confetti/project/discover.jsx (ReelsScreen, line 378)
 // Vertical TikTok-style reel with overlay UI.
@@ -14,11 +15,33 @@ const REELS = [
   { who: "Ren",  at: "Daughter",     color: TOKENS.accent2, caption: "best espresso in BK fight me." },
 ];
 
+const chipStyle: React.CSSProperties = {
+  padding: "6px 12px",
+  border: `2px solid ${TOKENS.paper}`, borderRadius: 999,
+  background: "rgba(0,0,0,0.35)",
+  fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800,
+  color: TOKENS.paper, backdropFilter: "blur(6px)",
+  whiteSpace: "nowrap" as const,
+};
+
 function ReelsPage() {
   const navigate = useNavigate();
   const [i, setI] = useState(0);
+  const [addedToast, setAddedToast] = useState(false);
   const r = REELS[i];
-  const next = () => setI((n) => (n + 1) % REELS.length);
+  const next = () => { setAddedToast(false); setI((n) => (n + 1) % REELS.length); };
+
+  const handleAddStop = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    togglePinnedVenue({
+      venue_name: r.at,
+      venue_slug: r.at.toLowerCase().replace(/\s+/g, "-"),
+      category: null, neighborhood: null, snippet: null,
+      outing: "reels",
+    });
+    setAddedToast(true);
+    setTimeout(() => setAddedToast(false), 2000);
+  };
 
   return (
     <div style={{
@@ -92,18 +115,21 @@ function ReelsPage() {
             letterSpacing: "-0.03em", marginTop: 12, lineHeight: 1.1,
             textShadow: "0 2px 12px rgba(0,0,0,0.4)",
           }}>{r.caption}</div>
-          <div style={{
-            display: "flex", gap: 8, marginTop: 14,
-          }}>
-            {["💬 79", "♥ 412", "📍 add stop"].map((t) => (
-              <span key={t} style={{
-                padding: "6px 12px",
-                border: `2px solid ${TOKENS.paper}`, borderRadius: 999,
-                background: "rgba(0,0,0,0.35)",
-                fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800,
-                color: TOKENS.paper, backdropFilter: "blur(6px)",
-              }}>{t}</span>
+          <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
+            {["💬 79", "♥ 412"].map((t) => (
+              <span key={t} style={chipStyle}>{t}</span>
             ))}
+            <button
+              onClick={handleAddStop}
+              style={{ ...chipStyle, cursor: "pointer", appearance: "none" as const,
+                background: addedToast ? TOKENS.accent2 : "rgba(0,0,0,0.35)",
+                color: addedToast ? TOKENS.ink : TOKENS.paper,
+                border: addedToast ? `2px solid ${TOKENS.ink}` : `2px solid ${TOKENS.paper}`,
+                transition: "all 0.2s",
+              }}
+            >
+              {addedToast ? "✓ added!" : "📍 add stop"}
+            </button>
           </div>
         </div>
 

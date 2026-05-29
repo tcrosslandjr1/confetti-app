@@ -7,6 +7,7 @@ import { useNewAuth } from "@/hooks/useNewAuth";
 import { generateAiPlan } from "@/lib/generate-plan-client";
 import { setActiveLoop } from "@/lib/loop-store";
 import { getSelectedCity } from "@/lib/cities";
+import { useNightBuilder, clearPinnedVenues } from "@/lib/night-builder-store";
 
 // Ported from design/new-confetti/project/screens.jsx (PlanScreen, line 195)
 export const Route = createFileRoute("/new/plan")({
@@ -39,6 +40,9 @@ interface PlanState {
 function PlanPage() {
   const { ready } = useNewAuth();
   const navigate = useNavigate();
+  const nightBuilder = useNightBuilder();
+  const hasPinned = nightBuilder.count > 0;
+
   const [state, setState] = useState<PlanState>({
     city: getSelectedCity()?.name ?? "Washington DC",
     when: "Tonight",
@@ -54,7 +58,8 @@ function PlanPage() {
       : state.vibes.length < 3 ? [...state.vibes, id] : state.vibes;
     setState({ ...state, vibes: next });
   };
-  const canPlan = (state.surpriseMode || state.vibes.length > 0) && !generating;
+  // Can plan if: has pinned venues OR surprise mode OR picked a vibe
+  const canPlan = (hasPinned || state.surpriseMode || state.vibes.length > 0) && !generating;
 
   async function handleGenerate() {
     if (!canPlan) return;
@@ -71,7 +76,9 @@ function PlanPage() {
         localsMode: state.localsMode || undefined,
         trendBias: state.trendingMode || undefined,
         notes: state.addons.length > 0 ? `Preferences: ${state.addons.join(", ")}` : undefined,
+        pinnedVenues: nightBuilder.pinned.length > 0 ? nightBuilder.pinned : undefined,
       });
+      clearPinnedVenues(); // reset after generating
       setActiveLoop(loop);
       navigate({ to: "/new/printing" });
     } catch (err: any) {
@@ -129,6 +136,57 @@ function PlanPage() {
             fontSize: 38, lineHeight: 0.95, letterSpacing: "-0.04em",
             color: TOKENS.ink, margin: "0 0 24px",
           }}>What's the<br/>vibe?</h2>
+
+          {/* Pinned venues from Explore */}
+          {hasPinned && (
+            <div style={{
+              marginBottom: 22, padding: "14px 16px",
+              border: `2.5px solid ${TOKENS.accent1}`, borderRadius: 14,
+              background: `${TOKENS.accent1}18`,
+              boxShadow: `4px 4px 0 ${TOKENS.accent1}`,
+            }}>
+              <div style={{
+                fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
+                letterSpacing: ".14em", color: TOKENS.ink, marginBottom: 10,
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+              }}>
+                <span>🎊 YOUR PICKS ({nightBuilder.count})</span>
+                <button
+                  onClick={() => nightBuilder.clear()}
+                  style={{
+                    appearance: "none", cursor: "pointer", background: "none",
+                    border: "none", fontFamily: TOKENS.mono, fontSize: 9,
+                    fontWeight: 700, opacity: 0.5, color: TOKENS.ink,
+                    textDecoration: "underline",
+                  }}
+                >clear</button>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                {nightBuilder.pinned.map((v, i) => (
+                  <div key={v.venue_slug} style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                  }}>
+                    <span style={{
+                      fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 900,
+                      opacity: 0.4, width: 14,
+                    }}>{i + 1}.</span>
+                    <div style={{ flex: 1 }}>
+                      <div style={{
+                        fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 800,
+                        color: TOKENS.ink, lineHeight: 1.1,
+                      }}>{v.venue_name}</div>
+                      {v.category && (
+                        <div style={{
+                          fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 700,
+                          opacity: 0.55, letterSpacing: ".06em",
+                        }}>{v.category}{v.neighborhood ? ` · ${v.neighborhood}` : ""}</div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Where */}
           <div style={{ marginBottom: 22 }}>

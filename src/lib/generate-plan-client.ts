@@ -5,6 +5,8 @@
 import { loadPrefs, tasteSummary } from "@/lib/taste";
 import { getSelectedCity } from "@/lib/cities";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
+import { buildPinnedVenueNote } from "@/lib/night-builder-store";
+import type { PinnedVenue } from "@/lib/night-builder-store";
 
 // ─── Types matching the edge function's output ──────────────────────────────
 
@@ -65,6 +67,7 @@ export type GeneratePlanInput = {
   localsMode?: boolean;
   trendBias?: boolean;
   notes?: string;
+  pinnedVenues?: PinnedVenue[]; // hand-picked from Explore screen
 };
 
 // ─── Main function ──────────────────────────────────────────────────────────
@@ -116,6 +119,10 @@ export async function generateAiPlan(input: GeneratePlanInput): Promise<{
       surpriseMode: input.surpriseMode,
       localFlavorLevel: input.localsMode ? "heavy" : "medium",
       notes: [
+        // Pinned venues from Explore screen — highest priority instruction
+        input.pinnedVenues?.length
+          ? buildPinnedVenueNote(input.pinnedVenues)
+          : null,
         input.notes,
         input.trendBias
           ? "TRENDING BIAS: Strongly prefer venues with high trend_score and recent buzz. Prioritize what is hot right now over evergreen classics. Mention why each spot is trending."
@@ -128,7 +135,7 @@ export async function generateAiPlan(input: GeneratePlanInput): Promise<{
           : null,
       ]
         .filter(Boolean)
-        .join(" ") || undefined,
+        .join("\n\n") || undefined,
     }),
   });
 

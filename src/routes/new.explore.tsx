@@ -3,6 +3,8 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { BrandMark, DotsBg, Frame, TOKENS } from "@/components/new-confetti/shell";
 import { useNewAuth } from "@/hooks/useNewAuth";
 import { getSelectedCity } from "@/lib/cities";
+import { useNightBuilder, togglePinnedVenue } from "@/lib/night-builder-store";
+import type { PinnedVenue } from "@/lib/night-builder-store";
 
 export const Route = createFileRoute("/new/explore")({
   component: ExplorePage,
@@ -126,6 +128,7 @@ function ExplorePage() {
 
   const citySlug = useMemo(() => getSelectedCity()?.slug ?? "dc", []);
   const cityLabel = useMemo(() => (getSelectedCity()?.name ?? "DC").replace(/,.*/, ""), []);
+  const nightBuilder = useNightBuilder();
 
   const [activeGroup, setActiveGroup] = useState(GROUPS[0].id);
   const [selectedOuting, setSelectedOuting] = useState<string | null>(null);
@@ -295,12 +298,60 @@ function ExplorePage() {
           {venues.length > 0 && (
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {venues.map((v, i) => (
-                <VenueCard key={`${v.venue_slug}-${i}`} venue={v} index={i} />
+                <VenueCard
+                  key={`${v.venue_slug}-${i}`}
+                  venue={v}
+                  index={i}
+                  outing={selectedOuting ?? ""}
+                  pinned={nightBuilder.isPinned(v.venue_slug)}
+                  onToggle={() => togglePinnedVenue({
+                    venue_slug: v.venue_slug,
+                    venue_name: v.venue_name,
+                    category: v.category,
+                    neighborhood: v.neighborhood,
+                    snippet: v.snippet,
+                    outing: selectedOuting ?? "",
+                  })}
+                />
               ))}
-              <div style={{ height: 16 }} />
+              {/* Extra space so sticky footer doesn't cover last card */}
+              <div style={{ height: nightBuilder.count > 0 ? 80 : 16 }} />
             </div>
           )}
         </div>
+
+        {/* Sticky footer — shows when venues are pinned */}
+        {nightBuilder.count > 0 && (
+          <div style={{
+            position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 10,
+            padding: "12px 20px 20px",
+            background: `linear-gradient(to top, ${TOKENS.bg} 80%, transparent)`,
+          }}>
+            <button
+              onClick={() => navigate({ to: "/new/plan" })}
+              style={{
+                appearance: "none", cursor: "pointer", width: "100%",
+                display: "flex", alignItems: "center", justifyContent: "space-between",
+                padding: "14px 20px",
+                background: TOKENS.ink, color: TOKENS.paper,
+                border: `2.5px solid ${TOKENS.ink}`, borderRadius: 16,
+                boxShadow: `4px 4px 0 ${TOKENS.accent1}`,
+                fontFamily: TOKENS.ui, fontSize: 15, fontWeight: 900,
+              }}
+            >
+              <span>
+                🎊 {nightBuilder.count} stop{nightBuilder.count !== 1 ? "s" : ""} picked
+              </span>
+              <span style={{
+                display: "flex", alignItems: "center", gap: 6,
+                fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
+                letterSpacing: ".1em", opacity: 0.8,
+              }}>
+                BUILD MY NIGHT →
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </Frame>
   );
@@ -308,7 +359,12 @@ function ExplorePage() {
 
 // ── Venue card ────────────────────────────────────────────────
 
-function VenueCard({ venue, index }: { venue: Venue; index: number }) {
+function VenueCard({
+  venue, index, outing, pinned, onToggle,
+}: {
+  venue: Venue; index: number; outing: string;
+  pinned: boolean; onToggle: () => void;
+}) {
   const accent = CAT_COLORS[venue.category ?? ""] ??
     [TOKENS.accent1, TOKENS.accent2, TOKENS.accent3][index % 3];
 
@@ -325,15 +381,18 @@ function VenueCard({ venue, index }: { venue: Venue; index: number }) {
 
   return (
     <div style={{
-      border: `2.5px solid ${TOKENS.ink}`, borderRadius: 16,
-      background: TOKENS.paper, boxShadow: `4px 4px 0 ${TOKENS.ink}`,
+      border: `2.5px solid ${pinned ? TOKENS.accent1 : TOKENS.ink}`,
+      borderRadius: 16,
+      background: pinned ? `${TOKENS.accent1}18` : TOKENS.paper,
+      boxShadow: pinned ? `4px 4px 0 ${TOKENS.accent1}` : `4px 4px 0 ${TOKENS.ink}`,
       overflow: "hidden",
+      transition: "all 0.15s",
     }}>
       {/* Colour strip */}
       <div style={{ height: 6, background: accent, borderBottom: `2px solid ${TOKENS.ink}` }} />
 
       <div style={{ padding: "12px 14px" }}>
-        {/* Name + signal */}
+        {/* Name + add button */}
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 8 }}>
           <div style={{
             fontFamily: TOKENS.display, fontWeight: 900, fontSize: 17,
@@ -341,17 +400,39 @@ function VenueCard({ venue, index }: { venue: Venue; index: number }) {
           }}>
             {venue.venue_name}
           </div>
-          {signalLabel && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onToggle(); }}
+            style={{
+              appearance: "none", cursor: "pointer", flexShrink: 0,
+              width: 32, height: 32, borderRadius: 999,
+              border: `2px solid ${TOKENS.ink}`,
+              background: pinned ? TOKENS.accent1 : TOKENS.paper,
+              color: TOKENS.ink,
+              fontSize: 16, fontWeight: 900, lineHeight: 1,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              boxShadow: `2px 2px 0 ${TOKENS.ink}`,
+              transition: "all 0.12s",
+            }}
+            aria-label={pinned ? "Remove from night" : "Add to night"}
+          >
+            {pinned ? "✓" : "+"}
+          </button>
+        </div>
+
+        {/* Signal badge */}
+        {signalLabel && (
+          <div style={{ marginTop: 4 }}>
             <span style={{
               fontFamily: TOKENS.mono, fontSize: 8, fontWeight: 800,
-              letterSpacing: ".1em", padding: "3px 7px",
+              letterSpacing: ".1em", padding: "2px 6px",
               border: `1.5px solid ${TOKENS.ink}`, borderRadius: 999,
-              background: TOKENS.bg, flexShrink: 0, whiteSpace: "nowrap",
+              background: TOKENS.bg, whiteSpace: "nowrap",
             }}>
               {signalLabel}
             </span>
-          )}
-        </div>
+          </div>
+        )}
+
 
         {/* Category + neighborhood */}
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 5 }}>

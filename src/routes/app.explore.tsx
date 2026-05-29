@@ -117,7 +117,8 @@ function ExplorePage() {
           <button
             onClick={() => setMapView((v) => !v)}
             className="absolute right-2 top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-lg bg-cream/10 text-cream/60 transition-colors hover:bg-cream/15 hover:text-cream"
-            aria-label="Toggle filters"
+            aria-label={mapView ? "Switch to list view" : "Switch to map view"}
+            title={mapView ? "Switch to list view" : "Switch to map view"}
           >
             <SlidersHorizontal className="size-4" />
           </button>

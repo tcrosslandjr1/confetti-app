@@ -1,12 +1,12 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import { Home, Compass, Film, Sparkles, Ticket } from "lucide-react";
+import { Home, Compass, Sparkles, Ticket, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocationTracking } from "@/hooks/useLocationTracking";
 
 /* ── Navigation tabs ────────────────────────────────────────────────── */
 
 type Tab = {
-  to: "/app" | "/app/explore" | "/app/plan" | "/boarding-pass" | "/app/reels";
+  to: "/app" | "/app/explore" | "/app/plan" | "/boarding-pass" | "/app/profile";
   label: string;
   icon: typeof Home;
   exact?: boolean;
@@ -17,7 +17,7 @@ const TABS: readonly Tab[] = [
   { to: "/app/explore", label: "Explore", icon: Compass },
   { to: "/app/plan", label: "Plan", icon: Sparkles },
   { to: "/boarding-pass", label: "Pass", icon: Ticket },
-  { to: "/app/reels", label: "Reels", icon: Film },
+  { to: "/app/profile", label: "Profile", icon: User },
 ];
 
 /* ── BottomNav ──────────────────────────────────────────────────────── */

@@ -64,7 +64,7 @@ function CheckInPage() {
   }, [loopParam, stopParam]);
 
   return (
-    <main className="min-h-screen bg-cream text-cream grid place-items-center p-6">
+    <main className="min-h-screen bg-cream text-ink grid place-items-center p-6">
       <div className="w-full max-w-md rounded-3xl border-2 border-ink bg-cream p-6 shadow-brut-lg">
         {state.status === "idle" && (
           <p className="font-mono text-xs uppercase tracking-widest text-cream/60">

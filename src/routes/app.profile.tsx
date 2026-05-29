@@ -53,6 +53,7 @@ function ProfilePage() {
   usePageview("app_profile", "/app/profile");
   const { user } = useAuth();
   const userId = user?.id;
+  const [activeTab, setActiveTab] = useState("overview");
 
   const { data: profile } = useQuery({
     enabled: !!userId,
@@ -173,19 +174,18 @@ function ProfilePage() {
 
       {/* ─── Tabs ───────────────────────────────────────────────────────── */}
       <section className="mt-6 px-5">
-        <Tabs defaultValue="overview" className="w-full">
+        <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v); trackEngagement("profile_tab", { tab: v }); }} className="w-full">
           <TabsList className="grid w-full grid-cols-6 gap-1 rounded-xl bg-cream/5 p-1">
-            <TabsTrigger value="overview" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "overview" })}>Overview</TabsTrigger>
-            <TabsTrigger value="bookings" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "bookings" })}>Bookings</TabsTrigger>
-            <TabsTrigger value="saved" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "saved" })}>Saved</TabsTrigger>
-            <TabsTrigger value="passport" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "passport" })}>Passport</TabsTrigger>
-            <TabsTrigger value="wallet" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "wallet" })}>Wallet</TabsTrigger>
-            <TabsTrigger value="settings" className={tabTriggerClass} onClick={() => trackEngagement("profile_tab", { tab: "settings" })}>Settings</TabsTrigger>
+            <TabsTrigger value="overview" className={tabTriggerClass}>Overview</TabsTrigger>
+            <TabsTrigger value="bookings" className={tabTriggerClass}>Bookings</TabsTrigger>
+            <TabsTrigger value="saved" className={tabTriggerClass}>Saved</TabsTrigger>
+            <TabsTrigger value="passport" className={tabTriggerClass}>Passport</TabsTrigger>
+            <TabsTrigger value="wallet" className={tabTriggerClass}>Wallet</TabsTrigger>
+            <TabsTrigger value="settings" className={tabTriggerClass}>Settings</TabsTrigger>
           </TabsList>
 
-
           <TabsContent value="overview">
-            <OverviewTab userId={userId!} level={level} xp={xp} />
+            <OverviewTab userId={userId!} level={level} xp={xp} onNavigateToPassport={() => setActiveTab("passport")} />
           </TabsContent>
 
           <TabsContent value="bookings">
@@ -219,10 +219,12 @@ function OverviewTab({
   userId,
   level,
   xp,
+  onNavigateToPassport,
 }: {
   userId: string;
   level: number;
   xp: number;
+  onNavigateToPassport: () => void;
 }) {
   const navigate = useNavigate();
 
@@ -265,9 +267,7 @@ function OverviewTab({
           sub={`Level ${level} · ${xp} XP`}
           onClick={() => {
             trackCta("achievements");
-            /* scroll to passport tab */
-            const el = document.querySelector('[data-value="passport"]');
-            if (el instanceof HTMLElement) el.click();
+            onNavigateToPassport();
           }}
         />
       </Card>
@@ -404,11 +404,11 @@ function SavedTab({ userId }: { userId: string }) {
     queryFn: async () => {
       const { data } = await supabase
         .from("favorite_stops")
-        .select("id,venue_name,created_at")
+        .select("id,venue_id,venue_name,created_at")
         .eq("user_id", userId)
         .order("created_at", { ascending: false })
         .limit(20);
-      return data ?? [];
+      return (data ?? []) as unknown as Array<{ id: string; venue_id: string | null; venue_name: string | null; created_at: string }>;
     },
   });
 
@@ -460,18 +460,26 @@ function SavedTab({ userId }: { userId: string }) {
         <div>
           <h3 className="mb-2.5 font-display text-[14px] font-extrabold tracking-tight text-cream">Favorite Venues</h3>
           <div className="space-y-2">
-            {savedVenues.map((v) => (
-              <Card key={v.id} className="flex items-center gap-3.5 p-3.5">
-                <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-coral/10">
-                  <Heart className="size-4 text-coral" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="truncate font-display text-[13px] font-bold tracking-tight text-cream">
-                    {v.venue_name || "Venue"}
+            {savedVenues.map((v) => {
+              const inner = (
+                <Card className="flex items-center gap-3.5 p-3.5 transition-all duration-200 hover:shadow-card-hover active:scale-[0.98]">
+                  <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-coral/10">
+                    <Heart className="size-4 text-coral" />
                   </div>
-                </div>
-              </Card>
-            ))}
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate font-display text-[13px] font-bold tracking-tight text-cream">
+                      {v.venue_name || "Venue"}
+                    </div>
+                  </div>
+                  <ChevronRight className="size-4 text-cream/25" />
+                </Card>
+              );
+              return v.venue_id ? (
+                <Link key={v.id} to="/venue/$id" params={{ id: v.venue_id }}>{inner}</Link>
+              ) : (
+                <div key={v.id}>{inner}</div>
+              );
+            })}
           </div>
         </div>
       )}

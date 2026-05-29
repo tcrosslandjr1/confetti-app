@@ -39,7 +39,7 @@ function BoardingPassPage() {
   }
 
   return (
-    <div className="relative mx-auto min-h-screen w-full max-w-md bg-cream text-cream pb-24">
+    <div className="relative mx-auto min-h-screen w-full max-w-md bg-mocha-dark pb-24">
       <MobileHeader
         eyebrow="Boarding Pass"
         title={loop.experienceName || loop.to || "Your Night"}

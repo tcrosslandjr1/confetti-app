@@ -36,6 +36,7 @@ import { WaitlistButton } from "@/components/WaitlistButton";
 import { PriceLevel } from "@/components/PriceLevel";
 import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
 import { submitVenueReview } from "@/lib/review-taste-bridge";
+import { useAuth } from "@/lib/auth-context";
 
 const SITE_ORIGIN = process.env.SITE_URL ?? "https://confettiplan.com";
 
@@ -125,6 +126,7 @@ function VenueBookingPage() {
   const navigate = useNavigate();
   const backToDiscover = () => navigate({ to: "/app/explore" });
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
+  const [reviewCount, setReviewCount] = useState<number>(0);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [dir, setDir] = useState<1 | -1>(1);
   const [modalOpen, setModalOpen] = useState(false);
@@ -195,6 +197,18 @@ function VenueBookingPage() {
       }
       setVenue(null);
     })();
+    // Fetch real review count separately (non-blocking) — via raw REST to avoid type mismatch
+    const url = import.meta.env.VITE_SUPABASE_URL;
+    const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+    if (url && key) {
+      fetch(`${url}/rest/v1/venue_reviews?venue_id=eq.${id}&select=id`, {
+        headers: { apikey: key, Authorization: `Bearer ${key}`, Prefer: "count=exact", Range: "0-0" },
+      }).then((r) => {
+        const raw = r.headers.get("content-range");
+        const total = raw ? parseInt(raw.split("/")[1] ?? "0", 10) : 0;
+        if (!cancelled && total > 0) setReviewCount(total);
+      }).catch(() => {});
+    }
     return () => {
       cancelled = true;
     };
@@ -242,7 +256,7 @@ function VenueBookingPage() {
             dir === 1 ? "animate-[slide-in-right_.32s_ease-out]" : "animate-[fade-in_.32s_ease-out]"
           }
         >
-          {step === 1 && <StepVenue venue={venue} onReserve={() => setModalOpen(true)} />}
+          {step === 1 && <StepVenue venue={venue} onReserve={() => setModalOpen(true)} reviewCount={reviewCount} />}
           {step === 2 && (
             <StepTime
               venue={venue}
@@ -352,15 +366,76 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
 
 // ---------------- Step 1: Venue Detail ----------------
 
-type VenueEvent = {
-  title: string;
-  description: string;
-  daysAhead: number;
-  startHour: number; // 24h
-  durationHours: number;
-};
+/* ── Real events from DB ─────────────────────────────────────────── */
 
-const EVENTS_BY_CATEGORY: Record<string, VenueEvent[]> = {
+function VenueEvents({ venueId, venueName }: { venueId: string; venueName: string }) {
+  const [events, setEvents] = useState<Array<{
+    id: string; title: string; description: string | null;
+    starts_at: string; ticket_url: string | null;
+  }>>([]);
+
+  useEffect(() => {
+    supabase
+      .from("events")
+      .select("id,title,description,starts_at,ticket_url")
+      .eq("venue_id", venueId)
+      .eq("status", "published")
+      .gte("starts_at", new Date().toISOString())
+      .order("starts_at")
+      .limit(5)
+      .then(({ data }) => { if (data?.length) setEvents(data); });
+  }, [venueId]);
+
+  if (!events.length) return null;
+
+  return (
+    <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
+      <div className="flex items-center gap-2">
+        <CalendarIcon className="h-4 w-4 text-coral" />
+        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+          Upcoming events
+        </p>
+      </div>
+      <ul className="mt-3 space-y-2.5">
+        {events.map((e) => {
+          const d = new Date(e.starts_at);
+          const day = d.toLocaleDateString(undefined, { weekday: "short" }).toUpperCase();
+          const date = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+          const time = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+          return (
+            <li key={e.id} className="flex gap-3 rounded-xl border-2 border-cream/10 bg-cream/40 p-3">
+              <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg border-2 border-ink bg-white text-center">
+                <span className="font-mono text-[9px] font-bold text-coral">{day}</span>
+                <span className="font-mono text-xs font-bold leading-tight text-cream">{date}</span>
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-baseline gap-x-2">
+                  <p className="font-semibold text-cream">{e.title}</p>
+                  <span className="font-mono text-[10px] text-cream/60">{time}</span>
+                </div>
+                {e.description && (
+                  <p className="mt-0.5 text-sm leading-snug text-cream/70">{e.description}</p>
+                )}
+                {e.ticket_url && (
+                  <a
+                    href={e.ticket_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-coral hover:underline"
+                  >
+                    Get tickets <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+const _EVENTS_BY_CATEGORY_LEGACY: Record<string, unknown[]> = {
   Rooftops: [
     {
       title: "Golden Hour Sessions",
@@ -482,101 +557,8 @@ const EVENTS_BY_CATEGORY: Record<string, VenueEvent[]> = {
   ],
 };
 
-const DEFAULT_EVENTS: VenueEvent[] = [
-  {
-    title: "Members' Mixer",
-    description: "Casual evening hosted by the team. Welcome drink and tasting bites included.",
-    daysAhead: 4,
-    startHour: 19,
-    durationHours: 2,
-  },
-  {
-    title: "Seasonal Tasting",
-    description: "Walk through the new seasonal menu with the kitchen and bar leads.",
-    daysAhead: 11,
-    startHour: 19,
-    durationHours: 2,
-  },
-  {
-    title: "Late Night Hang",
-    description: "Extended hours with a guest host and a one-off menu for the night.",
-    daysAhead: 18,
-    startHour: 21,
-    durationHours: 3,
-  },
-];
-
-function getEventsForVenue(venue: Venue): VenueEvent[] {
-  if (venue.category && EVENTS_BY_CATEGORY[venue.category]) {
-    return EVENTS_BY_CATEGORY[venue.category];
-  }
-  return DEFAULT_EVENTS;
-}
-
-function formatEventDate(date: Date): { day: string; date: string; time: string } {
-  return {
-    day: date.toLocaleDateString(undefined, { weekday: "short" }).toUpperCase(),
-    date: date.toLocaleDateString(undefined, { month: "short", day: "numeric" }),
-    time: date.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }),
-  };
-}
-
-function VenueEvents({ venue }: { venue: Venue }) {
-  const events = useMemo(() => {
-    const base = getEventsForVenue(venue);
-    const now = new Date();
-    return base.map((e) => {
-      const start = new Date(now);
-      start.setDate(start.getDate() + e.daysAhead);
-      start.setHours(e.startHour, 0, 0, 0);
-      const rsvpQuery = encodeURIComponent(`${e.title} ${venue.name} ${venue.city ?? ""}`.trim());
-      const rsvpHref = `https://www.eventbrite.com/d/online/${rsvpQuery}/`;
-      return { ...e, start, rsvpHref };
-    });
-  }, [venue]);
-
-  return (
-    <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
-      <div className="flex items-center gap-2">
-        <CalendarIcon className="h-4 w-4 text-coral" />
-        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
-          Upcoming events
-        </p>
-      </div>
-      <ul className="mt-3 space-y-2.5">
-        {events.map((e) => {
-          const f = formatEventDate(e.start);
-          return (
-            <li
-              key={e.title}
-              className="flex gap-3 rounded-xl border-2 border-cream/10 bg-cream/40 p-3"
-            >
-              <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg border-2 border-ink bg-white text-center">
-                <span className="font-mono text-[9px] font-bold text-coral">{f.day}</span>
-                <span className="font-mono text-xs font-bold leading-tight text-cream">{f.date}</span>
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-baseline gap-x-2">
-                  <p className="font-semibold text-cream">{e.title}</p>
-                  <span className="font-mono text-[10px] text-cream/60">{f.time}</span>
-                </div>
-                <p className="mt-0.5 text-sm leading-snug text-cream/70">{e.description}</p>
-                <a
-                  href={e.rsvpHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-coral hover:underline"
-                >
-                  RSVP <ExternalLink className="h-3 w-3" />
-                </a>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
+// Legacy arrays retained for reference only — no longer rendered
+// (replaced by real-DB VenueEvents above)
 
 function ShareVenue({ venue }: { venue: Venue }) {
   const shareUrl =
@@ -651,7 +633,7 @@ function ShareVenue({ venue }: { venue: Venue }) {
   );
 }
 
-function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }) {
+function StepVenue({ venue, onReserve, reviewCount }: { venue: Venue; onReserve: () => void; reviewCount: number }) {
   const gallery = venue.gallery_urls ?? [];
   const photo = gallery[0]?.url || venue.image_url || FALLBACK_PHOTO;
   const price = "$".repeat(Math.max(1, Math.min(4, venue.price_level || 3)));
@@ -699,21 +681,25 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
               <span className="font-extrabold tracking-tight text-white">
                 {(venue.rating ?? 4.8).toFixed(1)}
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
-                842 reviews
-              </span>
+              {reviewCount > 0 && (
+                <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
+                  {reviewCount.toLocaleString()} {reviewCount === 1 ? "review" : "reviews"}
+                </span>
+              )}
             </span>
             <span className="inline-flex items-center gap-1 rounded-full border border-white/25 bg-white/10 px-2.5 py-1 font-mono text-[11px] tracking-wider backdrop-blur-md">
               <span className="text-emerald-300">{price}</span>
               <span className="text-white/40">{"$".repeat(4 - price.length)}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-coral/60 bg-coral/20 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-md">
-              <span className="relative grid h-2 w-2 place-items-center">
-                <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
-                <span className="relative h-1.5 w-1.5 rounded-full bg-coral" />
+            {(venue as any).reservable && (
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-teal/60 bg-teal/20 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-md">
+                <span className="relative grid h-2 w-2 place-items-center">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-teal/70" />
+                  <span className="relative h-1.5 w-1.5 rounded-full bg-teal" />
+                </span>
+                Reservations open
               </span>
-              7 tables left tonight
-            </span>
+            )}
             <div className="flex w-full flex-wrap gap-1.5 pt-1">
               {(venue.tags?.length ? venue.tags : ["date night", "cocktails", "intimate"])
                 .slice(0, 4)
@@ -760,26 +746,25 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         </div>
       </div>
 
-      {/* AI Recommendation glass card */}
-      <div className="relative overflow-hidden rounded-2xl border-2 border-ink bg-white/70 p-5 shadow-brut backdrop-blur">
-        <div className="absolute inset-y-0 left-0 w-1.5 bg-teal" />
-        <div className="flex items-start gap-3">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
-            <Sparkles className="h-4 w-4 text-coral" />
-          </span>
-          <div className="space-y-1.5">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-teal">
-              Why Confetti picked this
-            </p>
-            <p className="text-sm leading-relaxed text-cream/85">
-              You loved <span className="font-semibold">Maison Pickle</span> and{" "}
-              <span className="font-semibold">Attaboy</span>. {venue.name} hits the same
-              intimate-but-buzzy note — low-lit booths, a bartender who actually asks what you're
-              feeling, and a hidden patio for after-dinner.
-            </p>
+      {/* AI Recommendation glass card — only show if we have real copy */}
+      {((venue as any).summary || venue.description) && (
+        <div className="relative overflow-hidden rounded-2xl border-2 border-ink bg-white/70 p-5 shadow-brut backdrop-blur">
+          <div className="absolute inset-y-0 left-0 w-1.5 bg-teal" />
+          <div className="flex items-start gap-3">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
+              <Sparkles className="h-4 w-4 text-coral" />
+            </span>
+            <div className="space-y-1.5">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-teal">
+                Why you'll love this
+              </p>
+              <p className="text-sm leading-relaxed text-cream/85">
+                {(venue as any).summary || venue.description}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* 2x2 details grid */}
       <div className="grid grid-cols-2 gap-3">
@@ -796,23 +781,23 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
       {/* Price level */}
       <PriceLevel level={(venue.price_level || 3) as 1 | 2 | 3 | 4} />
 
-      {/* Hours */}
-      <VenueHours
-        hours={[
-          { dayOfWeek: 0, openTime: "10:00", closeTime: "22:00", isClosed: false },
-          { dayOfWeek: 1, openTime: "11:00", closeTime: "23:00", isClosed: false },
-          { dayOfWeek: 2, openTime: "11:00", closeTime: "23:00", isClosed: false },
-          { dayOfWeek: 3, openTime: "11:00", closeTime: "00:00", isClosed: false },
-          { dayOfWeek: 4, openTime: "11:00", closeTime: "00:00", isClosed: false },
-          { dayOfWeek: 5, openTime: "11:00", closeTime: "02:00", isClosed: false },
-          { dayOfWeek: 6, openTime: "10:00", closeTime: "02:00", isClosed: false },
-        ]}
-      />
+      {/* Hours — only render when we have real data from the DB */}
+      {(venue as any).hours && <VenueHours hours={(venue as any).hours} />}
 
-      {/* Menu */}
-      <div className="rounded-2xl border-2 border-ink bg-white p-5 shadow-brut">
-        <VenueMenu sections={SAMPLE_MENU} />
-      </div>
+      {/* Menu — link to menu URL if the venue has one; no fake sample data */}
+      {venue.menu_url && (
+        <div className="rounded-2xl border-2 border-ink bg-white p-5 shadow-brut">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">Menu</p>
+          <a
+            href={venue.menu_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-4 py-2 font-mono text-xs font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+          >
+            View full menu <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      )}
 
       {/* Waitlist */}
       <WaitlistButton
@@ -826,7 +811,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         venueId={venue.id}
         venueName={venue.name}
         averageRating={venue.rating ?? 4.8}
-        reviewCount={842}
+        reviewCount={reviewCount}
         reviews={[]}
         onSubmitReview={async (r) => {
           try {
@@ -857,7 +842,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         </Link>
       </div>
 
-      <VenueEvents venue={venue} />
+      <VenueEvents venueId={venue.id} venueName={venue.name} />
 
       <ShareVenue venue={venue} />
 
@@ -1061,15 +1046,50 @@ function StepConfirm({
   code: string;
   onPay: () => void;
 }) {
+  const { user } = useAuth();
   const date = useMemo(() => buildDates(14)[dateIdx], [dateIdx]);
   const deposit = 25 * party;
   const [paying, setPaying] = useState(false);
 
   const handlePay = async () => {
     setPaying(true);
-    await new Promise((r) => setTimeout(r, 900));
-    setPaying(false);
-    onPay();
+    try {
+      const dateObj = buildDates(14)[dateIdx];
+      // Parse the selected time into a full ISO timestamp for today's year
+      const [hourMin, ampm] = time.split(" ");
+      const [h, m] = hourMin.split(":").map(Number);
+      const hour24 = ampm === "PM" && h !== 12 ? h + 12 : ampm === "AM" && h === 12 ? 0 : h;
+      const startsAt = new Date(
+        new Date().getFullYear(),
+        new Date(`${dateObj.mon} 1`).getMonth(),
+        Number(dateObj.day),
+        hour24,
+        m ?? 0,
+      );
+
+      const { error } = await (supabase.from("bookings") as any).insert({
+        user_id: user?.id ?? "",
+        venue_id: venue.id,
+        venue_name: venue.name,
+        starts_at: startsAt.toISOString(),
+        party_size: party,
+        total_cents: deposit * 100,
+        status: "confirmed",
+        booking_ref: code,
+      });
+
+      if (error) {
+        console.error("[booking] insert failed", error);
+        toast.error("Booking couldn't save — please try again");
+        return;
+      }
+      onPay();
+    } catch (err) {
+      console.error("[booking] unexpected error", err);
+      toast.error("Something went wrong — please try again");
+    } finally {
+      setPaying(false);
+    }
   };
 
   return (
@@ -1331,7 +1351,46 @@ function StepDone({
       {/* Action buttons */}
       <div className="grid grid-cols-2 gap-3">
         <button
-          onClick={() => toast.success("Added to your calendar")}
+          onClick={() => {
+            // Build a real .ics file and trigger download
+            const d = buildDates(14)[dateIdx];
+            const [hourMin, ampm] = time.split(" ");
+            const [h, m] = hourMin.split(":").map(Number);
+            const hour24 = ampm === "PM" && h !== 12 ? h + 12 : ampm === "AM" && h === 12 ? 0 : h;
+            const start = new Date(
+              new Date().getFullYear(),
+              new Date(`${d.mon} 1`).getMonth(),
+              Number(d.day),
+              hour24,
+              m ?? 0,
+            );
+            const end = new Date(start.getTime() + 2 * 60 * 60 * 1000); // 2h default
+            const fmt = (dt: Date) =>
+              dt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+            const ics = [
+              "BEGIN:VCALENDAR",
+              "VERSION:2.0",
+              "PRODID:-//Confetti//EN",
+              "BEGIN:VEVENT",
+              `UID:${code}@confettiplan.com`,
+              `DTSTAMP:${fmt(new Date())}`,
+              `DTSTART:${fmt(start)}`,
+              `DTEND:${fmt(end)}`,
+              `SUMMARY:${venue.name}`,
+              `DESCRIPTION:Confetti reservation · Code: ${code}`,
+              `LOCATION:${venue.address ?? venue.neighborhood ?? venue.city ?? ""}`,
+              "END:VEVENT",
+              "END:VCALENDAR",
+            ].join("\r\n");
+            const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${venue.name.replace(/[^a-z0-9]/gi, "-")}.ics`;
+            a.click();
+            URL.revokeObjectURL(url);
+            toast.success("Calendar file downloaded");
+          }}
           className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-y-0 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         >
           <CalendarPlus className="h-4 w-4" /> Add to Calendar

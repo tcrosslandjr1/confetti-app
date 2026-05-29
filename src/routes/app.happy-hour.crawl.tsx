@@ -26,8 +26,9 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/lib/auth-context";
-import { usePageview } from "@/lib/analytics";
+import { usePageview, trackEngagement } from "@/lib/analytics";
 import { Reveal } from "@/components/Reveal";
+import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
 
 // ── Route definition ────────────────────────────────────────────
 
@@ -514,8 +515,37 @@ function CrawlTemplatePage() {
           <div className="mt-6 space-y-3">
             <button
               onClick={() => {
-                // In future: persist crawl to user's itinerary, navigate to live tracking
-                navigate({ to: "/app/happy-hour" });
+                const SLOT_TIMES = ["5:30 PM", "7:00 PM", "9:00 PM"];
+                const loopStops = slots
+                  .flatMap((deal, idx) => {
+                    if (!deal) return [];
+                    const d = deal as any;
+                    return [{
+                      id: `crawl-${d.id ?? idx}-${Date.now()}`,
+                      name: d.venue_name ?? d.bar_name ?? d.name ?? `Stop ${idx + 1}`,
+                      type: "drinks" as const,
+                      time: SLOT_TIMES[idx] ?? "TBD",
+                      area: (d.neighborhood ?? d.region ?? undefined) as string | undefined,
+                      category: "drinks" as const,
+                      priceLevel: (d.price_tag ?? d.price_level ?? "$$") as string,
+                      slot: (["Pre-Game", "Main Event", "Nightcap"][idx]) as string,
+                    }];
+                  });
+
+                const loop = makeDemoLoop({
+                  to: template?.name ?? "Happy Hour Crawl",
+                  occasion: "Happy Hour",
+                  vibe: template?.vibe_arc?.[0] ?? "Good vibes",
+                  stops: loopStops,
+                  confettiPoints: 150,
+                });
+                setActiveLoop(loop);
+                trackEngagement("crawl_started", {
+                  templateId: template?.id,
+                  templateName: template?.name,
+                  stopCount: loopStops.length,
+                });
+                navigate({ to: "/boarding-pass" });
               }}
               className="flex w-full items-center justify-center gap-2 rounded-2xl bg-coral px-6 py-4 font-display text-[15px] font-bold text-cream shadow-lg transition-all active:scale-[0.97] hover:bg-coral/90"
             >

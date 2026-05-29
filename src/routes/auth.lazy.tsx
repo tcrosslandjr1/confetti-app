@@ -287,7 +287,7 @@ function AuthPage() {
     setOauthBusy(provider);
     try {
       const result = await confettiAuth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
+        redirect_uri: `${window.location.origin}/auth/callback`,
         extraParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
       });
       if (result.error) {

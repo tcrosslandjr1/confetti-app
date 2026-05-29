@@ -3,16 +3,38 @@ import { type ReactNode } from "react";
 import {
   BrandMark, DotsBg, Frame, RouteDots, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
-// inkMuted/inkHint imported via TOKENS — no opacity hacks
 import { useNewAuth } from "@/hooks/useNewAuth";
+import { getActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/new/hub")({
   component: HubPage,
 });
 
 function HubPage() {
-  const { ready } = useNewAuth();
+  const { ready, user } = useNewAuth();
   const navigate = useNavigate();
+
+  // ── Real user display name & initials ───────────────────────────
+  const rawName = user?.user_metadata?.display_name || user?.email?.split("@")[0] || "hey";
+  const firstName = rawName.split(/[\s_\.]+/)[0];
+  const greeting = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+  const initials = (user?.user_metadata?.display_name || user?.email || "?")
+    .split(/[\s@_\.]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w: string) => w[0].toUpperCase())
+    .join("") || "?";
+
+  // ── Dynamic day / time of day ────────────────────────────────────
+  const dayLabel = new Date().toLocaleDateString("en-US", { weekday: "long" });
+  const h = new Date().getHours();
+  const timeLabel = h < 12 ? "morning" : h < 17 ? "afternoon" : "wide open";
+
+  // ── Active loop ──────────────────────────────────────────────────
+  const activeLoop = getActiveLoop();
+  const currentStop = activeLoop?.stops?.find(s => !s.done) ?? activeLoop?.stops?.[0];
+  const completedCount = activeLoop?.stops?.filter(s => s.done).length ?? 0;
+  const totalStops = activeLoop?.stops?.length ?? 0;
 
   if (!ready) {
     return (
@@ -54,14 +76,16 @@ function HubPage() {
           marginBottom: 14,
         }}>
           <BrandMark size={18} />
-          <button style={{
-            appearance: "none", cursor: "pointer",
-            width: 38, height: 38, borderRadius: 999,
-            border: `2.5px solid ${TOKENS.ink}`, background: TOKENS.accent2,
-            fontFamily: TOKENS.display, fontWeight: 900, fontSize: 14,
-            color: TOKENS.ink,
-            boxShadow: `3px 3px 0 ${TOKENS.ink}`,
-          }}>JS</button>
+          <button
+            onClick={() => navigate({ to: "/new/profile" })}
+            style={{
+              appearance: "none", cursor: "pointer",
+              width: 38, height: 38, borderRadius: 999,
+              border: `2.5px solid ${TOKENS.ink}`, background: TOKENS.accent2,
+              fontFamily: TOKENS.display, fontWeight: 900, fontSize: 14,
+              color: TOKENS.ink,
+              boxShadow: `3px 3px 0 ${TOKENS.ink}`,
+            }}>{initials}</button>
         </div>
 
         <div style={{
@@ -74,11 +98,11 @@ function HubPage() {
             fontFamily: TOKENS.display, fontWeight: 900,
             fontSize: 38, lineHeight: 0.95, letterSpacing: "-0.04em",
             color: TOKENS.ink, margin: "0 0 4px",
-          }}>Hey, Jess.</h2>
+          }}>Hey, {greeting}.</h2>
           <p style={{
             fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 600,
             color: TOKENS.inkMuted, margin: "0 0 18px",
-          }}>Saturday's wide open. Print one?</p>
+          }}>{dayLabel}'s {timeLabel}. Print one?</p>
 
           {/* Big planner CTAs — two paths */}
           <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 10, marginBottom: 18 }}>
@@ -128,56 +152,85 @@ function HubPage() {
             </button>
           </div>
 
-          {/* Tonight pass */}
+          {/* Tonight pass — conditional on active loop */}
           <SectionLabel>tonight</SectionLabel>
-          <button onClick={() => onGo("night")} style={{
-            appearance: "none", cursor: "pointer", textAlign: "left", width: "100%",
-            padding: 0, border: "none", background: "transparent",
-            marginBottom: 18,
-          }}>
-            <Ticket color={TOKENS.paper} notch={false} style={{ padding: 14 }}>
-              <div style={{
-                display: "flex", alignItems: "center", justifyContent: "space-between",
-                marginBottom: 8,
-              }}>
-                <span style={{
-                  display: "inline-flex", alignItems: "center", gap: 6,
-                  padding: "4px 8px", background: TOKENS.accent1,
-                  border: `2px solid ${TOKENS.ink}`, borderRadius: 999,
-                  fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                  letterSpacing: ".14em",
+          {activeLoop ? (
+            <button onClick={() => onGo("night")} style={{
+              appearance: "none", cursor: "pointer", textAlign: "left", width: "100%",
+              padding: 0, border: "none", background: "transparent",
+              marginBottom: 18,
+            }}>
+              <Ticket color={TOKENS.paper} notch={false} style={{ padding: 14 }}>
+                <div style={{
+                  display: "flex", alignItems: "center", justifyContent: "space-between",
+                  marginBottom: 8,
                 }}>
                   <span style={{
-                    width: 5, height: 5, borderRadius: 999, background: TOKENS.ink,
-                    animation: "cf-pulse 1.2s infinite",
-                  }} />
-                  IN PROGRESS · STOP 2/3
-                </span>
-                <span style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    padding: "4px 8px", background: TOKENS.accent1,
+                    border: `2px solid ${TOKENS.ink}`, borderRadius: 999,
+                    fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
+                    letterSpacing: ".14em",
+                  }}>
+                    <span style={{
+                      width: 5, height: 5, borderRadius: 999, background: TOKENS.ink,
+                      animation: "cf-pulse 1.2s infinite",
+                    }} />
+                    IN PROGRESS · STOP {completedCount + 1}/{totalStops}
+                  </span>
+                  <span style={{
+                    fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
+                    color: TOKENS.inkHint, letterSpacing: ".12em",
+                  }}>{activeLoop.id}</span>
+                </div>
+                <div style={{
+                  fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
+                  letterSpacing: "-0.03em", lineHeight: 1,
+                }}>{currentStop?.name ?? activeLoop.to}</div>
+                <div style={{
+                  fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700,
+                  color: TOKENS.inkMuted, marginTop: 3,
+                }}>
+                  {[currentStop?.time, currentStop?.type, currentStop?.address || currentStop?.area]
+                    .filter(Boolean).join(" · ")}
+                </div>
+                <div style={{ marginTop: 10 }}>
+                  <RouteDots
+                    progress={totalStops > 0 ? (completedCount + 1) / totalStops : 0.5}
+                    size={14}
+                  />
+                </div>
+                <div style={{
+                  marginTop: 6, paddingTop: 10, borderTop: "2px dashed rgba(0,0,0,0.15)",
+                  display: "flex", alignItems: "center", gap: 8,
+                  fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800,
+                }}>
+                  <span>→</span><span>Tap to open live view</span>
+                </div>
+              </Ticket>
+            </button>
+          ) : (
+            <button onClick={() => onGo("chat")} style={{
+              appearance: "none", cursor: "pointer", textAlign: "left", width: "100%",
+              padding: 0, border: "none", background: "transparent",
+              marginBottom: 18,
+            }}>
+              <Ticket color={TOKENS.paper} notch={false} style={{ padding: 14 }}>
+                <div style={{
                   fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800,
-                  color: TOKENS.inkHint, letterSpacing: ".12em",
-                }}>#A7K2</span>
-              </div>
-              <div style={{
-                fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
-                letterSpacing: "-0.03em", lineHeight: 1,
-              }}>Lupa Notte</div>
-              <div style={{
-                fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700,
-                color: TOKENS.inkMuted, marginTop: 3,
-              }}>8:30 PM · italian · 88 N 6th St</div>
-              <div style={{ marginTop: 10 }}>
-                <RouteDots progress={0.5} size={14} />
-              </div>
-              <div style={{
-                marginTop: 6, paddingTop: 10, borderTop: "2px dashed rgba(0,0,0,0.15)",
-                display: "flex", alignItems: "center", gap: 8,
-                fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800,
-              }}>
-                <span>→</span><span>Heading back to the live view</span>
-              </div>
-            </Ticket>
-          </button>
+                  letterSpacing: ".14em", color: TOKENS.inkHint, marginBottom: 8,
+                }}>NO ACTIVE PASS</div>
+                <div style={{
+                  fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22,
+                  letterSpacing: "-0.03em", lineHeight: 1,
+                }}>Nothing printed yet.</div>
+                <div style={{
+                  fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700,
+                  color: TOKENS.inkMuted, marginTop: 3,
+                }}>Chat with Confetti to build your night →</div>
+              </Ticket>
+            </button>
+          )}
 
           {/* Portals */}
           <SectionLabel>portals</SectionLabel>
@@ -191,7 +244,7 @@ function HubPage() {
           </div>
 
           {/* Scrapbook */}
-          <SectionLabel>your scrapbook · 18 nights</SectionLabel>
+          <SectionLabel>your scrapbook</SectionLabel>
           <div style={{
             display: "flex", gap: 10, overflowX: "auto", scrollbarWidth: "none",
             marginRight: -22, paddingRight: 22, marginBottom: 18,

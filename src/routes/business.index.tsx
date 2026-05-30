@@ -1,11 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { BadgeCheck, BarChart3, Megaphone, ShieldCheck, Sparkles, Store } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/business/")({
   component: BusinessLandingPage,
+  validateSearch: (s: Record<string, unknown>) => ({
+    message: typeof s.message === "string" ? s.message : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Confetti for Business — List Your Venue" },
@@ -20,7 +25,12 @@ export const Route = createFileRoute("/business/")({
 
 function BusinessLandingPage() {
   const { user } = useAuth();
+  const { message } = Route.useSearch();
   const ctaHref = user ? "/business/claim" : "/business/signup";
+
+  useEffect(() => {
+    if (message) toast.info(message);
+  }, [message]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">

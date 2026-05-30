@@ -17,10 +17,10 @@ export function storePendingRedirect(path: string) {
 }
 
 function consumePendingRedirect(): string {
-  if (typeof sessionStorage === "undefined") return "/app";
+  if (typeof sessionStorage === "undefined") return "/new/hub";
   const stored = sessionStorage.getItem(PENDING_REDIRECT_KEY);
   sessionStorage.removeItem(PENDING_REDIRECT_KEY);
-  return stored && stored.startsWith("/") && !stored.startsWith("//") ? stored : "/app";
+  return stored && stored.startsWith("/") && !stored.startsWith("//") ? stored : "/new/hub";
 }
 
 /** Detect whether this is a brand-new user signup from the URL hash. */
@@ -52,7 +52,7 @@ function AuthCallback() {
       // then fall back to /app. New signups land directly on /app so the
       // FirstRunNudge can welcome them — there is no separate onboarding gate.
       const destination = consumePendingRedirect();
-      navigate({ to: destination as "/app", replace: true });
+      navigate({ to: destination as "/new/hub", replace: true });
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {

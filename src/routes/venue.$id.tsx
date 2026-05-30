@@ -34,7 +34,7 @@ import { VenueMenu, type MenuSection } from "@/components/VenueMenu";
 import { VenueReviews } from "@/components/VenueReviews";
 import { WaitlistButton } from "@/components/WaitlistButton";
 import { PriceLevel } from "@/components/PriceLevel";
-import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
+import { setActiveLoop } from "@/lib/loop-store";
 import { submitVenueReview } from "@/lib/review-taste-bridge";
 import { useAuth } from "@/lib/auth-context";
 
@@ -1229,12 +1229,16 @@ function StepDone({
 
   /* Persist booking to loop-store so /boarding-pass works */
   useEffect(() => {
-    const loop = makeDemoLoop({
-      to: venue.name,
-      from: venue.neighborhood || venue.city || "Downtown",
-      groupSize: party,
+    const loop: Parameters<typeof setActiveLoop>[0] = {
+      id: code,
+      passenger: "YOU",
       date: `${date.mon} ${date.day}`,
+      groupSize: party,
+      from: venue.neighborhood || venue.city || "Downtown",
+      to: venue.name,
+      gate: venue.neighborhood || "GATE A",
       boardingTime: time,
+      occasion: "Night Out",
       stops: [
         {
           id: venue.id,
@@ -1242,14 +1246,12 @@ function StepDone({
           type: (venue as any).category ?? "venue",
           time,
           address: venue.neighborhood || venue.city || "",
+          kind: "destination",
         },
       ],
-      booking: {
-        ref: code,
-        bookedAt: new Date().toISOString(),
-        stops: { [venue.id]: "confirmed" },
-      },
-    });
+      city: venue.city || "",
+      experienceName: venue.name,
+    };
     setActiveLoop(loop);
   }, []); // run once on mount
 

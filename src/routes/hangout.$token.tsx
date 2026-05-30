@@ -99,12 +99,28 @@ function SharedHangoutPage() {
   if (err || !data) {
     return (
       <div className="grid min-h-[60vh] place-items-center px-4">
-        <div className="rounded-2xl border-2 border-dashed border-red-500/30 bg-red-50 px-6 py-10 text-center">
-          <p className="font-display text-lg font-bold text-red-700">Couldn't load this hangout</p>
-          <p className="mt-1 text-sm text-red-600/80">{err ?? "Link may have expired."}</p>
-          <Link to="/app" className="mt-4 inline-block font-mono text-[10px] uppercase tracking-widest text-cream/60 underline">
-            ← Back to Confetti
-          </Link>
+        <div className="rounded-3xl border-2 border-ink bg-cream px-6 py-10 text-center shadow-brut max-w-sm w-full">
+          <div className="mb-4 text-4xl">🎟️</div>
+          <h1 className="font-display text-xl font-extrabold tracking-tight text-ink">
+            This hangout has expired
+          </h1>
+          <p className="mt-2 text-sm text-ink/60">
+            The link may have expired or the hangout was cancelled. Ask the host for a fresh link.
+          </p>
+          <div className="mt-6 flex flex-col gap-3">
+            <Link
+              to="/app/plan"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-ink bg-coral px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-widest text-white shadow-brut transition-pop hover:-translate-y-0.5"
+            >
+              Plan my own night
+            </Link>
+            <Link
+              to="/app"
+              className="font-mono text-[10px] uppercase tracking-widest text-ink/50 underline"
+            >
+              ← Back to Confetti
+            </Link>
+          </div>
         </div>
       </div>
     );

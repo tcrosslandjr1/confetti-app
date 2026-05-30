@@ -8,6 +8,8 @@ import { MobileHeader } from "@/components/AppShell";
 import { NotificationBell } from "@/components/NotificationBell";
 import { useAuth } from "@/lib/auth-context";
 import { usePageview, trackEngagement } from "@/lib/analytics";
+import { useEffect } from "react";
+import { toast } from "sonner";
 import { Reveal } from "@/components/Reveal";
 import { fetchFeedRecommendations, getUserLocation } from "@/lib/agents/feed-recommendations";
 import { getSelectedCity, DEFAULT_CITY } from "@/lib/cities";
@@ -17,12 +19,20 @@ import type { PickSignal } from "@/components/WhyThisPick";
 
 export const Route = createFileRoute("/app/")({
   component: TonightFeedPage,
+  validateSearch: (s: Record<string, unknown>) => ({
+    message: typeof s.message === "string" ? s.message : undefined,
+  }),
 });
 
 function TonightFeedPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { message } = Route.useSearch();
   const selectedCity = getSelectedCity() ?? DEFAULT_CITY;
+
+  useEffect(() => {
+    if (message) toast.info(message);
+  }, [message]);
 
   const { data: trendingVenues } = useQuery({
     queryKey: ["app", "tonight", "trending", selectedCity.slug],

@@ -1377,16 +1377,31 @@ function StopCard({
     supabase.auth.getUser().then(({ data }) => {
       const uid = data.user?.id;
       if (!uid) return;
-      void supabase.from("passport_stamps").upsert(
-        {
+      if (stop.venueId) {
+        // Known venue — upsert keyed on (user_id, venue_id, stamp_type) so we
+        // never double-stamp the same venue for the same user.
+        void supabase.from("passport_stamps").upsert(
+          {
+            user_id: uid,
+            venue_id: stop.venueId,
+            stamp_type: "check_in",
+            earned_at: result.stop.checkedInAt ?? new Date().toISOString(),
+            visit_notes: stop.name,
+          },
+          { onConflict: "user_id,venue_id,stamp_type", ignoreDuplicates: true },
+        );
+      } else {
+        // AI-generated stop without a matched venue row — use plain insert.
+        // The stop.id is unique within the loop so this won't duplicate on retry
+        // because checkInStop guards against alreadyAwarded above.
+        void supabase.from("passport_stamps").insert({
           user_id: uid,
-          venue_id: stop.venueId ?? null,
+          venue_id: null,
           stamp_type: "check_in",
           earned_at: result.stop.checkedInAt ?? new Date().toISOString(),
           visit_notes: stop.name,
-        },
-        { onConflict: "user_id,venue_id,stamp_type", ignoreDuplicates: true },
-      );
+        });
+      }
     });
     toast.success(`Checked in at ${stop.name}`, {
       description: `+${result.awarded} Confetti added to your balance`,

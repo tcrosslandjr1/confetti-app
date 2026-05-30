@@ -29,12 +29,12 @@ function SignInPage() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         if (event === "SIGNED_IN" && session) {
-          navigate({ to: "/app" });
+          navigate({ to: "/new/hub" });
         }
       }
     );
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) navigate({ to: "/app" });
+      if (session) navigate({ to: "/new/hub" });
     });
     return () => subscription.unsubscribe();
   }, [navigate]);
@@ -45,7 +45,7 @@ function SignInPage() {
     setError(null);
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+      options: { emailRedirectTo: `${window.location.origin}/new/hub` },
     });
     setLoading(false);
     if (authError) { setError(authError.message); return; }
@@ -56,7 +56,7 @@ function SignInPage() {
     setError(null);
     const { error: authError } = await supabase.auth.signInWithOAuth({
       provider,
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
+      options: { redirectTo: `${window.location.origin}/new/hub` },
     });
     if (authError) setError(authError.message);
   };

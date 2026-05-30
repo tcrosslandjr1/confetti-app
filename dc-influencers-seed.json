@@ -599,7 +599,17 @@
     "nano_tier_count": 15,
     "total_reach_estimate": "~1.2M combined followers",
     "tiktok_creators": ["@urnovafoodie (40K)", "@dcfoodgod (37K)"],
-    "media_featured": ["@hypefoodies (NBC, 7News DC)", "@dcdrinksandeats (Forbes)", "@theskinnifoodwhore (Washington City Paper)"],
-    "priority_outreach": ["@dmvbite", "@hypefoodies", "@alwaysbemyfoodie", "@foodooboos", "@nomzallday"]
+    "media_featured": [
+      "@hypefoodies (NBC, 7News DC)",
+      "@dcdrinksandeats (Forbes)",
+      "@theskinnifoodwhore (Washington City Paper)"
+    ],
+    "priority_outreach": [
+      "@dmvbite",
+      "@hypefoodies",
+      "@alwaysbemyfoodie",
+      "@foodooboos",
+      "@nomzallday"
+    ]
   }
 }

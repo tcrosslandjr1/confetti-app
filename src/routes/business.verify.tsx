@@ -194,15 +194,13 @@ function SelfServeForm({
       if (!u.user) throw new Error("Sign in first");
       if (!destination.trim()) throw new Error(`Enter your business ${channel}`);
       const generated = String(Math.floor(100000 + Math.random() * 900000));
-      const { error } = await (supabase as any)
-        .from("verification_codes")
-        .insert({
-          user_id: u.user.id,
-          venue_id: venueId,
-          channel,
-          destination: destination.trim(),
-          code: generated,
-        });
+      const { error } = await (supabase as any).from("verification_codes").insert({
+        user_id: u.user.id,
+        venue_id: venueId,
+        channel,
+        destination: destination.trim(),
+        code: generated,
+      });
       if (error) throw new Error(error.message);
       return generated;
     },

@@ -57,7 +57,11 @@ const FLUSH_INTERVAL = 5000; // batch every 5 seconds
 const MAX_QUEUE_SIZE = 50;
 
 export function initAnalytics(supabaseUrl: string, supabaseKey: string) {
-  supabase = createClient(supabaseUrl, supabaseKey);
+  // Tracking-only client: never persist or refresh an auth session here, so it
+  // can't become a second GoTrueClient competing with the canonical auth client.
+  supabase = createClient(supabaseUrl, supabaseKey, {
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+  });
   sessionId = generateSessionId();
   startAutoFlush();
 }

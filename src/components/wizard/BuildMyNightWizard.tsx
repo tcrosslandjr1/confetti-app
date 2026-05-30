@@ -584,9 +584,10 @@ export function BuildMyNightWizard() {
       setReservingKey(key);
       const { error } = await supabase.from("bookings").insert({
         user_id: user.id,
-        venue_name: venueName,
-        starts_at: startsAt,
+        booking_time: startsAt,
+        confirmation_code: `WIZ-${Date.now().toString(36).toUpperCase()}`,
         party_size: partySizeFromCrew(crew),
+        special_requests: venueName,
         status: "pending",
       });
       setReservingKey(null);

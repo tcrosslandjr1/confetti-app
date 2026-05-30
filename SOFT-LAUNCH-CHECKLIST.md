@@ -42,7 +42,7 @@
 - [x] Twitter Card meta tags configured (summary_large_image)
 - [x] robots.txt — allows /, blocks auth/admin/api/portal paths
 - [x] Sitemap URL in robots.txt points to ai-lifestyle-concierge.vercel.app
-- [x] JSON-LD structured data (Organization + WebSite with SearchAction) in __root.tsx
+- [x] JSON-LD structured data (Organization + WebSite with SearchAction) in \_\_root.tsx
 - [x] Google Site Verification tag present
 
 ### Analytics & Tracking
@@ -65,7 +65,7 @@
 
 ### Minor
 
-- **Stale OG image in __root.tsx** — Lines 187-195 reference an old R2 CDN URL from the Lovable era. Not blocking because social crawlers see index.html meta tags (correct URL) before JS hydration. Fix when convenient.
+- **Stale OG image in \_\_root.tsx** — Lines 187-195 reference an old R2 CDN URL from the Lovable era. Not blocking because social crawlers see index.html meta tags (correct URL) before JS hydration. Fix when convenient.
 - **Sitemap returns 404** — `src/routes/sitemap[.]xml.ts` uses a TanStack Start server handler, but the app deploys as a client-side SPA on Vercel. The route will 404. Fix: generate a static `public/sitemap.xml` or add a Vercel serverless function.
 - **Social links show "coming soon" toast** — Footer social buttons (Instagram, TikTok, etc.) trigger a toast instead of navigating. Fine for soft launch.
 
@@ -91,12 +91,12 @@ These are intentionally gated with proper UI messaging — no broken experiences
 
 ## Test Accounts
 
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | admin@confettiplan.com | testadmin123 |
-| Business Owner | owner@confettiplan.com | testowner123 |
-| Customer | customer@confettiplan.com | testcustomer123 |
-| Visitor | (no login required) | — |
+| Role           | Email                     | Password        |
+| -------------- | ------------------------- | --------------- |
+| Admin          | admin@confettiplan.com    | testadmin123    |
+| Business Owner | owner@confettiplan.com    | testowner123    |
+| Customer       | customer@confettiplan.com | testcustomer123 |
+| Visitor        | (no login required)       | —               |
 
 ---
 

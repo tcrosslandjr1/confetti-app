@@ -2,7 +2,12 @@
   "metadata": {
     "city": "Washington DC",
     "generated": "2026-05-28",
-    "sources": ["Washingtonian 100 Best 2026", "Eater DC 2026", "North America's 50 Best Bars 2026", "Google Maps"],
+    "sources": [
+      "Washingtonian 100 Best 2026",
+      "Eater DC 2026",
+      "North America's 50 Best Bars 2026",
+      "Google Maps"
+    ],
     "total_venues": 32,
     "data_quality_note": "Well-known flagship venues (Albi, Jont, Moon Rabbit, Masseria, Bresca, Dabney, Oyster Oyster, minibar, Compass Rose, Service Bar, Flight Club, Off the Record, Madams Organ, Puttery, Dubliner) have verified addresses. Entries with needs_verification:true require address/hours confirmation before production use."
   },
@@ -52,7 +57,7 @@
       "neighborhood": "14th Street Corridor",
       "address": "1904 14th St NW, Washington, DC 20009",
       "lat": 38.9187,
-      "lng": -77.0320,
+      "lng": -77.032,
       "google_maps_url": "https://maps.google.com/?q=Jont+1904+14th+St+NW+Washington+DC",
       "phone": "(202) 667-3040",
       "website": "https://jontdc.com",
@@ -86,7 +91,7 @@
       "vibe": ["upscale", "modern", "cultural", "elegant"],
       "neighborhood": "Penn Quarter",
       "address": "801 Pennsylvania Ave NW, Washington, DC 20004",
-      "lat": 38.8940,
+      "lat": 38.894,
       "lng": -77.0259,
       "google_maps_url": "https://maps.google.com/?q=Moon+Rabbit+801+Pennsylvania+Ave+NW+Washington+DC",
       "phone": "(202) 695-7660",
@@ -122,7 +127,7 @@
       "neighborhood": "Union Market",
       "address": "1340 4th St NE, Washington, DC 20002",
       "lat": 38.9074,
-      "lng": -76.9960,
+      "lng": -76.996,
       "google_maps_url": "https://maps.google.com/?q=Masseria+1340+4th+St+NE+Washington+DC",
       "phone": "(202) 608-1330",
       "website": "https://masseria-dc.com",
@@ -442,7 +447,13 @@
       "north_americas_50_best_rank": 23,
       "north_americas_50_best_year": 2026,
       "description": "Ranked #23 on North America's 50 Best Bars 2026. DC's premier craft cocktail destination — serious, inventive drinks in an intimate setting on U Street. Industry insiders' favorite.",
-      "tags": ["north-americas-50-best", "craft-cocktail", "award-winning", "u-street", "serious-bar"],
+      "tags": [
+        "north-americas-50-best",
+        "craft-cocktail",
+        "award-winning",
+        "u-street",
+        "serious-bar"
+      ],
       "confetti_categories": ["cocktail-bar", "date-night", "nightlife"]
     },
     {
@@ -580,7 +591,7 @@
       "vibe": ["fun", "social", "group-activity", "upscale-casual"],
       "neighborhood": "Penn Quarter / Chinatown",
       "address": "777 7th St NW, Washington, DC 20001",
-      "lat": 38.8990,
+      "lat": 38.899,
       "lng": -77.0211,
       "google_maps_url": "https://maps.google.com/?q=Puttery+777+7th+St+NW+Washington+DC",
       "phone": "(202) 921-9300",

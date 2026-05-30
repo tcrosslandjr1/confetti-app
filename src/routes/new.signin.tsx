@@ -411,7 +411,7 @@ function SignInPage() {
             opacity: 0.7,
           }}
         >
-          new here?{" "}
+          New here?{" "}
           <button
             onClick={onSignUp}
             style={{
@@ -428,7 +428,7 @@ function SignInPage() {
               textUnderlineOffset: 3,
             }}
           >
-            print your first night →
+            Create your account →
           </button>
         </div>
       </div>

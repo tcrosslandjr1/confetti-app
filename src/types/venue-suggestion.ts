@@ -120,7 +120,9 @@ export function mapSuggestionRow(row: Record<string, unknown>): VenueSuggestion 
     rsvpCount: Number(row.rsvp_count ?? 0),
     targetMoods: Array.isArray(row.target_moods) ? row.target_moods : [],
     targetAudience: Array.isArray(row.target_audience) ? row.target_audience : [],
-    boostLevel: [0, 1, 2].includes(Number(row.boost_level)) ? (Number(row.boost_level) as 0 | 1 | 2) : 0,
+    boostLevel: [0, 1, 2].includes(Number(row.boost_level))
+      ? (Number(row.boost_level) as 0 | 1 | 2)
+      : 0,
     createdBy: (row.created_by as string) ?? null,
     approvedBy: (row.approved_by as string) ?? null,
     approvedAt: (row.approved_at as string) ?? null,

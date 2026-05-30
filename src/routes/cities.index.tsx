@@ -37,7 +37,8 @@ function CitiesIndex() {
             Explore Confetti cities
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
-            Search, filter, and jump straight into curated ideas, trending venues, and ready-to-go plans.
+            Search, filter, and jump straight into curated ideas, trending venues, and ready-to-go
+            plans.
           </p>
         </motion.div>
 

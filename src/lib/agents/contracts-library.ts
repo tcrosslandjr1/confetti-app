@@ -119,9 +119,7 @@ export type ContractCreateInput = Omit<
   "id" | "created_at" | "updated_at" | "alert_30d_sent" | "alert_60d_sent" | "alert_90d_sent"
 >;
 
-export type ContractUpdateInput = Partial<
-  Omit<Contract, "id" | "created_at" | "updated_at">
->;
+export type ContractUpdateInput = Partial<Omit<Contract, "id" | "created_at" | "updated_at">>;
 
 // ═══════════════════════════════════════════════════════════
 // Storage helpers
@@ -133,11 +131,7 @@ const BUCKET = "contracts";
  * Build a deterministic storage path:
  *   contracts/<business_or_partner_id>/<contract_id>/<filename>
  */
-function storagePath(
-  ownerId: string,
-  contractId: string,
-  fileName: string
-): string {
+function storagePath(ownerId: string, contractId: string, fileName: string): string {
   const safe = fileName.replace(/[^a-zA-Z0-9._-]/g, "_");
   return `${ownerId}/${contractId}/${safe}`;
 }
@@ -149,17 +143,15 @@ function storagePath(
 export async function uploadContractFile(
   file: File,
   ownerId: string,
-  contractId: string
+  contractId: string,
 ): Promise<{ path: string; error: string | null }> {
   const path = storagePath(ownerId, contractId, file.name);
 
-  const { error } = await supabase.storage
-    .from(BUCKET)
-    .upload(path, file, {
-      cacheControl: "3600",
-      upsert: true,
-      contentType: file.type,
-    });
+  const { error } = await supabase.storage.from(BUCKET).upload(path, file, {
+    cacheControl: "3600",
+    upsert: true,
+    contentType: file.type,
+  });
 
   if (error) return { path: "", error: error.message };
   return { path, error: null };
@@ -169,13 +161,8 @@ export async function uploadContractFile(
  * Get a time-limited signed URL to view/download a contract file.
  * Default 1 hour expiry.
  */
-export async function getSignedUrl(
-  filePath: string,
-  expiresIn = 3600
-): Promise<string | null> {
-  const { data, error } = await supabase.storage
-    .from(BUCKET)
-    .createSignedUrl(filePath, expiresIn);
+export async function getSignedUrl(filePath: string, expiresIn = 3600): Promise<string | null> {
+  const { data, error } = await supabase.storage.from(BUCKET).createSignedUrl(filePath, expiresIn);
 
   if (error || !data?.signedUrl) return null;
   return data.signedUrl;
@@ -184,9 +171,7 @@ export async function getSignedUrl(
 /**
  * Delete a file from storage.
  */
-export async function deleteStorageFile(
-  filePath: string
-): Promise<{ error: string | null }> {
+export async function deleteStorageFile(filePath: string): Promise<{ error: string | null }> {
   const { error } = await supabase.storage.from(BUCKET).remove([filePath]);
   return { error: error?.message ?? null };
 }
@@ -202,10 +187,7 @@ export async function listContracts(filters?: {
   partner_id?: string;
   search?: string;
 }): Promise<Contract[]> {
-  let q = supabase
-    .from("contracts")
-    .select("*")
-    .order("created_at", { ascending: false });
+  let q = supabase.from("contracts").select("*").order("created_at", { ascending: false });
 
   if (filters?.status) q = q.eq("status", filters.status);
   if (filters?.type) q = q.eq("type", filters.type);
@@ -222,24 +204,16 @@ export async function listContracts(filters?: {
 }
 
 export async function getContract(id: string): Promise<Contract | null> {
-  const { data, error } = await supabase
-    .from("contracts")
-    .select("*")
-    .eq("id", id)
-    .single();
+  const { data, error } = await supabase.from("contracts").select("*").eq("id", id).single();
 
   if (error || !data) return null;
   return data as Contract;
 }
 
 export async function createContract(
-  input: ContractCreateInput
+  input: ContractCreateInput,
 ): Promise<{ id: string | null; error: string | null }> {
-  const { data, error } = await supabase
-    .from("contracts")
-    .insert(input)
-    .select("id")
-    .single();
+  const { data, error } = await supabase.from("contracts").insert(input).select("id").single();
 
   if (error) return { id: null, error: error.message };
   return { id: data?.id ?? null, error: null };
@@ -247,7 +221,7 @@ export async function createContract(
 
 export async function updateContract(
   id: string,
-  updates: ContractUpdateInput
+  updates: ContractUpdateInput,
 ): Promise<{ error: string | null }> {
   const { error } = await supabase
     .from("contracts")
@@ -257,9 +231,7 @@ export async function updateContract(
   return { error: error?.message ?? null };
 }
 
-export async function deleteContract(
-  id: string
-): Promise<{ error: string | null }> {
+export async function deleteContract(id: string): Promise<{ error: string | null }> {
   // First delete the storage files
   const versions = await listContractVersions(id);
   for (const v of versions) {
@@ -272,10 +244,7 @@ export async function deleteContract(
     await deleteStorageFile(contract.file_path);
   }
 
-  const { error } = await supabase
-    .from("contracts")
-    .delete()
-    .eq("id", id);
+  const { error } = await supabase.from("contracts").delete().eq("id", id);
 
   return { error: error?.message ?? null };
 }
@@ -284,9 +253,7 @@ export async function deleteContract(
 // Contract Versions
 // ═══════════════════════════════════════════════════════════
 
-export async function listContractVersions(
-  contractId: string
-): Promise<ContractVersion[]> {
+export async function listContractVersions(contractId: string): Promise<ContractVersion[]> {
   const { data, error } = await supabase
     .from("contract_versions")
     .select("*")
@@ -302,20 +269,15 @@ export async function createContractVersion(
   file: File,
   ownerId: string,
   uploadedBy: string | null,
-  notes?: string
+  notes?: string,
 ): Promise<{ id: string | null; error: string | null }> {
   // Get next version number
   const existing = await listContractVersions(contractId);
-  const nextVersion = existing.length > 0
-    ? Math.max(...existing.map((v) => v.version_number)) + 1
-    : 1;
+  const nextVersion =
+    existing.length > 0 ? Math.max(...existing.map((v) => v.version_number)) + 1 : 1;
 
   // Upload file
-  const { path, error: uploadErr } = await uploadContractFile(
-    file,
-    ownerId,
-    contractId
-  );
+  const { path, error: uploadErr } = await uploadContractFile(file, ownerId, contractId);
   if (uploadErr) return { id: null, error: uploadErr };
 
   // Insert version record
@@ -356,10 +318,7 @@ export async function listDocuments(filters?: {
   contract_id?: string;
   search?: string;
 }): Promise<DocumentRecord[]> {
-  let q = supabase
-    .from("documents")
-    .select("*")
-    .order("created_at", { ascending: false });
+  let q = supabase.from("documents").select("*").order("created_at", { ascending: false });
 
   if (filters?.category) q = q.eq("category", filters.category);
   if (filters?.business_id) q = q.eq("business_id", filters.business_id);
@@ -382,7 +341,7 @@ export async function uploadDocument(
     contract_id?: string;
     tags?: string[];
     uploaded_by?: string;
-  }
+  },
 ): Promise<{ id: string | null; error: string | null }> {
   const ownerId = meta.business_id ?? meta.partner_id ?? "general";
   const docId = crypto.randomUUID();
@@ -417,24 +376,15 @@ export async function uploadDocument(
   return { id: data?.id ?? null, error: null };
 }
 
-export async function deleteDocument(
-  id: string
-): Promise<{ error: string | null }> {
+export async function deleteDocument(id: string): Promise<{ error: string | null }> {
   // Get the doc to find file path
-  const { data } = await supabase
-    .from("documents")
-    .select("file_path")
-    .eq("id", id)
-    .single();
+  const { data } = await supabase.from("documents").select("file_path").eq("id", id).single();
 
   if (data?.file_path) {
     await deleteStorageFile(data.file_path);
   }
 
-  const { error } = await supabase
-    .from("documents")
-    .delete()
-    .eq("id", id);
+  const { error } = await supabase.from("documents").delete().eq("id", id);
 
   return { error: error?.message ?? null };
 }
@@ -447,9 +397,7 @@ export async function deleteDocument(
  * Query the get_expiring_contracts() SQL function.
  * Returns contracts expiring within `daysAhead` days.
  */
-export async function getExpiringContracts(
-  daysAhead = 90
-): Promise<ExpiringContract[]> {
+export async function getExpiringContracts(daysAhead = 90): Promise<ExpiringContract[]> {
   const { data, error } = await supabase.rpc("get_expiring_contracts", {
     days_ahead: daysAhead,
   });
@@ -466,7 +414,7 @@ export async function getExpiringContracts(
  */
 export async function markAlertSent(
   contractId: string,
-  alertLevel: "30d" | "60d" | "90d"
+  alertLevel: "30d" | "60d" | "90d",
 ): Promise<void> {
   const field =
     alertLevel === "30d"
@@ -520,7 +468,8 @@ export async function runExpirationCheck(): Promise<number> {
     await supabase.from("admin_alerts").insert({
       category: "contract_expiration",
       source: "contracts_library",
-      priority: c.alert_level === "critical" ? "critical" : c.alert_level === "warning" ? "high" : "medium",
+      priority:
+        c.alert_level === "critical" ? "critical" : c.alert_level === "warning" ? "high" : "medium",
       title: `Contract expiring in ${c.days_until_expiry} days: ${c.title}`,
       description: `Contract "${c.title}" expires on ${c.end_date}. ${c.days_until_expiry} days remaining.`,
       action_required: true,
@@ -558,15 +507,9 @@ export interface ContractStats {
 }
 
 export async function getContractStats(): Promise<ContractStats> {
-  const [allContracts, expiring] = await Promise.all([
-    listContracts(),
-    getExpiringContracts(90),
-  ]);
+  const [allContracts, expiring] = await Promise.all([listContracts(), getExpiringContracts(90)]);
 
-  const totalValue = allContracts.reduce(
-    (sum, c) => sum + (c.contract_value ?? 0),
-    0
-  );
+  const totalValue = allContracts.reduce((sum, c) => sum + (c.contract_value ?? 0), 0);
 
   return {
     total: allContracts.length,

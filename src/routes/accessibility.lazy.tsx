@@ -4,20 +4,27 @@ export const Route = createLazyFileRoute("/accessibility")({
   component: AccessibilityPage,
 });
 
-function Section({ id, title, children, }: {
-    id: string;
-    title: string;
-    children: React.ReactNode;
+function Section({
+  id,
+  title,
+  children,
+}: {
+  id: string;
+  title: string;
+  children: React.ReactNode;
 }) {
-    return (<section id={id} className="scroll-mt-24 space-y-3">
+  return (
+    <section id={id} className="scroll-mt-24 space-y-3">
       <h2 className="font-display text-2xl font-bold">{title}</h2>
       <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">{children}</div>
-    </section>);
+    </section>
+  );
 }
 
 function AccessibilityPage() {
-    const updated = "May 11, 2026";
-    return (<main className="mx-auto max-w-3xl px-5 py-12">
+  const updated = "May 11, 2026";
+  return (
+    <main className="mx-auto max-w-3xl px-5 py-12">
       <header className="mb-8 space-y-3">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Legal · Plain language
@@ -38,7 +45,12 @@ function AccessibilityPage() {
         <Section id="standard" title="2. Standards we follow">
           <p>
             We aim to conform to the{" "}
-            <a className="text-foreground underline" href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noreferrer">
+            <a
+              className="text-foreground underline"
+              href="https://www.w3.org/TR/WCAG22/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Web Content Accessibility Guidelines (WCAG) 2.2, Level AA
             </a>
             . We also consider EN 301 549 (EU), Section 508 (US), and the European Accessibility Act
@@ -89,5 +101,6 @@ function AccessibilityPage() {
           ← Back to Confettiplan
         </Link>
       </footer>
-    </main>);
+    </main>
+  );
 }

@@ -26,14 +26,19 @@ export function useAdminNavCounts() {
   return useQuery<AdminNavCounts>({
     queryKey: ["admin", "nav-counts"],
     queryFn: async () => {
-      const [pendingAdvertisers, pendingClaims, pendingModeration, unreadNotifications, pendingBookings] =
-        await Promise.all([
-          safeCount("advertisers", (q) => q.eq("status", "pending_review")),
-          safeCount("venue_claims", (q) => q.eq("status", "pending")),
-          safeCount("venue_reports", (q) => q.eq("status", "open")),
-          safeCount("notifications", (q) => q.is("read_at", null)),
-          safeCount("bookings", (q) => q.eq("status", "pending")),
-        ]);
+      const [
+        pendingAdvertisers,
+        pendingClaims,
+        pendingModeration,
+        unreadNotifications,
+        pendingBookings,
+      ] = await Promise.all([
+        safeCount("advertisers", (q) => q.eq("status", "pending_review")),
+        safeCount("venue_claims", (q) => q.eq("status", "pending")),
+        safeCount("venue_reports", (q) => q.eq("status", "open")),
+        safeCount("notifications", (q) => q.is("read_at", null)),
+        safeCount("bookings", (q) => q.eq("status", "pending")),
+      ]);
       return {
         pendingAdvertisers,
         pendingClaims,

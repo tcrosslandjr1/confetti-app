@@ -108,7 +108,6 @@ function DefaultRouterError({ error, reset }: { error: Error; reset: () => void 
   );
 }
 
-
 function DefaultNotFound() {
   return (
     <div className="grid min-h-screen place-items-center bg-background px-4 text-center text-foreground">

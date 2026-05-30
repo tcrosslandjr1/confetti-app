@@ -58,9 +58,7 @@ export function ReviewCard({
             </div>
           )}
           <div>
-            <div className="font-display text-sm font-bold text-cream">
-              {review.userName}
-            </div>
+            <div className="font-display text-sm font-bold text-cream">{review.userName}</div>
             <div className="flex items-center gap-2">
               <StarRating value={review.rating} size="sm" showLabel={false} />
               <span className="text-[10px] text-cream/50">{ago}</span>
@@ -77,15 +75,9 @@ export function ReviewCard({
       {/* Sub-ratings */}
       {(review.foodRating || review.ambianceRating || review.serviceRating) && (
         <div className="flex gap-4">
-          {review.foodRating && (
-            <SubRating label="Food" value={review.foodRating} />
-          )}
-          {review.ambianceRating && (
-            <SubRating label="Vibe" value={review.ambianceRating} />
-          )}
-          {review.serviceRating && (
-            <SubRating label="Service" value={review.serviceRating} />
-          )}
+          {review.foodRating && <SubRating label="Food" value={review.foodRating} />}
+          {review.ambianceRating && <SubRating label="Vibe" value={review.ambianceRating} />}
+          {review.serviceRating && <SubRating label="Service" value={review.serviceRating} />}
         </div>
       )}
 
@@ -113,9 +105,7 @@ export function ReviewCard({
           <div className="mb-1 flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-widest text-coral">
             <MessageSquare className="h-3 w-3" /> Owner response
           </div>
-          <p className="text-[12px] leading-relaxed text-cream/70">
-            {review.ownerResponse}
-          </p>
+          <p className="text-[12px] leading-relaxed text-cream/70">{review.ownerResponse}</p>
         </div>
       )}
 
@@ -126,13 +116,12 @@ export function ReviewCard({
           onClick={handleHelpful}
           disabled={liked}
           className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
-            liked
-              ? "bg-coral/10 text-coral"
-              : "text-cream/50 hover:bg-cream/5 hover:text-cream"
+            liked ? "bg-coral/10 text-coral" : "text-cream/50 hover:bg-cream/5 hover:text-cream"
           }`}
         >
           <ThumbsUp className="h-3 w-3" />
-          Helpful {review.helpfulCount + (liked ? 1 : 0) > 0
+          Helpful{" "}
+          {review.helpfulCount + (liked ? 1 : 0) > 0
             ? `(${review.helpfulCount + (liked ? 1 : 0)})`
             : ""}
         </button>

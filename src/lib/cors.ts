@@ -11,10 +11,7 @@
 const DEV_PATTERN = /^https?:\/\/localhost(:\d+)?$/;
 
 function getAllowedOrigins(): string[] {
-  const raw =
-    process.env.CORS_ALLOWED_ORIGINS ??
-    import.meta.env?.VITE_CORS_ALLOWED_ORIGINS ??
-    "";
+  const raw = process.env.CORS_ALLOWED_ORIGINS ?? import.meta.env?.VITE_CORS_ALLOWED_ORIGINS ?? "";
   return raw
     .split(",")
     .map((s: string) => s.trim())
@@ -38,10 +35,7 @@ export function corsHeaders(requestOrigin: string | null): Record<string, string
   const allowed = getAllowedOrigins();
   const isDev = process.env.NODE_ENV !== "production";
 
-  if (
-    allowed.includes(requestOrigin) ||
-    (isDev && DEV_PATTERN.test(requestOrigin))
-  ) {
+  if (allowed.includes(requestOrigin) || (isDev && DEV_PATTERN.test(requestOrigin))) {
     base["Access-Control-Allow-Origin"] = requestOrigin;
   }
 

@@ -2,7 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, Megaphone, Crown, Zap, Star, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -17,7 +21,10 @@ export const Route = createFileRoute("/business/ads")({
   head: () => ({
     meta: [
       { title: "Ads & subscription — Confetti for Business" },
-      { name: "description", content: "Pick a Confetti plan and boost your venue at the moments that matter." },
+      {
+        name: "description",
+        content: "Pick a Confetti plan and boost your venue at the moments that matter.",
+      },
     ],
   }),
 });
@@ -87,7 +94,10 @@ function AdsPage() {
       const { data: u } = await supabase.auth.getUser();
       if (!u.user) return null;
       const { data: adv } = await (supabase as any)
-        .from("advertisers").select("id").eq("owner_id", u.user.id).maybeSingle();
+        .from("advertisers")
+        .select("id")
+        .eq("owner_id", u.user.id)
+        .maybeSingle();
       if (!adv?.id) return null;
       const { data } = await (supabase as any)
         .from("advertiser_subscriptions")
@@ -102,7 +112,10 @@ function AdsPage() {
     queryKey: ["boost-packages"],
     queryFn: async () => {
       const { data, error } = await (supabase as any)
-        .from("boost_packages").select("*").eq("active", true).order("price_cents");
+        .from("boost_packages")
+        .select("*")
+        .eq("active", true)
+        .order("price_cents");
       if (error) throw new Error(error.message);
       return (data ?? []) as Package[];
     },
@@ -144,7 +157,12 @@ function AdsPage() {
   };
 
   if (isLoading) return <Shell>Loading…</Shell>;
-  if (!venues.length) return <Shell><NoVenueClaim /></Shell>;
+  if (!venues.length)
+    return (
+      <Shell>
+        <NoVenueClaim />
+      </Shell>
+    );
 
   const currentTier = sub.data?.tier as string | null | undefined;
 
@@ -249,7 +267,9 @@ function AdsPage() {
                 </div>
                 <div className="text-right">
                   <div className="font-semibold">${(p.amount_cents / 100).toFixed(0)}</div>
-                  <Badge variant={p.status === "active" || p.status === "paid" ? "default" : "outline"}>
+                  <Badge
+                    variant={p.status === "active" || p.status === "paid" ? "default" : "outline"}
+                  >
                     {p.status}
                   </Badge>
                 </div>

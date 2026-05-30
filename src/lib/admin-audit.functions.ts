@@ -6,12 +6,7 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
 export const logPinUnlockAttempt = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(
-    (input: {
-      success: boolean;
-      attemptNumber: number;
-      ip?: string;
-      userAgent?: string;
-    }) => input,
+    (input: { success: boolean; attemptNumber: number; ip?: string; userAgent?: string }) => input,
   )
   .handler(async ({ data, context }) => {
     const { userId, supabase } = context;

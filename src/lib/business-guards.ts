@@ -22,18 +22,8 @@ export async function requireBusinessAccess() {
 
   // Check all three access paths in parallel
   const [advRes, claimRes, roleRes] = await Promise.all([
-    supabase
-      .from("advertisers")
-      .select("id")
-      .eq("owner_id", user.id)
-      .limit(1)
-      .maybeSingle(),
-    supabase
-      .from("venue_claims")
-      .select("id")
-      .eq("user_id", user.id)
-      .limit(1)
-      .maybeSingle(),
+    supabase.from("advertisers").select("id").eq("owner_id", user.id).limit(1).maybeSingle(),
+    supabase.from("venue_claims").select("id").eq("user_id", user.id).limit(1).maybeSingle(),
     supabase
       .from("user_roles")
       .select("role")

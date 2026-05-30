@@ -109,7 +109,7 @@ export function createPlan(
   price: number,
   billingCycle: "monthly" | "annual" | "one_time",
   features: string[],
-  limits: Record<string, number>
+  limits: Record<string, number>,
 ): PricingPlan {
   const plan: PricingPlan = {
     id: nextId("plan"),
@@ -134,7 +134,7 @@ export function createPlan(
 /** Update plan — REQUIRES ADMIN for price changes */
 export function updatePlan(
   planId: string,
-  updates: Partial<Pick<PricingPlan, "name" | "price" | "features" | "limits" | "billingCycle">>
+  updates: Partial<Pick<PricingPlan, "name" | "price" | "features" | "limits" | "billingCycle">>,
 ): PricingPlan | null {
   const plan = planStore.get(planId);
   if (!plan) return null;
@@ -147,11 +147,12 @@ export function updatePlan(
 
   // Recalculate MRR
   if (updates.price !== undefined) {
-    plan.mrr = plan.billingCycle === "annual"
-      ? (plan.price / 12) * plan.subscriberCount
-      : plan.billingCycle === "monthly"
-        ? plan.price * plan.subscriberCount
-        : 0;
+    plan.mrr =
+      plan.billingCycle === "annual"
+        ? (plan.price / 12) * plan.subscriberCount
+        : plan.billingCycle === "monthly"
+          ? plan.price * plan.subscriberCount
+          : 0;
   }
 
   plan.updatedAt = new Date().toISOString();
@@ -196,7 +197,7 @@ export function createExperiment(
   controlPlanId: string,
   variantPlanId: string,
   trafficSplit: number,
-  description?: string
+  description?: string,
 ): PricingExperiment | null {
   if (!planStore.has(controlPlanId) || !planStore.has(variantPlanId)) return null;
 
@@ -232,7 +233,7 @@ export function startExperiment(experimentId: string): PricingExperiment | null 
 export function recordExperimentConversion(
   experimentId: string,
   variant: "control" | "variant",
-  revenue: number
+  revenue: number,
 ): PricingExperiment | null {
   const exp = experimentStore.get(experimentId);
   if (!exp || exp.status !== "running") return null;
@@ -286,7 +287,7 @@ export function createPromo(
   maxRedemptions: number,
   validFrom: string,
   validUntil: string,
-  applicablePlans: string[]
+  applicablePlans: string[],
 ): PromoCode {
   const promo: PromoCode = {
     id: nextId("promo"),
@@ -309,7 +310,7 @@ export function createPromo(
 /** Redeem a promo code for a user */
 export function redeemPromo(
   code: string,
-  userId: string
+  userId: string,
 ): { success: boolean; promo?: PromoCode; error?: string } {
   const promo = Array.from(promoStore.values()).find((p) => p.code === code.toUpperCase());
   if (!promo) return { success: false, error: "Promo code not found" };
@@ -335,7 +336,11 @@ export function redeemPromo(
 }
 
 /** Validate a promo code */
-export function validatePromo(code: string): { valid: boolean; reason?: string; promo?: PromoCode } {
+export function validatePromo(code: string): {
+  valid: boolean;
+  reason?: string;
+  promo?: PromoCode;
+} {
   const promo = Array.from(promoStore.values()).find((p) => p.code === code.toUpperCase());
   if (!promo) return { valid: false, reason: "Code not found" };
   if (!promo.isActive) return { valid: false, reason: "Code is no longer active" };
@@ -361,14 +366,14 @@ export function generatePricingSuggestions(): PricingSuggestion[] {
 
   // Check for plans with low subscriber counts
   const underperforming = plans.filter(
-    (p) => p.subscriberCount < 10 && p.price > 0 && p.type === "consumer"
+    (p) => p.subscriberCount < 10 && p.price > 0 && p.type === "consumer",
   );
   for (const plan of underperforming) {
     suggestions.push({
       type: "price_change",
       description: `Consider reducing ${plan.name} price from $${plan.price} to $${(plan.price * 0.8).toFixed(2)}`,
       rationale: `${plan.name} has only ${plan.subscriberCount} subscribers. A 20% price reduction could increase conversions.`,
-      estimatedImpact: `Potential +30% subscriber growth, net MRR impact: +$${((plan.subscriberCount * 0.3 * plan.price * 0.8) - (plan.subscriberCount * plan.price * 0.2)).toFixed(0)}/mo`,
+      estimatedImpact: `Potential +30% subscriber growth, net MRR impact: +$${(plan.subscriberCount * 0.3 * plan.price * 0.8 - plan.subscriberCount * plan.price * 0.2).toFixed(0)}/mo`,
       confidence: "medium",
     });
   }
@@ -391,7 +396,10 @@ export function generatePricingSuggestions(): PricingSuggestion[] {
 
   // Suggest annual pricing if only monthly exists
   const monthlyOnly = plans.filter(
-    (p) => p.billingCycle === "monthly" && p.price > 0 && !plans.some((a) => a.name.includes("Annual") && a.type === p.type)
+    (p) =>
+      p.billingCycle === "monthly" &&
+      p.price > 0 &&
+      !plans.some((a) => a.name.includes("Annual") && a.type === p.type),
   );
   if (monthlyOnly.length > 0) {
     suggestions.push({
@@ -409,7 +417,8 @@ export function generatePricingSuggestions(): PricingSuggestion[] {
     suggestions.push({
       type: "promo",
       description: "Launch a referral promo: CONFETTI50 for 50% off first month",
-      rationale: "No active promos exist. Referral codes are the highest-converting acquisition channel for consumer apps.",
+      rationale:
+        "No active promos exist. Referral codes are the highest-converting acquisition channel for consumer apps.",
       estimatedImpact: "Typical referral programs drive 15-25% of new signups",
       confidence: "high",
     });
@@ -612,7 +621,15 @@ export function seedPricingDemo(): PricingPlan[] {
   const created: PricingPlan[] = [];
 
   for (const def of planDefs) {
-    const plan = createPlan(def.name, def.type, def.model, def.price, def.billingCycle, def.features, def.limits);
+    const plan = createPlan(
+      def.name,
+      def.type,
+      def.model,
+      def.price,
+      def.billingCycle,
+      def.features,
+      def.limits,
+    );
     plan.subscriberCount = def.subscribers;
 
     // Calculate MRR
@@ -634,9 +651,17 @@ export function seedPricingDemo(): PricingPlan[] {
     created[1].id, // Confetti Black
   ]);
 
-  createPromo("LAUNCH2026", "trial_extension", 30, 1000, now.toISOString(), threeMonthsOut.toISOString(), [
-    created[1].id, // Confetti Black
-  ]);
+  createPromo(
+    "LAUNCH2026",
+    "trial_extension",
+    30,
+    1000,
+    now.toISOString(),
+    threeMonthsOut.toISOString(),
+    [
+      created[1].id, // Confetti Black
+    ],
+  );
 
   createPromo("VENUE20", "percent", 20, 100, now.toISOString(), threeMonthsOut.toISOString(), [
     created[2].id, // Spotlight
@@ -652,7 +677,7 @@ export function seedPricingDemo(): PricingPlan[] {
       3.99,
       "monthly",
       created[1].features,
-      created[1].limits
+      created[1].limits,
     );
     variant.isActive = false; // Experiment variant, not visible
 
@@ -661,7 +686,7 @@ export function seedPricingDemo(): PricingPlan[] {
       created[1].id,
       variant.id,
       0.5,
-      "Testing $3.99 vs $4.99 for Confetti Black to optimize conversion"
+      "Testing $3.99 vs $4.99 for Confetti Black to optimize conversion",
     );
     if (exp) {
       startExperiment(exp.id);

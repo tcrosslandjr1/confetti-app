@@ -11,9 +11,7 @@ function createSupabaseClient() {
   // Env vars take priority, but fall back to hardcoded Confetti values
   // so an accidental .env overwrite can never break the connection.
   const SUPABASE_URL =
-    import.meta.env.VITE_SUPABASE_URL ||
-    process.env.SUPABASE_URL ||
-    CONFETTI_SUPABASE_URL;
+    import.meta.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || CONFETTI_SUPABASE_URL;
   const SUPABASE_PUBLISHABLE_KEY =
     import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
     import.meta.env.VITE_SUPABASE_ANON_KEY ||
@@ -23,7 +21,7 @@ function createSupabaseClient() {
   // Warn if env vars pointed somewhere unexpected (the old project)
   if (SUPABASE_URL && !SUPABASE_URL.includes("zfeckvxkulreyapadanf")) {
     console.warn(
-      `[Supabase] WARNING: SUPABASE_URL points to "${SUPABASE_URL}" instead of Confetti. Using hardcoded fallback.`
+      `[Supabase] WARNING: SUPABASE_URL points to "${SUPABASE_URL}" instead of Confetti. Using hardcoded fallback.`,
     );
     return createClient<Database>(CONFETTI_SUPABASE_URL, CONFETTI_ANON_KEY, {
       auth: {

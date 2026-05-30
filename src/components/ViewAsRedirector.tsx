@@ -36,11 +36,7 @@ const LOGIN_PATHS = new Set([
 
 // Public /app/* routes that visitors can browse without auth.
 // These are discovery / marketing surfaces — no account required.
-const PUBLIC_APP_PREFIXES = [
-  "/new/explore",
-  "/new/explore",
-  "/new/reels",
-];
+const PUBLIC_APP_PREFIXES = ["/new/explore", "/new/explore", "/new/reels"];
 
 function pathBelongsTo(path: string, role: ViewAs): boolean {
   if (role === "visitor") {
@@ -87,9 +83,7 @@ export function ViewAsRedirector() {
     if ((changed || lastViewAs.current === null) && mismatched) {
       // First mount: only redirect away from portal routes that aren't ours.
       // Don't yank visitors off public pages.
-      const isOnPortal = PORTAL_PREFIXES.some(
-        (p) => path === p || path.startsWith(p + "/"),
-      );
+      const isOnPortal = PORTAL_PREFIXES.some((p) => path === p || path.startsWith(p + "/"));
       if (changed || isOnPortal) {
         navigate({ to: HOME[viewAs] });
       }

@@ -410,10 +410,7 @@ export async function deleteStop(stopId: string): Promise<void> {
   if (lookupErr) throw new Error(lookupErr.message);
   if (!row) return;
 
-  const { error: delErr } = await supabase
-    .from("itinerary_stops")
-    .delete()
-    .eq("id", stopId);
+  const { error: delErr } = await supabase.from("itinerary_stops").delete().eq("id", stopId);
   if (delErr) throw new Error(delErr.message);
 
   // Renumber subsequent stops (best-effort; if it fails, the gap is harmless).

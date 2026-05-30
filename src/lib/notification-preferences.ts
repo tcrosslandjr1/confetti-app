@@ -21,7 +21,9 @@ const DEFAULTS: NotifPrefs = {
 
 /** Load notification preferences for the current user. Returns defaults if no row exists. */
 export async function loadNotificationPreferences(): Promise<NotifPrefs> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return DEFAULTS;
 
   const { data, error } = await supabase
@@ -43,23 +45,23 @@ export async function loadNotificationPreferences(): Promise<NotifPrefs> {
 
 /** Save notification preferences (upsert). */
 export async function saveNotificationPreferences(prefs: NotifPrefs): Promise<void> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) throw new Error("Not authenticated");
 
-  const { error } = await supabase
-    .from("notification_preferences")
-    .upsert(
-      {
-        user_id: user.id,
-        email_confirmations: prefs.emailConfirmations,
-        email_reminders: prefs.emailReminders,
-        sms_reminders: prefs.smsReminders,
-        push_enabled: prefs.pushEnabled,
-        phone_number: prefs.phoneNumber?.trim() || null,
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: "user_id" }
-    );
+  const { error } = await supabase.from("notification_preferences").upsert(
+    {
+      user_id: user.id,
+      email_confirmations: prefs.emailConfirmations,
+      email_reminders: prefs.emailReminders,
+      sms_reminders: prefs.smsReminders,
+      push_enabled: prefs.pushEnabled,
+      phone_number: prefs.phoneNumber?.trim() || null,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "user_id" },
+  );
 
   if (error) throw error;
 }

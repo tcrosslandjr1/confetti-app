@@ -94,10 +94,7 @@ export async function generateAiPlan(input: GeneratePlanInput): Promise<{
 
   // Step 3: City resolution (user's selected city → fallback to taste → default DC)
   const selectedCity = getSelectedCity();
-  const city =
-    selectedCity?.name ??
-    prefs.taste_profile?.cities?.[0] ??
-    "Washington DC";
+  const city = selectedCity?.name ?? prefs.taste_profile?.cities?.[0] ?? "Washington DC";
 
   // Step 4: Call the AI plan generation edge function
   const url = import.meta.env.VITE_SUPABASE_URL;
@@ -126,24 +123,23 @@ export async function generateAiPlan(input: GeneratePlanInput): Promise<{
       planType: input.planType,
       surpriseMode: input.surpriseMode,
       localFlavorLevel: input.localsMode ? "heavy" : "medium",
-      notes: [
-        // Pinned venues from Explore screen — highest priority instruction
-        input.pinnedVenues?.length
-          ? buildPinnedVenueNote(input.pinnedVenues)
-          : null,
-        input.notes,
-        input.trendBias
-          ? "TRENDING BIAS: Strongly prefer venues with high trend_score and recent buzz. Prioritize what is hot right now over evergreen classics. Mention why each spot is trending."
-          : null,
-        input.surpriseMode
-          ? "SURPRISE MODE: Ignore all vibe inputs. Pick the most unexpected, memorable combination of venues and experiences. Prioritize places the user has likely never been — the weirder and more delightful the better."
-          : null,
-        input.localsMode
-          ? "LOCALS MODE: Skip tourist traps entirely. Every stop should be a place locals actually go — neighborhood gems, off-menu spots, hidden bars, community anchors."
-          : null,
-      ]
-        .filter(Boolean)
-        .join("\n\n") || undefined,
+      notes:
+        [
+          // Pinned venues from Explore screen — highest priority instruction
+          input.pinnedVenues?.length ? buildPinnedVenueNote(input.pinnedVenues) : null,
+          input.notes,
+          input.trendBias
+            ? "TRENDING BIAS: Strongly prefer venues with high trend_score and recent buzz. Prioritize what is hot right now over evergreen classics. Mention why each spot is trending."
+            : null,
+          input.surpriseMode
+            ? "SURPRISE MODE: Ignore all vibe inputs. Pick the most unexpected, memorable combination of venues and experiences. Prioritize places the user has likely never been — the weirder and more delightful the better."
+            : null,
+          input.localsMode
+            ? "LOCALS MODE: Skip tourist traps entirely. Every stop should be a place locals actually go — neighborhood gems, off-menu spots, hidden bars, community anchors."
+            : null,
+        ]
+          .filter(Boolean)
+          .join("\n\n") || undefined,
     }),
   });
 
@@ -190,7 +186,8 @@ function itineraryToLoop(it: AiItinerary, input: GeneratePlanInput): ActiveLoop 
   const twistIdx = Math.max(0, (it.twist?.stop_number ?? 1) - 1);
   if (stops[twistIdx]) {
     stops[twistIdx].emoji = "✨";
-    stops[twistIdx].detail = `${stops[twistIdx].detail ?? ""} [TWIST: ${it.twist.description}]`.trim();
+    stops[twistIdx].detail =
+      `${stops[twistIdx].detail ?? ""} [TWIST: ${it.twist.description}]`.trim();
   }
 
   return {

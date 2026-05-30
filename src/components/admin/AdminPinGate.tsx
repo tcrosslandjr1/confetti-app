@@ -45,9 +45,7 @@ export function AdminPinGate({ onUnlock }: { onUnlock: () => void }) {
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-primary/10">
           <Lock className="h-7 w-7 text-primary" />
         </div>
-        <h1 className="font-display text-2xl font-black tracking-tight">
-          Admin Verification
-        </h1>
+        <h1 className="font-display text-2xl font-black tracking-tight">Admin Verification</h1>
         <div className="relative">
           <input
             type={show ? "text" : "password"}
@@ -61,9 +59,7 @@ export function AdminPinGate({ onUnlock }: { onUnlock: () => void }) {
             onKeyDown={(e) => e.key === "Enter" && submit()}
             placeholder="••••••"
             className={`w-full rounded-xl border-2 bg-muted/30 px-4 py-3 text-center font-mono text-2xl tracking-[0.5em] focus:outline-none ${
-              error
-                ? "border-destructive"
-                : "border-border focus:border-primary"
+              error ? "border-destructive" : "border-border focus:border-primary"
             }`}
             disabled={loading}
             autoFocus
@@ -73,16 +69,10 @@ export function AdminPinGate({ onUnlock }: { onUnlock: () => void }) {
             onClick={() => setShow(!show)}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
           >
-            {show ? (
-              <EyeOff className="h-4 w-4" />
-            ) : (
-              <Eye className="h-4 w-4" />
-            )}
+            {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
         </div>
-        {error && (
-          <p className="text-sm font-bold text-destructive">Wrong PIN</p>
-        )}
+        {error && <p className="text-sm font-bold text-destructive">Wrong PIN</p>}
         <button
           onClick={submit}
           disabled={pin.length < 4 || loading}

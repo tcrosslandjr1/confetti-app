@@ -5,20 +5,27 @@ export const Route = createLazyFileRoute("/privacy")({
   component: PrivacyPage,
 });
 
-function Section({ id, title, children, }: {
-    id: string;
-    title: string;
-    children: React.ReactNode;
+function Section({
+  id,
+  title,
+  children,
+}: {
+  id: string;
+  title: string;
+  children: React.ReactNode;
 }) {
-    return (<section id={id} className="scroll-mt-24 space-y-3">
+  return (
+    <section id={id} className="scroll-mt-24 space-y-3">
       <h2 className="font-display text-2xl font-bold">{title}</h2>
       <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">{children}</div>
-    </section>);
+    </section>
+  );
 }
 
 function PrivacyPage() {
-    const updated = "May 11, 2026";
-    return (<main className="mx-auto max-w-3xl px-5 py-12">
+  const updated = "May 11, 2026";
+  return (
+    <main className="mx-auto max-w-3xl px-5 py-12">
       <header className="mb-8 space-y-3">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Legal · Plain language
@@ -30,7 +37,10 @@ function PrivacyPage() {
         </p>
       </header>
 
-      <nav aria-label="Sections" className="mb-10 rounded-2xl border border-border bg-muted/30 p-4 text-sm">
+      <nav
+        aria-label="Sections"
+        className="mb-10 rounded-2xl border border-border bg-muted/30 p-4 text-sm"
+      >
         <p className="mb-2 font-semibold">On this page</p>
         <ul className="grid gap-1 sm:grid-cols-2">
           {[
@@ -46,11 +56,13 @@ function PrivacyPage() {
             ["children", "Children"],
             ["changes", "Changes"],
             ["contact", "Contact"],
-        ].map(([id, label]) => (<li key={id}>
+          ].map(([id, label]) => (
+            <li key={id}>
               <a className="text-foreground underline-offset-4 hover:underline" href={`#${id}`}>
                 {label}
               </a>
-            </li>))}
+            </li>
+          ))}
         </ul>
       </nav>
 
@@ -106,8 +118,8 @@ function PrivacyPage() {
           <ul className="list-disc space-y-1.5 pl-5">
             <li>Infrastructure: Supabase, Vercel, Cloudflare.</li>
             <li>
-              AI providers: OpenAI, Google, Anthropic. Prompts are processed transiently
-              and not used for cross-customer training.
+              AI providers: OpenAI, Google, Anthropic. Prompts are processed transiently and not
+              used for cross-customer training.
             </li>
             <li>Payments: Stripe / Paddle (where applicable).</li>
             <li>
@@ -220,5 +232,6 @@ function PrivacyPage() {
           ← Back to Confettiplan
         </Link>
       </footer>
-    </main>);
+    </main>
+  );
 }

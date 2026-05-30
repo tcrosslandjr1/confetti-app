@@ -175,10 +175,7 @@ export async function adminListVenueClaims(
 /*  ADMIN: APPROVE CLAIM                                               */
 /* ------------------------------------------------------------------ */
 
-export async function adminApproveVenueClaim(input: {
-  claimId: string;
-  adminNote?: string;
-}) {
+export async function adminApproveVenueClaim(input: { claimId: string; adminNote?: string }) {
   const user = await requireUser();
   if (!(await isAdmin(user.id))) throw new Error("Admins only");
 
@@ -242,10 +239,7 @@ export async function adminApproveVenueClaim(input: {
 /*  ADMIN: REJECT CLAIM                                                */
 /* ------------------------------------------------------------------ */
 
-export async function adminRejectVenueClaim(input: {
-  claimId: string;
-  adminNote: string;
-}) {
+export async function adminRejectVenueClaim(input: { claimId: string; adminNote: string }) {
   const user = await requireUser();
   if (!(await isAdmin(user.id))) throw new Error("Admins only");
 

@@ -81,7 +81,7 @@ async function callAgent(
   agentName: string,
   systemPrompt: string,
   userPrompt: string,
-  config?: AIProviderConfig
+  config?: AIProviderConfig,
 ): Promise<AgentResult> {
   const start = performance.now();
 
@@ -115,9 +115,7 @@ async function callAgent(
 
 // ─── Phase 1: Parallel Data Gathering ─────────────────────────────
 
-async function gatherVenues(
-  request: ItineraryRequest
-): Promise<DiscoveredVenue[]> {
+async function gatherVenues(request: ItineraryRequest): Promise<DiscoveredVenue[]> {
   // If no geocoded location, try to geocode the city name
   let location = request.location;
   if (!location && request.city) {
@@ -177,7 +175,7 @@ function formatVenuesForAgent(venues: DiscoveredVenue[]): string {
    Vibes: ${v.vibeTags?.join(", ") ?? "N/A"}
    Cuisines: ${v.cuisineTags?.join(", ") ?? "N/A"}
    Source: ${v.source}
-   ${v.hours ? `Hours: ${JSON.stringify(v.hours)}` : "Hours: Not verified"}`
+   ${v.hours ? `Hours: ${JSON.stringify(v.hours)}` : "Hours: Not verified"}`,
     )
     .join("\n\n");
 }
@@ -233,9 +231,14 @@ Generate the Context Brief. If no real weather data provided, infer from city + 
   ]);
 
   return {
-    tasteResult: tasteResult.status === "fulfilled" ? tasteResult.value : failedResult("taste_agent"),
-    venueDataResult: venueDataResult.status === "fulfilled" ? venueDataResult.value : failedResult("venue_data_agent"),
-    contextResult: contextResult.status === "fulfilled" ? contextResult.value : failedResult("context_agent"),
+    tasteResult:
+      tasteResult.status === "fulfilled" ? tasteResult.value : failedResult("taste_agent"),
+    venueDataResult:
+      venueDataResult.status === "fulfilled"
+        ? venueDataResult.value
+        : failedResult("venue_data_agent"),
+    contextResult:
+      contextResult.status === "fulfilled" ? contextResult.value : failedResult("context_agent"),
     rawVenues,
   };
 }
@@ -258,7 +261,7 @@ async function runRecommendationAgent(
   request: ItineraryRequest,
   tasteProfile: string,
   venueCards: string,
-  contextBrief: string
+  contextBrief: string,
 ): Promise<AgentResult> {
   const prompt = `## User Request
 "${request.message}"
@@ -285,10 +288,7 @@ Build the itinerary. Use ONLY venues from the Venue Intelligence Cards above.`;
   return callAgent("recommendation_agent", RECOMMENDATION_AGENT_PROMPT, prompt);
 }
 
-async function runNamingAgent(
-  request: ItineraryRequest,
-  itinerary: string
-): Promise<AgentResult> {
+async function runNamingAgent(request: ItineraryRequest, itinerary: string): Promise<AgentResult> {
   const prompt = `## Completed Itinerary
 ${itinerary}
 
@@ -309,7 +309,7 @@ async function runQCAgent(
   itinerary: string,
   tasteProfile: string,
   contextBrief: string,
-  themePackage: string
+  themePackage: string,
 ): Promise<AgentResult> {
   const prompt = `## Full Itinerary to Validate
 ${itinerary}
@@ -334,17 +334,14 @@ Run all 7 validation checks. Score and deliver your verdict.`;
 
 // ─── Main Orchestrator ────────────────────────────────────────────
 
-export async function buildItinerary(
-  request: ItineraryRequest
-): Promise<OrchestratorResult> {
+export async function buildItinerary(request: ItineraryRequest): Promise<OrchestratorResult> {
   const orchestratorStart = performance.now();
   const allResults: AgentResult[] = [];
 
   // ═══ PHASE 1: Parallel data gathering ═══
   console.log("[Confetti Orchestrator] Phase 1: Gathering data (parallel)...");
 
-  const { tasteResult, venueDataResult, contextResult, rawVenues } =
-    await runPhaseOne(request);
+  const { tasteResult, venueDataResult, contextResult, rawVenues } = await runPhaseOne(request);
 
   allResults.push(tasteResult, venueDataResult, contextResult);
 
@@ -368,7 +365,7 @@ export async function buildItinerary(
     request,
     tasteResult.content || "No taste profile available — use defaults for the occasion.",
     venueDataResult.content,
-    contextResult.content || "No context data — assume good weather, no events."
+    contextResult.content || "No context data — assume good weather, no events.",
   );
   allResults.push(recResult);
 
@@ -395,7 +392,7 @@ export async function buildItinerary(
     recResult.content,
     tasteResult.content || "",
     contextResult.content || "",
-    namingResult.content || "No theme — naming agent failed."
+    namingResult.content || "No theme — naming agent failed.",
   );
   allResults.push(qcResult);
 
@@ -412,7 +409,7 @@ export async function buildItinerary(
         request,
         tasteResult.content || "",
         venueDataResult.content,
-        contextResult.content + `\n\n## QC FEEDBACK (fix these issues):\n${qcResult.content}`
+        contextResult.content + `\n\n## QC FEEDBACK (fix these issues):\n${qcResult.content}`,
       );
       allResults.push(revisedResult);
 
@@ -535,26 +532,54 @@ export function parseItineraryRequest(
     groupSize?: number;
     budget?: string;
     vibes?: string[];
-  }
+  },
 ): ItineraryRequest {
   // Extract city from message or context
-  const cityMatch = message.match(/\bin\s+([A-Z][a-zA-Z\s]+?)(?:\s+for|\s+with|\s+on|\s*[,.]|\s*$)/);
+  const cityMatch = message.match(
+    /\bin\s+([A-Z][a-zA-Z\s]+?)(?:\s+for|\s+with|\s+on|\s*[,.]|\s*$)/,
+  );
   const city = cityMatch?.[1]?.trim() ?? context?.location?.city ?? "Washington, DC";
 
   // Extract group size
   const groupMatch = message.match(/(\d+)\s*(?:people|friends|of us|guests|ppl)/i);
-  const groupSize = groupMatch ? parseInt(groupMatch[1], 10) : context?.groupSize ?? 2;
+  const groupSize = groupMatch ? parseInt(groupMatch[1], 10) : (context?.groupSize ?? 2);
 
   // Extract budget
   const budgetMatch = message.match(/\$(\$*)/);
-  const budget = budgetMatch ? "$" + budgetMatch[1] : context?.budget ?? "$$";
+  const budget = budgetMatch ? "$" + budgetMatch[1] : (context?.budget ?? "$$");
 
   // Extract occasion
-  const occasions = ["birthday", "date", "anniversary", "bachelorette", "bachelor", "graduation", "celebration", "girls night", "guys night", "work event"];
-  const occasion = occasions.find((o) => message.toLowerCase().includes(o)) ?? context?.occasion ?? "night out";
+  const occasions = [
+    "birthday",
+    "date",
+    "anniversary",
+    "bachelorette",
+    "bachelor",
+    "graduation",
+    "celebration",
+    "girls night",
+    "guys night",
+    "work event",
+  ];
+  const occasion =
+    occasions.find((o) => message.toLowerCase().includes(o)) ?? context?.occasion ?? "night out";
 
   // Extract vibes
-  const vibeKeywords = ["bougie", "chill", "wild", "romantic", "classy", "adventurous", "loud", "intimate", "upscale", "casual", "trendy", "dive", "hidden gem"];
+  const vibeKeywords = [
+    "bougie",
+    "chill",
+    "wild",
+    "romantic",
+    "classy",
+    "adventurous",
+    "loud",
+    "intimate",
+    "upscale",
+    "casual",
+    "trendy",
+    "dive",
+    "hidden gem",
+  ];
   const vibes = vibeKeywords.filter((v) => message.toLowerCase().includes(v));
   if (vibes.length === 0 && context?.vibes) vibes.push(...context.vibes);
 

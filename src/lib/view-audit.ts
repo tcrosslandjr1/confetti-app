@@ -4,24 +4,24 @@
 import { useSyncExternalStore } from "react";
 
 export type ViewAuditKind =
-  | "guard"           // a route guard ran
-  | "redirect"        // a navigation/redirect was issued
-  | "view-change"     // viewAs / effectiveRole changed
-  | "auth"            // sign-in / sign-out / session change
-  | "note";           // misc trace point
+  | "guard" // a route guard ran
+  | "redirect" // a navigation/redirect was issued
+  | "view-change" // viewAs / effectiveRole changed
+  | "auth" // sign-in / sign-out / session change
+  | "note"; // misc trace point
 
 export type ViewAuditEntry = {
   id: string;
   at: number;
   kind: ViewAuditKind;
-  source: string;     // e.g. "Landing", "AdminLayout", "AuthProvider"
-  role?: string | null;       // effective role at the time
+  source: string; // e.g. "Landing", "AdminLayout", "AuthProvider"
+  role?: string | null; // effective role at the time
   viewAs?: string | null;
   realRole?: string | null;
   path?: string | null;
-  target?: string | null;     // redirect destination if any
-  decision?: string | null;   // short verdict: "allow" | "redirect" | "block" | ...
-  reason?: string | null;     // why
+  target?: string | null; // redirect destination if any
+  decision?: string | null; // short verdict: "allow" | "redirect" | "block" | ...
+  reason?: string | null; // why
 };
 
 const MAX = 100;
@@ -29,7 +29,9 @@ const listeners = new Set<() => void>();
 let entries: ViewAuditEntry[] = [];
 let counter = 0;
 
-function emit() { for (const l of listeners) l(); }
+function emit() {
+  for (const l of listeners) l();
+}
 
 export function logViewAudit(entry: Omit<ViewAuditEntry, "id" | "at">) {
   counter += 1;
@@ -64,5 +66,9 @@ function subscribe(cb: () => void) {
 }
 
 export function useViewAudit() {
-  return useSyncExternalStore(subscribe, () => entries, () => entries);
+  return useSyncExternalStore(
+    subscribe,
+    () => entries,
+    () => entries,
+  );
 }

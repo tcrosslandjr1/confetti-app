@@ -277,10 +277,7 @@ export function removeStop(stopId: string): ActiveLoop | null {
 }
 
 /** Replace a stop in place. Preserves position and original `id`, `time`, and `kind`. */
-export function replaceStop(
-  stopId: string,
-  patch: Partial<LoopStop>,
-): ActiveLoop | null {
+export function replaceStop(stopId: string, patch: Partial<LoopStop>): ActiveLoop | null {
   const loop = getActiveLoop();
   if (!loop) return null;
   const idx = loop.stops.findIndex((s) => s.id === stopId);
@@ -326,10 +323,7 @@ export function reorderStops(orderedIds: string[]): ActiveLoop | null {
 }
 
 /** Append a stop to the end of the loop (or insert at a given index). */
-export function addStop(
-  stop: LoopStop,
-  position?: number,
-): ActiveLoop | null {
+export function addStop(stop: LoopStop, position?: number): ActiveLoop | null {
   const loop = getActiveLoop();
   if (!loop) return null;
   const stops = [...loop.stops];
@@ -496,4 +490,3 @@ export function makeDemoLoop(input: Partial<ActiveLoop> = {}): ActiveLoop {
     ...input,
   };
 }
-

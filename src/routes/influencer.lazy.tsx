@@ -14,7 +14,11 @@ const TIERS = [
   {
     name: "Tastemaker",
     followers: "10K–50K",
-    perks: ["Complimentary dining credits", "Early access to new cities", "Co-branded content features"],
+    perks: [
+      "Complimentary dining credits",
+      "Early access to new cities",
+      "Co-branded content features",
+    ],
   },
   {
     name: "Icon",
@@ -42,8 +46,8 @@ function InfluencerPage() {
             The Confetti Influencer Program
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Turn your nightlife and dining content into exclusive perks, free
-            experiences, and real income.
+            Turn your nightlife and dining content into exclusive perks, free experiences, and real
+            income.
           </p>
           <Link
             to="/auth"
@@ -74,15 +78,10 @@ function InfluencerPage() {
       {/* Tiers */}
       <section className="border-t border-border bg-muted/30 px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-10 text-center font-display text-2xl font-bold">
-            Compensation tiers
-          </h2>
+          <h2 className="mb-10 text-center font-display text-2xl font-bold">Compensation tiers</h2>
           <div className="grid gap-6 sm:grid-cols-3">
             {TIERS.map((tier) => (
-              <div
-                key={tier.name}
-                className="rounded-2xl border border-border bg-background p-6"
-              >
+              <div key={tier.name} className="rounded-2xl border border-border bg-background p-6">
                 <h3 className="font-display text-lg font-bold">{tier.name}</h3>
                 <p className="mt-1 text-xs text-muted-foreground">{tier.followers} followers</p>
                 <ul className="mt-4 space-y-2">
@@ -105,8 +104,7 @@ function InfluencerPage() {
           <Users className="mx-auto h-8 w-8 text-primary" />
           <h2 className="mt-4 font-display text-2xl font-bold">Ready to join?</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            We review applications weekly. Accepted creators get onboarded
-            within 48 hours.
+            We review applications weekly. Accepted creators get onboarded within 48 hours.
           </p>
           <Link
             to="/auth"

@@ -34,10 +34,30 @@ import { supabase } from "../supabase";
 // Types
 // ═══════════════════════════════════════════════════════════
 
-export type VerificationType = "business_claim" | "promoter_application" | "venue_owner" | "influencer" | "event_organizer";
-export type VerificationStatus = "submitted" | "ai_review" | "pending_admin" | "approved" | "rejected" | "suspended" | "expired";
+export type VerificationType =
+  | "business_claim"
+  | "promoter_application"
+  | "venue_owner"
+  | "influencer"
+  | "event_organizer";
+export type VerificationStatus =
+  | "submitted"
+  | "ai_review"
+  | "pending_admin"
+  | "approved"
+  | "rejected"
+  | "suspended"
+  | "expired";
 export type RiskLevel = "low" | "medium" | "high" | "critical";
-export type DocumentType = "business_license" | "tax_id" | "utility_bill" | "lease_agreement" | "photo_id" | "social_media_proof" | "website_proof" | "event_permit";
+export type DocumentType =
+  | "business_license"
+  | "tax_id"
+  | "utility_bill"
+  | "lease_agreement"
+  | "photo_id"
+  | "social_media_proof"
+  | "website_proof"
+  | "event_permit";
 
 export interface SubmittedDocument {
   id: string;
@@ -216,7 +236,12 @@ function scoreVerification(request: VerificationRequest): {
       .replace("www.", "")
       .split("/")[0]
       ?.toLowerCase();
-    if (emailDomain && entityDomain && !emailDomain.includes(entityDomain) && !entityDomain.includes(emailDomain)) {
+    if (
+      emailDomain &&
+      entityDomain &&
+      !emailDomain.includes(entityDomain) &&
+      !entityDomain.includes(emailDomain)
+    ) {
       // Not necessarily bad, just flag it
       if (request.type === "business_claim" || request.type === "venue_owner") {
         flags.push(`Email domain (${emailDomain}) does not match entity website (${entityDomain})`);
@@ -252,7 +277,7 @@ export function submitVerification(
   type: VerificationType,
   entityName: string,
   documents: Array<{ type: DocumentType; fileName: string; fileUrl: string }>,
-  metadata?: Partial<Pick<VerificationRequest, "entityAddress" | "entityWebsite" | "entityPhone">>
+  metadata?: Partial<Pick<VerificationRequest, "entityAddress" | "entityWebsite" | "entityPhone">>,
 ): VerificationRequest {
   const request: VerificationRequest = {
     id: nextId("vrf"),
@@ -333,7 +358,7 @@ export function runAIReview(requestId: string): VerificationRequest | null {
 export function approveVerification(
   requestId: string,
   adminNotes?: string,
-  approvedBy?: string
+  approvedBy?: string,
 ): VerificationRequest | null {
   const request = verificationStore.get(requestId);
   if (!request) return null;
@@ -359,7 +384,7 @@ export function approveVerification(
 export function rejectVerification(
   requestId: string,
   reason: string,
-  rejectedBy: string
+  rejectedBy: string,
 ): VerificationRequest | null {
   const request = verificationStore.get(requestId);
   if (!request) return null;
@@ -376,7 +401,7 @@ export function rejectVerification(
 export function suspendVerification(
   requestId: string,
   reason: string,
-  suspendedBy: string
+  suspendedBy: string,
 ): VerificationRequest | null {
   const request = verificationStore.get(requestId);
   if (!request) return null;
@@ -394,7 +419,7 @@ export function addDocument(
   requestId: string,
   type: DocumentType,
   fileName: string,
-  fileUrl: string
+  fileUrl: string,
 ): SubmittedDocument | null {
   const request = verificationStore.get(requestId);
   if (!request) return null;
@@ -460,11 +485,7 @@ export function checkExpiration(): VerificationRequest[] {
   const expired: VerificationRequest[] = [];
 
   for (const request of verificationStore.values()) {
-    if (
-      request.status === "approved" &&
-      request.expiresAt &&
-      request.expiresAt < now
-    ) {
+    if (request.status === "approved" && request.expiresAt && request.expiresAt < now) {
       request.status = "expired";
       expired.push(request);
     }
@@ -485,7 +506,7 @@ export function getVerificationRules(): VerificationRule[] {
 /** Update verification rules for a type */
 export function updateVerificationRules(
   type: VerificationType,
-  rules: Partial<Omit<VerificationRule, "type">>
+  rules: Partial<Omit<VerificationRule, "type">>,
 ): VerificationRule {
   const existing = rulesStore.get(type) ?? DEFAULT_RULES[type];
   const updated: VerificationRule = {
@@ -515,13 +536,26 @@ export function getVerificationMetrics(): {
   const requests = Array.from(verificationStore.values());
 
   const byStatus: Record<VerificationStatus, number> = {
-    submitted: 0, ai_review: 0, pending_admin: 0, approved: 0, rejected: 0, suspended: 0, expired: 0,
+    submitted: 0,
+    ai_review: 0,
+    pending_admin: 0,
+    approved: 0,
+    rejected: 0,
+    suspended: 0,
+    expired: 0,
   };
   const byType: Record<VerificationType, number> = {
-    business_claim: 0, promoter_application: 0, venue_owner: 0, influencer: 0, event_organizer: 0,
+    business_claim: 0,
+    promoter_application: 0,
+    venue_owner: 0,
+    influencer: 0,
+    event_organizer: 0,
   };
   const byRisk: Record<RiskLevel, number> = {
-    low: 0, medium: 0, high: 0, critical: 0,
+    low: 0,
+    medium: 0,
+    high: 0,
+    critical: 0,
   };
 
   let reviewedCount = 0;
@@ -642,9 +676,7 @@ export function seedVerificationDemo(): VerificationRequest[] {
       email: "testuser123@tempmail.com",
       type: "business_claim",
       entityName: "Test Business Fake",
-      docs: [
-        { type: "photo_id", fileName: "blurry_id.jpg" },
-      ],
+      docs: [{ type: "photo_id", fileName: "blurry_id.jpg" }],
     },
     {
       userId: "biz_003",
@@ -689,14 +721,18 @@ export function seedVerificationDemo(): VerificationRequest[] {
         entityAddress: s.address,
         entityWebsite: s.website,
         entityPhone: s.phone,
-      }
+      },
     );
     created.push(request);
   }
 
   // Manually approve the first two (good applications) for demo variety
   if (created[0] && created[0].status === "pending_admin") {
-    approveVerification(created[0].id, "Verified venue ownership with matching documents", "Tyrone");
+    approveVerification(
+      created[0].id,
+      "Verified venue ownership with matching documents",
+      "Tyrone",
+    );
   }
   if (created[1] && created[1].status === "pending_admin") {
     approveVerification(created[1].id, "Business license and tax ID confirmed", "Tyrone");

@@ -103,9 +103,7 @@ Lean INTO the favorite vibes and AWAY from disliked tags.
 `
     : "";
 
-  const socialBlock = socialContext
-    ? formatSocialContextBlock(socialContext)
-    : "";
+  const socialBlock = socialContext ? formatSocialContextBlock(socialContext) : "";
 
   return `You are the Confetti Content Engine — a world-class lifestyle concierge.
 
@@ -160,9 +158,7 @@ Prioritize venues matching these signals.
 `
     : "";
 
-  const socialBlock = socialContext
-    ? formatSocialContextBlock(socialContext)
-    : "";
+  const socialBlock = socialContext ? formatSocialContextBlock(socialContext) : "";
 
   return `You are the Confetti Venue Discovery Engine — you find the best dining, nightlife, and experience spots.
 
@@ -282,9 +278,7 @@ export async function generateIdeasForOccasion(
   const occasion = OCCASIONS.find((o) => o.slug === occasionSlug);
   if (!occasion) throw new Error(`Unknown occasion: ${occasionSlug}`);
 
-  const city = citySlug
-    ? CITIES.find((c) => c.slug === citySlug) ?? null
-    : null;
+  const city = citySlug ? (CITIES.find((c) => c.slug === citySlug) ?? null) : null;
 
   // Load social context for this city if available
   let socialCtx: SocialContext | null = null;
@@ -346,7 +340,10 @@ export async function discoverVenuesForCity(
   try {
     socialCtx = await loadSocialContext(citySlug);
   } catch (err) {
-    console.warn("[idea-generator] Social context load failed for venues, continuing without:", err);
+    console.warn(
+      "[idea-generator] Social context load failed for venues, continuing without:",
+      err,
+    );
   }
 
   const prompt = buildVenuePrompt(city, categories, count, tasteSignals, socialCtx);
@@ -481,12 +478,7 @@ export async function runDailyBatch(
     for (const city of targetCities) {
       // Discover venues for this city
       try {
-        const venues = await discoverVenuesForCity(
-          city.slug,
-          venuesPerCity,
-          batchId,
-          tasteSignals,
-        );
+        const venues = await discoverVenuesForCity(city.slug, venuesPerCity, batchId, tasteSignals);
         totalVenues += venues.length;
       } catch (err) {
         console.error(`[daily-batch] Venue discovery failed for ${city.slug}:`, err);
@@ -503,10 +495,7 @@ export async function runDailyBatch(
           );
           totalIdeas += ideas.length;
         } catch (err) {
-          console.error(
-            `[daily-batch] Idea gen failed for ${occasion.slug}×${city.slug}:`,
-            err,
-          );
+          console.error(`[daily-batch] Idea gen failed for ${occasion.slug}×${city.slug}:`, err);
         }
       }
     }
@@ -636,10 +625,7 @@ export async function fetchGeneratedIdeas(
 /**
  * Fetch AI-discovered venues for a city.
  */
-export async function fetchDiscoveredVenues(
-  citySlug: string,
-  limit: number = 20,
-) {
+export async function fetchDiscoveredVenues(citySlug: string, limit: number = 20) {
   const { data, error } = await supabaseAdmin
     .from("ai_discovered_venues")
     .select("*")

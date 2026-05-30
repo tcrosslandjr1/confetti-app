@@ -119,8 +119,10 @@ export function learnProfileFromSignals(
 
   // Identity context: use most recent explicit signal if present
   const identitySignal = signals.find((s) => s.signal_type === "identity_set");
-  const identityContext = identitySignal?.payload?.identity as IdentityContext ?? base.identity_context;
-  const lgbtqSafe = identityContext != null && identityContext !== "ally" ? true : base.lgbtq_safe_mode;
+  const identityContext =
+    (identitySignal?.payload?.identity as IdentityContext) ?? base.identity_context;
+  const lgbtqSafe =
+    identityContext != null && identityContext !== "ally" ? true : base.lgbtq_safe_mode;
 
   const avgPrice = prices.length
     ? Math.round(prices.reduce((a, b) => a + b, 0) / prices.length)

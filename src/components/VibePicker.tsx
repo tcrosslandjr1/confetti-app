@@ -10,18 +10,18 @@ export interface VibeOption {
 }
 
 export const DEFAULT_VIBE_OPTIONS: VibeOption[] = [
-  { id: "lounge",       label: "Lounge",       group: "social" },
-  { id: "hookah",       label: "Hookah",       group: "social" },
-  { id: "seafood",      label: "Seafood",      group: "food" },
-  { id: "crab-house",   label: "Crab House",   group: "food" },
+  { id: "lounge", label: "Lounge", group: "social" },
+  { id: "hookah", label: "Hookah", group: "social" },
+  { id: "seafood", label: "Seafood", group: "food" },
+  { id: "crab-house", label: "Crab House", group: "food" },
   { id: "casino-night", label: "Casino Night", group: "activity" },
-  { id: "rooftop",      label: "Rooftop",      group: "social" },
-  { id: "karaoke",      label: "Karaoke",      group: "social" },
-  { id: "comedy",       label: "Comedy",       group: "social" },
-  { id: "dancing",      label: "Dancing",      group: "social" },
-  { id: "chill",        label: "Chill",        group: "mood" },
-  { id: "upscale",      label: "Upscale",      group: "mood" },
-  { id: "budget",       label: "Budget",       group: "budget" },
+  { id: "rooftop", label: "Rooftop", group: "social" },
+  { id: "karaoke", label: "Karaoke", group: "social" },
+  { id: "comedy", label: "Comedy", group: "social" },
+  { id: "dancing", label: "Dancing", group: "social" },
+  { id: "chill", label: "Chill", group: "mood" },
+  { id: "upscale", label: "Upscale", group: "mood" },
+  { id: "budget", label: "Budget", group: "budget" },
 ];
 
 interface VibePickerProps {

@@ -77,9 +77,7 @@ export function ReviewForm({
       className="flex flex-col gap-4 rounded-2xl border-2 border-ink bg-white p-5 shadow-brut"
     >
       <div className="flex items-center justify-between">
-        <h3 className="font-display text-lg font-bold text-cream">
-          Review {venueName}
-        </h3>
+        <h3 className="font-display text-lg font-bold text-cream">Review {venueName}</h3>
         {onCancel && (
           <button
             type="button"
@@ -111,13 +109,23 @@ export function ReviewForm({
           <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
             Vibe
           </label>
-          <StarRating value={ambianceRating} onChange={setAmbianceRating} size="sm" showLabel={false} />
+          <StarRating
+            value={ambianceRating}
+            onChange={setAmbianceRating}
+            size="sm"
+            showLabel={false}
+          />
         </div>
         <div>
           <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/50">
             Service
           </label>
-          <StarRating value={serviceRating} onChange={setServiceRating} size="sm" showLabel={false} />
+          <StarRating
+            value={serviceRating}
+            onChange={setServiceRating}
+            size="sm"
+            showLabel={false}
+          />
         </div>
       </div>
 

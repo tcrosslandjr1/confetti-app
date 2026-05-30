@@ -47,18 +47,18 @@ export const XP_REWARDS: Record<string, number> = {
 // Level N requires LEVEL_THRESHOLDS[N] total XP (cumulative).
 // Pattern: each level requires progressively more XP.
 const LEVEL_THRESHOLDS: number[] = [
-  0,     // Level 1: 0 XP (everyone starts here)
-  100,   // Level 2
-  250,   // Level 3
-  500,   // Level 4
-  850,   // Level 5
-  1300,  // Level 6
-  1900,  // Level 7
-  2600,  // Level 8
-  3500,  // Level 9
-  4600,  // Level 10
-  6000,  // Level 11
-  7800,  // Level 12
+  0, // Level 1: 0 XP (everyone starts here)
+  100, // Level 2
+  250, // Level 3
+  500, // Level 4
+  850, // Level 5
+  1300, // Level 6
+  1900, // Level 7
+  2600, // Level 8
+  3500, // Level 9
+  4600, // Level 10
+  6000, // Level 11
+  7800, // Level 12
   10000, // Level 13
   12500, // Level 14
   15500, // Level 15
@@ -125,10 +125,7 @@ export async function awardXP(
   const updates: { xp: number; level?: number } = { xp: newXP };
   if (newLevel > oldLevel) updates.level = newLevel;
 
-  const { error: updateErr } = await supabase
-    .from("profiles")
-    .update(updates)
-    .eq("id", userId);
+  const { error: updateErr } = await supabase.from("profiles").update(updates).eq("id", userId);
 
   if (updateErr) return null;
 
@@ -302,11 +299,7 @@ async function checkAchievementQualification(userId: string, code: string): Prom
 }
 
 async function getProfileXP(userId: string): Promise<number> {
-  const { data } = await supabase
-    .from("profiles")
-    .select("xp")
-    .eq("id", userId)
-    .maybeSingle();
+  const { data } = await supabase.from("profiles").select("xp").eq("id", userId).maybeSingle();
   return data?.xp ?? 0;
 }
 

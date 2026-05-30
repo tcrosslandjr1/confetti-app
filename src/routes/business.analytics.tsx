@@ -15,7 +15,11 @@ import {
   Minus,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import { getVenueAnalytics } from "@/lib/business-api";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -56,15 +60,51 @@ function BusinessAnalyticsPage() {
   const daily: any[] = data?.daily ?? [];
 
   if (venuesLoading) return <PageShell>Loading venues...</PageShell>;
-  if (!venues.length) return <PageShell><NoVenueClaim /></PageShell>;
+  if (!venues.length)
+    return (
+      <PageShell>
+        <NoVenueClaim />
+      </PageShell>
+    );
 
   const kpis = [
-    { icon: Eye, label: "Profile Views", value: totals?.profile_views ?? 0, color: "text-blue-500" },
-    { icon: MousePointerClick, label: "Clicks", value: totals?.clicks ?? 0, color: "text-purple-500" },
-    { icon: CalendarPlus, label: "Bookings", value: totals?.bookings_count ?? 0, color: "text-emerald-500" },
-    { icon: ShoppingBag, label: "Pre-Orders", value: totals?.pre_orders_count ?? 0, color: "text-amber-500" },
-    { icon: Users, label: "Unique Visitors", value: totals?.unique_visitors ?? 0, color: "text-cyan-500" },
-    { icon: DollarSign, label: "Revenue", value: `$${((totals?.revenue_cents ?? 0) / 100).toLocaleString()}`, color: "text-green-600", raw: totals?.revenue_cents ?? 0 },
+    {
+      icon: Eye,
+      label: "Profile Views",
+      value: totals?.profile_views ?? 0,
+      color: "text-blue-500",
+    },
+    {
+      icon: MousePointerClick,
+      label: "Clicks",
+      value: totals?.clicks ?? 0,
+      color: "text-purple-500",
+    },
+    {
+      icon: CalendarPlus,
+      label: "Bookings",
+      value: totals?.bookings_count ?? 0,
+      color: "text-emerald-500",
+    },
+    {
+      icon: ShoppingBag,
+      label: "Pre-Orders",
+      value: totals?.pre_orders_count ?? 0,
+      color: "text-amber-500",
+    },
+    {
+      icon: Users,
+      label: "Unique Visitors",
+      value: totals?.unique_visitors ?? 0,
+      color: "text-cyan-500",
+    },
+    {
+      icon: DollarSign,
+      label: "Revenue",
+      value: `$${((totals?.revenue_cents ?? 0) / 100).toLocaleString()}`,
+      color: "text-green-600",
+      raw: totals?.revenue_cents ?? 0,
+    },
   ];
 
   return (
@@ -83,7 +123,9 @@ function BusinessAnalyticsPage() {
               key={opt.days}
               onClick={() => setDays(opt.days)}
               className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
-                days === opt.days ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                days === opt.days
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {opt.label}
@@ -120,10 +162,26 @@ function BusinessAnalyticsPage() {
 
           {/* Charts */}
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <BarChart label="Profile Views" data={daily} field="profile_views" color="bg-blue-500/70" />
+            <BarChart
+              label="Profile Views"
+              data={daily}
+              field="profile_views"
+              color="bg-blue-500/70"
+            />
             <BarChart label="Clicks" data={daily} field="clicks" color="bg-purple-500/70" />
-            <BarChart label="Bookings" data={daily} field="bookings_count" color="bg-emerald-500/70" />
-            <BarChart label="Revenue ($)" data={daily} field="revenue_cents" color="bg-green-500/70" isCents />
+            <BarChart
+              label="Bookings"
+              data={daily}
+              field="bookings_count"
+              color="bg-emerald-500/70"
+            />
+            <BarChart
+              label="Revenue ($)"
+              data={daily}
+              field="revenue_cents"
+              color="bg-green-500/70"
+              isCents
+            />
           </div>
 
           {/* Daily Table */}
@@ -152,7 +210,9 @@ function BusinessAnalyticsPage() {
                         <td className="px-4 py-2 text-right">{row.clicks ?? 0}</td>
                         <td className="px-4 py-2 text-right">{row.bookings_count ?? 0}</td>
                         <td className="px-4 py-2 text-right">{row.unique_visitors ?? 0}</td>
-                        <td className="px-4 py-2 text-right">${((row.revenue_cents ?? 0) / 100).toFixed(0)}</td>
+                        <td className="px-4 py-2 text-right">
+                          ${((row.revenue_cents ?? 0) / 100).toFixed(0)}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -191,7 +251,9 @@ function BarChart({
       <div className="flex items-center justify-between">
         <div className="text-sm font-medium">{label}</div>
         <div className="text-lg font-bold">
-          {isCents ? `$${total.toLocaleString(undefined, { maximumFractionDigits: 0 })}` : total.toLocaleString()}
+          {isCents
+            ? `$${total.toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+            : total.toLocaleString()}
         </div>
       </div>
       <div className="mt-4 flex h-28 items-end gap-[2px]">

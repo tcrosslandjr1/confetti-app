@@ -1,12 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { useCityGate } from "@/hooks/useCityGate";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-} from "@tanstack/react-router";
+import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/lib/auth-context";
@@ -45,9 +40,7 @@ const ReferralCapture = lazy(() =>
 const PageTransition = lazy(() =>
   import("@/components/PageTransition").then((m) => ({ default: m.PageTransition })),
 );
-const TabBar = lazy(() =>
-  import("@/components/loop/TabBar").then((m) => ({ default: m.TabBar })),
-);
+const TabBar = lazy(() => import("@/components/loop/TabBar").then((m) => ({ default: m.TabBar })));
 const FirstRunNudge = lazy(() =>
   import("@/components/FirstRunNudge").then((m) => ({ default: m.FirstRunNudge })),
 );
@@ -109,8 +102,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   const showDetails =
     typeof window !== "undefined" &&
-    (import.meta.env.DEV ||
-      /confettiplan\.com|localhost/.test(window.location.hostname));
+    (import.meta.env.DEV || /confettiplan\.com|localhost/.test(window.location.hostname));
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -310,10 +302,7 @@ function RootComponent() {
               </Suspense>
               {/* Spacer so fixed mobile TabBar doesn't cover page content.
                   TabBar = 80px + Plan button overhang (~24px) + iOS safe area. */}
-              <div
-                aria-hidden
-                className="pb-[calc(7rem+env(safe-area-inset-bottom))] lg:hidden"
-              />
+              <div aria-hidden className="pb-[calc(7rem+env(safe-area-inset-bottom))] lg:hidden" />
               <CustomerOnly>
                 <Suspense fallback={null}>
                   <BuildMyNightWizard />

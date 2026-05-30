@@ -157,11 +157,7 @@ export function HappyHourDealSheet({ deal, onClose }: HappyHourDealSheetProps) {
           {/* ── Hero image ────────────────────────────── */}
           {venue?.photo_url && (
             <div className="mt-4 overflow-hidden rounded-2xl">
-              <img
-                src={venue.photo_url}
-                alt={venue.name}
-                className="h-44 w-full object-cover"
-              />
+              <img src={venue.photo_url} alt={venue.name} className="h-44 w-full object-cover" />
             </div>
           )}
 
@@ -203,9 +199,7 @@ export function HappyHourDealSheet({ deal, onClose }: HappyHourDealSheetProps) {
 
           {/* ── Deal summary ──────────────────────────── */}
           <div className="mt-5">
-            <p className="text-[13px] leading-relaxed text-cream/70">
-              {deal.deal_summary}
-            </p>
+            <p className="text-[13px] leading-relaxed text-cream/70">{deal.deal_summary}</p>
           </div>
 
           {/* ── Drink Specials ────────────────────────── */}
@@ -221,9 +215,7 @@ export function HappyHourDealSheet({ deal, onClose }: HappyHourDealSheetProps) {
                     className="flex items-center justify-between rounded-lg border border-cream/8 bg-cream/[0.03] px-3 py-2"
                   >
                     <span className="text-[13px] text-cream/80">{s.name}</span>
-                    <span className="font-mono text-[12px] font-bold text-coral">
-                      {s.price}
-                    </span>
+                    <span className="font-mono text-[12px] font-bold text-coral">{s.price}</span>
                   </li>
                 ))}
               </ul>
@@ -243,9 +235,7 @@ export function HappyHourDealSheet({ deal, onClose }: HappyHourDealSheetProps) {
                     className="flex items-center justify-between rounded-lg border border-cream/8 bg-cream/[0.03] px-3 py-2"
                   >
                     <span className="text-[13px] text-cream/80">{s.name}</span>
-                    <span className="font-mono text-[12px] font-bold text-coral">
-                      {s.price}
-                    </span>
+                    <span className="font-mono text-[12px] font-bold text-coral">{s.price}</span>
                   </li>
                 ))}
               </ul>

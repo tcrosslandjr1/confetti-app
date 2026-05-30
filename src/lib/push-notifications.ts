@@ -11,11 +11,7 @@ const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY ?? "";
 
 /** Check if push notifications are supported in this browser. */
 export function isPushSupported(): boolean {
-  return (
-    "serviceWorker" in navigator &&
-    "PushManager" in window &&
-    "Notification" in window
-  );
+  return "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
 }
 
 /** Get current notification permission state. */
@@ -73,7 +69,9 @@ export async function subscribeToPush(): Promise<boolean> {
 
     // Save to Supabase
     const keys = subscription.toJSON();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) return false;
 
     const { error } = await supabase.from("push_subscriptions").upsert(
@@ -83,7 +81,7 @@ export async function subscribeToPush(): Promise<boolean> {
         p256dh: keys.keys?.p256dh ?? "",
         auth_key: keys.keys?.auth ?? "",
       },
-      { onConflict: "user_id,endpoint" }
+      { onConflict: "user_id,endpoint" },
     );
 
     if (error) {
@@ -110,7 +108,9 @@ export async function unsubscribeFromPush(): Promise<boolean> {
     if (!subscription) return true;
 
     // Remove from Supabase
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (user) {
       await supabase
         .from("push_subscriptions")

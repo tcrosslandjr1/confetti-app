@@ -55,8 +55,9 @@ function mapSupabaseUser(user: User, provider: AuthAccount["provider"] = "email"
     id: user.id,
     email: user.email ?? "",
     fullName: metadata.full_name ?? metadata.name ?? "Confetti Member",
-    username: metadata.username ?? normalizeUsername(user.email?.split("@")[0] ?? "confetti_member"),
-    provider
+    username:
+      metadata.username ?? normalizeUsername(user.email?.split("@")[0] ?? "confetti_member"),
+    provider,
   };
 }
 
@@ -80,7 +81,7 @@ async function syncProfile(user: User) {
     email: account.email,
     avatar_url: user.user_metadata?.avatar_url ?? user.user_metadata?.picture ?? null,
     auth_provider: provider,
-    last_login_at: new Date().toISOString()
+    last_login_at: new Date().toISOString(),
   });
 
   // Non-fatal: the auth user already exists, so let the user proceed.
@@ -94,9 +95,13 @@ async function syncProfile(user: User) {
     const identity = user.identities?.find((item) => item.provider === provider);
     const identityData = identity?.identity_data as Record<string, unknown> | undefined;
 
-    const providerEmail = typeof identityData?.email === "string" ? identityData.email : account.email;
+    const providerEmail =
+      typeof identityData?.email === "string" ? identityData.email : account.email;
     const displayName = (identityData?.name ?? user.user_metadata?.name ?? null) as string | null;
-    const avatarUrl = (identityData?.avatar_url ?? user.user_metadata?.avatar_url ?? user.user_metadata?.picture ?? null) as string | null;
+    const avatarUrl = (identityData?.avatar_url ??
+      user.user_metadata?.avatar_url ??
+      user.user_metadata?.picture ??
+      null) as string | null;
 
     const { error: linkError } = await supabase.from("linked_social_accounts").upsert(
       {
@@ -108,7 +113,7 @@ async function syncProfile(user: User) {
         avatar_url: avatarUrl,
         updated_at: new Date().toISOString(),
       },
-      { onConflict: "user_id,provider" }
+      { onConflict: "user_id,provider" },
     );
 
     if (linkError) {
@@ -147,7 +152,7 @@ export async function createAccountWithEmail(payload: AccountPayload) {
       email: clean.email,
       fullName,
       username: clean.username,
-      provider: "email"
+      provider: "email",
     };
     saveDemoAccount(account);
     return { account, needsEmailConfirmation: false };
@@ -159,10 +164,10 @@ export async function createAccountWithEmail(payload: AccountPayload) {
     options: {
       data: {
         full_name: fullName,
-        username: clean.username
+        username: clean.username,
       },
-      emailRedirectTo: redirectUrl()
-    }
+      emailRedirectTo: redirectUrl(),
+    },
   });
 
   if (error) throw error;
@@ -183,7 +188,7 @@ export async function createAccountWithEmail(payload: AccountPayload) {
       username: clean.username,
       email: clean.email,
       auth_provider: "email",
-      last_login_at: new Date().toISOString()
+      last_login_at: new Date().toISOString(),
     });
     if (profileError) {
       console.warn("[Confetti] profile upsert failed (non-fatal):", profileError.message);
@@ -192,7 +197,7 @@ export async function createAccountWithEmail(payload: AccountPayload) {
 
   return {
     account: mapSupabaseUser(data.user),
-    needsEmailConfirmation
+    needsEmailConfirmation,
   };
 }
 
@@ -202,7 +207,7 @@ async function resolveLoginIdentifier(identifier: string) {
   if (import.meta.env.DEV && !isSupabaseConfigured) return clean;
 
   const { data, error } = await supabase.rpc("resolve_login_identifier", {
-    login_identifier: normalizeUsername(clean)
+    login_identifier: normalizeUsername(clean),
   });
 
   if (error) throw error;
@@ -216,13 +221,15 @@ export async function signInWithEmailOrUsername(identifier: string, password: st
   if (import.meta.env.DEV && !isSupabaseConfigured) {
     const saved = readDemoAccount();
     if (saved) return saved;
-    const username = normalizeUsername(identifier.includes("@") ? identifier.split("@")[0] : identifier);
+    const username = normalizeUsername(
+      identifier.includes("@") ? identifier.split("@")[0] : identifier,
+    );
     const account: AuthAccount = {
       id: "demo-user",
       email: identifier.includes("@") ? identifier : `${username || "demo"}@confetti.local`,
       fullName: "Demo Explorer",
       username: username || "demo_explorer",
-      provider: "email"
+      provider: "email",
     };
     saveDemoAccount(account);
     return account;
@@ -248,7 +255,7 @@ export async function signInWithSocial(provider: AuthProviderId) {
       email: `${provider}@confetti.local`,
       fullName: `${provider === "google" ? "Google" : "Apple"} Demo`,
       username: `${provider}_demo`,
-      provider
+      provider,
     };
     saveDemoAccount(account);
     return { account, redirecting: false };
@@ -258,8 +265,9 @@ export async function signInWithSocial(provider: AuthProviderId) {
     provider: provider as Provider,
     options: {
       redirectTo: redirectUrl(),
-      queryParams: provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined
-    }
+      queryParams:
+        provider === "google" ? { access_type: "offline", prompt: "consent" } : undefined,
+    },
   });
 
   if (error) throw error;

@@ -16,10 +16,7 @@ export const Route = createFileRoute("/api/plan")({
         try {
           body = await request.json();
         } catch {
-          return Response.json(
-            { error: "Invalid JSON body" },
-            { status: 400, headers: hdrs },
-          );
+          return Response.json({ error: "Invalid JSON body" }, { status: 400, headers: hdrs });
         }
 
         try {

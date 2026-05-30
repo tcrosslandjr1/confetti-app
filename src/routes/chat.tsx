@@ -1,6 +1,19 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Sparkles, Send, ArrowLeft, MapPin, Utensils, Wine, CalendarDays, Car, Compass, Heart, Shuffle, Lock } from "lucide-react";
+import {
+  Sparkles,
+  Send,
+  ArrowLeft,
+  MapPin,
+  Utensils,
+  Wine,
+  CalendarDays,
+  Car,
+  Compass,
+  Heart,
+  Shuffle,
+  Lock,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { BrandCard } from "@/components/PageHero";
 
@@ -68,7 +81,10 @@ function extractChipsFromText(text: string): string[] {
 }
 
 // Map common chip intents to icons & tones for branded rendering
-const CHIP_META: Record<string, { icon: React.ComponentType<{ className?: string }>; tone: "gold" | "coral" | "ink" | "cream" }> = {
+const CHIP_META: Record<
+  string,
+  { icon: React.ComponentType<{ className?: string }>; tone: "gold" | "coral" | "ink" | "cream" }
+> = {
   "🍽️": { icon: Utensils, tone: "gold" },
   "🍸": { icon: Wine, tone: "coral" },
   "🌃": { icon: CalendarDays, tone: "ink" },
@@ -122,7 +138,9 @@ function ChatPage() {
     supabase.auth.getSession().then(({ data }) => {
       setIsAuthed(Boolean(data.session));
     });
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsAuthed(Boolean(session));
     });
     return () => subscription.unsubscribe();
@@ -132,134 +150,147 @@ function ChatPage() {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, typing]);
 
-  const send = useCallback(async (text: string) => {
-    if (!text.trim() || typing) return;
+  const send = useCallback(
+    async (text: string) => {
+      if (!text.trim() || typing) return;
 
-    // Handle sign-in chip
-    if (text === "🔒 Sign in") {
-      navigate({ to: "/auth" });
-      return;
-    }
-
-    // Check auth — allow unauthenticated but warn
-    if (!isAuthed) {
-      const userMsg: Msg = { id: Date.now(), role: "user", text };
-      setMessages((m) => [...m, userMsg, {
-        id: Date.now() + 1,
-        role: "ai",
-        text: "Sign in to unlock your personal Confetti concierge — I'll remember your vibes, learn your taste, and give you way better picks.",
-        reveal: true,
-        chips: ["🔒 Sign in"],
-      }]);
-      setInput("");
-      return;
-    }
-
-    const userMsg: Msg = { id: Date.now(), role: "user", text };
-    setMessages((m) => [...m, userMsg]);
-    setInput("");
-    setTyping(true);
-
-    // Build the message history for the API (exclude the welcome message)
-    const history = [...messages.filter((m) => m.id !== 0), userMsg].map((m) => ({
-      role: m.role === "ai" ? "assistant" as const : "user" as const,
-      content: m.text,
-    }));
-
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        setTyping(false);
-        setMessages((m) => [...m, {
-          id: Date.now() + 1,
-          role: "ai",
-          text: "Looks like your session expired — sign in again to keep the vibes going.",
-          reveal: true,
-        }]);
+      // Handle sign-in chip
+      if (text === "🔒 Sign in") {
+        navigate({ to: "/auth" });
         return;
       }
 
-      abortRef.current = new AbortController();
-
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.access_token}`,
-        },
-        body: JSON.stringify({
-          messages: history,
-          now: new Date().toISOString(),
-        }),
-        signal: abortRef.current.signal,
-      });
-
-      if (!res.ok) {
-        throw new Error(`API error ${res.status}`);
+      // Check auth — allow unauthenticated but warn
+      if (!isAuthed) {
+        const userMsg: Msg = { id: Date.now(), role: "user", text };
+        setMessages((m) => [
+          ...m,
+          userMsg,
+          {
+            id: Date.now() + 1,
+            role: "ai",
+            text: "Sign in to unlock your personal Confetti concierge — I'll remember your vibes, learn your taste, and give you way better picks.",
+            reveal: true,
+            chips: ["🔒 Sign in"],
+          },
+        ]);
+        setInput("");
+        return;
       }
 
-      const reader = res.body?.getReader();
-      if (!reader) throw new Error("No response body");
+      const userMsg: Msg = { id: Date.now(), role: "user", text };
+      setMessages((m) => [...m, userMsg]);
+      setInput("");
+      setTyping(true);
 
-      const decoder = new TextDecoder();
-      let fullText = "";
-      const aiMsgId = Date.now() + 1;
+      // Build the message history for the API (exclude the welcome message)
+      const history = [...messages.filter((m) => m.id !== 0), userMsg].map((m) => ({
+        role: m.role === "ai" ? ("assistant" as const) : ("user" as const),
+        content: m.text,
+      }));
 
-      // Add the AI message placeholder for streaming
-      setTyping(false);
-      setMessages((m) => [...m, {
-        id: aiMsgId,
-        role: "ai",
-        text: "",
-        streaming: true,
-      }]);
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+        if (!session) {
+          setTyping(false);
+          setMessages((m) => [
+            ...m,
+            {
+              id: Date.now() + 1,
+              role: "ai",
+              text: "Looks like your session expired — sign in again to keep the vibes going.",
+              reveal: true,
+            },
+          ]);
+          return;
+        }
 
-      // Stream tokens
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        fullText += decoder.decode(value, { stream: true });
-        const streamText = fullText;
+        abortRef.current = new AbortController();
+
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session.access_token}`,
+          },
+          body: JSON.stringify({
+            messages: history,
+            now: new Date().toISOString(),
+          }),
+          signal: abortRef.current.signal,
+        });
+
+        if (!res.ok) {
+          throw new Error(`API error ${res.status}`);
+        }
+
+        const reader = res.body?.getReader();
+        if (!reader) throw new Error("No response body");
+
+        const decoder = new TextDecoder();
+        let fullText = "";
+        const aiMsgId = Date.now() + 1;
+
+        // Add the AI message placeholder for streaming
+        setTyping(false);
+        setMessages((m) => [
+          ...m,
+          {
+            id: aiMsgId,
+            role: "ai",
+            text: "",
+            streaming: true,
+          },
+        ]);
+
+        // Stream tokens
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          fullText += decoder.decode(value, { stream: true });
+          const streamText = fullText;
+          setMessages((m) =>
+            m.map((msg) => (msg.id === aiMsgId ? { ...msg, text: streamText } : msg)),
+          );
+        }
+
+        // Streaming complete — parse venue blocks and finalize
+        const { text: cleanedText, venues } = parseVenueBlocks(fullText);
+        const extractedChips = extractChipsFromText(cleanedText);
+        const finalChips = extractedChips.length > 0 ? extractedChips : DEFAULT_CHIPS;
+
         setMessages((m) =>
           m.map((msg) =>
-            msg.id === aiMsgId ? { ...msg, text: streamText } : msg
-          )
+            msg.id === aiMsgId
+              ? {
+                  ...msg,
+                  text: cleanedText,
+                  streaming: false,
+                  venues: venues.length > 0 ? venues : undefined,
+                  chips: finalChips,
+                }
+              : msg,
+          ),
         );
+        setChips(finalChips);
+      } catch (err) {
+        if (err instanceof Error && err.name === "AbortError") return;
+        setTyping(false);
+        setMessages((m) => [
+          ...m.filter((msg) => !msg.streaming || msg.text),
+          {
+            id: Date.now() + 1,
+            role: "ai",
+            text: "I'm having a moment — let me try that again. What kind of vibe are you feeling tonight?",
+            reveal: true,
+          },
+        ]);
       }
-
-      // Streaming complete — parse venue blocks and finalize
-      const { text: cleanedText, venues } = parseVenueBlocks(fullText);
-      const extractedChips = extractChipsFromText(cleanedText);
-      const finalChips = extractedChips.length > 0 ? extractedChips : DEFAULT_CHIPS;
-
-      setMessages((m) =>
-        m.map((msg) =>
-          msg.id === aiMsgId
-            ? {
-                ...msg,
-                text: cleanedText,
-                streaming: false,
-                venues: venues.length > 0 ? venues : undefined,
-                chips: finalChips,
-              }
-            : msg
-        )
-      );
-      setChips(finalChips);
-    } catch (err) {
-      if (err instanceof Error && err.name === "AbortError") return;
-      setTyping(false);
-      setMessages((m) => [
-        ...m.filter((msg) => !msg.streaming || msg.text),
-        {
-          id: Date.now() + 1,
-          role: "ai",
-          text: "I'm having a moment — let me try that again. What kind of vibe are you feeling tonight?",
-          reveal: true,
-        },
-      ]);
-    }
-  }, [typing, isAuthed, messages, navigate]);
+    },
+    [typing, isAuthed, messages, navigate],
+  );
 
   return (
     <div className="flex min-h-screen flex-col bg-cream pb-24">
@@ -277,7 +308,9 @@ function ChatPage() {
           </span>
           <div>
             <div className="font-display text-sm font-bold">Confetti AI</div>
-            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/60">Online</div>
+            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
+              Online
+            </div>
           </div>
         </div>
       </header>
@@ -303,7 +336,10 @@ function ChatPage() {
                 } ${m.reveal ? "animate-[reveal-up_0.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" : ""}`}
               >
                 {m.role === "ai" && m.streaming ? (
-                  <span>{m.text}<span className="inline-block h-3.5 w-1.5 animate-pulse bg-ink/60 align-middle" /></span>
+                  <span>
+                    {m.text}
+                    <span className="inline-block h-3.5 w-1.5 animate-pulse bg-ink/60 align-middle" />
+                  </span>
                 ) : m.role === "ai" && m.reveal ? (
                   <Typewriter text={m.text} animate />
                 ) : (
@@ -312,12 +348,7 @@ function ChatPage() {
                 {m.venues && m.venues.length > 0 && (
                   <div className="mt-2 flex flex-col gap-2">
                     {m.venues.map((v, vi) => (
-                      <BrandCard
-                        key={vi}
-                        tone="white"
-                        interactive
-                        className="p-2.5"
-                      >
+                      <BrandCard key={vi} tone="white" interactive className="p-2.5">
                         <div className="flex items-center gap-1.5">
                           <MapPin className="h-3 w-3 text-coral" />
                           <span className="font-display text-xs font-bold">{v.name}</span>
@@ -328,21 +359,29 @@ function ChatPage() {
                           )}
                         </div>
                         {v.neighborhood && (
-                          <div className="mt-0.5 font-mono text-[9px] text-cream/50">{v.neighborhood}{v.cuisine ? ` — ${v.cuisine}` : ""}</div>
+                          <div className="mt-0.5 font-mono text-[9px] text-cream/50">
+                            {v.neighborhood}
+                            {v.cuisine ? ` — ${v.cuisine}` : ""}
+                          </div>
                         )}
                         {v.why && (
                           <div className="mt-1 text-[11px] leading-snug text-cream/70">{v.why}</div>
                         )}
                         {v.vibe && (
                           <div className="mt-1 flex flex-wrap gap-1">
-                            {v.vibe.split(",").map((tag) => tag.trim()).filter(Boolean).slice(0, 3).map((tag) => (
-                              <span
-                                key={tag}
-                                className="rounded-full border border-cream/10 bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-cream"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+                            {v.vibe
+                              .split(",")
+                              .map((tag) => tag.trim())
+                              .filter(Boolean)
+                              .slice(0, 3)
+                              .map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="rounded-full border border-cream/10 bg-gold/20 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-cream"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
                           </div>
                         )}
                         {v.best_for && v.best_for.length > 0 && (
@@ -414,12 +453,7 @@ function ChatPage() {
             {chips.map((s) => {
               const { label, icon: Icon, tone } = parseChip(s);
               return (
-                <button
-                  key={s}
-                  onClick={() => send(s)}
-                  disabled={typing}
-                  className="text-left"
-                >
+                <button key={s} onClick={() => send(s)} disabled={typing} className="text-left">
                   <BrandCard
                     tone={tone}
                     interactive

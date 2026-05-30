@@ -1,15 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import {
-  Sparkles,
-  Car,
-  Star,
-  MapPin,
-  Shirt,
-  Volume2,
-  Clock,
-  ArrowRight,
-} from "lucide-react";
+import { Sparkles, Car, Star, MapPin, Shirt, Volume2, Clock, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { trackEngagement } from "@/lib/analytics";
 import { PartnerPickBadge } from "@/components/PartnerPickBadge";
@@ -86,17 +77,10 @@ export function VenueFlipCard({
     }
   }
 
-  const priceDollars = venue.priceLevel
-    ? "$".repeat(Math.min(venue.priceLevel, 4))
-    : null;
+  const priceDollars = venue.priceLevel ? "$".repeat(Math.min(venue.priceLevel, 4)) : null;
 
   return (
-    <div
-      className={cn(
-        "shrink-0 snap-start [perspective:800px]",
-        widthClass,
-      )}
-    >
+    <div className={cn("shrink-0 snap-start [perspective:800px]", widthClass)}>
       <div
         className={cn(
           "relative h-[220px] cursor-pointer transition-transform duration-500 [transform-style:preserve-3d]",
@@ -105,7 +89,9 @@ export function VenueFlipCard({
         onClick={handleFlip}
         role="button"
         tabIndex={0}
-        aria-label={flipped ? `Flip back to ${venue.name} photo` : `Flip to see ${venue.name} details`}
+        aria-label={
+          flipped ? `Flip back to ${venue.name} photo` : `Flip to see ${venue.name} details`
+        }
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -129,7 +115,14 @@ export function VenueFlipCard({
               decoding="async"
             />
           ) : (
-            <div className={cn("h-[130px] w-full", accent === "purple" ? "bg-gradient-to-br from-purple/10 to-coral/10" : "bg-ink/[0.04]")} />
+            <div
+              className={cn(
+                "h-[130px] w-full",
+                accent === "purple"
+                  ? "bg-gradient-to-br from-purple/10 to-coral/10"
+                  : "bg-ink/[0.04]",
+              )}
+            />
           )}
           <div className="p-3">
             <div className="flex items-center gap-1">
@@ -143,12 +136,14 @@ export function VenueFlipCard({
               {venue.neighborhood ? ` · ${venue.neighborhood}` : ""}
             </div>
             {venue.vibe && (
-              <span className={cn(
-                "mt-1.5 inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[9px] font-semibold",
-                accent === "purple"
-                  ? "border-purple/20 bg-purple/8 text-purple"
-                  : "border-coral/20 bg-coral/8 text-coral",
-              )}>
+              <span
+                className={cn(
+                  "mt-1.5 inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[9px] font-semibold",
+                  accent === "purple"
+                    ? "border-purple/20 bg-purple/8 text-purple"
+                    : "border-coral/20 bg-coral/8 text-coral",
+                )}
+              >
                 <Sparkles className="size-2.5" /> {venue.vibe}
               </span>
             )}
@@ -157,9 +152,7 @@ export function VenueFlipCard({
           <div className="absolute bottom-2 right-2 rounded-full bg-ink/60 px-2 py-0.5 text-[8px] font-bold uppercase tracking-widest text-cream backdrop-blur">
             Tap for details
           </div>
-          {venue.sponsored && (
-            <PartnerPickBadge variant="corner" label={venue.partnerLabel} />
-          )}
+          {venue.sponsored && <PartnerPickBadge variant="corner" label={venue.partnerLabel} />}
         </div>
 
         {/* ── BACK ── */}
@@ -186,14 +179,21 @@ export function VenueFlipCard({
                 <span className="text-[11px] font-semibold text-ink/50">{priceDollars}</span>
               )}
               {venue.category && (
-                <span className="font-mono text-[9px] uppercase tracking-wide text-ink/40">{venue.category}</span>
+                <span className="font-mono text-[9px] uppercase tracking-wide text-ink/40">
+                  {venue.category}
+                </span>
               )}
             </div>
           </div>
 
           <div className="space-y-1.5 px-3 pt-2">
             {/* Parking */}
-            <DetailRow icon={Car} label="Parking" value="Street & garage nearby" accent={accentText} />
+            <DetailRow
+              icon={Car}
+              label="Parking"
+              value="Street & garage nearby"
+              accent={accentText}
+            />
 
             {/* Dress code */}
             <DetailRow icon={Shirt} label="Dress" value="Smart casual" accent={accentText} />
@@ -211,7 +211,9 @@ export function VenueFlipCard({
 
             {/* AI reason */}
             {venue.reason && (
-              <p className="line-clamp-2 text-[10px] italic leading-snug text-ink/60">{venue.reason}</p>
+              <p className="line-clamp-2 text-[10px] italic leading-snug text-ink/60">
+                {venue.reason}
+              </p>
             )}
           </div>
 

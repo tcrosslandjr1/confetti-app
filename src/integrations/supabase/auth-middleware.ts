@@ -15,7 +15,9 @@ export const requireSupabaseAuth = createMiddleware({ type: "function" }).server
 
     // Guard: if env URL points to wrong project, force Confetti
     if (!SUPABASE_URL.includes("zfeckvxkulreyapadanf")) {
-      console.warn(`[Auth Middleware] SUPABASE_URL points to wrong project. Using Confetti fallback.`);
+      console.warn(
+        `[Auth Middleware] SUPABASE_URL points to wrong project. Using Confetti fallback.`,
+      );
       SUPABASE_URL = CONFETTI_SUPABASE_URL;
       SUPABASE_PUBLISHABLE_KEY = CONFETTI_ANON_KEY;
     }
@@ -54,7 +56,10 @@ export const requireSupabaseAuth = createMiddleware({ type: "function" }).server
       },
     });
 
-    const { data: { user }, error } = await supabase.auth.getUser(token);
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser(token);
     if (error || !user) {
       throw new Response("Unauthorized: Invalid token", { status: 401 });
     }

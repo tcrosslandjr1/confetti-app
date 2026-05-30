@@ -33,7 +33,7 @@ const DEFAULT_TIMEOUT = 15_000;
 async function callAIChat(
   messages: AIMessage[],
   config: AIProviderConfig,
-  signal: AbortSignal
+  signal: AbortSignal,
 ): Promise<AIResponse> {
   const start = performance.now();
   const res = await fetch(`${config.supabaseUrl}/functions/v1/ai-chat`, {
@@ -89,13 +89,18 @@ const MOCK_RESPONSES: Record<string, string[]> = {
 
 function getMockResponse(messages: AIMessage[]): AIResponse {
   const start = performance.now();
-  const lastUserMsg = [...messages].reverse().find((m) => m.role === "user")?.content.toLowerCase() ?? "";
+  const lastUserMsg =
+    [...messages]
+      .reverse()
+      .find((m) => m.role === "user")
+      ?.content.toLowerCase() ?? "";
 
   let category = "general";
   if (/trip|road|drive|travel|state|highway|route/.test(lastUserMsg)) category = "trip";
   else if (/family|kid|child|splash|park/.test(lastUserMsg)) category = "family";
   else if (/date|romantic|anniversary|couple/.test(lastUserMsg)) category = "date";
-  else if (/eat|food|restaurant|bar|club|speakeasy|rooftop|vibe|spot|place/.test(lastUserMsg)) category = "venue";
+  else if (/eat|food|restaurant|bar|club|speakeasy|rooftop|vibe|spot|place/.test(lastUserMsg))
+    category = "venue";
 
   const options = MOCK_RESPONSES[category] ?? MOCK_RESPONSES.general;
   const content = options[Math.floor(Math.random() * options.length)];
@@ -127,10 +132,7 @@ function isLiveAvailable(cfg: AIProviderConfig): boolean {
   );
 }
 
-export async function chat(
-  messages: AIMessage[],
-  config?: AIProviderConfig
-): Promise<AIResponse> {
+export async function chat(messages: AIMessage[], config?: AIProviderConfig): Promise<AIResponse> {
   const cfg = config ?? getAIConfig();
 
   if (!isLiveAvailable(cfg)) {

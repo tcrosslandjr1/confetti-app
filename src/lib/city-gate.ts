@@ -61,7 +61,9 @@ export function checkCityGateSync(): GateStatus {
     if (localStorage.getItem(OVERRIDE_KEY) === "dmv") {
       return { allowed: true };
     }
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 
   // 2. Check URL param override (first visit from a link)
   try {
@@ -71,7 +73,9 @@ export function checkCityGateSync(): GateStatus {
       localStorage.setItem(OVERRIDE_KEY, "dmv");
       return { allowed: true };
     }
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 
   // 3. Check selected city
   const selectedCity = getSelectedCity();
@@ -124,12 +128,16 @@ export async function checkCityGateAsync(): Promise<GateStatus> {
 export function overrideCityGate() {
   try {
     localStorage.setItem(OVERRIDE_KEY, "dmv");
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 }
 
 /** Clear the gate override (for testing). */
 export function clearCityGateOverride() {
   try {
     localStorage.removeItem(OVERRIDE_KEY);
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 }

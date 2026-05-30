@@ -142,10 +142,7 @@ export function ConciergeChat() {
       </div>
 
       {/* Messages */}
-      <div
-        ref={scrollRef}
-        className="flex-1 overflow-y-auto px-4 py-3 space-y-3"
-      >
+      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-center opacity-60 px-4">
             <Sparkles size={32} style={{ color: "#5B45D9" }} className="mb-3" />
@@ -165,15 +162,27 @@ export function ConciergeChat() {
         {loading && (
           <div className="flex items-center gap-2 px-3 py-2">
             <div className="flex gap-1">
-              <span className="w-2 h-2 rounded-full animate-bounce" style={{ background: "#5B45D9", animationDelay: "0ms" }} />
-              <span className="w-2 h-2 rounded-full animate-bounce" style={{ background: "#5B45D9", animationDelay: "150ms" }} />
-              <span className="w-2 h-2 rounded-full animate-bounce" style={{ background: "#5B45D9", animationDelay: "300ms" }} />
+              <span
+                className="w-2 h-2 rounded-full animate-bounce"
+                style={{ background: "#5B45D9", animationDelay: "0ms" }}
+              />
+              <span
+                className="w-2 h-2 rounded-full animate-bounce"
+                style={{ background: "#5B45D9", animationDelay: "150ms" }}
+              />
+              <span
+                className="w-2 h-2 rounded-full animate-bounce"
+                style={{ background: "#5B45D9", animationDelay: "300ms" }}
+              />
             </div>
           </div>
         )}
 
         {error && (
-          <div className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs" style={{ background: "#FF5B3D20", color: "#FF5B3D" }}>
+          <div
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs"
+            style={{ background: "#FF5B3D20", color: "#FF5B3D" }}
+          >
             <AlertCircle size={14} />
             {error}
           </div>
@@ -228,7 +237,11 @@ function MessageBubble({ message }: { message: ChatMessage }) {
         style={
           isUser
             ? { background: "#5B45D9", color: "#F8F0DD" }
-            : { background: "#FFFFFF", color: "#2B1410", border: "1px solid rgba(43, 20, 16, 0.08)" }
+            : {
+                background: "#FFFFFF",
+                color: "#2B1410",
+                border: "1px solid rgba(43, 20, 16, 0.08)",
+              }
         }
       >
         <p className="whitespace-pre-wrap">{message.content}</p>
@@ -240,7 +253,8 @@ function MessageBubble({ message }: { message: ChatMessage }) {
             style={{ background: "#F7C83B30", color: "#2B1410" }}
           >
             <Sparkles size={12} style={{ color: "#F7C83B" }} />
-            Plan updated · {message.edits.length} {message.edits.length === 1 ? "change" : "changes"}
+            Plan updated · {message.edits.length}{" "}
+            {message.edits.length === 1 ? "change" : "changes"}
           </div>
         )}
       </div>

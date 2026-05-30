@@ -233,10 +233,5 @@ export function RouteAnalytics() {
 
 /** Convert a pathname like /app/explore to a snake_case name like "app_explore". */
 function pathToName(p: string): string {
-  return (
-    p
-      .replace(/^\//, "")
-      .replace(/\/$/, "")
-      .replace(/[/.-]/g, "_") || "home"
-  );
+  return p.replace(/^\//, "").replace(/\/$/, "").replace(/[/.-]/g, "_") || "home";
 }

@@ -340,7 +340,7 @@ export function registerBusiness(
   tier: BusinessTier,
   city: string,
   venueIds: string[] = [],
-  category?: string
+  category?: string,
 ): BusinessAccount {
   const tierConfig = BUSINESS_TIERS.find((t) => t.tier === tier)!;
   const inviteToken = `inv_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
@@ -379,7 +379,10 @@ export function registerBusiness(
 }
 
 /** Upgrade or downgrade a business tier */
-export function updateBusinessTier(businessId: string, newTier: BusinessTier): BusinessAccount | null {
+export function updateBusinessTier(
+  businessId: string,
+  newTier: BusinessTier,
+): BusinessAccount | null {
   const account = businessStore.get(businessId);
   if (!account) return null;
   const tierConfig = BUSINESS_TIERS.find((t) => t.tier === newTier)!;
@@ -404,7 +407,7 @@ export function getBusiness(businessId: string): BusinessAccount | null {
 /** Get all businesses in a city */
 export function getBusinessesByCity(city: string): BusinessAccount[] {
   return Array.from(businessStore.values()).filter(
-    (b) => b.city.toLowerCase() === city.toLowerCase() && b.isActive
+    (b) => b.city.toLowerCase() === city.toLowerCase() && b.isActive,
   );
 }
 
@@ -417,14 +420,14 @@ export function inviteTeamMember(
   businessId: string,
   email: string,
   name: string,
-  role: TeamRole = "staff"
+  role: TeamRole = "staff",
 ): TeamMember | null {
   const account = businessStore.get(businessId);
   if (!account) return null;
 
   // Check if already invited
   const existing = Array.from(teamStore.values()).find(
-    (tm) => tm.businessId === businessId && tm.email === email
+    (tm) => tm.businessId === businessId && tm.email === email,
   );
   if (existing) return existing;
 
@@ -469,7 +472,7 @@ export function removeTeamMember(businessId: string, memberId: string): boolean 
 export function updateTeamMemberRole(
   businessId: string,
   memberId: string,
-  newRole: TeamRole
+  newRole: TeamRole,
 ): TeamMember | null {
   const member = teamStore.get(memberId);
   if (!member || member.businessId !== businessId) return null;
@@ -479,9 +482,7 @@ export function updateTeamMemberRole(
 
 /** Get all team members for a business */
 export function getTeamMembers(businessId: string): TeamMember[] {
-  return Array.from(teamStore.values()).filter(
-    (tm) => tm.businessId === businessId
-  );
+  return Array.from(teamStore.values()).filter((tm) => tm.businessId === businessId);
 }
 
 /** Validate a business invite token (for magic-link portal access) */
@@ -491,9 +492,9 @@ export function validateBusinessInvite(token: string): BusinessAccount | null {
 
 /** Get business by contact email */
 export function getBusinessByEmail(email: string): BusinessAccount | null {
-  return Array.from(businessStore.values()).find(
-    (b) => b.contactEmail === email && b.isActive
-  ) ?? null;
+  return (
+    Array.from(businessStore.values()).find((b) => b.contactEmail === email && b.isActive) ?? null
+  );
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -513,14 +514,14 @@ export function createCampaign(
     dailyCreditBudget?: number;
     boostStrength?: number;
     endDate?: string;
-  } = {}
+  } = {},
 ): BoostCampaign | null {
   const account = businessStore.get(businessId);
   if (!account) return null;
 
   const tierConfig = BUSINESS_TIERS.find((t) => t.tier === account.tier)!;
   const existingCampaigns = Array.from(campaignStore.values()).filter(
-    (c) => c.businessId === businessId && c.status === "active"
+    (c) => c.businessId === businessId && c.status === "active",
   );
   if (existingCampaigns.length >= tierConfig.maxCampaigns) return null;
 
@@ -563,7 +564,7 @@ export function createCoupon(
     maxRedemptions?: number;
     visitsRequired?: number;
     expiresAt?: string;
-  }
+  },
 ): Coupon | null {
   const account = businessStore.get(businessId);
   if (!account) return null;
@@ -600,7 +601,7 @@ export function createCoupon(
 /** Get active campaigns for a venue */
 export function getVenueCampaigns(venueId: string): BoostCampaign[] {
   return Array.from(campaignStore.values()).filter(
-    (c) => c.venueId === venueId && c.status === "active"
+    (c) => c.venueId === venueId && c.status === "active",
   );
 }
 
@@ -613,9 +614,7 @@ export function getCampaignCoupon(campaignId: string): Coupon | null {
 
 /** Get all campaigns for a business */
 export function getBusinessCampaigns(businessId: string): BoostCampaign[] {
-  return Array.from(campaignStore.values()).filter(
-    (c) => c.businessId === businessId
-  );
+  return Array.from(campaignStore.values()).filter((c) => c.businessId === businessId);
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -631,11 +630,9 @@ export function applyBoosts(
   venues: DiscoveredVenue[],
   userVibes: string[],
   userCategories: string[],
-  userCity: string
+  userCity: string,
 ): BoostedVenue[] {
-  const activeCampaigns = Array.from(campaignStore.values()).filter(
-    (c) => c.status === "active"
-  );
+  const activeCampaigns = Array.from(campaignStore.values()).filter((c) => c.status === "active");
 
   return venues.map((venue) => {
     const boosted: BoostedVenue = { ...venue };
@@ -649,11 +646,14 @@ export function applyBoosts(
       if (!account || account.creditBalance <= 0) continue;
 
       // Check if campaign targets match the user
-      const vibeMatch = campaign.targetVibes.length === 0 ||
+      const vibeMatch =
+        campaign.targetVibes.length === 0 ||
         campaign.targetVibes.some((v) => userVibes.includes(v));
-      const catMatch = campaign.targetCategories.length === 0 ||
+      const catMatch =
+        campaign.targetCategories.length === 0 ||
         campaign.targetCategories.some((c) => userCategories.includes(c));
-      const cityMatch = campaign.targetCities.length === 0 ||
+      const cityMatch =
+        campaign.targetCities.length === 0 ||
         campaign.targetCities.some((c) => c.toLowerCase() === userCity.toLowerCase());
 
       if (!vibeMatch || !catMatch || !cityMatch) continue;
@@ -716,7 +716,7 @@ export function checkIn(
   lat: number,
   lng: number,
   method: CheckInMethod = "gps",
-  campaignId?: string
+  campaignId?: string,
 ): UserCheckin | null {
   // Get or create user subscription
   let sub = subscriptionStore.get(userId);
@@ -724,18 +724,15 @@ export function checkIn(
     sub = createUserSubscription(userId);
   }
 
-  const confettiBase = sub.tier === "black"
-    ? CONFETTI_REWARDS.checkInBlack
-    : CONFETTI_REWARDS.checkIn;
+  const confettiBase =
+    sub.tier === "black" ? CONFETTI_REWARDS.checkInBlack : CONFETTI_REWARDS.checkIn;
 
   // Check if this is a first visit (bonus Confetti)
   const previousVisits = Array.from(checkinStore.values()).filter(
-    (c) => c.userId === userId && c.venueId === venueId
+    (c) => c.userId === userId && c.venueId === venueId,
   );
   const isFirstVisit = previousVisits.length === 0;
-  const confettiEarned = isFirstVisit
-    ? confettiBase + CONFETTI_REWARDS.firstVisit
-    : confettiBase;
+  const confettiEarned = isFirstVisit ? confettiBase + CONFETTI_REWARDS.firstVisit : confettiBase;
 
   // Create check-in record
   const checkin: UserCheckin = {
@@ -791,7 +788,7 @@ function unlockCoupon(couponId: string, userId: string, venueId: string): Coupon
 
   // Check if user already has this coupon
   const existing = Array.from(redemptionStore.values()).find(
-    (r) => r.couponId === couponId && r.userId === userId && r.status !== "expired"
+    (r) => r.couponId === couponId && r.userId === userId && r.status !== "expired",
   );
   if (existing) return existing;
 
@@ -859,7 +856,7 @@ export function getUserSubscription(userId: string): UserSubscription {
 
 /** Upgrade user to Confetti Black (auto-creates wallet passes) */
 export function upgradeToBlack(
-  userId: string
+  userId: string,
 ): UserSubscription & { walletPasses?: { apple: any; google: any } } {
   const sub = getUserSubscription(userId);
   sub.tier = "black";
@@ -903,13 +900,17 @@ export function consumeConfetti(userId: string): boolean {
 export function useOutingCredit(
   userId: string,
   amount: number,
-  venueId: string
+  venueId: string,
 ): { success: boolean; remaining: number; reason?: string } {
   const sub = getUserSubscription(userId);
   if (sub.tier !== "black")
     return { success: false, remaining: 0, reason: "Outing credits are a Confetti Black perk" };
   if (amount <= 0)
-    return { success: false, remaining: sub.outingCreditBalance, reason: "Amount must be positive" };
+    return {
+      success: false,
+      remaining: sub.outingCreditBalance,
+      reason: "Amount must be positive",
+    };
   if (amount > sub.outingCreditBalance)
     return {
       success: false,
@@ -934,11 +935,15 @@ export function useOutingCredit(
 export function bookPrimeReservation(
   userId: string,
   venueId: string,
-  dateTime: string
+  dateTime: string,
 ): { success: boolean; reservationsLeft: number; reason?: string } {
   const sub = getUserSubscription(userId);
   if (sub.tier !== "black")
-    return { success: false, reservationsLeft: 0, reason: "Prime reservations are a Confetti Black perk" };
+    return {
+      success: false,
+      reservationsLeft: 0,
+      reason: "Prime reservations are a Confetti Black perk",
+    };
 
   const maxRes = USER_TIER_CONFIG.black.monthlyPrimeReservations;
   if (sub.primeReservationsUsedThisMonth >= maxRes)
@@ -1001,7 +1006,7 @@ export function getCampaignAnalytics(campaignId: string): BoostAnalytics | null 
   const coupon = campaign.couponId ? couponStore.get(campaign.couponId) : null;
   const redemptions = coupon
     ? Array.from(redemptionStore.values()).filter(
-        (r) => r.couponId === coupon.id && r.status === "redeemed"
+        (r) => r.couponId === coupon.id && r.status === "redeemed",
       ).length
     : 0;
 
@@ -1029,14 +1034,17 @@ export function getBusinessAnalytics(businessId: string): BoostAnalytics {
       checkIns: acc.checkIns + c.checkIns,
       creditsSpent: acc.creditsSpent + c.totalCreditsSpent,
     }),
-    { impressions: 0, clickThroughs: 0, checkIns: 0, creditsSpent: 0 }
+    { impressions: 0, clickThroughs: 0, checkIns: 0, creditsSpent: 0 },
   );
 
   const totalRedemptions = campaigns.reduce((acc, c) => {
     if (!c.couponId) return acc;
-    return acc + Array.from(redemptionStore.values()).filter(
-      (r) => r.couponId === c.couponId && r.status === "redeemed"
-    ).length;
+    return (
+      acc +
+      Array.from(redemptionStore.values()).filter(
+        (r) => r.couponId === c.couponId && r.status === "redeemed",
+      ).length
+    );
   }, 0);
 
   return {
@@ -1069,9 +1077,10 @@ export function seedBoostDemo(): {
     "featured",
     "Washington DC",
     ["luma"],
-    "rooftop-bar"
+    "rooftop-bar",
   );
-  business.logoUrl = "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=200&q=80";
+  business.logoUrl =
+    "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=200&q=80";
 
   // Create a campaign
   const campaign = createCampaign(business.id, "luma", "Summer Nights Push", {
@@ -1088,7 +1097,8 @@ export function seedBoostDemo(): {
     campaignId: campaign.id,
     type: "percent_off",
     title: "15% off your first visit",
-    description: "Show this coupon to your server for 15% off your total bill. Valid for dine-in only.",
+    description:
+      "Show this coupon to your server for 15% off your total bill. Valid for dine-in only.",
     value: 15,
     visitsRequired: 1,
     maxRedemptions: 500,
@@ -1101,7 +1111,15 @@ export function seedBoostDemo(): {
   userSub.totalCheckIns = 5;
 
   // Seed a few more businesses
-  const neonBiz = registerBusiness("Neon Library", "Jordan Blake", "jordan@neonlibrary.com", "starter", "Washington DC", ["neon"], "cocktail-lounge");
+  const neonBiz = registerBusiness(
+    "Neon Library",
+    "Jordan Blake",
+    "jordan@neonlibrary.com",
+    "starter",
+    "Washington DC",
+    ["neon"],
+    "cocktail-lounge",
+  );
   createCampaign(neonBiz.id, "neon", "Vinyl Thursdays", {
     targetVibes: ["social", "after dark"],
     targetCategories: ["drinks-nightlife"],
@@ -1117,7 +1135,15 @@ export function seedBoostDemo(): {
     visitsRequired: 3,
   });
 
-  const smashBiz = registerBusiness("Smash Stack", "Kai Ortiz", "kai@smashstack.com", "spotlight", "Washington DC", ["smash-stack"], "fast-casual");
+  const smashBiz = registerBusiness(
+    "Smash Stack",
+    "Kai Ortiz",
+    "kai@smashstack.com",
+    "spotlight",
+    "Washington DC",
+    ["smash-stack"],
+    "fast-casual",
+  );
   createCampaign(smashBiz.id, "smash-stack", "TikTok Viral Push", {
     targetVibes: ["tiktok viral", "casual", "shareable"],
     targetCategories: ["viral-eats", "dining"],

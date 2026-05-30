@@ -12,16 +12,8 @@
  * The caller gets back an enriched stop — or null if nothing was found.
  */
 
-import {
-  VENUE_KNOWLEDGE,
-  type VenueKnowledge,
-} from "./venue-knowledge";
-import {
-  getActiveLoop,
-  setActiveLoop,
-  type LoopStop,
-  type ActiveLoop,
-} from "@/lib/loop-store";
+import { VENUE_KNOWLEDGE, type VenueKnowledge } from "./venue-knowledge";
+import { getActiveLoop, setActiveLoop, type LoopStop, type ActiveLoop } from "@/lib/loop-store";
 
 // ─── Types ──────────────────────────────────────────────────────
 
@@ -92,9 +84,7 @@ export function findLocalVenue(
   if (city) {
     const normCity = normalize(city);
     const cityFiltered = candidates.filter(
-      (v) =>
-        normalize(v.city).includes(normCity) ||
-        normCity.includes(normalize(v.city)),
+      (v) => normalize(v.city).includes(normCity) || normCity.includes(normalize(v.city)),
     );
     if (cityFiltered.length > 0) candidates = cityFiltered;
   }
@@ -283,11 +273,7 @@ export function stopHasIntel(stop: LoopStop): boolean {
 }
 
 /** Merge VenueIntel fields into the stop within a loop and persist. */
-function mergeIntelIntoLoop(
-  loop: ActiveLoop,
-  stopId: string,
-  intel: VenueIntel,
-) {
+function mergeIntelIntoLoop(loop: ActiveLoop, stopId: string, intel: VenueIntel) {
   const updated: ActiveLoop = {
     ...loop,
     stops: loop.stops.map((s) => {

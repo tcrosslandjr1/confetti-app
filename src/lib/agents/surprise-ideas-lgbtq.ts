@@ -34,7 +34,11 @@ const QUEER_DATE: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Cocktails at queer-friendly speakeasy", "Browse vinyl at record shop", "Dessert at a late-night cafe"],
+    suggestedSequence: [
+      "Cocktails at queer-friendly speakeasy",
+      "Browse vinyl at record shop",
+      "Dessert at a late-night cafe",
+    ],
     upgradeIdea: "Add a rooftop nightcap with a skyline view",
   },
   {
@@ -50,7 +54,11 @@ const QUEER_DATE: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "low",
     bookingNeeded: false,
-    suggestedSequence: ["Pick books for each other at queer bookstore", "Read together at wine bar", "Walk home sharing favorite passages"],
+    suggestedSequence: [
+      "Pick books for each other at queer bookstore",
+      "Read together at wine bar",
+      "Walk home sharing favorite passages",
+    ],
     upgradeIdea: "Choose a queer-owned bookstore with events calendar",
   },
   {
@@ -66,7 +74,11 @@ const QUEER_DATE: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Pack picnic with rainbow-themed snacks", "Sunset spot by water", "Playlist of queer artists"],
+    suggestedSequence: [
+      "Pack picnic with rainbow-themed snacks",
+      "Sunset spot by water",
+      "Playlist of queer artists",
+    ],
     upgradeIdea: "Hire a local queer photographer for candid shots",
   },
   {
@@ -82,7 +94,11 @@ const QUEER_DATE: SurpriseIdea[] = [
     energyLevel: "medium",
     surpriseLevel: "low",
     bookingNeeded: true,
-    suggestedSequence: ["LGBTQ-friendly cooking class", "Eat what you made together", "Dessert cocktail nearby"],
+    suggestedSequence: [
+      "LGBTQ-friendly cooking class",
+      "Eat what you made together",
+      "Dessert cocktail nearby",
+    ],
     upgradeIdea: "Choose a queer-owned restaurant that hosts classes",
   },
   {
@@ -98,7 +114,11 @@ const QUEER_DATE: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Queer artist gallery opening", "Cocktail bar with art theme", "Photo stop at mural"],
+    suggestedSequence: [
+      "Queer artist gallery opening",
+      "Cocktail bar with art theme",
+      "Photo stop at mural",
+    ],
     upgradeIdea: "Buy a small piece from a queer local artist",
   },
 ];
@@ -134,7 +154,12 @@ const PRIDE_NIGHT: SurpriseIdea[] = [
     energyLevel: "high",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Start at classic queer bar", "Move to cocktail lounge", "End at dance floor", "Late-night food stop"],
+    suggestedSequence: [
+      "Start at classic queer bar",
+      "Move to cocktail lounge",
+      "End at dance floor",
+      "Late-night food stop",
+    ],
     upgradeIdea: "Color-coded outfit for each bar",
   },
   {
@@ -150,7 +175,11 @@ const PRIDE_NIGHT: SurpriseIdea[] = [
     energyLevel: "medium",
     surpriseLevel: "medium",
     bookingNeeded: true,
-    suggestedSequence: ["Queer rooftop happy hour", "Photo moment at sunset", "DJ set or live music below"],
+    suggestedSequence: [
+      "Queer rooftop happy hour",
+      "Photo moment at sunset",
+      "DJ set or live music below",
+    ],
     upgradeIdea: "Book a private cabana with a group",
   },
   {
@@ -166,7 +195,11 @@ const PRIDE_NIGHT: SurpriseIdea[] = [
     energyLevel: "high",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Dinner at queer-friendly spot", "Private karaoke room", "Late-night ice cream or tacos"],
+    suggestedSequence: [
+      "Dinner at queer-friendly spot",
+      "Private karaoke room",
+      "Late-night ice cream or tacos",
+    ],
     upgradeIdea: "Theme it: divas only, or decade challenge",
   },
   {
@@ -202,7 +235,11 @@ const CHOSEN_FAMILY: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "low",
     bookingNeeded: false,
-    suggestedSequence: ["Everyone brings a dish", "Board games or card games", "Late-night dessert round"],
+    suggestedSequence: [
+      "Everyone brings a dish",
+      "Board games or card games",
+      "Late-night dessert round",
+    ],
     upgradeIdea: "Add a queer movie screening",
   },
   {
@@ -218,7 +255,11 @@ const CHOSEN_FAMILY: SurpriseIdea[] = [
     energyLevel: "medium",
     surpriseLevel: "low",
     bookingNeeded: false,
-    suggestedSequence: ["Arrive early for flight tasting", "LGBTQ+ themed trivia", "Winner picks late-night snack spot"],
+    suggestedSequence: [
+      "Arrive early for flight tasting",
+      "LGBTQ+ themed trivia",
+      "Winner picks late-night snack spot",
+    ],
     upgradeIdea: "Team costumes or themed team names",
   },
   {
@@ -250,7 +291,11 @@ const CHOSEN_FAMILY: SurpriseIdea[] = [
     energyLevel: "medium",
     surpriseLevel: "high",
     bookingNeeded: false,
-    suggestedSequence: ["$20 budget per person", "Style each other's outfits", "Runway reveal at dinner"],
+    suggestedSequence: [
+      "$20 budget per person",
+      "Style each other's outfits",
+      "Runway reveal at dinner",
+    ],
     upgradeIdea: "Wear the outfits to a queer bar after",
   },
   {
@@ -286,7 +331,11 @@ const BALLROOM: SurpriseIdea[] = [
     energyLevel: "high",
     surpriseLevel: "high",
     bookingNeeded: true,
-    suggestedSequence: ["Dinner pregame", "Ballroom event / vogue night", "Late-night food debrief"],
+    suggestedSequence: [
+      "Dinner pregame",
+      "Ballroom event / vogue night",
+      "Late-night food debrief",
+    ],
     upgradeIdea: "Enter a category and walk",
   },
   {
@@ -302,7 +351,11 @@ const BALLROOM: SurpriseIdea[] = [
     energyLevel: "medium",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Coffee or cocktails at venue", "Open mic performances", "Debrief over late bites"],
+    suggestedSequence: [
+      "Coffee or cocktails at venue",
+      "Open mic performances",
+      "Debrief over late bites",
+    ],
     upgradeIdea: "Sign up and perform yourself",
   },
   {
@@ -318,7 +371,11 @@ const BALLROOM: SurpriseIdea[] = [
     energyLevel: "high",
     surpriseLevel: "high",
     bookingNeeded: true,
-    suggestedSequence: ["Pre-show drinks", "Live drag competition", "Tips and photos with performers"],
+    suggestedSequence: [
+      "Pre-show drinks",
+      "Live drag competition",
+      "Tips and photos with performers",
+    ],
     upgradeIdea: "Get a table near the stage",
   },
 ];
@@ -338,7 +395,11 @@ const SAPPHIC: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "low",
     bookingNeeded: false,
-    suggestedSequence: ["Curated wine flight", "Cheese board + conversation", "Bookshop browse after"],
+    suggestedSequence: [
+      "Curated wine flight",
+      "Cheese board + conversation",
+      "Bookshop browse after",
+    ],
     upgradeIdea: "Women-owned winery tasting",
   },
   {
@@ -354,7 +415,11 @@ const SAPPHIC: SurpriseIdea[] = [
     energyLevel: "medium",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Early morning trail", "Photo at summit", "Reward brunch at queer-friendly spot"],
+    suggestedSequence: [
+      "Early morning trail",
+      "Photo at summit",
+      "Reward brunch at queer-friendly spot",
+    ],
     upgradeIdea: "Pack matching thermoses with coffee",
   },
   {
@@ -370,7 +435,11 @@ const SAPPHIC: SurpriseIdea[] = [
     energyLevel: "high",
     surpriseLevel: "medium",
     bookingNeeded: false,
-    suggestedSequence: ["Cocktails at women-owned bar", "Sapphic dance party", "Late-night diner debrief"],
+    suggestedSequence: [
+      "Cocktails at women-owned bar",
+      "Sapphic dance party",
+      "Late-night diner debrief",
+    ],
     upgradeIdea: "Get a group together and match outfits",
   },
 ];
@@ -390,7 +459,11 @@ const TRANS_AFFIRMING: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "low",
     bookingNeeded: false,
-    suggestedSequence: ["Dinner at verified trans-friendly restaurant", "Bookstore or cafe hang", "Optional dessert walk"],
+    suggestedSequence: [
+      "Dinner at verified trans-friendly restaurant",
+      "Bookstore or cafe hang",
+      "Optional dessert walk",
+    ],
     upgradeIdea: "Find a trans-owned business to support",
   },
   {
@@ -406,7 +479,11 @@ const TRANS_AFFIRMING: SurpriseIdea[] = [
     energyLevel: "low",
     surpriseLevel: "medium",
     bookingNeeded: true,
-    suggestedSequence: ["Pottery / art class at inclusive studio", "Tea or coffee after", "Small gallery visit"],
+    suggestedSequence: [
+      "Pottery / art class at inclusive studio",
+      "Tea or coffee after",
+      "Small gallery visit",
+    ],
     upgradeIdea: "Attend a trans artist pop-up event",
   },
 ];

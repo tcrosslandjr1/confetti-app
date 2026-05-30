@@ -90,8 +90,7 @@ function setCache(req: EventDiscoveryRequest, result: EventDiscoveryResult): voi
   discoveryCache.set(key, { result, timestamp: Date.now() });
   // Evict old entries if cache grows too large
   if (discoveryCache.size > 20) {
-    const oldest = [...discoveryCache.entries()]
-      .sort((a, b) => a[1].timestamp - b[1].timestamp)[0];
+    const oldest = [...discoveryCache.entries()].sort((a, b) => a[1].timestamp - b[1].timestamp)[0];
     if (oldest) discoveryCache.delete(oldest[0]);
   }
 }
@@ -99,7 +98,9 @@ function setCache(req: EventDiscoveryRequest, result: EventDiscoveryResult): voi
 // ─── Edge Function Caller ────────────────────────────────────
 
 async function callEventDiscovery(req: EventDiscoveryRequest): Promise<EventDiscoveryResult> {
-  const { data: { session } } = await supabase.auth.getSession();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
   const res = await supabase.functions.invoke("event-discovery", {
     body: req,
@@ -125,9 +126,7 @@ async function callEventDiscovery(req: EventDiscoveryRequest): Promise<EventDisc
  *   const result = await discoverEvents({ city: "Washington DC", date: "tonight" });
  *   // result.events → DiscoveredEvent[]
  */
-export async function discoverEvents(
-  req: EventDiscoveryRequest,
-): Promise<EventDiscoveryResult> {
+export async function discoverEvents(req: EventDiscoveryRequest): Promise<EventDiscoveryResult> {
   // 1. Check in-memory cache
   const cached = getCached(req);
   if (cached) return cached;
@@ -164,9 +163,7 @@ export async function discoverByVibe(
   date?: string,
 ): Promise<DiscoveredEvent[]> {
   const result = await discoverEvents({ city, date, vibe: vibes });
-  return result.events.filter((e) =>
-    e.vibe_tags.some((tag) => vibes.includes(tag)),
-  );
+  return result.events.filter((e) => e.vibe_tags.some((tag) => vibes.includes(tag)));
 }
 
 /**

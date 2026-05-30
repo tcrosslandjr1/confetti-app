@@ -14,7 +14,8 @@ const RETRY_DELAYS_MS = [250, 600, 1400] as const;
 
 /** Parse the failing chunk URL out of a Vite dynamic-import error. */
 export function extractChunkUrl(error: unknown): string | null {
-  const msg = error instanceof Error ? `${error.message} ${error.stack ?? ""}` : String(error ?? "");
+  const msg =
+    error instanceof Error ? `${error.message} ${error.stack ?? ""}` : String(error ?? "");
   // Vite/Chrome: "Failed to fetch dynamically imported module: https://host/assets/foo-abc.js"
   // Safari:     "Importing a module script failed."  → URL sometimes in stack
   const m = msg.match(/https?:\/\/[^\s'")]+\.m?js(\?[^\s'")]*)?/);

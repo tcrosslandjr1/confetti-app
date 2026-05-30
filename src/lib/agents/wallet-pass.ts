@@ -168,11 +168,12 @@ export function getFund(): ConfettiFund {
 export function disburseFund(
   userId: string,
   amount: number,
-  description?: string
+  description?: string,
 ): { success: boolean; remaining: number; reason?: string } {
   const fund = getOrCreateFund();
 
-  if (amount <= 0) return { success: false, remaining: fund.balance, reason: "Amount must be positive" };
+  if (amount <= 0)
+    return { success: false, remaining: fund.balance, reason: "Amount must be positive" };
   if (amount > fund.balance)
     return {
       success: false,
@@ -213,20 +214,16 @@ export function getFundDashboard(): FundDashboard {
   const now = Date.now();
   const thirtyDaysAgo = now - 30 * 24 * 60 * 60 * 1000;
   const recentDisbursements = disbursements.filter(
-    (t) => new Date(t.createdAt).getTime() > thirtyDaysAgo
+    (t) => new Date(t.createdAt).getTime() > thirtyDaysAgo,
   );
-  const monthlyDisbursementRate = round2(
-    recentDisbursements.reduce((sum, t) => sum + t.amount, 0)
-  );
+  const monthlyDisbursementRate = round2(recentDisbursements.reduce((sum, t) => sum + t.amount, 0));
 
   const activePassCount = Array.from(passStore.values()).filter(
-    (p) => p.status === "active"
+    (p) => p.status === "active",
   ).length;
 
   const estimatedRunway =
-    monthlyDisbursementRate > 0
-      ? round2(fund.balance / monthlyDisbursementRate)
-      : Infinity;
+    monthlyDisbursementRate > 0 ? round2(fund.balance / monthlyDisbursementRate) : Infinity;
 
   return {
     fund,
@@ -410,7 +407,7 @@ export function updatePassBalance(userId: string, newBalance: number): void {
 /** Redeem outing credit via wallet pass barcode scan */
 export function redeemViaBarcode(
   barcode: string,
-  amount: number
+  amount: number,
 ): {
   success: boolean;
   pass?: WalletPass;
@@ -438,7 +435,7 @@ export function redeemViaBarcode(
   const fundResult = disburseFund(
     targetPass.userId,
     amount,
-    `Barcode redemption at venue — pass ${targetPass.serialNumber}`
+    `Barcode redemption at venue — pass ${targetPass.serialNumber}`,
   );
   if (!fundResult.success) return { success: false, reason: fundResult.reason };
 
@@ -460,8 +457,9 @@ export function redeemViaBarcode(
 
 /** Get ALL passes across all users (admin view) */
 export function getAllPasses(): WalletPass[] {
-  return Array.from(passStore.values())
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  return Array.from(passStore.values()).sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+  );
 }
 
 /** Get aggregate wallet pass stats for admin dashboard */
@@ -524,7 +522,7 @@ export function seedWalletDemo(): {
   const passes = createWalletPasses("demo-user");
 
   // Simulate a past redemption
-  disburseFund("demo-user", 5.50, "Demo: coffee + pastry at Compass Coffee");
+  disburseFund("demo-user", 5.5, "Demo: coffee + pastry at Compass Coffee");
 
   const dashboard = getFundDashboard();
 

@@ -47,7 +47,13 @@ export function useStripeCheckout() {
           <DialogTitle>{options?.title ?? "Checkout"}</DialogTitle>
         </DialogHeader>
         {options && (
-          <Suspense fallback={<div className="py-12 text-center text-sm text-muted-foreground">Loading checkout…</div>}>
+          <Suspense
+            fallback={
+              <div className="py-12 text-center text-sm text-muted-foreground">
+                Loading checkout…
+              </div>
+            }
+          >
             <StripeEmbeddedCheckout
               variant={options.variant}
               customerEmail={options.customerEmail}

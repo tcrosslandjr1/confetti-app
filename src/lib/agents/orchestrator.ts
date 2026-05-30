@@ -29,25 +29,46 @@ import { supabase } from "../supabase";
 // ═══════════════════════════════════════════════════════════
 
 export type StepMode = "auto" | "human_gate";
-export type StepStatus = "pending" | "running" | "awaiting_human" | "completed" | "failed" | "skipped";
+export type StepStatus =
+  | "pending"
+  | "running"
+  | "awaiting_human"
+  | "completed"
+  | "failed"
+  | "skipped";
 export type WorkflowStatus = "running" | "paused_at_gate" | "completed" | "failed" | "cancelled";
 export type EventSource =
-  | "support_queue" | "content_cms" | "feature_flags" | "feedback_pipeline"
-  | "seo_aso" | "automated_reports" | "finance" | "legal_compliance"
-  | "partnerships" | "pricing" | "emergency_controls" | "identity_verification"
-  | "boost_credits" | "community" | "user_intelligence" | "chat_agent"
-  | "system" | "manual" | "cron" | "email_inbound";
+  | "support_queue"
+  | "content_cms"
+  | "feature_flags"
+  | "feedback_pipeline"
+  | "seo_aso"
+  | "automated_reports"
+  | "finance"
+  | "legal_compliance"
+  | "partnerships"
+  | "pricing"
+  | "emergency_controls"
+  | "identity_verification"
+  | "boost_credits"
+  | "community"
+  | "user_intelligence"
+  | "chat_agent"
+  | "system"
+  | "manual"
+  | "cron"
+  | "email_inbound";
 
 export interface WorkflowStepDef {
   id: string;
   name: string;
   description: string;
   mode: StepMode;
-  agent: string;              // which agent handles this step
-  action: string;             // function name to call on that agent
+  agent: string; // which agent handles this step
+  action: string; // function name to call on that agent
   autoParams?: Record<string, unknown>; // default params for auto steps
-  timeoutMinutes?: number;    // how long before a gate becomes overdue
-  skipCondition?: string;     // expression that skips this step (e.g., "score >= 85")
+  timeoutMinutes?: number; // how long before a gate becomes overdue
+  skipCondition?: string; // expression that skips this step (e.g., "score >= 85")
   onFailure?: "halt" | "skip" | "retry"; // default: halt
 }
 
@@ -55,7 +76,7 @@ export interface WorkflowDefinition {
   id: string;
   name: string;
   description: string;
-  triggerEvent: string;       // event type that starts this workflow
+  triggerEvent: string; // event type that starts this workflow
   triggerSource?: EventSource; // optional: only trigger from this source
   steps: WorkflowStepDef[];
   enabled: boolean;
@@ -74,7 +95,7 @@ export interface WorkflowStepInstance {
   completedAt?: string;
   result?: Record<string, unknown>;
   error?: string;
-  acknowledgedBy?: string;    // who approved a human_gate
+  acknowledgedBy?: string; // who approved a human_gate
   acknowledgedAt?: string;
 }
 
@@ -95,7 +116,7 @@ export interface WorkflowInstance {
 
 export interface OrchestratorEvent {
   id: string;
-  type: string;               // e.g., "user.signup", "refund.requested", "claim.submitted"
+  type: string; // e.g., "user.signup", "refund.requested", "claim.submitted"
   source: EventSource;
   payload: Record<string, unknown>;
   timestamp: string;
@@ -112,13 +133,22 @@ export interface GateAlert {
   action: string;
   description: string;
   priority: "critical" | "high" | "medium" | "low";
-  category: "finance" | "legal" | "security" | "user_issue" | "content" | "partnership" | "tax" | "system" | "general";
+  category:
+    | "finance"
+    | "legal"
+    | "security"
+    | "user_issue"
+    | "content"
+    | "partnership"
+    | "tax"
+    | "system"
+    | "general";
   payload: Record<string, unknown>;
   createdAt: string;
   acknowledgedAt?: string;
   acknowledgedBy?: string;
   status: "pending" | "acknowledged" | "dismissed" | "expired";
-  deadlineAt?: string;        // when this becomes overdue
+  deadlineAt?: string; // when this becomes overdue
 }
 
 export interface OrchestratorDashboard {
@@ -148,7 +178,7 @@ const gates = new Map<string, GateAlert>();
 
 /** Register a new workflow definition (the blueprint). */
 export async function defineWorkflow(
-  def: Omit<WorkflowDefinition, "id" | "createdAt" | "updatedAt">
+  def: Omit<WorkflowDefinition, "id" | "createdAt" | "updatedAt">,
 ): Promise<WorkflowDefinition> {
   const workflow: WorkflowDefinition = {
     ...def,
@@ -158,11 +188,7 @@ export async function defineWorkflow(
   };
 
   // Supabase persistence
-  const { error } = await supabase
-    .from("workflow_definitions")
-    .insert(workflow)
-    .select()
-    .single();
+  const { error } = await supabase.from("workflow_definitions").insert(workflow).select().single();
 
   if (error) {
     console.log("[Orchestrator] Supabase unavailable, using local store");
@@ -178,14 +204,20 @@ export async function getWorkflowDefinitions(): Promise<WorkflowDefinition[]> {
 }
 
 /** Enable or disable a workflow definition. */
-export async function toggleWorkflow(definitionId: string, enabled: boolean): Promise<WorkflowDefinition> {
+export async function toggleWorkflow(
+  definitionId: string,
+  enabled: boolean,
+): Promise<WorkflowDefinition> {
   const def = definitions.get(definitionId);
   if (!def) throw new Error(`Workflow definition ${definitionId} not found`);
 
   def.enabled = enabled;
   def.updatedAt = new Date().toISOString();
 
-  await supabase.from("workflow_definitions").update({ enabled, updatedAt: def.updatedAt }).eq("id", definitionId);
+  await supabase
+    .from("workflow_definitions")
+    .update({ enabled, updatedAt: def.updatedAt })
+    .eq("id", definitionId);
 
   return def;
 }
@@ -198,7 +230,7 @@ export async function toggleWorkflow(definitionId: string, enabled: boolean): Pr
 export async function fireEvent(
   type: string,
   source: EventSource,
-  payload: Record<string, unknown>
+  payload: Record<string, unknown>,
 ): Promise<{ event: OrchestratorEvent; triggered: WorkflowInstance[] }> {
   const event: OrchestratorEvent = {
     id: `evt_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
@@ -240,7 +272,7 @@ export async function fireEvent(
 /** Start a new workflow instance from a definition. */
 async function startWorkflow(
   def: WorkflowDefinition,
-  triggerEvent: OrchestratorEvent
+  triggerEvent: OrchestratorEvent,
 ): Promise<WorkflowInstance> {
   const instance: WorkflowInstance = {
     id: `wf_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
@@ -331,7 +363,7 @@ async function executeCurrentStep(instance: WorkflowInstance): Promise<void> {
 /** Create an alert for a human gate. This shows up on the admin dashboard. */
 async function createGateAlert(
   instance: WorkflowInstance,
-  step: WorkflowStepInstance
+  step: WorkflowStepInstance,
 ): Promise<GateAlert> {
   const defStep = getDefinitionStep(instance.definitionId, step.stepId);
 
@@ -364,7 +396,7 @@ async function createGateAlert(
 export async function acknowledgeGate(
   gateId: string,
   acknowledgedBy: string = "tyrone",
-  approvalData?: Record<string, unknown>
+  approvalData?: Record<string, unknown>,
 ): Promise<{ gate: GateAlert; nextStep?: WorkflowStepInstance }> {
   const gate = gates.get(gateId);
   if (!gate) throw new Error(`Gate alert ${gateId} not found`);
@@ -375,11 +407,14 @@ export async function acknowledgeGate(
   gate.acknowledgedAt = new Date().toISOString();
   gate.acknowledgedBy = acknowledgedBy;
 
-  await supabase.from("gate_alerts").update({
-    status: "acknowledged",
-    acknowledgedAt: gate.acknowledgedAt,
-    acknowledgedBy,
-  }).eq("id", gateId);
+  await supabase
+    .from("gate_alerts")
+    .update({
+      status: "acknowledged",
+      acknowledgedAt: gate.acknowledgedAt,
+      acknowledgedBy,
+    })
+    .eq("id", gateId);
 
   // Resume the workflow
   const instance = instances.get(gate.workflowInstanceId);
@@ -432,7 +467,10 @@ export async function dismissGate(gateId: string, reason?: string): Promise<Gate
     await persistInstance(instance);
   }
 
-  await supabase.from("gate_alerts").update({ status: "dismissed", acknowledgedAt: gate.acknowledgedAt }).eq("id", gateId);
+  await supabase
+    .from("gate_alerts")
+    .update({ status: "dismissed", acknowledgedAt: gate.acknowledgedAt })
+    .eq("id", gateId);
   return gate;
 }
 
@@ -446,7 +484,10 @@ export async function getPendingGates(): Promise<GateAlert[]> {
     .filter((g) => g.status === "pending")
     .sort((a, b) => {
       const p = { critical: 0, high: 1, medium: 2, low: 3 };
-      return (p[a.priority] - p[b.priority]) || (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      return (
+        p[a.priority] - p[b.priority] ||
+        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      );
     });
 }
 
@@ -454,26 +495,26 @@ export async function getPendingGates(): Promise<GateAlert[]> {
 export async function getOverdueGates(): Promise<GateAlert[]> {
   const now = new Date().toISOString();
   return Array.from(gates.values()).filter(
-    (g) => g.status === "pending" && g.deadlineAt && g.deadlineAt < now
+    (g) => g.status === "pending" && g.deadlineAt && g.deadlineAt < now,
   );
 }
 
 /** Get a specific workflow instance. */
-export async function getWorkflowInstance(instanceId: string): Promise<WorkflowInstance | undefined> {
+export async function getWorkflowInstance(
+  instanceId: string,
+): Promise<WorkflowInstance | undefined> {
   return instances.get(instanceId);
 }
 
 /** Get all active (non-completed) workflow instances. */
 export async function getActiveWorkflows(): Promise<WorkflowInstance[]> {
   return Array.from(instances.values()).filter(
-    (i) => i.status === "running" || i.status === "paused_at_gate"
+    (i) => i.status === "running" || i.status === "paused_at_gate",
   );
 }
 
 /** Get workflow history for a date range. */
-export async function getWorkflowHistory(
-  days: number = 7
-): Promise<WorkflowInstance[]> {
+export async function getWorkflowHistory(days: number = 7): Promise<WorkflowInstance[]> {
   const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
   return Array.from(instances.values())
     .filter((i) => i.startedAt >= cutoff)
@@ -527,7 +568,7 @@ export async function getOrchestratorDashboard(): Promise<OrchestratorDashboard>
 async function executeAgentAction(
   agent: string,
   action: string,
-  context: Record<string, unknown>
+  context: Record<string, unknown>,
 ): Promise<Record<string, unknown>> {
   console.log(`[Orchestrator] Executing: ${agent}.${action}`, Object.keys(context));
 
@@ -571,14 +612,14 @@ function inferPriority(agent: string, context: Record<string, unknown>): GateAle
 
 function inferCategory(agent: string): GateAlert["category"] {
   const map: Record<string, GateAlert["category"]> = {
-    "finance": "finance",
+    finance: "finance",
     "legal-compliance": "legal",
     "emergency-controls": "security",
     "identity-verification": "security",
     "support-queue": "user_issue",
     "content-cms": "content",
-    "partnerships": "partnership",
-    "pricing": "finance",
+    partnerships: "partnership",
+    pricing: "finance",
   };
   return map[agent] || "general";
 }
@@ -603,9 +644,30 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "User signs up → send welcome content → track in intelligence",
     triggerEvent: "user.signup",
     steps: [
-      { id: "s1", name: "Create user profile", description: "Initialize taste profile", mode: "auto", agent: "user-intelligence", action: "applyOnboardingPreferences" },
-      { id: "s2", name: "Generate welcome push", description: "Send welcome notification", mode: "auto", agent: "content-cms", action: "generateContent" },
-      { id: "s3", name: "Track signup event", description: "Record in analytics", mode: "auto", agent: "automated-reports", action: "getMetricSnapshot" },
+      {
+        id: "s1",
+        name: "Create user profile",
+        description: "Initialize taste profile",
+        mode: "auto",
+        agent: "user-intelligence",
+        action: "applyOnboardingPreferences",
+      },
+      {
+        id: "s2",
+        name: "Generate welcome push",
+        description: "Send welcome notification",
+        mode: "auto",
+        agent: "content-cms",
+        action: "generateContent",
+      },
+      {
+        id: "s3",
+        name: "Track signup event",
+        description: "Record in analytics",
+        mode: "auto",
+        agent: "automated-reports",
+        action: "getMetricSnapshot",
+      },
     ],
     enabled: true,
   });
@@ -616,10 +678,39 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "User requests refund → fraud check → Tyrone approves → process",
     triggerEvent: "refund.requested",
     steps: [
-      { id: "s1", name: "Fraud scan", description: "Check for fraud signals", mode: "auto", agent: "finance", action: "detectFraudSignals" },
-      { id: "s2", name: "Tyrone approves refund", description: "Review refund request and fraud results", mode: "human_gate", agent: "finance", action: "approveRefund", timeoutMinutes: 1440 },
-      { id: "s3", name: "Process refund", description: "Execute the refund via Stripe", mode: "auto", agent: "finance", action: "processRefund" },
-      { id: "s4", name: "Notify user", description: "Send refund confirmation", mode: "auto", agent: "content-cms", action: "generateContent" },
+      {
+        id: "s1",
+        name: "Fraud scan",
+        description: "Check for fraud signals",
+        mode: "auto",
+        agent: "finance",
+        action: "detectFraudSignals",
+      },
+      {
+        id: "s2",
+        name: "Tyrone approves refund",
+        description: "Review refund request and fraud results",
+        mode: "human_gate",
+        agent: "finance",
+        action: "approveRefund",
+        timeoutMinutes: 1440,
+      },
+      {
+        id: "s3",
+        name: "Process refund",
+        description: "Execute the refund via Stripe",
+        mode: "auto",
+        agent: "finance",
+        action: "processRefund",
+      },
+      {
+        id: "s4",
+        name: "Notify user",
+        description: "Send refund confirmation",
+        mode: "auto",
+        agent: "content-cms",
+        action: "generateContent",
+      },
     ],
     enabled: true,
   });
@@ -630,10 +721,39 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "Business submits claim → AI scores → human review if needed → onboard",
     triggerEvent: "claim.submitted",
     steps: [
-      { id: "s1", name: "AI document review", description: "Score verification 0-100", mode: "auto", agent: "identity-verification", action: "runAIReview" },
-      { id: "s2", name: "Tyrone reviews claim", description: "Manual review for edge cases", mode: "human_gate", agent: "identity-verification", action: "approveVerification", timeoutMinutes: 4320 },
-      { id: "s3", name: "Create partner record", description: "Add to partnership pipeline", mode: "auto", agent: "partnerships", action: "addPartner" },
-      { id: "s4", name: "Send welcome kit", description: "Onboarding email to business", mode: "auto", agent: "content-cms", action: "generateContent" },
+      {
+        id: "s1",
+        name: "AI document review",
+        description: "Score verification 0-100",
+        mode: "auto",
+        agent: "identity-verification",
+        action: "runAIReview",
+      },
+      {
+        id: "s2",
+        name: "Tyrone reviews claim",
+        description: "Manual review for edge cases",
+        mode: "human_gate",
+        agent: "identity-verification",
+        action: "approveVerification",
+        timeoutMinutes: 4320,
+      },
+      {
+        id: "s3",
+        name: "Create partner record",
+        description: "Add to partnership pipeline",
+        mode: "auto",
+        agent: "partnerships",
+        action: "addPartner",
+      },
+      {
+        id: "s4",
+        name: "Send welcome kit",
+        description: "Onboarding email to business",
+        mode: "auto",
+        agent: "content-cms",
+        action: "generateContent",
+      },
     ],
     enabled: true,
   });
@@ -644,9 +764,31 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "DMCA filed → AI legitimacy check → Tyrone reviews → execute",
     triggerEvent: "dmca.filed",
     steps: [
-      { id: "s1", name: "AI legitimacy analysis", description: "Score DMCA claim", mode: "auto", agent: "legal-compliance", action: "analyzeDMCA" },
-      { id: "s2", name: "Tyrone reviews DMCA", description: "Approve or reject takedown", mode: "human_gate", agent: "legal-compliance", action: "approveDataRequest", timeoutMinutes: 2880 },
-      { id: "s3", name: "Execute takedown", description: "Remove content if approved", mode: "auto", agent: "legal-compliance", action: "executeDataDeletion" },
+      {
+        id: "s1",
+        name: "AI legitimacy analysis",
+        description: "Score DMCA claim",
+        mode: "auto",
+        agent: "legal-compliance",
+        action: "analyzeDMCA",
+      },
+      {
+        id: "s2",
+        name: "Tyrone reviews DMCA",
+        description: "Approve or reject takedown",
+        mode: "human_gate",
+        agent: "legal-compliance",
+        action: "approveDataRequest",
+        timeoutMinutes: 2880,
+      },
+      {
+        id: "s3",
+        name: "Execute takedown",
+        description: "Remove content if approved",
+        mode: "auto",
+        agent: "legal-compliance",
+        action: "executeDataDeletion",
+      },
     ],
     enabled: true,
   });
@@ -657,9 +799,31 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "Quarter ends → finance snapshot → Tyrone reviews → file prep",
     triggerEvent: "tax.quarter_end",
     steps: [
-      { id: "s1", name: "Generate tax summary", description: "Pull quarterly revenue and tax data", mode: "auto", agent: "finance", action: "getTaxSummary" },
-      { id: "s2", name: "Generate finance report", description: "Full quarterly breakdown", mode: "auto", agent: "automated-reports", action: "generateReport" },
-      { id: "s3", name: "Tyrone reviews tax filing", description: "Review numbers before filing", mode: "human_gate", agent: "finance", action: "getFinanceDashboard", timeoutMinutes: 10080 },
+      {
+        id: "s1",
+        name: "Generate tax summary",
+        description: "Pull quarterly revenue and tax data",
+        mode: "auto",
+        agent: "finance",
+        action: "getTaxSummary",
+      },
+      {
+        id: "s2",
+        name: "Generate finance report",
+        description: "Full quarterly breakdown",
+        mode: "auto",
+        agent: "automated-reports",
+        action: "generateReport",
+      },
+      {
+        id: "s3",
+        name: "Tyrone reviews tax filing",
+        description: "Review numbers before filing",
+        mode: "human_gate",
+        agent: "finance",
+        action: "getFinanceDashboard",
+        timeoutMinutes: 10080,
+      },
     ],
     enabled: true,
   });
@@ -670,9 +834,31 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "New prospect → AI drafts outreach → Tyrone sends → track response",
     triggerEvent: "partner.prospect_added",
     steps: [
-      { id: "s1", name: "AI draft outreach email", description: "Generate personalized outreach", mode: "auto", agent: "partnerships", action: "generateOutreach" },
-      { id: "s2", name: "Tyrone reviews & sends", description: "Review AI draft, tweak if needed, send", mode: "human_gate", agent: "partnerships", action: "addActivity", timeoutMinutes: 4320 },
-      { id: "s3", name: "Schedule follow-up", description: "Set 7-day follow-up reminder", mode: "auto", agent: "partnerships", action: "setFollowUp" },
+      {
+        id: "s1",
+        name: "AI draft outreach email",
+        description: "Generate personalized outreach",
+        mode: "auto",
+        agent: "partnerships",
+        action: "generateOutreach",
+      },
+      {
+        id: "s2",
+        name: "Tyrone reviews & sends",
+        description: "Review AI draft, tweak if needed, send",
+        mode: "human_gate",
+        agent: "partnerships",
+        action: "addActivity",
+        timeoutMinutes: 4320,
+      },
+      {
+        id: "s3",
+        name: "Schedule follow-up",
+        description: "Set 7-day follow-up reminder",
+        mode: "auto",
+        agent: "partnerships",
+        action: "setFollowUp",
+      },
     ],
     enabled: true,
   });
@@ -683,10 +869,39 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "Critical alert → kill switch → Tyrone reviews → resolve incident",
     triggerEvent: "emergency.critical_alert",
     steps: [
-      { id: "s1", name: "Auto-activate kill switch", description: "Immediately protect users", mode: "auto", agent: "emergency-controls", action: "activateKillSwitch" },
-      { id: "s2", name: "Start incident log", description: "Begin incident tracking", mode: "auto", agent: "emergency-controls", action: "startIncident" },
-      { id: "s3", name: "Tyrone assesses situation", description: "Review incident, decide next steps", mode: "human_gate", agent: "emergency-controls", action: "updateIncident", timeoutMinutes: 60 },
-      { id: "s4", name: "Resolve incident", description: "Close incident and restore service", mode: "auto", agent: "emergency-controls", action: "resolveIncident" },
+      {
+        id: "s1",
+        name: "Auto-activate kill switch",
+        description: "Immediately protect users",
+        mode: "auto",
+        agent: "emergency-controls",
+        action: "activateKillSwitch",
+      },
+      {
+        id: "s2",
+        name: "Start incident log",
+        description: "Begin incident tracking",
+        mode: "auto",
+        agent: "emergency-controls",
+        action: "startIncident",
+      },
+      {
+        id: "s3",
+        name: "Tyrone assesses situation",
+        description: "Review incident, decide next steps",
+        mode: "human_gate",
+        agent: "emergency-controls",
+        action: "updateIncident",
+        timeoutMinutes: 60,
+      },
+      {
+        id: "s4",
+        name: "Resolve incident",
+        description: "Close incident and restore service",
+        mode: "auto",
+        agent: "emergency-controls",
+        action: "resolveIncident",
+      },
     ],
     enabled: true,
   });
@@ -697,9 +912,31 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "Ticket escalated → Tyrone reviews → respond → close",
     triggerEvent: "support.escalated",
     steps: [
-      { id: "s1", name: "AI generates context summary", description: "Summarize ticket history", mode: "auto", agent: "support-queue", action: "generateAIResponse" },
-      { id: "s2", name: "Tyrone handles escalation", description: "Personal response needed", mode: "human_gate", agent: "support-queue", action: "addMessage", timeoutMinutes: 1440 },
-      { id: "s3", name: "Resolve ticket", description: "Mark as resolved", mode: "auto", agent: "support-queue", action: "resolveTicket" },
+      {
+        id: "s1",
+        name: "AI generates context summary",
+        description: "Summarize ticket history",
+        mode: "auto",
+        agent: "support-queue",
+        action: "generateAIResponse",
+      },
+      {
+        id: "s2",
+        name: "Tyrone handles escalation",
+        description: "Personal response needed",
+        mode: "human_gate",
+        agent: "support-queue",
+        action: "addMessage",
+        timeoutMinutes: 1440,
+      },
+      {
+        id: "s3",
+        name: "Resolve ticket",
+        description: "Mark as resolved",
+        mode: "auto",
+        agent: "support-queue",
+        action: "resolveTicket",
+      },
     ],
     enabled: true,
   });
@@ -710,9 +947,31 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "AI suggests pricing change → Tyrone approves → run A/B → report",
     triggerEvent: "pricing.suggestion_ready",
     steps: [
-      { id: "s1", name: "AI generates pricing suggestions", description: "Analyze performance, suggest changes", mode: "auto", agent: "pricing", action: "generatePricingSuggestions" },
-      { id: "s2", name: "Tyrone approves experiment", description: "Review suggestions, approve A/B test", mode: "human_gate", agent: "pricing", action: "startExperiment", timeoutMinutes: 4320 },
-      { id: "s3", name: "Monitor experiment", description: "Track conversions", mode: "auto", agent: "automated-reports", action: "generateReport" },
+      {
+        id: "s1",
+        name: "AI generates pricing suggestions",
+        description: "Analyze performance, suggest changes",
+        mode: "auto",
+        agent: "pricing",
+        action: "generatePricingSuggestions",
+      },
+      {
+        id: "s2",
+        name: "Tyrone approves experiment",
+        description: "Review suggestions, approve A/B test",
+        mode: "human_gate",
+        agent: "pricing",
+        action: "startExperiment",
+        timeoutMinutes: 4320,
+      },
+      {
+        id: "s3",
+        name: "Monitor experiment",
+        description: "Track conversions",
+        mode: "auto",
+        agent: "automated-reports",
+        action: "generateReport",
+      },
     ],
     enabled: true,
   });
@@ -723,9 +982,31 @@ export async function seedOrchestratorDemo(): Promise<{
     description: "User requests data → compile → Tyrone reviews → export → deliver",
     triggerEvent: "gdpr.data_request",
     steps: [
-      { id: "s1", name: "Compile user data", description: "Gather all user data across systems", mode: "auto", agent: "legal-compliance", action: "exportUserData" },
-      { id: "s2", name: "Tyrone reviews data package", description: "Ensure completeness and no sensitive leaks", mode: "human_gate", agent: "legal-compliance", action: "approveDataRequest", timeoutMinutes: 2880 },
-      { id: "s3", name: "Deliver to user", description: "Send data export package", mode: "auto", agent: "content-cms", action: "generateContent" },
+      {
+        id: "s1",
+        name: "Compile user data",
+        description: "Gather all user data across systems",
+        mode: "auto",
+        agent: "legal-compliance",
+        action: "exportUserData",
+      },
+      {
+        id: "s2",
+        name: "Tyrone reviews data package",
+        description: "Ensure completeness and no sensitive leaks",
+        mode: "human_gate",
+        agent: "legal-compliance",
+        action: "approveDataRequest",
+        timeoutMinutes: 2880,
+      },
+      {
+        id: "s3",
+        name: "Deliver to user",
+        description: "Send data export package",
+        mode: "auto",
+        agent: "content-cms",
+        action: "generateContent",
+      },
     ],
     enabled: true,
   });
@@ -735,7 +1016,12 @@ export async function seedOrchestratorDemo(): Promise<{
     id: "evt_seed_001",
     type: "refund.requested",
     source: "finance",
-    payload: { userId: "user_42", amount: 4999, reason: "Double charged", email: "customer@example.com" },
+    payload: {
+      userId: "user_42",
+      amount: 4999,
+      reason: "Double charged",
+      email: "customer@example.com",
+    },
     timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
     workflowsTriggered: ["wf_seed_001"],
   };
@@ -743,18 +1029,58 @@ export async function seedOrchestratorDemo(): Promise<{
 
   const sampleInstance: WorkflowInstance = {
     id: "wf_seed_001",
-    definitionId: Array.from(definitions.values()).find((d) => d.triggerEvent === "refund.requested")?.id || "",
+    definitionId:
+      Array.from(definitions.values()).find((d) => d.triggerEvent === "refund.requested")?.id || "",
     definitionName: "Refund Processing",
     status: "paused_at_gate",
     currentStepIndex: 1,
     steps: [
-      { stepId: "s1", name: "Fraud scan", mode: "auto", agent: "finance", action: "detectFraudSignals", status: "completed", startedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(), completedAt: new Date(Date.now() - 2 * 60 * 60 * 1000 + 500).toISOString(), result: { fraudSignals: [], riskLevel: "low" } },
-      { stepId: "s2", name: "Tyrone approves refund", mode: "human_gate", agent: "finance", action: "approveRefund", status: "awaiting_human", startedAt: new Date(Date.now() - 2 * 60 * 60 * 1000 + 500).toISOString() },
-      { stepId: "s3", name: "Process refund", mode: "auto", agent: "finance", action: "processRefund", status: "pending" },
-      { stepId: "s4", name: "Notify user", mode: "auto", agent: "content-cms", action: "generateContent", status: "pending" },
+      {
+        stepId: "s1",
+        name: "Fraud scan",
+        mode: "auto",
+        agent: "finance",
+        action: "detectFraudSignals",
+        status: "completed",
+        startedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+        completedAt: new Date(Date.now() - 2 * 60 * 60 * 1000 + 500).toISOString(),
+        result: { fraudSignals: [], riskLevel: "low" },
+      },
+      {
+        stepId: "s2",
+        name: "Tyrone approves refund",
+        mode: "human_gate",
+        agent: "finance",
+        action: "approveRefund",
+        status: "awaiting_human",
+        startedAt: new Date(Date.now() - 2 * 60 * 60 * 1000 + 500).toISOString(),
+      },
+      {
+        stepId: "s3",
+        name: "Process refund",
+        mode: "auto",
+        agent: "finance",
+        action: "processRefund",
+        status: "pending",
+      },
+      {
+        stepId: "s4",
+        name: "Notify user",
+        mode: "auto",
+        agent: "content-cms",
+        action: "generateContent",
+        status: "pending",
+      },
     ],
     triggerEvent: sampleEvent,
-    context: { userId: "user_42", amount: 4999, reason: "Double charged", email: "customer@example.com", fraudSignals: [], riskLevel: "low" },
+    context: {
+      userId: "user_42",
+      amount: 4999,
+      reason: "Double charged",
+      email: "customer@example.com",
+      fraudSignals: [],
+      riskLevel: "low",
+    },
     startedAt: sampleEvent.timestamp,
     updatedAt: new Date().toISOString(),
   };

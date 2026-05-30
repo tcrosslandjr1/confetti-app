@@ -18,12 +18,7 @@ import type { TripPlan, TripStop } from "./trip-planner";
 
 export type PlanOrigin = "ai_generated" | "custom" | "remixed";
 export type ReviewType = "stop_rating" | "full_story" | "auto_tracked";
-export type ReputationTier =
-  | "newcomer"
-  | "explorer"
-  | "local_guide"
-  | "tastemaker"
-  | "legend";
+export type ReputationTier = "newcomer" | "explorer" | "local_guide" | "tastemaker" | "legend";
 
 export interface SharedPlan {
   id: string;
@@ -153,13 +148,14 @@ export interface AIInsight {
 
 // ─── Constants ─────────────────────────────────────────────────
 
-const REPUTATION_TIERS: Record<ReputationTier, { minPoints: number; label: string; icon: string }> = {
-  newcomer:     { minPoints: 0,    label: "Newcomer",    icon: "🌱" },
-  explorer:     { minPoints: 100,  label: "Explorer",    icon: "🧭" },
-  local_guide:  { minPoints: 500,  label: "Local Guide", icon: "📍" },
-  tastemaker:   { minPoints: 2000, label: "Tastemaker",  icon: "✨" },
-  legend:       { minPoints: 10000, label: "Legend",      icon: "👑" },
-};
+const REPUTATION_TIERS: Record<ReputationTier, { minPoints: number; label: string; icon: string }> =
+  {
+    newcomer: { minPoints: 0, label: "Newcomer", icon: "🌱" },
+    explorer: { minPoints: 100, label: "Explorer", icon: "🧭" },
+    local_guide: { minPoints: 500, label: "Local Guide", icon: "📍" },
+    tastemaker: { minPoints: 2000, label: "Tastemaker", icon: "✨" },
+    legend: { minPoints: 10000, label: "Legend", icon: "👑" },
+  };
 
 const POINTS = {
   sharePlan: 50,
@@ -184,16 +180,61 @@ const CONFETTI_EARN = {
 };
 
 const BADGES: Omit<CommunityBadge, "earnedAt">[] = [
-  { id: "first_share",     name: "First Share",     icon: "🎉", description: "Shared your first plan with the community" },
-  { id: "first_review",    name: "First Review",    icon: "⭐", description: "Left your first experience review" },
-  { id: "popular_plan",    name: "Crowd Pleaser",   icon: "🔥", description: "One of your plans got 10+ saves" },
-  { id: "storyteller",     name: "Storyteller",     icon: "📝", description: "Wrote 5 full experience stories" },
-  { id: "globetrotter",    name: "Globetrotter",    icon: "🌍", description: "Shared plans in 5+ different cities" },
-  { id: "helpful",         name: "Helpful Local",   icon: "🤝", description: "Received 25+ helpful votes on reviews" },
-  { id: "tastemaker_100",  name: "Tastemaker 100",  icon: "💎", description: "100+ people completed your plans" },
-  { id: "streak_7",        name: "On a Roll",       icon: "🔥", description: "7-day community activity streak" },
-  { id: "photographer",    name: "Photographer",    icon: "📸", description: "Shared 20+ photos with reviews" },
-  { id: "remix_master",    name: "Remix Master",    icon: "🎨", description: "Your plans were remixed 10+ times" },
+  {
+    id: "first_share",
+    name: "First Share",
+    icon: "🎉",
+    description: "Shared your first plan with the community",
+  },
+  {
+    id: "first_review",
+    name: "First Review",
+    icon: "⭐",
+    description: "Left your first experience review",
+  },
+  {
+    id: "popular_plan",
+    name: "Crowd Pleaser",
+    icon: "🔥",
+    description: "One of your plans got 10+ saves",
+  },
+  {
+    id: "storyteller",
+    name: "Storyteller",
+    icon: "📝",
+    description: "Wrote 5 full experience stories",
+  },
+  {
+    id: "globetrotter",
+    name: "Globetrotter",
+    icon: "🌍",
+    description: "Shared plans in 5+ different cities",
+  },
+  {
+    id: "helpful",
+    name: "Helpful Local",
+    icon: "🤝",
+    description: "Received 25+ helpful votes on reviews",
+  },
+  {
+    id: "tastemaker_100",
+    name: "Tastemaker 100",
+    icon: "💎",
+    description: "100+ people completed your plans",
+  },
+  { id: "streak_7", name: "On a Roll", icon: "🔥", description: "7-day community activity streak" },
+  {
+    id: "photographer",
+    name: "Photographer",
+    icon: "📸",
+    description: "Shared 20+ photos with reviews",
+  },
+  {
+    id: "remix_master",
+    name: "Remix Master",
+    icon: "🎨",
+    description: "Your plans were remixed 10+ times",
+  },
 ];
 
 // ─── In-memory stores (local-first, syncs to Supabase) ────────
@@ -216,7 +257,7 @@ export async function sharePlan(
     occasionTags?: string[];
     coverImage?: string;
     authorTips?: Record<string, string>; // stopId → tip
-  }
+  },
 ): Promise<SharedPlan> {
   const rep = getOrCreateReputation(userId);
 
@@ -289,7 +330,7 @@ export function remixPlan(
     newTitle?: string;
     newDescription?: string;
     newVibeTags?: string[];
-  }
+  },
 ): Partial<TripPlan> {
   let stops = [...sharedPlan.stops];
 
@@ -351,7 +392,7 @@ export function savePlanToCollection(planId: string, userId: string): void {
 // ─── Submit experience review ──────────────────────────────────
 
 export async function submitReview(
-  review: Omit<ExperienceReview, "id" | "createdAt">
+  review: Omit<ExperienceReview, "id" | "createdAt">,
 ): Promise<ExperienceReview> {
   const fullReview: ExperienceReview = {
     ...review,
@@ -366,17 +407,15 @@ export async function submitReview(
   if (plan) {
     const planReviews = reviewStore.filter((r) => r.planId === plan.id);
     plan.reviewCount = planReviews.length;
-    plan.avgRating =
-      planReviews.reduce((sum, r) => sum + r.overallRating, 0) / planReviews.length;
+    plan.avgRating = planReviews.reduce((sum, r) => sum + r.overallRating, 0) / planReviews.length;
 
     // Update individual stop ratings
     for (const stop of plan.stops) {
       const stopRatings = planReviews.flatMap((r) =>
-        r.stopRatings.filter((sr) => sr.stopId === stop.id)
+        r.stopRatings.filter((sr) => sr.stopId === stop.id),
       );
       if (stopRatings.length > 0) {
-        stop.avgRating =
-          stopRatings.reduce((sum, sr) => sum + sr.rating, 0) / stopRatings.length;
+        stop.avgRating = stopRatings.reduce((sum, sr) => sum + sr.rating, 0) / stopRatings.length;
         stop.reviewCount = stopRatings.length;
       }
     }
@@ -416,7 +455,7 @@ export function autoTrackVisit(
   userName: string,
   planId: string,
   stopsVisited: string[],
-  totalMinutes: number
+  totalMinutes: number,
 ): ExperienceReview {
   const review: ExperienceReview = {
     id: crypto.randomUUID?.() ?? `auto-${Date.now()}`,
@@ -453,43 +492,32 @@ export function getCommunityFeed(query: CommunityFeedQuery): SharedPlan[] {
 
   // Filter by city
   if (query.city) {
-    results = results.filter(
-      (p) => p.city.toLowerCase().includes(query.city!.toLowerCase())
-    );
+    results = results.filter((p) => p.city.toLowerCase().includes(query.city!.toLowerCase()));
   }
 
   // Filter by region
   if (query.region) {
-    results = results.filter(
-      (p) => p.region?.toLowerCase() === query.region!.toLowerCase()
-    );
+    results = results.filter((p) => p.region?.toLowerCase() === query.region!.toLowerCase());
   }
 
   // Filter by proximity (if lat/lng provided)
   if (query.lat !== undefined && query.lng !== undefined) {
     const radius = query.radiusMiles ?? 25;
     results = results.filter((p) => {
-      const dist = haversineDistance(
-        query.lat!,
-        query.lng!,
-        p.centerLat,
-        p.centerLng
-      );
+      const dist = haversineDistance(query.lat!, query.lng!, p.centerLat, p.centerLng);
       return dist <= radius;
     });
   }
 
   // Filter by vibe tags
   if (query.vibeTags && query.vibeTags.length > 0) {
-    results = results.filter((p) =>
-      query.vibeTags!.some((tag) => p.vibeTags.includes(tag))
-    );
+    results = results.filter((p) => query.vibeTags!.some((tag) => p.vibeTags.includes(tag)));
   }
 
   // Filter by occasion
   if (query.occasionTags && query.occasionTags.length > 0) {
     results = results.filter((p) =>
-      query.occasionTags!.some((tag) => p.occasionTags.includes(tag))
+      query.occasionTags!.some((tag) => p.occasionTags.includes(tag)),
     );
   }
 
@@ -506,16 +534,13 @@ export function getCommunityFeed(query: CommunityFeedQuery): SharedPlan[] {
         results.sort(
           (a, b) =>
             haversineDistance(query.lat!, query.lng!, a.centerLat, a.centerLng) -
-            haversineDistance(query.lat!, query.lng!, b.centerLat, b.centerLng)
+            haversineDistance(query.lat!, query.lng!, b.centerLat, b.centerLng),
         );
       }
       break;
     case "newest":
     default:
-      results.sort(
-        (a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
+      results.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   }
 
   // Pagination
@@ -531,19 +556,13 @@ export function getSharedPlan(planId: string): SharedPlan | undefined {
 export function getPlanReviews(planId: string): ExperienceReview[] {
   return reviewStore
     .filter((r) => r.planId === planId)
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
 export function getUserSharedPlans(userId: string): SharedPlan[] {
   return sharedPlanStore
     .filter((p) => p.authorId === userId)
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
 // ─── Reputation system ─────────────────────────────────────────
@@ -592,8 +611,17 @@ export function getReputationTierInfo(tier: ReputationTier) {
   return REPUTATION_TIERS[tier];
 }
 
-export function getAllTiers(): Array<{ tier: ReputationTier; minPoints: number; label: string; icon: string }> {
-  return (Object.entries(REPUTATION_TIERS) as Array<[ReputationTier, { minPoints: number; label: string; icon: string }]>)
+export function getAllTiers(): Array<{
+  tier: ReputationTier;
+  minPoints: number;
+  label: string;
+  icon: string;
+}> {
+  return (
+    Object.entries(REPUTATION_TIERS) as Array<
+      [ReputationTier, { minPoints: number; label: string; icon: string }]
+    >
+  )
     .map(([tier, info]) => ({ tier, ...info }))
     .sort((a, b) => a.minPoints - b.minPoints);
 }
@@ -615,29 +643,20 @@ function checkBadges(userId: string): void {
 
   maybeAward("first_share", userPlans.length >= 1);
   maybeAward("first_review", userReviews.length >= 1);
-  maybeAward("popular_plan", userPlans.some((p) => p.saves >= 10));
   maybeAward(
-    "storyteller",
-    userReviews.filter((r) => r.reviewType === "full_story").length >= 5
+    "popular_plan",
+    userPlans.some((p) => p.saves >= 10),
   );
-  maybeAward(
-    "globetrotter",
-    new Set(userPlans.map((p) => p.city.toLowerCase())).size >= 5
-  );
+  maybeAward("storyteller", userReviews.filter((r) => r.reviewType === "full_story").length >= 5);
+  maybeAward("globetrotter", new Set(userPlans.map((p) => p.city.toLowerCase())).size >= 5);
   maybeAward("helpful", rep.helpfulVotes >= 25);
-  maybeAward(
-    "tastemaker_100",
-    userPlans.reduce((sum, p) => sum + p.completions, 0) >= 100
-  );
+  maybeAward("tastemaker_100", userPlans.reduce((sum, p) => sum + p.completions, 0) >= 100);
   maybeAward("streak_7", rep.currentStreak >= 7);
   maybeAward(
     "photographer",
-    userReviews.reduce((sum, r) => sum + (r.photos?.length ?? 0), 0) >= 20
+    userReviews.reduce((sum, r) => sum + (r.photos?.length ?? 0), 0) >= 20,
   );
-  maybeAward(
-    "remix_master",
-    userPlans.reduce((sum, p) => sum + p.remixCount, 0) >= 10
-  );
+  maybeAward("remix_master", userPlans.reduce((sum, p) => sum + p.remixCount, 0) >= 10);
 
   // Update stats
   rep.plansShared = userPlans.length;
@@ -654,9 +673,7 @@ function processReviewForAI(review: ExperienceReview): void {
       .filter((r) => r.stopId === sr.stopId);
 
     if (allRatingsForStop.length >= 3) {
-      const avg =
-        allRatingsForStop.reduce((s, r) => s + r.rating, 0) /
-        allRatingsForStop.length;
+      const avg = allRatingsForStop.reduce((s, r) => s + r.rating, 0) / allRatingsForStop.length;
 
       // Find plan for city context
       const plan = sharedPlanStore.find((p) => p.id === review.planId);
@@ -665,14 +682,11 @@ function processReviewForAI(review: ExperienceReview): void {
       // Generate insight
       let category: AIInsight["category"];
       if (avg >= 4.5) category = "crowd_favorite";
-      else if (avg >= 4.0 && allRatingsForStop.length < 10)
-        category = "hidden_gem";
+      else if (avg >= 4.0 && allRatingsForStop.length < 10) category = "hidden_gem";
       else if (avg < 3.0) category = "overrated";
       else category = "trending";
 
-      const existing = aiInsightStore.findIndex(
-        (i) => i.venueId === sr.stopId
-      );
+      const existing = aiInsightStore.findIndex((i) => i.venueId === sr.stopId);
       const insight: AIInsight = {
         venueId: sr.stopId,
         city,
@@ -695,7 +709,7 @@ function generateInsightText(
   stopName: string,
   category: AIInsight["category"],
   avg: number,
-  count: number
+  count: number,
 ): string {
   switch (category) {
     case "crowd_favorite":
@@ -742,12 +756,7 @@ export function getCommunityStats(): {
 
 // ─── Helpers ───────────────────────────────────────────────────
 
-function haversineDistance(
-  lat1: number,
-  lng1: number,
-  lat2: number,
-  lng2: number
-): number {
+function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 3959; // miles
   const dLat = toRad(lat2 - lat1);
   const dLng = toRad(lng2 - lng1);
@@ -765,10 +774,8 @@ function calculateCenter(stops: TripStop[]): { lat: number; lng: number } {
   const withCoords = stops.filter((s) => s.latitude && s.longitude);
   if (withCoords.length === 0) return { lat: 38.9072, lng: -77.0369 }; // default DC
 
-  const lat =
-    withCoords.reduce((sum, s) => sum + s.latitude!, 0) / withCoords.length;
-  const lng =
-    withCoords.reduce((sum, s) => sum + s.longitude!, 0) / withCoords.length;
+  const lat = withCoords.reduce((sum, s) => sum + s.latitude!, 0) / withCoords.length;
+  const lng = withCoords.reduce((sum, s) => sum + s.longitude!, 0) / withCoords.length;
   return { lat, lng };
 }
 
@@ -839,14 +846,48 @@ export function seedCommunityDemo(): void {
       authorTier: "local_guide",
       origin: "custom",
       title: "Georgetown Sunset Crawl",
-      description: "My go-to date night route through Georgetown. Start with cocktails, walk the waterfront, end with a rooftop dinner.",
+      description:
+        "My go-to date night route through Georgetown. Start with cocktails, walk the waterfront, end with a rooftop dinner.",
       city: "Washington",
       state: "DC",
       region: "DMV",
       stops: [
-        { id: "ds1", stopOrder: 1, name: "The Alex", category: "bar", city: "Georgetown", latitude: 38.9065, longitude: -77.0644, authorTip: "Get the espresso martini — best in DC", avgRating: 4.6, reviewCount: 12 },
-        { id: "ds2", stopOrder: 2, name: "Georgetown Waterfront Park", category: "experience", city: "Georgetown", latitude: 38.9025, longitude: -77.0595, authorTip: "Arrive right at golden hour", avgRating: 4.8, reviewCount: 8 },
-        { id: "ds3", stopOrder: 3, name: "Fiola Mare", category: "dining", city: "Georgetown", latitude: 38.9027, longitude: -77.0605, authorTip: "Ask for the patio — harbor view is unbeatable", avgRating: 4.7, reviewCount: 15 },
+        {
+          id: "ds1",
+          stopOrder: 1,
+          name: "The Alex",
+          category: "bar",
+          city: "Georgetown",
+          latitude: 38.9065,
+          longitude: -77.0644,
+          authorTip: "Get the espresso martini — best in DC",
+          avgRating: 4.6,
+          reviewCount: 12,
+        },
+        {
+          id: "ds2",
+          stopOrder: 2,
+          name: "Georgetown Waterfront Park",
+          category: "experience",
+          city: "Georgetown",
+          latitude: 38.9025,
+          longitude: -77.0595,
+          authorTip: "Arrive right at golden hour",
+          avgRating: 4.8,
+          reviewCount: 8,
+        },
+        {
+          id: "ds3",
+          stopOrder: 3,
+          name: "Fiola Mare",
+          category: "dining",
+          city: "Georgetown",
+          latitude: 38.9027,
+          longitude: -77.0605,
+          authorTip: "Ask for the patio — harbor view is unbeatable",
+          avgRating: 4.7,
+          reviewCount: 15,
+        },
       ],
       vibeTags: ["Romantic", "Scenic", "Upscale"],
       occasionTags: ["Date Night", "Anniversary"],
@@ -876,14 +917,48 @@ export function seedCommunityDemo(): void {
       authorTier: "explorer",
       origin: "ai_generated",
       title: "H Street Late Night",
-      description: "Best late-night food and vibes on H Street NE. Live music → street food → dive bar.",
+      description:
+        "Best late-night food and vibes on H Street NE. Live music → street food → dive bar.",
       city: "Washington",
       state: "DC",
       region: "DMV",
       stops: [
-        { id: "ds4", stopOrder: 1, name: "Rock & Roll Hotel", category: "experience", city: "H Street NE", latitude: 38.9002, longitude: -76.9878, authorTip: "Check who's playing that night — rooftop opens at 9", avgRating: 4.3, reviewCount: 9 },
-        { id: "ds5", stopOrder: 2, name: "Toki Underground", category: "dining", city: "H Street NE", latitude: 38.9005, longitude: -76.9895, authorTip: "There's always a line — put your name in first, then come back", avgRating: 4.5, reviewCount: 22 },
-        { id: "ds6", stopOrder: 3, name: "Copycat Co.", category: "bar", city: "H Street NE", latitude: 38.9001, longitude: -76.9910, authorTip: "Hidden speakeasy upstairs — ring the bell", avgRating: 4.4, reviewCount: 11 },
+        {
+          id: "ds4",
+          stopOrder: 1,
+          name: "Rock & Roll Hotel",
+          category: "experience",
+          city: "H Street NE",
+          latitude: 38.9002,
+          longitude: -76.9878,
+          authorTip: "Check who's playing that night — rooftop opens at 9",
+          avgRating: 4.3,
+          reviewCount: 9,
+        },
+        {
+          id: "ds5",
+          stopOrder: 2,
+          name: "Toki Underground",
+          category: "dining",
+          city: "H Street NE",
+          latitude: 38.9005,
+          longitude: -76.9895,
+          authorTip: "There's always a line — put your name in first, then come back",
+          avgRating: 4.5,
+          reviewCount: 22,
+        },
+        {
+          id: "ds6",
+          stopOrder: 3,
+          name: "Copycat Co.",
+          category: "bar",
+          city: "H Street NE",
+          latitude: 38.9001,
+          longitude: -76.991,
+          authorTip: "Hidden speakeasy upstairs — ring the bell",
+          avgRating: 4.4,
+          reviewCount: 11,
+        },
       ],
       vibeTags: ["Nightlife", "Live Music", "Foodie"],
       occasionTags: ["Crew Night", "Weekend"],
@@ -895,7 +970,7 @@ export function seedCommunityDemo(): void {
       routePoints: [
         { lat: 38.9002, lng: -76.9878 },
         { lat: 38.9005, lng: -76.9895 },
-        { lat: 38.9001, lng: -76.9910 },
+        { lat: 38.9001, lng: -76.991 },
       ],
       saves: 31,
       completions: 12,
@@ -913,14 +988,48 @@ export function seedCommunityDemo(): void {
       authorTier: "tastemaker",
       origin: "custom",
       title: "14th Street Brunch Marathon",
-      description: "The ultimate brunch hop — three spots, three vibes, one perfect Saturday morning.",
+      description:
+        "The ultimate brunch hop — three spots, three vibes, one perfect Saturday morning.",
       city: "Washington",
       state: "DC",
       region: "DMV",
       stops: [
-        { id: "ds7", stopOrder: 1, name: "Compass Coffee", category: "cafe", city: "14th St NW", latitude: 38.9138, longitude: -77.0320, authorTip: "Best cold brew in DC, period", avgRating: 4.5, reviewCount: 18 },
-        { id: "ds8", stopOrder: 2, name: "Le Diplomate", category: "dining", city: "14th St NW", latitude: 38.9155, longitude: -77.0324, authorTip: "Steak frites at brunch is the move", avgRating: 4.8, reviewCount: 32 },
-        { id: "ds9", stopOrder: 3, name: "The Rooftop at the Graham", category: "bar", city: "14th St NW", latitude: 38.9160, longitude: -77.0319, authorTip: "Mimosa flights and 360 views — get there before 1pm", avgRating: 4.3, reviewCount: 14 },
+        {
+          id: "ds7",
+          stopOrder: 1,
+          name: "Compass Coffee",
+          category: "cafe",
+          city: "14th St NW",
+          latitude: 38.9138,
+          longitude: -77.032,
+          authorTip: "Best cold brew in DC, period",
+          avgRating: 4.5,
+          reviewCount: 18,
+        },
+        {
+          id: "ds8",
+          stopOrder: 2,
+          name: "Le Diplomate",
+          category: "dining",
+          city: "14th St NW",
+          latitude: 38.9155,
+          longitude: -77.0324,
+          authorTip: "Steak frites at brunch is the move",
+          avgRating: 4.8,
+          reviewCount: 32,
+        },
+        {
+          id: "ds9",
+          stopOrder: 3,
+          name: "The Rooftop at the Graham",
+          category: "bar",
+          city: "14th St NW",
+          latitude: 38.916,
+          longitude: -77.0319,
+          authorTip: "Mimosa flights and 360 views — get there before 1pm",
+          avgRating: 4.3,
+          reviewCount: 14,
+        },
       ],
       vibeTags: ["Brunch", "Foodie", "Instagrammable"],
       occasionTags: ["Girls Brunch", "Weekend", "Birthday"],
@@ -930,9 +1039,9 @@ export function seedCommunityDemo(): void {
       centerLat: 38.9151,
       centerLng: -77.0321,
       routePoints: [
-        { lat: 38.9138, lng: -77.0320 },
+        { lat: 38.9138, lng: -77.032 },
         { lat: 38.9155, lng: -77.0324 },
-        { lat: 38.9160, lng: -77.0319 },
+        { lat: 38.916, lng: -77.0319 },
       ],
       saves: 82,
       completions: 34,
@@ -960,8 +1069,20 @@ export function seedCommunityDemo(): void {
     currentStreak: 5,
     joinedAt: "2026-03-01T00:00:00Z",
     badges: [
-      { id: "first_share", name: "First Share", icon: "🎉", description: "Shared your first plan", earnedAt: "2026-03-05T00:00:00Z" },
-      { id: "popular_plan", name: "Crowd Pleaser", icon: "🔥", description: "One of your plans got 10+ saves", earnedAt: "2026-04-15T00:00:00Z" },
+      {
+        id: "first_share",
+        name: "First Share",
+        icon: "🎉",
+        description: "Shared your first plan",
+        earnedAt: "2026-03-05T00:00:00Z",
+      },
+      {
+        id: "popular_plan",
+        name: "Crowd Pleaser",
+        icon: "🔥",
+        description: "One of your plans got 10+ saves",
+        earnedAt: "2026-04-15T00:00:00Z",
+      },
     ],
   });
 
@@ -977,11 +1098,41 @@ export function seedCommunityDemo(): void {
     currentStreak: 14,
     joinedAt: "2026-01-15T00:00:00Z",
     badges: [
-      { id: "first_share", name: "First Share", icon: "🎉", description: "Shared your first plan", earnedAt: "2026-01-20T00:00:00Z" },
-      { id: "popular_plan", name: "Crowd Pleaser", icon: "🔥", description: "One of your plans got 10+ saves", earnedAt: "2026-02-28T00:00:00Z" },
-      { id: "storyteller", name: "Storyteller", icon: "📝", description: "Wrote 5 full experience stories", earnedAt: "2026-03-10T00:00:00Z" },
-      { id: "helpful", name: "Helpful Local", icon: "🤝", description: "Received 25+ helpful votes", earnedAt: "2026-04-01T00:00:00Z" },
-      { id: "tastemaker_100", name: "Tastemaker 100", icon: "💎", description: "100+ people completed your plans", earnedAt: "2026-05-01T00:00:00Z" },
+      {
+        id: "first_share",
+        name: "First Share",
+        icon: "🎉",
+        description: "Shared your first plan",
+        earnedAt: "2026-01-20T00:00:00Z",
+      },
+      {
+        id: "popular_plan",
+        name: "Crowd Pleaser",
+        icon: "🔥",
+        description: "One of your plans got 10+ saves",
+        earnedAt: "2026-02-28T00:00:00Z",
+      },
+      {
+        id: "storyteller",
+        name: "Storyteller",
+        icon: "📝",
+        description: "Wrote 5 full experience stories",
+        earnedAt: "2026-03-10T00:00:00Z",
+      },
+      {
+        id: "helpful",
+        name: "Helpful Local",
+        icon: "🤝",
+        description: "Received 25+ helpful votes",
+        earnedAt: "2026-04-01T00:00:00Z",
+      },
+      {
+        id: "tastemaker_100",
+        name: "Tastemaker 100",
+        icon: "💎",
+        description: "100+ people completed your plans",
+        earnedAt: "2026-05-01T00:00:00Z",
+      },
     ],
   });
 
@@ -996,8 +1147,18 @@ export function seedCommunityDemo(): void {
       reviewType: "full_story",
       stopRatings: [
         { stopId: "ds1", stopName: "The Alex", rating: 5, note: "Best espresso martini I've had" },
-        { stopId: "ds2", stopName: "Georgetown Waterfront Park", rating: 5, note: "Golden hour was perfect" },
-        { stopId: "ds3", stopName: "Fiola Mare", rating: 4, note: "Food was amazing, service was slow" },
+        {
+          stopId: "ds2",
+          stopName: "Georgetown Waterfront Park",
+          rating: 5,
+          note: "Golden hour was perfect",
+        },
+        {
+          stopId: "ds3",
+          stopName: "Fiola Mare",
+          rating: 4,
+          note: "Food was amazing, service was slow",
+        },
       ],
       title: "Perfect anniversary evening",
       body: "Followed this plan for our 3rd anniversary and it was absolutely perfect. The timing between stops was spot on.",
@@ -1016,8 +1177,18 @@ export function seedCommunityDemo(): void {
       reviewType: "stop_rating",
       stopRatings: [
         { stopId: "ds7", stopName: "Compass Coffee", rating: 5, note: "The cold brew is no joke" },
-        { stopId: "ds8", stopName: "Le Diplomate", rating: 5, note: "Steak frites is life-changing" },
-        { stopId: "ds9", stopName: "The Rooftop at the Graham", rating: 4, note: "Views are great, drinks are pricey" },
+        {
+          stopId: "ds8",
+          stopName: "Le Diplomate",
+          rating: 5,
+          note: "Steak frites is life-changing",
+        },
+        {
+          stopId: "ds9",
+          stopName: "The Rooftop at the Graham",
+          rating: 4,
+          note: "Views are great, drinks are pricey",
+        },
       ],
       overallRating: 5,
       wouldRecommend: true,

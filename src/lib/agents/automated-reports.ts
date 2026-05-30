@@ -18,10 +18,23 @@ import { supabase } from "../supabase";
 
 // ─── Types ─────────────────────────────────────────────────────
 
-export type ReportType = "daily_digest" | "weekly_summary" | "monthly_review" | "anomaly_alert" | "custom";
+export type ReportType =
+  | "daily_digest"
+  | "weekly_summary"
+  | "monthly_review"
+  | "anomaly_alert"
+  | "custom";
 export type ReportStatus = "generating" | "ready" | "sent" | "failed";
 export type DeliveryMethod = "email" | "push" | "in_app" | "slack";
-export type MetricType = "users" | "revenue" | "bookings" | "venues" | "engagement" | "retention" | "support" | "errors";
+export type MetricType =
+  | "users"
+  | "revenue"
+  | "bookings"
+  | "venues"
+  | "engagement"
+  | "retention"
+  | "support"
+  | "errors";
 
 export interface ReportConfig {
   id: string;
@@ -110,7 +123,7 @@ export async function createReportConfig(
   type: ReportType,
   metrics: MetricType[],
   schedule: string,
-  delivery: DeliveryMethod[]
+  delivery: DeliveryMethod[],
 ): Promise<ReportConfig> {
   const config: ReportConfig = {
     id: crypto.randomUUID?.() ?? `rc-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -143,9 +156,8 @@ export async function generateReport(configId: string): Promise<GeneratedReport 
 
   const now = new Date();
   const currentSnapshot = getCurrentSnapshotInternal();
-  const previousSnapshot = snapshotStore.length > 1
-    ? snapshotStore[snapshotStore.length - 2]
-    : null;
+  const previousSnapshot =
+    snapshotStore.length > 1 ? snapshotStore[snapshotStore.length - 2] : null;
 
   const sections: ReportSection[] = config.metrics.map((metric) => {
     const current = currentSnapshot.metrics[metric] ?? 0;
@@ -202,7 +214,7 @@ export async function generateDailyDigest(): Promise<GeneratedReport | null> {
       "daily_digest",
       ["users", "revenue", "bookings", "engagement", "errors"],
       "daily@9am",
-      ["in_app"]
+      ["in_app"],
     );
   }
   return generateReport(config.id);
@@ -218,7 +230,7 @@ export async function generateWeeklyReport(): Promise<GeneratedReport | null> {
       "weekly_summary",
       ["users", "revenue", "bookings", "venues", "engagement", "retention", "support", "errors"],
       "weekly@monday",
-      ["email", "in_app"]
+      ["email", "in_app"],
     );
   }
   return generateReport(config.id);
@@ -230,16 +242,23 @@ export function detectAnomalies(snapshots: MetricSnapshot[]): Anomaly[] {
   if (snapshots.length < 7) return [];
 
   const anomalies: Anomaly[] = [];
-  const metrics: MetricType[] = ["users", "revenue", "bookings", "venues", "engagement", "retention", "support", "errors"];
+  const metrics: MetricType[] = [
+    "users",
+    "revenue",
+    "bookings",
+    "venues",
+    "engagement",
+    "retention",
+    "support",
+    "errors",
+  ];
 
   for (const metric of metrics) {
     const values = snapshots.map((s) => s.metrics[metric]).filter((v) => v !== undefined);
     if (values.length < 5) continue;
 
     const mean = values.reduce((a, b) => a + b, 0) / values.length;
-    const stdDev = Math.sqrt(
-      values.reduce((sum, v) => sum + (v - mean) ** 2, 0) / values.length
-    );
+    const stdDev = Math.sqrt(values.reduce((sum, v) => sum + (v - mean) ** 2, 0) / values.length);
 
     const latest = values[values.length - 1];
     const min = mean - 2 * stdDev;
@@ -296,7 +315,9 @@ export function getActiveConfigs(): ReportConfig[] {
 
 export async function updateConfig(
   configId: string,
-  updates: Partial<Pick<ReportConfig, "name" | "metrics" | "schedule" | "delivery" | "recipientEmail">>
+  updates: Partial<
+    Pick<ReportConfig, "name" | "metrics" | "schedule" | "delivery" | "recipientEmail">
+  >,
 ): Promise<ReportConfig | null> {
   const config = configStore.find((c) => c.id === configId);
   if (!config) return null;
@@ -346,7 +367,7 @@ export function getMetricSnapshot(date?: string): MetricSnapshot {
 
 export function getMetricTrend(
   metric: MetricType,
-  days: number = 30
+  days: number = 30,
 ): Array<{ date: string; value: number }> {
   const cutoff = new Date();
   cutoff.setDate(cutoff.getDate() - days);
@@ -407,28 +428,28 @@ export async function seedReportsDemo(): Promise<{
     "daily_digest",
     ["users", "revenue", "bookings", "engagement", "errors"],
     "daily@9am",
-    ["in_app"]
+    ["in_app"],
   );
   await createReportConfig(
     "Weekly Summary",
     "weekly_summary",
     ["users", "revenue", "bookings", "venues", "engagement", "retention", "support", "errors"],
     "weekly@monday",
-    ["email", "in_app"]
+    ["email", "in_app"],
   );
   await createReportConfig(
     "Monthly Review",
     "monthly_review",
     ["users", "revenue", "bookings", "venues", "engagement", "retention", "support", "errors"],
     "monthly@1st",
-    ["email", "slack"]
+    ["email", "slack"],
   );
   await createReportConfig(
     "Error Spike Alert",
     "anomaly_alert",
     ["errors", "support"],
     "daily@6am",
-    ["push", "slack"]
+    ["push", "slack"],
   );
 
   // Generate sample reports
@@ -469,7 +490,7 @@ function getCurrentSnapshotInternal(): MetricSnapshot {
 function formatMetric(metric: MetricType, value: number): string {
   const unit = METRIC_UNITS[metric];
   if (unit === "$") return `$${Math.round(value).toLocaleString()}`;
-  if (unit === "%") return `${(Math.round(value * 10) / 10)}%`;
+  if (unit === "%") return `${Math.round(value * 10) / 10}%`;
   return `${Math.round(value).toLocaleString()} ${unit}`;
 }
 
@@ -477,35 +498,40 @@ function generateNarrative(
   metric: MetricType,
   current: number,
   previous: number,
-  changePercent: number
+  changePercent: number,
 ): string {
   const label = METRIC_LABELS[metric];
   const direction = changePercent > 0 ? "grew" : changePercent < 0 ? "declined" : "remained stable";
   const absChange = Math.abs(Math.round(changePercent * 10) / 10);
 
   const narratives: Record<MetricType, string> = {
-    users: changePercent > 5
-      ? `${label} ${direction} ${absChange}% week-over-week, driven by the new venue discovery feature and organic growth.`
-      : changePercent < -5
-      ? `${label} ${direction} ${absChange}% this period. Consider running a re-engagement push notification campaign.`
-      : `${label} ${direction} at ${formatMetric(metric, current)}, tracking within normal range.`,
-    revenue: changePercent > 5
-      ? `Revenue ${direction} ${absChange}% to ${formatMetric(metric, current)}. Business tier upgrades and booking fees are the top contributors.`
-      : changePercent < -5
-      ? `Revenue ${direction} ${absChange}% to ${formatMetric(metric, current)}. Review pricing tiers and boost campaign conversions.`
-      : `Revenue held steady at ${formatMetric(metric, current)}, in line with projections.`,
-    bookings: changePercent > 0
-      ? `Bookings ${direction} ${absChange}% to ${Math.round(current)}. Weekend events and group plans are the primary drivers.`
-      : `Bookings ${direction} ${absChange}%. Consider featuring trending venues or launching a booking promotion.`,
+    users:
+      changePercent > 5
+        ? `${label} ${direction} ${absChange}% week-over-week, driven by the new venue discovery feature and organic growth.`
+        : changePercent < -5
+          ? `${label} ${direction} ${absChange}% this period. Consider running a re-engagement push notification campaign.`
+          : `${label} ${direction} at ${formatMetric(metric, current)}, tracking within normal range.`,
+    revenue:
+      changePercent > 5
+        ? `Revenue ${direction} ${absChange}% to ${formatMetric(metric, current)}. Business tier upgrades and booking fees are the top contributors.`
+        : changePercent < -5
+          ? `Revenue ${direction} ${absChange}% to ${formatMetric(metric, current)}. Review pricing tiers and boost campaign conversions.`
+          : `Revenue held steady at ${formatMetric(metric, current)}, in line with projections.`,
+    bookings:
+      changePercent > 0
+        ? `Bookings ${direction} ${absChange}% to ${Math.round(current)}. Weekend events and group plans are the primary drivers.`
+        : `Bookings ${direction} ${absChange}%. Consider featuring trending venues or launching a booking promotion.`,
     venues: `Active venues reached ${Math.round(current)}, ${changePercent > 0 ? `up ${absChange}%` : `down ${absChange}%`} this period. Onboarding pipeline is ${changePercent > 3 ? "strong" : "steady"}.`,
-    engagement: `Engagement rate is at ${(Math.round(current * 10) / 10)}%, ${changePercent > 0 ? "trending upward" : "trending downward"} by ${absChange} points.`,
+    engagement: `Engagement rate is at ${Math.round(current * 10) / 10}%, ${changePercent > 0 ? "trending upward" : "trending downward"} by ${absChange} points.`,
     retention: `${Math.round(current)}% of users returned this period. ${current > 40 ? "Strong retention signal." : "Retention is below the 40% target — review onboarding flow."}`,
-    support: changePercent > 10
-      ? `Support tickets spiked ${absChange}% to ${Math.round(current)}. Investigate top categories for recurring issues.`
-      : `Support volume is normal at ${Math.round(current)} tickets.`,
-    errors: current > 3
-      ? `Error rate is elevated at ${(Math.round(current * 100) / 100)}%. Investigate recent deployments and API timeouts.`
-      : `Error rate is healthy at ${(Math.round(current * 100) / 100)}%.`,
+    support:
+      changePercent > 10
+        ? `Support tickets spiked ${absChange}% to ${Math.round(current)}. Investigate top categories for recurring issues.`
+        : `Support volume is normal at ${Math.round(current)} tickets.`,
+    errors:
+      current > 3
+        ? `Error rate is elevated at ${Math.round(current * 100) / 100}%. Investigate recent deployments and API timeouts.`
+        : `Error rate is healthy at ${Math.round(current * 100) / 100}%.`,
   };
 
   return narratives[metric];
@@ -519,9 +545,10 @@ function generateSummary(sections: ReportSection[], anomalies: Anomaly[]): strin
       return `${s.title} is ${dir} ${Math.abs(s.changePercent)}%`;
     });
 
-  let summary = highlights.length > 0
-    ? `Key movements: ${highlights.join("; ")}.`
-    : "All metrics are tracking within normal ranges.";
+  let summary =
+    highlights.length > 0
+      ? `Key movements: ${highlights.join("; ")}.`
+      : "All metrics are tracking within normal ranges.";
 
   if (anomalies.length > 0) {
     const critical = anomalies.filter((a) => a.severity === "critical").length;
@@ -537,7 +564,11 @@ function generateSummary(sections: ReportSection[], anomalies: Anomaly[]): strin
 }
 
 function generateReportTitle(type: ReportType, date: Date): string {
-  const dateStr = date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  const dateStr = date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
   switch (type) {
     case "daily_digest":
       return `Confetti Daily Digest — ${dateStr}`;
@@ -560,7 +591,7 @@ function computeNextRun(schedule: string): string {
     next.setDate(next.getDate() + 1);
     next.setHours(9, 0, 0, 0);
   } else if (schedule.startsWith("weekly")) {
-    const daysUntilMonday = ((1 - now.getDay() + 7) % 7) || 7;
+    const daysUntilMonday = (1 - now.getDay() + 7) % 7 || 7;
     next.setDate(next.getDate() + daysUntilMonday);
     next.setHours(9, 0, 0, 0);
   } else if (schedule.startsWith("monthly")) {

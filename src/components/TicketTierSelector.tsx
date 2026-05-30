@@ -26,10 +26,7 @@ export function TicketTierSelector({
   const [quantities, setQuantities] = useState<Record<string, number>>({});
 
   const totalItems = Object.values(quantities).reduce((a, b) => a + b, 0);
-  const totalPrice = tiers.reduce(
-    (sum, t) => sum + (quantities[t.id] || 0) * t.price,
-    0,
-  );
+  const totalPrice = tiers.reduce((sum, t) => sum + (quantities[t.id] || 0) * t.price, 0);
 
   function setQty(tierId: string, qty: number) {
     setQuantities((prev) => ({ ...prev, [tierId]: Math.max(0, qty) }));
@@ -71,9 +68,7 @@ export function TicketTierSelector({
           >
             <div className="flex items-start justify-between">
               <div>
-                <span className="font-display text-sm font-bold text-cream">
-                  {tier.name}
-                </span>
+                <span className="font-display text-sm font-bold text-cream">{tier.name}</span>
                 {almostGone && (
                   <span className="ml-2 inline-flex items-center gap-0.5 rounded-full bg-amber-100 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-amber-700">
                     <Sparkles className="h-2.5 w-2.5" />
@@ -87,9 +82,7 @@ export function TicketTierSelector({
             </div>
 
             {tier.description && (
-              <p className="text-[12px] leading-relaxed text-cream/60">
-                {tier.description}
-              </p>
+              <p className="text-[12px] leading-relaxed text-cream/60">{tier.description}</p>
             )}
 
             {soldOut ? (
@@ -111,9 +104,7 @@ export function TicketTierSelector({
                 </span>
                 <button
                   type="button"
-                  onClick={() =>
-                    setQty(tier.id, Math.min(qty + 1, remaining, 10))
-                  }
+                  onClick={() => setQty(tier.id, Math.min(qty + 1, remaining, 10))}
                   disabled={qty >= remaining || qty >= 10}
                   className="grid h-7 w-7 place-items-center rounded-full border border-cream/20 text-cream/60 transition hover:bg-cream/5 disabled:opacity-30"
                 >

@@ -39,7 +39,7 @@ export type ClusterId =
 export type HappyHourWindow = {
   days: string[];
   start: string; // HH:MM (24-hour)
-  end: string;   // HH:MM (24-hour)
+  end: string; // HH:MM (24-hour)
   highlights: string[];
 };
 
@@ -234,12 +234,17 @@ export function computeDealValueScore(venue: HHVenue): number {
   // time window score: longer HH = higher score (max 4 hours → 10)
   const [startH, startM] = venue.happy_hour.start.split(":").map(Number);
   const [endH, endM] = venue.happy_hour.end.split(":").map(Number);
-  const durationMin = (endH * 60 + endM) - (startH * 60 + startM);
+  const durationMin = endH * 60 + endM - (startH * 60 + startM);
   const timeWindow = Math.min(durationMin / 24, 10); // 240 min (4h) = 10
 
   return (
     Math.round(
-      ((Math.min(avgDiscount, 10) + Math.min(drinkQuality, 10) + Math.min(foodQuality, 10) + timeWindow) / 4) * 10,
+      ((Math.min(avgDiscount, 10) +
+        Math.min(drinkQuality, 10) +
+        Math.min(foodQuality, 10) +
+        timeWindow) /
+        4) *
+        10,
     ) / 10
   );
 }
@@ -269,7 +274,10 @@ export function computeTrendScore(signals: {
   const cap = (v: number, max: number) => Math.min(v / max, 1) * 10;
   return (
     Math.round(
-      ((cap(signals.checkins, 200) + cap(signals.mentions, 50) + cap(signals.reviews, 100) + cap(signals.velocity, 20)) /
+      ((cap(signals.checkins, 200) +
+        cap(signals.mentions, 50) +
+        cap(signals.reviews, 100) +
+        cap(signals.velocity, 20)) /
         4) *
         10,
     ) / 10
@@ -283,9 +291,7 @@ export function isHappyHourActive(venue: HHVenue, now: Date): boolean {
   const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
   const todayName = dayNames[now.getDay()];
 
-  const matchesDay = venue.happy_hour.days.some(
-    (d) => d.toLowerCase() === todayName,
-  );
+  const matchesDay = venue.happy_hour.days.some((d) => d.toLowerCase() === todayName);
   if (!matchesDay) return false;
 
   const nowMin = now.getHours() * 60 + now.getMinutes();
@@ -309,9 +315,7 @@ export function getVenuesByCluster(venues: HHVenue[], clusterId: ClusterId): HHV
 
 /** Filter by vibe tag with a minimum score threshold. */
 export function getVenuesByVibe(venues: HHVenue[], vibe: VibeTag, minScore = 5): HHVenue[] {
-  return venues.filter(
-    (v) => v.attributes[vibe] && v.vibe_scores[vibe] >= minScore,
-  );
+  return venues.filter((v) => v.attributes[vibe] && v.vibe_scores[vibe] >= minScore);
 }
 
 // ── Ranking & Route Planning ──────────────────────────────────────
@@ -324,11 +328,17 @@ export function rankVenues(venues: HHVenue[], preferences: UserHHPreferences): H
 
   const scored = venues
     .filter((v) => {
-      if (preferences.max_price_tier && PRICE_ORDER[v.price_tier] > PRICE_ORDER[preferences.max_price_tier]) {
+      if (
+        preferences.max_price_tier &&
+        PRICE_ORDER[v.price_tier] > PRICE_ORDER[preferences.max_price_tier]
+      ) {
         return false;
       }
       if (preferences.require_metro && !v.metro_access) return false;
-      if (preferences.preferred_clusters?.length && !preferences.preferred_clusters.includes(v.cluster_id)) {
+      if (
+        preferences.preferred_clusters?.length &&
+        !preferences.preferred_clusters.includes(v.cluster_id)
+      ) {
         return false;
       }
       if (preferences.min_energy != null && v.energy_level < preferences.min_energy) return false;
@@ -353,10 +363,7 @@ export function rankVenues(venues: HHVenue[], preferences: UserHHPreferences): H
  * Suggest a walkable Happy Hour crawl route: 2-3 venues in the same
  * cluster sorted by optimal visit order (earliest HH start → latest).
  */
-export function suggestRoute(
-  venues: HHVenue[],
-  maxStops: number = 3,
-): HHVenue[] {
+export function suggestRoute(venues: HHVenue[], maxStops: number = 3): HHVenue[] {
   // Group by cluster
   const clusters = new Map<ClusterId, HHVenue[]>();
   for (const v of venues) {
@@ -371,8 +378,7 @@ export function suggestRoute(
 
   for (const [, group] of clusters) {
     if (group.length < 2) continue;
-    const avgScore =
-      group.reduce((s, v) => s + v.venue_score, 0) / group.length;
+    const avgScore = group.reduce((s, v) => s + v.venue_score, 0) / group.length;
     if (avgScore > bestScore || (avgScore === bestScore && group.length > bestCluster.length)) {
       bestScore = avgScore;
       bestCluster = group;

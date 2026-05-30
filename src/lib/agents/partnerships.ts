@@ -21,7 +21,15 @@ import { supabase } from "../supabase";
 // ═══════════════════════════════════════════════════════════
 
 export type PartnerType = "venue" | "influencer" | "sponsor" | "media" | "technology" | "event";
-export type DealStage = "prospect" | "outreach" | "negotiating" | "contract_sent" | "signed" | "active" | "churned" | "declined";
+export type DealStage =
+  | "prospect"
+  | "outreach"
+  | "negotiating"
+  | "contract_sent"
+  | "signed"
+  | "active"
+  | "churned"
+  | "declined";
 export type PartnerTier = "bronze" | "silver" | "gold" | "platinum";
 
 export interface Partner {
@@ -168,7 +176,12 @@ export function addPartner(
   type: PartnerType,
   contactName: string,
   contactEmail: string,
-  metadata?: Partial<Pick<Partner, "contactPhone" | "website" | "socialHandle" | "dealValue" | "revenueShare" | "tags" | "notes">>
+  metadata?: Partial<
+    Pick<
+      Partner,
+      "contactPhone" | "website" | "socialHandle" | "dealValue" | "revenueShare" | "tags" | "notes"
+    >
+  >,
 ): Partner {
   const partner: Partner = {
     id: nextId("ptr"),
@@ -233,7 +246,7 @@ export function addActivity(
   partnerId: string,
   type: DealActivity["type"],
   description: string,
-  performedBy: string
+  performedBy: string,
 ): DealActivity | null {
   const partner = partnerStore.get(partnerId);
   if (!partner) return null;
@@ -274,7 +287,7 @@ export function setFollowUp(partnerId: string, date: string): Partner | null {
 export function getOverdueFollowUps(): Partner[] {
   const now = new Date().toISOString();
   return Array.from(partnerStore.values()).filter(
-    (p) => p.nextFollowUpAt && p.nextFollowUpAt < now && !["churned", "declined"].includes(p.stage)
+    (p) => p.nextFollowUpAt && p.nextFollowUpAt < now && !["churned", "declined"].includes(p.stage),
   );
 }
 
@@ -285,7 +298,7 @@ export function getOverdueFollowUps(): Partner[] {
 /** Generate personalized outreach email based on partner info and optional template */
 export function generateOutreach(
   partnerId: string,
-  templateId?: string
+  templateId?: string,
 ): { subject: string; body: string } | null {
   const partner = partnerStore.get(partnerId);
   if (!partner) return null;
@@ -357,7 +370,9 @@ export function getPartnerPipeline(type?: PartnerType): Record<DealStage, Partne
 }
 
 /** Get a single partner by ID */
-export function getPartnerById(partnerId: string): (Partner & { activities: DealActivity[] }) | null {
+export function getPartnerById(
+  partnerId: string,
+): (Partner & { activities: DealActivity[] }) | null {
   const partner = partnerStore.get(partnerId);
   if (!partner) return null;
   const activities = activityStore.get(partnerId) ?? [];
@@ -372,7 +387,7 @@ export function searchPartners(query: string): Partner[] {
       p.name.toLowerCase().includes(q) ||
       p.contactEmail.toLowerCase().includes(q) ||
       p.contactName.toLowerCase().includes(q) ||
-      p.tags.some((t) => t.toLowerCase().includes(q))
+      p.tags.some((t) => t.toLowerCase().includes(q)),
   );
 }
 
@@ -385,10 +400,22 @@ export function getPartnershipMetrics(): PartnershipMetrics {
   const partners = Array.from(partnerStore.values());
 
   const byType: Record<PartnerType, number> = {
-    venue: 0, influencer: 0, sponsor: 0, media: 0, technology: 0, event: 0,
+    venue: 0,
+    influencer: 0,
+    sponsor: 0,
+    media: 0,
+    technology: 0,
+    event: 0,
   };
   const byStage: Record<DealStage, number> = {
-    prospect: 0, outreach: 0, negotiating: 0, contract_sent: 0, signed: 0, active: 0, churned: 0, declined: 0,
+    prospect: 0,
+    outreach: 0,
+    negotiating: 0,
+    contract_sent: 0,
+    signed: 0,
+    active: 0,
+    churned: 0,
+    declined: 0,
   };
 
   let pipelineValue = 0;
@@ -402,7 +429,7 @@ export function getPartnershipMetrics(): PartnershipMetrics {
       pipelineValue += p.dealValue ?? 0;
     }
     if (p.stage === "active") {
-      monthlyRevenue += (p.revenueShare ?? 0);
+      monthlyRevenue += p.revenueShare ?? 0;
     }
     if (p.stage === "signed" || p.stage === "active") {
       signedOrActive++;
@@ -430,14 +457,16 @@ export function getExpiringContracts(days: number = 30): Partner[] {
 
   return Array.from(partnerStore.values()).filter(
     (p) =>
-      p.contractEndDate &&
-      p.contractEndDate <= cutoffStr &&
-      ["signed", "active"].includes(p.stage)
+      p.contractEndDate && p.contractEndDate <= cutoffStr && ["signed", "active"].includes(p.stage),
   );
 }
 
 /** Get revenue attribution by partner */
-export function getRevenueByPartner(): Array<{ partner: Partner; monthlyRevenue: number; totalDealValue: number }> {
+export function getRevenueByPartner(): Array<{
+  partner: Partner;
+  monthlyRevenue: number;
+  totalDealValue: number;
+}> {
   return Array.from(partnerStore.values())
     .filter((p) => p.stage === "active")
     .map((p) => ({
@@ -458,7 +487,7 @@ export function createTemplate(
   type: PartnerType,
   subject: string,
   body: string,
-  variables: string[]
+  variables: string[],
 ): OutreachTemplate {
   const template: OutreachTemplate = {
     id: nextId("tmpl"),
@@ -607,7 +636,12 @@ export function seedPartnershipsDemo(): Partner[] {
       addActivity(partner.id, "email", `Initial outreach sent to ${s.contactName}`, "Tyrone");
     }
     if (["negotiating", "contract_sent", "signed", "active"].includes(s.stage)) {
-      addActivity(partner.id, "call", `Discovery call with ${s.contactName} — discussed partnership terms`, "Tyrone");
+      addActivity(
+        partner.id,
+        "call",
+        `Discovery call with ${s.contactName} — discussed partnership terms`,
+        "Tyrone",
+      );
     }
     if (["contract_sent", "signed", "active"].includes(s.stage)) {
       addActivity(partner.id, "contract", "Partnership agreement sent for review", "Tyrone");
@@ -616,7 +650,12 @@ export function seedPartnershipsDemo(): Partner[] {
       addActivity(partner.id, "contract", "Contract signed and countersigned", s.contactName);
     }
     if (s.stage === "active") {
-      addActivity(partner.id, "payment", `First revenue share payment: $${s.revenueShare}`, "system");
+      addActivity(
+        partner.id,
+        "payment",
+        `First revenue share payment: $${s.revenueShare}`,
+        "system",
+      );
     }
 
     // Set follow-ups for active pipeline

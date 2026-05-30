@@ -89,24 +89,72 @@ const SAMPLE_MENU: MenuSection[] = [
     id: "starters",
     sectionName: "Starters",
     items: [
-      { id: "1", name: "Truffle Burrata", description: "House focaccia, hot honey", price: 24, dietaryTags: ["vegetarian"], isPopular: true, isAvailable: true },
-      { id: "2", name: "Tuna Tartare", description: "Avocado, sesame, wonton chips", price: 22, dietaryTags: ["seafood", "gluten-free"], isPopular: false, isAvailable: true },
+      {
+        id: "1",
+        name: "Truffle Burrata",
+        description: "House focaccia, hot honey",
+        price: 24,
+        dietaryTags: ["vegetarian"],
+        isPopular: true,
+        isAvailable: true,
+      },
+      {
+        id: "2",
+        name: "Tuna Tartare",
+        description: "Avocado, sesame, wonton chips",
+        price: 22,
+        dietaryTags: ["seafood", "gluten-free"],
+        isPopular: false,
+        isAvailable: true,
+      },
     ],
   },
   {
     id: "mains",
     sectionName: "Mains",
     items: [
-      { id: "3", name: "Wagyu Sliders (3)", description: "Smoked gouda, pickles, brioche", price: 32, dietaryTags: [], isPopular: true, isAvailable: true },
-      { id: "4", name: "Pan-Seared Branzino", description: "Lemon caper butter, fingerlings", price: 38, dietaryTags: ["seafood", "gluten-free"], isPopular: false, isAvailable: true },
+      {
+        id: "3",
+        name: "Wagyu Sliders (3)",
+        description: "Smoked gouda, pickles, brioche",
+        price: 32,
+        dietaryTags: [],
+        isPopular: true,
+        isAvailable: true,
+      },
+      {
+        id: "4",
+        name: "Pan-Seared Branzino",
+        description: "Lemon caper butter, fingerlings",
+        price: 38,
+        dietaryTags: ["seafood", "gluten-free"],
+        isPopular: false,
+        isAvailable: true,
+      },
     ],
   },
   {
     id: "drinks",
     sectionName: "Cocktails",
     items: [
-      { id: "5", name: "Spicy Margarita Flight", description: "Jalapeño, mezcal, blanco", price: 28, dietaryTags: ["spicy"], isPopular: true, isAvailable: true },
-      { id: "6", name: "Chocolate Soufflé", description: "20-min wait, worth it", price: 16, dietaryTags: ["vegetarian"], isPopular: false, isAvailable: true },
+      {
+        id: "5",
+        name: "Spicy Margarita Flight",
+        description: "Jalapeño, mezcal, blanco",
+        price: 28,
+        dietaryTags: ["spicy"],
+        isPopular: true,
+        isAvailable: true,
+      },
+      {
+        id: "6",
+        name: "Chocolate Soufflé",
+        description: "20-min wait, worth it",
+        price: 16,
+        dietaryTags: ["vegetarian"],
+        isPopular: false,
+        isAvailable: true,
+      },
     ],
   },
 ];
@@ -202,18 +250,24 @@ function VenueBookingPage() {
     const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
     if (url && key) {
       fetch(`${url}/rest/v1/venue_reviews?venue_id=eq.${id}&select=id`, {
-        headers: { apikey: key, Authorization: `Bearer ${key}`, Prefer: "count=exact", Range: "0-0" },
-      }).then((r) => {
-        const raw = r.headers.get("content-range");
-        const total = raw ? parseInt(raw.split("/")[1] ?? "0", 10) : 0;
-        if (!cancelled && total > 0) setReviewCount(total);
-      }).catch(() => {});
+        headers: {
+          apikey: key,
+          Authorization: `Bearer ${key}`,
+          Prefer: "count=exact",
+          Range: "0-0",
+        },
+      })
+        .then((r) => {
+          const raw = r.headers.get("content-range");
+          const total = raw ? parseInt(raw.split("/")[1] ?? "0", 10) : 0;
+          if (!cancelled && total > 0) setReviewCount(total);
+        })
+        .catch(() => {});
     }
     return () => {
       cancelled = true;
     };
   }, [id]);
-
 
   const go = (next: 1 | 2 | 3 | 4) => {
     setDir(next > step ? 1 : -1);
@@ -256,7 +310,13 @@ function VenueBookingPage() {
             dir === 1 ? "animate-[slide-in-right_.32s_ease-out]" : "animate-[fade-in_.32s_ease-out]"
           }
         >
-          {step === 1 && <StepVenue venue={venue} onReserve={() => setModalOpen(true)} reviewCount={reviewCount} />}
+          {step === 1 && (
+            <StepVenue
+              venue={venue}
+              onReserve={() => setModalOpen(true)}
+              reviewCount={reviewCount}
+            />
+          )}
           {step === 2 && (
             <StepTime
               venue={venue}
@@ -369,10 +429,15 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
 /* ── Real events from DB ─────────────────────────────────────────── */
 
 function VenueEvents({ venueId, venueName }: { venueId: string; venueName: string }) {
-  const [events, setEvents] = useState<Array<{
-    id: string; title: string; description: string | null;
-    starts_at: string; ticket_url: string | null;
-  }>>([]);
+  const [events, setEvents] = useState<
+    Array<{
+      id: string;
+      title: string;
+      description: string | null;
+      starts_at: string;
+      ticket_url: string | null;
+    }>
+  >([]);
 
   useEffect(() => {
     supabase
@@ -383,7 +448,9 @@ function VenueEvents({ venueId, venueName }: { venueId: string; venueName: strin
       .gte("starts_at", new Date().toISOString())
       .order("starts_at")
       .limit(5)
-      .then(({ data }) => { if (data?.length) setEvents(data); });
+      .then(({ data }) => {
+        if (data?.length) setEvents(data);
+      });
   }, [venueId]);
 
   if (!events.length) return null;
@@ -403,7 +470,10 @@ function VenueEvents({ venueId, venueName }: { venueId: string; venueName: strin
           const date = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
           const time = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
           return (
-            <li key={e.id} className="flex gap-3 rounded-xl border-2 border-cream/10 bg-cream/40 p-3">
+            <li
+              key={e.id}
+              className="flex gap-3 rounded-xl border-2 border-cream/10 bg-cream/40 p-3"
+            >
               <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg border-2 border-ink bg-white text-center">
                 <span className="font-mono text-[9px] font-bold text-coral">{day}</span>
                 <span className="font-mono text-xs font-bold leading-tight text-cream">{date}</span>
@@ -633,7 +703,15 @@ function ShareVenue({ venue }: { venue: Venue }) {
   );
 }
 
-function StepVenue({ venue, onReserve, reviewCount }: { venue: Venue; onReserve: () => void; reviewCount: number }) {
+function StepVenue({
+  venue,
+  onReserve,
+  reviewCount,
+}: {
+  venue: Venue;
+  onReserve: () => void;
+  reviewCount: number;
+}) {
   const gallery = venue.gallery_urls ?? [];
   const photo = gallery[0]?.url || venue.image_url || FALLBACK_PHOTO;
   const price = "$".repeat(Math.max(1, Math.min(4, venue.price_level || 3)));
@@ -646,7 +724,9 @@ function StepVenue({ venue, onReserve, reviewCount }: { venue: Venue; onReserve:
           src={photo}
           alt={venue.name}
           className="aspect-[5/4] w-full object-cover sm:aspect-[16/10]"
-         loading="lazy" decoding="async"/>
+          loading="lazy"
+          decoding="async"
+        />
         {/* Plum -> Indigo gradient overlay */}
         <div
           className="absolute inset-0"
@@ -787,7 +867,9 @@ function StepVenue({ venue, onReserve, reviewCount }: { venue: Venue; onReserve:
       {/* Menu — link to menu URL if the venue has one; no fake sample data */}
       {venue.menu_url && (
         <div className="rounded-2xl border-2 border-ink bg-white p-5 shadow-brut">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">Menu</p>
+          <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
+            Menu
+          </p>
           <a
             href={venue.menu_url}
             target="_blank"
@@ -803,7 +885,9 @@ function StepVenue({ venue, onReserve, reviewCount }: { venue: Venue; onReserve:
       <WaitlistButton
         venueId={venue.id}
         venueName={venue.name}
-        onJoin={(data) => toast.success(`On the waitlist for ${data.partySize} — we'll notify you!`)}
+        onJoin={(data) =>
+          toast.success(`On the waitlist for ${data.partySize} — we'll notify you!`)
+        }
       />
 
       {/* Reviews */}
@@ -1021,7 +1105,9 @@ function StepTime({
           placeholder="Birthday? Allergies? Booth preference?"
           className="mt-2 w-full resize-none rounded-xl border-2 border-ink bg-cream px-3 py-2.5 text-sm outline-none transition focus:-translate-y-0.5 focus:shadow-brut focus-visible:ring-2 focus-visible:ring-cream/40 focus-visible:ring-offset-1"
         />
-        <div className="mt-1 text-right font-mono text-[10px] text-cream/40">{notes.length}/280</div>
+        <div className="mt-1 text-right font-mono text-[10px] text-cream/40">
+          {notes.length}/280
+        </div>
       </div>
 
       <GradientCTA onClick={onNext} label="Review Booking" disabled={!time} />
@@ -1177,8 +1263,8 @@ function StepConfirm({
 
       {/* Cancellation policy */}
       <div className="rounded-2xl border-2 border-dashed border-ink/40 bg-cream/60 p-4 text-xs text-cream/70">
-        <span className="font-bold text-cream">Cancellation:</span> Free up to 24 hours before. After
-        that the deposit is forfeit. Reschedule any time from your boarding pass.
+        <span className="font-bold text-cream">Cancellation:</span> Free up to 24 hours before.
+        After that the deposit is forfeit. Reschedule any time from your boarding pass.
       </div>
 
       <GradientCTA
@@ -1315,7 +1401,9 @@ function StepDone({
               <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">
                 Confirmation
               </p>
-              <p className="mt-1 font-mono text-xl font-bold tracking-[0.25em] text-cream">{code}</p>
+              <p className="mt-1 font-mono text-xl font-bold tracking-[0.25em] text-cream">
+                {code}
+              </p>
             </div>
             <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gradient-gold px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream">
               VIP
@@ -1368,7 +1456,10 @@ function StepDone({
             );
             const end = new Date(start.getTime() + 2 * 60 * 60 * 1000); // 2h default
             const fmt = (dt: Date) =>
-              dt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+              dt
+                .toISOString()
+                .replace(/[-:]/g, "")
+                .replace(/\.\d{3}/, "");
             const ics = [
               "BEGIN:VCALENDAR",
               "VERSION:2.0",

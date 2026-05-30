@@ -69,90 +69,221 @@ export interface CollectionResult {
  */
 const CITY_HASHTAGS: Record<string, string[]> = {
   dc: [
-    "dcfoodie", "dceats", "washingtondc", "dcnightlife", "dcrooftops",
-    "dchiddenGem", "dcbrunch", "wharfdc", "dccocktails", "dcbars",
-    "shawdc", "ustreetdc", "dcrestaurants", "dcdining", "dcdatenight",
+    "dcfoodie",
+    "dceats",
+    "washingtondc",
+    "dcnightlife",
+    "dcrooftops",
+    "dchiddenGem",
+    "dcbrunch",
+    "wharfdc",
+    "dccocktails",
+    "dcbars",
+    "shawdc",
+    "ustreetdc",
+    "dcrestaurants",
+    "dcdining",
+    "dcdatenight",
   ],
   vegas: [
-    "vegasfoodie", "lasvegaseats", "vegasnightlife", "vegasstrip",
-    "vegasrooftop", "vegashiddengem", "vegasclubs", "fremontstreet",
-    "vegasrestaurants", "vegasdining", "vegasnewspot", "vegascocktails",
+    "vegasfoodie",
+    "lasvegaseats",
+    "vegasnightlife",
+    "vegasstrip",
+    "vegasrooftop",
+    "vegashiddengem",
+    "vegasclubs",
+    "fremontstreet",
+    "vegasrestaurants",
+    "vegasdining",
+    "vegasnewspot",
+    "vegascocktails",
   ],
   miami: [
-    "miamifoodie", "miamieats", "miaminightlife", "southbeach",
-    "wynwood", "brickell", "miamirooftop", "miamihiddengem",
-    "littlehavana", "miamidining", "miamibrunch", "miaminewspot",
+    "miamifoodie",
+    "miamieats",
+    "miaminightlife",
+    "southbeach",
+    "wynwood",
+    "brickell",
+    "miamirooftop",
+    "miamihiddengem",
+    "littlehavana",
+    "miamidining",
+    "miamibrunch",
+    "miaminewspot",
   ],
   nyc: [
-    "nycfoodie", "nyceats", "nycnightlife", "nycrooftops",
-    "nychiddengem", "nycspeakeasy", "williamsburg", "lesnyc",
-    "nycbrunch", "nyccocktails", "nycdatenight", "nycnewrestaurant",
+    "nycfoodie",
+    "nyceats",
+    "nycnightlife",
+    "nycrooftops",
+    "nychiddengem",
+    "nycspeakeasy",
+    "williamsburg",
+    "lesnyc",
+    "nycbrunch",
+    "nyccocktails",
+    "nycdatenight",
+    "nycnewrestaurant",
   ],
   seattle: [
-    "seattlefoodie", "seattleeats", "seattlenightlife", "capitolhill",
-    "seattlerooftop", "seattlehiddengem", "pikeplace", "ballard",
-    "seattledining", "seattlebrunch", "seattlenewspot", "pnwfoodie",
+    "seattlefoodie",
+    "seattleeats",
+    "seattlenightlife",
+    "capitolhill",
+    "seattlerooftop",
+    "seattlehiddengem",
+    "pikeplace",
+    "ballard",
+    "seattledining",
+    "seattlebrunch",
+    "seattlenewspot",
+    "pnwfoodie",
   ],
   chi: [
-    "chicagofoodie", "chicagoeats", "chicagonightlife", "wickerpark",
-    "chicagorooftop", "chicagohiddengem", "rivernorthchi", "westloop",
-    "chicagodining", "chicagobrunch", "chicagonewspot", "chicagobars",
+    "chicagofoodie",
+    "chicagoeats",
+    "chicagonightlife",
+    "wickerpark",
+    "chicagorooftop",
+    "chicagohiddengem",
+    "rivernorthchi",
+    "westloop",
+    "chicagodining",
+    "chicagobrunch",
+    "chicagonewspot",
+    "chicagobars",
   ],
   la: [
-    "lafoodie", "laeats", "lanightlife", "weho", "dtla",
-    "larooftop", "lahiddengem", "silverlake", "venice",
-    "ladining", "labrunch", "lanewspot", "losangelesfood",
+    "lafoodie",
+    "laeats",
+    "lanightlife",
+    "weho",
+    "dtla",
+    "larooftop",
+    "lahiddengem",
+    "silverlake",
+    "venice",
+    "ladining",
+    "labrunch",
+    "lanewspot",
+    "losangelesfood",
   ],
   sf: [
-    "sffoodie", "sfeats", "sfnightlife", "missiondistrict",
-    "sfrooftop", "sfhiddengem", "northbeachsf", "hayesvalley",
-    "sfdining", "sfbrunch", "sfnewspot", "bayareafoodie",
+    "sffoodie",
+    "sfeats",
+    "sfnightlife",
+    "missiondistrict",
+    "sfrooftop",
+    "sfhiddengem",
+    "northbeachsf",
+    "hayesvalley",
+    "sfdining",
+    "sfbrunch",
+    "sfnewspot",
+    "bayareafoodie",
   ],
   hou: [
-    "houstonfoodie", "houstoneats", "houstonnightlife", "montrose",
-    "houstonrooftop", "houstonhiddengem", "midtownhou", "eadohouston",
-    "houstondining", "houstonbrunch", "houstonnewspot", "houstonbbq",
+    "houstonfoodie",
+    "houstoneats",
+    "houstonnightlife",
+    "montrose",
+    "houstonrooftop",
+    "houstonhiddengem",
+    "midtownhou",
+    "eadohouston",
+    "houstondining",
+    "houstonbrunch",
+    "houstonnewspot",
+    "houstonbbq",
   ],
   atl: [
-    "atlantafoodie", "atlantaeats", "atlantanightlife", "buckhead",
-    "atlantarooftop", "atlantahiddengem", "beltlineatl", "edgewood",
-    "atlantadining", "atlantabrunch", "atlantanewspot", "atlantabars",
+    "atlantafoodie",
+    "atlantaeats",
+    "atlantanightlife",
+    "buckhead",
+    "atlantarooftop",
+    "atlantahiddengem",
+    "beltlineatl",
+    "edgewood",
+    "atlantadining",
+    "atlantabrunch",
+    "atlantanewspot",
+    "atlantabars",
   ],
   nash: [
-    "nashvillefoodie", "nashvilleeats", "nashvillenightlife", "broadway",
-    "nashvillerooftop", "nashvillehiddengem", "thegulch", "12south",
-    "nashvilledining", "nashvillebrunch", "nashvillenewspot", "nashvillebars",
+    "nashvillefoodie",
+    "nashvilleeats",
+    "nashvillenightlife",
+    "broadway",
+    "nashvillerooftop",
+    "nashvillehiddengem",
+    "thegulch",
+    "12south",
+    "nashvilledining",
+    "nashvillebrunch",
+    "nashvillenewspot",
+    "nashvillebars",
   ],
   mem: [
-    "memphisfoodie", "memphiseats", "memphisnightlife", "bealestreet",
-    "memphishiddengem", "memphisbbq", "cooperyoung", "memphisblues",
-    "memphisdining", "memphisbrunch", "memphisnewspot", "memphissoul",
+    "memphisfoodie",
+    "memphiseats",
+    "memphisnightlife",
+    "bealestreet",
+    "memphishiddengem",
+    "memphisbbq",
+    "cooperyoung",
+    "memphisblues",
+    "memphisdining",
+    "memphisbrunch",
+    "memphisnewspot",
+    "memphissoul",
   ],
   knox: [
-    "knoxvillefoodie", "knoxvilleeats", "knoxvillenightlife", "marketsquare",
-    "oldcityknox", "knoxvillebrunch", "knoxvillenewspot", "knoxvillebars",
+    "knoxvillefoodie",
+    "knoxvilleeats",
+    "knoxvillenightlife",
+    "marketsquare",
+    "oldcityknox",
+    "knoxvillebrunch",
+    "knoxvillenewspot",
+    "knoxvillebars",
   ],
   chatt: [
-    "chattanoogafoodie", "chattanoogaeats", "northshorechatt",
-    "chattanoogabrunch", "chattanooganewspot", "chattanoogadining",
+    "chattanoogafoodie",
+    "chattanoogaeats",
+    "northshorechatt",
+    "chattanoogabrunch",
+    "chattanooganewspot",
+    "chattanoogadining",
   ],
   gat: [
-    "gatlinburgfood", "gatlinburgeats", "smokymountainsdining",
-    "gatlinburgmoonshine", "gatlinburgnewspot", "pigeonforge",
+    "gatlinburgfood",
+    "gatlinburgeats",
+    "smokymountainsdining",
+    "gatlinburgmoonshine",
+    "gatlinburgnewspot",
+    "pigeonforge",
   ],
   phx: [
-    "phoenixfoodie", "scottsdalefoodie", "phoenixeats", "scottsdaleeats",
-    "oldtownscottsdale", "phoenixnightlife", "scottsdalenightlife",
-    "phoenixrooftop", "phoenixhiddengem", "phoenixnewspot", "scottsdalebars",
+    "phoenixfoodie",
+    "scottsdalefoodie",
+    "phoenixeats",
+    "scottsdaleeats",
+    "oldtownscottsdale",
+    "phoenixnightlife",
+    "scottsdalenightlife",
+    "phoenixrooftop",
+    "phoenixhiddengem",
+    "phoenixnewspot",
+    "scottsdalebars",
   ],
 };
 
 // ─── AI Prompt for Social Signal Classification ─────────────
 
-function buildSocialDiscoveryPrompt(
-  city: CityContext,
-  hashtags: string[],
-): string {
+function buildSocialDiscoveryPrompt(city: CityContext, hashtags: string[]): string {
   return `You are the Confetti Social Intelligence Engine. Your job is to identify
 venues that are generating social media buzz in ${city.label}.
 
@@ -291,9 +422,7 @@ export async function collectSignalsForCity(
  * Load social signals for a city and structure them as prompt context.
  * This is what gets injected into buildIdeaPrompt / buildVenuePrompt.
  */
-export async function loadSocialContext(
-  citySlug: string,
-): Promise<SocialContext | null> {
+export async function loadSocialContext(citySlug: string): Promise<SocialContext | null> {
   const city = CITIES.find((c) => c.slug === citySlug);
   if (!city) return null;
 
@@ -402,14 +531,9 @@ export async function runSocialSignalBatch(
       try {
         const signals = await collectSignalsForCity(city.slug, batchId);
         totalSignals += signals.length;
-        console.log(
-          `[social-signal] ${city.label}: ${signals.length} signals collected`,
-        );
+        console.log(`[social-signal] ${city.label}: ${signals.length} signals collected`);
       } catch (err) {
-        console.error(
-          `[social-signal] Collection failed for ${city.slug}:`,
-          err,
-        );
+        console.error(`[social-signal] Collection failed for ${city.slug}:`, err);
       }
     }
 
@@ -438,9 +562,7 @@ export async function runSocialSignalBatch(
  * Collect fresh social signals for a specific city on-demand.
  * Returns the structured social context ready for prompt injection.
  */
-export async function collectOnDemand(
-  citySlug: string,
-): Promise<SocialContext | null> {
+export async function collectOnDemand(citySlug: string): Promise<SocialContext | null> {
   const batchId = `social-ondemand-${Date.now()}`;
 
   try {

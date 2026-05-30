@@ -5,7 +5,11 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { CalendarPlus, Trash2, ArrowLeft, Calendar, Clock, MapPin } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import { listMyVenueEvents, createVenueEvent, deleteVenueEvent } from "@/lib/business-api";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -27,7 +31,13 @@ export const Route = createFileRoute("/business/events")({
 function BusinessEventsPage() {
   useAuth();
   const qc = useQueryClient();
-  const { venues, activeId, activeVenue, setActiveId, isLoading: venuesLoading } = useManagedVenues();
+  const {
+    venues,
+    activeId,
+    activeVenue,
+    setActiveId,
+    isLoading: venuesLoading,
+  } = useManagedVenues();
 
   const { data, isLoading } = useQuery({
     queryKey: ["venue-events", activeId],
@@ -75,7 +85,12 @@ function BusinessEventsPage() {
   const events = data?.events ?? [];
 
   if (venuesLoading) return <PageShell>Loading venues...</PageShell>;
-  if (!venues.length) return <PageShell><NoVenueClaim /></PageShell>;
+  if (!venues.length)
+    return (
+      <PageShell>
+        <NoVenueClaim />
+      </PageShell>
+    );
 
   return (
     <PageShell>
@@ -148,29 +163,39 @@ function BusinessEventsPage() {
       ) : events.length === 0 ? (
         <div className="mt-8 grid place-items-center rounded-2xl border border-dashed p-10 text-center">
           <Calendar className="mb-3 h-10 w-10 text-muted-foreground/50" />
-          <p className="text-sm text-muted-foreground">No events yet. Create your first event to attract visitors.</p>
+          <p className="text-sm text-muted-foreground">
+            No events yet. Create your first event to attract visitors.
+          </p>
         </div>
       ) : (
         <div className="mt-6 space-y-3">
           {events.map((evt: any) => (
-            <motion.div
-              key={evt.id}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
+            <motion.div key={evt.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
               <Card className="flex items-center justify-between p-4">
                 <div>
                   <h3 className="font-semibold">{evt.title}</h3>
                   {evt.description && (
-                    <p className="mt-0.5 text-sm text-muted-foreground line-clamp-1">{evt.description}</p>
+                    <p className="mt-0.5 text-sm text-muted-foreground line-clamp-1">
+                      {evt.description}
+                    </p>
                   )}
                   <div className="mt-1.5 flex items-center gap-3 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
-                      {new Date(evt.starts_at).toLocaleDateString()} {new Date(evt.starts_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                      {new Date(evt.starts_at).toLocaleDateString()}{" "}
+                      {new Date(evt.starts_at).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
                     </span>
                     {evt.ends_at && (
-                      <span>→ {new Date(evt.ends_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                      <span>
+                        →{" "}
+                        {new Date(evt.ends_at).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </span>
                     )}
                   </div>
                 </div>

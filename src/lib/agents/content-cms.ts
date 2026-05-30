@@ -20,9 +20,21 @@ import { supabase } from "../supabase";
 // Types
 // ═══════════════════════════════════════════════════════════
 
-export type ContentType = "push_notification" | "in_app_message" | "blog_post" | "email_campaign" | "social_post";
+export type ContentType =
+  | "push_notification"
+  | "in_app_message"
+  | "blog_post"
+  | "email_campaign"
+  | "social_post";
 export type ContentStatus = "draft" | "scheduled" | "published" | "archived";
-export type AudienceSegment = "all_users" | "free_users" | "black_tier" | "inactive_30d" | "new_users_7d" | "venue_owners" | "promoters";
+export type AudienceSegment =
+  | "all_users"
+  | "free_users"
+  | "black_tier"
+  | "inactive_30d"
+  | "new_users_7d"
+  | "venue_owners"
+  | "promoters";
 
 export interface ContentMetrics {
   sent: number;
@@ -86,35 +98,40 @@ const DEFAULT_TEMPLATES: ContentTemplate[] = [
     id: "tmpl_welcome_push",
     type: "push_notification",
     name: "Welcome Push",
-    bodyTemplate: "Welcome to Confetti, {{userName}}! Ready to discover your city's best-kept secrets? Tap to plan your first night out.",
+    bodyTemplate:
+      "Welcome to Confetti, {{userName}}! Ready to discover your city's best-kept secrets? Tap to plan your first night out.",
     variables: ["userName"],
   },
   {
     id: "tmpl_weekly_digest",
     type: "email_campaign",
     name: "Weekly Digest",
-    bodyTemplate: "Hey {{userName}}, here's what's hot in {{city}} this week: {{highlights}}. Your personalized picks are waiting inside the app!",
+    bodyTemplate:
+      "Hey {{userName}}, here's what's hot in {{city}} this week: {{highlights}}. Your personalized picks are waiting inside the app!",
     variables: ["userName", "city", "highlights"],
   },
   {
     id: "tmpl_venue_spotlight",
     type: "blog_post",
     name: "Venue Spotlight",
-    bodyTemplate: "Spotlight: {{venueName}} in {{city}}. {{description}} Whether you're in the mood for {{vibe}}, this spot delivers. {{specialOffer}}",
+    bodyTemplate:
+      "Spotlight: {{venueName}} in {{city}}. {{description}} Whether you're in the mood for {{vibe}}, this spot delivers. {{specialOffer}}",
     variables: ["venueName", "city", "description", "vibe", "specialOffer"],
   },
   {
     id: "tmpl_promo_announcement",
     type: "in_app_message",
     name: "Promo Announcement",
-    bodyTemplate: "{{promoTitle}} — {{promoDescription}}. Available {{availability}}. Don't miss out!",
+    bodyTemplate:
+      "{{promoTitle}} — {{promoDescription}}. Available {{availability}}. Don't miss out!",
     variables: ["promoTitle", "promoDescription", "availability"],
   },
   {
     id: "tmpl_reengagement_nudge",
     type: "push_notification",
     name: "Re-engagement Nudge",
-    bodyTemplate: "We miss you, {{userName}}! {{city}} has {{newVenueCount}} new spots since your last visit. Come back and see what's changed.",
+    bodyTemplate:
+      "We miss you, {{userName}}! {{city}} has {{newVenueCount}} new spots since your last visit. Come back and see what's changed.",
     variables: ["userName", "city", "newVenueCount"],
   },
 ];
@@ -159,7 +176,7 @@ export function createContent(
     imageUrl?: string;
     ctaText?: string;
     ctaUrl?: string;
-  }
+  },
 ): ContentItem {
   const item: ContentItem = {
     id: nextId("cnt"),
@@ -185,7 +202,7 @@ export function generateContent(
   type: ContentType,
   topic: string,
   tone: string = "playful",
-  variables?: Record<string, string>
+  variables?: Record<string, string>,
 ): ContentItem {
   // Find a matching template
   const template = Array.from(templateStore.values()).find((t) => t.type === type);
@@ -346,7 +363,7 @@ export function createTemplate(
   type: ContentType,
   name: string,
   bodyTemplate: string,
-  variables: string[]
+  variables: string[],
 ): ContentTemplate {
   const template: ContentTemplate = {
     id: nextId("tmpl"),
@@ -434,7 +451,7 @@ export function seedContentDemo(): ContentItem[] {
     "Weekend Vibes Await",
     "DC's hottest new rooftop just dropped. Swipe to see your personalized Friday night plan.",
     ["all_users"],
-    { ctaText: "See My Plan", ctaUrl: "/plans/tonight" }
+    { ctaText: "See My Plan", ctaUrl: "/plans/tonight" },
   );
   push1.status = "published";
   push1.publishedAt = new Date(Date.now() - 2 * 86400000).toISOString();
@@ -446,7 +463,7 @@ export function seedContentDemo(): ContentItem[] {
     "This Week on Confetti: Summer Kickoff",
     "Summer is here and so are the patios! Check out our curated list of the best outdoor dining and rooftop bars in your city. Plus, Confetti Black members get exclusive early access to 3 new venue openings this month.",
     ["all_users"],
-    { ctaText: "Explore Summer Picks", ctaUrl: "/discover/summer" }
+    { ctaText: "Explore Summer Picks", ctaUrl: "/discover/summer" },
   );
   email1.status = "scheduled";
   email1.scheduledAt = new Date(Date.now() + 3 * 86400000).toISOString();
@@ -457,7 +474,7 @@ export function seedContentDemo(): ContentItem[] {
     "Confetti Spotlight: Hidden Gems of Adams Morgan",
     "Adams Morgan has always been DC's melting pot of culture and cuisine. But beyond the well-known strips, a new wave of spots is redefining the neighborhood. Here are 5 places our AI concierge keeps recommending.",
     ["all_users"],
-    { imageUrl: "/images/blog/adams-morgan-hero.jpg" }
+    { imageUrl: "/images/blog/adams-morgan-hero.jpg" },
   );
 
   // In-app message for Black tier
@@ -466,7 +483,7 @@ export function seedContentDemo(): ContentItem[] {
     "Confetti Black: Your June Perks",
     "Your $10 outing credit has refreshed! Plus 3 new prime reservation slots are ready. Tap to browse this month's exclusive experiences.",
     ["black_tier"],
-    { ctaText: "View My Perks", ctaUrl: "/account/perks" }
+    { ctaText: "View My Perks", ctaUrl: "/account/perks" },
   );
   inApp1.status = "published";
   inApp1.publishedAt = new Date(Date.now() - 1 * 86400000).toISOString();
@@ -477,7 +494,7 @@ export function seedContentDemo(): ContentItem[] {
     "push_notification",
     "We Miss You!",
     "It's been a while! 12 new spots have opened in DC since your last visit. Come back and see what's changed.",
-    ["inactive_30d"]
+    ["inactive_30d"],
   );
   push2.status = "scheduled";
   push2.scheduledAt = new Date(Date.now() + 1 * 86400000).toISOString();
@@ -487,7 +504,7 @@ export function seedContentDemo(): ContentItem[] {
     "social_post",
     "Friday Night Sorted",
     "Stop scrolling Yelp. Let Confetti's AI plan your entire night out in 30 seconds. Dinner, drinks, dancing — all matched to your vibe. Link in bio.",
-    ["all_users"]
+    ["all_users"],
   );
   social1.status = "published";
   social1.publishedAt = new Date(Date.now() - 5 * 86400000).toISOString();

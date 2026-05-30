@@ -5,19 +5,8 @@
  */
 
 export type GroupCultureType = "shared" | "mixed" | "open";
-export type Vibe =
-  | "chill"
-  | "romantic"
-  | "turn-up"
-  | "foodie"
-  | "competitive"
-  | "artsy"
-  | "budget";
-export type Occasion =
-  | "girls-night"
-  | "guys-night"
-  | "date-night"
-  | "group-hangout";
+export type Vibe = "chill" | "romantic" | "turn-up" | "foodie" | "competitive" | "artsy" | "budget";
+export type Occasion = "girls-night" | "guys-night" | "date-night" | "group-hangout";
 
 export interface BudgetRange {
   /** per person, USD */

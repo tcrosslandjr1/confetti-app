@@ -65,9 +65,7 @@ export async function getIdeasForOccasion(
     // Merge: AI ideas first (already sorted by quality_score desc), then seeds
     // Deduplicate by title similarity
     const aiTitles = new Set(aiIdeas.map((i) => i.title.toLowerCase()));
-    const uniqueSeeds = seeds.filter(
-      (s) => !aiTitles.has(s.title.toLowerCase()),
-    );
+    const uniqueSeeds = seeds.filter((s) => !aiTitles.has(s.title.toLowerCase()));
     const merged = [...aiIdeas, ...uniqueSeeds];
 
     // Cache the merged result
@@ -84,10 +82,7 @@ export async function getIdeasForOccasion(
  * Get the count of available ideas for an occasion (seeds + cached AI).
  * Non-blocking — returns seed count if no cache is available.
  */
-export function getIdeaCount(
-  occasionSlug: string,
-  citySlug?: string | null,
-): number {
+export function getIdeaCount(occasionSlug: string, citySlug?: string | null): number {
   const key = cacheKey(occasionSlug, citySlug);
   const cached = ideaCache.get(key);
   if (cached) return cached.ideas.length;
@@ -100,10 +95,7 @@ export function getIdeaCount(
  * Prefetch ideas for multiple occasions (e.g., on page load).
  * Fires fetches in parallel, populates cache silently.
  */
-export function prefetchIdeas(
-  occasionSlugs: string[],
-  citySlug?: string | null,
-): void {
+export function prefetchIdeas(occasionSlugs: string[], citySlug?: string | null): void {
   for (const slug of occasionSlugs) {
     // Fire and forget
     getIdeasForOccasion(slug, citySlug).catch(() => {});
@@ -113,10 +105,7 @@ export function prefetchIdeas(
 /**
  * Invalidate cached ideas for an occasion (e.g., after on-demand generation).
  */
-export function invalidateIdeaCache(
-  occasionSlug?: string,
-  citySlug?: string | null,
-): void {
+export function invalidateIdeaCache(occasionSlug?: string, citySlug?: string | null): void {
   if (occasionSlug) {
     ideaCache.delete(cacheKey(occasionSlug, citySlug));
   } else {

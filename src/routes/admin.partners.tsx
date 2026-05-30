@@ -304,9 +304,7 @@ function AdminPartners() {
                           Boost {c.boost_strength}/10
                         </span>
                       </div>
-                      <h3 className="mt-1 font-display text-lg font-bold leading-snug">
-                        {c.name}
-                      </h3>
+                      <h3 className="mt-1 font-display text-lg font-bold leading-snug">{c.name}</h3>
                       <div className="mt-0.5 text-sm text-cream/70">
                         {c.venue_name}
                         {c.venue_city ? ` · ${c.venue_city}` : ""}

@@ -73,4 +73,3 @@ export async function decideAgentProposal(
   if (!data) throw new Error("Empty response");
   return data;
 }
-

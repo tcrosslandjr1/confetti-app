@@ -1,22 +1,87 @@
 import { funSectors, FunSector } from "./funSectors";
 
 const keywordMap: Array<{ keywords: string[]; sectorIds: string[] }> = [
-  { keywords: ["food", "eat", "restaurant", "brunch", "dinner"], sectorIds: ["dining", "viral-eats"] },
-  { keywords: ["drink", "bar", "club", "nightlife", "rooftop", "speakeasy"], sectorIds: ["drinks-nightlife", "adult-after-dark"] },
-  { keywords: ["event", "events", "tonight", "ticket", "tickets", "music", "show", "comedy", "theater", "concert"], sectorIds: ["live-entertainment", "festivals-seasonal"] },
+  {
+    keywords: ["food", "eat", "restaurant", "brunch", "dinner"],
+    sectorIds: ["dining", "viral-eats"],
+  },
+  {
+    keywords: ["drink", "bar", "club", "nightlife", "rooftop", "speakeasy"],
+    sectorIds: ["drinks-nightlife", "adult-after-dark"],
+  },
+  {
+    keywords: [
+      "event",
+      "events",
+      "tonight",
+      "ticket",
+      "tickets",
+      "music",
+      "show",
+      "comedy",
+      "theater",
+      "concert",
+    ],
+    sectorIds: ["live-entertainment", "festivals-seasonal"],
+  },
   { keywords: ["museum", "art", "gallery", "culture"], sectorIds: ["arts-culture"] },
-  { keywords: ["immersive", "escape", "vr", "popup", "pop-up"], sectorIds: ["immersive-experiences"] },
+  {
+    keywords: ["immersive", "escape", "vr", "popup", "pop-up"],
+    sectorIds: ["immersive-experiences"],
+  },
   { keywords: ["outside", "outdoor", "hike", "park", "sunset"], sectorIds: ["outdoor-nature"] },
   { keywords: ["kids", "family", "children"], sectorIds: ["family-kids"] },
-  { keywords: ["date", "romantic", "anniversary"], sectorIds: ["romantic-date-night", "dining", "drinks-nightlife"] },
-  { keywords: ["golf", "mini golf", "putt", "driving range", "simulator", "simulators"], sectorIds: ["sports-recreation", "social-group-activities"] },
-  { keywords: ["game", "games", "board game", "board games", "barcade", "arcade", "group", "friends", "crew", "karaoke", "trivia"], sectorIds: ["social-group-activities", "sports-recreation"] },
-  { keywords: ["tiktok", "instagram", "viral", "creator"], sectorIds: ["viral-eats", "immersive-experiences", "drinks-nightlife"] },
-  { keywords: ["luxury", "birthday", "celebrate", "special"], sectorIds: ["luxury-special-occasion"] },
+  {
+    keywords: ["date", "romantic", "anniversary"],
+    sectorIds: ["romantic-date-night", "dining", "drinks-nightlife"],
+  },
+  {
+    keywords: ["golf", "mini golf", "putt", "driving range", "simulator", "simulators"],
+    sectorIds: ["sports-recreation", "social-group-activities"],
+  },
+  {
+    keywords: [
+      "game",
+      "games",
+      "board game",
+      "board games",
+      "barcade",
+      "arcade",
+      "group",
+      "friends",
+      "crew",
+      "karaoke",
+      "trivia",
+    ],
+    sectorIds: ["social-group-activities", "sports-recreation"],
+  },
+  {
+    keywords: ["tiktok", "instagram", "viral", "creator"],
+    sectorIds: ["viral-eats", "immersive-experiences", "drinks-nightlife"],
+  },
+  {
+    keywords: ["luxury", "birthday", "celebrate", "special"],
+    sectorIds: ["luxury-special-occasion"],
+  },
   { keywords: ["class", "learn", "workshop"], sectorIds: ["learning-classes"] },
-  { keywords: ["festival", "seasonal", "weekend", "this weekend", "happening", "happenings", "pop up", "pop-up"], sectorIds: ["festivals-seasonal"] },
+  {
+    keywords: [
+      "festival",
+      "seasonal",
+      "weekend",
+      "this weekend",
+      "happening",
+      "happenings",
+      "pop up",
+      "pop-up",
+    ],
+    sectorIds: ["festivals-seasonal"],
+  },
   { keywords: ["tour", "explore", "landmark", "neighborhood"], sectorIds: ["local-exploration"] },
-  { keywords: ["adult", "late", "after dark", "cigar", "burlesque"], sectorIds: ["adult-after-dark"] }
+  {
+    keywords: ["adult", "late", "after dark", "cigar", "burlesque"],
+    sectorIds: ["adult-after-dark"],
+  },
 ];
 
 export function getAgentSectorContext() {
@@ -25,7 +90,7 @@ export function getAgentSectorContext() {
     label: sector.label,
     description: sector.description,
     examples: sector.examples,
-    vibes: sector.vibes
+    vibes: sector.vibes,
   }));
 }
 
@@ -56,6 +121,6 @@ export function buildAgentReply(prompt: string) {
 
   return {
     sectors,
-    text: `I’d scout this across ${sectorNames}. Start with ${lead.label.toLowerCase()} signals, then cross-check live hours, travel time, parking or valet, and whether the spot has social traction before building the plan.`
+    text: `I’d scout this across ${sectorNames}. Start with ${lead.label.toLowerCase()} signals, then cross-check live hours, travel time, parking or valet, and whether the spot has social traction before building the plan.`,
   };
 }

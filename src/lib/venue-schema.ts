@@ -6,59 +6,47 @@
 import { z } from "zod";
 import type { GalleryItem } from "@/components/venue/VenueGallery";
 
-const trimmedString = z
-  .union([z.string(), z.number(), z.null(), z.undefined()])
-  .transform((v) => {
-    if (v == null) return null;
-    const s = String(v).trim();
-    return s.length > 0 ? s : null;
-  });
+const trimmedString = z.union([z.string(), z.number(), z.null(), z.undefined()]).transform((v) => {
+  if (v == null) return null;
+  const s = String(v).trim();
+  return s.length > 0 ? s : null;
+});
 
-const optionalUrl = z
-  .union([z.string(), z.null(), z.undefined()])
-  .transform((v) => {
-    if (typeof v !== "string") return null;
-    const s = v.trim();
-    if (!s) return null;
-    try {
-      // Allow tel: links separately
-      if (s.startsWith("tel:")) return s;
-      const u = new URL(s);
-      if (u.protocol !== "http:" && u.protocol !== "https:") return null;
-      return u.toString();
-    } catch {
-      return null;
-    }
-  });
+const optionalUrl = z.union([z.string(), z.null(), z.undefined()]).transform((v) => {
+  if (typeof v !== "string") return null;
+  const s = v.trim();
+  if (!s) return null;
+  try {
+    // Allow tel: links separately
+    if (s.startsWith("tel:")) return s;
+    const u = new URL(s);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+    return u.toString();
+  } catch {
+    return null;
+  }
+});
 
-const rating = z
-  .union([z.number(), z.string(), z.null(), z.undefined()])
-  .transform((v) => {
-    if (v == null || v === "") return null;
-    const n = typeof v === "number" ? v : Number(v);
-    if (!Number.isFinite(n)) return null;
-    if (n <= 0 || n > 5) return null;
-    return Math.round(n * 10) / 10;
-  });
+const rating = z.union([z.number(), z.string(), z.null(), z.undefined()]).transform((v) => {
+  if (v == null || v === "") return null;
+  const n = typeof v === "number" ? v : Number(v);
+  if (!Number.isFinite(n)) return null;
+  if (n <= 0 || n > 5) return null;
+  return Math.round(n * 10) / 10;
+});
 
-const priceLevel = z
-  .union([z.number(), z.string(), z.null(), z.undefined()])
-  .transform((v) => {
-    if (v == null || v === "") return null;
-    const n = typeof v === "number" ? v : Number(v);
-    if (!Number.isInteger(n)) return null;
-    if (n < 1 || n > 4) return null;
-    return n as 1 | 2 | 3 | 4;
-  });
+const priceLevel = z.union([z.number(), z.string(), z.null(), z.undefined()]).transform((v) => {
+  if (v == null || v === "") return null;
+  const n = typeof v === "number" ? v : Number(v);
+  if (!Number.isInteger(n)) return null;
+  if (n < 1 || n > 4) return null;
+  return n as 1 | 2 | 3 | 4;
+});
 
-const stringArray = z
-  .union([z.array(z.unknown()), z.null(), z.undefined()])
-  .transform((v) => {
-    if (!Array.isArray(v)) return [] as string[];
-    return v
-      .map((x) => (typeof x === "string" ? x.trim() : ""))
-      .filter((x) => x.length > 0);
-  });
+const stringArray = z.union([z.array(z.unknown()), z.null(), z.undefined()]).transform((v) => {
+  if (!Array.isArray(v)) return [] as string[];
+  return v.map((x) => (typeof x === "string" ? x.trim() : "")).filter((x) => x.length > 0);
+});
 
 const galleryArray = z
   .union([z.array(z.unknown()), z.null(), z.undefined()])

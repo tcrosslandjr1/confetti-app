@@ -4,10 +4,7 @@
 import { useState, useEffect } from "react";
 import { checkCityGateSync, checkCityGateAsync, type GateStatus } from "@/lib/city-gate";
 
-export type CityGateState =
-  | { phase: "loading" }
-  | { phase: "allowed" }
-  | { phase: "blocked" };
+export type CityGateState = { phase: "loading" } | { phase: "allowed" } | { phase: "blocked" };
 
 export function useCityGate(): CityGateState {
   const [state, setState] = useState<CityGateState>(() => {

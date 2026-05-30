@@ -65,9 +65,7 @@ export function CitySearch() {
     if (!term) return list;
     return list.filter(
       (c) =>
-        normalize(c.name).includes(term) ||
-        normalize(c.region).includes(term) ||
-        c.emoji === term,
+        normalize(c.name).includes(term) || normalize(c.region).includes(term) || c.emoji === term,
     );
   }, [query, filter]);
 
@@ -81,10 +79,7 @@ export function CitySearch() {
     };
   }, [filtered, query, filter]);
 
-  const flatList = useMemo(
-    () => Object.values(grouped).flat(),
-    [grouped],
-  );
+  const flatList = useMemo(() => Object.values(grouped).flat(), [grouped]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -321,8 +316,7 @@ export function CityPickerTrigger({ className }: { className?: string }) {
     const term = normalize(query);
     if (!term) return CITIES.slice(0, 6);
     return CITIES.filter(
-      (c) =>
-        normalize(c.name).includes(term) || normalize(c.region).includes(term),
+      (c) => normalize(c.name).includes(term) || normalize(c.region).includes(term),
     ).slice(0, 6);
   }, [query]);
 

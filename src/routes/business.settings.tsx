@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { ArrowLeft, Save, Building2 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import { getManagedVenue, updateVenueSettings } from "@/lib/business-api";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -78,7 +82,12 @@ function BusinessSettingsPage() {
     setForm((prev) => ({ ...prev, [key]: value }));
 
   if (venuesLoading) return <PageShell>Loading venues...</PageShell>;
-  if (!venues.length) return <PageShell><NoVenueClaim /></PageShell>;
+  if (!venues.length)
+    return (
+      <PageShell>
+        <NoVenueClaim />
+      </PageShell>
+    );
 
   return (
     <PageShell>
@@ -109,12 +118,23 @@ function BusinessSettingsPage() {
           />
           <div className="grid grid-cols-2 gap-4">
             <Field label="City" value={form.city} onChange={(v) => update("city", v)} />
-            <Field label="Neighborhood" value={form.neighborhood} onChange={(v) => update("neighborhood", v)} />
+            <Field
+              label="Neighborhood"
+              value={form.neighborhood}
+              onChange={(v) => update("neighborhood", v)}
+            />
           </div>
-          <Field label="Website" value={form.website} onChange={(v) => update("website", v)} placeholder="https://..." />
+          <Field
+            label="Website"
+            value={form.website}
+            onChange={(v) => update("website", v)}
+            placeholder="https://..."
+          />
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">Category</label>
+              <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                Category
+              </label>
               <select
                 value={form.category}
                 onChange={(e) => update("category", e.target.value)}
@@ -132,7 +152,9 @@ function BusinessSettingsPage() {
               </select>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">Price Band</label>
+              <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                Price Band
+              </label>
               <select
                 value={form.price_band}
                 onChange={(e) => update("price_band", e.target.value)}

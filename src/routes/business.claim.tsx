@@ -50,7 +50,15 @@ function ClaimPage() {
     queryKey: ["my-business-claims"],
     queryFn: async () => {
       const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return { claims: [] as Array<{ id: string; proposed_name: string | null; venue_id: string | null; status: string }> };
+      if (!u.user)
+        return {
+          claims: [] as Array<{
+            id: string;
+            proposed_name: string | null;
+            venue_id: string | null;
+            status: string;
+          }>,
+        };
       const { data, error } = await supabase
         .from("venue_claims")
         .select("*")
@@ -67,7 +75,9 @@ function ClaimPage() {
       const q = submittedQuery.replace(/[%,]/g, " ").trim();
       const { data, error } = await supabase
         .from("venues")
-        .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website")
+        .select(
+          "id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website",
+        )
         .or(`name.ilike.%${q}%,city.ilike.%${q}%,neighborhood.ilike.%${q}%`)
         .order("name")
         .limit(20);
@@ -216,8 +226,8 @@ function VerifyForm({
           user_id: u.user.id,
           venue_id: selected?.id ?? null,
           proposed_name: selected ? null : (proposedName ?? null),
-          proposed_city: selected ? null : (proposedCity || null),
-          proposed_website: selected ? null : (proposedWebsite || null),
+          proposed_city: selected ? null : proposedCity || null,
+          proposed_website: selected ? null : proposedWebsite || null,
           method,
           evidence_handle: evidenceHandle,
           notes: notes || null,

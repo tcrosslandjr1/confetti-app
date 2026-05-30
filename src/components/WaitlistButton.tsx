@@ -66,9 +66,7 @@ export function WaitlistButton({
 
       {expanded && (
         <div className="absolute right-0 top-full z-10 mt-2 flex flex-col gap-3 rounded-xl border-2 border-ink bg-white p-4 shadow-brut">
-          <span className="font-display text-sm font-bold text-cream">
-            Join waitlist
-          </span>
+          <span className="font-display text-sm font-bold text-cream">Join waitlist</span>
 
           <div>
             <label className="mb-1 block font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60">

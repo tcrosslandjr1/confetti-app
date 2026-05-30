@@ -19,7 +19,14 @@ export const DATE_NIGHT_TEMPLATE: TemplateStop[] = [
     slot: "activity",
     label: "Activity",
     category: "social",
-    anchorOptions: ["lounge", "hookah-lounge", "casino-night", "live-music", "comedy-show", "dance-club"],
+    anchorOptions: [
+      "lounge",
+      "hookah-lounge",
+      "casino-night",
+      "live-music",
+      "comedy-show",
+      "dance-club",
+    ],
     swapEligible: true,
   },
   {

@@ -115,7 +115,10 @@ export function buildPinnedVenueNote(venues: PinnedVenue[]): string | undefined 
         v.neighborhood ? `, ${v.neighborhood})` : v.category ? ")" : "",
         v.snippet ? ` — "${v.snippet}"` : "",
       ];
-      return parts.join("").replace(/\(\s*,/, "(").replace(/\(\s*\)/, "");
+      return parts
+        .join("")
+        .replace(/\(\s*,/, "(")
+        .replace(/\(\s*\)/, "");
     })
     .join("\n");
 

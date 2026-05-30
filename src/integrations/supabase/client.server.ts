@@ -13,7 +13,7 @@ function createSupabaseAdminClient() {
   // Guard: if env URL points to wrong project, force Confetti
   if (SUPABASE_URL && !SUPABASE_URL.includes("zfeckvxkulreyapadanf")) {
     console.warn(
-      `[Supabase Admin] WARNING: SUPABASE_URL points to "${SUPABASE_URL}" instead of Confetti. Using hardcoded fallback.`
+      `[Supabase Admin] WARNING: SUPABASE_URL points to "${SUPABASE_URL}" instead of Confetti. Using hardcoded fallback.`,
     );
     SUPABASE_URL = CONFETTI_SUPABASE_URL;
   }

@@ -51,7 +51,9 @@ function Dashboard() {
   const load = async () => {
     setLoading(true);
     setError(null);
-    const since = new Date(Date.now() - (RANGES.find((r) => r.key === range)?.ms ?? 0)).toISOString();
+    const since = new Date(
+      Date.now() - (RANGES.find((r) => r.key === range)?.ms ?? 0),
+    ).toISOString();
     const { data, error } = await supabase
       .from("analytics_events")
       .select("event_type,event_name,path,metadata,created_at")
@@ -78,7 +80,16 @@ function Dashboard() {
       const key = slug ?? `__${name}`;
       let s = bySlug.get(key);
       if (!s) {
-        s = { city: name, slug, pageViews: 0, planCompleted: 0, planBooked: 0, planSaved: 0, adClicks: 0, ctaClicks: 0 };
+        s = {
+          city: name,
+          slug,
+          pageViews: 0,
+          planCompleted: 0,
+          planBooked: 0,
+          planSaved: 0,
+          adClicks: 0,
+          ctaClicks: 0,
+        };
         bySlug.set(key, s);
       }
       return s;
@@ -100,7 +111,8 @@ function Dashboard() {
       }
 
       if (!metaSlug && !metaCity) continue;
-      const cityName = metaCity ?? CITIES.find((c) => c.slug === metaSlug)?.name ?? metaSlug ?? "Unknown";
+      const cityName =
+        metaCity ?? CITIES.find((c) => c.slug === metaSlug)?.name ?? metaSlug ?? "Unknown";
       const s = ensure(metaSlug, cityName);
 
       if (r.event_name === "plan_completed") s.planCompleted += 1;
@@ -136,7 +148,10 @@ function Dashboard() {
       <header className="border-b border-border bg-card">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <Link to="/admin/console" className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+            <Link
+              to="/admin/console"
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            >
               <ArrowLeft className="h-4 w-4" /> Admin
             </Link>
             <span className="text-muted-foreground">/</span>
@@ -151,7 +166,9 @@ function Dashboard() {
                   key={r.key}
                   onClick={() => setRange(r.key)}
                   className={`rounded-md px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider ${
-                    range === r.key ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                    range === r.key
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {r.label}
@@ -178,10 +195,26 @@ function Dashboard() {
 
         {/* Totals */}
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <StatCard icon={<Eye className="h-4 w-4" />} label="City Page Views" value={totals.pageViews} />
-          <StatCard icon={<Sparkles className="h-4 w-4" />} label="Plans Completed" value={totals.planCompleted} />
-          <StatCard icon={<Sparkles className="h-4 w-4" />} label="Plans Booked" value={totals.planBooked} />
-          <StatCard icon={<MousePointerClick className="h-4 w-4" />} label="Ad Clicks" value={totals.adClicks} />
+          <StatCard
+            icon={<Eye className="h-4 w-4" />}
+            label="City Page Views"
+            value={totals.pageViews}
+          />
+          <StatCard
+            icon={<Sparkles className="h-4 w-4" />}
+            label="Plans Completed"
+            value={totals.planCompleted}
+          />
+          <StatCard
+            icon={<Sparkles className="h-4 w-4" />}
+            label="Plans Booked"
+            value={totals.planBooked}
+          />
+          <StatCard
+            icon={<MousePointerClick className="h-4 w-4" />}
+            label="Ad Clicks"
+            value={totals.adClicks}
+          />
         </div>
 
         {/* Table */}
@@ -216,12 +249,20 @@ function Dashboard() {
                 </thead>
                 <tbody>
                   {stats.map((s) => {
-                    const cvr = s.pageViews > 0 ? ((s.planCompleted / s.pageViews) * 100).toFixed(1) : "—";
+                    const cvr =
+                      s.pageViews > 0 ? ((s.planCompleted / s.pageViews) * 100).toFixed(1) : "—";
                     return (
-                      <tr key={s.slug ?? s.city} className="border-t border-border/60 hover:bg-muted/30">
+                      <tr
+                        key={s.slug ?? s.city}
+                        className="border-t border-border/60 hover:bg-muted/30"
+                      >
                         <td className="px-5 py-3 font-medium">
                           {s.slug ? (
-                            <Link to="/cities/$slug" params={{ slug: s.slug }} className="hover:text-primary hover:underline">
+                            <Link
+                              to="/cities/$slug"
+                              params={{ slug: s.slug }}
+                              className="hover:text-primary hover:underline"
+                            >
                               {s.city}
                             </Link>
                           ) : (
@@ -247,8 +288,8 @@ function Dashboard() {
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground">
-          City Page Views: hits on <code>/cities/[slug]</code>. Plans/Ad Clicks: events tagged with the
-          user's selected city. CVR = plans completed ÷ city page views.
+          City Page Views: hits on <code>/cities/[slug]</code>. Plans/Ad Clicks: events tagged with
+          the user's selected city. CVR = plans completed ÷ city page views.
         </p>
       </main>
     </div>
@@ -261,7 +302,9 @@ function StatCard({ icon, label, value }: { icon: React.ReactNode; label: string
       <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
         {icon} {label}
       </div>
-      <div className="mt-2 font-display text-3xl font-black tracking-tight">{value.toLocaleString()}</div>
+      <div className="mt-2 font-display text-3xl font-black tracking-tight">
+        {value.toLocaleString()}
+      </div>
     </div>
   );
 }

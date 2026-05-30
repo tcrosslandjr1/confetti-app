@@ -20,8 +20,7 @@ function startOfUtcDay(d: Date): Date {
 
 export const getPartnerStats = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .handler(
-  async (): Promise<PartnerStatsDTO> => {
+  .handler(async (): Promise<PartnerStatsDTO> => {
     const now = new Date();
     const today = startOfUtcDay(now);
     const start30 = new Date(today.getTime() - 30 * 86400000);
@@ -81,5 +80,4 @@ export const getPartnerStats = createServerFn({ method: "POST" })
         placements30d: new Array(30).fill(0),
       };
     }
-  },
-);
+  });

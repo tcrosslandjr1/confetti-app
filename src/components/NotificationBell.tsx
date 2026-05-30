@@ -18,8 +18,7 @@ interface Props {
 }
 
 export function NotificationBell({ userId }: Props) {
-  const { notifications, unreadCount, markRead, markAllRead } =
-    useNotifications(userId);
+  const { notifications, unreadCount, markRead, markAllRead } = useNotifications(userId);
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -97,9 +96,7 @@ export function NotificationBell({ userId }: Props) {
           </div>
 
           {notifications.length === 0 ? (
-            <div className="p-6 text-center text-sm text-cream/45">
-              No notifications yet
-            </div>
+            <div className="p-6 text-center text-sm text-cream/45">No notifications yet</div>
           ) : (
             <ul className="divide-y divide-ink/6" role="list">
               {notifications.slice(0, 20).map((n) => (
@@ -161,13 +158,9 @@ function NotifItem({
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-medium text-cream">{notification.title}</p>
           {notification.body && (
-            <p className="mt-0.5 line-clamp-2 text-xs text-cream/55">
-              {notification.body}
-            </p>
+            <p className="mt-0.5 line-clamp-2 text-xs text-cream/55">{notification.body}</p>
           )}
-          <span className="mt-1 block font-mono text-[10px] text-cream/40">
-            {timeAgo}
-          </span>
+          <span className="mt-1 block font-mono text-[10px] text-cream/40">{timeAgo}</span>
         </div>
       </div>
     </li>

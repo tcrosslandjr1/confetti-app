@@ -2,13 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  Zap,
-  Check,
-  X,
-  ExternalLink,
-  Flame,
-} from "lucide-react";
+import { Zap, Check, X, ExternalLink, Flame } from "lucide-react";
 import { AdminPinGate, isAdminPinVerified } from "@/components/admin/AdminPinGate";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -66,19 +60,13 @@ function TrendRadarDashboard() {
   });
 
   async function handleApprove(venueId: string) {
-    await supabase
-      .from("viral_venues")
-      .update({ verified: true })
-      .eq("id", venueId);
+    await supabase.from("viral_venues").update({ verified: true }).eq("id", venueId);
     queryClient.invalidateQueries({ queryKey: ["admin", "trend-radar"] });
     toast.success("Venue approved — now live in customer feed");
   }
 
   async function handleReject(venueId: string) {
-    await supabase
-      .from("viral_venues")
-      .delete()
-      .eq("id", venueId);
+    await supabase.from("viral_venues").delete().eq("id", venueId);
     queryClient.invalidateQueries({ queryKey: ["admin", "trend-radar"] });
     toast("Venue rejected and removed");
   }
@@ -106,16 +94,28 @@ function TrendRadarDashboard() {
         {/* Stats row */}
         <div className="mt-4 flex gap-3">
           <div className="flex-1 rounded-xl border-2 border-cream/10 bg-cream/60 p-3 text-center">
-            <div className="font-display text-xl font-extrabold text-cream">{stats?.total ?? "—"}</div>
-            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/45">Total</div>
+            <div className="font-display text-xl font-extrabold text-cream">
+              {stats?.total ?? "—"}
+            </div>
+            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/45">
+              Total
+            </div>
           </div>
           <div className="flex-1 rounded-xl border-2 border-coral/30 bg-coral/5 p-3 text-center">
-            <div className="font-display text-xl font-extrabold text-coral">{stats?.pending ?? "—"}</div>
-            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/45">Pending</div>
+            <div className="font-display text-xl font-extrabold text-coral">
+              {stats?.pending ?? "—"}
+            </div>
+            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/45">
+              Pending
+            </div>
           </div>
           <div className="flex-1 rounded-xl border-2 border-green-500/30 bg-green-50 p-3 text-center">
-            <div className="font-display text-xl font-extrabold text-green-600">{stats?.approved ?? "—"}</div>
-            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/45">Approved</div>
+            <div className="font-display text-xl font-extrabold text-green-600">
+              {stats?.approved ?? "—"}
+            </div>
+            <div className="font-mono text-[9px] uppercase tracking-widest text-cream/45">
+              Approved
+            </div>
           </div>
         </div>
       </div>
@@ -188,7 +188,8 @@ function TrendRadarDashboard() {
                 </div>
 
                 <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-cream/45">
-                  {v.neighborhood}{v.city ? ` · ${v.city}` : ""}
+                  {v.neighborhood}
+                  {v.city ? ` · ${v.city}` : ""}
                 </div>
 
                 {v.summary && (
@@ -216,16 +217,17 @@ function TrendRadarDashboard() {
                   <span>{v.mention_count ?? 0} mentions</span>
                   <span>·</span>
                   <span>
-                    {v.discovered_at
-                      ? new Date(v.discovered_at).toLocaleDateString()
-                      : "—"}
+                    {v.discovered_at ? new Date(v.discovered_at).toLocaleDateString() : "—"}
                   </span>
                   {v.source_urls && Object.keys(v.source_urls).length > 0 && (
                     <>
                       <span>·</span>
                       <span className="flex items-center gap-0.5">
                         <ExternalLink className="size-2.5" />{" "}
-                        {Array.isArray(v.source_urls) ? v.source_urls.length : Object.keys(v.source_urls).length} sources
+                        {Array.isArray(v.source_urls)
+                          ? v.source_urls.length
+                          : Object.keys(v.source_urls).length}{" "}
+                        sources
                       </span>
                     </>
                   )}

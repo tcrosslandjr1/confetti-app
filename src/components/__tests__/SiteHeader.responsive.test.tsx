@@ -26,7 +26,11 @@ vi.mock("@tanstack/react-router", () => ({
       {children}
     </a>
   ),
-  useRouter: () => ({ navigate: vi.fn(), history: { push: vi.fn() } }),
+  useRouter: () => ({
+    navigate: vi.fn(),
+    history: { push: vi.fn() },
+    preloadRoute: vi.fn().mockResolvedValue(undefined),
+  }),
   useLocation: () => ({ pathname: "/" }),
 }));
 

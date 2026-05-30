@@ -26,16 +26,14 @@ export function StarRating({
   const interactive = !!onChange;
 
   const px = size === "sm" ? "h-3.5 w-3.5" : size === "lg" ? "h-6 w-6" : "h-4.5 w-4.5";
-  const textSize =
-    size === "sm" ? "text-[11px]" : size === "lg" ? "text-base" : "text-xs";
+  const textSize = size === "sm" ? "text-[11px]" : size === "lg" ? "text-base" : "text-xs";
 
   return (
     <div className="inline-flex items-center gap-1">
       <div className="flex">
         {[1, 2, 3, 4, 5].map((star) => {
           const filled = interactive ? (hover || value) >= star : value >= star;
-          const half =
-            !interactive && !filled && value >= star - 0.5;
+          const half = !interactive && !filled && value >= star - 0.5;
           return (
             <button
               key={star}
@@ -64,9 +62,7 @@ export function StarRating({
         <span className={`${textSize} font-bold text-cream/70`}>
           {value > 0 ? value.toFixed(1) : "—"}
           {count != null && (
-            <span className="ml-1 font-normal text-cream/50">
-              ({count.toLocaleString()})
-            </span>
+            <span className="ml-1 font-normal text-cream/50">({count.toLocaleString()})</span>
           )}
         </span>
       )}

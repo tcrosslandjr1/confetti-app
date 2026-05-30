@@ -93,19 +93,14 @@ export function ConfettiMap({
   if (!GOOGLE_MAPS_API_KEY) {
     // Pick the most relevant destination: current stop → last stop → first stop.
     const destStop =
-      (currentIdx >= 0 ? stops[currentIdx] : undefined) ??
-      stops[stops.length - 1] ??
-      stops[0];
+      (currentIdx >= 0 ? stops[currentIdx] : undefined) ?? stops[stops.length - 1] ?? stops[0];
     const query = destStop
       ? `${destStop.name}${destStop.area ? `, ${destStop.area}` : `, ${fallbackCity}`}`
       : fallbackCity;
     const heightPx = typeof height === "number" ? height : 360;
     const src = `/api/maps/satellite?q=${encodeURIComponent(query)}&w=1200&h=${Math.round(heightPx * 2)}&zoom=17`;
     return (
-      <div
-        className={`relative w-full overflow-hidden bg-cream ${className}`}
-        style={{ height }}
-      >
+      <div className={`relative w-full overflow-hidden bg-cream ${className}`} style={{ height }}>
         <img
           src={src}
           alt={`Satellite view of ${query}`}

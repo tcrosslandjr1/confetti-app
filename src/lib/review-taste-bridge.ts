@@ -60,8 +60,7 @@ export async function submitVenueReview(review: VenueReviewPayload) {
     .eq("venue_id", review.venueId);
 
   if (allRatings?.length) {
-    const avg =
-      allRatings.reduce((sum, r) => sum + r.rating, 0) / allRatings.length;
+    const avg = allRatings.reduce((sum, r) => sum + r.rating, 0) / allRatings.length;
     await supabase
       .from("venues")
       .update({ average_rating: Math.round(avg * 10) / 10 })
@@ -126,10 +125,12 @@ async function mergeTasteSignals(
   if (review.foodRating && review.foodRating >= 4 && cuisineTags.length) {
     const updatedCuisines = addUnique(prefs.cuisines, cuisineTags);
     if (updatedCuisines.length !== prefs.cuisines.length) {
-      await supabase.from("user_preferences").upsert(
-        { user_id: (await supabase.auth.getUser()).data.user!.id, cuisines: updatedCuisines },
-        { onConflict: "user_id" },
-      );
+      await supabase
+        .from("user_preferences")
+        .upsert(
+          { user_id: (await supabase.auth.getUser()).data.user!.id, cuisines: updatedCuisines },
+          { onConflict: "user_id" },
+        );
     }
   }
 

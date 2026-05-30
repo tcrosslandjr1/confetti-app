@@ -157,7 +157,10 @@ export function SiteFooter() {
                 <button
                   type="button"
                   key={label}
-                  onClick={(e) => { e.preventDefault(); toast("Follow us — coming soon!"); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toast("Follow us — coming soon!");
+                  }}
                   aria-label={label}
                   className={`inline-grid h-11 w-11 place-items-center rounded-full border-2 border-cream/30 text-cream transition-pop hover:-translate-y-0.5 ${hover}`}
                 >

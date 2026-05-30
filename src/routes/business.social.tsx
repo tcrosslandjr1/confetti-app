@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { ArrowLeft, Save, Unlink } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import { getManagedVenue, updateVenueSocial, disconnectSocial } from "@/lib/business-api";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -91,7 +95,12 @@ function BusinessSocialPage() {
   });
 
   if (venuesLoading) return <PageShell>Loading venues...</PageShell>;
-  if (!venues.length) return <PageShell><NoVenueClaim /></PageShell>;
+  if (!venues.length)
+    return (
+      <PageShell>
+        <NoVenueClaim />
+      </PageShell>
+    );
 
   return (
     <PageShell>
@@ -124,10 +133,30 @@ function BusinessSocialPage() {
                 </Button>
               )}
             </div>
-            <SocialField label="Profile URL" value={ig.url} onChange={(v) => setIg((p) => ({ ...p, url: v }))} placeholder="https://instagram.com/yourvenue" />
-            <SocialField label="Handle" value={ig.handle} onChange={(v) => setIg((p) => ({ ...p, handle: v }))} placeholder="@yourvenue" />
-            <SocialField label="Hashtags" value={ig.hashtags} onChange={(v) => setIg((p) => ({ ...p, hashtags: v }))} placeholder="nightlife, dc, rooftop" />
-            <SocialField label="Location Tag" value={ig.locationTag} onChange={(v) => setIg((p) => ({ ...p, locationTag: v }))} placeholder="Your Venue, Washington DC" />
+            <SocialField
+              label="Profile URL"
+              value={ig.url}
+              onChange={(v) => setIg((p) => ({ ...p, url: v }))}
+              placeholder="https://instagram.com/yourvenue"
+            />
+            <SocialField
+              label="Handle"
+              value={ig.handle}
+              onChange={(v) => setIg((p) => ({ ...p, handle: v }))}
+              placeholder="@yourvenue"
+            />
+            <SocialField
+              label="Hashtags"
+              value={ig.hashtags}
+              onChange={(v) => setIg((p) => ({ ...p, hashtags: v }))}
+              placeholder="nightlife, dc, rooftop"
+            />
+            <SocialField
+              label="Location Tag"
+              value={ig.locationTag}
+              onChange={(v) => setIg((p) => ({ ...p, locationTag: v }))}
+              placeholder="Your Venue, Washington DC"
+            />
           </Card>
 
           {/* TikTok */}
@@ -147,10 +176,30 @@ function BusinessSocialPage() {
                 </Button>
               )}
             </div>
-            <SocialField label="Profile URL" value={tk.url} onChange={(v) => setTk((p) => ({ ...p, url: v }))} placeholder="https://tiktok.com/@yourvenue" />
-            <SocialField label="Handle" value={tk.handle} onChange={(v) => setTk((p) => ({ ...p, handle: v }))} placeholder="@yourvenue" />
-            <SocialField label="Hashtags" value={tk.hashtags} onChange={(v) => setTk((p) => ({ ...p, hashtags: v }))} placeholder="nightlife, dc, vibes" />
-            <SocialField label="Location Tag" value={tk.locationTag} onChange={(v) => setTk((p) => ({ ...p, locationTag: v }))} placeholder="Your Venue, Washington DC" />
+            <SocialField
+              label="Profile URL"
+              value={tk.url}
+              onChange={(v) => setTk((p) => ({ ...p, url: v }))}
+              placeholder="https://tiktok.com/@yourvenue"
+            />
+            <SocialField
+              label="Handle"
+              value={tk.handle}
+              onChange={(v) => setTk((p) => ({ ...p, handle: v }))}
+              placeholder="@yourvenue"
+            />
+            <SocialField
+              label="Hashtags"
+              value={tk.hashtags}
+              onChange={(v) => setTk((p) => ({ ...p, hashtags: v }))}
+              placeholder="nightlife, dc, vibes"
+            />
+            <SocialField
+              label="Location Tag"
+              value={tk.locationTag}
+              onChange={(v) => setTk((p) => ({ ...p, locationTag: v }))}
+              placeholder="Your Venue, Washington DC"
+            />
           </Card>
 
           <div className="flex justify-end">

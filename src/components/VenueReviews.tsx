@@ -25,7 +25,13 @@ export function VenueReviews({
   averageRating: number;
   reviewCount: number;
   reviews: ReviewData[];
-  onSubmitReview?: (review: Parameters<typeof ReviewForm>[0] extends { onSubmit: infer F } ? (F extends (r: infer R) => void ? R : never) : never) => void;
+  onSubmitReview?: (
+    review: Parameters<typeof ReviewForm>[0] extends { onSubmit: infer F }
+      ? F extends (r: infer R) => void
+        ? R
+        : never
+      : never,
+  ) => void;
   onHelpful?: (reviewId: string) => void;
 }) {
   const [showForm, setShowForm] = useState(false);
@@ -42,15 +48,15 @@ export function VenueReviews({
   const dist = [5, 4, 3, 2, 1].map((stars) => ({
     stars,
     count: reviews.filter((r) => r.rating === stars).length,
-    pct: reviews.length ? (reviews.filter((r) => r.rating === stars).length / reviews.length) * 100 : 0,
+    pct: reviews.length
+      ? (reviews.filter((r) => r.rating === stars).length / reviews.length) * 100
+      : 0,
   }));
 
   return (
     <section className="flex flex-col gap-5">
       <div className="flex items-center justify-between">
-        <h2 className="font-display text-xl font-bold text-cream">
-          Reviews
-        </h2>
+        <h2 className="font-display text-xl font-bold text-cream">Reviews</h2>
         <button
           type="button"
           onClick={() => setShowForm(!showForm)}
@@ -85,9 +91,7 @@ export function VenueReviews({
                   style={{ width: `${d.pct}%` }}
                 />
               </div>
-              <span className="w-6 font-mono text-[10px] text-cream/50">
-                {d.count}
-              </span>
+              <span className="w-6 font-mono text-[10px] text-cream/50">{d.count}</span>
             </div>
           ))}
         </div>
@@ -110,22 +114,18 @@ export function VenueReviews({
       {reviews.length > 1 && (
         <div className="flex items-center gap-2">
           <Filter className="h-3.5 w-3.5 text-cream/40" />
-          {(["recent", "highest", "lowest", "helpful"] as SortOption[]).map(
-            (opt) => (
-              <button
-                key={opt}
-                type="button"
-                onClick={() => setSort(opt)}
-                className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
-                  sort === opt
-                    ? "bg-ink text-cream"
-                    : "text-cream/50 hover:bg-cream/5"
-                }`}
-              >
-                {opt}
-              </button>
-            ),
-          )}
+          {(["recent", "highest", "lowest", "helpful"] as SortOption[]).map((opt) => (
+            <button
+              key={opt}
+              type="button"
+              onClick={() => setSort(opt)}
+              className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
+                sort === opt ? "bg-ink text-cream" : "text-cream/50 hover:bg-cream/5"
+              }`}
+            >
+              {opt}
+            </button>
+          ))}
         </div>
       )}
 
@@ -133,20 +133,12 @@ export function VenueReviews({
       <div className="flex flex-col gap-3">
         {sorted.length === 0 ? (
           <div className="py-8 text-center">
-            <p className="font-display text-lg font-bold text-cream/40">
-              No reviews yet
-            </p>
-            <p className="mt-1 text-sm text-cream/40">
-              Be the first to review {venueName}!
-            </p>
+            <p className="font-display text-lg font-bold text-cream/40">No reviews yet</p>
+            <p className="mt-1 text-sm text-cream/40">Be the first to review {venueName}!</p>
           </div>
         ) : (
           sorted.map((review) => (
-            <ReviewCard
-              key={review.id}
-              review={review}
-              onHelpful={onHelpful}
-            />
+            <ReviewCard key={review.id} review={review} onHelpful={onHelpful} />
           ))
         )}
       </div>

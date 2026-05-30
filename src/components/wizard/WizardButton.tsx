@@ -37,7 +37,10 @@ export function WizardButton({ children, className, ariaLabel, preset }: Props) 
             toast.message("Sign in to build your night", {
               description: "Your plan saves to your profile so AI can learn your taste.",
             });
-            navigate({ to: "/auth", search: { redirect: location.pathname, mode: "signin" as const } });
+            navigate({
+              to: "/auth",
+              search: { redirect: location.pathname, mode: "signin" as const },
+            });
             return;
           }
           // Only customers can use the wizard — admin/business/visitor get a toast

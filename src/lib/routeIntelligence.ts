@@ -76,9 +76,9 @@ export async function fetchRouteIntelligence(stops: RouteStopInput[]) {
     headers: {
       "Content-Type": "application/json",
       apikey: supabaseAnonKey,
-      Authorization: `Bearer ${supabaseAnonKey}`
+      Authorization: `Bearer ${supabaseAnonKey}`,
     },
-    body: JSON.stringify({ stops })
+    body: JSON.stringify({ stops }),
   });
 
   if (!response.ok) {

@@ -158,7 +158,6 @@ type SwapCandidate = {
   time?: string;
 };
 
-
 // Deterministic mock detail generator — keeps results stable per venue name.
 function hashStr(s: string) {
   let h = 0;
@@ -1434,8 +1433,7 @@ export function BuildMyNightWizard() {
     const sessionPicks = (getActiveLoop()?.stops ?? []).filter((ls) =>
       wizardNames.has(ls.name.toLowerCase()),
     );
-    const loop: ActiveLoop =
-      sessionPicks.length > 0 ? { ...base, stops: sessionPicks } : base;
+    const loop: ActiveLoop = sessionPicks.length > 0 ? { ...base, stops: sessionPicks } : base;
     setActiveLoop(loop);
     toast.success("Boarding pass ready!", {
       description: `${loop.stops.length} stop${loop.stops.length === 1 ? "" : "s"} · opening your boarding pass…`,
@@ -2120,7 +2118,8 @@ export function BuildMyNightWizard() {
                               alt={s.venue}
                               loading="lazy"
                               className="h-full w-full object-cover"
-                             decoding="async"/>
+                              decoding="async"
+                            />
                             <div
                               className={`absolute inset-x-0 bottom-0 ${s.tone} border-t-2 border-ink px-1 py-0.5 text-center font-display text-[11px] font-extrabold leading-tight text-cream`}
                             >
@@ -2167,7 +2166,9 @@ export function BuildMyNightWizard() {
                               </span>
                             )}
                             {s.walk && (
-                              <span className="font-mono text-[11px] text-cream/60">↳ {s.walk}</span>
+                              <span className="font-mono text-[11px] text-cream/60">
+                                ↳ {s.walk}
+                              </span>
                             )}
                           </div>
                         </div>
@@ -2320,7 +2321,8 @@ export function BuildMyNightWizard() {
                                     alt={`${s.venue} photo ${pi + 1}`}
                                     loading="lazy"
                                     className="h-full w-full object-cover"
-                                   decoding="async"/>
+                                    decoding="async"
+                                  />
                                 </a>
                               ))}
                             </div>
@@ -2488,7 +2490,8 @@ export function BuildMyNightWizard() {
                               <p className="mt-2 text-[11px] text-cream/65">
                                 Tap a slot to reserve —{" "}
                                 {personalize?.preferredHour != null ? "your usual window" : "peak"}{" "}
-                                around <span className="font-semibold text-cream">{d.peakTime}</span>.
+                                around{" "}
+                                <span className="font-semibold text-cream">{d.peakTime}</span>.
                               </p>
                               <p className="mt-1 inline-flex items-start gap-1 rounded-md bg-cream px-2 py-1 font-mono text-[10px] text-cream/70">
                                 <Sparkles className="mt-[1px] h-2.5 w-2.5 shrink-0 text-coral" />
@@ -2583,7 +2586,10 @@ export function BuildMyNightWizard() {
                               <Phone className="h-3.5 w-3.5" /> {d.phone}
                             </a>
                             <a
-                              href={live?.websiteUri ?? `https://www.google.com/search?q=${encodeURIComponent(s.venue + " " + (s.neighborhood ?? "") + " DC")}`}
+                              href={
+                                live?.websiteUri ??
+                                `https://www.google.com/search?q=${encodeURIComponent(s.venue + " " + (s.neighborhood ?? "") + " DC")}`
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
@@ -2642,8 +2648,11 @@ export function BuildMyNightWizard() {
               </h2>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-cream/60">
                 {stops.length} stop{stops.length === 1 ? "" : "s"} ·{" "}
-                {vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} ·{" "}
-                {CREW.find((c) => c.k === crew)?.label} · {budget}
+                {vibe
+                  .map((k) => VIBES.find((v) => v.k === k)?.label)
+                  .filter(Boolean)
+                  .join(" + ")}{" "}
+                · {CREW.find((c) => c.k === crew)?.label} · {budget}
               </p>
 
               <ol className="mt-5 space-y-3">
@@ -2850,7 +2859,8 @@ export function BuildMyNightWizard() {
                         alt={c.venue}
                         loading="lazy"
                         className="h-20 w-20 shrink-0 rounded-xl border-2 border-ink object-cover"
-                       decoding="async"/>
+                        decoding="async"
+                      />
                     ) : (
                       <div className="grid h-20 w-20 shrink-0 place-items-center rounded-xl border-2 border-ink bg-gold/40">
                         <MapPin className="h-5 w-5" />
@@ -2951,7 +2961,6 @@ function DishQuickView({
                 {info.description}
               </DialogDescription>
             </DialogHeader>
-
 
             {typeof info.spice === "number" && info.spice > 0 && (
               <div className="flex items-center gap-1.5 text-[12px] text-cream/70">

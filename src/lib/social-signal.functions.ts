@@ -25,10 +25,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 const CitySignalSchema = z.object({
   citySlug: z.string().min(1).max(60),
-  signalType: z
-    .enum(["trending", "popular", "new", "lowkey", "unique"])
-    .nullable()
-    .optional(),
+  signalType: z.enum(["trending", "popular", "new", "lowkey", "unique"]).nullable().optional(),
   limit: z.number().int().min(1).max(50).optional(),
 });
 
@@ -90,20 +87,24 @@ export const fetchTrendingByCity = createServerFn({ method: "POST" })
 export const refreshSocialSignals = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => RefreshSchema.parse(input))
-  .handler(async ({ data: req }): Promise<{
-    success: boolean;
-    context: SocialContext | null;
-    error?: string;
-  }> => {
-    try {
-      const context = await collectOnDemand(req.citySlug);
-      return { success: true, context };
-    } catch (err) {
-      const message = err instanceof Error ? err.message : String(err);
-      console.error("[social-fn] Refresh error:", message);
-      return { success: false, context: null, error: message };
-    }
-  });
+  .handler(
+    async ({
+      data: req,
+    }): Promise<{
+      success: boolean;
+      context: SocialContext | null;
+      error?: string;
+    }> => {
+      try {
+        const context = await collectOnDemand(req.citySlug);
+        return { success: true, context };
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.error("[social-fn] Refresh error:", message);
+        return { success: false, context: null, error: message };
+      }
+    },
+  );
 
 // ─── 3. Get Social Context (Cached Read) ────────────────────
 
@@ -115,13 +116,17 @@ export const refreshSocialSignals = createServerFn({ method: "POST" })
 export const getSocialContext = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => ContextSchema.parse(input))
-  .handler(async ({ data: req }): Promise<{
-    success: boolean;
-    context: SocialContext | null;
-  }> => {
-    const context = await loadSocialContext(req.citySlug);
-    return { success: true, context };
-  });
+  .handler(
+    async ({
+      data: req,
+    }): Promise<{
+      success: boolean;
+      context: SocialContext | null;
+    }> => {
+      const context = await loadSocialContext(req.citySlug);
+      return { success: true, context };
+    },
+  );
 
 // ─── 4. Run Social Signal Batch ─────────────────────────────
 

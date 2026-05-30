@@ -60,11 +60,7 @@ export async function createSuggestion(input: VenueSuggestionInput): Promise<Ven
     status: "draft" as const,
   };
 
-  const { data, error } = await supabase
-    .from("venue_suggestions")
-    .insert(row)
-    .select()
-    .single();
+  const { data, error } = await supabase.from("venue_suggestions").insert(row).select().single();
 
   if (error) throw new Error(`Failed to create suggestion: ${error.message}`);
   return mapSuggestionRow(data);
@@ -73,7 +69,7 @@ export async function createSuggestion(input: VenueSuggestionInput): Promise<Ven
 /** Update an existing suggestion. */
 export async function updateSuggestion(
   id: string,
-  updates: Partial<VenueSuggestionInput> & { status?: SuggestionStatus }
+  updates: Partial<VenueSuggestionInput> & { status?: SuggestionStatus },
 ): Promise<VenueSuggestion> {
   const row: Record<string, unknown> = {};
 
@@ -161,7 +157,9 @@ export type TonightFeedFilters = {
 };
 
 /** Fetch tonight's active suggestions for the user feed. */
-export async function getTonightFeed(filters: TonightFeedFilters = {}): Promise<TonightSuggestion[]> {
+export async function getTonightFeed(
+  filters: TonightFeedFilters = {},
+): Promise<TonightSuggestion[]> {
   let query = supabase
     .from("tonight_suggestions")
     .select("*")

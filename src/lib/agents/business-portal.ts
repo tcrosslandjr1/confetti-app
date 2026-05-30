@@ -256,10 +256,7 @@ export function queuePortalInviteEmail(businessId: string): InviteEmail | null {
 }
 
 /** Queue a team invite email */
-export function queueTeamInviteEmail(
-  businessId: string,
-  member: TeamMember
-): InviteEmail | null {
+export function queueTeamInviteEmail(businessId: string, member: TeamMember): InviteEmail | null {
   const business = getBusiness(businessId);
   if (!business || !member.inviteToken) return null;
 
@@ -283,7 +280,7 @@ export function queueTeamInviteEmail(
 export function upsertVenueProfile(
   businessId: string,
   venueId: string,
-  data: Partial<Omit<VenueProfile, "id" | "businessId" | "updatedAt">>
+  data: Partial<Omit<VenueProfile, "id" | "businessId" | "updatedAt">>,
 ): VenueProfile {
   const existing = venueProfileStore.get(venueId);
   const defaultHours: DayHours = { open: "11:00", close: "23:00", isClosed: false };
@@ -300,15 +297,16 @@ export function upsertVenueProfile(
     zipCode: data.zipCode ?? existing?.zipCode ?? "",
     phone: data.phone ?? existing?.phone ?? "",
     website: data.website ?? existing?.website,
-    hours: data.hours ?? existing?.hours ?? {
-      monday: defaultHours,
-      tuesday: defaultHours,
-      wednesday: defaultHours,
-      thursday: defaultHours,
-      friday: defaultHours,
-      saturday: { ...defaultHours, close: "02:00" },
-      sunday: { open: "12:00", close: "22:00", isClosed: false },
-    },
+    hours: data.hours ??
+      existing?.hours ?? {
+        monday: defaultHours,
+        tuesday: defaultHours,
+        wednesday: defaultHours,
+        thursday: defaultHours,
+        friday: defaultHours,
+        saturday: { ...defaultHours, close: "02:00" },
+        sunday: { open: "12:00", close: "22:00", isClosed: false },
+      },
     photos: data.photos ?? existing?.photos ?? [],
     menuItems: data.menuItems ?? existing?.menuItems ?? [],
     amenities: data.amenities ?? existing?.amenities ?? [],
@@ -332,7 +330,7 @@ export function addVenuePhoto(
   venueId: string,
   url: string,
   caption?: string,
-  isPrimary = false
+  isPrimary = false,
 ): VenuePhoto | null {
   const profile = venueProfileStore.get(venueId);
   if (!profile) return null;
@@ -355,10 +353,7 @@ export function addVenuePhoto(
 }
 
 /** Add a menu item */
-export function addMenuItem(
-  venueId: string,
-  item: Omit<MenuItem, "id">
-): MenuItem | null {
+export function addMenuItem(venueId: string, item: Omit<MenuItem, "id">): MenuItem | null {
   const profile = venueProfileStore.get(venueId);
   if (!profile) return null;
 
@@ -390,7 +385,7 @@ export function pushPortalNotification(
   businessId: string,
   type: PortalNotification["type"],
   title: string,
-  message: string
+  message: string,
 ): PortalNotification {
   const notification: PortalNotification = {
     id: nextId("pn"),
@@ -408,7 +403,7 @@ export function pushPortalNotification(
 /** Get unread notifications for a business */
 export function getPortalNotifications(
   businessId: string,
-  unreadOnly = false
+  unreadOnly = false,
 ): PortalNotification[] {
   return Array.from(notificationStore.values())
     .filter((n) => n.businessId === businessId && (!unreadOnly || !n.isRead))
@@ -498,22 +493,59 @@ export function seedPortalDemo(businessId: string): VenueProfile | null {
   });
 
   // Add some demo photos
-  addVenuePhoto(venueId, "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=800&q=80", "Rooftop view at sunset", true);
-  addVenuePhoto(venueId, "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80", "Signature cocktails");
-  addVenuePhoto(venueId, "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=800&q=80", "DJ booth Friday nights");
+  addVenuePhoto(
+    venueId,
+    "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=800&q=80",
+    "Rooftop view at sunset",
+    true,
+  );
+  addVenuePhoto(
+    venueId,
+    "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80",
+    "Signature cocktails",
+  );
+  addVenuePhoto(
+    venueId,
+    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=800&q=80",
+    "DJ booth Friday nights",
+  );
 
   // Add demo menu items
-  addMenuItem(venueId, { name: "Sunset Spritz", description: "Aperol, prosecco, orange", price: 16, category: "cocktails", isPopular: true });
-  addMenuItem(venueId, { name: "Wagyu Sliders", description: "Three wagyu sliders, truffle aioli", price: 24, category: "small plates", isPopular: true });
-  addMenuItem(venueId, { name: "Tuna Tartare", description: "Ahi tuna, avocado, crispy wonton", price: 19, category: "small plates", isPopular: false });
-  addMenuItem(venueId, { name: "Luma Old Fashioned", description: "Woodford Reserve, demerara, orange", price: 18, category: "cocktails", isPopular: false });
+  addMenuItem(venueId, {
+    name: "Sunset Spritz",
+    description: "Aperol, prosecco, orange",
+    price: 16,
+    category: "cocktails",
+    isPopular: true,
+  });
+  addMenuItem(venueId, {
+    name: "Wagyu Sliders",
+    description: "Three wagyu sliders, truffle aioli",
+    price: 24,
+    category: "small plates",
+    isPopular: true,
+  });
+  addMenuItem(venueId, {
+    name: "Tuna Tartare",
+    description: "Ahi tuna, avocado, crispy wonton",
+    price: 19,
+    category: "small plates",
+    isPopular: false,
+  });
+  addMenuItem(venueId, {
+    name: "Luma Old Fashioned",
+    description: "Woodford Reserve, demerara, orange",
+    price: 18,
+    category: "cocktails",
+    isPopular: false,
+  });
 
   // Push a welcome notification
   pushPortalNotification(
     businessId,
     "campaign_live",
     "Welcome to Confetti!",
-    "Your business portal is live. Start by setting up your venue profile and creating your first campaign."
+    "Your business portal is live. Start by setting up your venue profile and creating your first campaign.",
   );
 
   return profile;

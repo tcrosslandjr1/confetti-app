@@ -75,11 +75,7 @@ function toIcsLocal(d: Date): string {
 
 /** Escape per RFC 5545 — commas, semicolons, newlines. */
 function icsEscape(s: string): string {
-  return s
-    .replace(/\\/g, "\\\\")
-    .replace(/\n/g, "\\n")
-    .replace(/,/g, "\\,")
-    .replace(/;/g, "\\;");
+  return s.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/,/g, "\\,").replace(/;/g, "\\;");
 }
 
 /**
@@ -164,15 +160,31 @@ export interface HangoutForecast {
   backupRecommended: boolean;
 }
 
-function describeWeather(tempF: number, precip: number): {
+function describeWeather(
+  tempF: number,
+  precip: number,
+): {
   summary: string;
   backupRecommended: boolean;
 } {
-  if (precip >= 50) return { summary: `${precip}% rain expected — backup plan ready`, backupRecommended: true };
-  if (tempF >= 92) return { summary: `Hot (${Math.round(tempF)}°F) — pack extra water + shade`, backupRecommended: true };
-  if (tempF <= 45) return { summary: `Chilly (${Math.round(tempF)}°F) — layers + warm drinks`, backupRecommended: true };
-  if (precip >= 25) return { summary: `${precip}% rain chance — tarp on standby`, backupRecommended: false };
-  return { summary: `Looking good — ${Math.round(tempF)}°F, ${precip}% rain`, backupRecommended: false };
+  if (precip >= 50)
+    return { summary: `${precip}% rain expected — backup plan ready`, backupRecommended: true };
+  if (tempF >= 92)
+    return {
+      summary: `Hot (${Math.round(tempF)}°F) — pack extra water + shade`,
+      backupRecommended: true,
+    };
+  if (tempF <= 45)
+    return {
+      summary: `Chilly (${Math.round(tempF)}°F) — layers + warm drinks`,
+      backupRecommended: true,
+    };
+  if (precip >= 25)
+    return { summary: `${precip}% rain chance — tarp on standby`, backupRecommended: false };
+  return {
+    summary: `Looking good — ${Math.round(tempF)}°F, ${precip}% rain`,
+    backupRecommended: false,
+  };
 }
 
 /**
@@ -180,16 +192,16 @@ function describeWeather(tempF: number, precip: number): {
  * geocoder, then queries the forecast endpoint for the hangout's
  * date+hour. Returns null on any failure — the UI just hides the banner.
  */
-export async function fetchHangoutWeather(
-  h: ActiveHangout,
-): Promise<HangoutForecast | null> {
+export async function fetchHangoutWeather(h: ActiveHangout): Promise<HangoutForecast | null> {
   if (!h.city) return null;
   try {
     const geoRes = await fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(h.city)}&count=1`,
     );
     if (!geoRes.ok) return null;
-    const geo = (await geoRes.json()) as { results?: Array<{ latitude: number; longitude: number; timezone?: string }> };
+    const geo = (await geoRes.json()) as {
+      results?: Array<{ latitude: number; longitude: number; timezone?: string }>;
+    };
     const point = geo.results?.[0];
     if (!point) return null;
 

@@ -3,7 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { ArrowLeft, Megaphone, TrendingUp, Zap, Crown, Star } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import { getManagedVenue, getMyBusinessSubscription } from "@/lib/business-api";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -42,7 +46,12 @@ function BusinessPromotersPage() {
   const boostLevel = venue?.sponsored_boost_level ?? 0;
 
   if (venuesLoading) return <PageShell>Loading venues...</PageShell>;
-  if (!venues.length) return <PageShell><NoVenueClaim /></PageShell>;
+  if (!venues.length)
+    return (
+      <PageShell>
+        <NoVenueClaim />
+      </PageShell>
+    );
 
   return (
     <PageShell>
@@ -68,7 +77,7 @@ function BusinessPromotersPage() {
           <StatusCard
             icon={<Crown className="h-5 w-5" />}
             label="Subscription"
-            value={subscription ? subscription.tier ?? subscription.status : "None"}
+            value={subscription ? (subscription.tier ?? subscription.status) : "None"}
           />
           <StatusCard
             icon={<Star className="h-5 w-5" />}

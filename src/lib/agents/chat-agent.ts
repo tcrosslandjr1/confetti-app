@@ -123,13 +123,19 @@ When recommending venues, include: name, one-line vibe description, and why it f
 
 const INTENT_PATTERNS: Record<ChatIntent, RegExp> = {
   greeting: /^(hey|hi|hello|what's up|sup|yo|good (morning|evening|afternoon))/i,
-  venue_search: /(find|search|show|recommend|suggest|where|looking for|any good|know a).*(restaurant|bar|club|spot|place|food|eat|drink|rooftop|speakeasy|brunch|dinner|lunch|happy hour)/i,
-  trip_planning: /(road trip|drive to|trip to|travel|multi.?state|highway|route|stops along|drive from)/i,
-  confetti_create: /(build|create|make|plan|craft|put together).*(confetti|loop|itinerary|night|evening|outing|experience)/i,
-  recommendation: /(what should|where should|any ideas|surprise me|you pick|dealer'?s choice|feeling adventurous|what do you suggest|hook me up)/i,
-  venue_detail: /(tell me (more )?about|details|hours|menu|parking|reservation|dress code|valet|what's .* like)/i,
+  venue_search:
+    /(find|search|show|recommend|suggest|where|looking for|any good|know a).*(restaurant|bar|club|spot|place|food|eat|drink|rooftop|speakeasy|brunch|dinner|lunch|happy hour)/i,
+  trip_planning:
+    /(road trip|drive to|trip to|travel|multi.?state|highway|route|stops along|drive from)/i,
+  confetti_create:
+    /(build|create|make|plan|craft|put together).*(confetti|loop|itinerary|night|evening|outing|experience)/i,
+  recommendation:
+    /(what should|where should|any ideas|surprise me|you pick|dealer'?s choice|feeling adventurous|what do you suggest|hook me up)/i,
+  venue_detail:
+    /(tell me (more )?about|details|hours|menu|parking|reservation|dress code|valet|what's .* like)/i,
   booking: /(book|reserve|reservation|table for|get us in|hold a spot)/i,
-  preference_update: /(i (love|hate|prefer|like|don't like|always|never)|my favorite|i'm (vegan|vegetarian|gluten)|allergic|no .*(dairy|nuts|seafood|meat))/i,
+  preference_update:
+    /(i (love|hate|prefer|like|don't like|always|never)|my favorite|i'm (vegan|vegetarian|gluten)|allergic|no .*(dairy|nuts|seafood|meat))/i,
   general_chat: /./,
 };
 
@@ -161,19 +167,9 @@ function getSuggestedChips(intent: ChatIntent, context: ChatContext): string[] {
         "Build a Confetti plan around this",
       ];
     case "confetti_create":
-      return [
-        "Add another stop",
-        "Swap a venue",
-        "Show parking info",
-        "Lock it in 🔒",
-      ];
+      return ["Add another stop", "Swap a venue", "Show parking info", "Lock it in 🔒"];
     case "recommendation":
-      return [
-        "Date night vibes",
-        "Friends night out",
-        "Solo adventure",
-        "Family friendly",
-      ];
+      return ["Date night vibes", "Friends night out", "Solo adventure", "Family friendly"];
     case "trip_planning":
       return [
         "Add a food stop",
@@ -182,12 +178,7 @@ function getSuggestedChips(intent: ChatIntent, context: ChatContext): string[] {
         "What's along the way?",
       ];
     default:
-      return [
-        "🍽️ Find restaurants",
-        "🍸 Find bars",
-        "🌃 Build a Confetti plan",
-        "🚗 Plan a trip",
-      ];
+      return ["🍽️ Find restaurants", "🍸 Find bars", "🌃 Build a Confetti plan", "🚗 Plan a trip"];
   }
 }
 
@@ -197,15 +188,13 @@ export async function sendMessage(
   userId: string,
   userMessage: string,
   sessionId?: string,
-  context?: Partial<ChatContext>
+  context?: Partial<ChatContext>,
 ): Promise<ChatResponse> {
   // Detect intent
   const intent = detectIntent(userMessage);
 
   // Get or create session
-  const session = sessionId
-    ? await loadSession(sessionId)
-    : createLocalSession(userId);
+  const session = sessionId ? await loadSession(sessionId) : createLocalSession(userId);
 
   // Merge any provided context
   if (context) {
@@ -238,7 +227,7 @@ export async function sendMessage(
     userMessage,
     intent,
     userContext,
-    session.context
+    session.context,
   );
 
   // If confetti_create intent, use the multi-agent orchestrator pipeline
@@ -402,7 +391,7 @@ let mockSession: ChatSession | null = null;
 
 export async function sendMessageLocal(
   userMessage: string,
-  context?: Partial<ChatContext>
+  context?: Partial<ChatContext>,
 ): Promise<ChatResponse> {
   const intent = detectIntent(userMessage);
 
@@ -426,22 +415,14 @@ export async function sendMessageLocal(
     userMessage,
     intent,
     userContext,
-    mockSession.context
+    mockSession.context,
   );
 
   // Try venue search
   let venues: DiscoveredVenue[] | undefined;
-  if (
-    intent === "venue_search" ||
-    intent === "recommendation" ||
-    intent === "confetti_create"
-  ) {
+  if (intent === "venue_search" || intent === "recommendation" || intent === "confetti_create") {
     try {
-      venues = await searchVenuesForChat(
-        userMessage,
-        mockSession.context,
-        userContext
-      );
+      venues = await searchVenuesForChat(userMessage, mockSession.context, userContext);
     } catch {
       venues = discoverVenuesMock();
     }
@@ -501,7 +482,7 @@ function buildMessages(
   userMessage: string,
   intent: ChatIntent,
   userContext: UserContext,
-  chatContext: ChatContext
+  chatContext: ChatContext,
 ): AIMessage[] {
   const messages: AIMessage[] = [];
 
@@ -547,7 +528,7 @@ function buildMessages(
 async function searchVenuesForChat(
   query: string,
   context: ChatContext,
-  userContext: UserContext
+  userContext: UserContext,
 ): Promise<DiscoveredVenue[]> {
   // Extract search parameters from query + context
   const params = extractSearchParams(query, context, userContext);
@@ -559,9 +540,10 @@ async function searchVenuesForChat(
         context.location = await getUserLocation();
       } catch {
         // Try geocoding the city from context or query before falling back to DC
-        const cityHint = context.destination ?? query.match(/\bin\s+([A-Z][a-zA-Z\s]+)/)?.[1]?.trim();
+        const cityHint =
+          context.destination ?? query.match(/\bin\s+([A-Z][a-zA-Z\s]+)/)?.[1]?.trim();
         if (cityHint) {
-          context.location = await geocodeCity(cityHint) ?? undefined;
+          context.location = (await geocodeCity(cityHint)) ?? undefined;
         }
         if (!context.location) {
           // Final fallback to DC
@@ -597,7 +579,7 @@ async function searchVenuesForChat(
           limit: 5,
         });
         // Convert local venues to DiscoveredVenue format and merge
-        const existing = new Set(venues.map(v => v.name.toLowerCase()));
+        const existing = new Set(venues.map((v) => v.name.toLowerCase()));
         for (const lv of localVenues) {
           if (!existing.has(lv.name.toLowerCase()) && venues.length < 5) {
             venues.push({
@@ -634,7 +616,7 @@ async function searchVenuesForChat(
         occasion: context.occasion ?? undefined,
         limit: 5,
       });
-      return localVenues.map(lv => ({
+      return localVenues.map((lv) => ({
         id: `local:${lv.slug}`,
         name: lv.name,
         category: lv.cuisine || "venue",
@@ -661,7 +643,7 @@ async function searchVenuesForChat(
 function extractSearchParams(
   query: string,
   context: ChatContext,
-  userContext: UserContext
+  userContext: UserContext,
 ): {
   searchQuery: string;
   category?: string;
@@ -700,7 +682,7 @@ function formatVenueContext(venues: DiscoveredVenue[]): string {
       (v, i) =>
         `${i + 1}. **${v.name}** (${v.category}${v.priceLevel ? `, ${v.priceLevel}` : ""})
    ${v.address ?? v.city}
-   Rating: ${v.rating ?? "N/A"} | Cuisines: ${v.cuisineTags.join(", ") || "N/A"} | Vibes: ${v.vibeTags.join(", ") || "N/A"}`
+   Rating: ${v.rating ?? "N/A"} | Cuisines: ${v.cuisineTags.join(", ") || "N/A"} | Vibes: ${v.vibeTags.join(", ") || "N/A"}`,
     )
     .join("\n\n");
 }

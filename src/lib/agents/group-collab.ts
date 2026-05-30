@@ -108,13 +108,34 @@ const GROUP_EMOJIS: Record<GroupType, string[]> = {
 };
 
 const AVAILABLE_CATEGORIES = [
-  "Fine Dining", "Casual Eats", "Street Food", "Brunch",
-  "Rooftop Bars", "Speakeasies", "Dive Bars", "Wine Bars",
-  "Live Music", "Comedy Shows", "Art Galleries", "Museums",
-  "Outdoor Adventures", "Sunset Spots", "Game Nights", "Karaoke",
-  "Family Activities", "Kid-Friendly", "Date Night", "Late Night",
-  "Wellness & Spa", "Sports", "Shopping", "Cultural Experiences",
-  "Food Trucks", "Coffee & Dessert", "Cocktail Crawl", "Dance Clubs",
+  "Fine Dining",
+  "Casual Eats",
+  "Street Food",
+  "Brunch",
+  "Rooftop Bars",
+  "Speakeasies",
+  "Dive Bars",
+  "Wine Bars",
+  "Live Music",
+  "Comedy Shows",
+  "Art Galleries",
+  "Museums",
+  "Outdoor Adventures",
+  "Sunset Spots",
+  "Game Nights",
+  "Karaoke",
+  "Family Activities",
+  "Kid-Friendly",
+  "Date Night",
+  "Late Night",
+  "Wellness & Spa",
+  "Sports",
+  "Shopping",
+  "Cultural Experiences",
+  "Food Trucks",
+  "Coffee & Dessert",
+  "Cocktail Crawl",
+  "Dance Clubs",
 ];
 
 function priceLevelToNumber(priceLevel: string | number | undefined): number {
@@ -123,7 +144,7 @@ function priceLevelToNumber(priceLevel: string | number | undefined): number {
 }
 
 function asGroupVenue(
-  venue: Partial<DiscoveredVenue> & Pick<DiscoveredVenue, "id" | "name" | "category" | "address">
+  venue: Partial<DiscoveredVenue> & Pick<DiscoveredVenue, "id" | "name" | "category" | "address">,
 ): DiscoveredVenue {
   const lat = venue.lat ?? venue.location?.lat ?? 0;
   const lng = venue.lng ?? venue.location?.lng ?? 0;
@@ -208,7 +229,7 @@ export async function createGroup(
   type: GroupType,
   creatorId: string,
   creatorName: string,
-  settings?: Partial<GroupSettings>
+  settings?: Partial<GroupSettings>,
 ): Promise<Group> {
   const defaults = GROUP_TYPE_DEFAULTS[type];
   const emojis = GROUP_EMOJIS[type];
@@ -232,7 +253,11 @@ export async function createGroup(
         id: generateId(),
         userId: creatorId,
         displayName: creatorName,
-        avatar: creatorName.split(" ").map((n) => n[0]).join("").toUpperCase(),
+        avatar: creatorName
+          .split(" ")
+          .map((n) => n[0])
+          .join("")
+          .toUpperCase(),
         role: "host",
         status: "joined",
         categories: [],
@@ -276,7 +301,7 @@ export function createGroupLocal(
   type: GroupType,
   creatorId: string,
   creatorName: string,
-  settings?: Partial<GroupSettings>
+  settings?: Partial<GroupSettings>,
 ): Group {
   const defaults = GROUP_TYPE_DEFAULTS[type];
   const emojis = GROUP_EMOJIS[type];
@@ -300,7 +325,11 @@ export function createGroupLocal(
         id: generateId(),
         userId: creatorId,
         displayName: creatorName,
-        avatar: creatorName.split(" ").map((n) => n[0]).join("").toUpperCase(),
+        avatar: creatorName
+          .split(" ")
+          .map((n) => n[0])
+          .join("")
+          .toUpperCase(),
         role: "host",
         status: "joined",
         categories: [],
@@ -320,7 +349,7 @@ export function inviteMember(
   groupId: string,
   userId: string,
   displayName: string,
-  role: MemberRole = "member"
+  role: MemberRole = "member",
 ): GroupMember | null {
   const group = mockGroups.get(groupId);
   if (!group) return null;
@@ -331,7 +360,11 @@ export function inviteMember(
     id: generateId(),
     userId,
     displayName,
-    avatar: displayName.split(" ").map((n) => n[0]).join("").toUpperCase(),
+    avatar: displayName
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase(),
     role,
     status: "invited",
     categories: [],
@@ -346,11 +379,9 @@ export function inviteMember(
 export function joinGroupByCode(
   inviteCode: string,
   userId: string,
-  displayName: string
+  displayName: string,
 ): Group | null {
-  const group = Array.from(mockGroups.values()).find(
-    (g) => g.inviteCode === inviteCode
-  );
+  const group = Array.from(mockGroups.values()).find((g) => g.inviteCode === inviteCode);
   if (!group) return null;
   if (group.members.length >= group.settings.maxMembers) return null;
 
@@ -363,7 +394,11 @@ export function joinGroupByCode(
       id: generateId(),
       userId,
       displayName,
-      avatar: displayName.split(" ").map((n) => n[0]).join("").toUpperCase(),
+      avatar: displayName
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase(),
       role: "member",
       status: "joined",
       categories: [],
@@ -377,11 +412,7 @@ export function joinGroupByCode(
 
 // ─── Category Voting ──────────────────────────────────────────
 
-export function submitCategories(
-  groupId: string,
-  userId: string,
-  categories: string[]
-): boolean {
+export function submitCategories(groupId: string, userId: string, categories: string[]): boolean {
   const group = mockGroups.get(groupId);
   if (!group) return false;
 
@@ -475,10 +506,7 @@ export function mergeGroupProfiles(groupId: string): TasteProfile | null {
 
 // ─── AI Plan Generation ──────────────────────────────────────
 
-export async function generateGroupPlan(
-  groupId: string,
-  date?: string
-): Promise<GroupPlan | null> {
+export async function generateGroupPlan(groupId: string, date?: string): Promise<GroupPlan | null> {
   const group = mockGroups.get(groupId);
   if (!group) return null;
 
@@ -523,15 +551,13 @@ export async function generateGroupPlan(
   return plan;
 }
 
-export function generateGroupPlanLocal(
-  groupId: string,
-  date?: string
-): GroupPlan {
+export function generateGroupPlanLocal(groupId: string, date?: string): GroupPlan {
   const group = mockGroups.get(groupId);
   const topCategories = group ? getGroupCategories(groupId).slice(0, 5) : [];
-  const categoryNames = topCategories.length > 0
-    ? topCategories.map((c) => c.category)
-    : ["Rooftop Bars", "Casual Eats", "Live Music"];
+  const categoryNames =
+    topCategories.length > 0
+      ? topCategories.map((c) => c.category)
+      : ["Rooftop Bars", "Casual Eats", "Live Music"];
 
   const groupType = group?.type ?? "friends";
   const groupName = group?.name ?? "The Crew";
@@ -553,7 +579,9 @@ export function generateGroupPlanLocal(
         rating: 4.7,
         priceLevel: 3,
         vibeMatch: 94,
-        photos: ["https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=900&q=80"],
+        photos: [
+          "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=900&q=80",
+        ],
       }),
       order: 1,
       duration: 75,
@@ -573,7 +601,9 @@ export function generateGroupPlanLocal(
         rating: 4.6,
         priceLevel: 3,
         vibeMatch: 91,
-        photos: ["https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=900&q=80"],
+        photos: [
+          "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=900&q=80",
+        ],
       }),
       order: 2,
       duration: 60,
@@ -593,7 +623,9 @@ export function generateGroupPlanLocal(
         rating: 4.5,
         priceLevel: 1,
         vibeMatch: 88,
-        photos: ["https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80"],
+        photos: [
+          "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80",
+        ],
       }),
       order: 3,
       duration: 45,
@@ -613,7 +645,9 @@ export function generateGroupPlanLocal(
         rating: 4.4,
         priceLevel: 2,
         vibeMatch: 85,
-        photos: ["https://images.unsplash.com/photo-1571204829887-3b8d69e4094d?auto=format&fit=crop&w=900&q=80"],
+        photos: [
+          "https://images.unsplash.com/photo-1571204829887-3b8d69e4094d?auto=format&fit=crop&w=900&q=80",
+        ],
       }),
       order: 4,
       duration: 90,
@@ -636,7 +670,9 @@ export function generateGroupPlanLocal(
         rating: 4.8,
         priceLevel: 2,
         vibeMatch: 92,
-        photos: ["https://images.unsplash.com/photo-1566140967404-b8b3932483f5?auto=format&fit=crop&w=900&q=80"],
+        photos: [
+          "https://images.unsplash.com/photo-1566140967404-b8b3932483f5?auto=format&fit=crop&w=900&q=80",
+        ],
       }),
       note: "Hands-on fun for all ages — gem digging, science experiments, and a maker lab.",
     };
@@ -647,11 +683,13 @@ export function generateGroupPlanLocal(
         name: "Splash Adventure Park",
         category: "Outdoor · Family Fun",
         address: "1500 Maine Ave SW, Washington, DC",
-        location: { lat: 38.8780, lng: -77.0235 },
+        location: { lat: 38.878, lng: -77.0235 },
         rating: 4.6,
         priceLevel: 1,
         vibeMatch: 90,
-        photos: ["https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=900&q=80"],
+        photos: [
+          "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=900&q=80",
+        ],
       }),
       note: "Perfect wind-down — splash pads, mini golf, and sunset views.",
     };
@@ -683,7 +721,7 @@ export function voteOnStop(
   stopId: string,
   userId: string,
   displayName: string,
-  vote: VoteValue
+  vote: VoteValue,
 ): GroupPlanStop | null {
   const plan = mockPlans.get(planId);
   if (!plan) return null;
@@ -763,7 +801,7 @@ export function refinePlan(planId: string): GroupPlan | null {
 
 async function generatePlanName(
   group: Group,
-  categories: string[]
+  categories: string[],
 ): Promise<{ name: string; subtitle: string; emoji: string }> {
   try {
     const config = getAIConfig();
@@ -791,7 +829,7 @@ async function generatePlanName(
 function generatePlanNameLocal(
   type: GroupType,
   categories: string[],
-  city: string
+  city: string,
 ): { name: string; subtitle: string; emoji: string } {
   const cityShort = city.split(",")[0].trim();
 
@@ -857,11 +895,7 @@ function generatePlanNameLocal(
   // Try to incorporate a category into the name
   if (categories.length > 0 && Math.random() > 0.5) {
     const cat = categories[0];
-    const catNames = [
-      `Sunset & ${cat} Session`,
-      `The ${cat} Express`,
-      `${cat} & Good Vibes`,
-    ];
+    const catNames = [`Sunset & ${cat} Session`, `The ${cat} Express`, `${cat} & Good Vibes`];
     return {
       name: catNames[Math.floor(Math.random() * catNames.length)],
       subtitle,
@@ -911,9 +945,7 @@ export function getGroup(groupId: string): Group | null {
 }
 
 export function getUserGroups(userId: string): Group[] {
-  return Array.from(mockGroups.values()).filter((g) =>
-    g.members.some((m) => m.userId === userId)
-  );
+  return Array.from(mockGroups.values()).filter((g) => g.members.some((m) => m.userId === userId));
 }
 
 export function getGroupPlans(groupId: string): GroupPlan[] {

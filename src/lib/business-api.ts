@@ -187,32 +187,43 @@ export async function updateVenueSocial(input: {
   if (input.tiktokOfficial !== undefined) update.tiktok_url = input.tiktokOfficial || null;
   if (input.tiktokHandle !== undefined) update.tiktok_handle = input.tiktokHandle || null;
   if (input.tiktokHashtags) update.tiktok_hashtags = input.tiktokHashtags.map(normTag);
-  if (input.tiktokLocationTag !== undefined) update.tiktok_location_tag = input.tiktokLocationTag || null;
+  if (input.tiktokLocationTag !== undefined)
+    update.tiktok_location_tag = input.tiktokLocationTag || null;
   if (input.instagramOfficial !== undefined) update.instagram_url = input.instagramOfficial || null;
   if (input.instagramHandle !== undefined) update.instagram_handle = input.instagramHandle || null;
   if (input.instagramHashtags) update.instagram_hashtags = input.instagramHashtags.map(normTag);
-  if (input.instagramLocationTag !== undefined) update.instagram_location_tag = input.instagramLocationTag || null;
+  if (input.instagramLocationTag !== undefined)
+    update.instagram_location_tag = input.instagramLocationTag || null;
   update.socials_refreshed_at = new Date().toISOString();
 
-  const { error } = await (supabase as any)
-    .from("venues")
-    .update(update)
-    .eq("id", input.venueId);
+  const { error } = await (supabase as any).from("venues").update(update).eq("id", input.venueId);
   if (error) throw new Error(error.message);
   return { ok: true };
 }
 
-export async function disconnectSocial(input: { venueId: string; platform: "tiktok" | "instagram" }) {
+export async function disconnectSocial(input: {
+  venueId: string;
+  platform: "tiktok" | "instagram";
+}) {
   const user = await requireUser();
   await assertCanManageVenue(user.id, input.venueId);
   const update =
     input.platform === "tiktok"
-      ? { tiktok_url: null, tiktok_handle: null, tiktok_hashtags: [], tiktok_location_tag: null, tiktok_thumbnails: [] }
-      : { instagram_url: null, instagram_handle: null, instagram_hashtags: [], instagram_location_tag: null, instagram_thumbnails: [] };
-  const { error } = await (supabase as any)
-    .from("venues")
-    .update(update)
-    .eq("id", input.venueId);
+      ? {
+          tiktok_url: null,
+          tiktok_handle: null,
+          tiktok_hashtags: [],
+          tiktok_location_tag: null,
+          tiktok_thumbnails: [],
+        }
+      : {
+          instagram_url: null,
+          instagram_handle: null,
+          instagram_hashtags: [],
+          instagram_location_tag: null,
+          instagram_thumbnails: [],
+        };
+  const { error } = await (supabase as any).from("venues").update(update).eq("id", input.venueId);
   if (error) throw new Error(error.message);
   return { ok: true };
 }
@@ -230,7 +241,9 @@ export async function listMyVenueEvents() {
   if (ids.length === 0) return { events: [] };
   const { data, error } = await (supabase as any)
     .from("events")
-    .select("id, title, starts_at, ends_at, status, image_url, ticket_url, price_cents, venue_id, venue_name")
+    .select(
+      "id, title, starts_at, ends_at, status, image_url, ticket_url, price_cents, venue_id, venue_name",
+    )
     .in("venue_id", ids)
     .order("starts_at", { ascending: false });
   if (error) throw new Error(error.message);
@@ -279,7 +292,11 @@ export async function createVenueEvent(input: {
     created_by: user.id,
     status: "published",
   };
-  const { data: row, error } = await (supabase as any).from("events").insert(insert).select("id").single();
+  const { data: row, error } = await (supabase as any)
+    .from("events")
+    .insert(insert)
+    .select("id")
+    .single();
   if (error) throw new Error(error.message);
   return { ok: true, eventId: row.id };
 }
@@ -641,11 +658,13 @@ export async function listVenuePreOrders(input: {
 
   let q = (supabase as any)
     .from("booking_pre_orders")
-    .select(`
+    .select(
+      `
       *,
       booking:bookings(id, starts_at, party_size, confirmation_code),
       items:pre_order_items(*, menu_item:venue_menu_items(name, price_cents))
-    `)
+    `,
+    )
     .eq("venue_id", input.venueId)
     .order("created_at", { ascending: false })
     .limit(50);

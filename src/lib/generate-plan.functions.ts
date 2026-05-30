@@ -10,7 +10,11 @@ import { findTemplate } from "./agents/templates";
 import { impromptuPoolPrompt } from "./agents/impromptu";
 import { buildWaterfrontPrompt, detectWaterfront } from "./agents/waterfront";
 import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
-import { buildMiamiGuysNightPrompt, isMiamiGuysNight, buildGuysNightCulturalPrompt } from "./agents/guys-night-presets";
+import {
+  buildMiamiGuysNightPrompt,
+  isMiamiGuysNight,
+  buildGuysNightCulturalPrompt,
+} from "./agents/guys-night-presets";
 import { buildDateNightCulturalPrompt } from "./agents/date-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import { generateAndRankNames } from "./name-generator.server";
@@ -243,9 +247,9 @@ async function fetchCuratedVenues(
     trendScore: r.popularity_score !== null ? Number(r.popularity_score) : 0.7,
     mentionCount: null,
     tags: [
-      ...(r.vibe_tags as string[] ?? []),
-      ...(r.occasion_tags as string[] ?? []),
-      ...(r.cuisine_tags as string[] ?? []),
+      ...((r.vibe_tags as string[]) ?? []),
+      ...((r.occasion_tags as string[]) ?? []),
+      ...((r.cuisine_tags as string[]) ?? []),
     ],
     summary: r.vibe_notes,
     placeId: null,

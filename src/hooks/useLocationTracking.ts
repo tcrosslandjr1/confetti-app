@@ -32,7 +32,9 @@ export function useLocationTracking(enabled: boolean = true) {
 
       lastPingRef.current = { lat, lng, time: Date.now() };
 
-      const { data: { session } } = await supabase.auth.getSession();
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
       if (!session) return;
 
       try {

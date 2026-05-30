@@ -5,11 +5,9 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { Database } from "@/integrations/supabase/types";
 
 function adminClient() {
-  return createClient<Database>(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { persistSession: false, autoRefreshToken: false } },
-  );
+  return createClient<Database>(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
 }
 
 async function assertAdmin(userId: string) {
@@ -153,9 +151,7 @@ export const adminGlobalSearch = createServerFn({ method: "POST" })
         `confirmation_code.ilike.${like},venue_name.ilike.${like},id::text.ilike.${like}`,
       );
     } else {
-      bookingQ = bookingQ.or(
-        `venue_name.ilike.${like},confirmation_code.ilike.${like}`,
-      );
+      bookingQ = bookingQ.or(`venue_name.ilike.${like},confirmation_code.ilike.${like}`);
     }
 
     const { data: bkRows } = await bookingQ;

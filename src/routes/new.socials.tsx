@@ -1,7 +1,12 @@
 import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
 import { useEffect, useState, useCallback } from "react";
 import {
-  BrandMark, ChunkyButton, DotsBg, Frame, TopBar, TOKENS,
+  BrandMark,
+  ChunkyButton,
+  DotsBg,
+  Frame,
+  TopBar,
+  TOKENS,
 } from "@/components/new-confetti/shell";
 import {
   connectPlatform,
@@ -15,9 +20,9 @@ import {
 // ─── Route ────────────────────────────────────────────────────────────────
 export const Route = createFileRoute("/new/socials")({
   validateSearch: (s: Record<string, unknown>) => ({
-    tiktok:    s.tiktok    as string | undefined,
+    tiktok: s.tiktok as string | undefined,
     instagram: s.instagram as string | undefined,
-    facebook:  s.facebook  as string | undefined,
+    facebook: s.facebook as string | undefined,
   }),
   component: SocialsPage,
 });
@@ -76,7 +81,9 @@ function SocialsPage() {
     setLoading(false);
   }, []);
 
-  useEffect(() => { reload(); }, [reload]);
+  useEffect(() => {
+    reload();
+  }, [reload]);
 
   // ── Handle OAuth return params ────────────────────────────────────────
   useEffect(() => {
@@ -100,11 +107,9 @@ function SocialsPage() {
     setTimeout(() => setToast(null), 3500);
   };
 
-  const isLinked = (id: SocialPlatform) =>
-    accounts.some((a) => a.provider === id);
+  const isLinked = (id: SocialPlatform) => accounts.some((a) => a.provider === id);
 
-  const accountFor = (id: SocialPlatform) =>
-    accounts.find((a) => a.provider === id) ?? null;
+  const accountFor = (id: SocialPlatform) => accounts.find((a) => a.provider === id) ?? null;
 
   const handleConnect = async (id: SocialPlatform) => {
     setConnecting(id);
@@ -142,21 +147,30 @@ function SocialsPage() {
   // ─── Render ────────────────────────────────────────────────────────────
   return (
     <Frame>
-      <div style={{
-        position: "relative", height: "100%",
-        background: TOKENS.bg,
-        display: "flex", flexDirection: "column",
-        padding: "56px 20px 32px",
-        overflow: "hidden",
-      }}>
+      <div
+        style={{
+          position: "relative",
+          height: "100%",
+          background: TOKENS.bg,
+          display: "flex",
+          flexDirection: "column",
+          padding: "56px 20px 32px",
+          overflow: "hidden",
+        }}
+      >
         <DotsBg opacity={0.05} />
 
         {/* Header */}
-        <div style={{
-          position: "relative", zIndex: 2,
-          display: "flex", alignItems: "center", justifyContent: "space-between",
-          marginBottom: 24,
-        }}>
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: 24,
+          }}
+        >
           <BackBtn onClick={() => navigate({ to: "/new/settings" })} />
           <BrandMark size={17} />
           <span style={{ width: 36 }} />
@@ -164,25 +178,40 @@ function SocialsPage() {
 
         {/* Title block */}
         <div style={{ position: "relative", zIndex: 2, marginBottom: 28 }}>
-          <div style={{
-            fontFamily: TOKENS.display, fontWeight: 900, fontSize: 26,
-            lineHeight: 1.1, letterSpacing: "-0.03em", color: TOKENS.ink,
-            marginBottom: 6,
-          }}>
-            connect your<br />
+          <div
+            style={{
+              fontFamily: TOKENS.display,
+              fontWeight: 900,
+              fontSize: 26,
+              lineHeight: 1.1,
+              letterSpacing: "-0.03em",
+              color: TOKENS.ink,
+              marginBottom: 6,
+            }}
+          >
+            connect your
+            <br />
             <span style={{ color: TOKENS.accent1 }}>socials</span>.
           </div>
-          <div style={{
-            fontFamily: TOKENS.ui, fontSize: 13, color: TOKENS.ink,
-            opacity: 0.6, lineHeight: 1.5,
-          }}>
-            confetti reads your saves, likes &amp; check-ins<br />
+          <div
+            style={{
+              fontFamily: TOKENS.ui,
+              fontSize: 13,
+              color: TOKENS.ink,
+              opacity: 0.6,
+              lineHeight: 1.5,
+            }}
+          >
+            confetti reads your saves, likes &amp; check-ins
+            <br />
             to build a taste profile that&apos;s actually yours.
           </div>
         </div>
 
         {/* Platform cards */}
-        <div style={{ position: "relative", zIndex: 2, flex: 1, overflowY: "auto", paddingBottom: 8 }}>
+        <div
+          style={{ position: "relative", zIndex: 2, flex: 1, overflowY: "auto", paddingBottom: 8 }}
+        >
           {PLATFORMS.map((p) => {
             const linked = isLinked(p.id);
             const acc = accountFor(p.id);
@@ -209,18 +238,19 @@ function SocialsPage() {
         {/* Sync CTA — only shown when ≥1 platform connected */}
         {connectedCount > 0 && !loading && (
           <div style={{ position: "relative", zIndex: 2, marginTop: 20 }}>
-            <ChunkyButton
-              onClick={handleSync}
-              disabled={syncing}
-              variant="primary"
-              full
-            >
+            <ChunkyButton onClick={handleSync} disabled={syncing} variant="primary" full>
               {syncing ? "syncing…" : `✨ sync now (${connectedCount} connected)`}
             </ChunkyButton>
-            <div style={{
-              fontFamily: TOKENS.ui, fontSize: 11, textAlign: "center",
-              color: TOKENS.ink, opacity: 0.4, marginTop: 6,
-            }}>
+            <div
+              style={{
+                fontFamily: TOKENS.ui,
+                fontSize: 11,
+                textAlign: "center",
+                color: TOKENS.ink,
+                opacity: 0.4,
+                marginTop: 6,
+              }}
+            >
               confetti learns from your activity · no posting on your behalf
             </div>
           </div>
@@ -228,28 +258,43 @@ function SocialsPage() {
 
         {/* Empty state nudge */}
         {connectedCount === 0 && !loading && (
-          <div style={{
-            position: "relative", zIndex: 2, marginTop: 20,
-            textAlign: "center",
-            fontFamily: TOKENS.ui, fontSize: 13, color: TOKENS.ink, opacity: 0.5,
-          }}>
+          <div
+            style={{
+              position: "relative",
+              zIndex: 2,
+              marginTop: 20,
+              textAlign: "center",
+              fontFamily: TOKENS.ui,
+              fontSize: 13,
+              color: TOKENS.ink,
+              opacity: 0.5,
+            }}
+          >
             connect one platform to unlock smarter picks
           </div>
         )}
 
         {/* Toast */}
         {toast && (
-          <div style={{
-            position: "fixed", bottom: 40, left: "50%",
-            transform: "translateX(-50%)",
-            background: toast.ok ? TOKENS.accent4 : TOKENS.accent1,
-            color: TOKENS.paper,
-            fontFamily: TOKENS.ui, fontWeight: 700, fontSize: 14,
-            padding: "12px 22px", borderRadius: 14,
-            border: `2.5px solid ${TOKENS.ink}`,
-            boxShadow: `4px 4px 0 ${TOKENS.ink}`,
-            zIndex: 100, whiteSpace: "nowrap",
-          }}>
+          <div
+            style={{
+              position: "fixed",
+              bottom: 40,
+              left: "50%",
+              transform: "translateX(-50%)",
+              background: toast.ok ? TOKENS.accent4 : TOKENS.accent1,
+              color: TOKENS.paper,
+              fontFamily: TOKENS.ui,
+              fontWeight: 700,
+              fontSize: 14,
+              padding: "12px 22px",
+              borderRadius: 14,
+              border: `2.5px solid ${TOKENS.ink}`,
+              boxShadow: `4px 4px 0 ${TOKENS.ink}`,
+              zIndex: 100,
+              whiteSpace: "nowrap",
+            }}
+          >
             {toast.msg}
           </div>
         )}
@@ -281,47 +326,69 @@ function PlatformCard({
   const busy = isConnecting || isDisconnecting;
 
   return (
-    <div style={{
-      background: TOKENS.paper,
-      border: `2.5px solid ${TOKENS.ink}`,
-      borderRadius: 16,
-      padding: "16px 18px",
-      marginBottom: 12,
-      boxShadow: linked
-        ? `5px 5px 0 ${meta.color === TOKENS.ink ? TOKENS.accent1 : meta.color}`
-        : `3px 3px 0 ${TOKENS.ink}`,
-      transition: "box-shadow 0.15s",
-      outline: isFresh ? `3px solid ${TOKENS.accent4}` : "none",
-    }}>
+    <div
+      style={{
+        background: TOKENS.paper,
+        border: `2.5px solid ${TOKENS.ink}`,
+        borderRadius: 16,
+        padding: "16px 18px",
+        marginBottom: 12,
+        boxShadow: linked
+          ? `5px 5px 0 ${meta.color === TOKENS.ink ? TOKENS.accent1 : meta.color}`
+          : `3px 3px 0 ${TOKENS.ink}`,
+        transition: "box-shadow 0.15s",
+        outline: isFresh ? `3px solid ${TOKENS.accent4}` : "none",
+      }}
+    >
       {/* Top row */}
-      <div style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        marginBottom: linked ? 10 : 12,
-      }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: linked ? 10 : 12,
+        }}
+      >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <span style={{ fontSize: 22 }}>{meta.icon}</span>
           <div>
-            <div style={{
-              fontFamily: TOKENS.display, fontWeight: 900, fontSize: 15,
-              color: TOKENS.ink, letterSpacing: "-0.02em",
-            }}>
+            <div
+              style={{
+                fontFamily: TOKENS.display,
+                fontWeight: 900,
+                fontSize: 15,
+                color: TOKENS.ink,
+                letterSpacing: "-0.02em",
+              }}
+            >
               {meta.label}
               {linked && (
-                <span style={{
-                  marginLeft: 8, fontSize: 11, fontWeight: 700,
-                  background: TOKENS.accent4, color: TOKENS.paper,
-                  padding: "2px 7px", borderRadius: 20,
-                  border: `1.5px solid ${TOKENS.ink}`,
-                  verticalAlign: "middle",
-                }}>
+                <span
+                  style={{
+                    marginLeft: 8,
+                    fontSize: 11,
+                    fontWeight: 700,
+                    background: TOKENS.accent4,
+                    color: TOKENS.paper,
+                    padding: "2px 7px",
+                    borderRadius: 20,
+                    border: `1.5px solid ${TOKENS.ink}`,
+                    verticalAlign: "middle",
+                  }}
+                >
                   connected
                 </span>
               )}
             </div>
-            <div style={{
-              fontFamily: TOKENS.ui, fontSize: 11, color: TOKENS.ink,
-              opacity: 0.5, marginTop: 1,
-            }}>
+            <div
+              style={{
+                fontFamily: TOKENS.ui,
+                fontSize: 11,
+                color: TOKENS.ink,
+                opacity: 0.5,
+                marginTop: 1,
+              }}
+            >
               {meta.what}
             </div>
           </div>
@@ -330,15 +397,20 @@ function PlatformCard({
 
       {/* Account info when linked */}
       {linked && account && (
-        <div style={{
-          fontFamily: TOKENS.mono, fontSize: 12, color: TOKENS.ink,
-          opacity: 0.6, marginBottom: 12,
-          background: TOKENS.bg, borderRadius: 8, padding: "6px 10px",
-          border: `1.5px solid ${TOKENS.ink}`,
-        }}>
-          {account.username
-            ? `@${account.username}`
-            : account.display_name ?? "account linked"}
+        <div
+          style={{
+            fontFamily: TOKENS.mono,
+            fontSize: 12,
+            color: TOKENS.ink,
+            opacity: 0.6,
+            marginBottom: 12,
+            background: TOKENS.bg,
+            borderRadius: 8,
+            padding: "6px 10px",
+            border: `1.5px solid ${TOKENS.ink}`,
+          }}
+        >
+          {account.username ? `@${account.username}` : (account.display_name ?? "account linked")}
           {account.updated_at && (
             <span style={{ opacity: 0.5, marginLeft: 8 }}>
               · synced {timeSince(account.updated_at)}
@@ -355,10 +427,14 @@ function PlatformCard({
             disabled={busy}
             style={{
               flex: 1,
-              fontFamily: TOKENS.ui, fontWeight: 700, fontSize: 13,
-              padding: "9px 0", borderRadius: 10,
+              fontFamily: TOKENS.ui,
+              fontWeight: 700,
+              fontSize: 13,
+              padding: "9px 0",
+              borderRadius: 10,
               border: `2px solid ${TOKENS.ink}`,
-              background: TOKENS.paper, color: TOKENS.ink,
+              background: TOKENS.paper,
+              color: TOKENS.ink,
               cursor: busy ? "not-allowed" : "pointer",
               opacity: busy ? 0.5 : 1,
               boxShadow: `2px 2px 0 ${TOKENS.ink}`,
@@ -372,8 +448,11 @@ function PlatformCard({
             disabled={busy}
             style={{
               flex: 1,
-              fontFamily: TOKENS.ui, fontWeight: 900, fontSize: 14,
-              padding: "10px 0", borderRadius: 10,
+              fontFamily: TOKENS.ui,
+              fontWeight: 900,
+              fontSize: 14,
+              padding: "10px 0",
+              borderRadius: 10,
               border: `2.5px solid ${TOKENS.ink}`,
               background: meta.color === TOKENS.ink ? TOKENS.ink : TOKENS.paper,
               color: meta.color === TOKENS.ink ? TOKENS.paper : TOKENS.ink,
@@ -393,11 +472,21 @@ function PlatformCard({
 // ─── Helpers ───────────────────────────────────────────────────────────────
 function BackBtn({ onClick }: { onClick: () => void }) {
   return (
-    <button onClick={onClick} style={{
-      fontFamily: TOKENS.ui, fontWeight: 700, fontSize: 22,
-      background: "transparent", border: "none", cursor: "pointer",
-      color: TOKENS.ink, lineHeight: 1, padding: 4, width: 36,
-    }}>
+    <button
+      onClick={onClick}
+      style={{
+        fontFamily: TOKENS.ui,
+        fontWeight: 700,
+        fontSize: 22,
+        background: "transparent",
+        border: "none",
+        cursor: "pointer",
+        color: TOKENS.ink,
+        lineHeight: 1,
+        padding: 4,
+        width: 36,
+      }}
+    >
       ←
     </button>
   );

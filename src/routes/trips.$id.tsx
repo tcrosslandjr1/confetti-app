@@ -149,14 +149,9 @@ function SortableStopLi({
     isDragging: boolean;
   }) => React.ReactNode;
 }) {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({ id });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id,
+  });
   const style: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
     transition,
@@ -238,16 +233,15 @@ function TripDetail() {
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const fetchTrip = useCallback(() => {
-    return getItinerary(id)
-      .then((d) => {
-        setData(d);
-        // If the itinerary was being built and is now ready, stop polling
-        if (d.itinerary.source !== "building" && pollRef.current) {
-          clearInterval(pollRef.current);
-          pollRef.current = null;
-        }
-        return d;
-      });
+    return getItinerary(id).then((d) => {
+      setData(d);
+      // If the itinerary was being built and is now ready, stop polling
+      if (d.itinerary.source !== "building" && pollRef.current) {
+        clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
+      return d;
+    });
   }, [id]);
 
   useEffect(() => {
@@ -268,7 +262,10 @@ function TripDetail() {
       .catch((e) => setErr(e.message))
       .finally(() => setLoading(false));
     return () => {
-      if (pollRef.current) { clearInterval(pollRef.current); pollRef.current = null; }
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
     };
   }, [id, user, authLoading, nav, fetchTrip]);
 
@@ -323,12 +320,9 @@ function TripDetail() {
     if (!data || addingStop) return;
     setAddingStop(true);
     const category = inferCategory(v.cuisine);
-    const baseDescription = v.neighborhood
-      ? `${v.cuisine} · ${v.neighborhood}`
-      : v.cuisine;
-    const description = v.source === "ai" && v.reason
-      ? `${baseDescription}\n\n${v.reason}`
-      : baseDescription;
+    const baseDescription = v.neighborhood ? `${v.cuisine} · ${v.neighborhood}` : v.cuisine;
+    const description =
+      v.source === "ai" && v.reason ? `${baseDescription}\n\n${v.reason}` : baseDescription;
     try {
       await insertStop(data.itinerary.id, {
         name: v.name,
@@ -496,191 +490,203 @@ function TripDetail() {
         <div className="mb-6">
           <VibeFilter prefs={vibePrefs} onChange={updateVibePrefs} />
         </div>
-        <DndContext sensors={dndSensors} collisionDetection={closestCenter} onDragEnd={handleStopsReorder}>
-        <SortableContext items={stops.map((s) => s.id).filter(Boolean) as string[]} strategy={verticalListSortingStrategy}>
-        <ol className="relative space-y-6 border-l-2 border-dashed border-border pl-6">
-          {stops.map((s, i) => {
-            const Icon = CAT_ICONS[s.category as string] ?? Sparkles;
-            const leg = (s.travel_from_prev ?? null) as TravelLeg | null;
-            const prev = i > 0 ? stops[i - 1] : null;
-            if (!s.id) {
-              // Skeleton stop with no id can't be sortable; render plain.
-              return (
-                <li key={`pending-${i}`} className="relative">
-                  <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <article className="rounded-2xl border border-border bg-card p-5 shadow-card opacity-60">
-                    <h3 className="font-display text-xl font-bold">{s.name}</h3>
-                    <p className="text-xs text-muted-foreground">Saving…</p>
-                  </article>
-                </li>
-              );
-            }
-            return (
-              <SortableStopLi key={s.id} id={s.id}>
-                {({ handleProps }) => (
-                  <>
-                {leg && prev && <TravelLegCard leg={leg} from={prev} to={s} />}
-                <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="flex items-start gap-2">
-                      <button
-                        type="button"
-                        aria-label="Drag to reorder"
-                        {...handleProps}
-                        className="touch-none cursor-grab active:cursor-grabbing -ml-1 mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                      >
-                        <GripVertical className="h-4 w-4" />
-                      </button>
-                      <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        Stop {i + 1} · {s.category}
-                        {s.start_time && ` · ${s.start_time.slice(0, 5)}`}
-                        {s.duration_minutes && ` · ${s.duration_minutes} min`}
-                      </p>
-                      <h3 className="mt-1 font-display text-xl font-bold">{s.name}</h3>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          toast("Swap-stop feature coming soon!", {
-                            icon: "🔄",
-                            description:
-                              "You'll be able to search or let AI suggest an alternative.",
-                          })
-                        }
-                        className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                      >
-                        <ArrowLeftRight className="h-3 w-3" /> Change
-                      </button>
-                      <BookingPill
-                        status={s.booking_status as Stop["booking_status"]}
-                        onChange={(st) => s.id && setStatus(s.id, st)}
-                      />
-                    </div>
-                  </div>
-
-                  <GooglePhotos
-                    venue={s.name}
-                    address={s.address}
-                    className="mt-3 overflow-hidden rounded-xl"
-                    variant="strip"
-                    hideEmpty
-                  />
-
-                  <VibeRow stop={s} prefs={vibePrefs} />
-
-                  {s.description && <p className="mt-3 text-sm text-foreground">{s.description}</p>}
-
-                  <div className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
-                    {s.address && (
-                      <div className="flex items-start gap-2 text-muted-foreground">
-                        <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                        <span>{s.address}</span>
-                      </div>
-                    )}
-                    {s.est_cost && (
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <span className="font-semibold">{s.est_cost}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {s.what_to_do && (
-                    <div className="mt-3 rounded-xl bg-muted p-3">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        What to do / order
-                      </p>
-                      <p className="mt-1 text-sm">{s.what_to_do}</p>
-                    </div>
-                  )}
-
-                  {Array.isArray(s.review_snippets) && s.review_snippets.length > 0 && (
-                    <div className="mt-3 rounded-xl border border-border/60 bg-background p-3">
-                      <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        <Quote className="h-3.5 w-3.5" /> What people say{" "}
-                        <span className="ml-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold normal-case">
-                          AI summary
+        <DndContext
+          sensors={dndSensors}
+          collisionDetection={closestCenter}
+          onDragEnd={handleStopsReorder}
+        >
+          <SortableContext
+            items={stops.map((s) => s.id).filter(Boolean) as string[]}
+            strategy={verticalListSortingStrategy}
+          >
+            <ol className="relative space-y-6 border-l-2 border-dashed border-border pl-6">
+              {stops.map((s, i) => {
+                const Icon = CAT_ICONS[s.category as string] ?? Sparkles;
+                const leg = (s.travel_from_prev ?? null) as TravelLeg | null;
+                const prev = i > 0 ? stops[i - 1] : null;
+                if (!s.id) {
+                  // Skeleton stop with no id can't be sortable; render plain.
+                  return (
+                    <li key={`pending-${i}`} className="relative">
+                      <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <article className="rounded-2xl border border-border bg-card p-5 shadow-card opacity-60">
+                        <h3 className="font-display text-xl font-bold">{s.name}</h3>
+                        <p className="text-xs text-muted-foreground">Saving…</p>
+                      </article>
+                    </li>
+                  );
+                }
+                return (
+                  <SortableStopLi key={s.id} id={s.id}>
+                    {({ handleProps }) => (
+                      <>
+                        {leg && prev && <TravelLegCard leg={leg} from={prev} to={s} />}
+                        <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
+                          <Icon className="h-5 w-5" />
                         </span>
-                      </p>
-                      <ul className="mt-2 space-y-1.5 text-sm italic text-foreground/80">
-                        {s.review_snippets.map((r, idx) => (
-                          <li key={idx}>"{r}"</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                        <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
+                          <div className="flex flex-wrap items-start justify-between gap-3">
+                            <div className="flex items-start gap-2">
+                              <button
+                                type="button"
+                                aria-label="Drag to reorder"
+                                {...handleProps}
+                                className="touch-none cursor-grab active:cursor-grabbing -ml-1 mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                              >
+                                <GripVertical className="h-4 w-4" />
+                              </button>
+                              <div>
+                                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                  Stop {i + 1} · {s.category}
+                                  {s.start_time && ` · ${s.start_time.slice(0, 5)}`}
+                                  {s.duration_minutes && ` · ${s.duration_minutes} min`}
+                                </p>
+                                <h3 className="mt-1 font-display text-xl font-bold">{s.name}</h3>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  toast("Swap-stop feature coming soon!", {
+                                    icon: "🔄",
+                                    description:
+                                      "You'll be able to search or let AI suggest an alternative.",
+                                  })
+                                }
+                                className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                              >
+                                <ArrowLeftRight className="h-3 w-3" /> Change
+                              </button>
+                              <BookingPill
+                                status={s.booking_status as Stop["booking_status"]}
+                                onChange={(st) => s.id && setStatus(s.id, st)}
+                              />
+                            </div>
+                          </div>
 
-                  {s.parking && (
-                    <div className="mt-3 flex gap-3 rounded-xl bg-muted/60 p-3">
-                      <ParkingCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <div className="text-sm">
-                        <p className="font-semibold capitalize">
-                          {s.parking.type} · {s.parking.cost}
-                        </p>
-                        <p className="text-muted-foreground">{s.parking.access}</p>
-                      </div>
-                    </div>
-                  )}
+                          <GooglePhotos
+                            venue={s.name}
+                            address={s.address}
+                            className="mt-3 overflow-hidden rounded-xl"
+                            variant="strip"
+                            hideEmpty
+                          />
 
-                  {s.dress_code && (
-                    <div className="mt-3 flex gap-3 rounded-xl border border-border/60 bg-background p-3">
-                      <Shirt className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <div className="text-sm">
-                        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                          Dress code
-                        </p>
-                        <p className="mt-0.5 font-medium">{s.dress_code}</p>
-                      </div>
-                    </div>
-                  )}
+                          <VibeRow stop={s} prefs={vibePrefs} />
 
-                  {Array.isArray(s.tips) && s.tips.length > 0 && (
-                    <div className="mt-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 p-3">
-                      <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-900 dark:text-amber-200">
-                        <Lightbulb className="h-3.5 w-3.5" /> Insider tips
-                      </p>
-                      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-amber-950 dark:text-amber-100">
-                        {s.tips.map((t, idx) => (
-                          <li key={idx}>{t}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                          {s.description && (
+                            <p className="mt-3 text-sm text-foreground">{s.description}</p>
+                          )}
 
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                    {s.booking_url && (
-                      <a
-                        href={s.booking_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background hover:scale-105 transition-pop"
-                      >
-                        Book on {s.booking_provider ?? "site"}{" "}
-                        <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
+                          <div className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
+                            {s.address && (
+                              <div className="flex items-start gap-2 text-muted-foreground">
+                                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+                                <span>{s.address}</span>
+                              </div>
+                            )}
+                            {s.est_cost && (
+                              <div className="flex items-center gap-2 text-muted-foreground">
+                                <span className="font-semibold">{s.est_cost}</span>
+                              </div>
+                            )}
+                          </div>
+
+                          {s.what_to_do && (
+                            <div className="mt-3 rounded-xl bg-muted p-3">
+                              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                What to do / order
+                              </p>
+                              <p className="mt-1 text-sm">{s.what_to_do}</p>
+                            </div>
+                          )}
+
+                          {Array.isArray(s.review_snippets) && s.review_snippets.length > 0 && (
+                            <div className="mt-3 rounded-xl border border-border/60 bg-background p-3">
+                              <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                <Quote className="h-3.5 w-3.5" /> What people say{" "}
+                                <span className="ml-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold normal-case">
+                                  AI summary
+                                </span>
+                              </p>
+                              <ul className="mt-2 space-y-1.5 text-sm italic text-foreground/80">
+                                {s.review_snippets.map((r, idx) => (
+                                  <li key={idx}>"{r}"</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {s.parking && (
+                            <div className="mt-3 flex gap-3 rounded-xl bg-muted/60 p-3">
+                              <ParkingCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                              <div className="text-sm">
+                                <p className="font-semibold capitalize">
+                                  {s.parking.type} · {s.parking.cost}
+                                </p>
+                                <p className="text-muted-foreground">{s.parking.access}</p>
+                              </div>
+                            </div>
+                          )}
+
+                          {s.dress_code && (
+                            <div className="mt-3 flex gap-3 rounded-xl border border-border/60 bg-background p-3">
+                              <Shirt className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                              <div className="text-sm">
+                                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                                  Dress code
+                                </p>
+                                <p className="mt-0.5 font-medium">{s.dress_code}</p>
+                              </div>
+                            </div>
+                          )}
+
+                          {Array.isArray(s.tips) && s.tips.length > 0 && (
+                            <div className="mt-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 p-3">
+                              <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-900 dark:text-amber-200">
+                                <Lightbulb className="h-3.5 w-3.5" /> Insider tips
+                              </p>
+                              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-amber-950 dark:text-amber-100">
+                                {s.tips.map((t, idx) => (
+                                  <li key={idx}>{t}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          <div className="mt-4 flex flex-wrap items-center gap-2">
+                            {s.booking_url && (
+                              <a
+                                href={s.booking_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background hover:scale-105 transition-pop"
+                              >
+                                Book on {s.booking_provider ?? "site"}{" "}
+                                <ExternalLink className="h-3.5 w-3.5" />
+                              </a>
+                            )}
+                          </div>
+
+                          <ReservationEditor
+                            stop={s}
+                            onSave={(p) => s.id && saveReservation(s.id, p)}
+                          />
+                          <NotesEditor
+                            initial={s.user_notes ?? ""}
+                            onSave={(v) => s.id && saveNotes(s.id, v)}
+                          />
+                        </article>
+                      </>
                     )}
-                  </div>
-
-                  <ReservationEditor stop={s} onSave={(p) => s.id && saveReservation(s.id, p)} />
-                  <NotesEditor
-                    initial={s.user_notes ?? ""}
-                    onSave={(v) => s.id && saveNotes(s.id, v)}
-                  />
-                </article>
-                  </>
-                )}
-              </SortableStopLi>
-            );
-          })}
-        </ol>
-        </SortableContext>
+                  </SortableStopLi>
+                );
+              })}
+            </ol>
+          </SortableContext>
         </DndContext>
 
         {/* Add stop */}

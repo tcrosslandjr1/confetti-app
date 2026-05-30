@@ -123,7 +123,11 @@ export function SectionTitle({
           {title}
         </h3>
       </div>
-      {action && <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">{action}</div>}
+      {action && (
+        <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">
+          {action}
+        </div>
+      )}
     </div>
   );
 }
@@ -161,7 +165,11 @@ export function BrutButton({
           ? "bg-gold text-cream"
           : "bg-ink text-cream";
   const sizes =
-    size === "sm" ? "h-9 px-4 text-[11px]" : size === "lg" ? "h-13 px-6 text-sm" : "h-11 px-5 text-xs";
+    size === "sm"
+      ? "h-9 px-4 text-[11px]"
+      : size === "lg"
+        ? "h-13 px-6 text-sm"
+        : "h-11 px-5 text-xs";
   return (
     <As
       className={cn(

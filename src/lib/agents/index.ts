@@ -42,31 +42,12 @@ export type {
 } from "./user-intelligence";
 
 // ─── Chat Agent ───────────────────────────────────────────────
-export {
-  sendMessage,
-  sendMessageLocal,
-  getChatStatus,
-} from "./chat-agent";
-export type {
-  ChatIntent,
-  ChatSession,
-  ChatMessage,
-  ChatContext,
-  ChatResponse,
-} from "./chat-agent";
+export { sendMessage, sendMessageLocal, getChatStatus } from "./chat-agent";
+export type { ChatIntent, ChatSession, ChatMessage, ChatContext, ChatResponse } from "./chat-agent";
 
 // ─── Trip Planner Agent ───────────────────────────────────────
-export {
-  planTrip,
-  planTripMock,
-  getUserTrips,
-} from "./trip-planner";
-export type {
-  TripRequest,
-  TripStop,
-  TripPlan,
-  StopType,
-} from "./trip-planner";
+export { planTrip, planTripMock, getUserTrips } from "./trip-planner";
+export type { TripRequest, TripStop, TripPlan, StopType } from "./trip-planner";
 
 // ─── Group Collaboration Agent ───────────────────────────────
 export {
@@ -199,15 +180,8 @@ export type {
 } from "./wallet-pass";
 
 // ─── Interaction Tracker (Implicit Learning) ─────────────────
-export {
-  trackInteraction,
-  startViewTimer,
-  trackImplicitSkips,
-} from "./interaction-tracker";
-export type {
-  InteractionEvent,
-  TrackInteractionParams,
-} from "./interaction-tracker";
+export { trackInteraction, startViewTimer, trackImplicitSkips } from "./interaction-tracker";
+export type { InteractionEvent, TrackInteractionParams } from "./interaction-tracker";
 
 // ─── Community Agent ─────────────────────────────────────────
 export {

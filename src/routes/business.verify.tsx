@@ -3,7 +3,11 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ArrowLeft, ShieldCheck, Crown, Mail, Phone, FileUp, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,7 +24,10 @@ export const Route = createFileRoute("/business/verify")({
   head: () => ({
     meta: [
       { title: "Verify your venue — Confetti for Business" },
-      { name: "description", content: "Get verified to unlock direct bookings, points redemption and AI plan placement." },
+      {
+        name: "description",
+        content: "Get verified to unlock direct bookings, points redemption and AI plan placement.",
+      },
     ],
   }),
 });
@@ -53,7 +60,12 @@ function VerifyPage() {
   });
 
   if (isLoading) return <Shell>Loading…</Shell>;
-  if (!venues.length) return <Shell><NoVenueClaim /></Shell>;
+  if (!venues.length)
+    return (
+      <Shell>
+        <NoVenueClaim />
+      </Shell>
+    );
 
   const v = venue.data;
   const tier = v?.verification_tier ?? "none";
@@ -69,14 +81,17 @@ function VerifyPage() {
       </div>
 
       <p className="mt-2 text-sm text-muted-foreground">
-        Verification unlocks direct bookings, Confetti points redemption and priority placement in AI plans.
+        Verification unlocks direct bookings, Confetti points redemption and priority placement in
+        AI plans.
       </p>
 
       {/* Current status */}
       <Card className="mt-6 p-5">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-xs uppercase tracking-wide text-muted-foreground">Current status</div>
+            <div className="text-xs uppercase tracking-wide text-muted-foreground">
+              Current status
+            </div>
             <div className="mt-1 flex items-center gap-2">
               <TierBadge tier={tier} />
               {v?.verified_at && (
@@ -104,10 +119,19 @@ function VerifyPage() {
             </p>
           </div>
           {(tier === "verified" || tier === "premium_verified") && (
-            <Badge variant="secondary" className="bg-emerald-100 text-emerald-700">Completed</Badge>
+            <Badge variant="secondary" className="bg-emerald-100 text-emerald-700">
+              Completed
+            </Badge>
           )}
         </div>
-        <SelfServeForm venueId={activeId!} disabled={tier === "premium_verified"} onDone={() => { venue.refetch(); qc.invalidateQueries({ queryKey: ["my-managed-venues"] }); }} />
+        <SelfServeForm
+          venueId={activeId!}
+          disabled={tier === "premium_verified"}
+          onDone={() => {
+            venue.refetch();
+            qc.invalidateQueries({ queryKey: ["my-managed-venues"] });
+          }}
+        />
       </Card>
 
       {/* Tier 2: documents */}
@@ -119,29 +143,46 @@ function VerifyPage() {
               <h2 className="text-lg font-semibold">Premium Verified — document review</h2>
             </div>
             <p className="mt-1 text-sm text-muted-foreground">
-              Upload a business license or utility bill. Reviewed within 24h.
-              Includes priority placement in AI plans and 2× points on every redemption.
+              Upload a business license or utility bill. Reviewed within 24h. Includes priority
+              placement in AI plans and 2× points on every redemption.
             </p>
           </div>
           {tier === "premium_verified" && (
-            <Badge variant="secondary" className="bg-amber-100 text-amber-700">Completed</Badge>
+            <Badge variant="secondary" className="bg-amber-100 text-amber-700">
+              Completed
+            </Badge>
           )}
         </div>
-        <DocUploadForm venueId={activeId!} onDone={() => { venue.refetch(); qc.invalidateQueries({ queryKey: ["my-managed-venues"] }); }} />
+        <DocUploadForm
+          venueId={activeId!}
+          onDone={() => {
+            venue.refetch();
+            qc.invalidateQueries({ queryKey: ["my-managed-venues"] });
+          }}
+        />
       </Card>
     </Shell>
   );
 }
 
 function TierBadge({ tier }: { tier: string }) {
-  if (tier === "premium_verified") return <Badge className="bg-amber-500 text-white">Premium Verified</Badge>;
+  if (tier === "premium_verified")
+    return <Badge className="bg-amber-500 text-white">Premium Verified</Badge>;
   if (tier === "verified") return <Badge className="bg-emerald-500 text-white">Verified</Badge>;
   return <Badge variant="outline">Not verified</Badge>;
 }
 
 /* ──────────── Self-serve email/phone ──────────── */
 
-function SelfServeForm({ venueId, disabled, onDone }: { venueId: string; disabled: boolean; onDone: () => void }) {
+function SelfServeForm({
+  venueId,
+  disabled,
+  onDone,
+}: {
+  venueId: string;
+  disabled: boolean;
+  onDone: () => void;
+}) {
   const [channel, setChannel] = useState<"email" | "phone">("email");
   const [destination, setDestination] = useState("");
   const [codeSent, setCodeSent] = useState<string | null>(null);
@@ -155,16 +196,21 @@ function SelfServeForm({ venueId, disabled, onDone }: { venueId: string; disable
       const generated = String(Math.floor(100000 + Math.random() * 900000));
       const { error } = await (supabase as any)
         .from("verification_codes")
-        .insert({ user_id: u.user.id, venue_id: venueId, channel, destination: destination.trim(), code: generated });
+        .insert({
+          user_id: u.user.id,
+          venue_id: venueId,
+          channel,
+          destination: destination.trim(),
+          code: generated,
+        });
       if (error) throw new Error(error.message);
       return generated;
     },
     onSuccess: (generated) => {
       setCodeSent(generated);
-      toast.success(
-        `Code sent to ${destination}. For this preview the code is ${generated}`,
-        { duration: 10000 },
-      );
+      toast.success(`Code sent to ${destination}. For this preview the code is ${generated}`, {
+        duration: 10000,
+      });
     },
     onError: (e: Error) => toast.error(e.message),
   });
@@ -184,9 +230,13 @@ function SelfServeForm({ venueId, disabled, onDone }: { venueId: string; disable
       const row = rows?.[0];
       if (!row) throw new Error("No code on record. Request a new one.");
       if (row.consumed_at) throw new Error("Code already used. Request a new one.");
-      if (new Date(row.expires_at).getTime() < Date.now()) throw new Error("Code expired. Request a new one.");
+      if (new Date(row.expires_at).getTime() < Date.now())
+        throw new Error("Code expired. Request a new one.");
       if (row.code !== code.trim()) throw new Error("Wrong code.");
-      const { error: ce } = await (supabase as any).from("verification_codes").update({ consumed_at: new Date().toISOString() }).eq("id", row.id);
+      const { error: ce } = await (supabase as any)
+        .from("verification_codes")
+        .update({ consumed_at: new Date().toISOString() })
+        .eq("id", row.id);
       if (ce) throw new Error(ce.message);
       const { error: ve } = await (supabase as any)
         .from("venues")
@@ -239,17 +289,31 @@ function SelfServeForm({ venueId, disabled, onDone }: { venueId: string; disable
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
           />
-          <Button onClick={() => sendCode.mutate()} disabled={sendCode.isPending || !destination.trim()}>
+          <Button
+            onClick={() => sendCode.mutate()}
+            disabled={sendCode.isPending || !destination.trim()}
+          >
             {codeSent ? "Resend" : "Send code"}
           </Button>
         </div>
       </div>
       {codeSent && (
         <div>
-          <Label htmlFor="code" className="text-xs">6-digit code</Label>
+          <Label htmlFor="code" className="text-xs">
+            6-digit code
+          </Label>
           <div className="mt-1 flex gap-2">
-            <Input id="code" placeholder="123456" value={code} onChange={(e) => setCode(e.target.value)} maxLength={6} />
-            <Button onClick={() => confirm.mutate()} disabled={confirm.isPending || code.length !== 6}>
+            <Input
+              id="code"
+              placeholder="123456"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              maxLength={6}
+            />
+            <Button
+              onClick={() => confirm.mutate()}
+              disabled={confirm.isPending || code.length !== 6}
+            >
               <Check className="mr-1.5 h-4 w-4" /> Verify
             </Button>
           </div>
@@ -272,7 +336,9 @@ function DocUploadForm({ venueId, onDone }: { venueId: string; onDone: () => voi
       if (!file) throw new Error("Choose a document to upload");
 
       const path = `${u.user.id}/${venueId}/${Date.now()}_${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
-      const { error: upErr } = await supabase.storage.from("venue-guides").upload(path, file, { upsert: false });
+      const { error: upErr } = await supabase.storage
+        .from("venue-guides")
+        .upload(path, file, { upsert: false });
       if (upErr) throw new Error(upErr.message);
       const { data: pub } = supabase.storage.from("venue-guides").getPublicUrl(path);
 
@@ -295,7 +361,10 @@ function DocUploadForm({ venueId, onDone }: { venueId: string; onDone: () => voi
       };
 
       if (existing?.id) {
-        const { error } = await (supabase as any).from("venue_claims").update(payload).eq("id", existing.id);
+        const { error } = await (supabase as any)
+          .from("venue_claims")
+          .update(payload)
+          .eq("id", existing.id);
         if (error) throw new Error(error.message);
       } else {
         const { error } = await (supabase as any).from("venue_claims").insert(payload);
@@ -314,7 +383,9 @@ function DocUploadForm({ venueId, onDone }: { venueId: string; onDone: () => voi
   return (
     <div className="mt-4 space-y-3">
       <div>
-        <Label htmlFor="doc" className="text-xs">Business license or utility bill (PDF / image)</Label>
+        <Label htmlFor="doc" className="text-xs">
+          Business license or utility bill (PDF / image)
+        </Label>
         <div className="mt-1 flex items-center gap-2">
           <Input
             id="doc"
@@ -322,12 +393,23 @@ function DocUploadForm({ venueId, onDone }: { venueId: string; onDone: () => voi
             accept="application/pdf,image/*"
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
           />
-          {file && <span className="text-xs text-muted-foreground">{(file.size / 1024).toFixed(0)} KB</span>}
+          {file && (
+            <span className="text-xs text-muted-foreground">
+              {(file.size / 1024).toFixed(0)} KB
+            </span>
+          )}
         </div>
       </div>
       <div>
-        <Label htmlFor="notes" className="text-xs">Notes for the reviewer (optional)</Label>
-        <Input id="notes" placeholder="DBA name, ownership context…" value={notes} onChange={(e) => setNotes(e.target.value)} />
+        <Label htmlFor="notes" className="text-xs">
+          Notes for the reviewer (optional)
+        </Label>
+        <Input
+          id="notes"
+          placeholder="DBA name, ownership context…"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+        />
       </div>
       <Button onClick={() => submit.mutate()} disabled={submit.isPending || !file}>
         <FileUp className="mr-1.5 h-4 w-4" />

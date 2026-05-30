@@ -37,7 +37,6 @@ export const MAYA_INPUTS: PlannerInputs = {
   },
 };
 
-
 const MAYA_STOPS: PlanStop[] = [
   { kind: "food", label: "Caribbean-Latin dinner" },
   { kind: "activity", label: "Fit check / photo stop" },
@@ -72,9 +71,7 @@ export const MAYA_VOTE_SWAP: VoteSwap = {
 export const MAYA_PLAN_AFTER_VOTE: Plan = {
   ...MAYA_PLAN,
   stops: MAYA_STOPS.map((s, i) =>
-    i === MAYA_VOTE_SWAP.fromStopIndex
-      ? { ...s, label: MAYA_VOTE_SWAP.toLabel }
-      : s,
+    i === MAYA_VOTE_SWAP.fromStopIndex ? { ...s, label: MAYA_VOTE_SWAP.toLabel } : s,
   ),
 };
 

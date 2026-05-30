@@ -19,9 +19,7 @@ export function getStripe(): Promise<Stripe | null> {
     }
     // Dynamic import so @stripe/stripe-js is in a separate chunk fetched
     // on demand (e.g. when the embedded checkout actually mounts).
-    stripePromise = import("@stripe/stripe-js").then(({ loadStripe }) =>
-      loadStripe(clientToken),
-    );
+    stripePromise = import("@stripe/stripe-js").then(({ loadStripe }) => loadStripe(clientToken));
   }
   return stripePromise;
 }

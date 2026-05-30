@@ -59,12 +59,7 @@ export interface DataRequest {
 
 export interface PolicyDocument {
   id: string;
-  type:
-    | "terms_of_service"
-    | "privacy_policy"
-    | "cookie_policy"
-    | "acceptable_use"
-    | "dmca_policy";
+  type: "terms_of_service" | "privacy_policy" | "cookie_policy" | "acceptable_use" | "dmca_policy";
   version: string;
   content: string;
   effectiveDate: string;
@@ -149,7 +144,7 @@ export async function submitDataRequest(
   userEmail: string,
   type: RequestType,
   description: string,
-  framework: ComplianceFramework
+  framework: ComplianceFramework,
 ): Promise<DataRequest> {
   const now = new Date();
   const deadlineDays = DEADLINE_DAYS[framework];
@@ -205,7 +200,7 @@ export async function processDataRequest(requestId: string): Promise<DataRequest
 
 export async function approveDataRequest(
   requestId: string,
-  approvedBy: string
+  approvedBy: string,
 ): Promise<DataRequest | null> {
   const request = dataRequestStore.find((r) => r.id === requestId);
   if (!request || request.status !== "pending_approval") return null;
@@ -302,7 +297,7 @@ export async function submitDMCA(
   email: string,
   contentUrl: string,
   originalUrl: string,
-  description: string
+  description: string,
 ): Promise<DMCANotice> {
   const notice: DMCANotice = {
     id: crypto.randomUUID?.() ?? `dmca-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -366,7 +361,8 @@ export function analyzeDMCA(dmcaId: string): DMCANotice | null {
   }
 
   // Check if the content URL is on our platform
-  const isOurContent = notice.contentUrl.includes("confetti") || notice.contentUrl.includes("localhost");
+  const isOurContent =
+    notice.contentUrl.includes("confetti") || notice.contentUrl.includes("localhost");
   if (isOurContent) {
     checks.push("Content URL appears to be hosted on our platform.");
     legitimacyScore += 20;
@@ -378,8 +374,8 @@ export function analyzeDMCA(dmcaId: string): DMCANotice | null {
     legitimacyScore >= 80
       ? "RECOMMENDATION: Notice appears legitimate. Review content and consider takedown."
       : legitimacyScore >= 50
-      ? "RECOMMENDATION: Notice has gaps. Request additional information from claimant before proceeding."
-      : "RECOMMENDATION: Notice appears incomplete or potentially fraudulent. Exercise caution.";
+        ? "RECOMMENDATION: Notice has gaps. Request additional information from claimant before proceeding."
+        : "RECOMMENDATION: Notice appears incomplete or potentially fraudulent. Exercise caution.";
 
   notice.aiAnalysis = [
     `DMCA Analysis Report`,
@@ -399,7 +395,10 @@ export function analyzeDMCA(dmcaId: string): DMCANotice | null {
 
 export function getPendingRequests(): DataRequest[] {
   return dataRequestStore
-    .filter((r) => r.status === "received" || r.status === "processing" || r.status === "pending_approval")
+    .filter(
+      (r) =>
+        r.status === "received" || r.status === "processing" || r.status === "pending_approval",
+    )
     .sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
 }
 
@@ -416,7 +415,7 @@ export function getRequestsByFramework(framework: ComplianceFramework): DataRequ
 export async function createPolicyVersion(
   type: PolicyDocument["type"],
   content: string,
-  changelog: string
+  changelog: string,
 ): Promise<PolicyDocument> {
   const existing = policyStore
     .filter((p) => p.type === type)
@@ -504,9 +503,10 @@ export function runComplianceAudit(framework: ComplianceFramework): ComplianceAu
       {
         area: "DPO Designation",
         status: "warning",
-        description: "Consider whether a Data Protection Officer is required based on processing scale.",
+        description:
+          "Consider whether a Data Protection Officer is required based on processing scale.",
         recommendation: "Evaluate DPO requirement as user base grows beyond EU thresholds.",
-      }
+      },
     );
   } else if (framework === "ccpa") {
     findings.push(
@@ -537,8 +537,9 @@ export function runComplianceAudit(framework: ComplianceFramework): ComplianceAu
       {
         area: "Response Timing",
         status: "pass",
-        description: "System tracks 45-day deadline for CCPA requests with urgent alerts at 7 days.",
-      }
+        description:
+          "System tracks 45-day deadline for CCPA requests with urgent alerts at 7 days.",
+      },
     );
   } else if (framework === "dmca") {
     findings.push(
@@ -560,21 +561,23 @@ export function runComplianceAudit(framework: ComplianceFramework): ComplianceAu
         status: "warning",
         description: "Counter-notice handling should be documented and automated.",
         recommendation: "Implement counter-notice intake form and response workflow.",
-      }
+      },
     );
   } else if (framework === "coppa") {
     findings.push(
       {
         area: "Age Verification",
         status: "warning",
-        description: "Age gate or verification should be implemented if under-13 users could access the app.",
-        recommendation: "Add age verification during onboarding. Nightlife focus reduces COPPA risk but verification is still recommended.",
+        description:
+          "Age gate or verification should be implemented if under-13 users could access the app.",
+        recommendation:
+          "Add age verification during onboarding. Nightlife focus reduces COPPA risk but verification is still recommended.",
       },
       {
         area: "Parental Consent",
         status: "pass",
         description: "App targets adults (nightlife/dining). Minimal COPPA exposure.",
-      }
+      },
     );
   }
 
@@ -600,11 +603,11 @@ export function getComplianceDashboard(): ComplianceDashboard {
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
 
   const pending = dataRequestStore.filter(
-    (r) => r.status === "received" || r.status === "pending_approval"
+    (r) => r.status === "received" || r.status === "pending_approval",
   );
   const processing = dataRequestStore.filter((r) => r.status === "processing");
   const completedThisMonth = dataRequestStore.filter(
-    (r) => r.status === "completed" && new Date(r.completedAt ?? "") >= monthStart
+    (r) => r.status === "completed" && new Date(r.completedAt ?? "") >= monthStart,
   );
 
   // Last audit status per framework
@@ -641,7 +644,8 @@ export function getComplianceDashboard(): ComplianceDashboard {
     processingRequests: processing.length,
     completedThisMonth: completedThisMonth.length,
     urgentDeadlines: getDeadlineAlerts(),
-    dmcaPending: dmcaStore.filter((d) => d.status === "received" || d.status === "processing").length,
+    dmcaPending: dmcaStore.filter((d) => d.status === "received" || d.status === "processing")
+      .length,
     lastAuditStatus,
     policyVersions,
   };
@@ -658,7 +662,7 @@ export function getDeadlineAlerts(): DataRequest[] {
       (r) =>
         r.status !== "completed" &&
         r.status !== "rejected" &&
-        new Date(r.deadline) <= urgentThreshold
+        new Date(r.deadline) <= urgentThreshold,
     )
     .sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
 }
@@ -682,27 +686,27 @@ export async function seedComplianceDemo(): Promise<{
   await createPolicyVersion(
     "terms_of_service",
     "Confetti Terms of Service v1.0 — Standard terms governing the use of the Confetti platform...",
-    "Initial release of Terms of Service."
+    "Initial release of Terms of Service.",
   );
   await createPolicyVersion(
     "terms_of_service",
     "Confetti Terms of Service v1.1 — Updated arbitration clause and venue listing terms...",
-    "Updated arbitration clause, added venue listing responsibilities."
+    "Updated arbitration clause, added venue listing responsibilities.",
   );
   await createPolicyVersion(
     "privacy_policy",
     "Confetti Privacy Policy v1.0 — Details on data collection, processing, and user rights...",
-    "Initial release of Privacy Policy covering GDPR and CCPA requirements."
+    "Initial release of Privacy Policy covering GDPR and CCPA requirements.",
   );
   await createPolicyVersion(
     "cookie_policy",
     "Confetti Cookie Policy v1.0 — Essential, analytics, and marketing cookies explained...",
-    "Initial cookie policy with consent management details."
+    "Initial cookie policy with consent management details.",
   );
   await createPolicyVersion(
     "dmca_policy",
     "Confetti DMCA Policy v1.0 — Takedown procedures and designated agent information...",
-    "Initial DMCA policy and designated agent registration."
+    "Initial DMCA policy and designated agent registration.",
   );
 
   // Seed data requests
@@ -738,16 +742,25 @@ export async function seedComplianceDemo(): Promise<{
       description: `${s.type.replace(/_/g, " ")} request from user-${100 + i}`,
       status: s.status,
       dataScope: inferDataScope(s.type),
-      aiDraftResponse: s.status !== "received" ? generateDraftResponse({
-        type: s.type,
-        framework: s.framework,
-        userEmail: `user${100 + i}@example.com`,
-        dataScope: inferDataScope(s.type),
-      } as DataRequest) : undefined,
+      aiDraftResponse:
+        s.status !== "received"
+          ? generateDraftResponse({
+              type: s.type,
+              framework: s.framework,
+              userEmail: `user${100 + i}@example.com`,
+              dataScope: inferDataScope(s.type),
+            } as DataRequest)
+          : undefined,
       deadline: deadline.toISOString(),
       createdAt: createdAt.toISOString(),
-      processedAt: s.status !== "received" ? new Date(createdAt.getTime() + 2 * 24 * 60 * 60 * 1000).toISOString() : undefined,
-      completedAt: s.status === "completed" ? new Date(createdAt.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString() : undefined,
+      processedAt:
+        s.status !== "received"
+          ? new Date(createdAt.getTime() + 2 * 24 * 60 * 60 * 1000).toISOString()
+          : undefined,
+      completedAt:
+        s.status === "completed"
+          ? new Date(createdAt.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString()
+          : undefined,
       completedBy: s.status === "completed" ? "admin-tyrone" : undefined,
     };
 
@@ -760,7 +773,7 @@ export async function seedComplianceDemo(): Promise<{
     "john@smithphoto.com",
     "https://confetti.app/venue/the-velvet-room/photos/3",
     "https://smithphoto.com/portfolio/nightlife-23",
-    "Unauthorized use of my copyrighted nightlife photography in venue listing."
+    "Unauthorized use of my copyrighted nightlife photography in venue listing.",
   );
   analyzeDMCA(dmca1.id);
 
@@ -769,7 +782,7 @@ export async function seedComplianceDemo(): Promise<{
     "sarah@example.com",
     "https://confetti.app/reviews/user-42/review-5",
     "https://sarahsblog.com/dc-nightlife-guide",
-    "Review text copied verbatim from my blog post about DC nightlife."
+    "Review text copied verbatim from my blog post about DC nightlife.",
   );
 
   // Run audits

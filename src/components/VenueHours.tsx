@@ -9,7 +9,7 @@ const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
 
 export type DayHours = {
   dayOfWeek: number; // 0=Sun … 6=Sat
-  openTime: string;  // "11:00"
+  openTime: string; // "11:00"
   closeTime: string; // "23:00"
   isClosed: boolean;
 };
@@ -59,9 +59,7 @@ export function VenueHours({ hours }: { hours: DayHours[] }) {
         </div>
         <span
           className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest ${
-            status.open
-              ? "bg-emerald-100 text-emerald-700"
-              : "bg-red-100 text-red-600"
+            status.open ? "bg-emerald-100 text-emerald-700" : "bg-red-100 text-red-600"
           }`}
         >
           {status.label}
@@ -86,11 +84,7 @@ export function VenueHours({ hours }: { hours: DayHours[] }) {
               >
                 {name}
               </span>
-              <span
-                className={`font-mono text-[11px] ${
-                  isToday ? "text-cream" : "text-cream/70"
-                }`}
-              >
+              <span className={`font-mono text-[11px] ${isToday ? "text-cream" : "text-cream/70"}`}>
                 {!entry || entry.isClosed
                   ? "Closed"
                   : `${formatTime(entry.openTime)} – ${formatTime(entry.closeTime)}`}

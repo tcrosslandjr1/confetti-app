@@ -41,21 +41,12 @@ function StateShell({
       >
         <Icon className="size-6 text-cream/40" strokeWidth={1.5} />
       </div>
-      <h3 className="font-display text-lg font-bold tracking-tight text-cream">
-        {title}
-      </h3>
+      <h3 className="font-display text-lg font-bold tracking-tight text-cream">{title}</h3>
       {description && (
-        <p className="max-w-[260px] text-sm leading-relaxed text-cream/55">
-          {description}
-        </p>
+        <p className="max-w-[260px] text-sm leading-relaxed text-cream/55">{description}</p>
       )}
       {action && (
-        <Button
-          variant="ink"
-          size="sm"
-          className="mt-2"
-          onClick={action.onClick}
-        >
+        <Button variant="ink" size="sm" className="mt-2" onClick={action.onClick}>
           {action.label}
         </Button>
       )}
@@ -132,23 +123,14 @@ interface LoadingStateProps {
   className?: string;
 }
 
-export function LoadingState({
-  message = "Loading...",
-  className,
-}: LoadingStateProps) {
+export function LoadingState({ message = "Loading...", className }: LoadingStateProps) {
   return (
     <div
-      className={cn(
-        "flex flex-col items-center justify-center gap-3 px-6 py-16",
-        className,
-      )}
+      className={cn("flex flex-col items-center justify-center gap-3 px-6 py-16", className)}
       role="status"
       aria-label={message}
     >
-      <Loader2
-        className="size-8 animate-spin text-coral"
-        strokeWidth={2}
-      />
+      <Loader2 className="size-8 animate-spin text-coral" strokeWidth={2} />
       <p className="font-mono text-xs font-medium uppercase tracking-widest text-cream/45">
         {message}
       </p>

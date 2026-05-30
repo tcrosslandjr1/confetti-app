@@ -1,9 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Loader2, MapPin, Search, Sparkles, X } from "lucide-react";
-import {
-  VENUE_KNOWLEDGE,
-  type VenueKnowledge,
-} from "@/lib/agents/venue-knowledge";
+import { VENUE_KNOWLEDGE, type VenueKnowledge } from "@/lib/agents/venue-knowledge";
 import { PartnerPickBadge } from "@/components/PartnerPickBadge";
 import { VerifiedBadge } from "@/components/VerifiedBadge";
 import { trackPartnerClick } from "@/lib/partner-attribution";
@@ -84,7 +81,11 @@ interface VenuePickerModalProps {
 }
 
 function normalize(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function kbToPicked(v: VenueKnowledge): PickedVenue {
@@ -142,10 +143,10 @@ export function VenuePickerModal({
 }: VenuePickerModalProps) {
   const [mode, setMode] = useState<"curated" | "ai">("curated");
   const [query, setQuery] = useState("");
-  const [activeCuisine, setActiveCuisine] = useState<string | null>(
-    preferredCuisine ?? null,
+  const [activeCuisine, setActiveCuisine] = useState<string | null>(preferredCuisine ?? null);
+  const [aiState, setAiState] = useState<"idle" | "loading" | "success" | "error" | "empty">(
+    "idle",
   );
-  const [aiState, setAiState] = useState<"idle" | "loading" | "success" | "error" | "empty">("idle");
   const [aiResults, setAiResults] = useState<AiRec[]>([]);
 
   const exclude = useMemo(() => new Set(excludeIds ?? []), [excludeIds]);
@@ -198,10 +199,7 @@ export function VenuePickerModal({
 
   // Stable signature of the avoid-list so a new array reference each render
   // doesn't refire the AI fetch unnecessarily.
-  const avoidKey = useMemo(
-    () => (existingStopNames ?? []).join("|"),
-    [existingStopNames],
-  );
+  const avoidKey = useMemo(() => (existingStopNames ?? []).join("|"), [existingStopNames]);
 
   // Fetch AI picks when entering AI mode or when city changes while in AI mode.
   useEffect(() => {
@@ -263,16 +261,19 @@ export function VenuePickerModal({
   }
 
   return (
-    <Dialog open={open} onOpenChange={(o) => { if (!o) onClose(); }}>
+    <Dialog
+      open={open}
+      onOpenChange={(o) => {
+        if (!o) onClose();
+      }}
+    >
       <DialogContent className="max-w-lg p-0 overflow-hidden">
         <DialogHeader className="border-b-2 border-cream/10 bg-cream px-4 py-3">
           <DialogTitle className="font-display text-lg font-extrabold tracking-tight">
             {title}
           </DialogTitle>
           {description && (
-            <DialogDescription className="text-xs text-cream/60">
-              {description}
-            </DialogDescription>
+            <DialogDescription className="text-xs text-cream/60">{description}</DialogDescription>
           )}
           {city && mode === "curated" && (
             <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-cream/50">
@@ -334,9 +335,7 @@ export function VenuePickerModal({
                     type="button"
                     onClick={() => setActiveCuisine(null)}
                     className={`rounded-full border-2 border-ink px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-colors ${
-                      activeCuisine === null
-                        ? "bg-ink text-cream"
-                        : "bg-cream hover:bg-gold"
+                      activeCuisine === null ? "bg-ink text-cream" : "bg-cream hover:bg-gold"
                     }`}
                   >
                     All
@@ -347,9 +346,7 @@ export function VenuePickerModal({
                       type="button"
                       onClick={() => setActiveCuisine((prev) => (prev === c ? null : c))}
                       className={`rounded-full border-2 border-ink px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-colors ${
-                        activeCuisine === c
-                          ? "bg-ink text-cream"
-                          : "bg-cream hover:bg-gold"
+                        activeCuisine === c ? "bg-ink text-cream" : "bg-cream hover:bg-gold"
                       }`}
                     >
                       {c}

@@ -1,13 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import {
-  Loader2,
-  Users,
-  DollarSign,
-  Sparkles,
-  CheckCircle2,
-  Circle,
-} from "lucide-react";
+import { Loader2, Users, DollarSign, Sparkles, CheckCircle2, Circle } from "lucide-react";
 import { toast } from "sonner";
 import {
   claimItem,
@@ -148,10 +141,16 @@ function SharedHangoutPage() {
         </h1>
         <p className="mt-2 text-sm text-cream/70">{p.summary}</p>
         <div className="mt-4 flex flex-wrap gap-3 text-[12px] font-bold text-cream/80">
-          <span className="inline-flex items-center gap-1"><Users className="size-3.5" /> {p.guest_count}</span>
-          <span className="inline-flex items-center gap-1"><DollarSign className="size-3.5" /> {p.budget_estimate}</span>
+          <span className="inline-flex items-center gap-1">
+            <Users className="size-3.5" /> {p.guest_count}
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <DollarSign className="size-3.5" /> {p.budget_estimate}
+          </span>
           {h.start_time && (
-            <span className="rounded-full bg-gold/40 px-2 py-0.5 font-mono text-[10px]">starts {h.start_time}</span>
+            <span className="rounded-full bg-gold/40 px-2 py-0.5 font-mono text-[10px]">
+              starts {h.start_time}
+            </span>
           )}
           <span className="ml-auto rounded-full border-2 border-purple/30 bg-purple/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-purple">
             <Sparkles className="mr-0.5 inline size-2.5" /> {claimedCount}/{totalClaimable} claimed
@@ -251,7 +250,9 @@ function ClaimSection({
                 }`}
               >
                 {claim ? (
-                  <CheckCircle2 className={`size-4 shrink-0 ${mine ? "text-emerald-600" : "text-cream/40"}`} />
+                  <CheckCircle2
+                    className={`size-4 shrink-0 ${mine ? "text-emerald-600" : "text-cream/40"}`}
+                  />
                 ) : (
                   <Circle className="size-4 shrink-0 text-cream/30" />
                 )}

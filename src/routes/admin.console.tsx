@@ -111,9 +111,7 @@ function AdminDashboard() {
               <Shield className="h-5 w-5 text-coral" />
             </div>
             <div>
-              <h1 className="font-display text-lg font-black tracking-tight">
-                Admin Console
-              </h1>
+              <h1 className="font-display text-lg font-black tracking-tight">Admin Console</h1>
               <p className="font-mono text-[10px] uppercase tracking-widest text-cream/40">
                 {user?.email ?? "admin"}
               </p>
@@ -186,7 +184,6 @@ function AdminDashboard() {
           </Link>
         </div>
 
-
         {/* Stat Cards */}
         {stats && (
           <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -209,9 +206,7 @@ function AdminDashboard() {
               key={t}
               onClick={() => setTab(t)}
               className={`flex-1 rounded-lg px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest transition ${
-                tab === t
-                  ? "bg-coral text-cream shadow"
-                  : "text-cream/50 hover:text-cream/80"
+                tab === t ? "bg-coral text-cream shadow" : "text-cream/50 hover:text-cream/80"
               }`}
             >
               {t}
@@ -227,11 +222,7 @@ function AdminDashboard() {
         ) : tab === "overview" ? (
           <OverviewTab bookings={bookings} venues={venues} formatDate={formatDate} />
         ) : tab === "venues" ? (
-          <VenuesTab
-            venues={filteredVenues}
-            search={venueSearch}
-            onSearch={setVenueSearch}
-          />
+          <VenuesTab venues={filteredVenues} search={venueSearch} onSearch={setVenueSearch} />
         ) : (
           <BookingsTab bookings={bookings} formatDate={formatDate} />
         )}
@@ -256,9 +247,7 @@ function StatCard({
   return (
     <div
       className={`rounded-xl border-2 p-4 ${
-        highlight
-          ? "border-coral bg-coral/10"
-          : "border-cream/10 bg-cream/5"
+        highlight ? "border-coral bg-coral/10" : "border-cream/10 bg-cream/5"
       }`}
     >
       <div className="flex items-center gap-2">
@@ -432,16 +421,11 @@ function BookingsTab({
   return (
     <div>
       {bookings.length === 0 ? (
-        <p className="py-12 text-center font-mono text-xs text-cream/40">
-          No bookings yet
-        </p>
+        <p className="py-12 text-center font-mono text-xs text-cream/40">No bookings yet</p>
       ) : (
         <div className="space-y-2">
           {bookings.map((b) => (
-            <div
-              key={b.id}
-              className="rounded-xl border-2 border-cream/10 bg-cream/5 px-4 py-3"
-            >
+            <div key={b.id} className="rounded-xl border-2 border-cream/10 bg-cream/5 px-4 py-3">
               <div className="flex items-center justify-between">
                 <div className="min-w-0">
                   <p className="truncate text-sm font-semibold">
@@ -494,9 +478,7 @@ function AdminConsole() {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-ink px-4 text-center">
         <Shield className="mx-auto h-12 w-12 text-cream/20" />
-        <h1 className="mt-4 font-display text-xl font-black text-cream">
-          Access Denied
-        </h1>
+        <h1 className="mt-4 font-display text-xl font-black text-cream">Access Denied</h1>
         <p className="mt-2 font-mono text-xs text-cream/40">
           You need admin privileges to access this page.
         </p>

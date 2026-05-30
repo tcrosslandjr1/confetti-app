@@ -51,7 +51,7 @@ export type AlertCategory =
 export type AlertStatus = "active" | "acknowledged" | "snoozed" | "dismissed" | "auto_resolved";
 
 export type AlertSource =
-  | "orchestrator_gate"    // synced from workflow human gates
+  | "orchestrator_gate" // synced from workflow human gates
   | "support_queue"
   | "content_cms"
   | "feature_flags"
@@ -83,13 +83,13 @@ export interface AdminAlert {
   status: AlertStatus;
 
   // Linkage
-  sourceId?: string;             // ID in the originating agent (ticket ID, refund ID, etc.)
-  workflowInstanceId?: string;   // if tied to an orchestrator workflow
-  gateAlertId?: string;          // if synced from an orchestrator gate
+  sourceId?: string; // ID in the originating agent (ticket ID, refund ID, etc.)
+  workflowInstanceId?: string; // if tied to an orchestrator workflow
+  gateAlertId?: string; // if synced from an orchestrator gate
 
   // Action
-  actionRequired: string;        // what Tyrone needs to do ("Approve refund", "Review tax filing")
-  actionUrl?: string;            // deep link to the relevant admin page
+  actionRequired: string; // what Tyrone needs to do ("Approve refund", "Review tax filing")
+  actionUrl?: string; // deep link to the relevant admin page
   actionData?: Record<string, unknown>; // payload passed when acknowledging
 
   // Timing
@@ -98,16 +98,16 @@ export interface AdminAlert {
   acknowledgedAt?: string;
   acknowledgedBy?: string;
   snoozedUntil?: string;
-  deadlineAt?: string;           // when this becomes overdue
-  autoResolveAt?: string;        // auto-dismiss if unacknowledged by this time
+  deadlineAt?: string; // when this becomes overdue
+  autoResolveAt?: string; // auto-dismiss if unacknowledged by this time
 
   // Resolution
   dismissReason?: string;
   resolvedNote?: string;
 
   // Bundling
-  bundleKey?: string;            // alerts with same bundleKey get grouped
-  bundleCount?: number;          // how many raw alerts are in this bundle
+  bundleKey?: string; // alerts with same bundleKey get grouped
+  bundleCount?: number; // how many raw alerts are in this bundle
 
   // Metadata
   metadata?: Record<string, unknown>;
@@ -234,11 +234,7 @@ export async function pushAlert(params: {
 
   // Try Supabase first
   try {
-    const { data, error } = await supabase
-      .from("admin_alerts")
-      .insert(alert)
-      .select()
-      .single();
+    const { data, error } = await supabase.from("admin_alerts").insert(alert).select().single();
     if (!error && data) return data as AdminAlert;
   } catch {}
 
@@ -252,7 +248,7 @@ export async function acknowledgeAlert(
   alertId: string,
   acknowledgedBy: string = "admin",
   note?: string,
-  fireOrchestratorEvent?: boolean
+  fireOrchestratorEvent?: boolean,
 ): Promise<AdminAlert | null> {
   const now = new Date().toISOString();
 
@@ -299,7 +295,7 @@ export async function acknowledgeAlert(
 /** Snooze an alert until a future time */
 export async function snoozeAlert(
   alertId: string,
-  snoozedUntil: string
+  snoozedUntil: string,
 ): Promise<AdminAlert | null> {
   const now = new Date().toISOString();
 
@@ -322,10 +318,7 @@ export async function snoozeAlert(
 }
 
 /** Dismiss an alert with a reason */
-export async function dismissAlert(
-  alertId: string,
-  reason: string
-): Promise<AdminAlert | null> {
+export async function dismissAlert(alertId: string, reason: string): Promise<AdminAlert | null> {
   const now = new Date().toISOString();
 
   try {
@@ -349,7 +342,7 @@ export async function dismissAlert(
 /** Bulk acknowledge multiple alerts at once */
 export async function bulkAcknowledge(
   alertIds: string[],
-  acknowledgedBy: string = "admin"
+  acknowledgedBy: string = "admin",
 ): Promise<number> {
   let count = 0;
   for (const id of alertIds) {
@@ -372,10 +365,12 @@ export async function getAlerts(filter?: AlertFilter): Promise<AdminAlert[]> {
     if (filter?.priority) query = query.eq("priority", filter.priority);
     if (filter?.status) query = query.eq("status", filter.status);
     if (filter?.source) query = query.eq("source", filter.source);
-    if (filter?.overdueOnly) query = query.lt("deadlineAt", new Date().toISOString()).eq("status", "active");
+    if (filter?.overdueOnly)
+      query = query.lt("deadlineAt", new Date().toISOString()).eq("status", "active");
     if (filter?.fromDate) query = query.gte("createdAt", filter.fromDate);
     if (filter?.toDate) query = query.lte("createdAt", filter.toDate);
-    if (filter?.search) query = query.or(`title.ilike.%${filter.search}%,description.ilike.%${filter.search}%`);
+    if (filter?.search)
+      query = query.or(`title.ilike.%${filter.search}%,description.ilike.%${filter.search}%`);
     query = query.order("createdAt", { ascending: false }).limit(200);
 
     const { data, error } = await query;
@@ -385,20 +380,20 @@ export async function getAlerts(filter?: AlertFilter): Promise<AdminAlert[]> {
   // Local fallback
   let alerts = Array.from(alertStore.values());
 
-  if (filter?.category) alerts = alerts.filter(a => a.category === filter.category);
-  if (filter?.priority) alerts = alerts.filter(a => a.priority === filter.priority);
-  if (filter?.status) alerts = alerts.filter(a => a.status === filter.status);
-  if (filter?.source) alerts = alerts.filter(a => a.source === filter.source);
+  if (filter?.category) alerts = alerts.filter((a) => a.category === filter.category);
+  if (filter?.priority) alerts = alerts.filter((a) => a.priority === filter.priority);
+  if (filter?.status) alerts = alerts.filter((a) => a.status === filter.status);
+  if (filter?.source) alerts = alerts.filter((a) => a.source === filter.source);
   if (filter?.overdueOnly) {
     const now = new Date().toISOString();
-    alerts = alerts.filter(a => a.status === "active" && a.deadlineAt && a.deadlineAt < now);
+    alerts = alerts.filter((a) => a.status === "active" && a.deadlineAt && a.deadlineAt < now);
   }
-  if (filter?.fromDate) alerts = alerts.filter(a => a.createdAt >= filter.fromDate!);
-  if (filter?.toDate) alerts = alerts.filter(a => a.createdAt <= filter.toDate!);
+  if (filter?.fromDate) alerts = alerts.filter((a) => a.createdAt >= filter.fromDate!);
+  if (filter?.toDate) alerts = alerts.filter((a) => a.createdAt <= filter.toDate!);
   if (filter?.search) {
     const q = filter.search.toLowerCase();
-    alerts = alerts.filter(a =>
-      a.title.toLowerCase().includes(q) || a.description.toLowerCase().includes(q)
+    alerts = alerts.filter(
+      (a) => a.title.toLowerCase().includes(q) || a.description.toLowerCase().includes(q),
     );
   }
 
@@ -459,7 +454,7 @@ export async function getAlertBundles(): Promise<AlertBundle[]> {
 
   for (const [key, alerts] of bundleMap.entries()) {
     const sorted = alerts.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-    const highestPriority = getHighestPriority(alerts.map(a => a.priority));
+    const highestPriority = getHighestPriority(alerts.map((a) => a.priority));
     bundles.push({
       bundleKey: key,
       category: sorted[0].category,
@@ -502,12 +497,12 @@ export async function getAlertStats(): Promise<AlertStats> {
   const all = await getAlerts();
   const now = new Date().toISOString();
 
-  const active = all.filter(a => a.status === "active");
-  const acknowledged = all.filter(a => a.status === "acknowledged");
-  const snoozed = all.filter(a => a.status === "snoozed");
-  const dismissed = all.filter(a => a.status === "dismissed");
-  const autoResolved = all.filter(a => a.status === "auto_resolved");
-  const overdue = active.filter(a => a.deadlineAt && a.deadlineAt < now);
+  const active = all.filter((a) => a.status === "active");
+  const acknowledged = all.filter((a) => a.status === "acknowledged");
+  const snoozed = all.filter((a) => a.status === "snoozed");
+  const dismissed = all.filter((a) => a.status === "dismissed");
+  const autoResolved = all.filter((a) => a.status === "auto_resolved");
+  const overdue = active.filter((a) => a.deadlineAt && a.deadlineAt < now);
 
   const byCategory = {} as Record<AlertCategory, number>;
   const byPriority = {} as Record<AlertPriority, number>;
@@ -519,11 +514,10 @@ export async function getAlertStats(): Promise<AlertStats> {
 
   // Average time to acknowledge (in minutes)
   const ackTimes = acknowledged
-    .filter(a => a.acknowledgedAt && a.createdAt)
-    .map(a => (new Date(a.acknowledgedAt!).getTime() - new Date(a.createdAt).getTime()) / 60000);
-  const avgAcknowledgeMinutes = ackTimes.length > 0
-    ? Math.round(ackTimes.reduce((s, v) => s + v, 0) / ackTimes.length)
-    : 0;
+    .filter((a) => a.acknowledgedAt && a.createdAt)
+    .map((a) => (new Date(a.acknowledgedAt!).getTime() - new Date(a.createdAt).getTime()) / 60000);
+  const avgAcknowledgeMinutes =
+    ackTimes.length > 0 ? Math.round(ackTimes.reduce((s, v) => s + v, 0) / ackTimes.length) : 0;
 
   const oldestUnacknowledged = active.sort((a, b) => a.createdAt.localeCompare(b.createdAt))[0];
 
@@ -552,13 +546,13 @@ export async function getAdminDashboard(): Promise<AdminDashboardView> {
   const now = new Date().toISOString();
 
   const criticalAlerts = active
-    .filter(a => a.priority === "critical")
+    .filter((a) => a.priority === "critical")
     .sort((a, b) => a.createdAt.localeCompare(b.createdAt));
 
   const recentAlerts = active.slice(0, 20);
 
   const nextDeadline = active
-    .filter(a => a.deadlineAt && a.deadlineAt > now)
+    .filter((a) => a.deadlineAt && a.deadlineAt > now)
     .sort((a, b) => a.deadlineAt!.localeCompare(b.deadlineAt!))[0];
 
   return {
@@ -582,28 +576,32 @@ export async function generateDigest(period: "daily" | "weekly" = "daily"): Prom
   const since = new Date(Date.now() - daysBack * 86400000).toISOString();
 
   const all = await getAlerts({ fromDate: since });
-  const active = all.filter(a => a.status === "active");
-  const resolved = all.filter(a => a.status === "acknowledged" || a.status === "dismissed" || a.status === "auto_resolved");
+  const active = all.filter((a) => a.status === "active");
+  const resolved = all.filter(
+    (a) => a.status === "acknowledged" || a.status === "dismissed" || a.status === "auto_resolved",
+  );
   const overdue = await getOverdueAlerts();
 
-  const critical = active.filter(a => a.priority === "critical");
-  const high = active.filter(a => a.priority === "high");
-  const medium = active.filter(a => a.priority === "medium");
-  const low = active.filter(a => a.priority === "low");
-  const info = active.filter(a => a.priority === "info");
+  const critical = active.filter((a) => a.priority === "critical");
+  const high = active.filter((a) => a.priority === "high");
+  const medium = active.filter((a) => a.priority === "medium");
+  const low = active.filter((a) => a.priority === "low");
+  const info = active.filter((a) => a.priority === "info");
 
   const topItems = active
     .sort((a, b) => priorityOrder(a.priority) - priorityOrder(b.priority))
     .slice(0, 10);
 
-  const categories = [...new Set(active.map(a => a.category))];
+  const categories = [...new Set(active.map((a) => a.category))];
   const summary = [
     `${period === "daily" ? "Daily" : "Weekly"} Admin Digest — ${new Date().toLocaleDateString()}`,
     `${active.length} active alerts across ${categories.length} categories.`,
     critical.length > 0 ? `${critical.length} CRITICAL items need immediate attention.` : "",
     overdue.length > 0 ? `${overdue.length} items are overdue.` : "",
     `${resolved.length} items resolved in this period.`,
-  ].filter(Boolean).join(" ");
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   const digest: AlertDigest = {
     id: `digest_${Date.now()}`,
@@ -618,7 +616,7 @@ export async function generateDigest(period: "daily" | "weekly" = "daily"): Prom
     topItems,
     overdueItems: overdue,
     resolvedSinceLastDigest: resolved.length,
-    newSinceLastDigest: all.filter(a => a.createdAt >= since).length,
+    newSinceLastDigest: all.filter((a) => a.createdAt >= since).length,
   };
 
   digestStore.set(digest.id, digest);
@@ -645,7 +643,7 @@ export async function syncGateAlerts(): Promise<number> {
 
     for (const gate of gates) {
       // Skip if already synced
-      const existing = Array.from(alertStore.values()).find(a => a.gateAlertId === gate.id);
+      const existing = Array.from(alertStore.values()).find((a) => a.gateAlertId === gate.id);
       if (existing) continue;
 
       await pushAlert({
@@ -717,12 +715,18 @@ export async function runAutoResolve(): Promise<number> {
 
 function priorityOrder(p: AlertPriority): number {
   switch (p) {
-    case "critical": return 0;
-    case "high": return 1;
-    case "medium": return 2;
-    case "low": return 3;
-    case "info": return 4;
-    default: return 5;
+    case "critical":
+      return 0;
+    case "high":
+      return 1;
+    case "medium":
+      return 2;
+    case "low":
+      return 3;
+    case "info":
+      return 4;
+    default:
+      return 5;
   }
 }
 
@@ -749,7 +753,8 @@ export async function seedAdminAlertsDemo(): Promise<{
   const seeds: Parameters<typeof pushAlert>[0][] = [
     {
       title: "Refund $47.50 — Jane Cooper flagged for review",
-      description: "Refund request exceeds auto-approve threshold. Amount: $47.50. User has 2 prior refunds this month.",
+      description:
+        "Refund request exceeds auto-approve threshold. Amount: $47.50. User has 2 prior refunds this month.",
       priority: "high",
       category: "finance",
       source: "finance",
@@ -770,7 +775,8 @@ export async function seedAdminAlertsDemo(): Promise<{
     },
     {
       title: "GDPR data deletion request — user #4821",
-      description: "User requested full data deletion under GDPR Article 17. 30-day compliance window.",
+      description:
+        "User requested full data deletion under GDPR Article 17. 30-day compliance window.",
       priority: "high",
       category: "legal",
       source: "legal_compliance",
@@ -781,7 +787,8 @@ export async function seedAdminAlertsDemo(): Promise<{
     },
     {
       title: "New partner application — Nightfall Lounge DC",
-      description: "Venue in Adams Morgan applied for Confetti partnership. Premium tier requested.",
+      description:
+        "Venue in Adams Morgan applied for Confetti partnership. Premium tier requested.",
       priority: "medium",
       category: "partnership",
       source: "partnerships",
@@ -802,7 +809,8 @@ export async function seedAdminAlertsDemo(): Promise<{
     },
     {
       title: "Identity verification flagged — suspicious document",
-      description: "AI review flagged uploaded ID for user #8332 as potential forgery. Confidence: 78%.",
+      description:
+        "AI review flagged uploaded ID for user #8332 as potential forgery. Confidence: 78%.",
       priority: "high",
       category: "security",
       source: "identity_verification",
@@ -813,7 +821,8 @@ export async function seedAdminAlertsDemo(): Promise<{
     },
     {
       title: "Content scheduled for tomorrow needs approval",
-      description: "Blog post 'Top 10 DC Rooftop Bars for Summer 2026' is scheduled for 10am tomorrow.",
+      description:
+        "Blog post 'Top 10 DC Rooftop Bars for Summer 2026' is scheduled for 10am tomorrow.",
       priority: "medium",
       category: "content",
       source: "content_cms",
@@ -824,7 +833,8 @@ export async function seedAdminAlertsDemo(): Promise<{
     },
     {
       title: "Emergency: API error rate spike — 12% of requests failing",
-      description: "Error rate jumped from 0.3% to 12% in the last 15 minutes. Circuit breaker tripped on venue-discovery service.",
+      description:
+        "Error rate jumped from 0.3% to 12% in the last 15 minutes. Circuit breaker tripped on venue-discovery service.",
       priority: "critical",
       category: "system",
       source: "emergency_controls",
@@ -843,7 +853,8 @@ export async function seedAdminAlertsDemo(): Promise<{
     },
     {
       title: "Feature flag 'party-room-v2' rollout at 25% — no errors",
-      description: "Party Room v2 has been at 25% rollout for 48 hours with 0 errors. Ready for next increment.",
+      description:
+        "Party Room v2 has been at 25% rollout for 48 hours with 0 errors. Ready for next increment.",
       priority: "low",
       category: "system",
       source: "feature_flags",
@@ -853,7 +864,8 @@ export async function seedAdminAlertsDemo(): Promise<{
     },
     {
       title: "Monthly Stripe payout ready — $2,847.33",
-      description: "May 2026 payout is ready for transfer. Review transaction summary before release.",
+      description:
+        "May 2026 payout is ready for transfer. Review transaction summary before release.",
       priority: "high",
       category: "finance",
       source: "finance",

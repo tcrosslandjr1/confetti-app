@@ -140,10 +140,7 @@ export const recordContentFeedback = createServerFn({ method: "POST" })
       delta = (req.rating - 3) * 0.05;
     }
 
-    const table =
-      req.contentType === "idea"
-        ? "ai_generated_ideas"
-        : "ai_discovered_venues";
+    const table = req.contentType === "idea" ? "ai_generated_ideas" : "ai_discovered_venues";
 
     if (delta !== 0) {
       // Read current score, compute new, clamp to [0, 1]
@@ -176,11 +173,7 @@ export const fetchAIIdeas = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => FetchIdeasSchema.parse(input))
   .handler(async ({ data: req }): Promise<Idea[]> => {
-    return fetchGeneratedIdeas(
-      req.occasionSlug,
-      req.citySlug ?? null,
-      req.limit ?? 10,
-    );
+    return fetchGeneratedIdeas(req.occasionSlug, req.citySlug ?? null, req.limit ?? 10);
   });
 
 // ─── 5. Fetch AI Venues ────────────────────────────────────
@@ -200,9 +193,7 @@ export const fetchAIVenues = createServerFn({ method: "POST" })
  */
 export const rebuildUserTasteSignals = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: unknown) =>
-    z.object({ userId: z.string().uuid() }).parse(input),
-  )
+  .inputValidator((input: unknown) => z.object({ userId: z.string().uuid() }).parse(input))
   .handler(async ({ data: req }) => {
     const userId = req.userId;
 
@@ -236,9 +227,7 @@ export const rebuildUserTasteSignals = createServerFn({ method: "POST" })
       .map(([slug]) => slug);
 
     // Top vibes — need to look up the saved idea's vibe_tags
-    const savedIdeaIds = saves
-      .filter((f) => f.content_type === "idea")
-      .map((f) => f.content_id);
+    const savedIdeaIds = saves.filter((f) => f.content_type === "idea").map((f) => f.content_id);
 
     let topVibes: string[] = [];
     if (savedIdeaIds.length) {
@@ -262,9 +251,7 @@ export const rebuildUserTasteSignals = createServerFn({ method: "POST" })
     }
 
     // Disliked tags — from skipped content
-    const skippedIdeaIds = skips
-      .filter((f) => f.content_type === "idea")
-      .map((f) => f.content_id);
+    const skippedIdeaIds = skips.filter((f) => f.content_type === "idea").map((f) => f.content_id);
 
     let dislikedTags: string[] = [];
     if (skippedIdeaIds.length) {
@@ -296,24 +283,22 @@ export const rebuildUserTasteSignals = createServerFn({ method: "POST" })
       : null;
 
     // Upsert the signals
-    const { error } = await supabaseAdmin
-      .from("user_taste_signals")
-      .upsert(
-        {
-          user_id: userId,
-          top_occasions: topOccasions,
-          top_vibes: topVibes,
-          preferred_price: "$$", // could compute from saved venues later
-          preferred_time: "Evening",
-          disliked_tags: dislikedTags,
-          total_saves: saves.length,
-          total_skips: skips.length,
-          total_ratings: ratings.length,
-          avg_rating: avgRating,
-          updated_at: new Date().toISOString(),
-        },
-        { onConflict: "user_id" },
-      );
+    const { error } = await supabaseAdmin.from("user_taste_signals").upsert(
+      {
+        user_id: userId,
+        top_occasions: topOccasions,
+        top_vibes: topVibes,
+        preferred_price: "$$", // could compute from saved venues later
+        preferred_time: "Evening",
+        disliked_tags: dislikedTags,
+        total_saves: saves.length,
+        total_skips: skips.length,
+        total_ratings: ratings.length,
+        avg_rating: avgRating,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id" },
+    );
 
     if (error) {
       console.error("[taste-signals] Upsert error:", error.message);

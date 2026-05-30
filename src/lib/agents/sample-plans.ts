@@ -21,10 +21,10 @@ export const SAMPLE_PLANS: Record<OccasionId, SamplePlan> = {
     occasion: "girls-night",
     title: "Girls Night",
     stops: [
-      { label: "Crab house",     anchorId: "seafood-crab" },
+      { label: "Crab house", anchorId: "seafood-crab" },
       { label: "Rooftop lounge", anchorId: "rooftop" },
-      { label: "Hookah",         anchorId: "hookah-lounge" },
-      { label: "Dessert",        anchorId: "dessert" },
+      { label: "Hookah", anchorId: "hookah-lounge" },
+      { label: "Dessert", anchorId: "dessert" },
     ],
   },
   "guys-night": {
@@ -40,8 +40,8 @@ export const SAMPLE_PLANS: Record<OccasionId, SamplePlan> = {
     occasion: "date-night",
     title: "Date Night",
     stops: [
-      { label: "Seafood dinner",     anchorId: "seafood-crab" },
-      { label: "Jazz lounge",        anchorId: "live-music" },
+      { label: "Seafood dinner", anchorId: "seafood-crab" },
+      { label: "Jazz lounge", anchorId: "live-music" },
       { label: "Late-night dessert", anchorId: "dessert" },
     ],
   },
@@ -49,8 +49,8 @@ export const SAMPLE_PLANS: Record<OccasionId, SamplePlan> = {
     occasion: "mixed-group",
     title: "Mixed Group",
     stops: [
-      { label: "Crab house",    anchorId: "seafood-crab" },
-      { label: "Karaoke",       anchorId: "karaoke" },
+      { label: "Crab house", anchorId: "seafood-crab" },
+      { label: "Karaoke", anchorId: "karaoke" },
       { label: "Hookah lounge", anchorId: "hookah-lounge" },
     ],
   },

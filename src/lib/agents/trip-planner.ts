@@ -12,10 +12,7 @@
 
 import { chat } from "./ai-provider";
 import type { AIMessage } from "./ai-provider";
-import {
-  discoverTripCorridorVenues,
-  discoverVenuesMock,
-} from "./venue-discovery";
+import { discoverTripCorridorVenues, discoverVenuesMock } from "./venue-discovery";
 import type { DiscoveredVenue, GeoLocation } from "./venue-discovery";
 import { getUserContext, getUserContextLocal, generateProfilePrompt } from "./user-intelligence";
 import type { UserContext } from "./user-intelligence";
@@ -23,13 +20,7 @@ import { supabase } from "../supabase";
 
 // ─── Types ─────────────────────────────────────────────────────
 
-export type StopType =
-  | "dining"
-  | "experience"
-  | "ev_charge"
-  | "rest"
-  | "overnight"
-  | "attraction";
+export type StopType = "dining" | "experience" | "ev_charge" | "rest" | "overnight" | "attraction";
 
 export interface TripRequest {
   origin: {
@@ -116,10 +107,7 @@ Suggested duration: [X] minutes`;
 
 // ─── Plan a trip ───────────────────────────────────────────────
 
-export async function planTrip(
-  userId: string,
-  request: TripRequest
-): Promise<TripPlan> {
+export async function planTrip(userId: string, request: TripRequest): Promise<TripPlan> {
   // Get user taste context
   let userContext: UserContext;
   try {
@@ -131,7 +119,12 @@ export async function planTrip(
   // Discover venues along the corridor
   let corridorVenues: DiscoveredVenue[] = [];
 
-  if (request.origin.lat && request.origin.lng && request.destination.lat && request.destination.lng) {
+  if (
+    request.origin.lat &&
+    request.origin.lng &&
+    request.destination.lat &&
+    request.destination.lng
+  ) {
     try {
       corridorVenues = await discoverTripCorridorVenues({
         origin: {
@@ -165,7 +158,7 @@ export async function planTrip(
         `${i + 1}. ${v.name} (${v.category}) — ${v.city}${v.state ? `, ${v.state}` : ""}
    Rating: ${v.rating ?? "N/A"} | Price: ${v.priceLevel ?? "N/A"}
    Cuisines: ${v.cuisineTags.join(", ") || "N/A"} | Vibes: ${v.vibeTags.join(", ") || "N/A"}
-   Lat: ${v.lat}, Lng: ${v.lng}`
+   Lat: ${v.lat}, Lng: ${v.lng}`,
     )
     .join("\n");
 
@@ -248,10 +241,7 @@ export function planTripMock(request: TripRequest): TripPlan {
 
 // ─── Build stops from discovered venues ────────────────────────
 
-function buildStopsFromVenues(
-  venues: DiscoveredVenue[],
-  request: TripRequest
-): TripStop[] {
+function buildStopsFromVenues(venues: DiscoveredVenue[], request: TripRequest): TripStop[] {
   const stops: TripStop[] = [];
   let stopOrder = 1;
 
@@ -259,9 +249,7 @@ function buildStopsFromVenues(
   const sorted = [...venues].sort((a, b) => {
     if (!a.lat || !b.lat) return 0;
     const originLat = request.origin.lat ?? 0;
-    return (
-      Math.abs(a.lat - originLat) - Math.abs(b.lat - originLat)
-    );
+    return Math.abs(a.lat - originLat) - Math.abs(b.lat - originLat);
   });
 
   // Pick best stops, spaced apart
@@ -288,10 +276,7 @@ function buildStopsFromVenues(
   return stops;
 }
 
-function selectSpacedStops(
-  venues: DiscoveredVenue[],
-  request: TripRequest
-): DiscoveredVenue[] {
+function selectSpacedStops(venues: DiscoveredVenue[], request: TripRequest): DiscoveredVenue[] {
   if (venues.length <= 5) return venues;
 
   // Select up to 6 stops, reasonably spaced
@@ -302,8 +287,7 @@ function selectSpacedStops(
     if (selected.length >= 6) break;
 
     const tooClose = selected.some((s) => {
-      if (!s.lat || !s.lng || !venue.lat || !venue.lng)
-        return false;
+      if (!s.lat || !s.lng || !venue.lat || !venue.lng) return false;
       const latDiff = Math.abs(s.lat - venue.lat);
       const lngDiff = Math.abs(s.lng - venue.lng);
       return latDiff < minSpacingDeg && lngDiff < minSpacingDeg;
@@ -380,7 +364,7 @@ function getMockTripStops(request: TripRequest): TripStop[] {
         city: "Philadelphia",
         state: "PA",
         latitude: 39.9332,
-        longitude: -75.1590,
+        longitude: -75.159,
         durationMinutes: 45,
         distanceFromPrevMiles: 100,
         driveTimeFromPrevMinutes: 95,
@@ -395,7 +379,7 @@ function getMockTripStops(request: TripRequest): TripStop[] {
         city: "Hamilton",
         state: "NJ",
         latitude: 40.2298,
-        longitude: -74.7290,
+        longitude: -74.729,
         durationMinutes: 90,
         distanceFromPrevMiles: 35,
         driveTimeFromPrevMinutes: 40,
@@ -473,7 +457,12 @@ function calculateWaypointCount(request: TripRequest): number {
 }
 
 function estimateDistance(request: TripRequest): number {
-  if (request.origin.lat && request.origin.lng && request.destination.lat && request.destination.lng) {
+  if (
+    request.origin.lat &&
+    request.origin.lng &&
+    request.destination.lat &&
+    request.destination.lng
+  ) {
     const R = 3959; // Earth radius in miles
     const dLat = toRad(request.destination.lat - request.origin.lat);
     const dLng = toRad(request.destination.lng - request.origin.lng);
@@ -503,8 +492,7 @@ function estimateDistance(request: TripRequest): number {
 function estimateDuration(request: TripRequest, stops: TripStop[]): number {
   const dist = estimateDistance(request);
   const drivingHours = dist / 55; // assume 55 mph average
-  const stopHours =
-    stops.reduce((sum, s) => sum + (s.durationMinutes ?? 0), 0) / 60;
+  const stopHours = stops.reduce((sum, s) => sum + (s.durationMinutes ?? 0), 0) / 60;
   return Math.round((drivingHours + stopHours) * 10) / 10;
 }
 
@@ -517,10 +505,7 @@ function generateTripTitle(request: TripRequest): string {
   return titles[0];
 }
 
-function generateFallbackNarrative(
-  request: TripRequest,
-  venues: DiscoveredVenue[]
-): string {
+function generateFallbackNarrative(request: TripRequest, venues: DiscoveredVenue[]): string {
   const dist = estimateDistance(request);
   return `Road trip from ${request.origin.city} to ${request.destination.city} — roughly ${dist} miles of open road! 🚗
 
@@ -595,9 +580,7 @@ async function saveTripPlan(plan: TripPlan): Promise<void> {
 
 // ─── Load trip plans for user ──────────────────────────────────
 
-export async function getUserTrips(
-  userId: string
-): Promise<TripPlan[]> {
+export async function getUserTrips(userId: string): Promise<TripPlan[]> {
   const { data, error } = await supabase
     .from("trip_plans")
     .select(`*, trip_stops(*)`)

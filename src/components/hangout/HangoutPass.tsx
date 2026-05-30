@@ -69,7 +69,11 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
       setCrewLink(link);
       try {
         if (navigator.share) {
-          await navigator.share({ title: plan.title, text: `${plan.title} — help me prep:`, url: link });
+          await navigator.share({
+            title: plan.title,
+            text: `${plan.title} — help me prep:`,
+            url: link,
+          });
         } else {
           await navigator.clipboard.writeText(link);
           toast.success("Crew link copied — paste it in the group chat");
@@ -140,7 +144,9 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
             Crew link · share it
           </div>
           <div className="mt-1 flex items-center gap-2">
-            <code className="flex-1 truncate rounded-lg bg-cream/80 px-2 py-1 font-mono text-[11px]">{crewLink}</code>
+            <code className="flex-1 truncate rounded-lg bg-cream/80 px-2 py-1 font-mono text-[11px]">
+              {crewLink}
+            </code>
             <button
               type="button"
               onClick={() => {
@@ -269,20 +275,25 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
       </Section>
 
       {/* Music */}
-      {plan.music && (plan.music.vibe || (plan.music.playlist_hints && plan.music.playlist_hints.length > 0)) && (
-        <Section icon={Music} title="Music vibe" accent="purple">
-          {plan.music.vibe && <p className="text-[13px] text-cream/80">{plan.music.vibe}</p>}
-          {plan.music.playlist_hints && plan.music.playlist_hints.length > 0 && (
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {plan.music.playlist_hints.map((p, i) => (
-                <span key={i} className="rounded-full border border-purple/30 bg-purple/10 px-2 py-0.5 font-mono text-[10px] font-bold text-purple">
-                  {p}
-                </span>
-              ))}
-            </div>
-          )}
-        </Section>
-      )}
+      {plan.music &&
+        (plan.music.vibe ||
+          (plan.music.playlist_hints && plan.music.playlist_hints.length > 0)) && (
+          <Section icon={Music} title="Music vibe" accent="purple">
+            {plan.music.vibe && <p className="text-[13px] text-cream/80">{plan.music.vibe}</p>}
+            {plan.music.playlist_hints && plan.music.playlist_hints.length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {plan.music.playlist_hints.map((p, i) => (
+                  <span
+                    key={i}
+                    className="rounded-full border border-purple/30 bg-purple/10 px-2 py-0.5 font-mono text-[10px] font-bold text-purple"
+                  >
+                    {p}
+                  </span>
+                ))}
+              </div>
+            )}
+          </Section>
+        )}
 
       {/* Games / activities */}
       {plan.games_activities && plan.games_activities.length > 0 && (
@@ -317,19 +328,28 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
       )}
 
       {/* Weather backup */}
-      {plan.weather_backup && (plan.weather_backup.if_rain || plan.weather_backup.if_hot || plan.weather_backup.if_cold) && (
-        <Section icon={CloudRain} title="Weather backup" accent="coral">
-          {plan.weather_backup.if_rain && (
-            <p className="text-[13px]"><span className="font-bold">If it rains:</span> {plan.weather_backup.if_rain}</p>
-          )}
-          {plan.weather_backup.if_hot && (
-            <p className="mt-1 text-[13px]"><span className="font-bold">If it's hot:</span> {plan.weather_backup.if_hot}</p>
-          )}
-          {plan.weather_backup.if_cold && (
-            <p className="mt-1 text-[13px]"><span className="font-bold">If it's cold:</span> {plan.weather_backup.if_cold}</p>
-          )}
-        </Section>
-      )}
+      {plan.weather_backup &&
+        (plan.weather_backup.if_rain ||
+          plan.weather_backup.if_hot ||
+          plan.weather_backup.if_cold) && (
+          <Section icon={CloudRain} title="Weather backup" accent="coral">
+            {plan.weather_backup.if_rain && (
+              <p className="text-[13px]">
+                <span className="font-bold">If it rains:</span> {plan.weather_backup.if_rain}
+              </p>
+            )}
+            {plan.weather_backup.if_hot && (
+              <p className="mt-1 text-[13px]">
+                <span className="font-bold">If it's hot:</span> {plan.weather_backup.if_hot}
+              </p>
+            )}
+            {plan.weather_backup.if_cold && (
+              <p className="mt-1 text-[13px]">
+                <span className="font-bold">If it's cold:</span> {plan.weather_backup.if_cold}
+              </p>
+            )}
+          </Section>
+        )}
 
       {/* Pickup links — merges Claude's links with auto-derived
           Instacart / Maps deeplinks. */}
@@ -345,7 +365,11 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
                   className="block rounded-xl border-2 border-cream/15 bg-cream p-3 text-[13px] font-bold hover:border-ink hover:bg-gold/40"
                 >
                   {l.label}
-                  {l.notes && <span className="ml-1 block text-[11px] font-normal text-cream/60">{l.notes}</span>}
+                  {l.notes && (
+                    <span className="ml-1 block text-[11px] font-normal text-cream/60">
+                      {l.notes}
+                    </span>
+                  )}
                 </a>
               </li>
             ))}
@@ -419,7 +443,11 @@ function formatPlanForShare(h: ActiveHangout): string {
   }
   lines.push("", "TIMELINE:", ...p.setup_timeline.map((t) => `  ${t.when}  ${t.task}`));
   if (p.nearby_stores && p.nearby_stores.length > 0) {
-    lines.push("", "WHERE TO GET IT:", ...p.nearby_stores.map((s) => `  - ${s.name} for ${s.purpose}`));
+    lines.push(
+      "",
+      "WHERE TO GET IT:",
+      ...p.nearby_stores.map((s) => `  - ${s.name} for ${s.purpose}`),
+    );
   }
   return lines.join("\n");
 }

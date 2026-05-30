@@ -71,21 +71,21 @@ const SIGNAL_WEIGHTS: Record<BehaviorEventType, number> = {
   venue_view: 0.05,
   venue_skip: -0.08,
   venue_favorite: 0.25,
-  venue_unfavorite: -0.20,
+  venue_unfavorite: -0.2,
   venue_book: 0.35,
-  venue_complete: 0.40,
-  venue_rate: 0.30,     // weight modified by actual rating
-  venue_revisit: 0.50,  // strongest positive signal
-  confetti_create: 0.10,
-  confetti_complete: 0.20,
+  venue_complete: 0.4,
+  venue_rate: 0.3, // weight modified by actual rating
+  venue_revisit: 0.5, // strongest positive signal
+  confetti_create: 0.1,
+  confetti_complete: 0.2,
   confetti_abandon: -0.05,
   chat_query: 0.02,
   chip_tap: 0.08,
   category_browse: 0.06,
   search_query: 0.03,
-  filter_apply: 0.10,
+  filter_apply: 0.1,
   card_swipe_right: 0.15,
-  card_swipe_left: -0.10,
+  card_swipe_left: -0.1,
 };
 
 // Decay factor: older events matter less (per day)
@@ -93,10 +93,7 @@ const DECAY_RATE = 0.97;
 
 // ─── Track behavior event ──────────────────────────────────────
 
-export async function trackBehavior(
-  userId: string,
-  event: BehaviorEvent
-): Promise<void> {
+export async function trackBehavior(userId: string, event: BehaviorEvent): Promise<void> {
   const { error } = await supabase.from("user_behavior_events").insert({
     user_id: userId,
     event_type: event.eventType,
@@ -189,9 +186,9 @@ export function getTasteProfileLocal(): TasteProfile {
     Japanese: 0.88,
     Italian: 0.82,
     Mexican: 0.75,
-    American: 0.70,
+    American: 0.7,
     Thai: 0.65,
-    Ethiopian: 0.60,
+    Ethiopian: 0.6,
     French: 0.55,
     Korean: 0.72,
   };
@@ -199,26 +196,26 @@ export function getTasteProfileLocal(): TasteProfile {
     Rooftop: 0.92,
     Speakeasy: 0.85,
     "Live Music": 0.78,
-    Cozy: 0.70,
+    Cozy: 0.7,
     Upscale: 0.65,
-    Casual: 0.60,
-    "Late Night": 0.80,
+    Casual: 0.6,
+    "Late Night": 0.8,
     "Family Friendly": 0.45,
   };
   mockProfile.pricePreference = "$$$";
   mockProfile.timePatterns = {
     brunch: 0.55,
-    lunch: 0.40,
+    lunch: 0.4,
     dinner: 0.92,
-    late_night: 0.80,
+    late_night: 0.8,
     happy_hour: 0.75,
   };
   mockProfile.occasionScores = {
-    date_night: 0.90,
+    date_night: 0.9,
     friends: 0.85,
-    solo: 0.50,
-    family: 0.40,
-    celebration: 0.70,
+    solo: 0.5,
+    family: 0.4,
+    celebration: 0.7,
     business: 0.35,
   };
   mockProfile.adventureScore = 0.72;
@@ -242,10 +239,7 @@ export function getUserContextLocal(): UserContext {
   return buildUserContext(profile, mockEvents.slice(-50));
 }
 
-function buildUserContext(
-  profile: TasteProfile,
-  recentBehavior: BehaviorEvent[]
-): UserContext {
+function buildUserContext(profile: TasteProfile, recentBehavior: BehaviorEvent[]): UserContext {
   // Extract top cuisines (sorted by score, top 5)
   const topCuisines = Object.entries(profile.cuisineScores)
     .sort(([, a], [, b]) => b - a)
@@ -263,16 +257,12 @@ function buildUserContext(
     profile.adventureScore > 0.66
       ? "adventurous"
       : profile.adventureScore > 0.33
-      ? "balanced"
-      : "comfort";
+        ? "balanced"
+        : "comfort";
 
   // Determine social style
   const socialStyle: UserContext["socialStyle"] =
-    profile.socialScore > 0.66
-      ? "social"
-      : profile.socialScore > 0.33
-      ? "balanced"
-      : "solo";
+    profile.socialScore > 0.66 ? "social" : profile.socialScore > 0.33 ? "balanced" : "solo";
 
   // Active time slots
   const activeTimeSlots = Object.entries(profile.timePatterns)
@@ -294,10 +284,7 @@ function buildUserContext(
 
 // ─── Get recent behavior events ────────────────────────────────
 
-async function getRecentBehavior(
-  userId: string,
-  limit: number
-): Promise<BehaviorEvent[]> {
+async function getRecentBehavior(userId: string, limit: number): Promise<BehaviorEvent[]> {
   const { data, error } = await supabase
     .from("user_behavior_events")
     .select("event_type, venue_id, itinerary_id, metadata")
@@ -307,25 +294,24 @@ async function getRecentBehavior(
 
   if (error || !data) return [];
 
-  return data.map((row: {
-    event_type: string;
-    venue_id?: string | null;
-    itinerary_id?: string | null;
-    metadata?: Record<string, unknown> | null;
-  }) => ({
-    eventType: row.event_type as BehaviorEventType,
-    venueId: row.venue_id ?? undefined,
-    itineraryId: row.itinerary_id ?? undefined,
-    metadata: row.metadata ?? {},
-  }));
+  return data.map(
+    (row: {
+      event_type: string;
+      venue_id?: string | null;
+      itinerary_id?: string | null;
+      metadata?: Record<string, unknown> | null;
+    }) => ({
+      eventType: row.event_type as BehaviorEventType,
+      venueId: row.venue_id ?? undefined,
+      itineraryId: row.itinerary_id ?? undefined,
+      metadata: row.metadata ?? {},
+    }),
+  );
 }
 
 // ─── Incremental profile update ────────────────────────────────
 
-async function updateTasteProfileIncremental(
-  userId: string,
-  event: BehaviorEvent
-): Promise<void> {
+async function updateTasteProfileIncremental(userId: string, event: BehaviorEvent): Promise<void> {
   const profile = await getTasteProfile(userId);
   const weight = SIGNAL_WEIGHTS[event.eventType];
 
@@ -364,7 +350,7 @@ async function updateTasteProfileIncremental(
       profile.neighborhoodScores[venueAttributes.neighborhood] = clamp(
         current + adjustedWeight,
         0,
-        1
+        1,
       );
     }
   }
@@ -386,10 +372,7 @@ async function updateTasteProfileIncremental(
   // Update adventure score: revisits decrease it, new venues increase it
   if (event.eventType === "venue_revisit") {
     profile.adventureScore = clamp(profile.adventureScore - 0.02, 0, 1);
-  } else if (
-    event.eventType === "venue_book" ||
-    event.eventType === "venue_complete"
-  ) {
+  } else if (event.eventType === "venue_book" || event.eventType === "venue_complete") {
     // Check if this is a new venue for the user
     const isNew = event.metadata?.isFirstVisit !== false;
     if (isNew) {
@@ -408,22 +391,20 @@ async function updateTasteProfileIncremental(
   }
 
   // Save updated profile
-  await supabase
-    .from("taste_profiles")
-    .upsert({
-      user_id: userId,
-      cuisine_scores: profile.cuisineScores,
-      vibe_scores: profile.vibeScores,
-      price_preference: profile.pricePreference,
-      time_patterns: profile.timePatterns,
-      neighborhood_scores: profile.neighborhoodScores,
-      occasion_scores: profile.occasionScores,
-      adventure_score: profile.adventureScore,
-      social_score: profile.socialScore,
-      event_count: profile.eventCount + 1,
-      last_computed_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    });
+  await supabase.from("taste_profiles").upsert({
+    user_id: userId,
+    cuisine_scores: profile.cuisineScores,
+    vibe_scores: profile.vibeScores,
+    price_preference: profile.pricePreference,
+    time_patterns: profile.timePatterns,
+    neighborhood_scores: profile.neighborhoodScores,
+    occasion_scores: profile.occasionScores,
+    adventure_score: profile.adventureScore,
+    social_score: profile.socialScore,
+    event_count: profile.eventCount + 1,
+    last_computed_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  });
 }
 
 // ─── Full profile recomputation ────────────────────────────────
@@ -521,29 +502,21 @@ export async function applyOnboardingPreferences(
     occasions?: string[];
     adventureLevel?: "low" | "medium" | "high";
     diningStyle?: "solo" | "social" | "mixed";
-  }
+  },
 ): Promise<TasteProfile> {
   const profile = await getTasteProfile(userId);
 
   // Apply explicit cuisine preferences with strong weight
   if (preferences.cuisines) {
     for (const cuisine of preferences.cuisines) {
-      profile.cuisineScores[cuisine] = clamp(
-        (profile.cuisineScores[cuisine] ?? 0.5) + 0.30,
-        0,
-        1
-      );
+      profile.cuisineScores[cuisine] = clamp((profile.cuisineScores[cuisine] ?? 0.5) + 0.3, 0, 1);
     }
   }
 
   // Apply explicit vibe preferences
   if (preferences.vibes) {
     for (const vibe of preferences.vibes) {
-      profile.vibeScores[vibe] = clamp(
-        (profile.vibeScores[vibe] ?? 0.5) + 0.30,
-        0,
-        1
-      );
+      profile.vibeScores[vibe] = clamp((profile.vibeScores[vibe] ?? 0.5) + 0.3, 0, 1);
     }
   }
 
@@ -556,9 +529,9 @@ export async function applyOnboardingPreferences(
   if (preferences.occasions) {
     for (const occasion of preferences.occasions) {
       profile.occasionScores[occasion] = clamp(
-        (profile.occasionScores[occasion] ?? 0.5) + 0.30,
+        (profile.occasionScores[occasion] ?? 0.5) + 0.3,
         0,
-        1
+        1,
       );
     }
   }
@@ -567,20 +540,16 @@ export async function applyOnboardingPreferences(
   if (preferences.adventureLevel) {
     profile.adventureScore =
       preferences.adventureLevel === "high"
-        ? 0.80
+        ? 0.8
         : preferences.adventureLevel === "medium"
-        ? 0.50
-        : 0.20;
+          ? 0.5
+          : 0.2;
   }
 
   // Set social score
   if (preferences.diningStyle) {
     profile.socialScore =
-      preferences.diningStyle === "social"
-        ? 0.80
-        : preferences.diningStyle === "mixed"
-        ? 0.50
-        : 0.20;
+      preferences.diningStyle === "social" ? 0.8 : preferences.diningStyle === "mixed" ? 0.5 : 0.2;
   }
 
   // Save
@@ -605,10 +574,7 @@ export async function applyOnboardingPreferences(
 // ─── Generate AI prompt context from taste profile ─────────────
 
 export function generateProfilePrompt(context: UserContext): string {
-  const lines: string[] = [
-    "## User Taste Profile",
-    "",
-  ];
+  const lines: string[] = ["## User Taste Profile", ""];
 
   if (context.topCuisines.length > 0) {
     lines.push(`Favorite cuisines: ${context.topCuisines.join(", ")}`);
@@ -628,17 +594,15 @@ export function generateProfilePrompt(context: UserContext): string {
   if (profileStrength < 5) {
     lines.push("");
     lines.push(
-      "Note: This user is new — ask about preferences and offer diverse options to learn their taste."
+      "Note: This user is new — ask about preferences and offer diverse options to learn their taste.",
     );
   } else if (profileStrength < 20) {
     lines.push("");
-    lines.push(
-      "Note: This user has some history — blend familiar favorites with new discoveries."
-    );
+    lines.push("Note: This user has some history — blend familiar favorites with new discoveries.");
   } else {
     lines.push("");
     lines.push(
-      "Note: This is an experienced user — you know their taste well. Surprise them occasionally with aligned discoveries."
+      "Note: This is an experienced user — you know their taste well. Surprise them occasionally with aligned discoveries.",
     );
   }
 
@@ -663,9 +627,7 @@ function createDefaultProfile(userId: string): TasteProfile {
   };
 }
 
-async function getVenueAttributes(
-  venueId: string | null | undefined
-): Promise<{
+async function getVenueAttributes(venueId: string | null | undefined): Promise<{
   cuisineTags: string[];
   vibeTags: string[];
   priceLevel: string | null;

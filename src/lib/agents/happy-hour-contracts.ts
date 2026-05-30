@@ -68,20 +68,11 @@ const HAPPY_HOUR_CLASSIC: HHItineraryTemplate = {
   label: "Happy Hour Classic",
   description:
     "The standard after-work crawl. Maximize deals, minimize commute. Three walkable stops with the best drink specials and bar bites in the cluster.",
-  slots: [
-    { ...PRE_GAME_DEFAULT },
-    { ...MAIN_EVENT_DEFAULT },
-    { ...NIGHTCAP_DEFAULT },
-  ],
+  slots: [{ ...PRE_GAME_DEFAULT }, { ...MAIN_EVENT_DEFAULT }, { ...NIGHTCAP_DEFAULT }],
   vibe_filter: ["happy_hour", "patio"],
   energy_range: [4, 7],
   price_range: ["$", "$$"],
-  suggested_clusters: [
-    "dc_14th_street",
-    "dc_chinatown",
-    "va_clarendon",
-    "md_bethesda",
-  ],
+  suggested_clusters: ["dc_14th_street", "dc_chinatown", "va_clarendon", "md_bethesda"],
 };
 
 // ── Template 2: Culture Night ────────────────────────────────────
@@ -120,12 +111,7 @@ const CULTURE_NIGHT: HHItineraryTemplate = {
   vibe_filter: ["culture", "happy_hour"],
   energy_range: [3, 6],
   price_range: ["$$", "$$$"],
-  suggested_clusters: [
-    "dc_u_street",
-    "dc_h_street",
-    "dc_14th_street",
-    "md_silver_spring",
-  ],
+  suggested_clusters: ["dc_u_street", "dc_h_street", "dc_14th_street", "md_silver_spring"],
 };
 
 // ── Template 3: Sports Bar Hop ───────────────────────────────────
@@ -164,12 +150,7 @@ const SPORTS_BAR_HOP: HHItineraryTemplate = {
   vibe_filter: ["sports", "happy_hour"],
   energy_range: [5, 9],
   price_range: ["$", "$$"],
-  suggested_clusters: [
-    "dc_chinatown",
-    "va_clarendon",
-    "dc_navy_yard",
-    "va_ballston",
-  ],
+  suggested_clusters: ["dc_chinatown", "va_clarendon", "dc_navy_yard", "va_ballston"],
 };
 
 // ── Template 4: Girls Night Out ──────────────────────────────────
@@ -208,12 +189,7 @@ const GIRLS_NIGHT_OUT: HHItineraryTemplate = {
   vibe_filter: ["girls_night", "rooftop", "trending"],
   energy_range: [4, 8],
   price_range: ["$$", "$$$"],
-  suggested_clusters: [
-    "dc_navy_yard",
-    "dc_wharf",
-    "dc_14th_street",
-    "md_bethesda",
-  ],
+  suggested_clusters: ["dc_navy_yard", "dc_wharf", "dc_14th_street", "md_bethesda"],
 };
 
 // ── Template 5: Guys Night Out ───────────────────────────────────
@@ -252,12 +228,7 @@ const GUYS_NIGHT_OUT: HHItineraryTemplate = {
   vibe_filter: ["guys_night", "sports", "happy_hour"],
   energy_range: [5, 9],
   price_range: ["$", "$$"],
-  suggested_clusters: [
-    "dc_h_street",
-    "va_clarendon",
-    "dc_georgetown",
-    "va_ballston",
-  ],
+  suggested_clusters: ["dc_h_street", "va_clarendon", "dc_georgetown", "va_ballston"],
 };
 
 // ── Template 6: Trending Hotspots ────────────────────────────────
@@ -296,13 +267,7 @@ const TRENDING_HOTSPOTS: HHItineraryTemplate = {
   vibe_filter: ["trending", "rooftop", "waterfront"],
   energy_range: [5, 9],
   price_range: ["$$", "$$$", "$$$$"],
-  suggested_clusters: [
-    "dc_wharf",
-    "dc_navy_yard",
-    "dc_14th_street",
-    "dc_u_street",
-    "va_old_town",
-  ],
+  suggested_clusters: ["dc_wharf", "dc_navy_yard", "dc_14th_street", "dc_u_street", "va_old_town"],
 };
 
 // ── Exports ───────────────────────────────────────────────────────

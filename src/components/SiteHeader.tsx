@@ -72,7 +72,6 @@ export function SiteHeader() {
     });
   }, [isVisitor, router]);
 
-
   return (
     <header
       data-scrolled={scrolled || undefined}
@@ -142,8 +141,6 @@ export function SiteHeader() {
                 Sign up free
               </Link>
             </>
-
-
           ) : (
             <>
               <NotificationsBell />
@@ -319,7 +316,6 @@ function MobileMenu({
               Sign up
             </Link>
           </div>
-
         ) : (
           <button
             onClick={() => {

@@ -25,9 +25,20 @@ import { supabase } from "../supabase";
 // Types
 // ═══════════════════════════════════════════════════════════
 
-export type EmergencyAction = "kill_switch" | "maintenance_mode" | "force_ban" | "rate_limit" | "feature_disable" | "rollback_deploy";
+export type EmergencyAction =
+  | "kill_switch"
+  | "maintenance_mode"
+  | "force_ban"
+  | "rate_limit"
+  | "feature_disable"
+  | "rollback_deploy";
 export type AlertSeverity = "info" | "warning" | "critical" | "emergency";
-export type SystemStatus = "operational" | "degraded" | "partial_outage" | "major_outage" | "maintenance";
+export type SystemStatus =
+  | "operational"
+  | "degraded"
+  | "partial_outage"
+  | "major_outage"
+  | "maintenance";
 
 export interface KillSwitch {
   id: string;
@@ -136,7 +147,7 @@ function nextId(prefix: string): string {
 export function createKillSwitch(
   name: string,
   description: string,
-  affectedServices: string[]
+  affectedServices: string[],
 ): KillSwitch {
   const ks: KillSwitch = {
     id: nextId("ks"),
@@ -153,7 +164,7 @@ export function createKillSwitch(
 export function activateKillSwitch(
   switchId: string,
   reason: string,
-  activatedBy: string
+  activatedBy: string,
 ): KillSwitch | null {
   const ks = killSwitchStore.get(switchId);
   if (!ks) return null;
@@ -168,17 +179,14 @@ export function activateKillSwitch(
     "emergency",
     `Kill Switch Activated: ${ks.name}`,
     `${activatedBy} activated kill switch "${ks.name}". Reason: ${reason}. Affected services: ${ks.affectedServices.join(", ")}`,
-    ks.affectedServices[0] ?? "system"
+    ks.affectedServices[0] ?? "system",
   );
 
   return ks;
 }
 
 /** REQUIRES ADMIN — Deactivate a kill switch */
-export function deactivateKillSwitch(
-  switchId: string,
-  deactivatedBy: string
-): KillSwitch | null {
+export function deactivateKillSwitch(switchId: string, deactivatedBy: string): KillSwitch | null {
   const ks = killSwitchStore.get(switchId);
   if (!ks) return null;
 
@@ -189,7 +197,7 @@ export function deactivateKillSwitch(
     "info",
     `Kill Switch Deactivated: ${ks.name}`,
     `${deactivatedBy} deactivated kill switch "${ks.name}". Services restored: ${ks.affectedServices.join(", ")}`,
-    ks.affectedServices[0] ?? "system"
+    ks.affectedServices[0] ?? "system",
   );
 
   return ks;
@@ -208,16 +216,18 @@ export function getKillSwitches(): KillSwitch[] {
 export function toggleMaintenanceMode(
   enabled: boolean,
   activatedBy: string,
-  message?: string
+  message?: string,
 ): { enabled: boolean; message: string } {
   maintenanceModeEnabled = enabled;
-  maintenanceModeMessage = message ?? (enabled ? "Confetti is undergoing scheduled maintenance. We'll be back shortly!" : "");
+  maintenanceModeMessage =
+    message ??
+    (enabled ? "Confetti is undergoing scheduled maintenance. We'll be back shortly!" : "");
 
   createAlert(
     enabled ? "warning" : "info",
     enabled ? "Maintenance Mode Activated" : "Maintenance Mode Deactivated",
     `${activatedBy} ${enabled ? "enabled" : "disabled"} maintenance mode. ${message ?? ""}`,
-    "system"
+    "system",
   );
 
   return { enabled: maintenanceModeEnabled, message: maintenanceModeMessage };
@@ -229,7 +239,9 @@ export function toggleMaintenanceMode(
 
 /** Record a service failure — auto-opens breaker if threshold hit */
 export function recordServiceFailure(serviceName: string): CircuitBreaker {
-  let breaker = Array.from(circuitBreakerStore.values()).find((cb) => cb.serviceName === serviceName);
+  let breaker = Array.from(circuitBreakerStore.values()).find(
+    (cb) => cb.serviceName === serviceName,
+  );
 
   if (!breaker) {
     // Auto-create circuit breaker with defaults
@@ -259,7 +271,7 @@ export function recordServiceFailure(serviceName: string): CircuitBreaker {
       serviceName,
       "failure_count",
       breaker.failureCount,
-      breaker.failureThreshold
+      breaker.failureThreshold,
     );
   }
 
@@ -268,7 +280,9 @@ export function recordServiceFailure(serviceName: string): CircuitBreaker {
 
 /** Reset a circuit breaker to closed state */
 export function resetCircuitBreaker(serviceName: string): CircuitBreaker | null {
-  const breaker = Array.from(circuitBreakerStore.values()).find((cb) => cb.serviceName === serviceName);
+  const breaker = Array.from(circuitBreakerStore.values()).find(
+    (cb) => cb.serviceName === serviceName,
+  );
   if (!breaker) return null;
 
   breaker.status = "closed";
@@ -291,7 +305,7 @@ export function emergencyBanUser(
   reason: string,
   bannedBy: string,
   permanent: boolean = false,
-  expiresAt?: string
+  expiresAt?: string,
 ): EmergencyBan {
   const ban: EmergencyBan = {
     id: nextId("ban"),
@@ -299,11 +313,14 @@ export function emergencyBanUser(
     reason,
     bannedBy,
     bannedAt: new Date().toISOString(),
-    expiresAt: permanent ? undefined : (expiresAt ?? (() => {
-      const d = new Date();
-      d.setDate(d.getDate() + 30);
-      return d.toISOString();
-    })()),
+    expiresAt: permanent
+      ? undefined
+      : (expiresAt ??
+        (() => {
+          const d = new Date();
+          d.setDate(d.getDate() + 30);
+          return d.toISOString();
+        })()),
     isPermanent: permanent,
     appealStatus: "none",
   };
@@ -314,7 +331,7 @@ export function emergencyBanUser(
     "warning",
     `Emergency Ban: User ${userId}`,
     `${bannedBy} banned user ${userId}. Reason: ${reason}. ${permanent ? "PERMANENT" : `Expires: ${ban.expiresAt}`}`,
-    "user-management"
+    "user-management",
   );
 
   return ban;
@@ -332,7 +349,7 @@ export function liftBan(banId: string, liftedBy: string): EmergencyBan | null {
     "info",
     `Ban Lifted: User ${ban.userId}`,
     `${liftedBy} lifted ban on user ${ban.userId}. Original reason: ${ban.reason}`,
-    "user-management"
+    "user-management",
   );
 
   return ban;
@@ -342,7 +359,7 @@ export function liftBan(banId: string, liftedBy: string): EmergencyBan | null {
 export function getActiveBans(): EmergencyBan[] {
   const now = new Date().toISOString();
   return Array.from(banStore.values()).filter(
-    (b) => b.isPermanent || !b.expiresAt || b.expiresAt > now
+    (b) => b.isPermanent || !b.expiresAt || b.expiresAt > now,
   );
 }
 
@@ -358,7 +375,7 @@ export function createAlert(
   service: string,
   metric?: string,
   value?: number,
-  threshold?: number
+  threshold?: number,
 ): SystemAlert {
   const alert: SystemAlert = {
     id: nextId("alrt"),
@@ -421,7 +438,7 @@ export function scheduleMaintenanceWindow(
   description: string,
   start: string,
   end: string,
-  services: string[]
+  services: string[],
 ): MaintenanceWindow {
   const mw: MaintenanceWindow = {
     id: nextId("mw"),
@@ -446,7 +463,7 @@ export function startIncident(
   title: string,
   severity: AlertSeverity,
   initialMessage: string,
-  reportedBy: string
+  reportedBy: string,
 ): IncidentLog {
   const incident: IncidentLog = {
     id: nextId("inc"),
@@ -470,7 +487,7 @@ export function startIncident(
     severity,
     `Incident Opened: ${title}`,
     `New ${severity} incident: ${initialMessage}`,
-    "incident-management"
+    "incident-management",
   );
 
   return incident;
@@ -481,7 +498,7 @@ export function updateIncident(
   incidentId: string,
   status: IncidentLog["status"],
   message: string,
-  updatedBy: string
+  updatedBy: string,
 ): IncidentLog | null {
   const incident = incidentStore.get(incidentId);
   if (!incident) return null;
@@ -501,7 +518,7 @@ export function updateIncident(
 export function resolveIncident(
   incidentId: string,
   rootCause: string,
-  resolvedBy: string
+  resolvedBy: string,
 ): IncidentLog | null {
   const incident = incidentStore.get(incidentId);
   if (!incident) return null;
@@ -537,9 +554,11 @@ export function getSystemStatus(): { status: SystemStatus; details: string } {
   }
 
   const activeKillSwitches = Array.from(killSwitchStore.values()).filter((ks) => ks.isActive);
-  const openBreakers = Array.from(circuitBreakerStore.values()).filter((cb) => cb.status === "open");
+  const openBreakers = Array.from(circuitBreakerStore.values()).filter(
+    (cb) => cb.status === "open",
+  );
   const criticalAlerts = Array.from(alertStore.values()).filter(
-    (a) => !a.resolvedAt && (a.severity === "emergency" || a.severity === "critical")
+    (a) => !a.resolvedAt && (a.severity === "emergency" || a.severity === "critical"),
   );
 
   if (activeKillSwitches.length > 2 || criticalAlerts.length > 3) {
@@ -592,7 +611,7 @@ export function getEmergencyDashboard(): {
     activeBans: getActiveBans(),
     openIncidents: Array.from(incidentStore.values()).filter((i) => i.status !== "resolved"),
     upcomingMaintenance: Array.from(maintenanceStore.values()).filter(
-      (mw) => mw.status === "scheduled" && mw.scheduledStart > now
+      (mw) => mw.status === "scheduled" && mw.scheduledStart > now,
     ),
   };
 }
@@ -609,16 +628,35 @@ export function seedEmergencyDemo(): {
 } {
   // Create kill switches
   const killSwitches = [
-    createKillSwitch("ai_recommendations", "Disable AI-powered venue recommendations", ["recommendation-engine", "chat-agent"]),
-    createKillSwitch("payment_processing", "Disable all payment processing", ["payments", "subscriptions", "wallet"]),
+    createKillSwitch("ai_recommendations", "Disable AI-powered venue recommendations", [
+      "recommendation-engine",
+      "chat-agent",
+    ]),
+    createKillSwitch("payment_processing", "Disable all payment processing", [
+      "payments",
+      "subscriptions",
+      "wallet",
+    ]),
     createKillSwitch("push_notifications", "Disable push notification delivery", ["notifications"]),
     createKillSwitch("user_registration", "Disable new user signups", ["auth", "onboarding"]),
-    createKillSwitch("boost_campaigns", "Disable business boost campaigns", ["boost-engine", "campaign-manager"]),
-    createKillSwitch("group_plans", "Disable group plan creation", ["group-collab", "trip-planner"]),
+    createKillSwitch("boost_campaigns", "Disable business boost campaigns", [
+      "boost-engine",
+      "campaign-manager",
+    ]),
+    createKillSwitch("group_plans", "Disable group plan creation", [
+      "group-collab",
+      "trip-planner",
+    ]),
   ];
 
   // Create circuit breakers for key services
-  const services = ["recommendation-engine", "venue-api", "payment-gateway", "notification-service", "auth-service"];
+  const services = [
+    "recommendation-engine",
+    "venue-api",
+    "payment-gateway",
+    "notification-service",
+    "auth-service",
+  ];
   for (const svc of services) {
     const breaker: CircuitBreaker = {
       id: nextId("cb"),
@@ -645,7 +683,7 @@ export function seedEmergencyDemo(): {
       "venue-api",
       "p99_latency_ms",
       2450,
-      2000
+      2000,
     ),
     createAlert(
       "info",
@@ -654,7 +692,7 @@ export function seedEmergencyDemo(): {
       "notification-service",
       "error_rate_pct",
       3.2,
-      5.0
+      5.0,
     ),
     createAlert(
       "critical",
@@ -663,7 +701,7 @@ export function seedEmergencyDemo(): {
       "database",
       "connection_pool_pct",
       92,
-      85
+      85,
     ),
   ];
 
@@ -675,18 +713,32 @@ export function seedEmergencyDemo(): {
     "Payment Processing Outage",
     "critical",
     "Multiple users reporting failed payments. Investigating payment gateway connectivity.",
-    "system"
+    "system",
   );
-  updateIncident(pastIncident.id, "identified", "Root cause identified: Stripe webhook endpoint returning 502. Stripe status page confirms degraded performance.", "Tyrone");
-  updateIncident(pastIncident.id, "monitoring", "Stripe has resolved the issue on their end. Monitoring our payment success rate.", "Tyrone");
-  resolveIncident(pastIncident.id, "Stripe webhook infrastructure experienced temporary degraded performance. No action needed on our side.", "Tyrone");
+  updateIncident(
+    pastIncident.id,
+    "identified",
+    "Root cause identified: Stripe webhook endpoint returning 502. Stripe status page confirms degraded performance.",
+    "Tyrone",
+  );
+  updateIncident(
+    pastIncident.id,
+    "monitoring",
+    "Stripe has resolved the issue on their end. Monitoring our payment success rate.",
+    "Tyrone",
+  );
+  resolveIncident(
+    pastIncident.id,
+    "Stripe webhook infrastructure experienced temporary degraded performance. No action needed on our side.",
+    "Tyrone",
+  );
 
   // Create an ongoing incident
   startIncident(
     "Elevated Latency in Venue Search",
     "warning",
     "Users reporting slow venue search results. Investigating backend performance.",
-    "system"
+    "system",
   );
 
   // Schedule a maintenance window
@@ -700,7 +752,7 @@ export function seedEmergencyDemo(): {
     "Migrating taste profile schema to support enhanced AI recommendations. Expected 30 min downtime for recommendation service.",
     nextWeek.toISOString(),
     nextWeekEnd.toISOString(),
-    ["database", "recommendation-engine", "taste-agent"]
+    ["database", "recommendation-engine", "taste-agent"],
   );
 
   // Create a sample ban
@@ -709,7 +761,11 @@ export function seedEmergencyDemo(): {
     "Automated spam detection: mass fake reviews posted",
     "system",
     false,
-    (() => { const d = new Date(); d.setDate(d.getDate() + 7); return d.toISOString(); })()
+    (() => {
+      const d = new Date();
+      d.setDate(d.getDate() + 7);
+      return d.toISOString();
+    })(),
   );
 
   return {

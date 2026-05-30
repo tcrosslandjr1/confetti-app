@@ -104,21 +104,11 @@ function profileStrength(eventCount: number): "cold" | "warming" | "strong" {
  * Combines computed behavioral profile + explicit preferences.
  * Returns null if user not found.
  */
-export async function loadUserTasteContext(
-  userId: string
-): Promise<UserTasteContext | null> {
+export async function loadUserTasteContext(userId: string): Promise<UserTasteContext | null> {
   // Parallel fetch: computed profile + explicit prefs
   const [profileRes, prefsRes] = await Promise.all([
-    supabaseAdmin
-      .from("taste_profiles")
-      .select("*")
-      .eq("user_id", userId)
-      .maybeSingle(),
-    supabaseAdmin
-      .from("user_preferences")
-      .select("*")
-      .eq("user_id", userId)
-      .maybeSingle(),
+    supabaseAdmin.from("taste_profiles").select("*").eq("user_id", userId).maybeSingle(),
+    supabaseAdmin.from("user_preferences").select("*").eq("user_id", userId).maybeSingle(),
   ]);
 
   const profile = profileRes.data as TasteScores | null;
@@ -148,32 +138,22 @@ export async function loadUserTasteContext(
   const taste = prefs?.taste_profile;
 
   return {
-    topCuisines: profile
-      ? topN(profile.cuisine_scores ?? {}, 5)
-      : prefs?.cuisines ?? [],
-    topVibes: profile
-      ? topN(profile.vibe_scores ?? {}, 4)
-      : taste?.vibe ?? [],
+    topCuisines: profile ? topN(profile.cuisine_scores ?? {}, 5) : (prefs?.cuisines ?? []),
+    topVibes: profile ? topN(profile.vibe_scores ?? {}, 4) : (taste?.vibe ?? []),
     priceLevel: profile
       ? priceBucket(profile.price_preference ?? 2)
       : prefs?.budget_max
-        ? prefs.budget_max > 100 ? 3 : 2
+        ? prefs.budget_max > 100
+          ? 3
+          : 2
         : 2,
     adventureScore: profile?.adventure_score ?? 0.5,
     socialScore: profile?.social_score ?? 0.5,
-    activeTimeSlots: profile
-      ? topN(profile.time_patterns ?? {}, 3)
-      : [],
-    topNeighborhoods: profile
-      ? topN(profile.neighborhood_scores ?? {}, 4)
-      : [],
+    activeTimeSlots: profile ? topN(profile.time_patterns ?? {}, 3) : [],
+    topNeighborhoods: profile ? topN(profile.neighborhood_scores ?? {}, 4) : [],
     diet: taste?.diet ?? null,
     allergens: taste?.allergens ?? [],
-    loves: [
-      ...(taste?.loves ?? []),
-      ...(prefs?.cuisines ?? []),
-      ...(prefs?.activities ?? []),
-    ],
+    loves: [...(taste?.loves ?? []), ...(prefs?.cuisines ?? []), ...(prefs?.activities ?? [])],
     avoids: taste?.avoid ?? [],
     profileStrength: profileStrength(profile?.event_count ?? 0),
     budgetMin: prefs?.budget_min ?? null,
@@ -198,21 +178,16 @@ export function buildTastePromptBlock(ctx: UserTasteContext): string {
 
   if (ctx.profileStrength === "cold") {
     // New user — don't over-assume
-    if (ctx.loves.length)
-      lines.push(`Stated interests: ${ctx.loves.join(", ")}`);
-    if (ctx.budgetMax)
-      lines.push(`Budget: $${ctx.budgetMin ?? 0}–$${ctx.budgetMax} per person`);
-    if (ctx.aboutMe)
-      lines.push(`About them: ${ctx.aboutMe.slice(0, 200)}`);
+    if (ctx.loves.length) lines.push(`Stated interests: ${ctx.loves.join(", ")}`);
+    if (ctx.budgetMax) lines.push(`Budget: $${ctx.budgetMin ?? 0}–$${ctx.budgetMax} per person`);
+    if (ctx.aboutMe) lines.push(`About them: ${ctx.aboutMe.slice(0, 200)}`);
     lines.push(`(New user — still learning their taste. Ask clarifying questions.)`);
     return lines.join("\n");
   }
 
   // Warming or strong profile — inject behavioral intelligence
-  if (ctx.topCuisines.length)
-    lines.push(`Gravitates toward: ${ctx.topCuisines.join(", ")}`);
-  if (ctx.topVibes.length)
-    lines.push(`Preferred vibes: ${ctx.topVibes.join(", ")}`);
+  if (ctx.topCuisines.length) lines.push(`Gravitates toward: ${ctx.topCuisines.join(", ")}`);
+  if (ctx.topVibes.length) lines.push(`Preferred vibes: ${ctx.topVibes.join(", ")}`);
   if (ctx.topNeighborhoods.length)
     lines.push(`Favorite neighborhoods: ${ctx.topNeighborhoods.join(", ")}`);
 
@@ -225,18 +200,13 @@ export function buildTastePromptBlock(ctx: UserTasteContext): string {
   if (ctx.socialScore > 0.7) lines.push(`Social butterfly — think groups, energy, buzz.`);
   else if (ctx.socialScore < 0.3) lines.push(`Prefers intimate, quiet, low-key settings.`);
 
-  if (ctx.activeTimeSlots.length)
-    lines.push(`Most active: ${ctx.activeTimeSlots.join(", ")}`);
+  if (ctx.activeTimeSlots.length) lines.push(`Most active: ${ctx.activeTimeSlots.join(", ")}`);
 
-  if (ctx.loves.length)
-    lines.push(`Explicitly loves: ${ctx.loves.slice(0, 8).join(", ")}`);
-  if (ctx.avoids.length)
-    lines.push(`Avoids: ${ctx.avoids.join(", ")}`);
+  if (ctx.loves.length) lines.push(`Explicitly loves: ${ctx.loves.slice(0, 8).join(", ")}`);
+  if (ctx.avoids.length) lines.push(`Avoids: ${ctx.avoids.join(", ")}`);
 
-  if (ctx.budgetMax)
-    lines.push(`Budget: $${ctx.budgetMin ?? 0}–$${ctx.budgetMax} per person`);
-  if (ctx.aboutMe)
-    lines.push(`About them: ${ctx.aboutMe.slice(0, 200)}`);
+  if (ctx.budgetMax) lines.push(`Budget: $${ctx.budgetMin ?? 0}–$${ctx.budgetMax} per person`);
+  if (ctx.aboutMe) lines.push(`About them: ${ctx.aboutMe.slice(0, 200)}`);
 
   if (ctx.profileStrength === "strong")
     lines.push(`(Strong profile — 50+ interactions. Trust these signals heavily.)`);

@@ -29,7 +29,13 @@ type Check = {
 };
 
 const CHECKS: Check[] = [
-  { label: "App Shell", status: "ok", icon: Activity, detail: "React 19 · TanStack Start", latency: 12 },
+  {
+    label: "App Shell",
+    status: "ok",
+    icon: Activity,
+    detail: "React 19 · TanStack Start",
+    latency: 12,
+  },
   { label: "Router", status: "ok", icon: Globe, detail: "All routes resolving", latency: 4 },
   { label: "Auth", status: "ok", icon: Shield, detail: "Supabase session valid", latency: 38 },
   { label: "Database", status: "ok", icon: Database, detail: "Postgres · pooled", latency: 21 },
@@ -157,7 +163,11 @@ function HealthPage() {
               { icon: Hash, label: "Commit", value: commitSha },
               { icon: Clock, label: "Build", value: buildTime },
               { icon: Server, label: "Env", value: env.toUpperCase() },
-              { icon: Clock, label: "Time", value: now.toISOString().split("T")[1]?.split(".")[0] ?? "" },
+              {
+                icon: Clock,
+                label: "Time",
+                value: now.toISOString().split("T")[1]?.split(".")[0] ?? "",
+              },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center justify-between gap-2 text-xs">
                 <span className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-wider text-cream/55">

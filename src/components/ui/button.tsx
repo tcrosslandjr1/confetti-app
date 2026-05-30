@@ -17,14 +17,10 @@ const buttonVariants = cva(
           "border-2 border-ink bg-white text-cream shadow-brut hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut",
         secondary:
           "border-2 border-cream/20 bg-cream/5 text-cream hover:border-ink/40 hover:bg-surface-3 active:bg-surface-3",
-        ghost:
-          "text-cream hover:bg-cream/5 active:bg-surface-3",
-        link:
-          "text-coral underline-offset-4 hover:underline",
-        gold:
-          "border-2 border-ink bg-gold text-cream shadow-brut hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut",
-        ink:
-          "border-2 border-ink bg-ink text-cream shadow-brut hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut",
+        ghost: "text-cream hover:bg-cream/5 active:bg-surface-3",
+        link: "text-coral underline-offset-4 hover:underline",
+        gold: "border-2 border-ink bg-gold text-cream shadow-brut hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut",
+        ink: "border-2 border-ink bg-ink text-cream shadow-brut hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut",
       },
       size: {
         default: "min-h-12 h-12 px-5 py-2.5 text-sm",

@@ -12,9 +12,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
  */
 export const verifyAdminPin = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input) =>
-    z.object({ pin: z.string().min(4).max(10) }).parse(input),
-  )
+  .inputValidator((input) => z.object({ pin: z.string().min(4).max(10) }).parse(input))
   .handler(async ({ data, context }) => {
     // Double-check the caller is an admin
     const { data: isAdmin } = await supabaseAdmin.rpc("has_role", {

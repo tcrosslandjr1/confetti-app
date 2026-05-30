@@ -58,7 +58,7 @@ export function useNotifications(userId: string | undefined) {
           const newNotif = mapRow(payload.new as any);
           setNotifications((prev) => [newNotif, ...prev].slice(0, 100));
           setUnreadCount((c) => c + 1);
-        }
+        },
       )
       .subscribe();
 
@@ -68,20 +68,15 @@ export function useNotifications(userId: string | undefined) {
   }, [userId]);
 
   // Mark a single notification as read
-  const markRead = useCallback(
-    async (notifId: string) => {
-      await supabase
-        .from("notifications")
-        .update({ read_at: new Date().toISOString() })
-        .eq("id", notifId);
+  const markRead = useCallback(async (notifId: string) => {
+    await supabase
+      .from("notifications")
+      .update({ read_at: new Date().toISOString() })
+      .eq("id", notifId);
 
-      setNotifications((prev) =>
-        prev.map((n) => (n.id === notifId ? { ...n, read: true } : n))
-      );
-      setUnreadCount((c) => Math.max(0, c - 1));
-    },
-    []
-  );
+    setNotifications((prev) => prev.map((n) => (n.id === notifId ? { ...n, read: true } : n)));
+    setUnreadCount((c) => Math.max(0, c - 1));
+  }, []);
 
   // Mark all as read
   const markAllRead = useCallback(async () => {

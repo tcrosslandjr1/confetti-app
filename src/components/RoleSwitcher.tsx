@@ -80,7 +80,7 @@ const OPTIONS: Option[] = [
 export function RoleSwitcher() {
   const { isAdmin, viewAs, setViewAs, isImpersonating, exitImpersonation, user } = useAuth();
   const navigate = useNavigate();
-  
+
   const [open, setOpen] = useState(false);
   // Avoid SSR hydration mismatch: viewAs is hydrated from sessionStorage on
   // the client, so render nothing until after mount.

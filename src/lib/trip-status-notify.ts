@@ -26,18 +26,18 @@ export async function publishTripStatusToGroup(opts: {
   kind: TripStatusKind;
   payload?: TripStatusPayload;
 }): Promise<{ success: boolean; error?: string }> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return { success: false, error: "Not authenticated" };
 
-  const { error } = await supabase
-    .from("trip_status_events")
-    .insert({
-      plan_id: opts.planId,
-      group_id: opts.groupId,
-      actor_id: user.id,
-      kind: opts.kind,
-      payload: (opts.payload ?? {}) as Record<string, unknown> as never,
-    });
+  const { error } = await supabase.from("trip_status_events").insert({
+    plan_id: opts.planId,
+    group_id: opts.groupId,
+    actor_id: user.id,
+    kind: opts.kind,
+    payload: (opts.payload ?? {}) as Record<string, unknown> as never,
+  });
 
   if (error) {
     console.error("Failed to publish trip status:", error);
@@ -58,7 +58,7 @@ export function subscribeTripStatusEvents(
     payload: TripStatusPayload;
     actorId: string;
     createdAt: string;
-  }) => void
+  }) => void,
 ): () => void {
   const channel = supabase
     .channel(`trip-status:${groupId}`)
@@ -83,7 +83,7 @@ export function subscribeTripStatusEvents(
           actorId: row.actor_id,
           createdAt: row.created_at,
         });
-      }
+      },
     )
     .subscribe();
 

@@ -10,29 +10,29 @@
  */
 
 export type InteractionEvent =
-  | "venue_view"        // user opened a venue card / detail page
-  | "venue_skip"        // user swiped away / scrolled past
-  | "venue_favorite"    // user saved to favorites
-  | "venue_unfavorite"  // user removed from favorites
-  | "venue_book"        // user made a reservation
-  | "venue_complete"    // user visited the venue (check-in / stamp)
-  | "venue_rate"        // user left a rating/review
-  | "venue_revisit"     // user booked a place they've been before
-  | "confetti_create"   // user created an itinerary
+  | "venue_view" // user opened a venue card / detail page
+  | "venue_skip" // user swiped away / scrolled past
+  | "venue_favorite" // user saved to favorites
+  | "venue_unfavorite" // user removed from favorites
+  | "venue_book" // user made a reservation
+  | "venue_complete" // user visited the venue (check-in / stamp)
+  | "venue_rate" // user left a rating/review
+  | "venue_revisit" // user booked a place they've been before
+  | "confetti_create" // user created an itinerary
   | "confetti_complete" // user completed an itinerary
-  | "confetti_abandon"  // user abandoned an itinerary
-  | "chat_query"        // user sent a message to the AI
-  | "chip_tap"          // user tapped a suggestion chip
-  | "category_browse"   // user browsed a category (e.g., "Rooftop Bars")
-  | "search_query"      // user typed a search
-  | "filter_apply"      // user applied filters
-  | "card_swipe_right"  // positive signal (Tinder-style)
-  | "card_swipe_left";  // negative signal
+  | "confetti_abandon" // user abandoned an itinerary
+  | "chat_query" // user sent a message to the AI
+  | "chip_tap" // user tapped a suggestion chip
+  | "category_browse" // user browsed a category (e.g., "Rooftop Bars")
+  | "search_query" // user typed a search
+  | "filter_apply" // user applied filters
+  | "card_swipe_right" // positive signal (Tinder-style)
+  | "card_swipe_left"; // negative signal
 
 export interface TrackInteractionParams {
   userId: string;
   eventType: InteractionEvent;
-  venueId?: string;         // venue_cache ID or venues ID
+  venueId?: string; // venue_cache ID or venues ID
   itineraryId?: string;
   metadata?: Record<string, unknown>; // extra context: query text, dwell time, etc.
 }
@@ -85,10 +85,7 @@ export function trackInteraction(params: TrackInteractionParams): void {
  * Call startViewTimer() when user opens a card,
  * call the returned function when they close it.
  */
-export function startViewTimer(
-  userId: string,
-  venueId: string
-): () => void {
+export function startViewTimer(userId: string, venueId: string): () => void {
   const startedAt = Date.now();
 
   return () => {
@@ -109,11 +106,9 @@ export function startViewTimer(
 export function trackImplicitSkips(
   userId: string,
   shownVenueIds: string[],
-  interactedVenueIds: string[]
+  interactedVenueIds: string[],
 ): void {
-  const skipped = shownVenueIds.filter(
-    (id) => !interactedVenueIds.includes(id)
-  );
+  const skipped = shownVenueIds.filter((id) => !interactedVenueIds.includes(id));
   for (const venueId of skipped) {
     trackInteraction({
       userId,

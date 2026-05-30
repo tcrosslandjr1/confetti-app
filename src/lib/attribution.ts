@@ -29,9 +29,7 @@ export interface CheckInAttributionPayload {
  * 1. Writes an attribution_events row (method = 'qr_scan').
  * 2. Calls the venue-quality-score Edge Function to recompute quality.
  */
-export async function recordCheckInAttribution(
-  payload: CheckInAttributionPayload,
-): Promise<void> {
+export async function recordCheckInAttribution(payload: CheckInAttributionPayload): Promise<void> {
   try {
     const {
       data: { session },

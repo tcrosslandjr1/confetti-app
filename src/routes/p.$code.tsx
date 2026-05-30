@@ -30,7 +30,9 @@ function SharedPassportPage() {
           ) : (
             <div className="rounded-2xl border-2 border-ink bg-card p-6 text-center">
               <h1 className="font-display text-2xl font-extrabold">Passport unavailable</h1>
-              <p className="mt-2 text-sm text-cream/70">This share link looks invalid or expired.</p>
+              <p className="mt-2 text-sm text-cream/70">
+                This share link looks invalid or expired.
+              </p>
             </div>
           )}
         </div>

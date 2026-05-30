@@ -115,7 +115,9 @@ export function ComingSoonSplash() {
         // Non-critical — votes just won't show counts
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleVote = useCallback((slug: string) => {
@@ -209,16 +211,14 @@ export function ComingSoonSplash() {
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-cream/60 sm:text-base">
             Confetti curates the best dining, nightlife, and experiences into ready-to-go
-            itineraries. We're live in the DMV — sign up below to get notified when we launch
-            in your city.
+            itineraries. We're live in the DMV — sign up below to get notified when we launch in
+            your city.
           </p>
         </div>
 
         {/* City vote grid */}
         <div className="mb-8 w-full max-w-lg">
-          <p className="mb-3 text-center text-sm font-bold text-cream/70">
-            Vote for the next city
-          </p>
+          <p className="mb-3 text-center text-sm font-bold text-cream/70">Vote for the next city</p>
           <div className="grid grid-cols-3 gap-3 sm:grid-cols-3">
             {COMING_SOON_CITIES.map((city) => (
               <CityCard
@@ -248,11 +248,7 @@ export function ComingSoonSplash() {
               disabled={submitting}
               className="flex-1 border-cream/20 bg-cream/5 text-cream placeholder:text-cream/30"
             />
-            <Button
-              type="submit"
-              disabled={submitting || !email.trim()}
-              className="shrink-0"
-            >
+            <Button type="submit" disabled={submitting || !email.trim()} className="shrink-0">
               {submitting ? "Joining…" : "Notify me"}
             </Button>
           </form>
@@ -264,7 +260,8 @@ export function ComingSoonSplash() {
               We'll send you an email the moment Confetti goes live
               {votedCity
                 ? ` in ${COMING_SOON_CITIES.find((c) => c.slug === votedCity)?.name ?? "your city"}`
-                : ""}.
+                : ""}
+              .
             </p>
           </div>
         )}

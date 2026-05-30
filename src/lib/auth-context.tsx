@@ -101,7 +101,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setSessionLoading(false);
       void import("@/lib/view-audit").then(({ logViewAudit }) =>
         logViewAudit({
-          kind: "auth", source: "AuthProvider",
+          kind: "auth",
+          source: "AuthProvider",
           decision: event,
           reason: s?.user?.email ? `user=${s.user.email}` : "no session",
           path: typeof window !== "undefined" ? window.location.pathname : null,
@@ -154,24 +155,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         .eq("user_id", uid)
         .eq("role", "admin")
         .maybeSingle(),
-      supabase
-        .from("advertisers")
-        .select("id")
-        .eq("owner_id", uid)
-        .limit(1)
-        .maybeSingle(),
-      supabase
-        .from("venue_claims")
-        .select("id")
-        .eq("user_id", uid)
-        .limit(1)
-        .maybeSingle(),
-      supabase
-        .from("promoters")
-        .select("id")
-        .eq("user_id", uid)
-        .limit(1)
-        .maybeSingle(),
+      supabase.from("advertisers").select("id").eq("owner_id", uid).limit(1).maybeSingle(),
+      supabase.from("venue_claims").select("id").eq("user_id", uid).limit(1).maybeSingle(),
+      supabase.from("promoters").select("id").eq("user_id", uid).limit(1).maybeSingle(),
     ]).then(
       ([adminRes, advRes, claimRes, promoterRes]) => {
         if (cancelled) return;
@@ -198,8 +184,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (typeof window !== "undefined") sessionStorage.setItem(VIEW_KEY, v);
     void import("@/lib/view-audit").then(({ logViewAudit }) =>
       logViewAudit({
-        kind: "view-change", source: "setViewAs",
-        viewAs: v, decision: "set",
+        kind: "view-change",
+        source: "setViewAs",
+        viewAs: v,
+        decision: "set",
         path: typeof window !== "undefined" ? window.location.pathname : null,
       }),
     );
@@ -210,7 +198,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (typeof window !== "undefined") sessionStorage.removeItem(VIEW_KEY);
     void import("@/lib/view-audit").then(({ logViewAudit }) =>
       logViewAudit({
-        kind: "view-change", source: "exitImpersonation",
+        kind: "view-change",
+        source: "exitImpersonation",
         decision: "reset",
         path: typeof window !== "undefined" ? window.location.pathname : null,
       }),

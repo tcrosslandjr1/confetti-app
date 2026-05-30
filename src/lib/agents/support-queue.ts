@@ -29,8 +29,21 @@ import { supabase } from "../supabase";
 // ═══════════════════════════════════════════════════════════
 
 export type TicketPriority = "p1_critical" | "p2_high" | "p3_medium" | "p4_low";
-export type TicketStatus = "new" | "ai_responded" | "escalated" | "awaiting_user" | "resolved" | "closed";
-export type TicketCategory = "bug" | "feature_request" | "billing" | "account" | "venue_issue" | "booking_problem" | "general";
+export type TicketStatus =
+  | "new"
+  | "ai_responded"
+  | "escalated"
+  | "awaiting_user"
+  | "resolved"
+  | "closed";
+export type TicketCategory =
+  | "bug"
+  | "feature_request"
+  | "billing"
+  | "account"
+  | "venue_issue"
+  | "booking_problem"
+  | "general";
 
 export interface SupportTicket {
   id: string;
@@ -87,7 +100,17 @@ export interface TicketStats {
 const ESCALATION_RULES: EscalationRule[] = [
   {
     category: "billing",
-    keywords: ["charge", "refund", "payment", "invoice", "subscription", "billing", "price", "cost", "money"],
+    keywords: [
+      "charge",
+      "refund",
+      "payment",
+      "invoice",
+      "subscription",
+      "billing",
+      "price",
+      "cost",
+      "money",
+    ],
     autoPriority: "p2_high",
     requiresHuman: true,
   },
@@ -106,24 +129,95 @@ const ESCALATION_RULES: EscalationRule[] = [
 ];
 
 const CATEGORY_KEYWORDS: Record<TicketCategory, string[]> = {
-  bug: ["bug", "error", "crash", "broken", "not working", "glitch", "issue", "fail", "stuck", "freeze", "slow"],
-  feature_request: ["feature", "add", "wish", "would be nice", "suggestion", "could you", "please add", "request", "idea", "improve"],
-  billing: ["billing", "charge", "payment", "refund", "subscription", "invoice", "price", "cancel", "upgrade", "downgrade"],
-  account: ["account", "login", "password", "sign in", "email", "profile", "settings", "delete account", "reset"],
-  venue_issue: ["venue", "restaurant", "bar", "club", "closed", "wrong address", "wrong hours", "menu", "location"],
-  booking_problem: ["booking", "reservation", "table", "cancelled", "no show", "waitlist", "confirm", "rsvp"],
+  bug: [
+    "bug",
+    "error",
+    "crash",
+    "broken",
+    "not working",
+    "glitch",
+    "issue",
+    "fail",
+    "stuck",
+    "freeze",
+    "slow",
+  ],
+  feature_request: [
+    "feature",
+    "add",
+    "wish",
+    "would be nice",
+    "suggestion",
+    "could you",
+    "please add",
+    "request",
+    "idea",
+    "improve",
+  ],
+  billing: [
+    "billing",
+    "charge",
+    "payment",
+    "refund",
+    "subscription",
+    "invoice",
+    "price",
+    "cancel",
+    "upgrade",
+    "downgrade",
+  ],
+  account: [
+    "account",
+    "login",
+    "password",
+    "sign in",
+    "email",
+    "profile",
+    "settings",
+    "delete account",
+    "reset",
+  ],
+  venue_issue: [
+    "venue",
+    "restaurant",
+    "bar",
+    "club",
+    "closed",
+    "wrong address",
+    "wrong hours",
+    "menu",
+    "location",
+  ],
+  booking_problem: [
+    "booking",
+    "reservation",
+    "table",
+    "cancelled",
+    "no show",
+    "waitlist",
+    "confirm",
+    "rsvp",
+  ],
   general: ["help", "question", "how to", "info", "about", "what is", "where", "contact"],
 };
 
 const AI_RESPONSE_TEMPLATES: Record<string, string> = {
-  password_reset: "Hi there! To reset your password, tap the profile icon > Settings > Account > Reset Password. You'll receive an email with a reset link within a few minutes. If you don't see it, check your spam folder. Let me know if you need anything else!",
-  how_to_plan: "Great question! To create a plan in Confetti, just tap the + button on the home screen and tell our AI concierge what kind of night you're looking for. You can specify vibes, budget, group size, and more. The AI will generate a curated itinerary with multiple stops!",
-  how_to_group: "To start a group plan, go to the Groups tab and tap 'Create Group.' Share the invite code with your friends, and once everyone joins, each person picks their vibe preferences. Our AI merges everyone's tastes into one perfect plan!",
-  feature_info: "Thanks for reaching out! Confetti is an AI-powered dining and nightlife concierge. We help you discover amazing venues, plan group outings, and earn rewards when you check in at partner spots. Want to know about a specific feature?",
-  general_inquiry: "Thanks for reaching out to Confetti! I'd be happy to help. Could you give me a bit more detail about what you're looking for? I'll do my best to point you in the right direction.",
-  venue_report: "Thanks for reporting this venue issue! We take accuracy seriously. I've flagged this for our team to review, and we'll update the venue information as quickly as possible. If you have specific corrections (hours, address, etc.), please share them and we'll fast-track the update.",
-  booking_help: "I understand booking issues can be frustrating. Let me look into this for you. In the meantime, you can check your reservation status under Profile > My Bookings. If you need to make changes, you can also contact the venue directly through the venue detail page in the app.",
-  bug_acknowledged: "Sorry you're running into this! I've logged the issue and our team will investigate. In the meantime, try force-closing the app and reopening it. If you're on an older version, updating to the latest release from the App Store often fixes known bugs.",
+  password_reset:
+    "Hi there! To reset your password, tap the profile icon > Settings > Account > Reset Password. You'll receive an email with a reset link within a few minutes. If you don't see it, check your spam folder. Let me know if you need anything else!",
+  how_to_plan:
+    "Great question! To create a plan in Confetti, just tap the + button on the home screen and tell our AI concierge what kind of night you're looking for. You can specify vibes, budget, group size, and more. The AI will generate a curated itinerary with multiple stops!",
+  how_to_group:
+    "To start a group plan, go to the Groups tab and tap 'Create Group.' Share the invite code with your friends, and once everyone joins, each person picks their vibe preferences. Our AI merges everyone's tastes into one perfect plan!",
+  feature_info:
+    "Thanks for reaching out! Confetti is an AI-powered dining and nightlife concierge. We help you discover amazing venues, plan group outings, and earn rewards when you check in at partner spots. Want to know about a specific feature?",
+  general_inquiry:
+    "Thanks for reaching out to Confetti! I'd be happy to help. Could you give me a bit more detail about what you're looking for? I'll do my best to point you in the right direction.",
+  venue_report:
+    "Thanks for reporting this venue issue! We take accuracy seriously. I've flagged this for our team to review, and we'll update the venue information as quickly as possible. If you have specific corrections (hours, address, etc.), please share them and we'll fast-track the update.",
+  booking_help:
+    "I understand booking issues can be frustrating. Let me look into this for you. In the meantime, you can check your reservation status under Profile > My Bookings. If you need to make changes, you can also contact the venue directly through the venue detail page in the app.",
+  bug_acknowledged:
+    "Sorry you're running into this! I've logged the issue and our team will investigate. In the meantime, try force-closing the app and reopening it. If you're on an older version, updating to the latest release from the App Store often fixes known bugs.",
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -230,17 +324,28 @@ export function generateAIResponse(ticket: SupportTicket): string | null {
   const text = `${ticket.subject} ${ticket.description}`.toLowerCase();
 
   // Password reset
-  if (text.includes("password") || text.includes("reset") || text.includes("forgot") || text.includes("can't log in")) {
+  if (
+    text.includes("password") ||
+    text.includes("reset") ||
+    text.includes("forgot") ||
+    text.includes("can't log in")
+  ) {
     return AI_RESPONSE_TEMPLATES.password_reset;
   }
 
   // How-to: planning
-  if (text.includes("how") && (text.includes("plan") || text.includes("itinerary") || text.includes("create"))) {
+  if (
+    text.includes("how") &&
+    (text.includes("plan") || text.includes("itinerary") || text.includes("create"))
+  ) {
     return AI_RESPONSE_TEMPLATES.how_to_plan;
   }
 
   // How-to: groups
-  if (text.includes("group") && (text.includes("how") || text.includes("invite") || text.includes("create"))) {
+  if (
+    text.includes("group") &&
+    (text.includes("how") || text.includes("invite") || text.includes("create"))
+  ) {
     return AI_RESPONSE_TEMPLATES.how_to_group;
   }
 
@@ -281,7 +386,7 @@ export function createTicket(
   userId: string,
   userEmail: string,
   subject: string,
-  description: string
+  description: string,
 ): SupportTicket {
   const classification = classifyTicket({ subject, description });
 
@@ -377,7 +482,11 @@ export function resolveTicket(ticketId: string, resolution: string): SupportTick
 }
 
 /** Add a message to an existing ticket */
-export function addMessage(ticketId: string, role: "user" | "ai" | "admin", content: string): TicketMessage | null {
+export function addMessage(
+  ticketId: string,
+  role: "user" | "ai" | "admin",
+  content: string,
+): TicketMessage | null {
   const ticket = ticketStore.get(ticketId);
   if (!ticket) return null;
 
@@ -439,15 +548,29 @@ export function getTicketStats(): TicketStats {
   const tickets = Array.from(ticketStore.values());
 
   const byStatus = {
-    new: 0, ai_responded: 0, escalated: 0, awaiting_user: 0, resolved: 0, closed: 0,
+    new: 0,
+    ai_responded: 0,
+    escalated: 0,
+    awaiting_user: 0,
+    resolved: 0,
+    closed: 0,
   } as Record<TicketStatus, number>;
 
   const byPriority = {
-    p1_critical: 0, p2_high: 0, p3_medium: 0, p4_low: 0,
+    p1_critical: 0,
+    p2_high: 0,
+    p3_medium: 0,
+    p4_low: 0,
   } as Record<TicketPriority, number>;
 
   const byCategory = {
-    bug: 0, feature_request: 0, billing: 0, account: 0, venue_issue: 0, booking_problem: 0, general: 0,
+    bug: 0,
+    feature_request: 0,
+    billing: 0,
+    account: 0,
+    venue_issue: 0,
+    booking_problem: 0,
+    general: 0,
   } as Record<TicketCategory, number>;
 
   let totalResolutionTime = 0;
@@ -494,49 +617,57 @@ export function seedSupportDemo(): SupportTicket[] {
       userId: "user_001",
       email: "alex@example.com",
       subject: "App crashes when I open group chat",
-      description: "Every time I try to open the group chat feature, the app crashes immediately. I've tried reinstalling but the same thing happens. This is a data loss risk because I lose my chat history each time.",
+      description:
+        "Every time I try to open the group chat feature, the app crashes immediately. I've tried reinstalling but the same thing happens. This is a data loss risk because I lose my chat history each time.",
     },
     {
       userId: "user_002",
       email: "jordan@example.com",
       subject: "How do I create a group plan?",
-      description: "I just downloaded Confetti and I love it! But I'm confused about how to create a group plan with my friends. Can you walk me through it?",
+      description:
+        "I just downloaded Confetti and I love it! But I'm confused about how to create a group plan with my friends. Can you walk me through it?",
     },
     {
       userId: "user_003",
       email: "sam@example.com",
       subject: "Wrong charge on my account",
-      description: "I was charged $4.99 twice this month for Confetti Black. I should only have one charge. Can I get a refund for the duplicate?",
+      description:
+        "I was charged $4.99 twice this month for Confetti Black. I should only have one charge. Can I get a refund for the duplicate?",
     },
     {
       userId: "user_004",
       email: "taylor@example.com",
       subject: "Venue hours are wrong",
-      description: "The listing for Mama's Kitchen in DC shows they close at 10pm but they actually close at midnight on weekends. Can you update this?",
+      description:
+        "The listing for Mama's Kitchen in DC shows they close at 10pm but they actually close at midnight on weekends. Can you update this?",
     },
     {
       userId: "user_005",
       email: "casey@example.com",
       subject: "Feature request: dark mode",
-      description: "Would love to see a dark mode option in the app. Using it at night at bars is really bright. Great app otherwise!",
+      description:
+        "Would love to see a dark mode option in the app. Using it at night at bars is really bright. Great app otherwise!",
     },
     {
       userId: "user_006",
       email: "riley@example.com",
       subject: "Can't reset my password",
-      description: "I forgot my password and the reset email never arrives. I've checked spam. Please help me get back into my account.",
+      description:
+        "I forgot my password and the reset email never arrives. I've checked spam. Please help me get back into my account.",
     },
     {
       userId: "user_007",
       email: "morgan@example.com",
       subject: "Reservation didn't go through",
-      description: "I booked a table through Confetti for Friday night at The Blue Room but when I showed up they had no record of my reservation. This is really frustrating.",
+      description:
+        "I booked a table through Confetti for Friday night at The Blue Room but when I showed up they had no record of my reservation. This is really frustrating.",
     },
     {
       userId: "user_008",
       email: "drew@example.com",
       subject: "Legal inquiry about data usage",
-      description: "I'd like to understand how my personal data is being used and shared. I may need to consult with my lawyer about GDPR compliance. Please provide your data processing documentation.",
+      description:
+        "I'd like to understand how my personal data is being used and shared. I may need to consult with my lawyer about GDPR compliance. Please provide your data processing documentation.",
     },
   ];
 

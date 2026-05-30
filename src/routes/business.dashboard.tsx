@@ -217,10 +217,25 @@ function KPIStats({ totals, daily }: { totals?: any; daily?: any[] }) {
   const kpis = [
     { icon: Eye, label: "Profile Views", value: formatNum(t.profile_views), hint: "last 30 days" },
     { icon: MousePointerClick, label: "Clicks", value: formatNum(t.clicks), hint: "tap-throughs" },
-    { icon: CalendarPlus, label: "Bookings", value: formatNum(t.bookings_count), hint: "confirmed" },
-    { icon: ShoppingBag, label: "Pre-Orders", value: formatNum(t.pre_orders_count), hint: "received" },
+    {
+      icon: CalendarPlus,
+      label: "Bookings",
+      value: formatNum(t.bookings_count),
+      hint: "confirmed",
+    },
+    {
+      icon: ShoppingBag,
+      label: "Pre-Orders",
+      value: formatNum(t.pre_orders_count),
+      hint: "received",
+    },
     { icon: Users, label: "Visitors", value: formatNum(t.unique_visitors), hint: "unique" },
-    { icon: DollarSign, label: "Revenue", value: `$${(t.revenue_cents / 100).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`, hint: "total" },
+    {
+      icon: DollarSign,
+      label: "Revenue",
+      value: `$${(t.revenue_cents / 100).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`,
+      hint: "total",
+    },
   ];
 
   const hasData = totals && (t.profile_views > 0 || t.clicks > 0 || t.bookings_count > 0);
@@ -230,7 +245,8 @@ function KPIStats({ totals, daily }: { totals?: any; daily?: any[] }) {
       <SectionHeader title="Performance" />
       {!hasData && (
         <div className="mb-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2 text-xs text-amber-800">
-          Analytics will populate here once your venue is approved and visitors start discovering you.
+          Analytics will populate here once your venue is approved and visitors start discovering
+          you.
         </div>
       )}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
@@ -313,8 +329,16 @@ function AnalyticsPreview({ daily }: { daily?: any[] }) {
         }
       />
       <div className="grid gap-4 md:grid-cols-3">
-        <SparkChart label="Profile views" data={last7.map((r) => r.profile_views ?? 0)} color="primary" />
-        <SparkChart label="Bookings" data={last7.map((r) => r.bookings_count ?? 0)} color="emerald" />
+        <SparkChart
+          label="Profile views"
+          data={last7.map((r) => r.profile_views ?? 0)}
+          color="primary"
+        />
+        <SparkChart
+          label="Bookings"
+          data={last7.map((r) => r.bookings_count ?? 0)}
+          color="emerald"
+        />
         <SparkChart label="Clicks" data={last7.map((r) => r.clicks ?? 0)} color="orange" />
       </div>
     </Card>
@@ -323,7 +347,12 @@ function AnalyticsPreview({ daily }: { daily?: any[] }) {
 
 function SparkChart({ label, data, color }: { label: string; data: number[]; color: string }) {
   const max = Math.max(...data, 1);
-  const colorClass = color === "primary" ? "bg-primary/70" : color === "emerald" ? "bg-emerald-500/70" : "bg-orange-400/70";
+  const colorClass =
+    color === "primary"
+      ? "bg-primary/70"
+      : color === "emerald"
+        ? "bg-emerald-500/70"
+        : "bg-orange-400/70";
 
   return (
     <div className="rounded-xl border bg-background/50 p-4">
@@ -338,9 +367,7 @@ function SparkChart({ label, data, color }: { label: string; data: number[]; col
         ))}
       </div>
       {data.length > 0 && (
-        <div className="mt-2 text-right text-[10px] text-muted-foreground">
-          Last 7 days
-        </div>
+        <div className="mt-2 text-right text-[10px] text-muted-foreground">Last 7 days</div>
       )}
     </div>
   );

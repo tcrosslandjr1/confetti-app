@@ -16,7 +16,8 @@ export function EventCard({ event }: { event: EventItem }) {
           alt={event.title}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-         decoding="async"/>
+          decoding="async"
+        />
         <div className="absolute left-3 top-3 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold backdrop-blur">
           {event.category}
         </div>

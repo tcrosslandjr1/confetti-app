@@ -166,38 +166,38 @@ export const getStopMenu = createServerFn({ method: "POST" })
     let items: MenuItem[] = [];
     try {
       const gateway = getAiProvider();
-        const model = gateway("google/gemini-2.5-flash");
-        const cat = (data.category ?? "drinks").toLowerCase();
-        const venueDesc = data.city ? `${data.stopName} in ${data.city}` : data.stopName;
+      const model = gateway("google/gemini-2.5-flash");
+      const cat = (data.category ?? "drinks").toLowerCase();
+      const venueDesc = data.city ? `${data.stopName} in ${data.city}` : data.stopName;
 
-        const system =
-          "You generate concise, realistic pre-order menus for a night-out booking app. Items must feel native to the venue type. Prices in USD, integer dollars. Each desc is a short ingredient/details line under 120 chars. Use one emoji per item. Provide 4 items.";
+      const system =
+        "You generate concise, realistic pre-order menus for a night-out booking app. Items must feel native to the venue type. Prices in USD, integer dollars. Each desc is a short ingredient/details line under 120 chars. Use one emoji per item. Provide 4 items.";
 
-        const prompt =
-          cat === "meal"
-            ? `Generate a 4-item small-plates pre-order menu for ${venueDesc}. Mix shareable starters and one main. Realistic restaurant pricing.`
-            : cat === "activity" || cat === "scenic"
-              ? `Generate a 4-item pre-order add-on menu for ${venueDesc} (an ${cat}). Think tickets, upgrades, snacks, merch. Realistic pricing.`
-              : `Generate a 4-item signature cocktail pre-order menu for ${venueDesc}. Mix two cocktails, one beer/wine, one non-alcoholic. Realistic bar pricing.`;
+      const prompt =
+        cat === "meal"
+          ? `Generate a 4-item small-plates pre-order menu for ${venueDesc}. Mix shareable starters and one main. Realistic restaurant pricing.`
+          : cat === "activity" || cat === "scenic"
+            ? `Generate a 4-item pre-order add-on menu for ${venueDesc} (an ${cat}). Think tickets, upgrades, snacks, merch. Realistic pricing.`
+            : `Generate a 4-item signature cocktail pre-order menu for ${venueDesc}. Mix two cocktails, one beer/wine, one non-alcoholic. Realistic bar pricing.`;
 
-        const { experimental_output } = await generateText({
-          model,
-          system,
-          prompt,
-          experimental_output: Output.object({ schema: MenuSchema }),
-        });
-        const parsed = experimental_output;
-        if (parsed?.items?.length) {
-          items = parsed.items.map((it) => ({
-            ...it,
-            id:
-              it.id
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, "-")
-                .replace(/^-|-$/g, "")
-                .slice(0, 40) || `item-${Math.random().toString(36).slice(2, 8)}`,
-          }));
-        }
+      const { experimental_output } = await generateText({
+        model,
+        system,
+        prompt,
+        experimental_output: Output.object({ schema: MenuSchema }),
+      });
+      const parsed = experimental_output;
+      if (parsed?.items?.length) {
+        items = parsed.items.map((it) => ({
+          ...it,
+          id:
+            it.id
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/^-|-$/g, "")
+              .slice(0, 40) || `item-${Math.random().toString(36).slice(2, 8)}`,
+        }));
+      }
     } catch {
       // fall through to fallback
     }

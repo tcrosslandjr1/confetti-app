@@ -49,8 +49,11 @@ export function useCreateSuggestion() {
 export function useUpdateSuggestion() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (params: { id: string; venueId: string; updates: Partial<VenueSuggestionInput> & { status?: SuggestionStatus } }) =>
-      updateSuggestion(params.id, params.updates),
+    mutationFn: (params: {
+      id: string;
+      venueId: string;
+      updates: Partial<VenueSuggestionInput> & { status?: SuggestionStatus };
+    }) => updateSuggestion(params.id, params.updates),
     onSuccess: (_data, variables) => {
       qc.invalidateQueries({ queryKey: suggestionKeys.venue(variables.venueId) });
       qc.invalidateQueries({ queryKey: suggestionKeys.pending() });

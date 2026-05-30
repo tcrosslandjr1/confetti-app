@@ -77,7 +77,10 @@ export interface FlagMetrics {
 const flagStore = new Map<string, FeatureFlag>();
 const auditStore = new Map<string, FlagAuditEntry[]>();
 const errorCountStore = new Map<string, number>();
-const evaluationCountStore = new Map<string, { enabled: number; disabled: number; total: number }>();
+const evaluationCountStore = new Map<
+  string,
+  { enabled: number; disabled: number; total: number }
+>();
 
 let idCounter = 7000;
 function nextId(prefix: string): string {
@@ -93,7 +96,7 @@ export function createFlag(
   key: string,
   name: string,
   description: string,
-  environment: FlagEnvironment[] = ["development"]
+  environment: FlagEnvironment[] = ["development"],
 ): FeatureFlag {
   const flag: FeatureFlag = {
     id: nextId("flag"),
@@ -121,7 +124,11 @@ export function createFlag(
 }
 
 /** Toggle a flag on or off with audit trail */
-export function toggleFlag(flagId: string, enabled: boolean, performedBy: string): FeatureFlag | null {
+export function toggleFlag(
+  flagId: string,
+  enabled: boolean,
+  performedBy: string,
+): FeatureFlag | null {
   const flag = flagStore.get(flagId);
   if (!flag) return null;
 
@@ -149,7 +156,7 @@ export function setRolloutStrategy(
     percentage?: number;
     segments?: string[];
     userIds?: string[];
-  }
+  },
 ): FeatureFlag | null {
   const flag = flagStore.get(flagId);
   if (!flag) return null;
@@ -162,7 +169,8 @@ export function setRolloutStrategy(
   };
 
   flag.rolloutStrategy = strategy;
-  if (opts?.percentage !== undefined) flag.rolloutPercentage = Math.min(100, Math.max(0, opts.percentage));
+  if (opts?.percentage !== undefined)
+    flag.rolloutPercentage = Math.min(100, Math.max(0, opts.percentage));
   if (opts?.segments) flag.targetSegments = opts.segments;
   if (opts?.userIds) flag.targetUserIds = opts.userIds;
   flag.updatedAt = new Date().toISOString();
@@ -216,7 +224,7 @@ export function getAllFlags(environment?: FlagEnvironment): FeatureFlag[] {
 export function evaluateFlag(
   flagKey: string,
   userId: string,
-  userSegments: string[] = []
+  userSegments: string[] = [],
 ): FlagEvaluation {
   const flag = Array.from(flagStore.values()).find((f) => f.key === flagKey);
 
@@ -241,7 +249,9 @@ export function evaluateFlag(
 
     case "percentage":
       enabled = hashUserToPercentage(userId, flagKey) < flag.rolloutPercentage;
-      reason = enabled ? `percentage_included (${flag.rolloutPercentage}%)` : `percentage_excluded (${flag.rolloutPercentage}%)`;
+      reason = enabled
+        ? `percentage_included (${flag.rolloutPercentage}%)`
+        : `percentage_excluded (${flag.rolloutPercentage}%)`;
       break;
 
     case "user_segment":
@@ -261,7 +271,9 @@ export function evaluateFlag(
         : 0;
       const gradualPercent = Math.min(flag.rolloutPercentage, daysSinceToggle * 10); // +10% per day
       enabled = hashUserToPercentage(userId, flagKey) < gradualPercent;
-      reason = enabled ? `gradual_included (${Math.round(gradualPercent)}%)` : `gradual_excluded (${Math.round(gradualPercent)}%)`;
+      reason = enabled
+        ? `gradual_included (${Math.round(gradualPercent)}%)`
+        : `gradual_excluded (${Math.round(gradualPercent)}%)`;
       break;
   }
 
@@ -270,10 +282,7 @@ export function evaluateFlag(
 }
 
 /** Evaluate all active flags for a user */
-export function evaluateFlags(
-  userId: string,
-  userSegments: string[] = []
-): FlagEvaluation[] {
+export function evaluateFlags(userId: string, userSegments: string[] = []): FlagEvaluation[] {
   const activeFlags = Array.from(flagStore.values()).filter((f) => f.status === "active");
   return activeFlags.map((f) => evaluateFlag(f.key, userId, userSegments));
 }
@@ -284,7 +293,7 @@ function hashUserToPercentage(userId: string, flagKey: string): number {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     const char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
+    hash = (hash << 5) - hash + char;
     hash = hash & hash; // Convert to 32bit integer
   }
   return Math.abs(hash) % 100;
@@ -319,7 +328,13 @@ export function recordFlagError(flagKey: string): {
     flag.status = "inactive";
     flag.updatedAt = new Date().toISOString();
     rollbackTriggered = true;
-    addAuditEntry(flag.id, "auto_rollback", "system", "active", `inactive (${currentCount} errors exceeded threshold ${flag.errorThreshold})`);
+    addAuditEntry(
+      flag.id,
+      "auto_rollback",
+      "system",
+      "active",
+      `inactive (${currentCount} errors exceeded threshold ${flag.errorThreshold})`,
+    );
   }
 
   return { errorCount: currentCount, rollbackTriggered };
@@ -335,7 +350,7 @@ function addAuditEntry(
   action: string,
   performedBy: string,
   previousValue: any,
-  newValue: any
+  newValue: any,
 ): void {
   const entries = auditStore.get(flagId) ?? [];
   entries.push({
@@ -386,30 +401,56 @@ export function seedFlagDemo(): FeatureFlag[] {
   const flags: FeatureFlag[] = [];
 
   // Dark mode — fully rolled out
-  const darkMode = createFlag("dark_mode", "Dark Mode", "Enable dark mode theme across the app", ["development", "staging", "production"]);
+  const darkMode = createFlag("dark_mode", "Dark Mode", "Enable dark mode theme across the app", [
+    "development",
+    "staging",
+    "production",
+  ]);
   toggleFlag(darkMode.id, true, "tyrone");
   flags.push(darkMode);
 
   // New chat UI — percentage rollout in production
-  const newChat = createFlag("new_chat_ui", "New Chat UI", "Redesigned AI chat interface with streaming responses", ["development", "staging", "production"]);
+  const newChat = createFlag(
+    "new_chat_ui",
+    "New Chat UI",
+    "Redesigned AI chat interface with streaming responses",
+    ["development", "staging", "production"],
+  );
   setRolloutStrategy(newChat.id, "percentage", { percentage: 25 });
   toggleFlag(newChat.id, true, "tyrone");
   flags.push(newChat);
 
   // AI v2 model — segment rollout to Black tier only
-  const aiV2 = createFlag("ai_v2_model", "AI V2 Model", "GPT-4o powered recommendations (upgraded from GPT-3.5)", ["development", "staging"]);
+  const aiV2 = createFlag(
+    "ai_v2_model",
+    "AI V2 Model",
+    "GPT-4o powered recommendations (upgraded from GPT-3.5)",
+    ["development", "staging"],
+  );
   setRolloutStrategy(aiV2.id, "user_segment", { segments: ["black_tier", "beta_testers"] });
   toggleFlag(aiV2.id, true, "tyrone");
   flags.push(aiV2);
 
   // Group video chat — user list for internal testing
-  const videoChat = createFlag("group_video_chat", "Group Video Chat", "Live video chat during group plan creation", ["development"]);
-  setRolloutStrategy(videoChat.id, "user_list", { userIds: ["user_tyrone", "user_test_001", "user_test_002"] });
+  const videoChat = createFlag(
+    "group_video_chat",
+    "Group Video Chat",
+    "Live video chat during group plan creation",
+    ["development"],
+  );
+  setRolloutStrategy(videoChat.id, "user_list", {
+    userIds: ["user_tyrone", "user_test_001", "user_test_002"],
+  });
   toggleFlag(videoChat.id, true, "tyrone");
   flags.push(videoChat);
 
   // Venue AR preview — gradual rollout with auto-rollback
-  const arPreview = createFlag("venue_ar_preview", "Venue AR Preview", "Augmented reality venue preview from the street", ["development"]);
+  const arPreview = createFlag(
+    "venue_ar_preview",
+    "Venue AR Preview",
+    "Augmented reality venue preview from the street",
+    ["development"],
+  );
   arPreview.autoRollback = true;
   arPreview.errorThreshold = 50;
   setRolloutStrategy(arPreview.id, "gradual", { percentage: 100 });

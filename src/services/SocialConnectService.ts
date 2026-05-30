@@ -22,9 +22,9 @@ export type SocialPlatform = "tiktok" | "instagram" | "facebook";
 // State table name per platform
 // --------------------------------------------------------------------------
 const STATE_TABLE: Record<SocialPlatform, string> = {
-  tiktok:    "tiktok_oauth_states",
+  tiktok: "tiktok_oauth_states",
   instagram: "instagram_oauth_states",
-  facebook:  "facebook_oauth_states",
+  facebook: "facebook_oauth_states",
 };
 
 // --------------------------------------------------------------------------
@@ -38,7 +38,9 @@ export async function connectPlatform(
   platform: SocialPlatform,
   redirectBack = "/new/socials",
 ): Promise<void> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) throw new Error("Must be signed in to connect social accounts");
 
   // Generate a cryptographically random state token
@@ -64,7 +66,9 @@ export async function connectPlatform(
 
 /** Disconnect a platform by deleting the linked_social_accounts row. */
 export async function disconnectPlatform(platform: SocialPlatform): Promise<void> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) throw new Error("Must be signed in");
 
   const { error } = await supabase
@@ -78,7 +82,9 @@ export async function disconnectPlatform(platform: SocialPlatform): Promise<void
 
 /** Fetch all linked accounts for the current user. */
 export async function getLinkedAccounts(): Promise<LinkedAccount[]> {
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) return [];
 
   const { data, error } = await supabase
@@ -92,7 +98,9 @@ export async function getLinkedAccounts(): Promise<LinkedAccount[]> {
 
 /** Trigger a social-sync run for the current user. */
 export async function triggerSocialSync(): Promise<{ ok: boolean; message: string }> {
-  const { data: { session } } = await supabase.auth.getSession();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
   if (!session) return { ok: false, message: "Not signed in" };
 
   const res = await supabase.functions.invoke("social-sync", {

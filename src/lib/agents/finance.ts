@@ -36,12 +36,7 @@ export type TransactionStatus =
   | "refunded"
   | "pending_approval";
 
-export type PayoutStatus =
-  | "pending"
-  | "approved"
-  | "processing"
-  | "completed"
-  | "rejected";
+export type PayoutStatus = "pending" | "approved" | "processing" | "completed" | "rejected";
 
 export type RefundReason =
   | "duplicate_charge"
@@ -144,7 +139,7 @@ export async function recordTransaction(
   userId?: string,
   businessId?: string,
   description?: string,
-  stripeId?: string
+  stripeId?: string,
 ): Promise<Transaction> {
   const tx: Transaction = {
     id: crypto.randomUUID?.() ?? `tx-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -176,7 +171,7 @@ export async function requestRefund(
   transactionId: string,
   userId: string,
   reason: RefundReason,
-  description: string
+  description: string,
 ): Promise<RefundRequest | null> {
   const tx = transactionStore.find((t) => t.id === transactionId);
   if (!tx) return null;
@@ -208,7 +203,7 @@ export async function requestRefund(
 export async function approveRefund(
   refundId: string,
   approvedBy: string,
-  notes?: string
+  notes?: string,
 ): Promise<RefundRequest | null> {
   const refund = refundStore.find((r) => r.id === refundId);
   if (!refund || refund.status !== "pending") return null;
@@ -232,7 +227,7 @@ export async function approveRefund(
 export async function rejectRefund(
   refundId: string,
   rejectedBy: string,
-  notes?: string
+  notes?: string,
 ): Promise<RefundRequest | null> {
   const refund = refundStore.find((r) => r.id === refundId);
   if (!refund || refund.status !== "pending") return null;
@@ -269,7 +264,7 @@ export async function processRefund(refundId: string): Promise<RefundRequest | n
     -refund.amount,
     refund.userId,
     undefined,
-    `Refund for ${refund.transactionId}: ${refund.reason}`
+    `Refund for ${refund.transactionId}: ${refund.reason}`,
   );
 
   refund.status = "processed";
@@ -288,10 +283,10 @@ export async function processRefund(refundId: string): Promise<RefundRequest | n
 export async function requestPayout(
   businessId: string,
   amount: number,
-  period: string
+  period: string,
 ): Promise<PayoutRecord> {
   const businessTxs = transactionStore.filter(
-    (t) => t.businessId === businessId && t.status === "completed" && t.type !== "payout"
+    (t) => t.businessId === businessId && t.status === "completed" && t.type !== "payout",
   );
 
   const payout: PayoutRecord = {
@@ -320,7 +315,7 @@ export async function requestPayout(
 
 export async function approvePayout(
   payoutId: string,
-  approvedBy: string
+  approvedBy: string,
 ): Promise<PayoutRecord | null> {
   const payout = payoutStore.find((p) => p.id === payoutId);
   if (!payout || payout.status !== "pending") return null;
@@ -335,7 +330,7 @@ export async function approvePayout(
     -payout.amount,
     undefined,
     payout.businessId,
-    `Payout to ${payout.businessName} for ${payout.period}`
+    `Payout to ${payout.businessName} for ${payout.period}`,
   );
 
   payout.status = "processing";
@@ -369,12 +364,13 @@ export function getPayoutQueue(): PayoutRecord[] {
 
 export function getRevenueMetrics(period?: string): RevenueMetrics {
   const now = new Date();
-  const periodLabel = period ?? `${now.toLocaleString("en-US", { month: "long", year: "numeric" })}`;
+  const periodLabel =
+    period ?? `${now.toLocaleString("en-US", { month: "long", year: "numeric" })}`;
 
   // Filter transactions for period (default: current month)
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
   const txs = transactionStore.filter(
-    (t) => t.status === "completed" && new Date(t.createdAt) >= monthStart && t.amount > 0
+    (t) => t.status === "completed" && new Date(t.createdAt) >= monthStart && t.amount > 0,
   );
 
   const revenueByType: Record<TransactionType, number> = {
@@ -396,7 +392,7 @@ export function getRevenueMetrics(period?: string): RevenueMetrics {
   }
 
   const refunds = transactionStore.filter(
-    (t) => t.type === "refund" && new Date(t.createdAt) >= monthStart
+    (t) => t.type === "refund" && new Date(t.createdAt) >= monthStart,
   );
   const refundTotal = refunds.reduce((sum, t) => sum + Math.abs(t.amount), 0);
   const refundRate = totalRevenue > 0 ? refundTotal / totalRevenue : 0;
@@ -481,9 +477,7 @@ export function getTaxSummary(year: number, quarter?: number): TaxSummary {
   const platformFees = Math.round(grossRevenue * 0.029 * 100) / 100; // ~2.9% Stripe fees
   const taxableIncome = netRevenue - platformFees - payoutsToVenues;
 
-  const periodLabel = quarter
-    ? `Q${quarter} ${year}`
-    : `${year}`;
+  const periodLabel = quarter ? `Q${quarter} ${year}` : `${year}`;
 
   return {
     period: periodLabel,
@@ -513,7 +507,7 @@ export function getFinanceDashboard(): FinanceDashboard {
       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
       .slice(0, 20),
     fraudAlerts: fraudAlertStore.filter(
-      (f) => new Date(f.detectedAt).getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000
+      (f) => new Date(f.detectedAt).getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000,
     ),
   };
 }
@@ -530,9 +524,7 @@ export function detectFraudSignals(userId: string): FraudSignal[] {
   const userRefunds = refundStore.filter((r) => r.userId === userId);
 
   // Multiple refunds in 30 days
-  const recentRefunds = userRefunds.filter(
-    (r) => new Date(r.requestedAt) >= thirtyDaysAgo
-  );
+  const recentRefunds = userRefunds.filter((r) => new Date(r.requestedAt) >= thirtyDaysAgo);
   if (recentRefunds.length >= 3) {
     signals.push({
       userId,
@@ -574,9 +566,7 @@ export function detectFraudSignals(userId: string): FraudSignal[] {
 
   // Same amount refunds (possible duplicate gaming)
   const refundAmounts = recentRefunds.map((r) => r.amount);
-  const duplicateAmounts = refundAmounts.filter(
-    (amt, idx) => refundAmounts.indexOf(amt) !== idx
-  );
+  const duplicateAmounts = refundAmounts.filter((amt, idx) => refundAmounts.indexOf(amt) !== idx);
   if (duplicateAmounts.length > 0) {
     signals.push({
       userId,
@@ -589,7 +579,7 @@ export function detectFraudSignals(userId: string): FraudSignal[] {
   // Store new alerts
   for (const signal of signals) {
     const alreadyExists = fraudAlertStore.some(
-      (f) => f.userId === signal.userId && f.signal === signal.signal
+      (f) => f.userId === signal.userId && f.signal === signal.signal,
     );
     if (!alreadyExists) {
       fraudAlertStore.push(signal);
@@ -695,7 +685,12 @@ export async function seedFinanceDemo(): Promise<{
   }
 
   // Sample refund requests
-  const reasons: RefundReason[] = ["duplicate_charge", "service_issue", "venue_closed", "user_request"];
+  const reasons: RefundReason[] = [
+    "duplicate_charge",
+    "service_issue",
+    "venue_closed",
+    "user_request",
+  ];
   for (let i = 0; i < 8; i++) {
     const txIdx = Math.floor(Math.random() * transactionStore.length);
     const tx = transactionStore[txIdx];
@@ -708,7 +703,10 @@ export async function seedFinanceDemo(): Promise<{
       description: `Refund request for ${tx.description}`,
       status: i < 3 ? "pending" : i < 5 ? "approved" : "processed",
       requestedAt: new Date(now.getTime() - Math.random() * 14 * 24 * 60 * 60 * 1000).toISOString(),
-      reviewedAt: i >= 3 ? new Date(now.getTime() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString() : undefined,
+      reviewedAt:
+        i >= 3
+          ? new Date(now.getTime() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString()
+          : undefined,
       reviewedBy: i >= 3 ? "admin-tyrone" : undefined,
     };
     refundStore.push(refund);
@@ -719,13 +717,22 @@ export async function seedFinanceDemo(): Promise<{
     const payout: PayoutRecord = {
       id: crypto.randomUUID?.() ?? `pay-demo-${i}`,
       businessId: `biz-${i}`,
-      businessName: ["The Velvet Room", "Rooftop 21", "Sakura Sushi", "Moonlight Lounge", "The Local"][i],
+      businessName: [
+        "The Velvet Room",
+        "Rooftop 21",
+        "Sakura Sushi",
+        "Moonlight Lounge",
+        "The Local",
+      ][i],
       amount: Math.round((Math.random() * 2000 + 500) * 100) / 100,
       status: i < 2 ? "pending" : i < 4 ? "completed" : "processing",
       period: "May 2026",
       transactionCount: Math.floor(Math.random() * 80) + 10,
       requestedAt: new Date(now.getTime() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString(),
-      approvedAt: i >= 2 ? new Date(now.getTime() - Math.random() * 3 * 24 * 60 * 60 * 1000).toISOString() : undefined,
+      approvedAt:
+        i >= 2
+          ? new Date(now.getTime() - Math.random() * 3 * 24 * 60 * 60 * 1000).toISOString()
+          : undefined,
       approvedBy: i >= 2 ? "admin-tyrone" : undefined,
     };
     payoutStore.push(payout);

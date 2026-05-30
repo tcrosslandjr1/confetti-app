@@ -5,7 +5,11 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { ArrowLeft, Upload, Trash2, Star, EyeOff, Eye, Image as ImageIcon } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { useManagedVenues, VenueSwitcher, NoVenueClaim } from "@/components/business/useManagedVenue";
+import {
+  useManagedVenues,
+  VenueSwitcher,
+  NoVenueClaim,
+} from "@/components/business/useManagedVenue";
 import {
   getManagedVenue,
   uploadOfficialPhoto,
@@ -33,7 +37,13 @@ export const Route = createFileRoute("/business/media")({
 function BusinessMediaPage() {
   useAuth();
   const qc = useQueryClient();
-  const { venues, activeId, activeVenue, setActiveId, isLoading: venuesLoading } = useManagedVenues();
+  const {
+    venues,
+    activeId,
+    activeVenue,
+    setActiveId,
+    isLoading: venuesLoading,
+  } = useManagedVenues();
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
 
@@ -114,7 +124,12 @@ function BusinessMediaPage() {
   });
 
   if (venuesLoading) return <PageShell>Loading venues...</PageShell>;
-  if (!venues.length) return <PageShell><NoVenueClaim /></PageShell>;
+  if (!venues.length)
+    return (
+      <PageShell>
+        <NoVenueClaim />
+      </PageShell>
+    );
 
   return (
     <PageShell>

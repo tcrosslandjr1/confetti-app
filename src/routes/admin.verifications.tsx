@@ -13,7 +13,10 @@ export const Route = createFileRoute("/admin/verifications")({
   head: () => ({
     meta: [
       { title: "Verification queue — Confetti Admin" },
-      { name: "description", content: "Review premium-verified document submissions from venue managers." },
+      {
+        name: "description",
+        content: "Review premium-verified document submissions from venue managers.",
+      },
     ],
   }),
 });
@@ -45,8 +48,14 @@ function AdminVerifications() {
   useEffect(() => {
     (async () => {
       const { data: u } = await supabase.auth.getUser();
-      if (!u.user) { setIsAdmin(false); return; }
-      const { data } = await (supabase as any).rpc("has_role", { _user_id: u.user.id, _role: "admin" });
+      if (!u.user) {
+        setIsAdmin(false);
+        return;
+      }
+      const { data } = await (supabase as any).rpc("has_role", {
+        _user_id: u.user.id,
+        _role: "admin",
+      });
       setIsAdmin(!!data);
     })();
   }, []);
@@ -56,7 +65,9 @@ function AdminVerifications() {
     try {
       const { data, error } = await (supabase as any)
         .from("venue_claims")
-        .select("id, user_id, venue_id, status, verification_tier, proof_url, evidence_url, notes, admin_note, created_at, reviewed_at, venue:venues(name, city)")
+        .select(
+          "id, user_id, venue_id, status, verification_tier, proof_url, evidence_url, notes, admin_note, created_at, reviewed_at, venue:venues(name, city)",
+        )
         .eq("verification_tier", "admin_review")
         .eq("status", tab)
         .order("created_at", { ascending: false })
@@ -70,7 +81,9 @@ function AdminVerifications() {
     }
   }
 
-  useEffect(() => { if (isAdmin) refresh(); /* eslint-disable-next-line */ }, [tab, isAdmin]);
+  useEffect(() => {
+    if (isAdmin) refresh(); /* eslint-disable-next-line */
+  }, [tab, isAdmin]);
 
   async function decide(claim: Claim, decision: "approved" | "rejected") {
     try {
@@ -99,7 +112,9 @@ function AdminVerifications() {
           .eq("id", claim.venue_id);
         if (vErr) throw new Error(vErr.message);
       }
-      toast.success(decision === "approved" ? "Approved — venue is now Premium Verified" : "Rejected");
+      toast.success(
+        decision === "approved" ? "Approved — venue is now Premium Verified" : "Rejected",
+      );
       refresh();
     } catch (e) {
       toast.error((e as Error).message);
@@ -107,14 +122,20 @@ function AdminVerifications() {
   }
 
   if (isAdmin === null) {
-    return <Shell><p className="text-sm text-muted-foreground">Checking access…</p></Shell>;
+    return (
+      <Shell>
+        <p className="text-sm text-muted-foreground">Checking access…</p>
+      </Shell>
+    );
   }
   if (!isAdmin) {
     return (
       <Shell>
         <Card className="p-6 text-center">
           <p className="text-sm">Admin access required.</p>
-          <Link to="/admin/console" className="mt-3 inline-block text-xs text-primary underline">Sign in to admin</Link>
+          <Link to="/admin/console" className="mt-3 inline-block text-xs text-primary underline">
+            Sign in to admin
+          </Link>
         </Card>
       </Shell>
     );
@@ -133,12 +154,18 @@ function AdminVerifications() {
         </Button>
       </div>
       <p className="mt-1 text-sm text-muted-foreground">
-        Review Premium Verified document submissions. Approving sets the venue to <strong>premium_verified</strong>.
+        Review Premium Verified document submissions. Approving sets the venue to{" "}
+        <strong>premium_verified</strong>.
       </p>
 
       <div className="mt-4 flex gap-2">
         {(["pending", "approved", "rejected"] as Tab[]).map((t) => (
-          <Button key={t} size="sm" variant={tab === t ? "default" : "outline"} onClick={() => setTab(t)}>
+          <Button
+            key={t}
+            size="sm"
+            variant={tab === t ? "default" : "outline"}
+            onClick={() => setTab(t)}
+          >
             {t}
           </Button>
         ))}
@@ -163,16 +190,21 @@ function AdminVerifications() {
                   {r.reviewed_at && <> · Reviewed {new Date(r.reviewed_at).toLocaleString()}</>}
                 </div>
                 {r.notes && (
-                  <p className="mt-2 text-sm"><span className="text-muted-foreground">Manager note:</span> {r.notes}</p>
+                  <p className="mt-2 text-sm">
+                    <span className="text-muted-foreground">Manager note:</span> {r.notes}
+                  </p>
                 )}
                 {r.admin_note && (
-                  <p className="mt-1 text-sm"><span className="text-muted-foreground">Admin note:</span> {r.admin_note}</p>
+                  <p className="mt-1 text-sm">
+                    <span className="text-muted-foreground">Admin note:</span> {r.admin_note}
+                  </p>
                 )}
                 <div className="mt-3 flex flex-wrap gap-2">
                   {(r.proof_url || r.evidence_url) && (
                     <a
                       href={(r.proof_url || r.evidence_url) as string}
-                      target="_blank" rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 rounded-md border px-3 py-1.5 text-xs hover:bg-muted"
                     >
                       <ExternalLink className="h-3.5 w-3.5" /> View document
@@ -191,7 +223,11 @@ function AdminVerifications() {
                   rows={2}
                 />
                 <div className="flex gap-2">
-                  <Button size="sm" onClick={() => decide(r, "approved")} className="bg-emerald-600 hover:bg-emerald-700">
+                  <Button
+                    size="sm"
+                    onClick={() => decide(r, "approved")}
+                    className="bg-emerald-600 hover:bg-emerald-700"
+                  >
                     <Check className="mr-1.5 h-4 w-4" /> Approve — Premium Verified
                   </Button>
                   <Button size="sm" variant="outline" onClick={() => decide(r, "rejected")}>

@@ -224,7 +224,15 @@ export const CITIES: CityContext[] = [
     city: "Washington DC",
     slug: "dc",
     label: "Washington DC",
-    tags: ["waterfront", "rooftops", "speakeasies", "live music", "monuments", "world-class museums", "cultural landmarks"],
+    tags: [
+      "waterfront",
+      "rooftops",
+      "speakeasies",
+      "live music",
+      "monuments",
+      "world-class museums",
+      "cultural landmarks",
+    ],
     allowedActivities: [
       // Nightlife
       "rooftop bars",
@@ -260,13 +268,22 @@ export const CITIES: CityContext[] = [
       { name: "Capitol Hill", vibe: "neighborhood pubs, Eastern Market, political energy" },
       { name: "National Mall", vibe: "monuments, Smithsonian museums, iconic vistas" },
       { name: "Dupont Circle", vibe: "wine bars, rooftops, LGBTQ+-friendly, cosmopolitan" },
-      { name: "Old Town Alexandria", vibe: "cobblestone streets, waterfront dining, historic charm (VA)" },
+      {
+        name: "Old Town Alexandria",
+        vibe: "cobblestone streets, waterfront dining, historic charm (VA)",
+      },
       { name: "National Harbor", vibe: "MGM casino, waterfront, family and group dining (MD)" },
     ],
     environmentFeatures: [
-      "waterfront", "monuments", "rooftops", "river",
-      "National Mall", "Smithsonian campus", "embassy architecture",
-      "cherry blossom corridors", "historic marble buildings",
+      "waterfront",
+      "monuments",
+      "rooftops",
+      "river",
+      "National Mall",
+      "Smithsonian campus",
+      "embassy architecture",
+      "cherry blossom corridors",
+      "historic marble buildings",
     ],
     signatureExperiences: [
       "Wharf rooftop cocktails at sunset",

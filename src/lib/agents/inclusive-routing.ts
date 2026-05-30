@@ -97,10 +97,7 @@ export function filterForTransSafety(
     if (!cat) return false;
     // If the venue types include strip_club and the category isn't explicitly trans_safe,
     // it may have hostile ID policies. Exclude unless it has trans_affirming filter.
-    if (
-      cat.venueTypes.includes("strip_club") &&
-      !cat.safetyFilters.includes("trans_affirming")
-    ) {
+    if (cat.venueTypes.includes("strip_club") && !cat.safetyFilters.includes("trans_affirming")) {
       return false;
     }
     return true;

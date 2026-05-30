@@ -114,9 +114,7 @@ export async function fetchVenueIntelCandidates(
   const db = supabaseAdmin as any;
 
   // Category hint from occasion
-  const categoryHints = options?.occasionId
-    ? OCCASION_TO_CATEGORY[options.occasionId] ?? []
-    : [];
+  const categoryHints = options?.occasionId ? (OCCASION_TO_CATEGORY[options.occasionId] ?? []) : [];
 
   let rows: VenueIntelRow[] = [];
 
@@ -249,11 +247,7 @@ function rowToCandidate(r: VenueIntelRow): VenueIntelCandidate {
 
   // Best available rating: prefer Google (more reviews), fall back to Yelp
   const rating =
-    r.google_rating !== null
-      ? r.google_rating
-      : r.yelp_rating !== null
-        ? r.yelp_rating
-        : null;
+    r.google_rating !== null ? r.google_rating : r.yelp_rating !== null ? r.yelp_rating : null;
 
   // Composite summary: curator notes take priority, then description
   const summary = r.curator_notes?.trim() || r.description?.trim() || null;

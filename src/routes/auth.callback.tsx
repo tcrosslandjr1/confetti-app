@@ -48,7 +48,10 @@ function AuthCallback() {
             access_token: accessToken,
             refresh_token: refreshToken,
           });
-          if (!error) { go(); return; }
+          if (!error) {
+            go();
+            return;
+          }
         }
       }
 
@@ -57,15 +60,23 @@ function AuthCallback() {
       const code = new URLSearchParams(query).get("code");
       if (code) {
         const { error } = await supabase.auth.exchangeCodeForSession(code);
-        if (!error) { go(); return; }
+        if (!error) {
+          go();
+          return;
+        }
       }
 
       // ── Already signed in ────────────────────────────────────────
       const { data } = await supabase.auth.getSession();
-      if (data.session) { go(); return; }
+      if (data.session) {
+        go();
+        return;
+      }
 
       // ── Wait for Supabase to emit SIGNED_IN ──────────────────────
-      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((event, session) => {
         if ((event === "SIGNED_IN" || event === "INITIAL_SESSION") && session) {
           subscription.unsubscribe();
           go();
@@ -83,22 +94,32 @@ function AuthCallback() {
   }, [navigate]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ background: "#1a0a00" }}>
+    <div
+      className="flex min-h-screen items-center justify-center"
+      style={{ background: "#1a0a00" }}
+    >
       <div className="text-center">
         <div
           style={{
-            width: 32, height: 32, borderRadius: "50%",
+            width: 32,
+            height: 32,
+            borderRadius: "50%",
             border: "2px solid rgba(255,255,255,0.15)",
             borderTopColor: "#e85d3e",
             animation: "spin 0.8s linear infinite",
             margin: "0 auto 16px",
           }}
         />
-        <p style={{
-          fontFamily: "monospace", fontSize: 11, fontWeight: 700,
-          letterSpacing: "0.14em", textTransform: "uppercase",
-          color: "rgba(255,255,255,0.4)",
-        }}>
+        <p
+          style={{
+            fontFamily: "monospace",
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.4)",
+          }}
+        >
           Signing you in…
         </p>
       </div>

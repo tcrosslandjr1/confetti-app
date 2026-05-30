@@ -35,9 +35,7 @@ export function BottomNav() {
     >
       <ul className="grid min-h-[72px] grid-cols-5 place-items-center px-2" role="list">
         {TABS.map(({ to, label, icon: Icon, exact, isYou }) => {
-          const active = exact
-            ? location.pathname === to
-            : location.pathname.startsWith(to);
+          const active = exact ? location.pathname === to : location.pathname.startsWith(to);
 
           if (isYou) {
             return (
@@ -50,12 +48,15 @@ export function BottomNav() {
                   <span
                     className={cn(
                       "flex items-center gap-1.5 rounded-full px-3.5 py-2 transition-all duration-200",
-                      active
-                        ? "bg-ink text-cream"
-                        : "bg-transparent text-ink/40 hover:text-ink/70",
+                      active ? "bg-ink text-cream" : "bg-transparent text-ink/40 hover:text-ink/70",
                     )}
                   >
-                    <Icon className="size-[18px]" strokeWidth={2.5} strokeLinecap="square" strokeLinejoin="miter" />
+                    <Icon
+                      className="size-[18px]"
+                      strokeWidth={2.5}
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                    />
                     <span className="font-mono text-[10px] font-bold">{label}</span>
                   </span>
                 </Link>
@@ -155,12 +156,7 @@ export function MobileHeader({
   className?: string;
 }) {
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-[var(--z-sticky)] bg-cream px-5 pb-3.5 pt-5",
-        className,
-      )}
-    >
+    <header className={cn("sticky top-0 z-[var(--z-sticky)] bg-cream px-5 pb-3.5 pt-5", className)}>
       <div className="flex items-end justify-between gap-3">
         <div className="flex items-end gap-3 min-w-0">
           {left}

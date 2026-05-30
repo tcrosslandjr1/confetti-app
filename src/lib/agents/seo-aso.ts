@@ -82,12 +82,9 @@ let seoPageStore: SEOPage[] = [];
 
 // ─── Add keyword to track ─────────────────────────────────────
 
-export async function addKeyword(
-  keyword: string,
-  platform: Platform
-): Promise<TrackedKeyword> {
+export async function addKeyword(keyword: string, platform: Platform): Promise<TrackedKeyword> {
   const existing = keywordStore.find(
-    (k) => k.keyword.toLowerCase() === keyword.toLowerCase() && k.platform === platform
+    (k) => k.keyword.toLowerCase() === keyword.toLowerCase() && k.platform === platform,
   );
   if (existing) return existing;
 
@@ -178,7 +175,9 @@ export function getKeywordReport(platform?: Platform): TrackedKeyword[] {
 
 export function getTopMovers(limit: number = 10): TrackedKeyword[] {
   return keywordStore
-    .filter((k) => k.status === "tracking" && k.previousRank !== undefined && k.currentRank !== undefined)
+    .filter(
+      (k) => k.status === "tracking" && k.previousRank !== undefined && k.currentRank !== undefined,
+    )
     .map((k) => ({
       ...k,
       _delta: Math.abs((k.previousRank ?? 0) - (k.currentRank ?? 0)),
@@ -198,7 +197,7 @@ export function getStoreMetadata(platform: Platform): StoreMetadata | undefined 
 
 export async function updateStoreMetadata(
   platform: Platform,
-  updates: Partial<Omit<StoreMetadata, "platform" | "lastUpdatedAt">>
+  updates: Partial<Omit<StoreMetadata, "platform" | "lastUpdatedAt">>,
 ): Promise<StoreMetadata> {
   const existing = metadataStore.get(platform);
   const updated: StoreMetadata = {
@@ -273,7 +272,7 @@ export function generateASOSuggestions(platform: Platform): ASOSuggestion[] {
     .map((k) => k.keyword);
 
   const missingKeywords = topKeywords.filter(
-    (kw) => !meta.keywords.includes(kw) && !meta.description.toLowerCase().includes(kw)
+    (kw) => !meta.keywords.includes(kw) && !meta.description.toLowerCase().includes(kw),
   );
 
   if (missingKeywords.length > 0) {
@@ -291,7 +290,8 @@ export function generateASOSuggestions(platform: Platform): ASOSuggestion[] {
     suggestions.push({
       type: "screenshots",
       current: `${meta.screenshots.length} screenshots`,
-      suggested: "Add at least 6 screenshots showing: onboarding, discovery, itinerary, group planning, rewards, reviews.",
+      suggested:
+        "Add at least 6 screenshots showing: onboarding, discovery, itinerary, group planning, rewards, reviews.",
       reason: "Apps with 6+ screenshots have significantly higher conversion rates.",
       impact: "medium",
     });
@@ -302,10 +302,7 @@ export function generateASOSuggestions(platform: Platform): ASOSuggestion[] {
 
 // ─── AI-generate optimized store description ──────────────────
 
-export function generateDescription(
-  platform: Platform,
-  highlights: string[]
-): string {
+export function generateDescription(platform: Platform, highlights: string[]): string {
   const meta = metadataStore.get(platform);
   const appName = meta?.appName ?? "Confetti";
 
@@ -313,8 +310,8 @@ export function generateDescription(
     platform === "ios"
       ? "Available on iPhone and iPad."
       : platform === "android"
-      ? "Available on Android phones and tablets."
-      : "";
+        ? "Available on Android phones and tablets."
+        : "";
 
   const highlightBullets = highlights.map((h) => `  - ${h}`).join("\n");
 
@@ -386,11 +383,15 @@ export function getWebSEOAudit(url: string): SEOPage {
     score -= 8;
   }
   if (mobileScore < 80) {
-    issues.push(`Mobile usability score is ${mobileScore}/100 — improve tap targets and font sizes.`);
+    issues.push(
+      `Mobile usability score is ${mobileScore}/100 — improve tap targets and font sizes.`,
+    );
     score -= 10;
   }
   if (!hasAltTags) {
-    issues.push("Images missing alt attributes — add descriptive alt text for accessibility and SEO.");
+    issues.push(
+      "Images missing alt attributes — add descriptive alt text for accessibility and SEO.",
+    );
     score -= 7;
   }
   if (parseFloat(loadTime) > 3) {
@@ -403,7 +404,8 @@ export function getWebSEOAudit(url: string): SEOPage {
   const page: SEOPage = {
     url,
     title: `Confetti - AI Night Out Planner | ${url.split("/").pop() ?? "Home"}`,
-    metaDescription: "Plan unforgettable nights out with AI-powered recommendations. Dining, drinks, entertainment — personalized for your vibe.",
+    metaDescription:
+      "Plan unforgettable nights out with AI-powered recommendations. Dining, drinks, entertainment — personalized for your vibe.",
     h1: hasH1 ? "Your AI Night Out Concierge" : "",
     score,
     issues,
@@ -466,12 +468,7 @@ export async function seedASODemo(): Promise<{
       "group plans",
     ],
     category: "Food & Drink",
-    screenshots: [
-      "onboarding.png",
-      "discover.png",
-      "itinerary.png",
-      "group.png",
-    ],
+    screenshots: ["onboarding.png", "discover.png", "itinerary.png", "group.png"],
     lastUpdatedAt: new Date().toISOString(),
   });
 
@@ -490,11 +487,7 @@ export async function seedASODemo(): Promise<{
       "ai concierge",
     ],
     category: "Food & Drink",
-    screenshots: [
-      "onboarding.png",
-      "discover.png",
-      "itinerary.png",
-    ],
+    screenshots: ["onboarding.png", "discover.png", "itinerary.png"],
     lastUpdatedAt: new Date().toISOString(),
   });
 

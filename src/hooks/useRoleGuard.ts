@@ -18,10 +18,7 @@ import { useAuth, type ViewAs } from "@/lib/auth-context";
  *     if (!ready) return <LoadingSkeleton />;
  *   }
  */
-export function useRoleGuard(
-  allowedRoles: ViewAs[],
-  fallback: string = "/",
-) {
+export function useRoleGuard(allowedRoles: ViewAs[], fallback: string = "/") {
   const { user, loading, effectiveRole } = useAuth();
   const navigate = useNavigate();
 

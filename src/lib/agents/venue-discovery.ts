@@ -99,7 +99,7 @@ function getConfig(): VenueDiscoveryConfig {
 async function searchGooglePlaces(
   params: VenueSearchParams,
   supabaseUrl: string,
-  supabaseAnonKey: string
+  supabaseAnonKey: string,
 ): Promise<DiscoveredVenue[]> {
   const radiusMeters = Math.round((params.radiusMiles ?? 10) * 1609.34);
   const query = params.query ?? buildSearchQuery(params);
@@ -123,9 +123,7 @@ async function searchGooglePlaces(
 
   if (!res.ok) {
     const errorBody = await res.text().catch(() => "");
-    console.error(
-      `[Confetti] places-search proxy error ${res.status}: ${errorBody.slice(0, 500)}`
-    );
+    console.error(`[Confetti] places-search proxy error ${res.status}: ${errorBody.slice(0, 500)}`);
     return [];
   }
   const data = await res.json();
@@ -153,7 +151,7 @@ async function searchGooglePlaces(
       phone: place.nationalPhoneNumber as string | undefined,
       website: place.websiteUri as string | undefined,
       photoUrls: photoPaths.map(
-        (p) => `${supabaseUrl}/functions/v1/places-photo?path=${encodeURIComponent(p)}&w=600`
+        (p) => `${supabaseUrl}/functions/v1/places-photo?path=${encodeURIComponent(p)}&w=600`,
       ),
       cuisineTags: extractCuisineTags(types, name),
       vibeTags: extractVibeTags(types, name),
@@ -168,7 +166,7 @@ async function searchGooglePlaces(
 
 async function searchFoursquare(
   params: VenueSearchParams,
-  apiKey: string
+  apiKey: string,
 ): Promise<DiscoveredVenue[]> {
   const radiusMeters = Math.round((params.radiusMiles ?? 10) * 1609.34);
   const query = params.query ?? buildSearchQuery(params);
@@ -186,9 +184,7 @@ async function searchFoursquare(
 
   if (!res.ok) {
     const errorBody = await res.text().catch(() => "");
-    console.error(
-      `[Confetti] Foursquare API error ${res.status}: ${errorBody.slice(0, 500)}`
-    );
+    console.error(`[Confetti] Foursquare API error ${res.status}: ${errorBody.slice(0, 500)}`);
     return [];
   }
   const data = await res.json();
@@ -215,7 +211,10 @@ async function searchFoursquare(
       website: (place.website as string) ?? undefined,
       photoUrls: [],
       cuisineTags: cats.map((c) => c.name),
-      vibeTags: extractVibeTags(cats.map((c) => c.name), (place.name as string) ?? ""),
+      vibeTags: extractVibeTags(
+        cats.map((c) => c.name),
+        (place.name as string) ?? "",
+      ),
       occasionTags: [],
       source: "foursquare",
       foursquareId: place.fsq_id as string,
@@ -226,7 +225,10 @@ async function searchFoursquare(
 
 // ─── Local Knowledge Layer (curated Excel guides) ─────────────
 
-function convertLocalToDiscovered(local: VenueKnowledge, params: VenueSearchParams): DiscoveredVenue {
+function convertLocalToDiscovered(
+  local: VenueKnowledge,
+  params: VenueSearchParams,
+): DiscoveredVenue {
   return {
     id: `local_${local.id}`,
     name: local.name,
@@ -246,7 +248,12 @@ function convertLocalToDiscovered(local: VenueKnowledge, params: VenueSearchPara
     vibeTags: local.vibeTags,
     occasionTags: local.occasionTags,
     source: "merged" as const,
-    distanceMiles: calculateDistance(params.location.lat, params.location.lng, local.lat, local.lng),
+    distanceMiles: calculateDistance(
+      params.location.lat,
+      params.location.lng,
+      local.lat,
+      local.lng,
+    ),
     matchScore: calculateLocalMatchScore(local, params),
   };
 }
@@ -257,15 +264,15 @@ function calculateLocalMatchScore(venue: VenueKnowledge, params: VenueSearchPara
   // Occasion match: +15
   if (params.occasion) {
     const occ = params.occasion.toLowerCase();
-    if (venue.occasionTags.some(t => t.includes(occ) || occ.includes(t))) {
+    if (venue.occasionTags.some((t) => t.includes(occ) || occ.includes(t))) {
       score += 15;
     }
   }
 
   // Vibe match: +5 per match, max +15
   if (params.vibes?.length) {
-    const vibeSet = new Set(params.vibes.map(v => v.toLowerCase()));
-    const matches = venue.vibeTags.filter(t => vibeSet.has(t)).length;
+    const vibeSet = new Set(params.vibes.map((v) => v.toLowerCase()));
+    const matches = venue.vibeTags.filter((t) => vibeSet.has(t)).length;
     score += Math.min(matches * 5, 15);
   }
 
@@ -277,8 +284,8 @@ function calculateLocalMatchScore(venue: VenueKnowledge, params: VenueSearchPara
 
   // Cuisine match: +10
   if (params.cuisines?.length) {
-    const cuisineSet = new Set(params.cuisines.map(c => c.toLowerCase()));
-    if (venue.cuisineTags.some(t => cuisineSet.has(t.toLowerCase()))) {
+    const cuisineSet = new Set(params.cuisines.map((c) => c.toLowerCase()));
+    if (venue.cuisineTags.some((t) => cuisineSet.has(t.toLowerCase()))) {
       score += 10;
     }
   }
@@ -303,7 +310,7 @@ function getLocalKnowledgeVenues(params: VenueSearchParams): DiscoveredVenue[] {
     limit: params.limit ?? 20,
   });
 
-  return localResults.map(v => convertLocalToDiscovered(v, params));
+  return localResults.map((v) => convertLocalToDiscovered(v, params));
 }
 
 // ─── Mock venue discovery (development) ─────────────────────
@@ -314,69 +321,136 @@ function getMockVenues(params: VenueSearchParams): DiscoveredVenue[] {
 
   const mockVenues: DiscoveredVenue[] = [
     {
-      id: "mock_1", name: "The Crimson Lantern", category: "Speakeasy",
-      address: "1423 U St NW", city, state, country: "US",
-      lat: params.location.lat + 0.003, lng: params.location.lng - 0.002,
-      priceLevel: "$$", rating: 4.7, ratingCount: 342,
+      id: "mock_1",
+      name: "The Crimson Lantern",
+      category: "Speakeasy",
+      address: "1423 U St NW",
+      city,
+      state,
+      country: "US",
+      lat: params.location.lat + 0.003,
+      lng: params.location.lng - 0.002,
+      priceLevel: "$$",
+      rating: 4.7,
+      ratingCount: 342,
       photoUrls: ["https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=400"],
-      cuisineTags: ["Cocktails", "Small Plates"], vibeTags: ["Speakeasy", "Intimate", "Hidden"],
-      occasionTags: ["Date Night", "Anniversary"], source: "google", matchScore: 96,
+      cuisineTags: ["Cocktails", "Small Plates"],
+      vibeTags: ["Speakeasy", "Intimate", "Hidden"],
+      occasionTags: ["Date Night", "Anniversary"],
+      source: "google",
+      matchScore: 96,
     },
     {
-      id: "mock_2", name: "Skyline Social", category: "Rooftop Bar",
-      address: "800 Maine Ave SW", city, state, country: "US",
-      lat: params.location.lat - 0.005, lng: params.location.lng + 0.003,
-      priceLevel: "$$", rating: 4.5, ratingCount: 528,
+      id: "mock_2",
+      name: "Skyline Social",
+      category: "Rooftop Bar",
+      address: "800 Maine Ave SW",
+      city,
+      state,
+      country: "US",
+      lat: params.location.lat - 0.005,
+      lng: params.location.lng + 0.003,
+      priceLevel: "$$",
+      rating: 4.5,
+      ratingCount: 528,
       photoUrls: ["https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400"],
-      cuisineTags: ["American", "Cocktails"], vibeTags: ["Rooftop", "Views", "Trendy"],
-      occasionTags: ["Group", "Celebration"], source: "foursquare", matchScore: 94,
+      cuisineTags: ["American", "Cocktails"],
+      vibeTags: ["Rooftop", "Views", "Trendy"],
+      occasionTags: ["Group", "Celebration"],
+      source: "foursquare",
+      matchScore: 94,
     },
     {
-      id: "mock_3", name: "Taquería del Sol", category: "Mexican",
-      address: "2018 14th St NW", city, state, country: "US",
-      lat: params.location.lat + 0.008, lng: params.location.lng - 0.001,
-      priceLevel: "$", rating: 4.8, ratingCount: 891,
+      id: "mock_3",
+      name: "Taquería del Sol",
+      category: "Mexican",
+      address: "2018 14th St NW",
+      city,
+      state,
+      country: "US",
+      lat: params.location.lat + 0.008,
+      lng: params.location.lng - 0.001,
+      priceLevel: "$",
+      rating: 4.8,
+      ratingCount: 891,
       photoUrls: ["https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400"],
-      cuisineTags: ["Mexican", "Street Food", "Tacos"], vibeTags: ["Casual", "Viral", "Quick"],
-      occasionTags: ["Casual", "Family"], source: "merged", matchScore: 92,
+      cuisineTags: ["Mexican", "Street Food", "Tacos"],
+      vibeTags: ["Casual", "Viral", "Quick"],
+      occasionTags: ["Casual", "Family"],
+      source: "merged",
+      matchScore: 92,
     },
     {
-      id: "mock_4", name: "Maison Noir", category: "French",
-      address: "3205 Grace St NW", city, state, country: "US",
-      lat: params.location.lat - 0.002, lng: params.location.lng - 0.007,
-      priceLevel: "$$$", rating: 4.9, ratingCount: 203,
+      id: "mock_4",
+      name: "Maison Noir",
+      category: "French",
+      address: "3205 Grace St NW",
+      city,
+      state,
+      country: "US",
+      lat: params.location.lat - 0.002,
+      lng: params.location.lng - 0.007,
+      priceLevel: "$$$",
+      rating: 4.9,
+      ratingCount: 203,
       photoUrls: ["https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400"],
-      cuisineTags: ["French", "Fine Dining", "Wine"], vibeTags: ["Upscale", "Romantic", "Elegant"],
-      occasionTags: ["Date Night", "Anniversary", "Special"], source: "google", matchScore: 91,
+      cuisineTags: ["French", "Fine Dining", "Wine"],
+      vibeTags: ["Upscale", "Romantic", "Elegant"],
+      occasionTags: ["Date Night", "Anniversary", "Special"],
+      source: "google",
+      matchScore: 91,
     },
     {
-      id: "mock_5", name: "Ember & Rye", category: "Steakhouse",
-      address: "1100 Pennsylvania Ave NW", city, state, country: "US",
-      lat: params.location.lat + 0.001, lng: params.location.lng + 0.005,
-      priceLevel: "$$$", rating: 4.6, ratingCount: 417,
+      id: "mock_5",
+      name: "Ember & Rye",
+      category: "Steakhouse",
+      address: "1100 Pennsylvania Ave NW",
+      city,
+      state,
+      country: "US",
+      lat: params.location.lat + 0.001,
+      lng: params.location.lng + 0.005,
+      priceLevel: "$$$",
+      rating: 4.6,
+      ratingCount: 417,
       photoUrls: ["https://images.unsplash.com/photo-1544025162-d76694265947?w=400"],
-      cuisineTags: ["Steakhouse", "American", "Grill"], vibeTags: ["Upscale", "Bold", "Power Dinner"],
-      occasionTags: ["Business", "Celebration"], source: "foursquare", matchScore: 88,
+      cuisineTags: ["Steakhouse", "American", "Grill"],
+      vibeTags: ["Upscale", "Bold", "Power Dinner"],
+      occasionTags: ["Business", "Celebration"],
+      source: "foursquare",
+      matchScore: 88,
     },
     {
-      id: "mock_6", name: "Blossom Tea Garden", category: "Cafe",
-      address: "615 H St NE", city, state, country: "US",
-      lat: params.location.lat + 0.006, lng: params.location.lng + 0.008,
-      priceLevel: "$", rating: 4.4, ratingCount: 267,
+      id: "mock_6",
+      name: "Blossom Tea Garden",
+      category: "Cafe",
+      address: "615 H St NE",
+      city,
+      state,
+      country: "US",
+      lat: params.location.lat + 0.006,
+      lng: params.location.lng + 0.008,
+      priceLevel: "$",
+      rating: 4.4,
+      ratingCount: 267,
       photoUrls: ["https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400"],
-      cuisineTags: ["Tea", "Pastries", "Brunch"], vibeTags: ["Cozy", "Artsy", "Calm"],
-      occasionTags: ["Solo", "Work", "Casual"], source: "google", matchScore: 85,
+      cuisineTags: ["Tea", "Pastries", "Brunch"],
+      vibeTags: ["Cozy", "Artsy", "Calm"],
+      occasionTags: ["Solo", "Work", "Casual"],
+      source: "google",
+      matchScore: 85,
     },
   ];
 
   // Filter by query if provided
   if (params.query) {
     const q = params.query.toLowerCase();
-    return mockVenues.filter((v) =>
-      v.name.toLowerCase().includes(q) ||
-      v.cuisineTags.some((t) => t.toLowerCase().includes(q)) ||
-      v.vibeTags.some((t) => t.toLowerCase().includes(q)) ||
-      v.category.toLowerCase().includes(q)
+    return mockVenues.filter(
+      (v) =>
+        v.name.toLowerCase().includes(q) ||
+        v.cuisineTags.some((t) => t.toLowerCase().includes(q)) ||
+        v.vibeTags.some((t) => t.toLowerCase().includes(q)) ||
+        v.category.toLowerCase().includes(q),
     );
   }
 
@@ -401,31 +475,67 @@ function getMockTripStops(params: TripCorridorParams): DiscoveredVenue[] {
 
   return [
     {
-      id: "trip_1", name: "Highway Smokehouse", category: "BBQ",
-      address: "Off I-95 Exit 42", city: "Fredericksburg", state: "VA", country: "US",
-      lat: midLat - 0.3, lng: midLng + 0.1,
-      priceLevel: "$", rating: 4.6, ratingCount: 523,
+      id: "trip_1",
+      name: "Highway Smokehouse",
+      category: "BBQ",
+      address: "Off I-95 Exit 42",
+      city: "Fredericksburg",
+      state: "VA",
+      country: "US",
+      lat: midLat - 0.3,
+      lng: midLng + 0.1,
+      priceLevel: "$",
+      rating: 4.6,
+      ratingCount: 523,
       photoUrls: ["https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400"],
-      cuisineTags: ["BBQ", "Southern", "Smokehouse"], vibeTags: ["Casual", "Road Trip", "Hearty"],
-      occasionTags: ["Road Trip"], source: "google", distanceMiles: 55, matchScore: 90,
+      cuisineTags: ["BBQ", "Southern", "Smokehouse"],
+      vibeTags: ["Casual", "Road Trip", "Hearty"],
+      occasionTags: ["Road Trip"],
+      source: "google",
+      distanceMiles: 55,
+      matchScore: 90,
     },
     {
-      id: "trip_2", name: "Charge & Chill EV Lounge", category: "EV Charging",
-      address: "Rest Area Mile 78", city: "Richmond", state: "VA", country: "US",
-      lat: midLat, lng: midLng,
-      priceLevel: "$", rating: 4.2, ratingCount: 89,
+      id: "trip_2",
+      name: "Charge & Chill EV Lounge",
+      category: "EV Charging",
+      address: "Rest Area Mile 78",
+      city: "Richmond",
+      state: "VA",
+      country: "US",
+      lat: midLat,
+      lng: midLng,
+      priceLevel: "$",
+      rating: 4.2,
+      ratingCount: 89,
       photoUrls: [],
-      cuisineTags: ["Coffee", "Snacks"], vibeTags: ["Quick", "EV Friendly", "Rest Stop"],
-      occasionTags: ["Road Trip"], source: "foursquare", distanceMiles: 110, matchScore: 82,
+      cuisineTags: ["Coffee", "Snacks"],
+      vibeTags: ["Quick", "EV Friendly", "Rest Stop"],
+      occasionTags: ["Road Trip"],
+      source: "foursquare",
+      distanceMiles: 110,
+      matchScore: 82,
     },
     {
-      id: "trip_3", name: "Blue Ridge Brewery", category: "Brewery",
-      address: "312 Main St", city: "Charlottesville", state: "VA", country: "US",
-      lat: midLat + 0.2, lng: midLng - 0.3,
-      priceLevel: "$$", rating: 4.7, ratingCount: 312,
+      id: "trip_3",
+      name: "Blue Ridge Brewery",
+      category: "Brewery",
+      address: "312 Main St",
+      city: "Charlottesville",
+      state: "VA",
+      country: "US",
+      lat: midLat + 0.2,
+      lng: midLng - 0.3,
+      priceLevel: "$$",
+      rating: 4.7,
+      ratingCount: 312,
       photoUrls: ["https://images.unsplash.com/photo-1559526324-593bc073d938?w=400"],
-      cuisineTags: ["Craft Beer", "Pub Food", "American"], vibeTags: ["Chill", "Local", "Scenic"],
-      occasionTags: ["Road Trip", "Group"], source: "merged", distanceMiles: 130, matchScore: 88,
+      cuisineTags: ["Craft Beer", "Pub Food", "American"],
+      vibeTags: ["Chill", "Local", "Scenic"],
+      occasionTags: ["Road Trip", "Group"],
+      source: "merged",
+      distanceMiles: 130,
+      matchScore: 88,
     },
   ];
 }
@@ -518,13 +628,27 @@ function extractCuisineTags(types: string[], name: string): string[] {
   const tags: string[] = [];
   const combined = [...types, ...name.toLowerCase().split(/\s+/)].join(" ");
   const cuisineMap: Record<string, string> = {
-    japanese: "Japanese", sushi: "Japanese", ramen: "Japanese",
-    italian: "Italian", pizza: "Italian", pasta: "Italian",
-    mexican: "Mexican", taco: "Mexican", burrito: "Mexican",
-    chinese: "Chinese", thai: "Thai", indian: "Indian",
-    french: "French", korean: "Korean", vietnamese: "Vietnamese",
-    american: "American", burger: "American", bbq: "BBQ",
-    seafood: "Seafood", steak: "Steakhouse", vegan: "Vegan",
+    japanese: "Japanese",
+    sushi: "Japanese",
+    ramen: "Japanese",
+    italian: "Italian",
+    pizza: "Italian",
+    pasta: "Italian",
+    mexican: "Mexican",
+    taco: "Mexican",
+    burrito: "Mexican",
+    chinese: "Chinese",
+    thai: "Thai",
+    indian: "Indian",
+    french: "French",
+    korean: "Korean",
+    vietnamese: "Vietnamese",
+    american: "American",
+    burger: "American",
+    bbq: "BBQ",
+    seafood: "Seafood",
+    steak: "Steakhouse",
+    vegan: "Vegan",
     mediterranean: "Mediterranean",
   };
   for (const [keyword, tag] of Object.entries(cuisineMap)) {
@@ -556,12 +680,15 @@ function calculateDistance(lat1: number, lng1: number, lat2: number, lng2: numbe
   const dLng = ((lng2 - lng1) * Math.PI) / 180;
   const a =
     Math.sin(dLat / 2) ** 2 +
-    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) *
-    Math.sin(dLng / 2) ** 2;
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-function generateWaypoints(origin: GeoLocation, destination: GeoLocation, intervalMiles: number): GeoLocation[] {
+function generateWaypoints(
+  origin: GeoLocation,
+  destination: GeoLocation,
+  intervalMiles: number,
+): GeoLocation[] {
   const totalDist = calculateDistance(origin.lat, origin.lng, destination.lat, destination.lng);
   const numPoints = Math.max(1, Math.floor(totalDist / intervalMiles));
   const waypoints: GeoLocation[] = [];
@@ -586,7 +713,7 @@ function generateWaypoints(origin: GeoLocation, destination: GeoLocation, interv
 async function queryVenueCache(
   params: VenueSearchParams,
   supabaseUrl: string,
-  supabaseAnonKey: string
+  supabaseAnonKey: string,
 ): Promise<DiscoveredVenue[]> {
   const city = params.location.city;
   if (!city) return [];
@@ -599,51 +726,59 @@ async function queryVenueCache(
   if (params.query) searchBody.q = params.query;
   if (params.priceLevel) {
     const priceMap: Record<string, string[]> = {
-      "$": ["$"], "$$": ["$$"], "$$$": ["$$$"], "$$$$": ["$$$$"],
+      $: ["$"],
+      $$: ["$$"],
+      $$$: ["$$$"],
+      $$$$: ["$$$$"],
     };
     searchBody.price_tiers = priceMap[params.priceLevel] ?? ["$$"];
   }
 
   try {
-    const res = await fetch(`${supabaseUrl}/rest/v1/venue_cache?city=ilike.%25${encodeURIComponent(city)}%25&expires_at=gte.${new Date().toISOString()}&limit=${params.limit ?? 30}&order=rating.desc.nullslast`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${supabaseAnonKey}`,
-        apikey: supabaseAnonKey,
+    const res = await fetch(
+      `${supabaseUrl}/rest/v1/venue_cache?city=ilike.%25${encodeURIComponent(city)}%25&expires_at=gte.${new Date().toISOString()}&limit=${params.limit ?? 30}&order=rating.desc.nullslast`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${supabaseAnonKey}`,
+          apikey: supabaseAnonKey,
+        },
       },
-    });
+    );
 
     if (!res.ok) return [];
     const rows = await res.json();
 
     if (!Array.isArray(rows) || rows.length === 0) return [];
 
-    return rows.map((row: Record<string, unknown>): DiscoveredVenue => ({
-      id: `vc_${row.id}`,
-      name: (row.name as string) ?? "",
-      category: (row.category as string) ?? "Venue",
-      subcategory: row.subcategory as string | undefined,
-      address: (row.address as string) ?? "",
-      city: (row.city as string) ?? "",
-      state: row.state as string | undefined,
-      country: (row.country as string) ?? "US",
-      lat: Number(row.latitude) || 0,
-      lng: Number(row.longitude) || 0,
-      priceLevel: (row.price_level as string) ?? "$$",
-      rating: row.rating as number | undefined,
-      ratingCount: row.rating_count as number | undefined,
-      phone: row.phone as string | undefined,
-      website: row.website as string | undefined,
-      photoUrls: ((row.photo_urls as string[]) ?? []).map(
-        (p) => `${supabaseUrl}/functions/v1/places-photo?path=${encodeURIComponent(p)}&w=600`
-      ),
-      cuisineTags: (row.cuisine_tags as string[]) ?? [],
-      vibeTags: (row.vibe_tags as string[]) ?? [],
-      occasionTags: (row.occasion_tags as string[]) ?? [],
-      source: (row.source as "google" | "foursquare") ?? "google",
-      googlePlaceId: row.google_place_id as string | undefined,
-      foursquareId: row.foursquare_id as string | undefined,
-    }));
+    return rows.map(
+      (row: Record<string, unknown>): DiscoveredVenue => ({
+        id: `vc_${row.id}`,
+        name: (row.name as string) ?? "",
+        category: (row.category as string) ?? "Venue",
+        subcategory: row.subcategory as string | undefined,
+        address: (row.address as string) ?? "",
+        city: (row.city as string) ?? "",
+        state: row.state as string | undefined,
+        country: (row.country as string) ?? "US",
+        lat: Number(row.latitude) || 0,
+        lng: Number(row.longitude) || 0,
+        priceLevel: (row.price_level as string) ?? "$$",
+        rating: row.rating as number | undefined,
+        ratingCount: row.rating_count as number | undefined,
+        phone: row.phone as string | undefined,
+        website: row.website as string | undefined,
+        photoUrls: ((row.photo_urls as string[]) ?? []).map(
+          (p) => `${supabaseUrl}/functions/v1/places-photo?path=${encodeURIComponent(p)}&w=600`,
+        ),
+        cuisineTags: (row.cuisine_tags as string[]) ?? [],
+        vibeTags: (row.vibe_tags as string[]) ?? [],
+        occasionTags: (row.occasion_tags as string[]) ?? [],
+        source: (row.source as "google" | "foursquare") ?? "google",
+        googlePlaceId: row.google_place_id as string | undefined,
+        foursquareId: row.foursquare_id as string | undefined,
+      }),
+    );
   } catch (err) {
     console.warn("[Confetti] venue_cache query failed:", err);
     return [];
@@ -660,7 +795,7 @@ async function triggerIngest(
   lng: number,
   state: string | undefined,
   supabaseUrl: string,
-  supabaseAnonKey: string
+  supabaseAnonKey: string,
 ): Promise<void> {
   try {
     await fetch(`${supabaseUrl}/functions/v1/venue-ingest`, {
@@ -700,7 +835,9 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
   const localVenues = getLocalKnowledgeVenues(params);
 
   if (localVenues.length > 0) {
-    console.log(`[Confetti] 🎊 Local knowledge: ${localVenues.length} curated venues for ${params.location.city}`);
+    console.log(
+      `[Confetti] 🎊 Local knowledge: ${localVenues.length} curated venues for ${params.location.city}`,
+    );
   }
 
   if (!hasSupabase) {
@@ -712,24 +849,23 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
   }
 
   // ── Step 1: Try cache ──────────────────────────────────
-  const cached = await queryVenueCache(
-    params,
-    config.supabaseUrl!,
-    config.supabaseAnonKey!
-  );
+  const cached = await queryVenueCache(params, config.supabaseUrl!, config.supabaseAnonKey!);
 
   if (cached.length > 0) {
-    console.log(`[Confetti] Serving ${cached.length} venues from cache for ${params.location.city}`);
+    console.log(
+      `[Confetti] Serving ${cached.length} venues from cache for ${params.location.city}`,
+    );
 
     // Filter cache by query if provided
     let cacheResults = cached;
     if (params.query) {
       const q = params.query.toLowerCase();
-      cacheResults = cached.filter((v) =>
-        v.name.toLowerCase().includes(q) ||
-        v.cuisineTags.some((t) => t.toLowerCase().includes(q)) ||
-        v.vibeTags.some((t) => t.toLowerCase().includes(q)) ||
-        v.category.toLowerCase().includes(q)
+      cacheResults = cached.filter(
+        (v) =>
+          v.name.toLowerCase().includes(q) ||
+          v.cuisineTags.some((t) => t.toLowerCase().includes(q)) ||
+          v.vibeTags.some((t) => t.toLowerCase().includes(q)) ||
+          v.category.toLowerCase().includes(q),
       );
       if (cacheResults.length < 3) cacheResults = cached;
     }
@@ -737,10 +873,12 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
     // Blend local knowledge with cache — local gets priority via higher matchScore
     const blended = deduplicateVenues([...localVenues, ...cacheResults]);
 
-    return blended.map((v) => ({
-      ...v,
-      distanceMiles: calculateDistance(params.location.lat, params.location.lng, v.lat, v.lng),
-    })).sort((a, b) => (b.matchScore ?? b.rating ?? 0) - (a.matchScore ?? a.rating ?? 0));
+    return blended
+      .map((v) => ({
+        ...v,
+        distanceMiles: calculateDistance(params.location.lat, params.location.lng, v.lat, v.lng),
+      }))
+      .sort((a, b) => (b.matchScore ?? b.rating ?? 0) - (a.matchScore ?? a.rating ?? 0));
   }
 
   // ── Step 2: Cache miss — trigger ingest in background ──
@@ -751,7 +889,7 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
     params.location.lng,
     params.location.state,
     config.supabaseUrl!,
-    config.supabaseAnonKey!
+    config.supabaseAnonKey!,
   );
 
   // ── Step 3: Live API search ────────────────────────────
@@ -780,20 +918,24 @@ export async function discoverVenues(params: VenueSearchParams): Promise<Discove
     return localVenues.length > 0 ? localVenues : getMockVenues(params);
   }
 
-  return deduped.map((v) => ({
-    ...v,
-    distanceMiles: calculateDistance(params.location.lat, params.location.lng, v.lat, v.lng),
-  })).sort((a, b) => (b.matchScore ?? b.rating ?? 0) - (a.matchScore ?? a.rating ?? 0));
+  return deduped
+    .map((v) => ({
+      ...v,
+      distanceMiles: calculateDistance(params.location.lat, params.location.lng, v.lat, v.lng),
+    }))
+    .sort((a, b) => (b.matchScore ?? b.rating ?? 0) - (a.matchScore ?? a.rating ?? 0));
 }
 
 /**
  * Discover venues along a trip corridor (for road trips / multi-state travel).
  * Generates waypoints along the route and searches around each one.
  */
-export async function discoverTripCorridorVenues(params: TripCorridorParams): Promise<DiscoveredVenue[]> {
+export async function discoverTripCorridorVenues(
+  params: TripCorridorParams,
+): Promise<DiscoveredVenue[]> {
   const config = getConfig();
   const hasProvider = Boolean(
-    (config.supabaseUrl && config.supabaseAnonKey) || config.foursquareKey
+    (config.supabaseUrl && config.supabaseAnonKey) || config.foursquareKey,
   );
 
   if (!hasProvider) {
@@ -803,7 +945,7 @@ export async function discoverTripCorridorVenues(params: TripCorridorParams): Pr
   const waypoints = generateWaypoints(
     params.origin,
     params.destination,
-    params.waypointIntervalMiles ?? 60
+    params.waypointIntervalMiles ?? 60,
   );
 
   const allVenues: DiscoveredVenue[] = [];
@@ -840,7 +982,7 @@ export async function geocodeCity(cityName: string): Promise<GeoLocation | undef
     const q = encodeURIComponent(cityName);
     const res = await fetch(
       `https://nominatim.openstreetmap.org/search?q=${q}&format=jsonv2&limit=1&addressdetails=1`,
-      { headers: { "User-Agent": "Confetti App" } }
+      { headers: { "User-Agent": "Confetti App" } },
     );
     if (!res.ok) return undefined;
     const results = await res.json();
@@ -877,7 +1019,7 @@ export function getUserLocation(): Promise<GeoLocation> {
         try {
           const res = await fetch(
             `https://nominatim.openstreetmap.org/reverse?lat=${loc.lat}&lon=${loc.lng}&format=jsonv2`,
-            { headers: { "User-Agent": "Confetti App" } }
+            { headers: { "User-Agent": "Confetti App" } },
           );
           if (res.ok) {
             const data = await res.json();
@@ -891,14 +1033,12 @@ export function getUserLocation(): Promise<GeoLocation> {
         resolve(loc);
       },
       (err) => reject(err),
-      { enableHighAccuracy: true, timeout: 10000 }
+      { enableHighAccuracy: true, timeout: 10000 },
     );
   });
 }
 
 export function isVenueDiscoveryConfigured(): boolean {
   const config = getConfig();
-  return Boolean(
-    (config.supabaseUrl && config.supabaseAnonKey) || config.foursquareKey
-  );
+  return Boolean((config.supabaseUrl && config.supabaseAnonKey) || config.foursquareKey);
 }

@@ -15,7 +15,10 @@ import { supabase as supabaseTyped } from "@/integrations/supabase/client";
 // generated types do not capture cleanly.
 const supabase = supabaseTyped as unknown as {
   from: (t: string) => any;
-  rpc: (fn: string, args?: Record<string, unknown>) => Promise<unknown> & { catch: (cb: (e: unknown) => void) => Promise<unknown> };
+  rpc: (
+    fn: string,
+    args?: Record<string, unknown>,
+  ) => Promise<unknown> & { catch: (cb: (e: unknown) => void) => Promise<unknown> };
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -24,7 +27,13 @@ const supabase = supabaseTyped as unknown as {
 
 export type AgentStatus = "active" | "idle" | "error" | "disabled";
 export type AgentLayer = "frontend" | "backend";
-export type MsgType = "task_handoff" | "status_update" | "alert" | "request" | "response" | "broadcast";
+export type MsgType =
+  | "task_handoff"
+  | "status_update"
+  | "alert"
+  | "request"
+  | "response"
+  | "broadcast";
 export type TaskStatus = "backlog" | "in_progress" | "review" | "done";
 export type TaskPriority = "critical" | "high" | "medium" | "low";
 
@@ -153,7 +162,7 @@ export async function getAgent(agentId: string): Promise<AgentRecord | null> {
 export async function reportStatus(
   agentId: string,
   status: AgentStatus,
-  lastTask?: string
+  lastTask?: string,
 ): Promise<void> {
   const update: Record<string, unknown> = {
     status,
@@ -167,10 +176,7 @@ export async function reportStatus(
     }
   }
 
-  const { error } = await supabase
-    .from("agent_registry")
-    .update(update)
-    .eq("id", agentId);
+  const { error } = await supabase.from("agent_registry").update(update).eq("id", agentId);
 
   if (lastTask && !error) {
     // increment tasks_completed
@@ -217,7 +223,7 @@ export async function sendMessage(
     subject: string;
     body?: string;
     metadata?: Record<string, unknown>;
-  }
+  },
 ): Promise<void> {
   const row = {
     from_agent: fromAgent,
@@ -254,7 +260,9 @@ export async function getRecentMessages(limit = 25): Promise<AgentMessage[]> {
 
   if (msgRes.error || !msgRes.data) return memoryMessages.slice(0, limit);
 
-  const agentNames = new Map<string, string>((agentsRes.data || []).map((a: any) => [a.id, a.name]));
+  const agentNames = new Map<string, string>(
+    (agentsRes.data || []).map((a: any) => [a.id, a.name]),
+  );
   const teamNames = new Map<string, string>((teamsRes.data || []).map((t: any) => [t.id, t.name]));
 
   return msgRes.data.map((m: any) => ({
@@ -264,7 +272,6 @@ export async function getRecentMessages(limit = 25): Promise<AgentMessage[]> {
     team_name: m.to_team ? teamNames.get(m.to_team) : undefined,
   }));
 }
-
 
 // ═══════════════════════════════════════════════════════════
 // Comms Bus — Tasks (Kanban Board)
@@ -289,15 +296,17 @@ export async function createTask(task: {
     due_at: task.due_at || null,
   };
 
-  const { data, error } = await supabase
-    .from("agent_tasks")
-    .insert(row)
-    .select("id")
-    .single();
+  const { data, error } = await supabase.from("agent_tasks").insert(row).select("id").single();
 
   if (error || !data) {
     const id = crypto.randomUUID();
-    memoryTasks.push({ id, ...row, status: "backlog", completed_at: null, created_at: new Date().toISOString() });
+    memoryTasks.push({
+      id,
+      ...row,
+      status: "backlog",
+      completed_at: null,
+      created_at: new Date().toISOString(),
+    });
     return id;
   }
   return data.id;
@@ -312,23 +321,22 @@ export async function updateTaskStatus(taskId: string, status: TaskStatus): Prom
 
 export async function getTaskBoard(): Promise<ControlCenterView["taskBoard"]> {
   const [tasksRes, agentsRes] = await Promise.all([
-    supabase
-      .from("agent_tasks")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .limit(50),
+    supabase.from("agent_tasks").select("*").order("created_at", { ascending: false }).limit(50),
     supabase.from("agent_registry").select("id,name"),
   ]);
 
-  const agentNames = new Map<string, string>((agentsRes.data || []).map((a: any) => [a.id, a.name]));
+  const agentNames = new Map<string, string>(
+    (agentsRes.data || []).map((a: any) => [a.id, a.name]),
+  );
 
-  const tasks: AgentTask[] = (tasksRes.error || !tasksRes.data)
-    ? memoryTasks
-    : tasksRes.data.map((t: any) => ({
-        ...t,
-        assigned_name: t.assigned_to ? agentNames.get(t.assigned_to) : undefined,
-        creator_name: t.created_by ? agentNames.get(t.created_by) : undefined,
-      }));
+  const tasks: AgentTask[] =
+    tasksRes.error || !tasksRes.data
+      ? memoryTasks
+      : tasksRes.data.map((t: any) => ({
+          ...t,
+          assigned_name: t.assigned_to ? agentNames.get(t.assigned_to) : undefined,
+          creator_name: t.created_by ? agentNames.get(t.created_by) : undefined,
+        }));
 
   return {
     backlog: tasks.filter((t) => t.status === "backlog"),
@@ -337,7 +345,6 @@ export async function getTaskBoard(): Promise<ControlCenterView["taskBoard"]> {
     done: tasks.filter((t) => t.status === "done"),
   };
 }
-
 
 // ═══════════════════════════════════════════════════════════
 // Full Control Center View
@@ -372,7 +379,8 @@ export async function seedControlCenterDemo(): Promise<void> {
     {
       id: "trend_intel",
       name: "Trend Intelligence",
-      description: "Discovers trending venues from social signals, press, and creator mentions. Runs the discover-viral pipeline and scores candidates.",
+      description:
+        "Discovers trending venues from social signals, press, and creator mentions. Runs the discover-viral pipeline and scores candidates.",
       team_id: "ai_recs",
       layer: "backend",
       status: "idle",
@@ -381,7 +389,8 @@ export async function seedControlCenterDemo(): Promise<void> {
     {
       id: "trend_plangen",
       name: "Trend Plan Generator",
-      description: "Creates Surprise Me itinerary seeds and curates the What's Hot feed from verified viral venues and venue intelligence data.",
+      description:
+        "Creates Surprise Me itinerary seeds and curates the What's Hot feed from verified viral venues and venue intelligence data.",
       team_id: "ai_recs",
       layer: "backend",
       status: "idle",
@@ -390,26 +399,125 @@ export async function seedControlCenterDemo(): Promise<void> {
   ];
 
   for (const agent of trendAgents) {
-    await supabase
-      .from("agent_registry")
-      .upsert(agent, { onConflict: "id" });
+    await supabase.from("agent_registry").upsert(agent, { onConflict: "id" });
   }
 
   const demoMessages: Array<Parameters<typeof sendMessage>> = [
-    ["chat_agent", { to_agent: "venue_discovery", msg_type: "task_handoff", subject: "User wants rooftop bars in Georgetown", body: "Mood: chill vibes, group of 4, budget $$" }],
-    ["venue_discovery", { to_agent: "pipeline_ranking", msg_type: "task_handoff", subject: "12 venues found, sending for ranking", body: "Georgetown rooftop bars, filtered by rating > 4.0" }],
-    ["pipeline_ranking", { to_agent: "pipeline_plangen", msg_type: "response", subject: "Top 5 ranked, sending to plan generator" }],
-    ["pipeline_plangen", { to_agent: "pipeline_explainer", msg_type: "task_handoff", subject: "Itinerary built: 3 stops + twist moment", body: "Rooftop crawl with hidden speakeasy twist" }],
-    ["pipeline_explainer", { to_agent: "chat_agent", msg_type: "response", subject: "Boarding pass ready — narrative written" }],
-    ["finance", { to_team: "operations", msg_type: "alert", subject: "Stripe webhook delay detected", body: "Payment confirmations lagging 45s behind normal" }],
-    ["support_queue", { to_agent: "orchestrator", msg_type: "request", subject: "Escalation: user can't redeem Confetti Fund", body: "Ticket #1847 — wallet pass not syncing" }],
-    ["orchestrator", { to_agent: "wallet_pass", msg_type: "task_handoff", subject: "Investigate wallet sync failure for ticket #1847" }],
-    ["legal_compliance", { msg_type: "broadcast", subject: "GDPR data request received — 30-day clock started", body: "User ID 9f3a... requested full data export" }],
-    ["seo_aso", { to_team: "growth", msg_type: "status_update", subject: "App Store ranking improved: #47 → #31 in Lifestyle", body: "Keyword 'nightlife concierge' driving installs" }],
-    ["emergency_controls", { msg_type: "broadcast", subject: "All systems green — no active incidents" }],
-    ["automated_reports", { to_team: "operations", msg_type: "status_update", subject: "Daily digest generated: 847 active users, 12 plans created" }],
-    ["trend_intel", { to_agent: "trend_plangen", msg_type: "task_handoff", subject: "14 new viral venues scored in DC — 8 above threshold", body: "Top: Dauphine's (score 9.2), The Mirror Room (8.7), Reverie (8.1)" }],
-    ["trend_plangen", { to_team: "ai_recs", msg_type: "status_update", subject: "6 Surprise Me seeds generated from latest trending data" }],
+    [
+      "chat_agent",
+      {
+        to_agent: "venue_discovery",
+        msg_type: "task_handoff",
+        subject: "User wants rooftop bars in Georgetown",
+        body: "Mood: chill vibes, group of 4, budget $$",
+      },
+    ],
+    [
+      "venue_discovery",
+      {
+        to_agent: "pipeline_ranking",
+        msg_type: "task_handoff",
+        subject: "12 venues found, sending for ranking",
+        body: "Georgetown rooftop bars, filtered by rating > 4.0",
+      },
+    ],
+    [
+      "pipeline_ranking",
+      {
+        to_agent: "pipeline_plangen",
+        msg_type: "response",
+        subject: "Top 5 ranked, sending to plan generator",
+      },
+    ],
+    [
+      "pipeline_plangen",
+      {
+        to_agent: "pipeline_explainer",
+        msg_type: "task_handoff",
+        subject: "Itinerary built: 3 stops + twist moment",
+        body: "Rooftop crawl with hidden speakeasy twist",
+      },
+    ],
+    [
+      "pipeline_explainer",
+      {
+        to_agent: "chat_agent",
+        msg_type: "response",
+        subject: "Boarding pass ready — narrative written",
+      },
+    ],
+    [
+      "finance",
+      {
+        to_team: "operations",
+        msg_type: "alert",
+        subject: "Stripe webhook delay detected",
+        body: "Payment confirmations lagging 45s behind normal",
+      },
+    ],
+    [
+      "support_queue",
+      {
+        to_agent: "orchestrator",
+        msg_type: "request",
+        subject: "Escalation: user can't redeem Confetti Fund",
+        body: "Ticket #1847 — wallet pass not syncing",
+      },
+    ],
+    [
+      "orchestrator",
+      {
+        to_agent: "wallet_pass",
+        msg_type: "task_handoff",
+        subject: "Investigate wallet sync failure for ticket #1847",
+      },
+    ],
+    [
+      "legal_compliance",
+      {
+        msg_type: "broadcast",
+        subject: "GDPR data request received — 30-day clock started",
+        body: "User ID 9f3a... requested full data export",
+      },
+    ],
+    [
+      "seo_aso",
+      {
+        to_team: "growth",
+        msg_type: "status_update",
+        subject: "App Store ranking improved: #47 → #31 in Lifestyle",
+        body: "Keyword 'nightlife concierge' driving installs",
+      },
+    ],
+    [
+      "emergency_controls",
+      { msg_type: "broadcast", subject: "All systems green — no active incidents" },
+    ],
+    [
+      "automated_reports",
+      {
+        to_team: "operations",
+        msg_type: "status_update",
+        subject: "Daily digest generated: 847 active users, 12 plans created",
+      },
+    ],
+    [
+      "trend_intel",
+      {
+        to_agent: "trend_plangen",
+        msg_type: "task_handoff",
+        subject: "14 new viral venues scored in DC — 8 above threshold",
+        body: "Top: Dauphine's (score 9.2), The Mirror Room (8.7), Reverie (8.1)",
+      },
+    ],
+    [
+      "trend_plangen",
+      {
+        to_team: "ai_recs",
+        msg_type: "status_update",
+        subject: "6 Surprise Me seeds generated from latest trending data",
+      },
+    ],
   ];
 
   for (const [from, msg] of demoMessages) {
@@ -418,13 +526,55 @@ export async function seedControlCenterDemo(): Promise<void> {
 
   // Demo tasks
   const demoTasks = [
-    { title: "Investigate Stripe webhook delay", priority: "high" as TaskPriority, assigned_to: "finance", created_by: "admin_alerts", team_id: "business" },
-    { title: "Resolve wallet sync — ticket #1847", priority: "critical" as TaskPriority, assigned_to: "wallet_pass", created_by: "orchestrator", team_id: "business" },
-    { title: "Process GDPR data export request", priority: "high" as TaskPriority, assigned_to: "legal_compliance", created_by: "legal_compliance", team_id: "compliance" },
-    { title: "A/B test new onboarding flow", priority: "medium" as TaskPriority, assigned_to: "feature_flags", created_by: "feedback_pipeline", team_id: "operations" },
-    { title: "Update venue cache for DC metro area", priority: "low" as TaskPriority, assigned_to: "venue_discovery", created_by: "automated_reports", team_id: "ai_recs" },
-    { title: "Write content for weekend events push", priority: "medium" as TaskPriority, assigned_to: "content_cms", created_by: "content_cms", team_id: "growth" },
-    { title: "Review 8 pending viral venues in Trend Radar", priority: "medium" as TaskPriority, assigned_to: "trend_intel", created_by: "trend_intel", team_id: "ai_recs" },
+    {
+      title: "Investigate Stripe webhook delay",
+      priority: "high" as TaskPriority,
+      assigned_to: "finance",
+      created_by: "admin_alerts",
+      team_id: "business",
+    },
+    {
+      title: "Resolve wallet sync — ticket #1847",
+      priority: "critical" as TaskPriority,
+      assigned_to: "wallet_pass",
+      created_by: "orchestrator",
+      team_id: "business",
+    },
+    {
+      title: "Process GDPR data export request",
+      priority: "high" as TaskPriority,
+      assigned_to: "legal_compliance",
+      created_by: "legal_compliance",
+      team_id: "compliance",
+    },
+    {
+      title: "A/B test new onboarding flow",
+      priority: "medium" as TaskPriority,
+      assigned_to: "feature_flags",
+      created_by: "feedback_pipeline",
+      team_id: "operations",
+    },
+    {
+      title: "Update venue cache for DC metro area",
+      priority: "low" as TaskPriority,
+      assigned_to: "venue_discovery",
+      created_by: "automated_reports",
+      team_id: "ai_recs",
+    },
+    {
+      title: "Write content for weekend events push",
+      priority: "medium" as TaskPriority,
+      assigned_to: "content_cms",
+      created_by: "content_cms",
+      team_id: "growth",
+    },
+    {
+      title: "Review 8 pending viral venues in Trend Radar",
+      priority: "medium" as TaskPriority,
+      assigned_to: "trend_intel",
+      created_by: "trend_intel",
+      team_id: "ai_recs",
+    },
   ];
 
   for (const task of demoTasks) {

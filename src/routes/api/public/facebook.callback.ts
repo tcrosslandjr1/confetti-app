@@ -27,7 +27,9 @@ export const Route = createFileRoute("/api/public/facebook/callback")({
           new Response(null, { status: 302, headers: { Location: path } });
 
         if (errParam) {
-          return finish(`/new/socials?facebook=error&reason=${encodeURIComponent(errReason ?? errParam)}`);
+          return finish(
+            `/new/socials?facebook=error&reason=${encodeURIComponent(errReason ?? errParam)}`,
+          );
         }
         if (!code || !state) {
           return finish("/new/socials?facebook=error&reason=missing_params");
@@ -53,8 +55,9 @@ export const Route = createFileRoute("/api/public/facebook/callback")({
           .eq("state", state)
           .maybeSingle();
 
-        if (stateErr || !stateRow) return finish("/new/socials?facebook=error&reason=invalid_state");
-        if (stateRow.consumed_at)  return finish("/new/socials?facebook=error&reason=state_used");
+        if (stateErr || !stateRow)
+          return finish("/new/socials?facebook=error&reason=invalid_state");
+        if (stateRow.consumed_at) return finish("/new/socials?facebook=error&reason=state_used");
         if (new Date(stateRow.expires_at).getTime() < Date.now()) {
           return finish("/new/socials?facebook=error&reason=state_expired");
         }

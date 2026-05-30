@@ -28,7 +28,8 @@ export function VenueGallery({ items, fallback }: Props) {
               alt=""
               loading="lazy"
               className="h-full w-full object-cover transition-transform group-hover:scale-105"
-             decoding="async"/>
+              decoding="async"
+            />
           </button>
         ))}
       </div>

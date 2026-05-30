@@ -20,7 +20,9 @@ export const Route = createFileRoute("/cities/$slug")({
       <div>
         <h1 className="text-2xl font-bold">City not found</h1>
         <p className="mt-2 text-muted-foreground">We don’t have a guide for that city yet.</p>
-        <Link to="/cities" className="mt-4 inline-block text-primary underline">Browse all cities</Link>
+        <Link to="/cities" className="mt-4 inline-block text-primary underline">
+          Browse all cities
+        </Link>
       </div>
     </div>
   ),
@@ -83,7 +85,9 @@ function CityLandingPage() {
     queryFn: async (): Promise<Idea[]> => {
       const { data, error } = await supabase
         .from("city_ideas")
-        .select("id,title,description,category,neighborhood,best_time,price_tier,vibe_tags,venue_hint,trending_score")
+        .select(
+          "id,title,description,category,neighborhood,best_time,price_tier,vibe_tags,venue_hint,trending_score",
+        )
         .eq("city", city.name)
         .eq("published", true)
         .order("trending_score", { ascending: false, nullsFirst: false })
@@ -99,7 +103,9 @@ function CityLandingPage() {
     queryFn: async (): Promise<Venue[]> => {
       const { data } = await supabase
         .from("venues")
-        .select("id,name,category,neighborhood,description,hero_image_url,image_url,price_band,rating,tags")
+        .select(
+          "id,name,category,neighborhood,description,hero_image_url,image_url,price_band,rating,tags",
+        )
         .ilike("city", `%${city.name.replace(/,.*/, "")}%`)
         .eq("active", true)
         .order("trending_score", { ascending: false, nullsFirst: false })
@@ -120,7 +126,6 @@ function CityLandingPage() {
     setSelectedCity(city.slug);
     trackCta("city_explore_venues", { city: city.name, citySlug: city.slug });
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50/40 via-background to-background">
@@ -152,10 +157,15 @@ function CityLandingPage() {
                   Plan my night in {city.name.split(/[,\s]/)[0]}
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="min-w-48" onClick={handleExplore}>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="min-w-48"
+                onClick={handleExplore}
+              >
                 <Link to="/new/explore">Explore venues</Link>
               </Button>
-
             </div>
           </motion.div>
         </div>
@@ -166,7 +176,9 @@ function CityLandingPage() {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Top ideas in {city.name}</h2>
-            <p className="mt-2 text-muted-foreground">Trending experiences our AI loves right now.</p>
+            <p className="mt-2 text-muted-foreground">
+              Trending experiences our AI loves right now.
+            </p>
           </div>
           <TrendingUp className="h-6 w-6 text-primary" />
         </div>
@@ -191,11 +203,15 @@ function CityLandingPage() {
                       {idea.category}
                     </span>
                     {idea.price_tier ? (
-                      <span className="text-xs text-muted-foreground">{"$".repeat(idea.price_tier)}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {"$".repeat(idea.price_tier)}
+                      </span>
                     ) : null}
                   </div>
                   <h3 className="mt-3 text-lg font-semibold leading-snug">{idea.title}</h3>
-                  <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{idea.description}</p>
+                  <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">
+                    {idea.description}
+                  </p>
                   {(idea.neighborhood || idea.best_time) && (
                     <div className="mt-3 flex flex-wrap gap-2 text-[11px] text-muted-foreground">
                       {idea.neighborhood && (
@@ -237,7 +253,13 @@ function CityLandingPage() {
                 to="/venue/$id"
                 params={{ id: v.id }}
                 className="group"
-                onClick={() => trackEngagement("city_venue_tap", { city: city.name, citySlug: city.slug, venueId: v.id })}
+                onClick={() =>
+                  trackEngagement("city_venue_tap", {
+                    city: city.name,
+                    citySlug: city.slug,
+                    venueId: v.id,
+                  })
+                }
               >
                 <Card className="h-full overflow-hidden transition-all hover:-translate-y-0.5 hover:shadow-md">
                   <div className="aspect-[4/3] overflow-hidden bg-muted">
@@ -278,7 +300,9 @@ function CityLandingPage() {
       {/* CTA */}
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
         <Card className="overflow-hidden bg-gradient-to-br from-primary/10 via-orange-100/40 to-background p-10">
-          <h2 className="text-3xl font-bold tracking-tight">Ready to plan your {city.name} night?</h2>
+          <h2 className="text-3xl font-bold tracking-tight">
+            Ready to plan your {city.name} night?
+          </h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
             Confetti builds a personal itinerary in seconds — 2–4 stops, picked just for you.
           </p>

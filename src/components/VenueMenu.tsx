@@ -80,9 +80,7 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
             <div className="flex flex-1 flex-col gap-1">
               <div className="flex items-start justify-between gap-2">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-display text-sm font-bold text-cream">
-                    {item.name}
-                  </span>
+                  <span className="font-display text-sm font-bold text-cream">{item.name}</span>
                   {item.isPopular && (
                     <span className="inline-flex items-center gap-0.5 rounded-full bg-amber-100 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-amber-700">
                       <Star className="h-2.5 w-2.5 fill-amber-400 text-amber-400" />
@@ -98,9 +96,7 @@ export function VenueMenu({ sections }: { sections: MenuSection[] }) {
               </div>
 
               {item.description && (
-                <p className="text-[12px] leading-relaxed text-cream/60">
-                  {item.description}
-                </p>
+                <p className="text-[12px] leading-relaxed text-cream/60">{item.description}</p>
               )}
 
               {item.dietaryTags.length > 0 && (

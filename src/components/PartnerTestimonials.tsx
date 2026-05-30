@@ -82,10 +82,7 @@ export function PartnerTestimonials() {
   const count = TESTIMONIALS.length;
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const goTo = useCallback(
-    (i: number) => setIndex(((i % count) + count) % count),
-    [count],
-  );
+  const goTo = useCallback((i: number) => setIndex(((i % count) + count) % count), [count]);
   const next = useCallback(() => goTo(index + 1), [goTo, index]);
   const prev = useCallback(() => goTo(index - 1), [goTo, index]);
 
@@ -251,8 +248,7 @@ export function PartnerTestimonials() {
         <div
           className="group/marquee relative overflow-hidden"
           style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           }}
         >
           <div className="flex w-max animate-confetti-marquee items-center gap-12 whitespace-nowrap pr-12 group-hover/marquee:[animation-play-state:paused]">

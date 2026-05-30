@@ -75,9 +75,7 @@ function LegalHub() {
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-coral/10 text-coral">
                 <Icon className="h-5 w-5" />
               </div>
-              <h2 className="font-display text-lg font-semibold group-hover:text-coral">
-                {title}
-              </h2>
+              <h2 className="font-display text-lg font-semibold group-hover:text-coral">{title}</h2>
               <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
             </Link>
           </li>

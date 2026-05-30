@@ -71,7 +71,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { VenuePickerModal, venueToStopPayload, type PickedVenue } from "@/components/loop/VenuePickerModal";
+import {
+  VenuePickerModal,
+  venueToStopPayload,
+  type PickedVenue,
+} from "@/components/loop/VenuePickerModal";
 import { PartnerPickBadge } from "@/components/PartnerPickBadge";
 import { VerifiedBadge } from "@/components/VerifiedBadge";
 import { appendNotifications } from "@/lib/trip-status";
@@ -741,8 +745,15 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60 mb-3">
             Flight Plan · {loop.stops.length} stops
           </div>
-          <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-            <SortableContext items={loop.stops.map((s) => s.id)} strategy={verticalListSortingStrategy}>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={loop.stops.map((s) => s.id)}
+              strategy={verticalListSortingStrategy}
+            >
               <div>
                 {loop.stops.map((stop, i) => {
                   const kind = stopKind(stop, i, loop.stops.length);
@@ -815,7 +826,9 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                     {selectedStop.name}
                   </div>
                   {selectedAddress && (
-                    <div className="mt-0.5 text-[11px] text-cream/60 truncate">{selectedAddress}</div>
+                    <div className="mt-0.5 text-[11px] text-cream/60 truncate">
+                      {selectedAddress}
+                    </div>
                   )}
                   <div className="mt-2 flex flex-col gap-1.5">
                     {preferAppleFirst ? (
@@ -1093,7 +1106,8 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           <AlertDialogHeader>
             <AlertDialogTitle>Cancel this plan?</AlertDialogTitle>
             <AlertDialogDescription>
-              Your boarding pass for {loop.from} → {loop.to} will be cleared. Check-ins and Confetti earned so far stay in your history.
+              Your boarding pass for {loop.from} → {loop.to} will be cleared. Check-ins and Confetti
+              earned so far stay in your history.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -1451,291 +1465,322 @@ function StopCard({
             flipped ? "[transform:rotateY(180deg)]" : ""
           }`}
         >
-        {/* ─── FRONT face ─── */}
-        <div className="[backface-visibility:hidden]">
-        <div className="flex items-start justify-between gap-2">
-          <div className={`font-mono text-[10px] font-bold uppercase tracking-widest ${tone.label}`}>
-            {typeLabel} — {stop.time}
-          </div>
-          <div className="flex items-center gap-0.5">
-          <button
-            type="button"
-            aria-label="Drag to reorder"
-            {...sortable.attributes}
-            {...sortable.listeners}
-            className="touch-none cursor-grab active:cursor-grabbing -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-cream/40 hover:bg-ink/8 hover:text-cream transition-colors"
-          >
-            <GripVertical className="h-4 w-4" />
-          </button>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                type="button"
-                aria-label="Stop actions"
-                className="-mr-1 -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-cream/50 hover:bg-ink/8 hover:text-cream transition-colors"
-                onClick={(e) => e.stopPropagation()}
+          {/* ─── FRONT face ─── */}
+          <div className="[backface-visibility:hidden]">
+            <div className="flex items-start justify-between gap-2">
+              <div
+                className={`font-mono text-[10px] font-bold uppercase tracking-widest ${tone.label}`}
               >
-                <MoreVertical className="h-4 w-4" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-52">
-              <DropdownMenuItem onClick={() => setSwapOpen(true)}>
-                <ArrowLeftRight className="mr-2 h-4 w-4" />
-                Swap this stop
-              </DropdownMenuItem>
-              {loop && (
-                <DropdownMenuItem onClick={handleReplanFromHere} disabled={replanning}>
-                  <Sparkles className="mr-2 h-4 w-4 text-purple" />
-                  {replanning ? "Replanning…" : "Replan from here"}
-                </DropdownMenuItem>
-              )}
-              <DropdownMenuSeparator />
-              <DropdownMenuItem
-                onClick={() => setConfirmRemoveOpen(true)}
-                className="text-red-600 focus:text-red-600 focus:bg-red-50"
-              >
-                <Trash2 className="mr-2 h-4 w-4" />
-                Remove this stop
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          </div>
-        </div>
-        {stop.venueId ? (
-          <Link
-            to="/venue/$id"
-            params={{ id: stop.venueId }}
-            className="mt-0.5 block hover:underline underline-offset-4 decoration-coral"
-          >
-            {titleNode}
-          </Link>
-        ) : (
-          <div className="mt-0.5">{titleNode}</div>
-        )}
-        <div className="mt-0.5 text-xs text-cream/70">
-          {stop.detail ?? `${stop.type}${stop.area ? ` · ${stop.area}` : ""}`}
-        </div>
-        {(stop.sponsored || stop.verified) && (
-          <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-            {stop.sponsored && <PartnerPickBadge label={stop.partnerLabel} />}
-            {stop.verified && <VerifiedBadge variant="chip" />}
-          </div>
-        )}
-
-        {/* EV */}
-        {stop.ev && (
-          <div className="mt-2 rounded-xl border border-cream/20 bg-gold/20 p-2.5">
-            <div className="flex items-center justify-between gap-2 text-[11px] font-bold">
-              <span>{stop.ev.brand}</span>
-              <span className="text-cream/70">{stop.ev.spec}</span>
-              <span className="text-coral">{stop.ev.chargeTime}</span>
-            </div>
-            {stop.ev.sub && <div className="mt-1 text-[10px] text-cream/60">{stop.ev.sub}</div>}
-          </div>
-        )}
-
-        {/* Parking */}
-        {stop.parking && (
-          <div className="mt-2 flex gap-2 text-[11px]">
-            <span aria-hidden>🅿</span>
-            <div className="min-w-0">
-              <div className="font-semibold text-cream">{stop.parking.primary}</div>
-              {stop.parking.secondary && (
-                <div className="text-cream/60">{stop.parking.secondary}</div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Sunday parking */}
-        {stop.sundayParking && (
-          <div className="mt-1.5 flex items-start gap-2 text-[11px]">
-            <span className="rounded-md bg-ink px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest text-cream">
-              SUN
-            </span>
-            <span className="text-cream/70">{stop.sundayParking}</span>
-          </div>
-        )}
-
-        {/* Nav buttons */}
-        {(appleUrl || googleUrl) && (
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            {appleUrl && (
-              <a
-                href={appleUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-cream hover:bg-ink hover:text-cream transition-colors"
-              >
-                🍎 Apple Maps
-              </a>
-            )}
-            {googleUrl && (
-              <a
-                href={googleUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-cream hover:bg-ink hover:text-cream transition-colors"
-              >
-                📍 Google Maps
-              </a>
-            )}
-          </div>
-        )}
-
-        {/* Tags */}
-        {stop.tags && stop.tags.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            {stop.tags.map((tag, i) => (
-              <span
-                key={i}
-                className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-bold ${tagToneClass[tag.variant]}`}
-              >
-                {tag.label}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Social hashtags */}
-        {stop.hashtags && stop.hashtags.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            {stop.hashtags.map((tag) => (
-              <a
-                key={tag}
-                href={`https://www.instagram.com/explore/tags/${encodeURIComponent(tag.replace("#", ""))}/`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-cream/20 bg-cream/10 px-2 py-0.5 font-mono text-[9px] font-bold text-cream/60 transition-colors hover:bg-cream/20 hover:text-cream"
-              >
-                {tag}
-              </a>
-            ))}
-          </div>
-        )}
-
-        {/* Flip-to-details button */}
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
-          <button
-            type="button"
-            onClick={handleFlipToDetails}
-            aria-pressed={flipped}
-            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition-colors"
-          >
-            <span aria-hidden>↻</span> View details
-          </button>
-        </div>
-
-        {/* Check-in: tap or QR-scan-from-staff */}
-        <div className="mt-3 flex flex-wrap items-center gap-2">
-          <button
-            type="button"
-            onClick={handleTapCheckIn}
-            disabled={stop.awarded}
-            className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${
-              stop.awarded
-                ? "bg-emerald-200/70 text-cream/70 cursor-default hover:translate-y-0"
-                : "bg-coral text-cream"
-            }`}
-          >
-            {stop.awarded ? "✓ Checked in" : "📍 Tap to check in"}
-          </button>
-          <button
-            type="button"
-            onClick={() => setShowQr((v) => !v)}
-            aria-expanded={showQr}
-            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold"
-          >
-            {showQr ? "Hide QR" : "Show QR for staff"}
-          </button>
-        </div>
-        {showQr && (
-          <div className="mt-2 inline-flex flex-col items-center gap-1 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
-            <QRCodeSVG
-              value={checkInUrl}
-              size={132}
-              bgColor="#FFF7EC"
-              fgColor="#1B1B1B"
-              level="M"
-            />
-            <span className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
-              scan at venue
-            </span>
-          </div>
-        )}
-        </div>
-        {/* ─── BACK face: venue intel ─── */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-y-auto rounded-xl border-2 border-ink/30 bg-cream/95 p-3 shadow-brut">
-          <div className="flex items-start justify-between gap-2">
-            <div className="min-w-0">
-              <div className={`font-mono text-[9px] font-bold uppercase tracking-widest ${tone.label}`}>
-                {typeLabel} — details
+                {typeLabel} — {stop.time}
               </div>
-              <div className="mt-0.5 font-display text-sm font-extrabold tracking-tight leading-snug">
-                {stop.name}
+              <div className="flex items-center gap-0.5">
+                <button
+                  type="button"
+                  aria-label="Drag to reorder"
+                  {...sortable.attributes}
+                  {...sortable.listeners}
+                  className="touch-none cursor-grab active:cursor-grabbing -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-cream/40 hover:bg-ink/8 hover:text-cream transition-colors"
+                >
+                  <GripVertical className="h-4 w-4" />
+                </button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      type="button"
+                      aria-label="Stop actions"
+                      className="-mr-1 -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-cream/50 hover:bg-ink/8 hover:text-cream transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <MoreVertical className="h-4 w-4" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-52">
+                    <DropdownMenuItem onClick={() => setSwapOpen(true)}>
+                      <ArrowLeftRight className="mr-2 h-4 w-4" />
+                      Swap this stop
+                    </DropdownMenuItem>
+                    {loop && (
+                      <DropdownMenuItem onClick={handleReplanFromHere} disabled={replanning}>
+                        <Sparkles className="mr-2 h-4 w-4 text-purple" />
+                        {replanning ? "Replanning…" : "Replan from here"}
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      onClick={() => setConfirmRemoveOpen(true)}
+                      className="text-red-600 focus:text-red-600 focus:bg-red-50"
+                    >
+                      <Trash2 className="mr-2 h-4 w-4" />
+                      Remove this stop
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </div>
-            <button
-              type="button"
-              onClick={() => setFlipped(false)}
-              className="shrink-0 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-widest hover:bg-gold transition-colors"
-            >
-              ← Back
-            </button>
-          </div>
-
-          <div className="mt-2 text-[11px] space-y-1.5">
-            {intelStatus === "loading" && (
-              <div className="flex items-center gap-2 text-cream/60">
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                <span>Fetching venue intel…</span>
+            {stop.venueId ? (
+              <Link
+                to="/venue/$id"
+                params={{ id: stop.venueId }}
+                className="mt-0.5 block hover:underline underline-offset-4 decoration-coral"
+              >
+                {titleNode}
+              </Link>
+            ) : (
+              <div className="mt-0.5">{titleNode}</div>
+            )}
+            <div className="mt-0.5 text-xs text-cream/70">
+              {stop.detail ?? `${stop.type}${stop.area ? ` · ${stop.area}` : ""}`}
+            </div>
+            {(stop.sponsored || stop.verified) && (
+              <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                {stop.sponsored && <PartnerPickBadge label={stop.partnerLabel} />}
+                {stop.verified && <VerifiedBadge variant="chip" />}
               </div>
             )}
-            {intelStatus === "not-found" && (
-              <div className="text-cream/60 italic">No deeper intel on file for this spot yet.</div>
+
+            {/* EV */}
+            {stop.ev && (
+              <div className="mt-2 rounded-xl border border-cream/20 bg-gold/20 p-2.5">
+                <div className="flex items-center justify-between gap-2 text-[11px] font-bold">
+                  <span>{stop.ev.brand}</span>
+                  <span className="text-cream/70">{stop.ev.spec}</span>
+                  <span className="text-coral">{stop.ev.chargeTime}</span>
+                </div>
+                {stop.ev.sub && <div className="mt-1 text-[10px] text-cream/60">{stop.ev.sub}</div>}
+              </div>
             )}
-            {intelStatus === "error" && (
-              <div className="text-red-600 font-medium">Something went wrong. Try again later.</div>
-            )}
-            {intelStatus === "success" && intel && (
-              <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
-                {intel.priceLevel && (
-                  <div><span className="font-bold text-cream/60">Price:</span> {intel.priceLevel}</div>
-                )}
-                {intel.dressCode && (
-                  <div><span className="font-bold text-cream/60">Dress:</span> {intel.dressCode}</div>
-                )}
-                {intel.signature && (
-                  <div className="col-span-2"><span className="font-bold text-cream/60">Signature:</span> {intel.signature}</div>
-                )}
-                {intel.crowd && (
-                  <div className="col-span-2"><span className="font-bold text-cream/60">Crowd:</span> {intel.crowd}</div>
-                )}
-                {intel.bestFor && (
-                  <div><span className="font-bold text-cream/60">Best for:</span> {intel.bestFor}</div>
-                )}
-                {intel.waitTime && (
-                  <div><span className="font-bold text-cream/60">Wait:</span> {intel.waitTime}</div>
-                )}
-                {intel.parking && !stop.parking && (
-                  <div className="col-span-2"><span className="font-bold text-cream/60">🅿 Parking:</span> {intel.parking}</div>
-                )}
-                {intel.phone && (
-                  <div className="col-span-2"><span className="font-bold text-cream/60">Phone:</span> <a href={`tel:${intel.phone}`} className="underline">{intel.phone}</a></div>
-                )}
-                {intel.address && !address && (
-                  <div className="col-span-2"><span className="font-bold text-cream/60">Address:</span> {intel.address}</div>
-                )}
-                {intel.rating && (
-                  <div><span className="font-bold text-cream/60">Rating:</span> {intel.rating}/5</div>
-                )}
-                <div className="col-span-2 mt-1 text-[9px] text-cream/40 uppercase tracking-widest">
-                  Source: {intel.source === "local-kb" ? "Curated knowledge base" : "AI lookup"}
+
+            {/* Parking */}
+            {stop.parking && (
+              <div className="mt-2 flex gap-2 text-[11px]">
+                <span aria-hidden>🅿</span>
+                <div className="min-w-0">
+                  <div className="font-semibold text-cream">{stop.parking.primary}</div>
+                  {stop.parking.secondary && (
+                    <div className="text-cream/60">{stop.parking.secondary}</div>
+                  )}
                 </div>
               </div>
             )}
+
+            {/* Sunday parking */}
+            {stop.sundayParking && (
+              <div className="mt-1.5 flex items-start gap-2 text-[11px]">
+                <span className="rounded-md bg-ink px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest text-cream">
+                  SUN
+                </span>
+                <span className="text-cream/70">{stop.sundayParking}</span>
+              </div>
+            )}
+
+            {/* Nav buttons */}
+            {(appleUrl || googleUrl) && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {appleUrl && (
+                  <a
+                    href={appleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-cream hover:bg-ink hover:text-cream transition-colors"
+                  >
+                    🍎 Apple Maps
+                  </a>
+                )}
+                {googleUrl && (
+                  <a
+                    href={googleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-cream hover:bg-ink hover:text-cream transition-colors"
+                  >
+                    📍 Google Maps
+                  </a>
+                )}
+              </div>
+            )}
+
+            {/* Tags */}
+            {stop.tags && stop.tags.length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {stop.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-bold ${tagToneClass[tag.variant]}`}
+                  >
+                    {tag.label}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Social hashtags */}
+            {stop.hashtags && stop.hashtags.length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {stop.hashtags.map((tag) => (
+                  <a
+                    key={tag}
+                    href={`https://www.instagram.com/explore/tags/${encodeURIComponent(tag.replace("#", ""))}/`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-full border border-cream/20 bg-cream/10 px-2 py-0.5 font-mono text-[9px] font-bold text-cream/60 transition-colors hover:bg-cream/20 hover:text-cream"
+                  >
+                    {tag}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {/* Flip-to-details button */}
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              <button
+                type="button"
+                onClick={handleFlipToDetails}
+                aria-pressed={flipped}
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition-colors"
+              >
+                <span aria-hidden>↻</span> View details
+              </button>
+            </div>
+
+            {/* Check-in: tap or QR-scan-from-staff */}
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={handleTapCheckIn}
+                disabled={stop.awarded}
+                className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${
+                  stop.awarded
+                    ? "bg-emerald-200/70 text-cream/70 cursor-default hover:translate-y-0"
+                    : "bg-coral text-cream"
+                }`}
+              >
+                {stop.awarded ? "✓ Checked in" : "📍 Tap to check in"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowQr((v) => !v)}
+                aria-expanded={showQr}
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold"
+              >
+                {showQr ? "Hide QR" : "Show QR for staff"}
+              </button>
+            </div>
+            {showQr && (
+              <div className="mt-2 inline-flex flex-col items-center gap-1 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
+                <QRCodeSVG
+                  value={checkInUrl}
+                  size={132}
+                  bgColor="#FFF7EC"
+                  fgColor="#1B1B1B"
+                  level="M"
+                />
+                <span className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
+                  scan at venue
+                </span>
+              </div>
+            )}
           </div>
-        </div>
+          {/* ─── BACK face: venue intel ─── */}
+          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-y-auto rounded-xl border-2 border-ink/30 bg-cream/95 p-3 shadow-brut">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <div
+                  className={`font-mono text-[9px] font-bold uppercase tracking-widest ${tone.label}`}
+                >
+                  {typeLabel} — details
+                </div>
+                <div className="mt-0.5 font-display text-sm font-extrabold tracking-tight leading-snug">
+                  {stop.name}
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setFlipped(false)}
+                className="shrink-0 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-widest hover:bg-gold transition-colors"
+              >
+                ← Back
+              </button>
+            </div>
+
+            <div className="mt-2 text-[11px] space-y-1.5">
+              {intelStatus === "loading" && (
+                <div className="flex items-center gap-2 text-cream/60">
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                  <span>Fetching venue intel…</span>
+                </div>
+              )}
+              {intelStatus === "not-found" && (
+                <div className="text-cream/60 italic">
+                  No deeper intel on file for this spot yet.
+                </div>
+              )}
+              {intelStatus === "error" && (
+                <div className="text-red-600 font-medium">
+                  Something went wrong. Try again later.
+                </div>
+              )}
+              {intelStatus === "success" && intel && (
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                  {intel.priceLevel && (
+                    <div>
+                      <span className="font-bold text-cream/60">Price:</span> {intel.priceLevel}
+                    </div>
+                  )}
+                  {intel.dressCode && (
+                    <div>
+                      <span className="font-bold text-cream/60">Dress:</span> {intel.dressCode}
+                    </div>
+                  )}
+                  {intel.signature && (
+                    <div className="col-span-2">
+                      <span className="font-bold text-cream/60">Signature:</span> {intel.signature}
+                    </div>
+                  )}
+                  {intel.crowd && (
+                    <div className="col-span-2">
+                      <span className="font-bold text-cream/60">Crowd:</span> {intel.crowd}
+                    </div>
+                  )}
+                  {intel.bestFor && (
+                    <div>
+                      <span className="font-bold text-cream/60">Best for:</span> {intel.bestFor}
+                    </div>
+                  )}
+                  {intel.waitTime && (
+                    <div>
+                      <span className="font-bold text-cream/60">Wait:</span> {intel.waitTime}
+                    </div>
+                  )}
+                  {intel.parking && !stop.parking && (
+                    <div className="col-span-2">
+                      <span className="font-bold text-cream/60">🅿 Parking:</span> {intel.parking}
+                    </div>
+                  )}
+                  {intel.phone && (
+                    <div className="col-span-2">
+                      <span className="font-bold text-cream/60">Phone:</span>{" "}
+                      <a href={`tel:${intel.phone}`} className="underline">
+                        {intel.phone}
+                      </a>
+                    </div>
+                  )}
+                  {intel.address && !address && (
+                    <div className="col-span-2">
+                      <span className="font-bold text-cream/60">Address:</span> {intel.address}
+                    </div>
+                  )}
+                  {intel.rating && (
+                    <div>
+                      <span className="font-bold text-cream/60">Rating:</span> {intel.rating}/5
+                    </div>
+                  )}
+                  <div className="col-span-2 mt-1 text-[9px] text-cream/40 uppercase tracking-widest">
+                    Source: {intel.source === "local-kb" ? "Curated knowledge base" : "AI lookup"}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2211,4 +2256,3 @@ function WalletQrModal({
     </div>
   );
 }
-

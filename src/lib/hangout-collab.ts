@@ -139,15 +139,17 @@ export async function unclaimItem(opts: {
  * function. The callback fires whenever a claim is inserted, updated,
  * or deleted on that hangout id.
  */
-export function subscribeClaims(
-  hangoutId: string,
-  cb: () => void,
-): () => void {
+export function subscribeClaims(hangoutId: string, cb: () => void): () => void {
   const channel = sb
     .channel(`hangout_claims_${hangoutId}`)
     .on(
       "postgres_changes",
-      { event: "*", schema: "public", table: "hangout_claims", filter: `hangout_id=eq.${hangoutId}` },
+      {
+        event: "*",
+        schema: "public",
+        table: "hangout_claims",
+        filter: `hangout_id=eq.${hangoutId}`,
+      },
       () => cb(),
     )
     .subscribe();

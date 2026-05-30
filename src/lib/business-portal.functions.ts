@@ -27,11 +27,7 @@ async function isAdmin(supabase: AdminDb, userId: string) {
   return Boolean(data);
 }
 
-async function assertCanManageVenue(
-  supabase: AdminDb,
-  userId: string,
-  venueId: string,
-) {
+async function assertCanManageVenue(supabase: AdminDb, userId: string, venueId: string) {
   if (await isAdmin(supabase, userId)) return;
   const { data } = await supabase
     .from("venues")
@@ -472,7 +468,10 @@ export const listVenueBookings = createServerFn({ method: "GET" })
         .select("id, display_name")
         .in("id", userIds);
       profiles = Object.fromEntries(
-        (profileData ?? []).map((p: { id: string; display_name: string | null }) => [p.id, { display_name: p.display_name, avatar_url: null }]),
+        (profileData ?? []).map((p: { id: string; display_name: string | null }) => [
+          p.id,
+          { display_name: p.display_name, avatar_url: null },
+        ]),
       );
     }
 
@@ -504,7 +503,8 @@ export const getVenueBookingStats = createServerFn({ method: "GET" })
       .eq("venue_id", input.venueId)
       .gte("created_at", thirtyDaysAgo);
 
-    const bookings: Array<{ status: string; party_size?: number | null; starts_at?: string }> = all ?? [];
+    const bookings: Array<{ status: string; party_size?: number | null; starts_at?: string }> =
+      all ?? [];
     const upcoming = bookings.filter((b) => b.status === "upcoming" || b.status === "confirmed");
     const completed = bookings.filter((b) => b.status === "completed");
     const cancelled = bookings.filter((b) => b.status === "cancelled");
@@ -774,11 +774,13 @@ export const listVenuePreOrders = createServerFn({ method: "POST" })
 
     let q = supabase
       .from("booking_pre_orders")
-      .select(`
+      .select(
+        `
         *,
         booking:bookings(id, starts_at, party_size, confirmation_code),
         items:pre_order_items(*, menu_item:venue_menu_items(name, price_cents))
-      `)
+      `,
+      )
       .eq("venue_id", input.venueId)
       .order("created_at", { ascending: false })
       .limit(50);

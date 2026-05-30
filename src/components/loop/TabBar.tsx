@@ -1,5 +1,16 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Compass, Search, Plus, Award, User, LayoutDashboard, CalendarPlus, Image as ImageIcon, Link2, Settings } from "lucide-react";
+import {
+  Compass,
+  Search,
+  Plus,
+  Award,
+  User,
+  LayoutDashboard,
+  CalendarPlus,
+  Image as ImageIcon,
+  Link2,
+  Settings,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { useId } from "react";
 import { useAuth } from "@/lib/auth-context";
@@ -38,8 +49,18 @@ const CUSTOMER_TABS: Tab[] = [
 ];
 
 const BUSINESS_TABS: Tab[] = [
-  { to: "/business/dashboard", label: "Dashboard", icon: LayoutDashboard, match: (p) => p.startsWith("/business/dashboard") },
-  { to: "/business/claim", label: "Claim", icon: CalendarPlus, match: (p) => p.startsWith("/business/claim") },
+  {
+    to: "/business/dashboard",
+    label: "Dashboard",
+    icon: LayoutDashboard,
+    match: (p) => p.startsWith("/business/dashboard"),
+  },
+  {
+    to: "/business/claim",
+    label: "Claim",
+    icon: CalendarPlus,
+    match: (p) => p.startsWith("/business/claim"),
+  },
   { to: "/business", label: "Home", icon: ImageIcon, match: (p) => p === "/business" },
 ];
 
@@ -52,7 +73,7 @@ const HIDE_PREFIXES = [
   "/promoter",
   "/api",
   "/health",
-  "/new/",  // all /new/* routes use their own navigation
+  "/new/", // all /new/* routes use their own navigation
   "/business/login",
 ];
 
@@ -172,11 +193,7 @@ export function TabBar() {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
             return (
-              <div
-                key={to}
-                role="listitem"
-                className="flex min-w-0 justify-center"
-              >
+              <div key={to} role="listitem" className="flex min-w-0 justify-center">
                 <TabItem
                   to={to}
                   label={label}

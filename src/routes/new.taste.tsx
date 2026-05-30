@@ -1,289 +1,213 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  BrandMark,
-  Chip,
-  ChunkyButton,
-  DotsBg,
   Frame,
-  Icons,
+  DotsBg,
   Stamp,
-  Ticket,
   TOKENS,
 } from "@/components/new-confetti/shell";
 
-// Slim port — design/new-confetti/project/taste.jsx (TasteProfileScreen, line 42)
-export const Route = createFileRoute("/new/taste")({
-  component: TastePage,
-});
+export const Route = createFileRoute("/new/taste")({ component: TastePage });
 
-const LOVES = [
-  "pasta",
-  "negronis",
-  "live music",
-  "rooftops",
-  "tiny bars",
-  "small plates",
-  "disco",
-  "wine",
-  "bbq",
-  "ramen",
-];
-const AVOIDS = ["loud", "long lines", "tourist traps", "tasting menus"];
-const SOURCES = [
-  { name: "Spotify", sub: "we read your playlists", color: TOKENS.accent2 },
-  { name: "Instagram", sub: "saves + tagged places", color: TOKENS.accent1 },
-  { name: "Google", sub: "ratings you've given", color: TOKENS.accent3 },
-  { name: "TikTok", sub: "creators you follow", color: TOKENS.paper },
-];
+// ─── Static taste profile data ───────────────────────────────
+const TASTE_PROFILE = {
+  source: { saves: 247, likes: 1182, follows: 38, lastSync: "6 min ago" },
+  vibeWeights: [
+    { k: "foodie",       v: 0.91, delta: "+0.04" },
+    { k: "rooftop",      v: 0.82, delta: "+0.11" },
+    { k: "jazz",         v: 0.78, delta: "+0.22 ↑" },
+    { k: "romantic",     v: 0.71, delta: "+0.02" },
+    { k: "low-key",      v: 0.68, delta: "+0.05" },
+    { k: "small plates", v: 0.62, delta: "+0.18 ↑" },
+    { k: "walkable",     v: 0.59, delta: "0" },
+    { k: "live music",   v: 0.41, delta: "+0.06" },
+    { k: "hype",         v: 0.18, delta: "-0.04" },
+    { k: "sports bar",   v: 0.04, delta: "0" },
+  ],
+  inferred: [
+    { from: "@darkroom · 6 saves",         to: "speakeasy / dim-lit bars" },
+    { from: "@bk.eats · 14 saves",         to: "BK foodie cluster" },
+    { from: "#sundayjazz · 9 likes",       to: "sunday jazz brunch" },
+    { from: "@no.phones.allowed · follow", to: "phones-off rooms" },
+  ],
+  watchOuts: ["loud bachelorette spots", "#spons content", "lines > 30 min"],
+  vetoed: ['hibachi · "fun but not me"'],
+  socialRadius: {
+    cluster: "BK foodie · 28 overlapping follows",
+    topOverlap: [
+      { who: "@maya.brooklyn", overlap: 0.74 },
+      { who: "@bk.eats",       overlap: 0.62 },
+      { who: "@dim_lit_only",  overlap: 0.51 },
+    ],
+  },
+  confidence: 0.84,
+  weeklyDelta: "You've been saving more jazz + small-plates clips. We're routing more of those into your nights.",
+};
 
-function TastePage() {
-  const navigate = useNavigate();
-  const [loves, setLoves] = useState<string[]>(["pasta", "negronis", "disco"]);
-  const [avoids, setAvoids] = useState<string[]>(["tourist traps"]);
-  const [sources, setSources] = useState<Record<string, boolean>>({
-    Spotify: true,
-    Instagram: true,
-  });
+type TabId = "vibes" | "inferred" | "crew" | "vetoes" | "sources";
 
-  const toggle = (arr: string[], v: string, set: (a: string[]) => void) =>
-    set(arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
-
+// ─── Source row ───────────────────────────────────────────────
+function SourceRow({ icon, name, sub, on }: { icon: string; name: string; sub: string; on?: boolean }) {
   return (
-    <Frame>
-      <div
-        style={{
-          position: "relative",
-          height: "100%",
-          background: TOKENS.bg,
-          display: "flex",
-          flexDirection: "column",
-          padding: "56px 20px 22px",
-          overflow: "hidden",
-        }}
-      >
-        <DotsBg opacity={0.05} />
-
-        <div
-          style={{
-            position: "relative",
-            zIndex: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginBottom: 14,
-          }}
-        >
-          <button onClick={() => navigate({ to: "/new/profile" })} style={backBtn()}>
-            ←
-          </button>
-          <BrandMark size={17} />
-          <span style={{ width: 36 }} />
-        </div>
-
-        <Stamp color={TOKENS.accent2} rotate={-3} style={{ alignSelf: "flex-start" }}>
-          your taste
-        </Stamp>
-        <h1
-          style={{
-            fontFamily: TOKENS.display,
-            fontWeight: 900,
-            fontSize: 36,
-            lineHeight: 0.92,
-            letterSpacing: "-0.04em",
-            margin: "10px 0 14px",
-            position: "relative",
-            zIndex: 2,
-          }}
-        >
-          Teach us
-          <br />
-          your night.
-        </h1>
-
-        <div
-          style={{
-            position: "relative",
-            zIndex: 2,
-            flex: 1,
-            overflowY: "auto",
-            scrollbarWidth: "none",
-            marginRight: -20,
-            paddingRight: 20,
-          }}
-        >
-          <Label>you love</Label>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
-            {LOVES.map((v) => (
-              <Chip
-                key={v}
-                dense
-                selected={loves.includes(v)}
-                color={TOKENS.accent2}
-                onClick={() => toggle(loves, v, setLoves)}
-              >
-                {v}
-              </Chip>
-            ))}
-          </div>
-
-          <Label>you skip</Label>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
-            {AVOIDS.map((v) => (
-              <Chip
-                key={v}
-                dense
-                selected={avoids.includes(v)}
-                color={TOKENS.accent1}
-                onClick={() => toggle(avoids, v, setAvoids)}
-              >
-                {v}
-              </Chip>
-            ))}
-          </div>
-
-          <Label>signals we listen to</Label>
-          {SOURCES.map((s) => (
-            <div
-              key={s.name}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "10px 12px",
-                marginBottom: 6,
-                border: `2.5px solid ${TOKENS.ink}`,
-                borderRadius: 14,
-                background: TOKENS.paper,
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span
-                  style={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: 999,
-                    background: s.color,
-                    border: `1.5px solid ${TOKENS.ink}`,
-                  }}
-                />
-                <div>
-                  <div
-                    style={{
-                      fontFamily: TOKENS.display,
-                      fontWeight: 900,
-                      fontSize: 13,
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {s.name}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: TOKENS.mono,
-                      fontSize: 9,
-                      fontWeight: 700,
-                      opacity: 0.55,
-                      marginTop: 2,
-                      letterSpacing: ".06em",
-                    }}
-                  >
-                    {s.sub}
-                  </div>
-                </div>
-              </div>
-              <button
-                onClick={() => setSources((p) => ({ ...p, [s.name]: !p[s.name] }))}
-                style={{
-                  appearance: "none",
-                  cursor: "pointer",
-                  padding: "4px 10px",
-                  borderRadius: 999,
-                  border: `2px solid ${TOKENS.ink}`,
-                  background: sources[s.name] ? TOKENS.accent2 : TOKENS.bg,
-                  fontFamily: TOKENS.mono,
-                  fontSize: 10,
-                  fontWeight: 800,
-                  letterSpacing: ".1em",
-                }}
-              >
-                {sources[s.name] ? "ON" : "OFF"}
-              </button>
-            </div>
-          ))}
-
-          <Ticket color={TOKENS.accent3} notch={false} style={{ padding: 14, marginTop: 14 }}>
-            <div style={{ color: TOKENS.paper }}>
-              <div
-                style={{
-                  fontFamily: TOKENS.mono,
-                  fontSize: 9,
-                  fontWeight: 800,
-                  letterSpacing: ".14em",
-                  opacity: 0.85,
-                }}
-              >
-                YOUR TASTE READING
-              </div>
-              <div
-                style={{
-                  fontFamily: TOKENS.display,
-                  fontWeight: 900,
-                  fontSize: 15,
-                  letterSpacing: "-0.02em",
-                  marginTop: 6,
-                  lineHeight: 1.2,
-                }}
-              >
-                Foodie disco-bro with a soft spot for tiny wine bars. We're keeping it real.
-              </div>
-            </div>
-          </Ticket>
-        </div>
-
-        <div style={{ marginTop: 12 }}>
-          <ChunkyButton
-            variant="accent"
-            onClick={() => navigate({ to: "/new/profile" })}
-            icon={Icons.check}
-          >
-            save taste
-          </ChunkyButton>
-        </div>
+    <div style={{
+      display: "flex", alignItems: "center", gap: 12,
+      padding: "11px 14px", marginBottom: 8,
+      border: `2px solid ${TOKENS.ink}`, borderRadius: 12,
+      background: TOKENS.paper,
+      opacity: on ? 1 : 0.55,
+    }}>
+      <span style={{ width: 32, height: 32, borderRadius: 8, border: `2px solid ${TOKENS.ink}`, background: TOKENS.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>{icon}</span>
+      <div style={{ flex: 1 }}>
+        <div style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 800 }}>{name}</div>
+        <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700, opacity: 0.55, marginTop: 2, letterSpacing: ".06em", textTransform: "uppercase" }}>{sub}</div>
       </div>
-    </Frame>
-  );
-}
-
-function Label({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        fontFamily: TOKENS.mono,
-        fontSize: 10,
-        fontWeight: 800,
-        letterSpacing: ".16em",
-        opacity: 0.55,
-        marginBottom: 8,
-        textTransform: "uppercase",
-      }}
-    >
-      {children}
+      <span style={{ padding: "3px 9px", background: on ? TOKENS.accent4 : TOKENS.bg, color: on ? TOKENS.paper : TOKENS.ink, border: `2px solid ${TOKENS.ink}`, borderRadius: 999, fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".1em", textTransform: "uppercase" }}>{on ? "reading" : "connect"}</span>
     </div>
   );
 }
 
-function backBtn(): React.CSSProperties {
-  return {
-    appearance: "none",
-    cursor: "pointer",
-    width: 36,
-    height: 36,
-    borderRadius: 999,
-    border: `2.5px solid ${TOKENS.ink}`,
-    background: TOKENS.paper,
-    fontSize: 14,
-    fontWeight: 900,
-    boxShadow: `3px 3px 0 ${TOKENS.ink}`,
-  };
+// ─── Main page ────────────────────────────────────────────────
+function TastePage() {
+  const navigate = useNavigate();
+  const [tab, setTab] = useState<TabId>("vibes");
+  const t = TASTE_PROFILE;
+
+  return (
+    <Frame>
+      <div className="cf-screen" style={{ position: "relative", height: "100dvh", background: TOKENS.bg, color: TOKENS.ink, display: "flex", flexDirection: "column", padding: "56px 22px 24px", overflow: "hidden" }}>
+        <DotsBg opacity={0.05} />
+
+        {/* Header */}
+        <div style={{ position: "relative", zIndex: 2, display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+          <button onClick={() => navigate({ to: "/new/profile" })} style={{ appearance: "none", cursor: "pointer", width: 36, height: 36, borderRadius: 999, border: `2.5px solid ${TOKENS.ink}`, background: TOKENS.paper, fontSize: 14, fontWeight: 900, boxShadow: `3px 3px 0 ${TOKENS.ink}`, display: "flex", alignItems: "center", justifyContent: "center" }}>←</button>
+          <Stamp color={TOKENS.accent1} rotate={-2}>your taste · derived</Stamp>
+          <span style={{ width: 36 }} />
+        </div>
+
+        <div style={{ position: "relative", zIndex: 2, flex: 1, overflowY: "auto", scrollbarWidth: "none", marginRight: -22, paddingRight: 22 }}>
+          <h2 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 32, lineHeight: 0.95, letterSpacing: "-0.04em", margin: "0 0 4px" }}>Your real taste,<br />read by Sparkle.</h2>
+          <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase", marginBottom: 14 }}>
+            FROM {t.source.saves} SAVES · {t.source.likes.toLocaleString()} LIKES · {t.source.follows} FOLLOWS · SYNCED {t.source.lastSync.toUpperCase()}
+          </div>
+
+          {/* Weekly delta callout */}
+          <div style={{ padding: 14, marginBottom: 16, border: `3px solid ${TOKENS.ink}`, borderRadius: 14, background: TOKENS.accent1, boxShadow: `5px 5px 0 ${TOKENS.ink}` }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", opacity: 0.7, marginBottom: 4, textTransform: "uppercase" }}>
+              <span>✣</span> CHANGED THIS WEEK
+            </div>
+            <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 17, letterSpacing: "-0.025em", lineHeight: 1.25 }}>{t.weeklyDelta}</div>
+          </div>
+
+          {/* Tabs */}
+          <div style={{ display: "flex", gap: 4, marginBottom: 14, overflowX: "auto", scrollbarWidth: "none", marginRight: -22, paddingRight: 22 }}>
+            {([
+              { id: "vibes",    l: "vibes" },
+              { id: "inferred", l: "inferences" },
+              { id: "crew",     l: "social radius" },
+              { id: "vetoes",   l: "vetoes" },
+              { id: "sources",  l: "sources" },
+            ] as { id: TabId; l: string }[]).map((x) => (
+              <button key={x.id} onClick={() => setTab(x.id)} style={{
+                appearance: "none", cursor: "pointer", flexShrink: 0,
+                padding: "7px 12px",
+                border: `2.5px solid ${TOKENS.ink}`, borderRadius: 999,
+                background: tab === x.id ? TOKENS.ink : TOKENS.paper,
+                color: tab === x.id ? TOKENS.paper : TOKENS.ink,
+                fontFamily: TOKENS.ui, fontSize: 11, fontWeight: 800,
+              }}>{x.l}</button>
+            ))}
+          </div>
+
+          {/* ── Vibes tab ── */}
+          {tab === "vibes" && (
+            <div>
+              {t.vibeWeights.map((v, i) => (
+                <div key={v.k} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0", borderBottom: i < t.vibeWeights.length - 1 ? "1px dashed rgba(0,0,0,0.15)" : "none" }}>
+                  <span style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 800, width: 110 }}>{v.k}</span>
+                  <div style={{ flex: 1, height: 12, border: `2px solid ${TOKENS.ink}`, borderRadius: 999, background: TOKENS.paper, overflow: "hidden" }}>
+                    <div style={{ height: "100%", width: `${v.v * 100}%`, background: v.v > 0.6 ? TOKENS.accent1 : v.v > 0.3 ? TOKENS.accent2 : TOKENS.accent3 }} />
+                  </div>
+                  <span style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, width: 28, textAlign: "right" }}>{Math.round(v.v * 100)}</span>
+                  <span style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700, opacity: v.delta === "0" ? 0.4 : 0.85, color: v.delta.includes("↑") ? TOKENS.accent1 : v.delta.startsWith("-") ? TOKENS.accent3 : TOKENS.ink, width: 50, textAlign: "right" }}>{v.delta}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* ── Inferred tab ── */}
+          {tab === "inferred" && (
+            <div>
+              <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase", marginBottom: 10 }}>SIGNALS → INFERENCES</div>
+              {t.inferred.map((row, i) => (
+                <div key={i} style={{ padding: "12px 14px", marginBottom: 8, border: `2px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.paper }}>
+                  <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700, opacity: 0.55, letterSpacing: ".06em" }}>{row.from}</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4, fontFamily: TOKENS.display, fontWeight: 900, fontSize: 16, letterSpacing: "-0.02em" }}>
+                    <span style={{ color: TOKENS.accent1, fontSize: 12 }}>→</span>
+                    {row.to}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* ── Crew / social radius tab ── */}
+          {tab === "crew" && (
+            <div>
+              <div style={{ padding: 14, marginBottom: 14, border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14, background: TOKENS.accent2, boxShadow: `3px 3px 0 ${TOKENS.ink}` }}>
+                <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.7, textTransform: "uppercase" }}>YOUR TIKTOK CLUSTER</div>
+                <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 18, letterSpacing: "-0.025em", marginTop: 4, lineHeight: 1.1 }}>{t.socialRadius.cluster}</div>
+              </div>
+              <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase", marginBottom: 8 }}>HIGHEST OVERLAP</div>
+              {t.socialRadius.topOverlap.map((p, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 12px", marginBottom: 8, border: `2px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.paper }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 999, border: `2.5px solid ${TOKENS.ink}`, background: [TOKENS.accent1, TOKENS.accent2, TOKENS.accent3][i], display: "flex", alignItems: "center", justifyContent: "center", fontFamily: TOKENS.display, fontWeight: 900, fontSize: 13, color: i === 2 ? TOKENS.paper : TOKENS.ink }}>{p.who[1].toUpperCase()}</div>
+                  <div style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 800, flex: 1 }}>{p.who}</div>
+                  <span style={{ fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800, padding: "3px 8px", background: TOKENS.accent1, border: `1.5px solid ${TOKENS.ink}`, borderRadius: 4, letterSpacing: ".04em" }}>{Math.round(p.overlap * 100)}% MATCH</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* ── Vetoes tab ── */}
+          {tab === "vetoes" && (
+            <div>
+              <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase", marginBottom: 10 }}>I SAVE THESE BUT DON'T GO</div>
+              {t.vetoed.map((v) => (
+                <div key={v} style={{ padding: "12px 14px", marginBottom: 8, border: `2px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.paper, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <span style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700 }}>{v}</span>
+                  <button style={{ appearance: "none", cursor: "pointer", padding: "4px 10px", border: `1.5px solid ${TOKENS.ink}`, borderRadius: 999, background: TOKENS.bg, fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".08em" }}>VETOED</button>
+                </div>
+              ))}
+              <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase", marginTop: 16, marginBottom: 10 }}>WATCH OUTS</div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                {t.watchOuts.map((w) => (
+                  <span key={w} style={{ padding: "6px 12px", border: `2px solid ${TOKENS.ink}`, borderRadius: 999, background: "#d32323", color: TOKENS.paper, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".06em" }}>✕ {w}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ── Sources tab ── */}
+          {tab === "sources" && (
+            <div>
+              <div style={{ padding: 14, marginBottom: 12, border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14, background: TOKENS.ink, color: TOKENS.paper }}>
+                <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.7 }}>CONFIDENCE</div>
+                <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 36, letterSpacing: "-0.035em", marginTop: 4 }}>{Math.round(t.confidence * 100)}%</div>
+                <div style={{ fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700, opacity: 0.8, marginTop: 4, lineHeight: 1.4 }}>Plenty of signal. Plans will lean confidently on this profile.</div>
+              </div>
+              <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", opacity: 0.55, textTransform: "uppercase", marginBottom: 10 }}>CONNECTED SOURCES</div>
+              <SourceRow icon="📺" name="TikTok"                  sub={`${t.source.saves} saves · ${t.source.likes} likes`} on />
+              <SourceRow icon="📷" name="Instagram"               sub="184 saved posts · 22 collections" on />
+              <SourceRow icon="♫"  name="Spotify"                 sub="weekly mood playlists" on />
+              <SourceRow icon="✣"  name="Confetti history"        sub="18 passes · 52 check-ins" on />
+              <SourceRow icon="📍" name="Google Maps · saved places" sub="not connected" />
+              <button style={{ appearance: "none", cursor: "pointer", width: "100%", padding: "12px 14px", marginTop: 14, border: "2.5px solid #d32323", borderRadius: 12, background: TOKENS.paper, color: "#d32323", fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 900 }}>
+                ⤓ export · 🗑 delete my taste graph
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </Frame>
+  );
 }

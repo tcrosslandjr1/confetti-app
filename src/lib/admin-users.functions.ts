@@ -4,7 +4,9 @@ import { createClient } from "@supabase/supabase-js";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { Database } from "@/integrations/supabase/types";
 
-function adminClient() {
+// user_roles/admin_audit_log absent from types — use any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function adminClient(): any {
   return createClient<Database>(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
@@ -60,9 +62,9 @@ export const listAdminUsersFn = createServerFn({ method: "GET" })
     const ids = list.users.map((u) => u.id);
     const [{ data: profiles }, { data: roles }] = await Promise.all([
       ids.length
-        ? supabase.from("profiles").select("id, display_name, confetti_pts").in("id", ids)
+        ? supabase.from("profiles").select("id, full_name").in("id", ids)
         : Promise.resolve({
-            data: [] as { id: string; display_name: string | null; confetti_pts: number }[],
+            data: [] as { id: string; full_name: string | null }[],
           }),
       ids.length
         ? supabase.from("user_roles").select("user_id, role").in("user_id", ids)
@@ -84,13 +86,13 @@ export const listAdminUsersFn = createServerFn({ method: "GET" })
         return {
           id: u.id,
           email: u.email ?? "",
-          display_name: p?.display_name ?? null,
+          display_name: p?.full_name ?? null,
           roles: rMap.get(u.id) ?? [],
           created_at: u.created_at,
           last_sign_in_at: u.last_sign_in_at ?? null,
           email_confirmed_at: u.email_confirmed_at ?? null,
           banned_until: (u as { banned_until?: string | null }).banned_until ?? null,
-          confetti_pts: p?.confetti_pts ?? 0,
+          confetti_pts: 0,
         };
       })
       .filter((u) => {

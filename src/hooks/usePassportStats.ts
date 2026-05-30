@@ -111,17 +111,17 @@ export function usePassportStats(): PassportStats {
         listUserRedemptions(userId),
         supabase
           .from("itineraries")
-          .select("id, title, city, completed_at, date")
+          .select("id, title, updated_at")
           .eq("user_id", userId)
-          .not("completed_at", "is", null)
-          .order("completed_at", { ascending: false })
+          .eq("status", "completed")
+          .order("updated_at", { ascending: false })
           .limit(50),
         supabase
           .from("bookings")
-          .select("starts_at, status")
+          .select("booking_time, status")
           .eq("user_id", userId)
           .in("status", ["confirmed", "completed", "checked_in"])
-          .order("starts_at", { ascending: false })
+          .order("booking_time", { ascending: false })
           .limit(50),
         supabase.from("achievements").select("id, code"),
         supabase.from("user_achievements").select("achievement_id").eq("user_id", userId),
@@ -136,10 +136,10 @@ export function usePassportStats(): PassportStats {
       const dayMs = 24 * 60 * 60 * 1000;
       const activityDays = new Set<number>();
       for (const i of itineraryRes.data ?? []) {
-        if (i.completed_at) activityDays.add(startOfDay(new Date(i.completed_at)));
+        if (i.updated_at) activityDays.add(startOfDay(new Date(i.updated_at)));
       }
       for (const b of bookingRes.data ?? []) {
-        if (b.starts_at) activityDays.add(startOfDay(new Date(b.starts_at)));
+        if (b.booking_time) activityDays.add(startOfDay(new Date(b.booking_time)));
       }
       const streakDays = Array.from({ length: 7 }, (_, idx) => {
         const dayStart = today - (6 - idx) * dayMs;
@@ -149,13 +149,13 @@ export function usePassportStats(): PassportStats {
       // Stamps from completed itineraries
       const stamps: PassportStamp[] = (itineraryRes.data ?? []).map((it) => ({
         id: it.id,
-        city: cityAbbreviation(it.city),
+        city: "OUT",
         theme: it.title || "Night Out",
-        date: new Date(it.completed_at as string).toLocaleDateString(undefined, {
+        date: new Date(it.updated_at).toLocaleDateString(undefined, {
           month: "short",
           day: "numeric",
         }),
-        earnedAt: it.completed_at as string,
+        earnedAt: it.updated_at,
       }));
 
       // Badges

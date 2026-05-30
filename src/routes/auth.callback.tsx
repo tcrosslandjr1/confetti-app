@@ -1,7 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { completeAuthCallback } from "@/lib/auth";
 
 export const Route = createFileRoute("/auth/callback")({
   component: AuthCallback,
@@ -9,7 +8,6 @@ export const Route = createFileRoute("/auth/callback")({
 
 const PENDING_REDIRECT_KEY = "confetti.pendingRedirect";
 
-/** Store a post-auth redirect path before navigating away to the OTP flow. */
 export function storePendingRedirect(path: string) {
   if (typeof sessionStorage !== "undefined" && path && path.startsWith("/")) {
     sessionStorage.setItem(PENDING_REDIRECT_KEY, path);
@@ -23,71 +21,88 @@ function consumePendingRedirect(): string {
   return stored && stored.startsWith("/") && !stored.startsWith("//") ? stored : "/new/hub";
 }
 
-/** Detect whether this is a brand-new user signup from the URL hash. */
-function isNewUserSignup(): boolean {
-  if (typeof window === "undefined") return false;
-  const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
-  const query = new URLSearchParams(window.location.search);
-  const type = hash.get("type") ?? query.get("type");
-  return type === "signup";
-}
-
 function AuthCallback() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    let redirected = false;
+    let done = false;
 
-    async function finish() {
-      if (redirected) return;
-      redirected = true;
-      // Exchange the code for a session and guarantee the profiles row exists.
-      try {
-        await completeAuthCallback();
-      } catch {
-        // Non-fatal — the user is authenticated even if profile sync failed.
-      }
-
-      // Prefer a stored redirect (set before the user went to the email link),
-      // then fall back to /app. New signups land directly on /app so the
-      // FirstRunNudge can welcome them — there is no separate onboarding gate.
-      const destination = consumePendingRedirect();
-      navigate({ to: destination as "/new/hub", replace: true });
+    function go() {
+      if (done) return;
+      done = true;
+      navigate({ to: consumePendingRedirect() as "/new/hub", replace: true });
     }
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
-      if (event === "SIGNED_IN") {
-        subscription.unsubscribe();
-        void finish();
+    async function processUrl() {
+      const hash = typeof window !== "undefined" ? window.location.hash : "";
+      const query = typeof window !== "undefined" ? window.location.search : "";
+
+      // ── Hash token (magic link / implicit flow) ──────────────────
+      // Supabase redirects back as /auth/callback#access_token=...&refresh_token=...
+      if (hash.includes("access_token")) {
+        const params = new URLSearchParams(hash.replace(/^#/, ""));
+        const accessToken = params.get("access_token");
+        const refreshToken = params.get("refresh_token");
+        if (accessToken && refreshToken) {
+          const { error } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+          if (!error) { go(); return; }
+        }
       }
-    });
 
-    // Fallback: already signed in when this component mounts
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) {
-        subscription.unsubscribe();
-        void finish();
+      // ── PKCE code (OAuth / email confirmation) ───────────────────
+      // Supabase redirects back as /auth/callback?code=...
+      const code = new URLSearchParams(query).get("code");
+      if (code) {
+        const { error } = await supabase.auth.exchangeCodeForSession(code);
+        if (!error) { go(); return; }
       }
-    });
 
-    // Hard timeout — never leave user stuck on this screen
-    const t = setTimeout(() => {
-      subscription.unsubscribe();
-      void finish();
-    }, 10000);
+      // ── Already signed in ────────────────────────────────────────
+      const { data } = await supabase.auth.getSession();
+      if (data.session) { go(); return; }
 
-    return () => {
-      clearTimeout(t);
-      subscription.unsubscribe();
-    };
+      // ── Wait for Supabase to emit SIGNED_IN ──────────────────────
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+        if ((event === "SIGNED_IN" || event === "INITIAL_SESSION") && session) {
+          subscription.unsubscribe();
+          go();
+        }
+      });
+
+      // Hard fallback — never leave user stuck here
+      setTimeout(() => {
+        subscription.unsubscribe();
+        go();
+      }, 8000);
+    }
+
+    void processUrl();
   }, [navigate]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-mocha-dark">
+    <div className="flex min-h-screen items-center justify-center" style={{ background: "#1a0a00" }}>
       <div className="text-center">
-        <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-cream/20 border-t-coral" />
-        <p className="font-mono text-xs uppercase tracking-widest text-cream/50">Signing you in…</p>
+        <div
+          style={{
+            width: 32, height: 32, borderRadius: "50%",
+            border: "2px solid rgba(255,255,255,0.15)",
+            borderTopColor: "#e85d3e",
+            animation: "spin 0.8s linear infinite",
+            margin: "0 auto 16px",
+          }}
+        />
+        <p style={{
+          fontFamily: "monospace", fontSize: 11, fontWeight: 700,
+          letterSpacing: "0.14em", textTransform: "uppercase",
+          color: "rgba(255,255,255,0.4)",
+        }}>
+          Signing you in…
+        </p>
       </div>
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
 }

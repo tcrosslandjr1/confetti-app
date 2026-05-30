@@ -55,6 +55,36 @@
           history.replaceState(null, '', r);
         }
       })();
+
+      // Magic link / OAuth callback: if the URL contains an access_token in the
+      // hash, store the session in localStorage immediately — before React loads
+      // and before the stale-page-recovery script can reload the page.
+      // This guarantees the Supabase client finds a valid session on init.
+      (function () {
+        try {
+          var hash = window.location.hash;
+          if (hash && hash.indexOf('access_token=') !== -1) {
+            var params = new URLSearchParams(hash.replace(/^#/, ''));
+            var at = params.get('access_token');
+            var rt = params.get('refresh_token');
+            var exp = params.get('expires_at');
+            if (at && rt) {
+              var PROJECT = 'zfeckvxkulreyapadanf';
+              var storageKey = 'sb-' + PROJECT + '-auth-token';
+              var session = {
+                access_token: at,
+                refresh_token: rt,
+                expires_at: exp ? parseInt(exp, 10) : Math.floor(Date.now() / 1000) + 3600,
+                token_type: 'bearer',
+                user: null
+              };
+              localStorage.setItem(storageKey, JSON.stringify(session));
+              // Clean the hash from the URL so the token isn't reused
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+          }
+        } catch (e) {}
+      })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
     <script>

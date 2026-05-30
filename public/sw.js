@@ -16,22 +16,18 @@ const STATIC_ASSETS = [
 
 // ─── Install: pre-cache critical shell ───────────────────────────────────────
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS)));
   self.skipWaiting();
 });
 
 // ─── Activate: purge old caches ──────────────────────────────────────────────
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
-    )
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))),
+      ),
   );
   self.clients.claim();
 });
@@ -64,7 +60,7 @@ self.addEventListener("fetch", (event) => {
           // so the SPA router handles the path client-side
           return caches.match("/").then((cached) => cached || response);
         })
-        .catch(() => caches.match("/") || caches.match(request))
+        .catch(() => caches.match("/") || caches.match(request)),
     );
     return;
   }
@@ -87,8 +83,8 @@ self.addEventListener("fetch", (event) => {
               caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
             }
             return response;
-          })
-      )
+          }),
+      ),
     );
     return;
   }
@@ -103,7 +99,7 @@ self.addEventListener("fetch", (event) => {
         }
         return response;
       })
-      .catch(() => caches.match(request))
+      .catch(() => caches.match(request)),
   );
 });
 
@@ -141,30 +137,26 @@ self.addEventListener("notificationclick", (event) => {
   const url = event.notification.data?.url || "/";
 
   event.waitUntil(
-    clients
-      .matchAll({ type: "window", includeUncontrolled: true })
-      .then((windowClients) => {
-        for (const client of windowClients) {
-          if (client.url.includes(self.location.origin) && "focus" in client) {
-            client.navigate(url);
-            return client.focus();
-          }
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((windowClients) => {
+      for (const client of windowClients) {
+        if (client.url.includes(self.location.origin) && "focus" in client) {
+          client.navigate(url);
+          return client.focus();
         }
-        return clients.openWindow(url);
-      })
+      }
+      return clients.openWindow(url);
+    }),
   );
 });
 
 self.addEventListener("pushsubscriptionchange", (event) => {
   event.waitUntil(
-    self.registration.pushManager
-      .subscribe(event.oldSubscription.options)
-      .then((newSub) => {
-        return fetch("/api/push-resubscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newSub.toJSON()),
-        });
-      })
+    self.registration.pushManager.subscribe(event.oldSubscription.options).then((newSub) => {
+      return fetch("/api/push-resubscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newSub.toJSON()),
+      });
+    }),
   );
 });

@@ -1,8 +1,8 @@
 // Confetti AI — build a full-day itinerary.
-// Venue grounding uses the curated `venues` table (1,074 entries) — no Google Places.
+// Venue grounding uses the curated venues table, bootstrapping new cities via Google Places.
 import { getCorsHeaders } from "../_shared/cors.ts";
 import { supabaseAdmin } from "../_shared/supabase-client.ts";
-import { ensureCityVenues } from "../_shared/venue-discovery.ts";
+import { ensureCityVenuesFromPlaces } from "../_shared/places-discovery.ts";
 
 type SeedIdea = {
   title: string;
@@ -520,7 +520,7 @@ Deno.serve(async (req) => {
     // Mediterranean" pulls in hookah spots even if the baseline KB
     // is already populated for that city.
     const nicheHint = [b.vibe, b.notes].filter(Boolean).join(" — ") || null;
-    await ensureCityVenues(b.city, 15, 25, nicheHint);
+    await ensureCityVenuesFromPlaces(b.city, b.lat, b.lng, 15);
 
     const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
     if (!apiKey) return json({ error: "missing ANTHROPIC_API_KEY" }, 500);

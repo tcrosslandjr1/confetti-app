@@ -46,22 +46,20 @@ self.addEventListener("notificationclick", (event) => {
       }
       // Open new window
       return clients.openWindow(url);
-    })
+    }),
   );
 });
 
 // Handle subscription change (browser may rotate keys)
 self.addEventListener("pushsubscriptionchange", (event) => {
   event.waitUntil(
-    self.registration.pushManager
-      .subscribe(event.oldSubscription.options)
-      .then((newSub) => {
-        // Post new subscription to app for re-registration
-        return fetch("/api/push-resubscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newSub.toJSON()),
-        });
-      })
+    self.registration.pushManager.subscribe(event.oldSubscription.options).then((newSub) => {
+      // Post new subscription to app for re-registration
+      return fetch("/api/push-resubscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newSub.toJSON()),
+      });
+    }),
   );
 });

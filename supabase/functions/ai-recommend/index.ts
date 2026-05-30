@@ -9,7 +9,7 @@
 import { serve } from "../_shared/server.ts";
 import { jsonResponse, errorResponse, supabaseAdmin } from "../_shared/supabase-client.ts";
 import { consumeRateLimit, callerIdentity } from "../_shared/ratelimit.ts";
-import { ensureCityVenues } from "../_shared/venue-discovery.ts";
+import { ensureCityVenuesFromPlaces } from "../_shared/places-discovery.ts";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -724,7 +724,7 @@ serve(async (req: Request) => {
 
   // Lazy bootstrap: if the requested city has < threshold venues in
   // our KB, ask Claude to fill it before we rank anything.
-  await ensureCityVenues(body.city, 15, 25);
+  await ensureCityVenuesFromPlaces(body.city, body.lat, body.lng, 15);
 
   // Build a global exclusion set from the taste profile's "avoid" list
   // and from any per-section already-picked ids.

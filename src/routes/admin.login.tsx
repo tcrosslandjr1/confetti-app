@@ -4,9 +4,15 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/login")({
   validateSearch: (search: Record<string, unknown>): { redirect?: string } => {
-    const raw = typeof search.redirect === "string" ? search.redirect : "";
-    const safe = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/admin/console";
-    return { redirect: safe };
+    const raw = search.redirect;
+    if (typeof raw !== "string") return { redirect: undefined };
+    // Must be a same-origin /admin/* path
+    if (!raw.startsWith("/admin/")) return { redirect: undefined };
+    // Reject protocol-relative tricks like //evil.com/admin
+    if (raw.startsWith("//")) return { redirect: undefined };
+    // Prevent redirect loops back to the login page itself
+    if (raw === "/admin/login" || raw.startsWith("/admin/login?")) return { redirect: undefined };
+    return { redirect: raw };
   },
   component: AdminLoginPage,
 });
@@ -29,7 +35,11 @@ function AdminLoginPage() {
     if (!locked) return;
     const interval = setInterval(() => {
       setLockTimer((t) => {
-        if (t <= 1) { setLocked(false); clearInterval(interval); return 0; }
+        if (t <= 1) {
+          setLocked(false);
+          clearInterval(interval);
+          return 0;
+        }
         return t - 1;
       });
     }, 1000);
@@ -52,7 +62,10 @@ function AdminLoginPage() {
 
   const handleSignIn = async () => {
     if (locked) return;
-    if (!email.trim() || !password) { setError("Enter your email and password"); return; }
+    if (!email.trim() || !password) {
+      setError("Enter your email and password");
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -71,9 +84,11 @@ function AdminLoginPage() {
         setLockTimer(60);
         setError("Too many failed attempts. Locked for 60 seconds.");
       } else {
-        setError(authError.message === "Invalid login credentials"
-          ? `Incorrect email or password. (${5 - next} attempts remaining)`
-          : authError.message);
+        setError(
+          authError.message === "Invalid login credentials"
+            ? `Incorrect email or password. (${5 - next} attempts remaining)`
+            : authError.message,
+        );
       }
       return;
     }
@@ -101,94 +116,166 @@ function AdminLoginPage() {
   };
 
   return (
-    <div style={{
-      minHeight: "100dvh", background: "#0a0a0f",
-      display: "flex", alignItems: "center", justifyContent: "center",
-      fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-      padding: "24px",
-    }}>
+    <div
+      style={{
+        minHeight: "100dvh",
+        background: "#0a0a0f",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+        padding: "24px",
+      }}
+    >
       <div style={{ width: "100%", maxWidth: 400 }}>
-
         {/* Logo */}
         <div style={{ marginBottom: 48 }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: 10,
-            padding: "8px 14px",
-            border: "1px solid rgba(255,255,255,0.12)",
-            borderRadius: 8,
-          }}>
-            <div style={{
-              width: 8, height: 8, borderRadius: 2,
-              background: "#ff5b3d",
-              boxShadow: "0 0 8px #ff5b3d",
-            }} />
-            <span style={{
-              fontSize: 11, fontWeight: 800, letterSpacing: ".2em",
-              textTransform: "uppercase", color: "rgba(255,255,255,0.5)",
-            }}>CONFETTI · ADMIN</span>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 10,
+              padding: "8px 14px",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: 8,
+            }}
+          >
+            <div
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: 2,
+                background: "#ff5b3d",
+                boxShadow: "0 0 8px #ff5b3d",
+              }}
+            />
+            <span
+              style={{
+                fontSize: 11,
+                fontWeight: 800,
+                letterSpacing: ".2em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.5)",
+              }}
+            >
+              CONFETTI · ADMIN
+            </span>
           </div>
         </div>
 
-        <h1 style={{
-          margin: "0 0 6px",
-          fontSize: 28, fontWeight: 800, letterSpacing: "-0.03em",
-          color: "#ffffff",
-          fontFamily: "'Inter', system-ui, sans-serif",
-        }}>Admin access</h1>
-        <p style={{
-          margin: "0 0 32px",
-          fontSize: 13, color: "rgba(255,255,255,0.4)",
-          fontFamily: "'Inter', system-ui, sans-serif",
-          lineHeight: 1.5,
-        }}>Restricted to authorised accounts only.</p>
+        <h1
+          style={{
+            margin: "0 0 6px",
+            fontSize: 28,
+            fontWeight: 800,
+            letterSpacing: "-0.03em",
+            color: "#ffffff",
+            fontFamily: "'Inter', system-ui, sans-serif",
+          }}
+        >
+          Admin access
+        </h1>
+        <p
+          style={{
+            margin: "0 0 32px",
+            fontSize: 13,
+            color: "rgba(255,255,255,0.4)",
+            fontFamily: "'Inter', system-ui, sans-serif",
+            lineHeight: 1.5,
+          }}
+        >
+          Restricted to authorised accounts only.
+        </p>
 
         {/* Error */}
         {error && (
-          <div style={{
-            padding: "10px 14px", marginBottom: 16, borderRadius: 8,
-            background: "rgba(255,91,61,0.1)", border: "1px solid rgba(255,91,61,0.4)",
-            fontSize: 12, color: "#ff8a75",
-            fontFamily: "'Inter', system-ui, sans-serif",
-          }}>{error}</div>
+          <div
+            style={{
+              padding: "10px 14px",
+              marginBottom: 16,
+              borderRadius: 8,
+              background: "rgba(255,91,61,0.1)",
+              border: "1px solid rgba(255,91,61,0.4)",
+              fontSize: 12,
+              color: "#ff8a75",
+              fontFamily: "'Inter', system-ui, sans-serif",
+            }}
+          >
+            {error}
+          </div>
         )}
 
         {/* Lockout screen */}
         {locked ? (
-          <div style={{
-            padding: 20, borderRadius: 12, textAlign: "center",
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,91,61,0.3)",
-          }}>
+          <div
+            style={{
+              padding: 20,
+              borderRadius: 12,
+              textAlign: "center",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,91,61,0.3)",
+            }}
+          >
             <div style={{ fontSize: 32, marginBottom: 8 }}>🔒</div>
-            <div style={{
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontSize: 14, fontWeight: 600, color: "#ffffff", marginBottom: 6,
-            }}>Access locked</div>
-            <div style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 28, fontWeight: 800, color: "#ff5b3d",
-            }}>{lockTimer}s</div>
-            <div style={{
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontSize: 12, color: "rgba(255,255,255,0.3)", marginTop: 6,
-            }}>Too many failed attempts</div>
+            <div
+              style={{
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: 14,
+                fontWeight: 600,
+                color: "#ffffff",
+                marginBottom: 6,
+              }}
+            >
+              Access locked
+            </div>
+            <div
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 28,
+                fontWeight: 800,
+                color: "#ff5b3d",
+              }}
+            >
+              {lockTimer}s
+            </div>
+            <div
+              style={{
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: 12,
+                color: "rgba(255,255,255,0.3)",
+                marginTop: 6,
+              }}
+            >
+              Too many failed attempts
+            </div>
           </div>
         ) : (
           <>
             {/* Email */}
             <div style={{ marginBottom: 12 }}>
-              <div style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: ".16em",
-                textTransform: "uppercase", color: "rgba(255,255,255,0.35)",
-                marginBottom: 8,
-              }}>email</div>
-              <div style={{
-                display: "flex", alignItems: "center", gap: 8,
-                padding: "12px 14px",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                borderRadius: 10,
-              }}>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  letterSpacing: ".16em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: 8,
+                }}
+              >
+                email
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "12px 14px",
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  borderRadius: 10,
+                }}
+              >
                 <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 14 }}>✉</span>
                 <input
                   value={email}
@@ -197,10 +284,15 @@ function AdminLoginPage() {
                   type="email"
                   autoComplete="email"
                   style={{
-                    appearance: "none", border: "none", outline: "none",
-                    background: "transparent", flex: 1,
+                    appearance: "none",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    flex: 1,
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: 14, fontWeight: 500, color: "#ffffff",
+                    fontSize: 14,
+                    fontWeight: 500,
+                    color: "#ffffff",
                   }}
                 />
               </div>
@@ -208,19 +300,30 @@ function AdminLoginPage() {
 
             {/* Password */}
             <div style={{ marginBottom: 20 }}>
-              <div style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: ".16em",
-                textTransform: "uppercase", color: "rgba(255,255,255,0.35)",
-                marginBottom: 8,
-              }}>password</div>
-              <div style={{
-                display: "flex", alignItems: "center", gap: 8,
-                padding: "12px 14px",
-                background: "rgba(255,255,255,0.05)",
-                border: `1px solid ${password ? "rgba(255,91,61,0.4)" : "rgba(255,255,255,0.12)"}`,
-                borderRadius: 10,
-                transition: "border-color .15s",
-              }}>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  letterSpacing: ".16em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: 8,
+                }}
+              >
+                password
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "12px 14px",
+                  background: "rgba(255,255,255,0.05)",
+                  border: `1px solid ${password ? "rgba(255,91,61,0.4)" : "rgba(255,255,255,0.12)"}`,
+                  borderRadius: 10,
+                  transition: "border-color .15s",
+                }}
+              >
                 <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 14 }}>🔑</span>
                 <input
                   value={password}
@@ -230,21 +333,33 @@ function AdminLoginPage() {
                   type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                   style={{
-                    appearance: "none", border: "none", outline: "none",
-                    background: "transparent", flex: 1,
+                    appearance: "none",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    flex: 1,
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: 14, fontWeight: 500, color: "#ffffff",
+                    fontSize: 14,
+                    fontWeight: 500,
+                    color: "#ffffff",
                   }}
                 />
                 <button
                   onClick={() => setShowPassword((s) => !s)}
                   style={{
-                    appearance: "none", border: "none", background: "transparent",
-                    cursor: "pointer", color: "rgba(255,255,255,0.3)",
-                    fontSize: 12, fontWeight: 700, padding: 0,
+                    appearance: "none",
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                    color: "rgba(255,255,255,0.3)",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    padding: 0,
                     fontFamily: "'JetBrains Mono', monospace",
                   }}
-                >{showPassword ? "HIDE" : "SHOW"}</button>
+                >
+                  {showPassword ? "HIDE" : "SHOW"}
+                </button>
               </div>
             </div>
 
@@ -255,11 +370,14 @@ function AdminLoginPage() {
               style={{
                 appearance: "none",
                 cursor: loading || !password ? "not-allowed" : "pointer",
-                width: "100%", padding: "13px",
+                width: "100%",
+                padding: "13px",
                 background: loading || !password ? "rgba(255,255,255,0.06)" : "#ff5b3d",
-                border: "none", borderRadius: 10,
+                border: "none",
+                borderRadius: 10,
                 fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: 14, fontWeight: 700,
+                fontSize: 14,
+                fontWeight: 700,
                 color: loading || !password ? "rgba(255,255,255,0.3)" : "#ffffff",
                 transition: "background .15s, color .15s",
               }}
@@ -269,15 +387,25 @@ function AdminLoginPage() {
 
             {/* Attempt dots */}
             {attempts > 0 && (
-              <div style={{
-                display: "flex", justifyContent: "center", gap: 6, marginTop: 16,
-              }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 6,
+                  marginTop: 16,
+                }}
+              >
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <div key={i} style={{
-                    width: 6, height: 6, borderRadius: "50%",
-                    background: i < attempts ? "#ff5b3d" : "rgba(255,255,255,0.1)",
-                    transition: "background .2s",
-                  }} />
+                  <div
+                    key={i}
+                    style={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      background: i < attempts ? "#ff5b3d" : "rgba(255,255,255,0.1)",
+                      transition: "background .2s",
+                    }}
+                  />
                 ))}
               </div>
             )}
@@ -286,11 +414,17 @@ function AdminLoginPage() {
 
         {/* Back to app */}
         <div style={{ marginTop: 40, textAlign: "center" }}>
-          <a href="/new/hub" style={{
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontSize: 12, color: "rgba(255,255,255,0.2)",
-            textDecoration: "none",
-          }}>← back to app</a>
+          <a
+            href="/new/hub"
+            style={{
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontSize: 12,
+              color: "rgba(255,255,255,0.2)",
+              textDecoration: "none",
+            }}
+          >
+            ← back to app
+          </a>
         </div>
       </div>
     </div>

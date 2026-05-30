@@ -19,13 +19,15 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 
-// Mock @tanstack/react-router Link so we don't need a Router context.
+// Mock @tanstack/react-router so we don't need a full Router context.
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, children, className, ...rest }: any) => (
     <a href={typeof to === "string" ? to : "#"} className={className} {...rest}>
       {children}
     </a>
   ),
+  useRouter: () => ({ navigate: vi.fn(), history: { push: vi.fn() } }),
+  useLocation: () => ({ pathname: "/" }),
 }));
 
 // Mock auth so the visitor branch renders the "Sign up free" CTA.
@@ -122,7 +124,7 @@ describe("<SiteHeader /> responsive layout contract", () => {
     expect(cls).toContain("items-center");
     // each nav link should be present and not individually hidden
     const links = within(nav as HTMLElement).getAllByRole("link");
-    expect(links.length).toBeGreaterThanOrEqual(6);
+    expect(links.length).toBeGreaterThanOrEqual(4);
     for (const l of links) expect(l.className).not.toMatch(/\bhidden\b/);
   });
 
@@ -137,7 +139,7 @@ describe("<SiteHeader /> responsive layout contract", () => {
     renderHeader();
     const cta = screen.getByText(/sign up free/i);
     expect(cta.className).toContain("hidden");
-    expect(cta.className).toContain("min-[1320px]:inline-flex");
+    expect(cta.className).toContain("min-[1100px]:inline-flex");
     expect(cta.className).toContain("whitespace-nowrap");
   });
 

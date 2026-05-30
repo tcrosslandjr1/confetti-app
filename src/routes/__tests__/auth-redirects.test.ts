@@ -32,19 +32,22 @@ vi.mock("@/lib/ads", () => ({
   getMyAdvertiser: (uid: string) => getMyAdvertiserMock(uid),
 }));
 
-import { Route as AuthRoute } from "@/routes/auth";
+// /auth is now a thin redirect shim — the real sign-in entry point is /new/signin.
+// Redirect sanitization + mode validation live there.
+import { Route as SignInRoute } from "@/routes/new.signin";
 import { Route as AdminLoginRoute } from "@/routes/admin.login";
-import {
-  decidePostAuthDestination,
-  isGenericRedirect,
-} from "@/lib/auth-redirect";
+import { decidePostAuthDestination, isGenericRedirect } from "@/lib/auth-redirect";
 
 const validateAuth = (s: Record<string, unknown>) =>
-  (AuthRoute.options as { validateSearch: (s: Record<string, unknown>) => unknown }).validateSearch(s);
+  (
+    SignInRoute.options as { validateSearch: (s: Record<string, unknown>) => unknown }
+  ).validateSearch(s);
 const validateAdmin = (s: Record<string, unknown>) =>
-  (AdminLoginRoute.options as { validateSearch: (s: Record<string, unknown>) => unknown }).validateSearch(s);
+  (
+    AdminLoginRoute.options as { validateSearch: (s: Record<string, unknown>) => unknown }
+  ).validateSearch(s);
 
-describe("/auth — validateSearch", () => {
+describe("/new/signin — validateSearch (redirect sanitization)", () => {
   it("accepts a safe in-app redirect and defaults mode to undefined", () => {
     expect(validateAuth({ redirect: "/trips/abc" })).toEqual({
       redirect: "/trips/abc",

@@ -117,14 +117,16 @@ export const adminGlobalSearch = createServerFn({ method: "POST" })
     }
 
     // ---- Events ----
-    const { data: evRows } = await supabase
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data: evRows } = await (supabase as any)
       .from("events")
       .select("id, title, venue_name, city, starts_at")
       .or(`title.ilike.${like},venue_name.ilike.${like},city.ilike.${like}`)
       .order("starts_at", { ascending: false })
       .limit(PER_TYPE);
 
-    const events: AdminSearchHit[] = (evRows ?? []).map((e) => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const events: AdminSearchHit[] = (evRows ?? []).map((e: any) => ({
       type: "event",
       id: e.id,
       title: e.title,

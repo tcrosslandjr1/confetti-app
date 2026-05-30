@@ -17,6 +17,10 @@ export default tseslint.config(
       "_archive/**",
       "skills/**",
       "audits-and-plans/**",
+      "contracts/**",
+      "design/**",
+      "business-docs/**",
+      "city-guides/**",
     ],
   },
   {

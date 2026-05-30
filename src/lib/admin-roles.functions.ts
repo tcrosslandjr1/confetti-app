@@ -44,14 +44,14 @@ export const listAdminsFn = createServerFn({ method: "GET" })
       .eq("role", "admin");
     if (error) throw new Error(error.message);
 
-    const ids = (rows ?? []).map((r) => r.user_id);
+    const ids = (rows ?? []).map((r: any) => r.user_id);
     if (!ids.length) return { admins: [] as AdminMember[] };
 
     const { data: profiles } = await supabase
       .from("profiles")
       .select("id, full_name")
       .in("id", ids);
-    const profileMap = new Map((profiles ?? []).map((p) => [p.id, p.full_name]));
+    const profileMap = new Map((profiles ?? []).map((p: any) => [p.id, p.full_name]));
 
     // Resolve auth metadata (email, last sign-in) by paging once.
     const emails = new Map<string, { email: string; last_sign_in_at: string | null }>();
@@ -74,7 +74,7 @@ export const listAdminsFn = createServerFn({ method: "GET" })
       page++;
     }
 
-    const admins: AdminMember[] = (rows ?? []).map((r) => {
+    const admins: AdminMember[] = (rows ?? []).map((r: any) => {
       const meta = emails.get(r.user_id);
       return {
         user_id: r.user_id,
@@ -105,7 +105,7 @@ export const grantAdminByEmailFn = createServerFn({ method: "POST" })
         perPage: 200,
       });
       if (error) throw new Error(error.message);
-      const match = list.users.find((u) => (u.email ?? "").toLowerCase() === target);
+      const match = list.users.find((u: any) => (u.email ?? "").toLowerCase() === target);
       if (match) {
         userId = match.id;
         break;

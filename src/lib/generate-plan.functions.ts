@@ -321,7 +321,7 @@ const PlanOutputSchema = z.object({
     .max(60)
     .describe("Themed boarding-pass name, e.g. 'Salsa, Skylines & Secrets'"),
   experienceTagline: z.string().min(8).max(140),
-  stops: z.array(StopOutputSchema).min(2).max(4),
+  stops: z.array(StopOutputSchema).min(3).max(3),
   bonus: z
     .object({
       name: z.string().min(2).max(60),

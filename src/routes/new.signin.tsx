@@ -45,7 +45,7 @@ function SignInPage() {
     setError(null);
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: `${window.location.origin}/new/hub` },
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
     });
     setLoading(false);
     if (authError) { setError(authError.message); return; }

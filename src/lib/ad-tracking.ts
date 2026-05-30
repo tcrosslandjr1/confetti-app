@@ -19,7 +19,9 @@ function key(a: LogArgs, slot?: string) {
 }
 
 function insert(kind: "impression" | "click", a: LogArgs) {
-  void supabase.from("ad_events").insert({
+  // brand + occasion are not in the generated types but exist at runtime
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  void (supabase as any).from("ad_events").insert({
     kind,
     surface: a.surface,
     brand: a.brand,

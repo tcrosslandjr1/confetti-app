@@ -147,6 +147,7 @@ export type Database = {
       };
       ad_events: {
         Row: {
+          brand: string | null;
           campaign_id: string;
           created_at: string;
           id: string;
@@ -155,6 +156,7 @@ export type Database = {
           user_id: string | null;
         };
         Insert: {
+          brand?: string | null;
           campaign_id: string;
           created_at?: string;
           id?: string;
@@ -163,6 +165,7 @@ export type Database = {
           user_id?: string | null;
         };
         Update: {
+          brand?: string | null;
           campaign_id?: string;
           created_at?: string;
           id?: string;
@@ -5649,6 +5652,57 @@ export type Database = {
         };
         Relationships: [];
       };
+      subscriptions: {
+        Row: {
+          cancel_at_period_end: boolean | null;
+          created_at: string;
+          current_period_end: string | null;
+          environment: string;
+          id: string;
+          pending_price_id: string | null;
+          price_id: string | null;
+          product_id: string | null;
+          status: string | null;
+          stripe_customer_id: string | null;
+          stripe_subscription_id: string | null;
+          tier: string | null;
+          updated_at: string;
+          user_id: string;
+        };
+        Insert: {
+          cancel_at_period_end?: boolean | null;
+          created_at?: string;
+          current_period_end?: string | null;
+          environment?: string;
+          id?: string;
+          pending_price_id?: string | null;
+          price_id?: string | null;
+          product_id?: string | null;
+          status?: string | null;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          tier?: string | null;
+          updated_at?: string;
+          user_id: string;
+        };
+        Update: {
+          cancel_at_period_end?: boolean | null;
+          created_at?: string;
+          current_period_end?: string | null;
+          environment?: string;
+          id?: string;
+          pending_price_id?: string | null;
+          price_id?: string | null;
+          product_id?: string | null;
+          status?: string | null;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          tier?: string | null;
+          updated_at?: string;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       support_ticket_messages: {
         Row: {
           content: string;
@@ -6220,6 +6274,35 @@ export type Database = {
             columns: ["venue_cache_id"];
             isOneToOne: false;
             referencedRelation: "venue_cache";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      user_achievements: {
+        Row: {
+          achievement_id: string;
+          id: string;
+          unlocked_at: string;
+          user_id: string;
+        };
+        Insert: {
+          achievement_id: string;
+          id?: string;
+          unlocked_at?: string;
+          user_id: string;
+        };
+        Update: {
+          achievement_id?: string;
+          id?: string;
+          unlocked_at?: string;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "user_achievements_achievement_id_fkey";
+            columns: ["achievement_id"];
+            isOneToOne: false;
+            referencedRelation: "achievements";
             referencedColumns: ["id"];
           },
         ];

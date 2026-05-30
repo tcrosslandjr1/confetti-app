@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const userAchievementsTable = () => (supabase as any).from("user_achievements");
 import { useAuth } from "@/lib/auth-context";
 import { listUserGrants, listUserRedemptions, userBalance } from "@/lib/confetti-credits";
 import type { PassportStamp } from "@/lib/loop-store";
@@ -106,7 +108,7 @@ export function usePassportStats(): PassportStats {
         achievementsRes,
         unlockedRes,
       ] = await Promise.all([
-        supabase.from("profiles").select("display_name").eq("id", userId).maybeSingle(),
+        supabase.from("profiles").select("full_name").eq("id", userId).maybeSingle(),
         listUserGrants(userId),
         listUserRedemptions(userId),
         supabase
@@ -124,7 +126,7 @@ export function usePassportStats(): PassportStats {
           .order("booking_time", { ascending: false })
           .limit(50),
         supabase.from("achievements").select("id, code"),
-        supabase.from("user_achievements").select("achievement_id").eq("user_id", userId),
+        userAchievementsTable().select("achievement_id").eq("user_id", userId),
       ]);
 
       if (cancelled) return;
@@ -170,7 +172,7 @@ export function usePassportStats(): PassportStats {
       setStats({
         ready: true,
         signedIn: true,
-        displayName: profileRes.data?.display_name ?? null,
+        displayName: profileRes.data?.full_name ?? null,
         confetti,
         streakDays,
         stamps,

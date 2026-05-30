@@ -12,10 +12,10 @@ export const logPinUnlockAttempt = createServerFn({ method: "POST" })
     const { userId, supabase } = context;
     const { data: profile } = await supabase
       .from("profiles")
-      .select("display_name")
+      .select("full_name")
       .eq("id", userId)
       .single();
-    const displayName = profile?.display_name ?? "unknown";
+    const displayName = profile?.full_name ?? "unknown";
 
     await supabaseAdmin.from("admin_audit_log").insert({
       reviewer_id: userId,
@@ -62,10 +62,10 @@ export const resetPinLockout = createServerFn({ method: "POST" })
 
     const { data: profile } = await supabase
       .from("profiles")
-      .select("display_name")
+      .select("full_name")
       .eq("id", userId)
       .single();
-    const displayName = profile?.display_name ?? "unknown";
+    const displayName = profile?.full_name ?? "unknown";
 
     await supabaseAdmin.from("admin_audit_log").insert({
       reviewer_id: userId,
@@ -100,10 +100,10 @@ export const logPinIdleLock = createServerFn({ method: "POST" })
     const { userId, supabase } = context;
     const { data: profile } = await supabase
       .from("profiles")
-      .select("display_name")
+      .select("full_name")
       .eq("id", userId)
       .single();
-    const displayName = profile?.display_name ?? "unknown";
+    const displayName = profile?.full_name ?? "unknown";
 
     await supabaseAdmin.from("admin_audit_log").insert({
       reviewer_id: userId,

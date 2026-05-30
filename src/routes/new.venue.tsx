@@ -51,7 +51,7 @@ function VenuePage() {
           { l: "area", v: stop?.area || stop?.address || "tonight" },
         ];
 
-  const hasReels = !!(stop?.hashtags?.length);
+  const hasReels = !!stop?.hashtags?.length;
 
   if (!stop) {
     return (
@@ -191,14 +191,8 @@ function VenuePage() {
               color: TOKENS.inkHint,
             }}
           >
-            {stop.address
-              ? `📍 ${stop.address}`
-              : stop.area
-                ? `📍 ${stop.area}`
-                : null}
-            {stop.time && (
-              <span style={{ marginLeft: 10 }}>🕐 {stop.time}</span>
-            )}
+            {stop.address ? `📍 ${stop.address}` : stop.area ? `📍 ${stop.area}` : null}
+            {stop.time && <span style={{ marginLeft: 10 }}>🕐 {stop.time}</span>}
           </div>
 
           {/* See the vibe button */}
@@ -403,45 +397,189 @@ function VenuePage() {
                   margin: "0 auto 16px",
                 }}
               />
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  marginBottom: 14,
+                }}
+              >
                 <div>
-                  <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: TOKENS.inkHint, marginBottom: 3 }}>THE VIBE</div>
-                  <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 18, letterSpacing: "-0.03em", color: TOKENS.ink }}>{stop.name}</div>
+                  <div
+                    style={{
+                      fontFamily: TOKENS.mono,
+                      fontSize: 9,
+                      fontWeight: 800,
+                      letterSpacing: ".14em",
+                      color: TOKENS.inkHint,
+                      marginBottom: 3,
+                    }}
+                  >
+                    THE VIBE
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: TOKENS.display,
+                      fontWeight: 900,
+                      fontSize: 18,
+                      letterSpacing: "-0.03em",
+                      color: TOKENS.ink,
+                    }}
+                  >
+                    {stop.name}
+                  </div>
                 </div>
                 <button
                   onClick={() => setReelsOpen(false)}
-                  style={{ appearance: "none", cursor: "pointer", width: 34, height: 34, borderRadius: 999, border: `2.5px solid ${TOKENS.ink}`, background: TOKENS.paper, fontSize: 14, fontWeight: 900, boxShadow: `3px 3px 0 ${TOKENS.ink}`, display: "inline-flex", alignItems: "center", justifyContent: "center" }}
+                  style={{
+                    appearance: "none",
+                    cursor: "pointer",
+                    width: 34,
+                    height: 34,
+                    borderRadius: 999,
+                    border: `2.5px solid ${TOKENS.ink}`,
+                    background: TOKENS.paper,
+                    fontSize: 14,
+                    fontWeight: 900,
+                    boxShadow: `3px 3px 0 ${TOKENS.ink}`,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
                   ✕
                 </button>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 14 }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 10,
+                  marginBottom: 14,
+                }}
+              >
                 <a
                   href={`https://tiktok.com/search?q=${encodeURIComponent(stop.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ background: TOKENS.ink, border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14, padding: 14, boxShadow: `4px 4px 0 rgba(19,11,13,.25)`, textDecoration: "none", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 88 }}
+                  style={{
+                    background: TOKENS.ink,
+                    border: `2.5px solid ${TOKENS.ink}`,
+                    borderRadius: 14,
+                    padding: 14,
+                    boxShadow: `4px 4px 0 rgba(19,11,13,.25)`,
+                    textDecoration: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    minHeight: 88,
+                  }}
                 >
-                  <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: "rgba(255,250,240,.55)" }}>TIKTOK</div>
+                  <div
+                    style={{
+                      fontFamily: TOKENS.mono,
+                      fontSize: 9,
+                      fontWeight: 800,
+                      letterSpacing: ".14em",
+                      color: "rgba(255,250,240,.55)",
+                    }}
+                  >
+                    TIKTOK
+                  </div>
                   <div>
-                    <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 15, color: TOKENS.paper, letterSpacing: "-0.02em" }}>Search reels ↗</div>
-                    <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700, letterSpacing: ".1em", color: "rgba(255,250,240,.45)", marginTop: 3 }}>{stop.name}</div>
+                    <div
+                      style={{
+                        fontFamily: TOKENS.display,
+                        fontWeight: 900,
+                        fontSize: 15,
+                        color: TOKENS.paper,
+                        letterSpacing: "-0.02em",
+                      }}
+                    >
+                      Search reels ↗
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: TOKENS.mono,
+                        fontSize: 9,
+                        fontWeight: 700,
+                        letterSpacing: ".1em",
+                        color: "rgba(255,250,240,.45)",
+                        marginTop: 3,
+                      }}
+                    >
+                      {stop.name}
+                    </div>
                   </div>
                 </a>
                 <a
                   href={`https://instagram.com/explore/search/keyword/?q=${encodeURIComponent(stop.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ background: "linear-gradient(135deg,#f97316,#ec4899,#8b5cf6)", border: `2.5px solid ${TOKENS.ink}`, borderRadius: 14, padding: 14, boxShadow: `4px 4px 0 rgba(19,11,13,.25)`, textDecoration: "none", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 88 }}
+                  style={{
+                    background: "linear-gradient(135deg,#f97316,#ec4899,#8b5cf6)",
+                    border: `2.5px solid ${TOKENS.ink}`,
+                    borderRadius: 14,
+                    padding: 14,
+                    boxShadow: `4px 4px 0 rgba(19,11,13,.25)`,
+                    textDecoration: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    minHeight: 88,
+                  }}
                 >
-                  <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: "rgba(255,255,255,.65)" }}>INSTAGRAM</div>
+                  <div
+                    style={{
+                      fontFamily: TOKENS.mono,
+                      fontSize: 9,
+                      fontWeight: 800,
+                      letterSpacing: ".14em",
+                      color: "rgba(255,255,255,.65)",
+                    }}
+                  >
+                    INSTAGRAM
+                  </div>
                   <div>
-                    <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 15, color: "#fff", letterSpacing: "-0.02em" }}>See posts ↗</div>
-                    <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700, letterSpacing: ".1em", color: "rgba(255,255,255,.5)", marginTop: 3 }}>{stop.name}</div>
+                    <div
+                      style={{
+                        fontFamily: TOKENS.display,
+                        fontWeight: 900,
+                        fontSize: 15,
+                        color: "#fff",
+                        letterSpacing: "-0.02em",
+                      }}
+                    >
+                      See posts ↗
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: TOKENS.mono,
+                        fontSize: 9,
+                        fontWeight: 700,
+                        letterSpacing: ".1em",
+                        color: "rgba(255,255,255,.5)",
+                        marginTop: 3,
+                      }}
+                    >
+                      {stop.name}
+                    </div>
                   </div>
                 </a>
               </div>
-              <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: TOKENS.inkHint, textAlign: "center" }}>TAP TO OPEN IN APP</div>
+              <div
+                style={{
+                  fontFamily: TOKENS.mono,
+                  fontSize: 9,
+                  fontWeight: 800,
+                  letterSpacing: ".14em",
+                  color: TOKENS.inkHint,
+                  textAlign: "center",
+                }}
+              >
+                TAP TO OPEN IN APP
+              </div>
             </div>
           </div>
         )}

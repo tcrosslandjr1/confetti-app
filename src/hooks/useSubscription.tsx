@@ -1,5 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const subscriptionsTable = () => (supabase as any).from("subscriptions");
 import { getStripeEnvironment } from "@/lib/stripe-env";
 import { useAuth } from "@/lib/auth-context";
 
@@ -48,8 +50,7 @@ export function useSubscription() {
       setLoading(false);
       return;
     }
-    const { data } = await supabase
-      .from("subscriptions")
+    const { data } = await subscriptionsTable()
       .select("*")
       .eq("user_id", user.id)
       .eq("environment", getStripeEnvironment())

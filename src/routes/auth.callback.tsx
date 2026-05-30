@@ -74,7 +74,7 @@ function AuthCallback() {
     const t = setTimeout(() => {
       subscription.unsubscribe();
       void finish();
-    }, 5000);
+    }, 10000);
 
     return () => {
       clearTimeout(t);

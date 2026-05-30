@@ -7,6 +7,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
+// notifications table exists at runtime but isn't in the generated types yet.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const notifTable = () => (supabase as any).from("notifications");
+
 export interface AppNotification {
   id: string;
   kind: string;
@@ -25,13 +29,12 @@ export function useNotifications(userId: string | undefined) {
   useEffect(() => {
     if (!userId) return;
 
-    supabase
-      .from("notifications")
+    notifTable()
       .select("*")
       .eq("user_id", userId)
       .order("created_at", { ascending: false })
       .limit(50)
-      .then(({ data }) => {
+      .then(({ data }: { data: any[] | null }) => {
         if (data) {
           const mapped = data.map(mapRow);
           setNotifications(mapped);
@@ -69,10 +72,7 @@ export function useNotifications(userId: string | undefined) {
 
   // Mark a single notification as read
   const markRead = useCallback(async (notifId: string) => {
-    await supabase
-      .from("notifications")
-      .update({ read_at: new Date().toISOString() })
-      .eq("id", notifId);
+    await notifTable().update({ read_at: new Date().toISOString() }).eq("id", notifId);
 
     setNotifications((prev) => prev.map((n) => (n.id === notifId ? { ...n, read: true } : n)));
     setUnreadCount((c) => Math.max(0, c - 1));
@@ -82,8 +82,7 @@ export function useNotifications(userId: string | undefined) {
   const markAllRead = useCallback(async () => {
     if (!userId) return;
 
-    await supabase
-      .from("notifications")
+    await notifTable()
       .update({ read_at: new Date().toISOString() })
       .eq("user_id", userId)
       .is("read_at", null);

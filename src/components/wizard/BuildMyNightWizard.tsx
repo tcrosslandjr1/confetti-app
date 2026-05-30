@@ -1130,27 +1130,21 @@ export function BuildMyNightWizard() {
     let cancelled = false;
     (async () => {
       const [{ data: prefs }, { data: bookings }] = await Promise.all([
-        supabase
-          .from("user_preferences")
-          .select("cuisines,taste_profile")
-          .eq("user_id", user.id)
-          .maybeSingle(),
+        supabase.from("user_preferences").select("cuisines").eq("user_id", user.id).maybeSingle(),
         supabase
           .from("bookings")
-          .select("venue_name,starts_at")
+          .select("booking_time,special_requests")
           .eq("user_id", user.id)
-          .order("starts_at", { ascending: false })
+          .order("booking_time", { ascending: false })
           .limit(50),
       ]);
       if (cancelled) return;
       const cuisines: string[] = ((prefs?.cuisines ?? []) as string[]).map((c) =>
         String(c).toLowerCase(),
       );
-      const tp = (prefs?.taste_profile ?? {}) as Record<string, unknown>;
-      const dietRaw = String((tp.diet as string) ?? "").toLowerCase();
-      const allergRaw = Array.isArray(tp.allergens)
-        ? (tp.allergens as unknown[]).map((s) => String(s).toLowerCase())
-        : [];
+      // taste_profile column not in user_preferences schema — derive from cuisines only
+      const dietRaw = "";
+      const allergRaw: string[] = [];
       const vegan = dietRaw.includes("vegan") || cuisines.includes("vegan");
       const vegetarian = vegan || dietRaw.includes("vegetarian") || cuisines.includes("vegetarian");
       const pescatarian = dietRaw.includes("pescatarian") || cuisines.includes("pescatarian");
@@ -1176,10 +1170,11 @@ export function BuildMyNightWizard() {
       const hourCounts: Record<number, number> = {};
       const venueCounts: Record<string, number> = {};
       (bookings ?? []).forEach((b) => {
-        const d = new Date(b.starts_at as string);
+        const d = new Date(b.booking_time as string);
         const h = d.getHours();
         if (h >= 17 && h <= 23) hourCounts[h] = (hourCounts[h] ?? 0) + 1;
-        venueCounts[b.venue_name as string] = (venueCounts[b.venue_name as string] ?? 0) + 1;
+        const vname = (b.special_requests as string) ?? "";
+        if (vname) venueCounts[vname] = (venueCounts[vname] ?? 0) + 1;
       });
       let preferredHour: number | null = null;
       let max = 0;
@@ -1305,13 +1300,8 @@ export function BuildMyNightWizard() {
   async function persistDietPrefs() {
     if (!user) return;
     try {
-      const { data: existing } = await supabase
-        .from("user_preferences")
-        .select("taste_profile")
-        .eq("user_id", user.id)
-        .maybeSingle();
-      const tp = (existing?.taste_profile ?? {}) as Record<string, unknown>;
-      const diet = dietPrefs.vegan
+      // taste_profile not in user_preferences schema — store diet hint in cuisines array
+      const dietTag = dietPrefs.vegan
         ? "vegan"
         : dietPrefs.vegetarian
           ? "vegetarian"
@@ -1319,11 +1309,19 @@ export function BuildMyNightWizard() {
             ? "pescatarian"
             : dietPrefs.glutenFree
               ? "gluten-free"
-              : "";
-      const nextTp = { ...tp, diet, allergens: dietPrefs.allergens };
+              : null;
+      const { data: existing } = await supabase
+        .from("user_preferences")
+        .select("cuisines")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      const existingCuisines: string[] = ((existing?.cuisines ?? []) as string[]).filter(
+        (c) => !["vegan", "vegetarian", "pescatarian", "gluten-free"].includes(c),
+      );
+      const nextCuisines = dietTag ? [...existingCuisines, dietTag] : existingCuisines;
       await supabase
         .from("user_preferences")
-        .upsert({ user_id: user.id, taste_profile: nextTp }, { onConflict: "user_id" });
+        .upsert({ user_id: user.id, cuisines: nextCuisines }, { onConflict: "user_id" });
       // Update in-memory personalize so dish filtering reflects changes immediately
       setPersonalize((p) =>
         p

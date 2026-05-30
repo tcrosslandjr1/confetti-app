@@ -24,13 +24,14 @@ function PassPage() {
 
   const loop = getActiveLoop();
   const stops = (loop?.stops ?? []).map((s, i) => ({
+    id: s.id,
     time: s.time,
     name: s.name,
     tag: s.type,
     sub: s.detail || s.type,
     addr: s.address || s.area || "",
     cost: s.priceLevel || "",
-    color: [TOKENS.accent2, TOKENS.accent1, TOKENS.accent3][i % 3],
+    color: [TOKENS.accent2, TOKENS.accent1, TOKENS.accent3, TOKENS.accent4][i % 4],
   }));
   const passCode = loop?.id ?? "—";
   const stopCount = stops.length;
@@ -234,6 +235,7 @@ function PassPage() {
             stops.map((s, i) => (
               <div
                 key={i}
+                onClick={() => navigate({ to: "/new/venue", search: { stopId: s.id } })}
                 style={{
                   border: `2.5px solid ${TOKENS.ink}`,
                   borderRadius: 16,
@@ -242,6 +244,20 @@ function PassPage() {
                   marginBottom: 10,
                   boxShadow: `4px 4px 0 ${TOKENS.ink}`,
                   position: "relative",
+                  cursor: "pointer",
+                  transition: "transform .1s, box-shadow .1s",
+                }}
+                onMouseDown={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "translate(2px,2px)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `2px 2px 0 ${TOKENS.ink}`;
+                }}
+                onMouseUp={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `4px 4px 0 ${TOKENS.ink}`;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `4px 4px 0 ${TOKENS.ink}`;
                 }}
               >
                 {/* Stop number badge */}
@@ -317,7 +333,9 @@ function PassPage() {
                     paddingTop: 10,
                     borderTop: "1.5px dashed rgba(0,0,0,0.15)",
                     display: "flex",
-                    gap: 14,
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: 8,
                     fontFamily: TOKENS.mono,
                     fontSize: 10,
                     fontWeight: 800,
@@ -325,8 +343,11 @@ function PassPage() {
                     color: TOKENS.inkHint,
                   }}
                 >
-                  {s.addr && <span>📍 {s.addr}</span>}
-                  {s.cost && <span>💸 {s.cost}</span>}
+                  <span style={{ display: "flex", gap: 12 }}>
+                    {s.addr && <span>📍 {s.addr}</span>}
+                    {s.cost && <span>💸 {s.cost}</span>}
+                  </span>
+                  <span style={{ fontSize: 9, opacity: 0.5 }}>tap to explore →</span>
                 </div>
               </div>
             ))

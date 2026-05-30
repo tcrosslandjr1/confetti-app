@@ -3,6 +3,10 @@ import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
+// admin_audit_log is not in the generated types yet
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const auditLog = () => (supabaseAdmin as any).from("admin_audit_log");
+
 export const logPinUnlockAttempt = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator(
@@ -17,7 +21,7 @@ export const logPinUnlockAttempt = createServerFn({ method: "POST" })
       .single();
     const displayName = profile?.full_name ?? "unknown";
 
-    await supabaseAdmin.from("admin_audit_log").insert({
+    await auditLog().insert({
       reviewer_id: userId,
       reviewer_email: `${displayName} <admin>`,
       action: data.success ? "pin_unlock_success" : "pin_unlock_failed",
@@ -67,7 +71,7 @@ export const resetPinLockout = createServerFn({ method: "POST" })
       .single();
     const displayName = profile?.full_name ?? "unknown";
 
-    await supabaseAdmin.from("admin_audit_log").insert({
+    await auditLog().insert({
       reviewer_id: userId,
       reviewer_email: `${displayName} <admin>`,
       action: signInError ? "pin_lockout_reset_failed" : "pin_lockout_reset",
@@ -105,7 +109,7 @@ export const logPinIdleLock = createServerFn({ method: "POST" })
       .single();
     const displayName = profile?.full_name ?? "unknown";
 
-    await supabaseAdmin.from("admin_audit_log").insert({
+    await auditLog().insert({
       reviewer_id: userId,
       reviewer_email: `${displayName} <admin>`,
       action: "pin_idle_lock",
@@ -151,7 +155,8 @@ export const exportAdminAuditLog = createServerFn({ method: "POST" })
   )
   .handler(async ({ data, context }): Promise<{ rows: AuditExportRow[]; truncated: boolean }> => {
     const { supabase, userId } = context;
-    const { data: roleRow } = await supabase
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data: roleRow } = await (supabase as any)
       .from("user_roles")
       .select("role")
       .eq("user_id", userId)
@@ -160,8 +165,8 @@ export const exportAdminAuditLog = createServerFn({ method: "POST" })
     if (!roleRow) throw new Error("Admins only");
 
     const LIMIT = 10_000;
-    let query = supabaseAdmin
-      .from("admin_audit_log")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let query: any = auditLog()
       .select(
         "id, created_at, reviewer_id, reviewer_email, action, entity_type, entity_id, entity_label, note, ip_address, user_agent, metadata",
       )

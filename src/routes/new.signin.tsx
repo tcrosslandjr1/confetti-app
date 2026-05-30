@@ -431,6 +431,36 @@ function SignInPage() {
             Create your account →
           </button>
         </div>
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            textAlign: "center",
+            marginTop: 18,
+          }}
+        >
+          <button
+            onClick={() => navigate({ to: "/admin/login" })}
+            style={{
+              appearance: "none",
+              cursor: "pointer",
+              background: "transparent",
+              border: "none",
+              padding: "4px 8px",
+              fontFamily: TOKENS.ui,
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: ".08em",
+              textTransform: "uppercase",
+              color: TOKENS.ink,
+              opacity: 0.35,
+              textDecoration: "none",
+            }}
+          >
+            Admin sign-in
+          </button>
+        </div>
       </div>
     </Frame>
   );

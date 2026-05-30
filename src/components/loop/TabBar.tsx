@@ -39,7 +39,7 @@ const CUSTOMER_TABS: Tab[] = [
     prominent: true,
     match: (p) => p.startsWith("/new/plan") || p.startsWith("/trips"),
   },
-  { to: "/chat", label: "Chat", icon: Award, match: (p) => p.startsWith("/chat") },
+  { to: "/new/chat", label: "Chat", icon: Award, match: (p) => p.startsWith("/new/chat") || p.startsWith("/chat") },
   {
     to: "/new/profile",
     label: "Profile",
@@ -73,8 +73,37 @@ const HIDE_PREFIXES = [
   "/promoter",
   "/api",
   "/health",
-  "/new/", // all /new/* routes use their own navigation
   "/business/login",
+  // auth + onboarding flows (no nav chrome)
+  "/new/signin",
+  "/new/signup",
+  "/new/forgot-pw",
+  "/new/email-verify",
+  "/new/phone-verify",
+  "/new/parental-consent",
+  "/new/age-gate",
+  "/new/2fa",
+  "/new/about",
+  "/new/all-access",
+  "/new/explainer",
+  "/new/finished",
+  "/new/for-business",
+  "/new/family-pass",
+  "/new/family-plan",
+  "/new/referral",
+  "/new/learn-explore",
+  // full-screen flows
+  "/new/printing",
+  "/new/night",
+  "/new/gated",
+  "/new/locked",
+  "/new/paywall",
+  "/new/checkout-return",
+  "/new/qrcheckin",
+  "/new/confetti-cam",
+  "/new/command-center",
+  "/new/stripe",
+  "/new/night-together",
 ];
 
 function TabItem({
@@ -177,7 +206,7 @@ export function TabBar() {
   return (
     <nav
       aria-label="Primary navigation"
-      className="fixed inset-x-0 bottom-0 z-50 pb-[env(safe-area-inset-bottom)] lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 pb-[env(safe-area-inset-bottom)]"
     >
       {/* soft gradient fade so content scrolls cleanly behind the bar */}
       <div

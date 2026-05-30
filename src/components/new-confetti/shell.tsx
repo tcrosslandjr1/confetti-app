@@ -61,8 +61,19 @@ const KEYFRAMES = `
 export function Frame({ children }: { children: ReactNode }) {
   return (
     <>
-      <style>{KEYFRAMES}</style>
+      <style>{KEYFRAMES + `
+        @media (max-width: 480px) {
+          .cf-frame-outer { padding: 0 !important; background: #f8f0dd !important; }
+          .cf-frame-inner {
+            width: 100% !important;
+            height: 100dvh !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+          }
+        }
+      `}</style>
       <div
+        className="cf-frame-outer"
         style={{
           minHeight: "100dvh",
           display: "grid",
@@ -73,8 +84,7 @@ export function Frame({ children }: { children: ReactNode }) {
         }}
       >
         <div
-          // CSS vars cascaded onto the phone frame so the rest of the
-          // primitives (which reference var(--ink) etc.) just work.
+          className="cf-frame-inner"
           style={
             {
               position: "relative",

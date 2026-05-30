@@ -1,14 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
+// Old /auth route — redirect everything to the new sign-in screen.
+// /new/signin auto-forwards to /new/hub if the user is already logged in.
 export const Route = createFileRoute("/auth")({
-  validateSearch: (search: Record<string, unknown>): { redirect?: string; mode?: "signin" | "signup" | "reset" } => {
-    const raw = typeof search.redirect === "string" ? search.redirect : "";
-    const safe = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/";
-    const m: "signin" | "signup" | "reset" | undefined =
-      search.mode === "signin" || search.mode === "signup" || search.mode === "reset"
-        ? (search.mode as "signin" | "signup" | "reset")
-        : undefined;
-    return { redirect: safe, mode: m };
+  beforeLoad: () => {
+    throw redirect({ to: "/new/signin" });
   },
-  head: () => ({ meta: [{ title: "Welcome — Confetti" }] }),
+  component: () => null,
 });

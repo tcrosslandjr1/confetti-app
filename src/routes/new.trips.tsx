@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
   BrandMark, DotsBg, Frame, Stamp, TOKENS,
 } from "@/components/new-confetti/shell";
+import { useNewAuth } from "@/hooks/useNewAuth";
 
 // Slim port — design/new-confetti/project/more.jsx (TripsListScreen, line 10)
 export const Route = createFileRoute("/new/trips")({
@@ -36,7 +37,21 @@ const TRIPS = [
 ];
 
 function TripsPage() {
+  const { ready } = useNewAuth();
   const navigate = useNavigate();
+
+  if (!ready) {
+    return (
+      <Frame>
+        <div style={{
+          height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
+          background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
+          color: TOKENS.inkMuted,
+        }}>loading...</div>
+      </Frame>
+    );
+  }
+
   return (
     <Frame>
       <div style={{

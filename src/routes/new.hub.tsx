@@ -1,18 +1,27 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import {
   BrandMark, DotsBg, Frame, RouteDots, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
 import { useNewAuth } from "@/hooks/useNewAuth";
 import { getActiveLoop } from "@/lib/loop-store";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/new/hub")({
   component: HubPage,
+  validateSearch: (s: Record<string, unknown>) => ({
+    message: typeof s.message === "string" ? s.message : undefined,
+  }),
 });
 
 function HubPage() {
   const { ready, user } = useNewAuth();
   const navigate = useNavigate();
+  const { message } = Route.useSearch();
+
+  useEffect(() => {
+    if (message) toast.info(message);
+  }, [message]);
 
   // ── Real user display name & initials ───────────────────────────
   const rawName = user?.user_metadata?.display_name || user?.email?.split("@")[0] || "hey";

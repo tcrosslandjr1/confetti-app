@@ -2,8 +2,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
   BrandMark, ChunkyButton, Frame, Icons, Stamp, Ticket, TOKENS,
 } from "@/components/new-confetti/shell";
+import { useNewAuth } from "@/hooks/useNewAuth";
 
-// Slim port — design/new-confetti/project/profile.jsx (WalletPassScreen, line 316)
 export const Route = createFileRoute("/new/wallet")({
   component: WalletPage,
 });
@@ -16,7 +16,20 @@ const HISTORY = [
 ];
 
 function WalletPage() {
+  const { ready } = useNewAuth();
   const navigate = useNavigate();
+
+  if (!ready) {
+    return (
+      <Frame>
+        <div style={{
+          height: "100%", display: "flex", alignItems: "center", justifyContent: "center",
+          background: TOKENS.bg, fontFamily: TOKENS.display, fontSize: 24, fontWeight: 900,
+          color: TOKENS.inkMuted,
+        }}>loading...</div>
+      </Frame>
+    );
+  }
 
   return (
     <Frame>

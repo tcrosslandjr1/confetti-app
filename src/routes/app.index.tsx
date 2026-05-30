@@ -10,6 +10,7 @@ import { useAuth } from "@/lib/auth-context";
 import { usePageview, trackEngagement } from "@/lib/analytics";
 import { Reveal } from "@/components/Reveal";
 import { fetchFeedRecommendations, getUserLocation } from "@/lib/agents/feed-recommendations";
+import { getSelectedCity, DEFAULT_CITY } from "@/lib/cities";
 import type { FeedVenue } from "@/lib/agents/feed-recommendations";
 import { WhyThisPick } from "@/components/WhyThisPick";
 import type { PickSignal } from "@/components/WhyThisPick";
@@ -21,13 +22,16 @@ export const Route = createFileRoute("/app/")({
 function TonightFeedPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const selectedCity = getSelectedCity() ?? DEFAULT_CITY;
+
   const { data: trendingVenues } = useQuery({
-    queryKey: ["app", "tonight", "trending"],
+    queryKey: ["app", "tonight", "trending", selectedCity.slug],
     queryFn: async () => {
       const { data } = await supabase
         .from("viral_venues")
         .select("id,venue_name,neighborhood,city,photo_url,rating,tags,trend_score,summary")
         .eq("verified", true)
+        .ilike("city", `%${selectedCity.name}%`)
         .order("trend_score", { ascending: false })
         .limit(8);
       return data ?? [];
@@ -63,13 +67,14 @@ function TonightFeedPage() {
 
   // AI-powered personalized picks from Claude
   const { data: aiPicks, isLoading: aiLoading } = useQuery({
-    queryKey: ["app", "tonight", "ai-picks", user?.id],
+    queryKey: ["app", "tonight", "ai-picks", user?.id, selectedCity.slug],
     queryFn: async () => {
       const loc = await getUserLocation();
+      const city = getSelectedCity() ?? DEFAULT_CITY;
       const feed = await fetchFeedRecommendations({
-        lat: loc?.lat,
-        lng: loc?.lng,
-        city: "Washington DC",
+        lat: loc?.lat ?? city.lat,
+        lng: loc?.lng ?? city.lng,
+        city: city.name,
         sections: ["picks", "surprise"],
         limit: 4,
       });

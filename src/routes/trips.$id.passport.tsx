@@ -4,7 +4,6 @@ import { ArrowLeft, Stamp, Star, MapPin, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import {
-  completeItinerary,
   getItinerary,
   updateItinerary,
   updateStop,
@@ -40,7 +39,6 @@ function Passport() {
     (async () => {
       try {
         const data = await getItinerary(id);
-        if (!data.itinerary.completed_at) await completeItinerary(id);
         setIt(data.itinerary);
         setStops(data.stops);
         setOverall({

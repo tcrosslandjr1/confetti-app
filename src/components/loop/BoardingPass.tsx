@@ -76,6 +76,7 @@ import { PartnerPickBadge } from "@/components/PartnerPickBadge";
 import { VerifiedBadge } from "@/components/VerifiedBadge";
 import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
+import { supabase } from "@/integrations/supabase/client";
 import { fetchVenueIntel, type VenueIntel, type FetchStatus } from "@/lib/agents/venue-intel";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { ParkingPin } from "@/components/loop/ParkingPin";
@@ -1371,6 +1372,21 @@ function StopCard({
       kind: "check_in",
       message: `Checked in at ${stop.name}`,
       detail: `+${result.awarded} Confetti`,
+    });
+    // Persist passport stamp to DB so it survives across devices and sessions.
+    supabase.auth.getUser().then(({ data }) => {
+      const uid = data.user?.id;
+      if (!uid) return;
+      void supabase.from("passport_stamps").upsert(
+        {
+          user_id: uid,
+          venue_id: stop.venueId ?? null,
+          stamp_type: "check_in",
+          earned_at: result.stop.checkedInAt ?? new Date().toISOString(),
+          visit_notes: stop.name,
+        },
+        { onConflict: "user_id,venue_id,stamp_type", ignoreDuplicates: true },
+      );
     });
     toast.success(`Checked in at ${stop.name}`, {
       description: `+${result.awarded} Confetti added to your balance`,

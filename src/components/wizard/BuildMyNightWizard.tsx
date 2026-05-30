@@ -936,6 +936,11 @@ export function BuildMyNightWizard() {
             lng: loc?.lng ?? null,
             city: cityName,
             count: 3,
+            crew,
+            when,
+            pickedDate,
+            musts,
+            wishlist,
           },
         });
         if (cancelled) return;
@@ -1407,7 +1412,7 @@ export function BuildMyNightWizard() {
     return makeDemoLoop({
       ...(existing ?? {}),
       passenger: existing?.passenger || (user?.email?.split("@")[0]?.toUpperCase() ?? "GUEST"),
-      groupSize: crew === "solo" ? 1 : crew === "duo" ? 2 : crew === "small" ? 4 : 6,
+      groupSize: crew === "solo" ? 1 : crew === "date" ? 2 : crew === "small" ? 4 : 6,
       occasion: existing?.occasion,
       vibe: vibe[0] ?? existing?.vibe,
       vibes: vibe.length ? vibe : existing?.vibes,
@@ -1849,16 +1854,6 @@ export function BuildMyNightWizard() {
                 >
                   <ArrowLeft className="h-3.5 w-3.5" /> Back
                 </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    toast("Group planning coming soon!", { icon: "🎉" });
-                  }}
-                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
-                  aria-label="Build this night with friends"
-                >
-                  <Users className="h-3.5 w-3.5" /> Build with friends
-                </button>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
                   Tap <span className="font-bold text-coral">+ Add</span> on a stop to lock it in
                 </span>
@@ -1906,7 +1901,7 @@ export function BuildMyNightWizard() {
                         </button>
                         <button
                           type="button"
-                          onClick={() => setStep(1)}
+                          onClick={() => setStep(0)}
                           className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5"
                         >
                           Change vibes
@@ -2588,9 +2583,9 @@ export function BuildMyNightWizard() {
                               <Phone className="h-3.5 w-3.5" /> {d.phone}
                             </a>
                             <a
-                              href={`https://www.google.com/search?q=${encodeURIComponent(s.venue + " " + (s.neighborhood ?? ""))}`}
+                              href={live?.websiteUri ?? `https://www.google.com/search?q=${encodeURIComponent(s.venue + " " + (s.neighborhood ?? "") + " DC")}`}
                               target="_blank"
-                              rel="noreferrer"
+                              rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
                             >
                               <Globe className="h-3.5 w-3.5" /> Website
@@ -2957,29 +2952,6 @@ function DishQuickView({
               </DialogDescription>
             </DialogHeader>
 
-            {matched.length > 0 && (
-              <div
-                role="alert"
-                className="rounded-xl border-2 border-coral bg-coral/15 p-3 shadow-brut"
-              >
-                <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">
-                  ⚠ Heads up — contains allergens you avoid
-                </p>
-                <div className="mt-1.5 flex flex-wrap gap-1.5">
-                  {matched.map((a) => (
-                    <span
-                      key={a}
-                      className="inline-flex items-center gap-1 rounded-full border-2 border-coral bg-cream px-2 py-0.5 text-[11px] font-bold text-coral"
-                    >
-                      ⚠ {a}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-1.5 text-[11px] text-cream/80">
-                  Confirm with the kitchen before ordering or ask about a substitute.
-                </p>
-              </div>
-            )}
 
             {typeof info.spice === "number" && info.spice > 0 && (
               <div className="flex items-center gap-1.5 text-[12px] text-cream/70">

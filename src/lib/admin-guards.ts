@@ -30,6 +30,9 @@ export async function requireAdminAccess() {
     .maybeSingle();
 
   if (!roleData) {
-    throw redirect({ to: "/app" });
+    throw redirect({
+      to: "/app",
+      search: { message: "You need an admin account to access that page." },
+    });
   }
 }

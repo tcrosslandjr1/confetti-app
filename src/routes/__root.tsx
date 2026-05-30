@@ -335,9 +335,11 @@ function RootComponent() {
               <Suspense fallback={null}>
                 <CookieConsent />
               </Suspense>
-              <Suspense fallback={null}>
-                <AuthDebugPanel />
-              </Suspense>
+              {import.meta.env.DEV && (
+                <Suspense fallback={null}>
+                  <AuthDebugPanel />
+                </Suspense>
+              )}
               <Toaster />
             </WizardProvider>
           </MapProvider>

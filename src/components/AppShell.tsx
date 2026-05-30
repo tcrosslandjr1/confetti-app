@@ -1,7 +1,9 @@
-import { Link, Outlet, useLocation } from "@tanstack/react-router";
+import { Link, Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { Home, Compass, Sparkles, Ticket, User } from "lucide-react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useLocationTracking } from "@/hooks/useLocationTracking";
+import { useAuth } from "@/lib/auth-context";
 
 /* ── Navigation tabs ────────────────────────────────────────────────── */
 
@@ -106,11 +108,33 @@ export function BottomNav() {
 
 export function AppShell() {
   useLocationTracking();
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  // Auth guard — redirect unauthenticated visitors to /auth
+  useEffect(() => {
+    if (loading) return;
+    if (!user) {
+      navigate({
+        to: "/auth",
+        search: { redirect: window.location.pathname },
+        replace: true,
+      });
+    }
+  }, [user, loading, navigate]);
+
+  // Show nothing while auth resolves or while redirecting
+  if (loading || !user) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-cream">
+        <div className="h-7 w-7 animate-spin rounded-full border-2 border-ink/10 border-t-coral" />
+      </div>
+    );
+  }
 
   return (
     <div className="relative mx-auto min-h-screen w-full max-w-md bg-cream text-ink pb-24">
       <Outlet />
-      <BottomNav />
     </div>
   );
 }

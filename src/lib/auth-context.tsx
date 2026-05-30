@@ -10,6 +10,7 @@ import {
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { consumePendingReferralOnSignup } from "@/lib/referrals";
+import { ensureProfile } from "@/lib/auth";
 
 export type ViewAs = "admin" | "business" | "promoter" | "customer" | "visitor";
 const VIEW_KEY = "concierge.viewAs";
@@ -108,6 +109,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       );
       if (event === "SIGNED_IN") {
         setViewAsState(null);
+        // Guarantee the profiles row exists — critical for users arriving from
+        // email-confirmation links where the signup upsert was skipped.
+        if (s?.user) void ensureProfile(s.user);
         // Fire-and-forget: link any pending ?ref= code to this account
         void consumePendingReferralOnSignup();
       } else if (event === "SIGNED_OUT") {
@@ -130,49 +134,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  // Look up admin role whenever the user changes
+  // Single combined role effect — all three checks run in parallel so roleLoading
+  // stays true until every query has settled (prevents partial-role flash).
   useEffect(() => {
     let cancelled = false;
     const uid = session?.user?.id;
     if (!uid) {
       setIsAdmin(false);
+      setIsBusiness(false);
+      setIsPromoter(false);
       setRoleLoading(false);
       return;
     }
     setRoleLoading(true);
-    supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", uid)
-      .eq("role", "admin")
-      .maybeSingle()
-      .then(
-        ({ data }) => {
-          if (!cancelled) setIsAdmin(!!data);
-          if (!cancelled) setRoleLoading(false);
-        },
-        () => {
-          if (!cancelled) {
-            setIsAdmin(false);
-            setRoleLoading(false);
-          }
-        },
-      );
-    return () => {
-      cancelled = true;
-    };
-  }, [session?.user?.id]);
-
-  // Look up business access: user owns an advertiser account OR has a venue claim
-  useEffect(() => {
-    let cancelled = false;
-    const uid = session?.user?.id;
-    if (!uid) {
-      setIsBusiness(false);
-      return;
-    }
-    // Check advertisers table (owner_id) and venue_claims table (user_id)
     Promise.all([
+      supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", uid)
+        .eq("role", "admin")
+        .maybeSingle(),
       supabase
         .from("advertisers")
         .select("id")
@@ -185,43 +166,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         .eq("user_id", uid)
         .limit(1)
         .maybeSingle(),
+      supabase
+        .from("promoters")
+        .select("id")
+        .eq("user_id", uid)
+        .limit(1)
+        .maybeSingle(),
     ]).then(
-      ([advRes, claimRes]) => {
-        if (!cancelled) {
-          setIsBusiness(!!advRes.data || !!claimRes.data);
-        }
+      ([adminRes, advRes, claimRes, promoterRes]) => {
+        if (cancelled) return;
+        setIsAdmin(!!adminRes.data);
+        setIsBusiness(!!advRes.data || !!claimRes.data);
+        setIsPromoter(!!promoterRes.data);
+        setRoleLoading(false);
       },
       () => {
-        if (!cancelled) setIsBusiness(false);
+        if (cancelled) return;
+        setIsAdmin(false);
+        setIsBusiness(false);
+        setIsPromoter(false);
+        setRoleLoading(false);
       },
     );
-    return () => {
-      cancelled = true;
-    };
-  }, [session?.user?.id]);
-
-  // Look up promoter access: user has a promoter profile
-  useEffect(() => {
-    let cancelled = false;
-    const uid = session?.user?.id;
-    if (!uid) {
-      setIsPromoter(false);
-      return;
-    }
-    supabase
-      .from("promoters")
-      .select("id")
-      .eq("user_id", uid)
-      .limit(1)
-      .maybeSingle()
-      .then(
-        ({ data }) => {
-          if (!cancelled) setIsPromoter(!!data);
-        },
-        () => {
-          if (!cancelled) setIsPromoter(false);
-        },
-      );
     return () => {
       cancelled = true;
     };

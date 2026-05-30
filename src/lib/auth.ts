@@ -65,6 +65,10 @@ function getAuthProvider(user: User): AuthAccount["provider"] {
   return provider === "google" || provider === "apple" ? provider : "email";
 }
 
+export async function ensureProfile(user: User) {
+  return syncProfile(user);
+}
+
 async function syncProfile(user: User) {
   const provider = getAuthProvider(user);
   const account = mapSupabaseUser(user, provider);

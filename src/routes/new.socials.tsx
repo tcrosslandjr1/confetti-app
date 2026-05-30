@@ -213,7 +213,7 @@ function SocialsPage() {
               onClick={handleSync}
               disabled={syncing}
               variant="primary"
-              fullWidth
+              full
             >
               {syncing ? "syncing…" : `✨ sync now (${connectedCount} connected)`}
             </ChunkyButton>

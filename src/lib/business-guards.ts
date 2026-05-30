@@ -45,6 +45,9 @@ export async function requireBusinessAccess() {
   const hasAccess = !!advRes.data || !!claimRes.data || !!roleRes.data;
 
   if (!hasAccess) {
-    throw redirect({ to: "/business" });
+    throw redirect({
+      to: "/business",
+      search: { message: "You need a business account to access that page." },
+    });
   }
 }

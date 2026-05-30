@@ -45,11 +45,22 @@ const BUSINESS_TABS: Tab[] = [
 
 const HIDE_PREFIXES = [
   "/auth",
+  "/admin",
   "/about",
   "/privacy",
   "/influencer",
+  "/promoter",
   "/api",
   "/health",
+  "/new/signin",
+  "/new/signup",
+  "/new/2fa",
+  "/new/phone-verify",
+  "/new/email-verify",
+  "/new/parental-consent",
+  "/new/age-gate",
+  "/new/forgot-pw",
+  "/business/login",
 ];
 
 function TabItem({

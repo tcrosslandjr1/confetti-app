@@ -31,7 +31,7 @@ function SignUpPage() {
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email.trim(),
       options: {
-        emailRedirectTo: `${window.location.origin}/new/hub`,
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
         data: {
           display_name: name.trim(),
           city: city.trim(),

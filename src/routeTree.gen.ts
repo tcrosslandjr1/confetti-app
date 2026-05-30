@@ -22,6 +22,7 @@ import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
@@ -204,6 +205,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/auth.lazy').then((d) => d.Route))
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/auth/callback',
+  path: '/auth/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppRoute = AppRouteImport.update({
   id: '/app',
   path: '/app',
@@ -810,6 +816,7 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
@@ -940,6 +947,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/auth': typeof AuthRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
@@ -1072,6 +1080,7 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
@@ -1205,6 +1214,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/app'
     | '/auth'
+    | '/auth/callback'
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
@@ -1335,6 +1345,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/accessibility'
     | '/auth'
+    | '/auth/callback'
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
@@ -1466,6 +1477,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/app'
     | '/auth'
+    | '/auth/callback'
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
@@ -1598,6 +1610,7 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   AppRoute: typeof AppRouteWithChildren
   AuthRoute: typeof AuthRoute
+  AuthCallbackRoute: typeof AuthCallbackRoute
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
   CheckInRoute: typeof CheckInRoute
@@ -1804,6 +1817,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/auth/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app': {
@@ -2694,6 +2714,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccessibilityRoute: AccessibilityRoute,
   AppRoute: AppRouteWithChildren,
   AuthRoute: AuthRoute,
+  AuthCallbackRoute: AuthCallbackRoute,
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,
   CheckInRoute: CheckInRoute,

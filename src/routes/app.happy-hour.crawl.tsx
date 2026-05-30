@@ -202,7 +202,8 @@ function CrawlTemplatePage() {
     queryKey: ["happy-hour-template", templateId],
     queryFn: async () => {
       if (!templateId) return null;
-      const { data, error } = await supabase
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data, error } = await (supabase as any)
         .from("happy_hour_itinerary_templates")
         .select("*")
         .eq("id", templateId)
@@ -219,7 +220,8 @@ function CrawlTemplatePage() {
     queryKey: ["happy-hour-crawl-deals", templateId, template?.vibe_arc],
     queryFn: async () => {
       if (!template) return [];
-      const { data, error } = await supabase
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data, error } = await (supabase as any)
         .from("happy_hour_deals")
         .select(
           `

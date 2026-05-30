@@ -176,7 +176,8 @@ function HappyHourPage() {
   } = useQuery({
     queryKey: ["happy-hour-deals"],
     queryFn: async () => {
-      const { data, error } = await supabase
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data, error } = await (supabase as any)
         .from("happy_hour_deals")
         .select(
           `
@@ -196,7 +197,8 @@ function HappyHourPage() {
   const { data: templates } = useQuery({
     queryKey: ["happy-hour-templates"],
     queryFn: async () => {
-      const { data, error } = await supabase
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data, error } = await (supabase as any)
         .from("happy_hour_itinerary_templates")
         .select("*")
         .eq("is_active", true)

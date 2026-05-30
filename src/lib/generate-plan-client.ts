@@ -63,11 +63,15 @@ export type GeneratePlanInput = {
   timeOfDay?: string;
   groupSize?: number;
   planType?: string;
+  /** City name to plan in — e.g. "Washington DC", "Baltimore". Overrides the edge fn's default. */
+  city?: string;
   surpriseMode?: boolean;
   localsMode?: boolean;
   trendBias?: boolean;
   notes?: string;
-  pinnedVenues?: PinnedVenue[]; // hand-picked from Explore screen
+  pinnedVenues?: PinnedVenue[];
+  /** User's Supabase JWT — passed so the edge function can identify the caller. */
+  accessToken?: string;
 };
 
 // ─── Main function ──────────────────────────────────────────────────────────
@@ -100,12 +104,16 @@ export async function generateAiPlan(input: GeneratePlanInput): Promise<{
   const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
   if (!url || !key) throw new Error("Supabase environment not configured");
 
+  // Prefer the user's JWT so the edge function can identify the caller and
+  // personalise results. Fall back to the anon key for unauthenticated calls.
+  const authToken = input.accessToken ?? key;
+
   const res = await fetch(`${url}/functions/v1/generate-plan`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       apikey: key,
-      Authorization: `Bearer ${key}`,
+      Authorization: `Bearer ${authToken}`,
     },
     body: JSON.stringify({
       occasion: input.occasion,

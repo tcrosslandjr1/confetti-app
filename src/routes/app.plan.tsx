@@ -12,7 +12,7 @@ import {
   trackEngagement,
   trackConversion,
 } from "@/lib/analytics";
-import { setActiveLoop, makeDemoLoop } from "@/lib/loop-store";
+import { setActiveLoop } from "@/lib/loop-store";
 import type { ActiveLoop } from "@/lib/loop-store";
 import { getSelectedCity } from "@/lib/cities";
 import { generateAiPlan, type AiItinerary } from "@/lib/generate-plan-client";
@@ -22,6 +22,7 @@ import {
   type BuildPayload,
 } from "@/lib/itineraries";
 import { setActiveHangout, type HangoutPlan } from "@/lib/hangout-store";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/app/plan")({
@@ -95,7 +96,7 @@ function isHangoutMode(t: PlanType): boolean {
 
 function PlanMyNightPage() {
   usePageview("app_plan", "/app/plan");
-  const { user } = useAuth();
+  const { user, session } = useAuth();
   const navigate = useNavigate();
   const [planType, setPlanType] = useState<PlanType | null>(null);
   const [step, setStep] = useState(0);
@@ -108,7 +109,7 @@ function PlanMyNightPage() {
 
   // Hangout flow state (used when planType is one of the host/outdoor/stay-in/family modes)
   const [hangoutOccasion, setHangoutOccasion] = useState<{ key: string; label: string } | null>(null);
-  const [hangoutCity, setHangoutCity] = useState("Washington");
+  const [hangoutCity, setHangoutCity] = useState(() => getSelectedCity()?.name ?? "");
   const [hangoutGuests, setHangoutGuests] = useState(6);
   const [hangoutBudget, setHangoutBudget] = useState<string>("$$");
   const [hangoutStart, setHangoutStart] = useState("18:00");
@@ -126,17 +127,8 @@ function PlanMyNightPage() {
     if (!hangoutOccasion || buildingHangout) return;
     setBuildingHangout(true);
     try {
-      const url = import.meta.env.VITE_SUPABASE_URL;
-      const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-      if (!url || !key) throw new Error("Supabase env missing");
-      const res = await fetch(`${url}/functions/v1/build-hangout`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: key,
-          Authorization: `Bearer ${key}`,
-        },
-        body: JSON.stringify({
+      const { data, error: fnError } = await supabase.functions.invoke("build-hangout", {
+        body: {
           occasion: hangoutOccasion.key,
           city: hangoutCity || undefined,
           guestCount: hangoutGuests,
@@ -149,23 +141,20 @@ function PlanMyNightPage() {
               ? "indoor"
               : "either",
           mode: planType === "host" ? "host" : planType === "outdoor" ? "outdoor" : "stay-in",
-        }),
+        },
       });
-      if (!res.ok) {
-        const txt = await res.text().catch(() => "");
-        throw new Error(`AI ${res.status}: ${txt.slice(0, 120)}`);
-      }
-      const data = (await res.json()) as { plan?: HangoutPlan; meta?: { occasion_key?: string } };
-      if (!data.plan) throw new Error("No plan returned");
+      if (fnError) throw new Error(fnError.message ?? "Edge function error");
+      const hangoutData = data as { plan?: HangoutPlan; meta?: { occasion_key?: string } };
+      if (!hangoutData?.plan) throw new Error("No plan returned");
       setActiveHangout({
         id: `hangout-${Date.now()}`,
         occasion: hangoutOccasion.label,
-        occasionKey: data.meta?.occasion_key ?? hangoutOccasion.key,
+        occasionKey: hangoutData.meta?.occasion_key ?? hangoutOccasion.key,
         city: hangoutCity || null,
         startTime: hangoutStart || null,
         date: null,
         mode: planType === "host" ? "host" : planType === "outdoor" ? "outdoor" : "stay-in",
-        plan: data.plan,
+        plan: hangoutData.plan,
         generatedAt: new Date().toISOString(),
       });
       trackConversion("hangout_built", {
@@ -190,6 +179,8 @@ function PlanMyNightPage() {
     setAiItinerary(null);
     setAiLoop(null);
     try {
+      const selectedCity = getSelectedCity();
+      const cityName = selectedCity?.name ?? "Washington DC";
       const { itinerary, loop } = await generateAiPlan({
         occasion: occasion ?? "Night out",
         vibe: vibe ?? undefined,
@@ -197,7 +188,9 @@ function PlanMyNightPage() {
         timeOfDay: when ?? undefined,
         groupSize,
         planType: planType ?? "go-out",
+        city: cityName,
         surpriseMode: opts?.surprise ?? false,
+        accessToken: session?.access_token,
       });
       setAiItinerary(itinerary);
       setAiLoop(loop);
@@ -210,13 +203,16 @@ function PlanMyNightPage() {
     }
   }
 
+  /* ── Search params — declared before any useEffect that reads them ── */
+  const { mode, vibe: vibeParam } = Route.useSearch();
+
   // Auto-trigger generation when wizard reaches results step
   useEffect(() => {
     if (step >= 4 && !generatingPlan && !aiItinerary && !genError && !generationTriggered.current) {
       generationTriggered.current = true;
       handleGeneratePlan({ surprise: mode === "surprise" });
     }
-  }, [step]);
+  }, [step, generatingPlan, aiItinerary, genError, mode]);
 
   // Reset generation state when user starts over
   useEffect(() => {
@@ -229,7 +225,6 @@ function PlanMyNightPage() {
   }, [step]);
 
   /* ── Surprise Me mode — auto-trigger from home feed ── */
-  const { mode, vibe: vibeParam } = Route.useSearch();
   useEffect(() => {
     if (mode === "surprise") {
       setOccasion("Solo");
@@ -277,29 +272,26 @@ function PlanMyNightPage() {
     });
   }, [vibeParam]);
 
-  /* ── Book → boarding pass (localStorage-backed) ── */
+  /* ── Book → boarding pass ── */
   function handleBook() {
-    if (aiLoop) {
-      // Use real AI-generated loop
-      aiLoop.passenger = user?.user_metadata?.display_name ?? user?.email ?? "YOU";
-      setActiveLoop(aiLoop);
-    } else {
-      // Fallback if AI generation failed
-      const loop = makeDemoLoop({
-        occasion: occasion ?? undefined,
-        planParams: {
-          occasionId: occasion ?? undefined,
-          vibeId: vibe ?? undefined,
-          groupSize,
-          budget: budget ? (Number(budget) as 1 | 2 | 3 | 4) : undefined,
-        },
-        groupSize,
-        passenger: user?.user_metadata?.display_name ?? user?.email ?? "Guest",
-      });
-      loop.to = `${vibe ?? "Epic"} ${occasion ?? "Night"}`;
-      setActiveLoop(loop);
+    if (!user) {
+      navigate({ to: "/auth", search: { redirect: "/app/plan" } });
+      return;
     }
+    if (!aiLoop) {
+      toast.error("Generate a plan first before booking.");
+      return;
+    }
+    aiLoop.passenger = user.user_metadata?.display_name ?? user.email ?? "YOU";
+    setActiveLoop(aiLoop);
     const city = getSelectedCity();
+    // Fire-and-forget DB persist so the trip appears in /trips and survives across devices.
+    if (occasion) {
+      const payload: BuildPayload = { occasion, vibe: vibe ?? undefined, budget: budget ?? undefined };
+      createSkeletonItinerary(payload)
+        .then(({ id }) => populateItinerary(id, payload))
+        .catch(() => null);
+    }
     trackConversion("plan_booked", {
       plan: aiItinerary?.title ?? "AI Plan",
       occasion, vibe, budget, groupSize, when,
@@ -340,6 +332,28 @@ function PlanMyNightPage() {
   ];
   const current = steps[step];
   const isReady = step >= steps.length;
+
+  // Auth gate — plan generation requires a real account
+  if (!user) {
+    return (
+      <div className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
+        <div className="mb-4 grid size-16 place-items-center rounded-2xl bg-coral/10 text-3xl">✨</div>
+        <h1 className="font-display text-2xl font-extrabold tracking-tight text-ink">
+          Sign in to plan your night
+        </h1>
+        <p className="mt-2 text-[13px] leading-relaxed text-ink/50">
+          Build AI-curated itineraries, save your plans, and earn stamps.
+        </p>
+        <Button
+          className="mt-6 w-full max-w-xs"
+          variant="ink"
+          onClick={() => navigate({ to: "/auth", search: { redirect: "/app/plan" } })}
+        >
+          Sign in or create account
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className="pb-8">
@@ -404,17 +418,17 @@ function PlanMyNightPage() {
               </div>
               <div className="mt-2 flex flex-wrap gap-2">
                 {[
-                  { label: "🦀 Crabs in Baltimore", o: HANGOUT_OCCASIONS[0], city: "Baltimore", guests: 8, budget: "$$", start: "14:00", notes: "" },
-                  { label: "🎲 Game night DC", o: HANGOUT_OCCASIONS[8], city: "Washington", guests: 6, budget: "$", start: "19:30", notes: "close friends, competitive" },
-                  { label: "🔥 Cookout backyard", o: HANGOUT_OCCASIONS[1], city: "Washington", guests: 10, budget: "$$", start: "15:00", notes: "" },
-                  { label: "🧺 Park picnic", o: HANGOUT_OCCASIONS[4], city: "Washington", guests: 4, budget: "$", start: "12:30", notes: "" },
+                  { label: "🎲 Game night", o: HANGOUT_OCCASIONS[8], guests: 6, budget: "$", start: "19:30", notes: "close friends, competitive" },
+                  { label: "🔥 Cookout backyard", o: HANGOUT_OCCASIONS[1], guests: 10, budget: "$$", start: "15:00", notes: "" },
+                  { label: "🧺 Park picnic", o: HANGOUT_OCCASIONS[4], guests: 4, budget: "$", start: "12:30", notes: "" },
+                  { label: "🎉 Birthday dinner", o: HANGOUT_OCCASIONS[2], guests: 8, budget: "$$$", start: "19:00", notes: "surprise birthday" },
                 ].map((d) => (
                   <button
                     key={d.label}
                     type="button"
                     onClick={() => {
                       setHangoutOccasion(d.o);
-                      setHangoutCity(d.city);
+                      setHangoutCity(getSelectedCity()?.name ?? "");
                       setHangoutGuests(d.guests);
                       setHangoutBudget(d.budget);
                       setHangoutStart(d.start);

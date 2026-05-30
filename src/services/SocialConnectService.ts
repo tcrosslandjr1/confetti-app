@@ -47,7 +47,8 @@ export async function connectPlatform(
 
   // Write the state row — the callback validates this before issuing tokens
   const table = STATE_TABLE[platform];
-  const { error } = await supabase.from(table).insert({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { error } = await (supabase as any).from(table).insert({
     state: stateToken,
     user_id: user.id,
     redirect_to: redirectBack,

@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PromoterRouteImport } from './routes/promoter'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -22,8 +21,6 @@ import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
-import { Route as AppRouteImport } from './routes/app'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as SplatRouteImport } from './routes/$'
@@ -32,7 +29,6 @@ import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as CitiesIndexRouteImport } from './routes/cities.index'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
-import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as PromoterLoginRouteImport } from './routes/promoter.login'
@@ -100,11 +96,7 @@ import { Route as BusinessDashboardRouteImport } from './routes/business.dashboa
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
 import { Route as BusinessAnalyticsRouteImport } from './routes/business.analytics'
 import { Route as BusinessAdsRouteImport } from './routes/business.ads'
-import { Route as AppReelsRouteImport } from './routes/app.reels'
-import { Route as AppProfileRouteImport } from './routes/app.profile'
-import { Route as AppPlanRouteImport } from './routes/app.plan'
-import { Route as AppHappyHourRouteImport } from './routes/app.happy-hour'
-import { Route as AppExploreRouteImport } from './routes/app.explore'
+import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdminVerificationsRouteImport } from './routes/admin.verifications'
@@ -114,7 +106,6 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminConsoleRouteImport } from './routes/admin.console'
 import { Route as AdminCityAnalyticsRouteImport } from './routes/admin.city-analytics'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
-import { Route as AppHappyHourCrawlRouteImport } from './routes/app.happy-hour.crawl'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiMapsSatelliteRouteImport } from './routes/api/maps/satellite'
 import { Route as ApiPublicWebhooksPartnerRouteImport } from './routes/api/public/webhooks/partner'
@@ -140,11 +131,6 @@ import { Route as ApiPublicPartnerV1OrdersIndexRouteImport } from './routes/api/
 import { Route as ApiPublicPartnerV1ReservationsIdRouteImport } from './routes/api/public/partner/v1/reservations/$id'
 import { Route as ApiPublicPartnerV1OrdersIdRouteImport } from './routes/api/public/partner/v1/orders/$id'
 
-const WelcomeRoute = WelcomeRouteImport.update({
-  id: '/welcome',
-  path: '/welcome',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -204,16 +190,6 @@ const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/auth.lazy').then((d) => d.Route))
-const AuthCallbackRoute = AuthCallbackRouteImport.update({
-  id: '/auth/callback',
-  path: '/auth/callback',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppRoute = AppRouteImport.update({
-  id: '/app',
-  path: '/app',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const AccessibilityRoute = AccessibilityRouteImport.update({
   id: '/accessibility',
@@ -254,11 +230,6 @@ const BusinessIndexRoute = BusinessIndexRouteImport.update({
   id: '/business/',
   path: '/business/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const AppIndexRoute = AppIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AppRoute,
 } as any)
 const VenueIdRoute = VenueIdRouteImport.update({
   id: '/venue/$id',
@@ -595,30 +566,10 @@ const BusinessAdsRoute = BusinessAdsRouteImport.update({
   path: '/business/ads',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppReelsRoute = AppReelsRouteImport.update({
-  id: '/reels',
-  path: '/reels',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppProfileRoute = AppProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppPlanRoute = AppPlanRouteImport.update({
-  id: '/plan',
-  path: '/plan',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppHappyHourRoute = AppHappyHourRouteImport.update({
-  id: '/happy-hour',
-  path: '/happy-hour',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppExploreRoute = AppExploreRouteImport.update({
-  id: '/explore',
-  path: '/explore',
-  getParentRoute: () => AppRoute,
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/callback',
+  path: '/callback',
+  getParentRoute: () => AuthRoute,
 } as any)
 const ApiPlanRoute = ApiPlanRouteImport.update({
   id: '/api/plan',
@@ -664,11 +615,6 @@ const TripsIdPassportRoute = TripsIdPassportRouteImport.update({
   id: '/passport',
   path: '/passport',
   getParentRoute: () => TripsIdRoute,
-} as any)
-const AppHappyHourCrawlRoute = AppHappyHourCrawlRouteImport.update({
-  id: '/crawl',
-  path: '/crawl',
-  getParentRoute: () => AppHappyHourRoute,
 } as any)
 const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
   id: '/api/public/pick-events',
@@ -814,9 +760,7 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
-  '/app': typeof AppRouteWithChildren
-  '/auth': typeof AuthRoute
-  '/auth/callback': typeof AuthCallbackRoute
+  '/auth': typeof AuthRouteWithChildren
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
@@ -828,7 +772,6 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/welcome': typeof WelcomeRoute
   '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
@@ -837,11 +780,7 @@ export interface FileRoutesByFullPath {
   '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
-  '/app/explore': typeof AppExploreRoute
-  '/app/happy-hour': typeof AppHappyHourRouteWithChildren
-  '/app/plan': typeof AppPlanRoute
-  '/app/profile': typeof AppProfileRoute
-  '/app/reels': typeof AppReelsRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
@@ -909,14 +848,12 @@ export interface FileRoutesByFullPath {
   '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
-  '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
   '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
-  '/app/happy-hour/crawl': typeof AppHappyHourCrawlRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
@@ -946,8 +883,7 @@ export interface FileRoutesByTo {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
-  '/auth': typeof AuthRoute
-  '/auth/callback': typeof AuthCallbackRoute
+  '/auth': typeof AuthRouteWithChildren
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
@@ -959,7 +895,6 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/welcome': typeof WelcomeRoute
   '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
@@ -968,11 +903,7 @@ export interface FileRoutesByTo {
   '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
-  '/app/explore': typeof AppExploreRoute
-  '/app/happy-hour': typeof AppHappyHourRouteWithChildren
-  '/app/plan': typeof AppPlanRoute
-  '/app/profile': typeof AppProfileRoute
-  '/app/reels': typeof AppReelsRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
@@ -1040,14 +971,12 @@ export interface FileRoutesByTo {
   '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
-  '/app': typeof AppIndexRoute
   '/business': typeof BusinessIndexRoute
   '/cities': typeof CitiesIndexRoute
   '/events': typeof EventsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
-  '/app/happy-hour/crawl': typeof AppHappyHourCrawlRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
@@ -1078,9 +1007,7 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
-  '/app': typeof AppRouteWithChildren
-  '/auth': typeof AuthRoute
-  '/auth/callback': typeof AuthCallbackRoute
+  '/auth': typeof AuthRouteWithChildren
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
@@ -1092,7 +1019,6 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/promoter': typeof PromoterRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/welcome': typeof WelcomeRoute
   '/admin/city-analytics': typeof AdminCityAnalyticsRoute
   '/admin/console': typeof AdminConsoleRoute
   '/admin/login': typeof AdminLoginRoute
@@ -1101,11 +1027,7 @@ export interface FileRoutesById {
   '/admin/verifications': typeof AdminVerificationsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
-  '/app/explore': typeof AppExploreRoute
-  '/app/happy-hour': typeof AppHappyHourRouteWithChildren
-  '/app/plan': typeof AppPlanRoute
-  '/app/profile': typeof AppProfileRoute
-  '/app/reels': typeof AppReelsRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/business/ads': typeof BusinessAdsRoute
   '/business/analytics': typeof BusinessAnalyticsRoute
   '/business/claim': typeof BusinessClaimRoute
@@ -1173,14 +1095,12 @@ export interface FileRoutesById {
   '/promoter/login': typeof PromoterLoginRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
-  '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
   '/cities/': typeof CitiesIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/api/maps/satellite': typeof ApiMapsSatelliteRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
-  '/app/happy-hour/crawl': typeof AppHappyHourCrawlRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
@@ -1212,9 +1132,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/accessibility'
-    | '/app'
     | '/auth'
-    | '/auth/callback'
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
@@ -1226,7 +1144,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/promoter'
     | '/sitemap.xml'
-    | '/welcome'
     | '/admin/city-analytics'
     | '/admin/console'
     | '/admin/login'
@@ -1235,11 +1152,7 @@ export interface FileRouteTypes {
     | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
-    | '/app/explore'
-    | '/app/happy-hour'
-    | '/app/plan'
-    | '/app/profile'
-    | '/app/reels'
+    | '/auth/callback'
     | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
@@ -1307,14 +1220,12 @@ export interface FileRouteTypes {
     | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
-    | '/app/'
     | '/business/'
     | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
     | '/api/public/pick-events'
-    | '/app/happy-hour/crawl'
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
@@ -1345,7 +1256,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/accessibility'
     | '/auth'
-    | '/auth/callback'
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
@@ -1357,7 +1267,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/promoter'
     | '/sitemap.xml'
-    | '/welcome'
     | '/admin/city-analytics'
     | '/admin/console'
     | '/admin/login'
@@ -1366,11 +1275,7 @@ export interface FileRouteTypes {
     | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
-    | '/app/explore'
-    | '/app/happy-hour'
-    | '/app/plan'
-    | '/app/profile'
-    | '/app/reels'
+    | '/auth/callback'
     | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
@@ -1438,14 +1343,12 @@ export interface FileRouteTypes {
     | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
-    | '/app'
     | '/business'
     | '/cities'
     | '/events'
     | '/trips'
     | '/api/maps/satellite'
     | '/api/public/pick-events'
-    | '/app/happy-hour/crawl'
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
@@ -1475,9 +1378,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/accessibility'
-    | '/app'
     | '/auth'
-    | '/auth/callback'
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
@@ -1489,7 +1390,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/promoter'
     | '/sitemap.xml'
-    | '/welcome'
     | '/admin/city-analytics'
     | '/admin/console'
     | '/admin/login'
@@ -1498,11 +1398,7 @@ export interface FileRouteTypes {
     | '/admin/verifications'
     | '/api/chat'
     | '/api/plan'
-    | '/app/explore'
-    | '/app/happy-hour'
-    | '/app/plan'
-    | '/app/profile'
-    | '/app/reels'
+    | '/auth/callback'
     | '/business/ads'
     | '/business/analytics'
     | '/business/claim'
@@ -1570,14 +1466,12 @@ export interface FileRouteTypes {
     | '/promoter/login'
     | '/trips/$id'
     | '/venue/$id'
-    | '/app/'
     | '/business/'
     | '/cities/'
     | '/events/'
     | '/trips/'
     | '/api/maps/satellite'
     | '/api/public/pick-events'
-    | '/app/happy-hour/crawl'
     | '/trips/$id/passport'
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
@@ -1608,9 +1502,7 @@ export interface RootRouteChildren {
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
-  AppRoute: typeof AppRouteWithChildren
-  AuthRoute: typeof AuthRoute
-  AuthCallbackRoute: typeof AuthCallbackRoute
+  AuthRoute: typeof AuthRouteWithChildren
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
   CheckInRoute: typeof CheckInRoute
@@ -1622,7 +1514,6 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   PromoterRoute: typeof PromoterRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  WelcomeRoute: typeof WelcomeRoute
   AdminCityAnalyticsRoute: typeof AdminCityAnalyticsRoute
   AdminConsoleRoute: typeof AdminConsoleRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -1728,13 +1619,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/welcome': {
-      id: '/welcome'
-      path: '/welcome'
-      fullPath: '/welcome'
-      preLoaderRoute: typeof WelcomeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -1819,20 +1703,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/auth/callback': {
-      id: '/auth/callback'
-      path: '/auth/callback'
-      fullPath: '/auth/callback'
-      preLoaderRoute: typeof AuthCallbackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/app': {
-      id: '/app'
-      path: '/app'
-      fullPath: '/app'
-      preLoaderRoute: typeof AppRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/accessibility': {
       id: '/accessibility'
       path: '/accessibility'
@@ -1888,13 +1758,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/business/'
       preLoaderRoute: typeof BusinessIndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/app/': {
-      id: '/app/'
-      path: '/'
-      fullPath: '/app/'
-      preLoaderRoute: typeof AppIndexRouteImport
-      parentRoute: typeof AppRoute
     }
     '/venue/$id': {
       id: '/venue/$id'
@@ -2365,40 +2228,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessAdsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/app/reels': {
-      id: '/app/reels'
-      path: '/reels'
-      fullPath: '/app/reels'
-      preLoaderRoute: typeof AppReelsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/app/profile': {
-      id: '/app/profile'
-      path: '/profile'
-      fullPath: '/app/profile'
-      preLoaderRoute: typeof AppProfileRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/app/plan': {
-      id: '/app/plan'
-      path: '/plan'
-      fullPath: '/app/plan'
-      preLoaderRoute: typeof AppPlanRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/app/happy-hour': {
-      id: '/app/happy-hour'
-      path: '/happy-hour'
-      fullPath: '/app/happy-hour'
-      preLoaderRoute: typeof AppHappyHourRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/app/explore': {
-      id: '/app/explore'
-      path: '/explore'
-      fullPath: '/app/explore'
-      preLoaderRoute: typeof AppExploreRouteImport
-      parentRoute: typeof AppRoute
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
+      parentRoute: typeof AuthRoute
     }
     '/api/plan': {
       id: '/api/plan'
@@ -2462,13 +2297,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/trips/$id/passport'
       preLoaderRoute: typeof TripsIdPassportRouteImport
       parentRoute: typeof TripsIdRoute
-    }
-    '/app/happy-hour/crawl': {
-      id: '/app/happy-hour/crawl'
-      path: '/crawl'
-      fullPath: '/app/happy-hour/crawl'
-      preLoaderRoute: typeof AppHappyHourCrawlRouteImport
-      parentRoute: typeof AppHappyHourRoute
     }
     '/api/public/pick-events': {
       id: '/api/public/pick-events'
@@ -2641,37 +2469,15 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AppHappyHourRouteChildren {
-  AppHappyHourCrawlRoute: typeof AppHappyHourCrawlRoute
+interface AuthRouteChildren {
+  AuthCallbackRoute: typeof AuthCallbackRoute
 }
 
-const AppHappyHourRouteChildren: AppHappyHourRouteChildren = {
-  AppHappyHourCrawlRoute: AppHappyHourCrawlRoute,
+const AuthRouteChildren: AuthRouteChildren = {
+  AuthCallbackRoute: AuthCallbackRoute,
 }
 
-const AppHappyHourRouteWithChildren = AppHappyHourRoute._addFileChildren(
-  AppHappyHourRouteChildren,
-)
-
-interface AppRouteChildren {
-  AppExploreRoute: typeof AppExploreRoute
-  AppHappyHourRoute: typeof AppHappyHourRouteWithChildren
-  AppPlanRoute: typeof AppPlanRoute
-  AppProfileRoute: typeof AppProfileRoute
-  AppReelsRoute: typeof AppReelsRoute
-  AppIndexRoute: typeof AppIndexRoute
-}
-
-const AppRouteChildren: AppRouteChildren = {
-  AppExploreRoute: AppExploreRoute,
-  AppHappyHourRoute: AppHappyHourRouteWithChildren,
-  AppPlanRoute: AppPlanRoute,
-  AppProfileRoute: AppProfileRoute,
-  AppReelsRoute: AppReelsRoute,
-  AppIndexRoute: AppIndexRoute,
-}
-
-const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 interface HangoutRouteChildren {
   HangoutTokenRoute: typeof HangoutTokenRoute
@@ -2712,9 +2518,7 @@ const rootRouteChildren: RootRouteChildren = {
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
-  AppRoute: AppRouteWithChildren,
-  AuthRoute: AuthRoute,
-  AuthCallbackRoute: AuthCallbackRoute,
+  AuthRoute: AuthRouteWithChildren,
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,
   CheckInRoute: CheckInRoute,
@@ -2726,7 +2530,6 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   PromoterRoute: PromoterRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  WelcomeRoute: WelcomeRoute,
   AdminCityAnalyticsRoute: AdminCityAnalyticsRoute,
   AdminConsoleRoute: AdminConsoleRoute,
   AdminLoginRoute: AdminLoginRoute,

@@ -267,7 +267,7 @@ function ChatPage() {
       <header className="sticky top-0 z-10 border-b-2 border-ink bg-cream/95 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-md items-center gap-3 px-4">
           <Link
-            to="/app"
+            to="/new/hub"
             className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-white shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-brut"
           >
             <ArrowLeft className="h-4 w-4" />

@@ -12,18 +12,18 @@ const SECTION_PREFIXES: Record<Exclude<ViewAs, "visitor">, string[]> = {
   admin: ["/admin"],
   business: ["/business"],
   promoter: ["/promoter"],
-  customer: ["/app"],
+  customer: ["/new/hub"],
 };
 
 const HOME: Record<ViewAs, string> = {
   admin: "/admin/console",
   business: "/business/dashboard",
   promoter: "/promoter",
-  customer: "/app/profile",
+  customer: "/new/profile",
   visitor: "/",
 };
 
-const PORTAL_PREFIXES = ["/admin", "/business", "/promoter", "/app"];
+const PORTAL_PREFIXES = ["/admin", "/business", "/promoter", "/new/hub"];
 
 // Login routes for each portal must stay reachable regardless of viewAs.
 const LOGIN_PATHS = new Set([
@@ -37,9 +37,9 @@ const LOGIN_PATHS = new Set([
 // Public /app/* routes that visitors can browse without auth.
 // These are discovery / marketing surfaces — no account required.
 const PUBLIC_APP_PREFIXES = [
-  "/app/explore",
-  "/app/happy-hour",
-  "/app/reels",
+  "/new/explore",
+  "/new/explore",
+  "/new/reels",
 ];
 
 function pathBelongsTo(path: string, role: ViewAs): boolean {

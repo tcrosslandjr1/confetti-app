@@ -46,7 +46,7 @@ function RotatingTagline({ className = "" }: { className?: string }) {
 
 const marketingLinks = [
   { to: "/about", label: "About" },
-  { to: "/app/explore", label: "Explore" },
+  { to: "/new/explore", label: "Explore" },
   { to: "/events", label: "Events" },
   { to: "/for-business", label: "For Business" },
 ] as const;
@@ -104,7 +104,7 @@ export function SiteHeader() {
           ))}
           {showPortal && (
             <Link
-              to="/app/profile"
+              to="/new/profile"
               className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream/70 transition-colors hover:text-cream lg:px-3 lg:text-xs"
               activeProps={{ className: "text-cream" }}
             >
@@ -265,7 +265,7 @@ function MobileMenu({
           {showPortal && (
             <li>
               <Link
-                to="/app/profile"
+                to="/new/profile"
                 onClick={close}
                 className="flex items-center justify-between rounded-2xl border-2 border-transparent px-3 py-3 font-display text-lg font-bold text-cream transition-colors hover:border-ink hover:bg-white"
                 activeProps={{ className: "border-ink bg-white" }}

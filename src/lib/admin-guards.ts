@@ -31,7 +31,7 @@ export async function requireAdminAccess() {
 
   if (!roleData) {
     throw redirect({
-      to: "/app",
+      to: "/new/hub",
       search: { message: "You need an admin account to access that page." },
     });
   }

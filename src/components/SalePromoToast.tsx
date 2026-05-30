@@ -31,7 +31,7 @@ export function SalePromoToast() {
           onClick: () =>
             navigate({
               to: "/auth",
-              search: { mode: "signup", redirect: "/app/plan" },
+              search: { mode: "signup", redirect: "/new/plan" },
             }),
         },
       });

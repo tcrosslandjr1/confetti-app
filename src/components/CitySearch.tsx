@@ -287,7 +287,7 @@ function CityCard({
           className="h-9 flex-1 gap-1.5 rounded-xl text-xs font-bold"
           onClick={() => setSelectedCity(city.slug)}
         >
-          <Link to="/app/plan">
+          <Link to="/new/plan">
             <Sparkles className="h-3.5 w-3.5" />
             Plan my night
           </Link>
@@ -299,7 +299,7 @@ function CityCard({
           className="h-9 flex-1 gap-1.5 rounded-xl border-2 border-cream/15 text-xs font-bold hover:border-ink/30"
           onClick={() => setSelectedCity(city.slug)}
         >
-          <Link to="/app/explore">
+          <Link to="/new/explore">
             <Compass className="h-3.5 w-3.5" />
             Quick picks
           </Link>

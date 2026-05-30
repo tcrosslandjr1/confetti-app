@@ -54,7 +54,7 @@ export function HangoutPass({ hangout }: HangoutPassProps) {
     if (!confirm("Cancel this hangout plan? You can build a new one anytime.")) return;
     clearActiveHangout();
     toast.success("Plan cancelled");
-    navigate({ to: "/app" });
+    navigate({ to: "/new/hub" });
   }
 
   async function handleShareWithCrew() {

@@ -29,7 +29,7 @@ function BoardingPassPage() {
           Build a night first, then come back to see your boarding pass.
         </p>
         <Link
-          to="/app/plan"
+          to="/new/plan"
           className="mt-2 inline-flex h-10 items-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
         >
           Plan my night
@@ -44,7 +44,7 @@ function BoardingPassPage() {
         eyebrow="Boarding Pass"
         title={loop.experienceName || loop.to || "Your Night"}
         left={
-          <Link to="/app" className="grid size-9 place-items-center rounded-full bg-muted">
+          <Link to="/new/hub" className="grid size-9 place-items-center rounded-full bg-muted">
             <ArrowLeft className="size-4" />
           </Link>
         }

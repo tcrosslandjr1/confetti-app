@@ -170,7 +170,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
     toast.success("Plan cancelled", {
       description: "We've cleared your boarding pass. Plan a new night anytime.",
     });
-    navigate({ to: "/app" });
+    navigate({ to: "/new/hub" });
   }
 
   // Drag-to-reorder sensors. Use a small activation distance so a tap on

@@ -134,13 +134,13 @@ function CheckInPage() {
 
             <div className="flex flex-wrap gap-2">
               <Link
-                to="/app/plan"
+                to="/new/plan"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-coral px-4 py-2 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
               >
                 Back to boarding pass
               </Link>
               <Link
-                to="/app/profile"
+                to="/new/profile"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-4 py-2 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
               >
                 See my Confetti

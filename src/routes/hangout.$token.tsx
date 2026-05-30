@@ -109,13 +109,13 @@ function SharedHangoutPage() {
           </p>
           <div className="mt-6 flex flex-col gap-3">
             <Link
-              to="/app/plan"
+              to="/new/plan"
               className="inline-flex items-center justify-center rounded-xl border-2 border-ink bg-coral px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-widest text-white shadow-brut transition-pop hover:-translate-y-0.5"
             >
               Plan my own night
             </Link>
             <Link
-              to="/app"
+              to="/new/hub"
               className="font-mono text-[10px] uppercase tracking-widest text-ink/50 underline"
             >
               ← Back to Confetti

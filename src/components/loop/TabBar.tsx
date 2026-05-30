@@ -14,26 +14,26 @@ type Tab = {
 };
 
 const CUSTOMER_TABS: Tab[] = [
-  { to: "/app", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/app" },
+  { to: "/new/hub", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/new/hub" },
   {
-    to: "/app/explore",
+    to: "/new/explore",
     label: "Explore",
     icon: Search,
-    match: (p) => p.startsWith("/app/explore") || p.startsWith("/venue"),
+    match: (p) => p.startsWith("/new/explore") || p.startsWith("/venue"),
   },
   {
-    to: "/app/plan",
+    to: "/new/plan",
     label: "Plan",
     icon: Plus,
     prominent: true,
-    match: (p) => p.startsWith("/app/plan") || p.startsWith("/trips"),
+    match: (p) => p.startsWith("/new/plan") || p.startsWith("/trips"),
   },
   { to: "/chat", label: "Chat", icon: Award, match: (p) => p.startsWith("/chat") },
   {
-    to: "/app/profile",
+    to: "/new/profile",
     label: "Profile",
     icon: User,
-    match: (p) => p.startsWith("/app/profile"),
+    match: (p) => p.startsWith("/new/profile"),
   },
 ];
 

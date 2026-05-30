@@ -11,28 +11,28 @@ const REDIRECTS: Record<string, string> = {
   "/index.html": "/",
 
   // ── Discovery (merged into Home) ─────────────────────────
-  "/tonight": "/app",
-  "/discover": "/app",
-  "/viral": "/app",
-  "/vibe-picker": "/app",
-  "/vibe-plans": "/app",
-  "/weather": "/app",
+  "/tonight": "/new/hub",
+  "/discover": "/new/hub",
+  "/viral": "/new/hub",
+  "/vibe-picker": "/new/hub",
+  "/vibe-plans": "/new/hub",
+  "/weather": "/new/hub",
 
   // ── Planning (merged into Plan) ──────────────────────────
-  "/night-planner": "/app/plan",
-  "/quick-generate": "/app/plan",
-  "/boarding-pass-planner": "/app/plan",
+  "/night-planner": "/new/plan",
+  "/quick-generate": "/new/plan",
+  "/boarding-pass-planner": "/new/plan",
   // "/boarding-pass" — now handled by src/routes/boarding-pass.tsx
-  "/active-loop": "/app/plan",
-  "/active-confetti": "/app/plan",
-  "/plan": "/app/plan",
-  "/plan/preview": "/app/plan",
-  "/plan/ready": "/app/plan",
-  "/taste-tuner": "/app/plan",
-  "/group-outing": "/app/plan",
-  "/team-events": "/app/plan",
-  "/event-pack": "/app/plan",
-  "/confirmation": "/app/plan",
+  "/active-loop": "/new/plan",
+  "/active-confetti": "/new/plan",
+  "/plan": "/new/plan",
+  "/plan/preview": "/new/plan",
+  "/plan/ready": "/new/plan",
+  "/taste-tuner": "/new/plan",
+  "/group-outing": "/new/plan",
+  "/team-events": "/new/plan",
+  "/event-pack": "/new/plan",
+  "/confirmation": "/new/plan",
 
   // ── Chat / AI (merged into Chat) ─────────────────────────
   "/concierge": "/chat",
@@ -40,13 +40,13 @@ const REDIRECTS: Record<string, string> = {
   "/create": "/chat",
 
   // ── Portal / Profile (merged into Profile tab) ───────────
-  "/portal": "/app/profile",
-  "/me": "/app/profile",
-  "/passport": "/app/profile",
-  "/profile/preferences": "/app/profile",
-  "/favorites": "/app/profile",
-  "/reservations": "/app/profile",
-  "/scan": "/app/profile",
+  "/portal": "/new/profile",
+  "/me": "/new/profile",
+  "/passport": "/new/profile",
+  "/profile/preferences": "/new/profile",
+  "/favorites": "/new/profile",
+  "/reservations": "/new/profile",
+  "/scan": "/new/profile",
 
   // ── Auth ──────────────────────────────────────────────────
   "/login": "/auth",
@@ -94,9 +94,9 @@ const REDIRECTS: Record<string, string> = {
   "/data-terms": "/privacy",
 
   // ── Misc ──────────────────────────────────────────────────
-  "/translate": "/app",
-  "/city-guides": "/app/explore",
-  "/guides": "/app/explore",
+  "/translate": "/new/hub",
+  "/city-guides": "/new/explore",
+  "/guides": "/new/explore",
   "/qa": "/",
 };
 

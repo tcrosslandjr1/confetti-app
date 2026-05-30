@@ -26,7 +26,7 @@ function HangoutPage() {
             Build one from the planner — crabs, game night, picnic, anything.
           </p>
           <Link
-            to="/app/plan"
+            to="/new/plan"
             className="mt-4 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-coral px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream shadow-brut hover:-translate-y-0.5 transition-pop"
           >
             Plan a hangout

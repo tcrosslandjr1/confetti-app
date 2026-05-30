@@ -26,7 +26,7 @@ function ReferralPage() {
           position: "relative", zIndex: 2,
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
-          <button onClick={() => navigate({ to: "/welcome" })} style={{
+          <button onClick={() => navigate({ to: "/new/signin" })} style={{
             appearance: "none", cursor: "pointer",
             width: 36, height: 36, borderRadius: 999,
             border: `2.5px solid ${TOKENS.ink}`, background: TOKENS.paper,

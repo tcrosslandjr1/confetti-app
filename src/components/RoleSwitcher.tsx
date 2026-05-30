@@ -19,7 +19,7 @@ type Option = {
   label: string;
   Icon: typeof Shield;
   blurb: string;
-  home: "/" | "/app/profile" | "/business/dashboard" | "/admin/console" | "/promoter";
+  home: "/" | "/new/profile" | "/business/dashboard" | "/admin/console" | "/promoter";
   tone: string; // tailwind classes for active chip
 };
 
@@ -53,7 +53,7 @@ const OPTIONS: Option[] = [
     label: "Customer",
     Icon: UserIcon,
     blurb: "Portal, planning & bookings",
-    home: "/app/profile",
+    home: "/new/profile",
     tone: "bg-coral text-cream",
   },
   {

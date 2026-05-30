@@ -147,13 +147,13 @@ function CityLandingPage() {
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild size="lg" className="min-w-48" onClick={handlePlanNight}>
-                <Link to="/app/plan">
+                <Link to="/new/plan">
                   <Sparkles className="mr-2 h-4 w-4" />
                   Plan my night in {city.name.split(/[,\s]/)[0]}
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="min-w-48" onClick={handleExplore}>
-                <Link to="/app/explore">Explore venues</Link>
+                <Link to="/new/explore">Explore venues</Link>
               </Button>
 
             </div>
@@ -283,7 +283,7 @@ function CityLandingPage() {
             Confetti builds a personal itinerary in seconds — 2–4 stops, picked just for you.
           </p>
           <Button asChild size="lg" className="mt-6" onClick={handlePlanNight}>
-            <Link to="/app/plan">
+            <Link to="/new/plan">
               Start planning <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

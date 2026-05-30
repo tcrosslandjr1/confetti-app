@@ -124,7 +124,7 @@ const DETAILS = [
 function VenueBookingPage() {
   const { id } = Route.useParams();
   const navigate = useNavigate();
-  const backToDiscover = () => navigate({ to: "/app/explore" });
+  const backToDiscover = () => navigate({ to: "/new/explore" });
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [reviewCount, setReviewCount] = useState<number>(0);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
@@ -233,7 +233,7 @@ function VenueBookingPage() {
       <div className="grid min-h-screen place-items-center bg-cream">
         <div className="text-center">
           <p className="font-display text-xl">Venue not found</p>
-          <Link to="/app/explore" className="mt-3 inline-block text-coral underline">
+          <Link to="/new/explore" className="mt-3 inline-block text-coral underline">
             Browse venues
           </Link>
         </div>
@@ -835,7 +835,7 @@ function StepVenue({ venue, onReserve, reviewCount }: { venue: Venue; onReserve:
           }}
         />
         <Link
-          to="/app/profile"
+          to="/new/profile"
           className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3 py-2 text-xs font-bold text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
         >
           View all favorites
@@ -1416,7 +1416,7 @@ function StepDone({
       </div>
 
       <Link
-        to="/app/explore"
+        to="/new/explore"
         search={{ venueId: id }}
         className="block text-center font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-cream/60 underline-offset-4 hover:underline"
       >

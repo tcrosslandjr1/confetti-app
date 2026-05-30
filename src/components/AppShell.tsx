@@ -8,7 +8,7 @@ import { useAuth } from "@/lib/auth-context";
 /* ── Navigation tabs ────────────────────────────────────────────────── */
 
 type Tab = {
-  to: "/app" | "/app/explore" | "/app/plan" | "/boarding-pass" | "/app/profile";
+  to: "/new/hub" | "/new/explore" | "/new/plan" | "/boarding-pass" | "/new/profile";
   label: string;
   icon: typeof Home;
   exact?: boolean;
@@ -16,11 +16,11 @@ type Tab = {
 };
 
 const TABS: readonly Tab[] = [
-  { to: "/app", label: "Tonight", icon: Home, exact: true },
-  { to: "/app/explore", label: "Explore", icon: Compass },
-  { to: "/app/plan", label: "Plan", icon: Sparkles },
+  { to: "/new/hub", label: "Tonight", icon: Home, exact: true },
+  { to: "/new/explore", label: "Explore", icon: Compass },
+  { to: "/new/plan", label: "Plan", icon: Sparkles },
   { to: "/boarding-pass", label: "Pass", icon: Ticket },
-  { to: "/app/profile", label: "you", icon: User, isYou: true },
+  { to: "/new/profile", label: "you", icon: User, isYou: true },
 ];
 
 /* ── BottomNav ──────────────────────────────────────────────────────── */

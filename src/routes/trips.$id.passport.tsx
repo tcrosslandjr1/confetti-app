@@ -109,7 +109,7 @@ function Passport() {
             <ArrowLeft className="h-4 w-4" /> Back to trip
           </Link>
           <Link
-            to="/app/profile"
+            to="/new/profile"
             className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-muted-foreground hover:border-primary hover:text-primary"
           >
             <Stamp className="h-3 w-3" /> All stamps

@@ -52,14 +52,7 @@ const HIDE_PREFIXES = [
   "/promoter",
   "/api",
   "/health",
-  "/new/signin",
-  "/new/signup",
-  "/new/2fa",
-  "/new/phone-verify",
-  "/new/email-verify",
-  "/new/parental-consent",
-  "/new/age-gate",
-  "/new/forgot-pw",
+  "/new/",  // all /new/* routes use their own navigation
   "/business/login",
 ];
 

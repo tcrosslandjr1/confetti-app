@@ -56,7 +56,7 @@ function SignInPage() {
     setError(null);
     const { error: authError } = await supabase.auth.signInWithOAuth({
       provider,
-      options: { redirectTo: `${window.location.origin}/new/hub` },
+      options: { redirectTo: `${window.location.origin}/auth/callback` },
     });
     if (authError) setError(authError.message);
   };

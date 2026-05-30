@@ -4,14 +4,16 @@ import { createClient } from "@supabase/supabase-js";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { Database } from "@/integrations/supabase/types";
 
-function adminClient() {
+// user_roles and admin_audit_log are absent from generated types — use any to bypass
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function anyAdminClient(): any {
   return createClient<Database>(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
 
 async function assertAdmin(userId: string) {
-  const supabase = adminClient();
+  const supabase = anyAdminClient();
   const { data } = await supabase
     .from("user_roles")
     .select("role")
@@ -34,7 +36,7 @@ export const listAdminsFn = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     await assertAdmin(context.userId);
-    const supabase = adminClient();
+    const supabase = anyAdminClient();
 
     const { data: rows, error } = await supabase
       .from("user_roles")
@@ -47,9 +49,9 @@ export const listAdminsFn = createServerFn({ method: "GET" })
 
     const { data: profiles } = await supabase
       .from("profiles")
-      .select("id, display_name")
+      .select("id, full_name")
       .in("id", ids);
-    const profileMap = new Map((profiles ?? []).map((p) => [p.id, p.display_name]));
+    const profileMap = new Map((profiles ?? []).map((p) => [p.id, p.full_name]));
 
     // Resolve auth metadata (email, last sign-in) by paging once.
     const emails = new Map<string, { email: string; last_sign_in_at: string | null }>();
@@ -92,7 +94,7 @@ export const grantAdminByEmailFn = createServerFn({ method: "POST" })
   .inputValidator((input) => z.object({ email: z.string().email().max(255) }).parse(input))
   .handler(async ({ data, context }) => {
     await assertAdmin(context.userId);
-    const supabase = adminClient();
+    const supabase = anyAdminClient();
     const target = data.email.trim().toLowerCase();
 
     let userId: string | null = null;
@@ -139,7 +141,7 @@ export const revokeAdminFn = createServerFn({ method: "POST" })
     if (data.userId === context.userId) {
       throw new Error("You can't remove your own admin role");
     }
-    const supabase = adminClient();
+    const supabase = anyAdminClient();
 
     // Refuse to revoke the last admin.
     const { count } = await supabase

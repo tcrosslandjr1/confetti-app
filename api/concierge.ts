@@ -57,7 +57,7 @@ function buildConciergePrompt(req: ConciergeRequest): string {
   const stopsBlock = req.stops
     .map(
       (s, i) =>
-        `  ${i + 1}. [${s.id}] ${s.name} (${s.type}) at ${s.time}${s.area ? `, ${s.area}` : ""}${s.priceLevel ? ` â ${s.priceLevel}` : ""}${s.signature ? ` â Try: ${s.signature}` : ""}`
+        `  ${i + 1}. [${s.id}] ${s.name} (${s.type}) at ${s.time}${s.area ? `, ${s.area}` : ""}${s.priceLevel ? ` â ${s.priceLevel}` : ""}${s.signature ? ` â Try: ${s.signature}` : ""}`,
     )
     .join("\n");
 
@@ -164,10 +164,7 @@ const editPlanTool = {
 
 // âââ Handler ââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
-export default async function handler(
-  req: VercelRequest,
-  res: VercelResponse
-) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Only POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -226,9 +223,7 @@ export default async function handler(
       if (anthropicRes.status === 429) {
         return res.status(429).json({ error: "Rate limit â try again in a moment." });
       }
-      return res
-        .status(502)
-        .json({ error: `AI error ${anthropicRes.status}` });
+      return res.status(502).json({ error: `AI error ${anthropicRes.status}` });
     }
 
     const data = await anthropicRes.json();
@@ -262,8 +257,6 @@ export default async function handler(
     });
   } catch (err) {
     console.error("Concierge handler error:", err);
-    return res
-      .status(500)
-      .json({ error: "Something went wrong. Try again?" });
+    return res.status(500).json({ error: "Something went wrong. Try again?" });
   }
 }

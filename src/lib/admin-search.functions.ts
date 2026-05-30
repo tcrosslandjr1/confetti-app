@@ -72,8 +72,8 @@ export const adminGlobalSearch = createServerFn({ method: "POST" })
     // Profiles by display_name
     const { data: profs } = await supabase
       .from("profiles")
-      .select("id, display_name, confetti_pts")
-      .ilike("display_name", like)
+      .select("id, full_name")
+      .ilike("full_name", like)
       .limit(PER_TYPE);
 
     const profIds = new Set<string>();
@@ -82,8 +82,8 @@ export const adminGlobalSearch = createServerFn({ method: "POST" })
       usersOut.push({
         type: "user",
         id: p.id,
-        title: p.display_name ?? "(no name)",
-        subtitle: `${p.confetti_pts ?? 0} pts · ${p.id.slice(0, 8)}`,
+        title: p.full_name ?? "(no name)",
+        subtitle: p.id.slice(0, 8),
         href: `/admin/users?focus=${p.id}`,
       });
     }

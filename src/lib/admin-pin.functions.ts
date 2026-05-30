@@ -23,7 +23,9 @@ export const verifyAdminPin = createServerFn({ method: "POST" })
       throw new Response("Forbidden: admin only", { status: 403 });
     }
 
-    const { data: ok, error } = await supabaseAdmin.rpc("verify_admin_pin", {
+    // verify_admin_pin is not in generated types — cast to bypass
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data: ok, error } = await (supabaseAdmin as any).rpc("verify_admin_pin", {
       _pin: data.pin,
     });
 

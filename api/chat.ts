@@ -17,8 +17,7 @@ const CORS = {
 };
 
 // ─── Supabase clients ────────────────────────────────────────────
-const SUPABASE_URL =
-  process.env.SUPABASE_URL ?? "https://zfeckvxkulreyapadanf.supabase.co";
+const SUPABASE_URL = process.env.SUPABASE_URL ?? "https://zfeckvxkulreyapadanf.supabase.co";
 const SUPABASE_ANON_KEY =
   process.env.SUPABASE_PUBLISHABLE_KEY ??
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmZWNrdnhrdWxyZXlhcGFkYW5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NzU1MDgsImV4cCI6MjA5NDA1MTUwOH0.KPYif0ntCEVwqOIUWX8r3ZYGI2xGmYIU3oKgnI8aYM0";
@@ -170,8 +169,8 @@ async function loadUserTasteContext(userId: string): Promise<UserTasteContext | 
   const taste = prefs?.taste_profile;
 
   return {
-    topCuisines: profile ? topN(profile.cuisine_scores ?? {}, 5) : prefs?.cuisines ?? [],
-    topVibes: profile ? topN(profile.vibe_scores ?? {}, 4) : taste?.vibe ?? [],
+    topCuisines: profile ? topN(profile.cuisine_scores ?? {}, 5) : (prefs?.cuisines ?? []),
+    topVibes: profile ? topN(profile.vibe_scores ?? {}, 4) : (taste?.vibe ?? []),
     priceLevel: profile
       ? priceBucket(profile.price_preference ?? 2)
       : prefs?.budget_max
@@ -223,14 +222,12 @@ function buildTastePromptBlock(ctx: UserTasteContext): string {
   if (ctx.socialScore > 0.7) lines.push(`Social butterfly — think groups, energy, buzz.`);
   else if (ctx.socialScore < 0.3) lines.push(`Prefers intimate, quiet, low-key settings.`);
 
-  if (ctx.activeTimeSlots.length)
-    lines.push(`Most active: ${ctx.activeTimeSlots.join(", ")}`);
+  if (ctx.activeTimeSlots.length) lines.push(`Most active: ${ctx.activeTimeSlots.join(", ")}`);
 
   if (ctx.loves.length) lines.push(`Explicitly loves: ${ctx.loves.slice(0, 8).join(", ")}`);
   if (ctx.avoids.length) lines.push(`Avoids: ${ctx.avoids.join(", ")}`);
 
-  if (ctx.budgetMax)
-    lines.push(`Budget: $${ctx.budgetMin ?? 0}–$${ctx.budgetMax} per person`);
+  if (ctx.budgetMax) lines.push(`Budget: $${ctx.budgetMin ?? 0}–$${ctx.budgetMax} per person`);
   if (ctx.aboutMe) lines.push(`About them: ${ctx.aboutMe.slice(0, 200)}`);
 
   if (ctx.profileStrength === "strong")
@@ -459,8 +456,7 @@ export default async function handler(req: Request): Promise<Response> {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 8)
       .map(([n, c]) => `${n} (${c})`);
-    if (topBooked.length)
-      ctx.push(`MOST-BOOKED on Confetti (last 30d): ${topBooked.join(" • ")}`);
+    if (topBooked.length) ctx.push(`MOST-BOOKED on Confetti (last 30d): ${topBooked.join(" • ")}`);
 
     const saveCounts = new Map<string, { count: number; cat?: string; hood?: string | null }>();
     for (const s of (savedRes.data ?? []) as Array<{

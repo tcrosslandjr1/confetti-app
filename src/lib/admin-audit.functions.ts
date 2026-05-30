@@ -182,7 +182,7 @@ export const exportAdminAuditLog = createServerFn({ method: "POST" })
     const { data: rows, error } = await query;
     if (error) throw new Error(error.message);
 
-    const mapped: AuditExportRow[] = (rows ?? []).map((r) => ({
+    const mapped: AuditExportRow[] = (rows ?? []).map((r: any) => ({
       id: r.id,
       created_at: r.created_at,
       reviewer_id: r.reviewer_id,

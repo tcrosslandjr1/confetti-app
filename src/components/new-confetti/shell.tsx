@@ -61,56 +61,29 @@ const KEYFRAMES = `
 export function Frame({ children }: { children: ReactNode }) {
   return (
     <>
-      <style>{KEYFRAMES + `
-        @media (max-width: 480px) {
-          .cf-frame-outer { padding: 0 !important; background: #f8f0dd !important; }
-          .cf-frame-inner {
-            width: 100% !important;
-            height: 100dvh !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-          }
-        }
-      `}</style>
+      <style>{KEYFRAMES}</style>
       <div
-        className="cf-frame-outer"
-        style={{
-          minHeight: "100dvh",
-          display: "grid",
-          placeItems: "center",
-          background: "#2b1410",
-          padding: 24,
-          color: TOKENS.ink,
-        }}
+        style={
+          {
+            width: "100%",
+            minHeight: "100dvh",
+            background: TOKENS.bg,
+            color: TOKENS.ink,
+            fontFamily: TOKENS.ui,
+            ["--cf-display" as string]: TOKENS.display,
+            ["--cf-ui" as string]: TOKENS.ui,
+            ["--cf-mono" as string]: TOKENS.mono,
+            ["--bg" as string]: TOKENS.bg,
+            ["--paper" as string]: TOKENS.paper,
+            ["--ink" as string]: TOKENS.ink,
+            ["--accent-1" as string]: TOKENS.accent1,
+            ["--accent-2" as string]: TOKENS.accent2,
+            ["--accent-3" as string]: TOKENS.accent3,
+            ["--accent-4" as string]: TOKENS.accent4,
+          } as CSSProperties
+        }
       >
-        <div
-          className="cf-frame-inner"
-          style={
-            {
-              position: "relative",
-              width: "min(420px, 100%)",
-              height: "min(874px, calc(100dvh - 48px))",
-              overflow: "hidden",
-              borderRadius: 28,
-              background: TOKENS.bg,
-              color: TOKENS.ink,
-              boxShadow: "0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.05)",
-              fontFamily: TOKENS.ui,
-              ["--cf-display" as string]: TOKENS.display,
-              ["--cf-ui" as string]: TOKENS.ui,
-              ["--cf-mono" as string]: TOKENS.mono,
-              ["--bg" as string]: TOKENS.bg,
-              ["--paper" as string]: TOKENS.paper,
-              ["--ink" as string]: TOKENS.ink,
-              ["--accent-1" as string]: TOKENS.accent1,
-              ["--accent-2" as string]: TOKENS.accent2,
-              ["--accent-3" as string]: TOKENS.accent3,
-              ["--accent-4" as string]: TOKENS.accent4,
-            } as CSSProperties
-          }
-        >
-          {children}
-        </div>
+        {children}
       </div>
     </>
   );

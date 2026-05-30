@@ -128,12 +128,11 @@ function PlanPage() {
       <div
         style={{
           position: "relative",
-          height: "100%",
+          minHeight: "100dvh",
           background: TOKENS.bg,
-          display: "flex",
-          flexDirection: "column",
-          padding: "60px 22px 24px",
-          overflow: "hidden",
+          padding: "60px 22px calc(6rem + env(safe-area-inset-bottom))",
+          maxWidth: 600,
+          margin: "0 auto",
         }}
       >
         <DotsBg opacity={0.06} />
@@ -167,18 +166,7 @@ function PlanPage() {
           </button>
         </div>
 
-        <div
-          style={{
-            position: "relative",
-            zIndex: 2,
-            flex: 1,
-            overflowY: "auto",
-            overflowX: "hidden",
-            marginRight: -22,
-            paddingRight: 22,
-            scrollbarWidth: "none",
-          }}
-        >
+        <div style={{ position: "relative", zIndex: 2 }}>
           <h2
             style={{
               fontFamily: TOKENS.display,

@@ -168,7 +168,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Curated city experiences and itineraries, ready in seconds.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: "https://ai-lifestyle-concierge.vercel.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@ConfettiPlan" },
       { name: "twitter:title", content: "Confetti — Your city, curated" },
       {
@@ -177,13 +178,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/61ece84c-a024-4a69-a7ce-019c9d1e13a6/id-preview-d6f23aef--f4bae350-0f3c-459c-a8b3-17702408f503.lovable.app-1778344807777.png",
+        content: "https://confettiplan.com/og-image.png",
       },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       {
         name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/61ece84c-a024-4a69-a7ce-019c9d1e13a6/id-preview-d6f23aef--f4bae350-0f3c-459c-a8b3-17702408f503.lovable.app-1778344807777.png",
+        content: "https://confettiplan.com/og-image.png",
       },
       { property: "og:site_name", content: "Confetti" },
     ],

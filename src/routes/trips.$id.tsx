@@ -35,7 +35,6 @@ import {
   AlertTriangle,
   X,
   Shirt,
-  ArrowLeftRight,
   Plus,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -470,13 +469,6 @@ function TripDetail() {
             {it.completed_at ? "View passport" : "Complete day → Passport"}
           </button>
           <button
-            type="button"
-            onClick={() => toast("Group planning coming soon!", { icon: "🎉" })}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-muted"
-          >
-            <Users className="h-3.5 w-3.5" /> Plan team event from this trip
-          </button>
-          <button
             onClick={removeTrip}
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-destructive"
           >
@@ -547,19 +539,6 @@ function TripDetail() {
                               </div>
                             </div>
                             <div className="flex items-center gap-2">
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  toast("Swap-stop feature coming soon!", {
-                                    icon: "🔄",
-                                    description:
-                                      "You'll be able to search or let AI suggest an alternative.",
-                                  })
-                                }
-                                className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                              >
-                                <ArrowLeftRight className="h-3 w-3" /> Change
-                              </button>
                               <BookingPill
                                 status={s.booking_status as Stop["booking_status"]}
                                 onChange={(st) => s.id && setStatus(s.id, st)}

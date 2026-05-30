@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/login")({
@@ -22,97 +22,94 @@ function AdminLoginPage() {
   const { redirect } = Route.useSearch();
 
   const [email, setEmail] = useState("tcrosslandjr1@gmail.com");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [attempts, setAttempts] = useState(0);
-  const [locked, setLocked] = useState(false);
-  const [lockTimer, setLockTimer] = useState(0);
+  const [checking, setChecking] = useState(true);
 
-  // Lockout timer countdown
-  useEffect(() => {
-    if (!locked) return;
-    const interval = setInterval(() => {
-      setLockTimer((t) => {
-        if (t <= 1) {
-          setLocked(false);
-          clearInterval(interval);
-          return 0;
-        }
-        return t - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [locked]);
-
-  // If already signed in as admin, go straight to console
-  useEffect(() => {
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      if (!session) return;
-      const { data } = await supabase
+  // Given an authenticated session, route admins onward and bounce everyone else.
+  const gateSession = useCallback(
+    async (userId: string) => {
+      const { data: roleData } = await supabase
         .from("user_roles")
         .select("role")
-        .eq("user_id", session.user.id)
+        .eq("user_id", userId)
         .eq("role", "admin")
         .maybeSingle();
-      if (data) navigate({ to: redirect ?? "/admin/console" });
-    });
-  }, [navigate, redirect]);
 
-  const handleSignIn = async () => {
-    if (locked) return;
-    if (!email.trim() || !password) {
-      setError("Enter your email and password");
+      if (roleData) {
+        navigate({ to: redirect ?? "/admin/console" });
+        return true;
+      }
+
+      // Signed in, but not an admin — drop the session so they can try another account.
+      await supabase.auth.signOut();
+      setError("This account doesn't have admin access. Sign in with an admin email.");
+      setSent(false);
+      return false;
+    },
+    [navigate, redirect],
+  );
+
+  // On mount (and after a magic link returns here), check for an existing session.
+  useEffect(() => {
+    let active = true;
+
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      if (!active) return;
+      if (session) {
+        await gateSession(session.user.id);
+      }
+      if (active) setChecking(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if ((event === "SIGNED_IN" || event === "INITIAL_SESSION") && session) {
+        void gateSession(session.user.id);
+      }
+    });
+
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
+  }, [gateSession]);
+
+  const handleSendLink = async () => {
+    const addr = email.trim();
+    if (!addr) {
+      setError("Enter your admin email");
       return;
     }
 
     setLoading(true);
     setError(null);
 
-    const { data, error: authError } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
-      password,
+    // Land back on /admin/login after the link is opened — the session check above
+    // then verifies the admin role and forwards to the console. Using ?next= keeps
+    // this reliable even when the link opens in a new tab.
+    const emailRedirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(
+      "/admin/login",
+    )}`;
+
+    const { error: authError } = await supabase.auth.signInWithOtp({
+      email: addr,
+      options: {
+        emailRedirectTo,
+        // Never create a brand-new account from the admin door.
+        shouldCreateUser: false,
+      },
     });
 
+    setLoading(false);
+
     if (authError) {
-      setLoading(false);
-      const next = attempts + 1;
-      setAttempts(next);
-      if (next >= 5) {
-        setLocked(true);
-        setLockTimer(60);
-        setError("Too many failed attempts. Locked for 60 seconds.");
-      } else {
-        setError(
-          authError.message === "Invalid login credentials"
-            ? `Incorrect email or password. (${5 - next} attempts remaining)`
-            : authError.message,
-        );
-      }
+      setError(authError.message);
       return;
     }
-
-    // Verify admin role
-    if (data.session) {
-      const { data: roleData } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", data.session.user.id)
-        .eq("role", "admin")
-        .maybeSingle();
-
-      if (!roleData) {
-        await supabase.auth.signOut();
-        setLoading(false);
-        setError("This account does not have admin access.");
-        setPassword("");
-        return;
-      }
-    }
-
-    setLoading(false);
-    navigate({ to: redirect ?? "/admin/console" });
+    setSent(true);
   };
 
   return (
@@ -184,7 +181,7 @@ function AdminLoginPage() {
             lineHeight: 1.5,
           }}
         >
-          Restricted to authorised accounts only.
+          Restricted to authorised accounts only. We'll email you a secure sign-in link.
         </p>
 
         {/* Error */}
@@ -205,54 +202,78 @@ function AdminLoginPage() {
           </div>
         )}
 
-        {/* Lockout screen */}
-        {locked ? (
+        {checking ? (
+          <div
+            style={{
+              padding: 20,
+              textAlign: "center",
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: ".14em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.35)",
+            }}
+          >
+            checking session…
+          </div>
+        ) : sent ? (
           <div
             style={{
               padding: 20,
               borderRadius: 12,
-              textAlign: "center",
               background: "rgba(255,255,255,0.04)",
               border: "1px solid rgba(255,91,61,0.3)",
             }}
           >
-            <div style={{ fontSize: 32, marginBottom: 8 }}>🔒</div>
+            <div style={{ fontSize: 28, marginBottom: 10 }}>📬</div>
             <div
               style={{
                 fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: 14,
-                fontWeight: 600,
+                fontSize: 15,
+                fontWeight: 700,
                 color: "#ffffff",
                 marginBottom: 6,
               }}
             >
-              Access locked
-            </div>
-            <div
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 28,
-                fontWeight: 800,
-                color: "#ff5b3d",
-              }}
-            >
-              {lockTimer}s
+              Check your inbox
             </div>
             <div
               style={{
                 fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: 12,
-                color: "rgba(255,255,255,0.3)",
-                marginTop: 6,
+                fontSize: 13,
+                color: "rgba(255,255,255,0.45)",
+                lineHeight: 1.5,
               }}
             >
-              Too many failed attempts
+              We sent a secure sign-in link to {email}. Open it on this device to enter the admin
+              console.
             </div>
+            <button
+              onClick={() => {
+                setSent(false);
+                setError(null);
+              }}
+              style={{
+                appearance: "none",
+                cursor: "pointer",
+                marginTop: 16,
+                padding: 0,
+                border: "none",
+                background: "transparent",
+                color: "rgba(255,255,255,0.4)",
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 12,
+                fontWeight: 700,
+              }}
+            >
+              ← use a different email
+            </button>
           </div>
         ) : (
           <>
             {/* Email */}
-            <div style={{ marginBottom: 12 }}>
+            <div style={{ marginBottom: 20 }}>
               <div
                 style={{
                   fontSize: 10,
@@ -263,7 +284,7 @@ function AdminLoginPage() {
                   marginBottom: 8,
                 }}
               >
-                email
+                admin email
               </div>
               <div
                 style={{
@@ -272,14 +293,16 @@ function AdminLoginPage() {
                   gap: 8,
                   padding: "12px 14px",
                   background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.12)",
+                  border: `1px solid ${email.trim() ? "rgba(255,91,61,0.4)" : "rgba(255,255,255,0.12)"}`,
                   borderRadius: 10,
+                  transition: "border-color .15s",
                 }}
               >
                 <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 14 }}>✉</span>
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSendLink()}
                   placeholder="admin@confetti.app"
                   type="email"
                   autoComplete="email"
@@ -298,117 +321,27 @@ function AdminLoginPage() {
               </div>
             </div>
 
-            {/* Password */}
-            <div style={{ marginBottom: 20 }}>
-              <div
-                style={{
-                  fontSize: 10,
-                  fontWeight: 700,
-                  letterSpacing: ".16em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.35)",
-                  marginBottom: 8,
-                }}
-              >
-                password
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "12px 14px",
-                  background: "rgba(255,255,255,0.05)",
-                  border: `1px solid ${password ? "rgba(255,91,61,0.4)" : "rgba(255,255,255,0.12)"}`,
-                  borderRadius: 10,
-                  transition: "border-color .15s",
-                }}
-              >
-                <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 14 }}>🔑</span>
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSignIn()}
-                  placeholder="••••••••••••"
-                  type={showPassword ? "text" : "password"}
-                  autoComplete="current-password"
-                  style={{
-                    appearance: "none",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                    flex: 1,
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: 14,
-                    fontWeight: 500,
-                    color: "#ffffff",
-                  }}
-                />
-                <button
-                  onClick={() => setShowPassword((s) => !s)}
-                  style={{
-                    appearance: "none",
-                    border: "none",
-                    background: "transparent",
-                    cursor: "pointer",
-                    color: "rgba(255,255,255,0.3)",
-                    fontSize: 12,
-                    fontWeight: 700,
-                    padding: 0,
-                    fontFamily: "'JetBrains Mono', monospace",
-                  }}
-                >
-                  {showPassword ? "HIDE" : "SHOW"}
-                </button>
-              </div>
-            </div>
-
-            {/* Sign in button */}
+            {/* Send link button */}
             <button
-              onClick={handleSignIn}
-              disabled={loading || !password}
+              onClick={handleSendLink}
+              disabled={loading || !email.trim()}
               style={{
                 appearance: "none",
-                cursor: loading || !password ? "not-allowed" : "pointer",
+                cursor: loading || !email.trim() ? "not-allowed" : "pointer",
                 width: "100%",
                 padding: "13px",
-                background: loading || !password ? "rgba(255,255,255,0.06)" : "#ff5b3d",
+                background: loading || !email.trim() ? "rgba(255,255,255,0.06)" : "#ff5b3d",
                 border: "none",
                 borderRadius: 10,
                 fontFamily: "'Inter', system-ui, sans-serif",
                 fontSize: 14,
                 fontWeight: 700,
-                color: loading || !password ? "rgba(255,255,255,0.3)" : "#ffffff",
+                color: loading || !email.trim() ? "rgba(255,255,255,0.3)" : "#ffffff",
                 transition: "background .15s, color .15s",
               }}
             >
-              {loading ? "verifying..." : "sign in to admin"}
+              {loading ? "sending link..." : "email me a sign-in link"}
             </button>
-
-            {/* Attempt dots */}
-            {attempts > 0 && (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: 6,
-                  marginTop: 16,
-                }}
-              >
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      background: i < attempts ? "#ff5b3d" : "rgba(255,255,255,0.1)",
-                      transition: "background .2s",
-                    }}
-                  />
-                ))}
-              </div>
-            )}
           </>
         )}
 

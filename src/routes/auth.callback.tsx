@@ -15,6 +15,13 @@ export function storePendingRedirect(path: string) {
 }
 
 function consumePendingRedirect(): string {
+  // 1) Prefer an explicit ?next= param on the callback URL. This survives magic
+  //    links opened in a new tab, where the original tab's sessionStorage is gone.
+  if (typeof window !== "undefined") {
+    const next = new URLSearchParams(window.location.search).get("next");
+    if (next && next.startsWith("/") && !next.startsWith("//")) return next;
+  }
+  // 2) Fall back to a same-tab sessionStorage hint.
   if (typeof sessionStorage === "undefined") return "/new/hub";
   const stored = sessionStorage.getItem(PENDING_REDIRECT_KEY);
   sessionStorage.removeItem(PENDING_REDIRECT_KEY);

@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 8080",
-    "build": "vite build",
-    "build:dev": "vite build",
+    "prebuild": "node scripts/generate-sitemap.mjs",
+    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build:dev": "node scripts/generate-sitemap.mjs && vite build",
     "preview": "vite preview --port 8080",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

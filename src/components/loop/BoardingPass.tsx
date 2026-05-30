@@ -1058,17 +1058,11 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       </div>
 
       {/* Wallet buttons */}
-      <div className="mt-5 grid gap-2 sm:grid-cols-2">
-        <button
-          onClick={() => toast.success("Apple Wallet pass coming soon")}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
-        >
-          <Apple className="h-4 w-4" /> Add to Apple Wallet
-        </button>
+      <div className="mt-5">
         <button
           onClick={addToGoogleWallet}
           disabled={googleLoading}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-60"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-60"
         >
           {googleLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />

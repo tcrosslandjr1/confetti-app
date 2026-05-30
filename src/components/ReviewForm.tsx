@@ -4,7 +4,7 @@
  */
 
 import { useState } from "react";
-import { Camera, Send, X } from "lucide-react";
+import { Send, X } from "lucide-react";
 import { StarRating } from "@/components/StarRating";
 import { toast } from "sonner";
 
@@ -193,13 +193,6 @@ export function ReviewForm({
 
       {/* Actions */}
       <div className="flex items-center justify-between pt-1">
-        <button
-          type="button"
-          onClick={() => toast("Photo upload coming soon!")}
-          className="inline-flex items-center gap-1.5 rounded-full border border-cream/15 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream/60 hover:border-ink/30"
-        >
-          <Camera className="h-3.5 w-3.5" /> Add photos
-        </button>
         <button
           type="submit"
           disabled={submitting || rating === 0}

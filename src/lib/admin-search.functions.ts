@@ -141,31 +141,24 @@ export const adminGlobalSearch = createServerFn({ method: "POST" })
     }));
 
     // ---- Bookings (orders) ----
-    let bookingQ = supabase
+    // bookings uses booking_time + special_requests (not starts_at/venue_name)
+    const bookingQ = supabase
       .from("bookings")
-      .select("id, venue_name, confirmation_code, status, starts_at, party_size")
+      .select("id, special_requests, confirmation_code, status, booking_time, party_size")
+      .or(`confirmation_code.ilike.${like},special_requests.ilike.${like}`)
       .order("created_at", { ascending: false })
       .limit(PER_TYPE);
-
-    // If query looks like a UUID prefix or short code, prioritize id/conf code
-    if (/^[a-f0-9-]{4,}$/i.test(q)) {
-      bookingQ = bookingQ.or(
-        `confirmation_code.ilike.${like},venue_name.ilike.${like},id::text.ilike.${like}`,
-      );
-    } else {
-      bookingQ = bookingQ.or(`venue_name.ilike.${like},confirmation_code.ilike.${like}`);
-    }
 
     const { data: bkRows } = await bookingQ;
     const bookings: AdminSearchHit[] = (bkRows ?? []).map((b) => ({
       type: "booking",
       id: b.id,
-      title: b.venue_name,
+      title: b.special_requests ?? `Booking #${b.id.slice(0, 8)}`,
       subtitle: [
         b.confirmation_code ? `#${b.confirmation_code}` : `#${b.id.slice(0, 8)}`,
         b.status,
-        `party ${b.party_size}`,
-        b.starts_at ? new Date(b.starts_at).toLocaleDateString() : null,
+        b.party_size ? `party ${b.party_size}` : null,
+        b.booking_time ? new Date(b.booking_time).toLocaleDateString() : null,
       ]
         .filter(Boolean)
         .join(" · "),

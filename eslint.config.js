@@ -19,8 +19,11 @@ export default tseslint.config(
       "audits-and-plans/**",
       "contracts/**",
       "design/**",
+      "design-history/**",
       "business-docs/**",
       "city-guides/**",
+      "services/**",
+      "data/**",
     ],
   },
   {

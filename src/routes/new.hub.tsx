@@ -284,6 +284,26 @@ function HubPage() {
             </button>
           </div>
 
+          {/* Vibe Mode shortcut */}
+          <button
+            onClick={() => navigate({ to: "/new/vibe-mode" })}
+            style={{
+              appearance: "none", cursor: "pointer", width: "100%",
+              marginBottom: 18, padding: "14px 18px",
+              border: `3px solid ${TOKENS.ink}`, borderRadius: 18,
+              background: `linear-gradient(90deg, ${TOKENS.accent3} 0%, ${TOKENS.accent1} 100%)`,
+              boxShadow: `5px 5px 0 ${TOKENS.ink}`,
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+            }}
+          >
+            <div style={{ textAlign: "left" }}>
+              <p style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: "rgba(255,250,240,0.7)", margin: "0 0 4px" }}>NEW</p>
+              <p style={{ fontFamily: TOKENS.display, fontSize: 18, fontWeight: 900, letterSpacing: "-0.02em", color: TOKENS.paper, margin: 0 }}>Vibe Mode</p>
+              <p style={{ fontFamily: TOKENS.ui, fontSize: 11, fontWeight: 700, color: "rgba(255,250,240,0.75)", margin: "2px 0 0" }}>Game · Pizza · Sports</p>
+            </div>
+            <span style={{ fontSize: 28 }}>🎮 🍕 🏈</span>
+          </button>
+
           {/* Tonight pass — conditional on active loop */}
           <SectionLabel>tonight</SectionLabel>
           {activeLoop ? (

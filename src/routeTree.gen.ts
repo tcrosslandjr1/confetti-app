@@ -57,6 +57,10 @@ import { Route as NewPushSettingsRouteImport } from './routes/new.push-settings'
 import { Route as NewProfileRouteImport } from './routes/new.profile'
 import { Route as NewPrivacyRouteImport } from './routes/new.privacy'
 import { Route as NewPrintingRouteImport } from './routes/new.printing'
+import { Route as NewVibeModeRouteImport } from './routes/new.vibe-mode'
+import { Route as NewGameNightRouteImport } from './routes/new.game-night'
+import { Route as NewPizzaNightRouteImport } from './routes/new.pizza-night'
+import { Route as NewSportsNightRouteImport } from './routes/new.sports-night'
 import { Route as NewPreorderRouteImport } from './routes/new.preorder'
 import { Route as NewPlanReviewRouteImport } from './routes/new.plan-review'
 import { Route as NewPlanRouteImport } from './routes/new.plan'
@@ -415,6 +419,26 @@ const NewPreorderRoute = NewPreorderRouteImport.update({
 const NewPlanReviewRoute = NewPlanReviewRouteImport.update({
   id: '/new/plan-review',
   path: '/new/plan-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewVibeModeRoute = NewVibeModeRouteImport.update({
+  id: '/new/vibe-mode',
+  path: '/new/vibe-mode',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewGameNightRoute = NewGameNightRouteImport.update({
+  id: '/new/game-night',
+  path: '/new/game-night',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewPizzaNightRoute = NewPizzaNightRouteImport.update({
+  id: '/new/pizza-night',
+  path: '/new/pizza-night',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewSportsNightRoute = NewSportsNightRouteImport.update({
+  id: '/new/sports-night',
+  path: '/new/sports-night',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewPlanRoute = NewPlanRouteImport.update({
@@ -2437,6 +2461,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewPlanReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new/vibe-mode': {
+      id: '/new/vibe-mode'
+      path: '/new/vibe-mode'
+      fullPath: '/new/vibe-mode'
+      preLoaderRoute: typeof NewVibeModeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/game-night': {
+      id: '/new/game-night'
+      path: '/new/game-night'
+      fullPath: '/new/game-night'
+      preLoaderRoute: typeof NewGameNightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/pizza-night': {
+      id: '/new/pizza-night'
+      path: '/new/pizza-night'
+      fullPath: '/new/pizza-night'
+      preLoaderRoute: typeof NewPizzaNightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/sports-night': {
+      id: '/new/sports-night'
+      path: '/new/sports-night'
+      fullPath: '/new/sports-night'
+      preLoaderRoute: typeof NewSportsNightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/new/plan': {
       id: '/new/plan'
       path: '/new/plan'
@@ -3329,6 +3381,10 @@ const rootRouteChildren: RootRouteChildren = {
   NewPaywallRoute: NewPaywallRoute,
   NewPhoneVerifyRoute: NewPhoneVerifyRoute,
   NewPlacesRoute: NewPlacesRoute,
+  NewVibeModeRoute: NewVibeModeRoute,
+  NewGameNightRoute: NewGameNightRoute,
+  NewPizzaNightRoute: NewPizzaNightRoute,
+  NewSportsNightRoute: NewSportsNightRoute,
   NewPlanRoute: NewPlanRoute,
   NewPlanReviewRoute: NewPlanReviewRoute,
   NewPreorderRoute: NewPreorderRoute,

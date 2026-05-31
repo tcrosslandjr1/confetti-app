@@ -1,6 +1,8 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Frame, TOKENS, ChunkyButton, Icons } from "@/components/new-confetti/shell";
+import { supabase } from "@/integrations/supabase/client";
+import { getSelectedCity } from "@/lib/cities";
 
 export const Route = createFileRoute("/new/explore")({ component: ExplorePage });
 
@@ -105,7 +107,7 @@ const REELS: ReelItem[] = [
     total:"~$92 · 4h", color:TOKENS.accent2,
     stops:[
       {name:"Westlight rooftop",tag:"sunset cocktail",color:TOKENS.accent1,cost:"$24",time:"6:30"},
-      {name:"Lupa Notte",tag:"italian · counter",color:TOKENS.accent2,cost:"$52",time:"8:00"},
+      {name:"Roebling Tea Room",tag:"italian · counter",color:TOKENS.accent2,cost:"$52",time:"8:00"},
       {name:"Skinny Dennis",tag:"dive nightcap",color:TOKENS.accent3,cost:"$16",time:"10:30"},
     ]},
   { kind:"clip", who:"devon", venue:"Quartz Room show", stop:3, vibe:"hype",
@@ -124,14 +126,51 @@ const REELS: ReelItem[] = [
       {name:"Bossa Nova Civic Club",tag:"dance floor",color:TOKENS.accent1,cost:"$28",time:"9:30"},
       {name:"Quartz Room",tag:"late live show",color:TOKENS.accent3,cost:"$24",time:"11:30"},
     ]},
-  { kind:"clip", who:"sam", venue:"Lupa Notte", stop:2, vibe:"foodie",
+  { kind:"clip", who:"sam", venue:"Roebling Tea Room", stop:2, vibe:"foodie",
     caption:"this carbonara healed me", color:TOKENS.accent2, likes:312, comments:42,
     stops:[
       {name:"Skinny Pete's",tag:"dive warm-up",color:TOKENS.accent2,cost:"$14"},
-      {name:"Lupa Notte",tag:"italian · ★ counter",color:TOKENS.accent1,cost:"$52"},
+      {name:"Roebling Tea Room",tag:"italian · ★ counter",color:TOKENS.accent1,cost:"$52"},
       {name:"Eavesdrop",tag:"jazz nightcap",color:TOKENS.accent3,cost:"$32"},
     ]},
 ];
+
+// ─── Google Places → Venue mapper ────────────────────────────────
+const ACCENT_CYCLE = [TOKENS.accent1, TOKENS.accent2, TOKENS.accent3, TOKENS.accent4];
+const PRICE_MAP: Record<string, string> = {
+  PRICE_LEVEL_FREE: "free",
+  PRICE_LEVEL_INEXPENSIVE: "$",
+  PRICE_LEVEL_MODERATE: "$$",
+  PRICE_LEVEL_EXPENSIVE: "$$$",
+  PRICE_LEVEL_VERY_EXPENSIVE: "$$$$",
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapPlaceToVenue(place: any, i: number): Venue {
+  const name: string = place.displayName?.text ?? "Venue";
+  const addr: string = place.formattedAddress ?? "";
+  const neighborhood = addr.split(",").slice(1, 3).join(",").trim() || addr.split(",")[0];
+  const primaryType: string = (place.primaryType ?? place.types?.[0] ?? "venue")
+    .replace(/_/g, " ");
+  const rating: number = place.rating ?? 4.0;
+  const ratingCount: number = place.userRatingCount ?? 0;
+  const photoUrl: string | undefined = place.photoProxyPaths?.[0];
+  return {
+    id: `g_${place.id ?? i}`,
+    name,
+    tag: primaryType,
+    nbhd: neighborhood,
+    blurb: `${name} — ${primaryType} in ${neighborhood}.`,
+    color: photoUrl ? TOKENS.ink : ACCENT_CYCLE[i % ACCENT_CYCLE.length],
+    yelp: rating.toFixed(1),
+    reviews: ratingCount >= 1000 ? `${(ratingCount / 1000).toFixed(1)}k` : String(ratingCount),
+    price: PRICE_MAP[place.priceLevel ?? ""] ?? "$$",
+    tags: (place.types ?? []).slice(0, 3).map((t: string) => t.replace(/_/g, " ")),
+    why: "Trending near you right now.",
+    booking: "none",
+    ...(photoUrl ? { photoUrl } : {}),
+  };
+}
 
 // ─── ExploreCard ─────────────────────────────────────────────────
 function ExploreCard({ venue, active, onTap, onAdd }:
@@ -632,7 +671,30 @@ function ExplorePage() {
   const [exploreIdx, setExploreIdx] = useState(0);
   const [exploreFilter, setExploreFilter] = useState("all");
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null);
+  const [venues, setVenues] = useState<Venue[]>(VENUES);
+  const [loadingVenues, setLoadingVenues] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const city = getSelectedCity();
+    const lat = city?.lat ?? 38.9072;
+    const lng = city?.lng ?? -77.0369;
+    const cityName = city?.name ?? "Washington DC";
+    setLoadingVenues(true);
+    supabase.functions.invoke("places-search", {
+      body: {
+        textQuery: `bars restaurants nightlife ${cityName}`,
+        lat,
+        lng,
+        radiusMeters: 5000,
+        maxResultCount: 10,
+      },
+    }).then(({ data, error }) => {
+      setLoadingVenues(false);
+      if (error || !data?.places?.length) return;
+      setVenues((data.places as unknown[]).map((p, i) => mapPlaceToVenue(p, i)));
+    }).catch(() => setLoadingVenues(false));
+  }, []);
 
   const onBack = () => navigate({ to: "/new/hub" });
   const onExploreScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -686,7 +748,7 @@ function ExplorePage() {
             </div>
             <div style={{ position:"absolute", right:10, top:"50%", transform:"translateY(-50%)",
               zIndex:20, display:"flex", flexDirection:"column", gap:6 }}>
-              {VENUES.map((_,i) => (
+              {venues.map((_,i) => (
                 <div key={i} style={{ width:3, height:i===exploreIdx?22:6, borderRadius:999,
                   background:i===exploreIdx?TOKENS.accent1:"rgba(255,255,255,0.4)",
                   transition:"all .25s" }}/>
@@ -694,7 +756,7 @@ function ExplorePage() {
             </div>
             <div ref={containerRef} onScroll={onExploreScroll} style={{ height:"100%",
               overflowY:"auto", scrollSnapType:"y mandatory", scrollbarWidth:"none" }}>
-              {VENUES.map((v,i) => (
+              {venues.map((v,i) => (
                 <ExploreCard key={v.id} venue={v} active={i===exploreIdx}
                   onTap={() => { setSelectedVenue(v); setTab("venue"); }}
                   onAdd={() => navigate({ to:"/new/plan-review" })}/>
@@ -708,7 +770,7 @@ function ExplorePage() {
                 border:`3px solid ${TOKENS.paper}`, borderRadius:999, background:TOKENS.accent1,
                 color:TOKENS.ink, fontFamily:TOKENS.ui, fontSize:14, fontWeight:900,
                 boxShadow:`4px 4px 0 ${TOKENS.paper}` }}>＋ add to pass</button>
-              <button onClick={() => { setSelectedVenue(VENUES[exploreIdx]); setTab("venue"); }}
+              <button onClick={() => { setSelectedVenue(venues[exploreIdx]); setTab("venue"); }}
                 style={{ appearance:"none", cursor:"pointer", pointerEvents:"auto", padding:"0 16px",
                   border:`3px solid ${TOKENS.paper}`, borderRadius:999, background:"rgba(0,0,0,0.4)",
                   color:TOKENS.paper, fontFamily:TOKENS.ui, fontSize:14, fontWeight:900,

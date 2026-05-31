@@ -12,6 +12,31 @@ export type Database = {
   __InternalSupabase: {
     PostgrestVersion: "14.5"
   }
+  graphql_public: {
+    Tables: {
+      [_ in never]: never
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      graphql: {
+        Args: {
+          extensions?: Json
+          operationName?: string
+          query?: string
+          variables?: Json
+        }
+        Returns: Json
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   public: {
     Tables: {
       achievements: {
@@ -2153,6 +2178,51 @@ export type Database = {
           },
         ]
       }
+      creator_applications: {
+        Row: {
+          content_niche: string | null
+          created_at: string | null
+          email: string
+          follower_count: string
+          id: string
+          instagram_handle: string | null
+          name: string
+          notes: string | null
+          primary_city: string
+          status: string
+          tier: string
+          tiktok_handle: string | null
+        }
+        Insert: {
+          content_niche?: string | null
+          created_at?: string | null
+          email: string
+          follower_count: string
+          id?: string
+          instagram_handle?: string | null
+          name: string
+          notes?: string | null
+          primary_city: string
+          status?: string
+          tier: string
+          tiktok_handle?: string | null
+        }
+        Update: {
+          content_niche?: string | null
+          created_at?: string | null
+          email?: string
+          follower_count?: string
+          id?: string
+          instagram_handle?: string | null
+          name?: string
+          notes?: string | null
+          primary_city?: string
+          status?: string
+          tier?: string
+          tiktok_handle?: string | null
+        }
+        Relationships: []
+      }
       data_requests: {
         Row: {
           admin_notes: string | null
@@ -3477,6 +3547,98 @@ export type Database = {
           name?: string
           settings?: Json | null
           type?: string
+        }
+        Relationships: []
+      }
+      hangout_claims: {
+        Row: {
+          claimed_at: string | null
+          claimed_by_name: string
+          claimed_by_token: string
+          hangout_id: string
+          id: string
+          item_category: string
+          item_key: string
+          item_label: string | null
+          note: string | null
+        }
+        Insert: {
+          claimed_at?: string | null
+          claimed_by_name: string
+          claimed_by_token: string
+          hangout_id: string
+          id?: string
+          item_category: string
+          item_key: string
+          item_label?: string | null
+          note?: string | null
+        }
+        Update: {
+          claimed_at?: string | null
+          claimed_by_name?: string
+          claimed_by_token?: string
+          hangout_id?: string
+          id?: string
+          item_category?: string
+          item_key?: string
+          item_label?: string | null
+          note?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hangout_claims_hangout_id_fkey"
+            columns: ["hangout_id"]
+            isOneToOne: false
+            referencedRelation: "hangout_crew"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hangout_crew: {
+        Row: {
+          city: string | null
+          created_at: string | null
+          date: string | null
+          expires_at: string | null
+          generated_at: string | null
+          host_name: string | null
+          id: string
+          mode: string | null
+          occasion: string | null
+          occasion_key: string | null
+          plan: Json
+          start_time: string | null
+          token: string
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string | null
+          date?: string | null
+          expires_at?: string | null
+          generated_at?: string | null
+          host_name?: string | null
+          id?: string
+          mode?: string | null
+          occasion?: string | null
+          occasion_key?: string | null
+          plan: Json
+          start_time?: string | null
+          token: string
+        }
+        Update: {
+          city?: string | null
+          created_at?: string | null
+          date?: string | null
+          expires_at?: string | null
+          generated_at?: string | null
+          host_name?: string | null
+          id?: string
+          mode?: string | null
+          occasion?: string | null
+          occasion_key?: string | null
+          plan?: Json
+          start_time?: string | null
+          token?: string
         }
         Relationships: []
       }
@@ -7697,6 +7859,9 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
+  graphql_public: {
+    Enums: {},
+  },
   public: {
     Enums: {
       agent_layer: ["frontend", "backend"],

@@ -21,8 +21,8 @@ async function callBilling<T = Record<string, unknown>>(
   action: string,
   payload: Record<string, unknown> = {},
 ): Promise<T> {
-  const { data, error } = await supabase.functions.invoke("billing-service", {
-    body: { action, ...payload },
+  const { data, error } = await supabase.functions.invoke(`billing-service/${action}`, {
+    body: payload,
   });
   if (error) throw new Error(error.message ?? "Billing request failed");
   if (data?.error) throw new Error(data.error);

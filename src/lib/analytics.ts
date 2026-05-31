@@ -51,12 +51,14 @@ export async function trackEvent(
     await supabase.from("analytics_events").insert({
       session_id: getSessionId(),
       user_id: userId,
-      event_type: type,
+      category: type,
       event_name: name,
-      path,
-      value: opts.value ?? null,
-      metadata: (opts.metadata ?? {}) as never,
-      user_agent: navigator.userAgent.slice(0, 255),
+      properties: {
+        path,
+        value: opts.value ?? null,
+        user_agent: navigator.userAgent.slice(0, 255),
+        ...(opts.metadata ?? {}),
+      },
     });
   } catch {
     /* swallow — telemetry must never break UX */

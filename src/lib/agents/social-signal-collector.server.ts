@@ -338,8 +338,7 @@ async function callAI(prompt: string): Promise<string> {
   const { text } = await generateText({
     model: provider("gpt-4o-mini"),
     prompt,
-    temperature: 0.9, // slightly higher creativity for social discovery
-    maxTokens: 4000,
+    temperature: 0.9,
   });
 
   return text;
@@ -393,14 +392,12 @@ export async function collectSignalsForCity(
     venue_slug: s.venue_slug,
     signal_type: s.signal_type,
     platform: s.platform,
-    post_count: s.post_count,
     engagement_score: s.engagement_score,
     sentiment: s.sentiment,
-    hashtags: s.hashtags,
+    hashtags: s.hashtags.join(","),
     snippet: s.snippet,
     neighborhood: s.neighborhood ?? null,
     category: s.category ?? null,
-    first_seen: s.first_seen ?? new Date().toISOString(),
     generation_batch: batchId ?? null,
     is_active: true,
     collected_at: new Date().toISOString(),
@@ -444,14 +441,14 @@ export async function loadSocialContext(citySlug: string): Promise<SocialContext
         venue_slug: d.venue_slug,
         signal_type: d.signal_type as SignalType,
         platform: d.platform as SocialPlatform,
-        post_count: d.post_count,
+        post_count: 0,
         engagement_score: d.engagement_score,
         sentiment: d.sentiment as "positive" | "neutral" | "mixed",
-        hashtags: d.hashtags ?? [],
-        snippet: d.snippet,
+        hashtags: d.hashtags ? d.hashtags.split(",").filter(Boolean) : [],
+        snippet: d.snippet ?? "",
         neighborhood: d.neighborhood ?? undefined,
         category: d.category ?? undefined,
-        first_seen: d.first_seen ?? undefined,
+        first_seen: d.collected_at ?? undefined,
       }));
 
   return {

@@ -168,7 +168,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Curated city experiences and itineraries, ready in seconds.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://ai-lifestyle-concierge.vercel.app/" },
+      { property: "og:url", content: "https://confettiplan.com" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@ConfettiPlan" },
       { name: "twitter:title", content: "Confetti — Your city, curated" },

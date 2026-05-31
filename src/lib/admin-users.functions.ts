@@ -59,7 +59,7 @@ export const listAdminUsersFn = createServerFn({ method: "GET" })
     });
     if (error) throw new Error(error.message);
 
-    const ids = list.users.map((u) => u.id);
+    const ids = (list.users as { id: string }[]).map((u) => u.id);
     const [{ data: profiles }, { data: roles }] = await Promise.all([
       ids.length
         ? supabase.from("profiles").select("id, full_name").in("id", ids)
@@ -71,7 +71,9 @@ export const listAdminUsersFn = createServerFn({ method: "GET" })
         : Promise.resolve({ data: [] as { user_id: string; role: AppRole }[] }),
     ]);
 
-    const pMap = new Map((profiles ?? []).map((p) => [p.id, p]));
+    const pMap = new Map(
+      ((profiles ?? []) as { id: string; full_name: string | null }[]).map((p) => [p.id, p]),
+    );
     const rMap = new Map<string, AppRole[]>();
     for (const r of roles ?? []) {
       const arr = rMap.get(r.user_id) ?? [];
@@ -80,7 +82,15 @@ export const listAdminUsersFn = createServerFn({ method: "GET" })
     }
 
     const q = data.q?.trim().toLowerCase();
-    const rows: AdminUserRow[] = list.users
+    type RawUser = {
+      id: string;
+      email?: string;
+      created_at: string;
+      last_sign_in_at?: string | null;
+      email_confirmed_at?: string | null;
+      banned_until?: string | null;
+    };
+    const rows: AdminUserRow[] = (list.users as RawUser[])
       .map((u) => {
         const p = pMap.get(u.id);
         return {

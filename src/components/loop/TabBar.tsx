@@ -169,8 +169,6 @@ export function TabBar() {
     <div
       style={{
         position: "fixed",
-        left: 16,
-        right: 16,
         bottom: 12,
         zIndex: 50,
         display: "flex",
@@ -183,11 +181,9 @@ export function TabBar() {
         backdropFilter: "blur(24px) saturate(160%)",
         WebkitBackdropFilter: "blur(24px) saturate(160%)",
         boxShadow: dark ? `3px 3px 0 ${TOKENS.accent1}` : `4px 4px 0 ${TOKENS.ink}`,
-        // Safe area support
         paddingBottom: `calc(8px + env(safe-area-inset-bottom, 0px))`,
         maxWidth: 600,
         margin: "0 auto",
-        // Centre the pill on wide screens
         left: "max(16px, calc(50% - 300px + 16px))",
         right: "max(16px, calc(50% - 300px + 16px))",
       } as React.CSSProperties}

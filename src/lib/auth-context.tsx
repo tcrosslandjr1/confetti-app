@@ -156,13 +156,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         .eq("role", "admin")
         .maybeSingle(),
       supabase.from("advertisers").select("id").eq("owner_id", uid).limit(1).maybeSingle(),
-      supabase.from("venue_claims").select("id").eq("user_id", uid).limit(1).maybeSingle(),
       supabase.from("promoters").select("id").eq("user_id", uid).limit(1).maybeSingle(),
     ]).then(
-      ([adminRes, advRes, claimRes, promoterRes]) => {
+      ([adminRes, advRes, promoterRes]) => {
         if (cancelled) return;
         setIsAdmin(!!adminRes.data);
-        setIsBusiness(!!advRes.data || !!claimRes.data);
+        setIsBusiness(!!advRes.data);
         setIsPromoter(!!promoterRes.data);
         setRoleLoading(false);
       },

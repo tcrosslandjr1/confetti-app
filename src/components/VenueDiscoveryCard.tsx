@@ -12,7 +12,7 @@
  * Data model lives in ./venue-discovery-types.ts
  */
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, type ReactElement } from "react";
 import {
   Star,
   MapPin,
@@ -99,7 +99,7 @@ function SocialActionRow({ venue }: { venue: VenueCard }) {
       icon: <InstagramIcon />,
       href: venue.instagramUrl ?? `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(venue.name)}`,
     },
-  ].filter(Boolean) as { label: string; icon: JSX.Element; href: string }[];
+  ].filter(Boolean) as { label: string; icon: ReactElement; href: string }[];
 
   return (
     <div className="flex gap-2 px-3.5 pb-3 overflow-x-auto scrollbar-hide">
@@ -159,7 +159,7 @@ function CommunityDrawer({ reels }: { reels: SocialReel[] }) {
             >
               <img
                 src={reel.thumbnailUrl}
-                alt={reel.caption ?? "community reel"}
+                alt="community reel"
                 className="w-full h-full object-cover"
               />
               <span
@@ -186,7 +186,7 @@ function SponsoredStrip({ venue }: { venue: VenueCard }) {
       <div className="h-px bg-border mx-3.5" />
       <div className="flex items-center gap-2.5 px-3.5 py-2.5 bg-muted/50">
         <img
-          src={venue.heroImageUrl}
+          src={venue.imageUrl}
           alt=""
           className="w-9 h-9 rounded-lg object-cover"
         />
@@ -197,7 +197,7 @@ function SponsoredStrip({ venue }: { venue: VenueCard }) {
           </p>
         </div>
         <a
-          href={venue.sponsoredCta.url}
+          href={venue.sponsoredCta.href}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 px-3.5 py-1.5 rounded-lg bg-foreground text-background text-xs font-medium hover:opacity-90 transition-opacity"
@@ -229,7 +229,7 @@ export function VenueDiscoveryCard({
       {/* Hero image */}
       <div className="relative h-[200px] overflow-hidden bg-gray-900">
         <img
-          src={venue.heroImageUrl}
+          src={venue.imageUrl}
           alt={venue.name}
           className="w-full h-full object-cover"
           loading="lazy"
@@ -269,7 +269,7 @@ export function VenueDiscoveryCard({
       <SponsoredStrip venue={venue} />
 
       {/* Community drawer */}
-      <CommunityDrawer reels={venue.communityReels ?? []} />
+      <CommunityDrawer reels={venue.reels ?? []} />
 
       {/* Reserve button */}
       <button

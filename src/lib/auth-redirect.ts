@@ -25,7 +25,7 @@ export async function isBusinessOwner(uid: string): Promise<boolean> {
       .from("user_roles")
       .select("role")
       .eq("user_id", uid)
-      .eq("role", "business_owner" as string)
+      .eq("role", "business_owner" as never)
       .maybeSingle();
     if (roleRow) return true;
   } catch {

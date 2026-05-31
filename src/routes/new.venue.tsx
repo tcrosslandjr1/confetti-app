@@ -10,6 +10,7 @@ import {
   TOKENS,
 } from "@/components/new-confetti/shell";
 import { getActiveLoop } from "@/lib/loop-store";
+import { HashtagReels } from "@/routes/new.hashtag-reels";
 
 // Dynamic venue detail — reads from the active loop stop identified by `stopId`.
 // Ported from design/new-confetti/project/discover.jsx (VenueDetailScreen, line 603)
@@ -51,7 +52,7 @@ function VenuePage() {
           { l: "area", v: stop?.area || stop?.address || "tonight" },
         ];
 
-  const hasReels = !!stop?.hashtags?.length;
+  const hasReels = true; // always show — HashtagReels renders nothing if no signals
 
   if (!stop) {
     return (
@@ -451,134 +452,41 @@ function VenuePage() {
                   ✕
                 </button>
               </div>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: 10,
-                  marginBottom: 14,
-                }}
-              >
+              {/* Live social signals for this venue */}
+              <HashtagReels
+                venueSlug={stop.name.toLowerCase().replace(/['\s]+/g, "-").replace(/[^a-z0-9-]/g, "")}
+                venueName={stop.name}
+              />
+
+              {/* External search links as footer */}
+              <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
                 <a
                   href={`https://tiktok.com/search?q=${encodeURIComponent(stop.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    background: TOKENS.ink,
-                    border: `2.5px solid ${TOKENS.ink}`,
-                    borderRadius: 14,
-                    padding: 14,
-                    boxShadow: `4px 4px 0 rgba(19,11,13,.25)`,
-                    textDecoration: "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    minHeight: 88,
+                    flex: 1, background: TOKENS.ink, border: `2px solid ${TOKENS.ink}`,
+                    borderRadius: 10, padding: "10px 12px", textDecoration: "none",
+                    fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
+                    letterSpacing: ".1em", color: TOKENS.paper, textAlign: "center",
                   }}
                 >
-                  <div
-                    style={{
-                      fontFamily: TOKENS.mono,
-                      fontSize: 9,
-                      fontWeight: 800,
-                      letterSpacing: ".14em",
-                      color: "rgba(255,250,240,.55)",
-                    }}
-                  >
-                    TIKTOK
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: TOKENS.display,
-                        fontWeight: 900,
-                        fontSize: 15,
-                        color: TOKENS.paper,
-                        letterSpacing: "-0.02em",
-                      }}
-                    >
-                      Search reels ↗
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: TOKENS.mono,
-                        fontSize: 9,
-                        fontWeight: 700,
-                        letterSpacing: ".1em",
-                        color: "rgba(255,250,240,.45)",
-                        marginTop: 3,
-                      }}
-                    >
-                      {stop.name}
-                    </div>
-                  </div>
+                  ♪ TikTok ↗
                 </a>
                 <a
                   href={`https://instagram.com/explore/search/keyword/?q=${encodeURIComponent(stop.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    background: "linear-gradient(135deg,#f97316,#ec4899,#8b5cf6)",
-                    border: `2.5px solid ${TOKENS.ink}`,
-                    borderRadius: 14,
-                    padding: 14,
-                    boxShadow: `4px 4px 0 rgba(19,11,13,.25)`,
-                    textDecoration: "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    minHeight: 88,
+                    flex: 1, background: "linear-gradient(135deg,#f97316,#ec4899,#8b5cf6)",
+                    border: `2px solid ${TOKENS.ink}`, borderRadius: 10,
+                    padding: "10px 12px", textDecoration: "none",
+                    fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800,
+                    letterSpacing: ".1em", color: "#fff", textAlign: "center",
                   }}
                 >
-                  <div
-                    style={{
-                      fontFamily: TOKENS.mono,
-                      fontSize: 9,
-                      fontWeight: 800,
-                      letterSpacing: ".14em",
-                      color: "rgba(255,255,255,.65)",
-                    }}
-                  >
-                    INSTAGRAM
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: TOKENS.display,
-                        fontWeight: 900,
-                        fontSize: 15,
-                        color: "#fff",
-                        letterSpacing: "-0.02em",
-                      }}
-                    >
-                      See posts ↗
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: TOKENS.mono,
-                        fontSize: 9,
-                        fontWeight: 700,
-                        letterSpacing: ".1em",
-                        color: "rgba(255,255,255,.5)",
-                        marginTop: 3,
-                      }}
-                    >
-                      {stop.name}
-                    </div>
-                  </div>
+                  IG ↗
                 </a>
-              </div>
-              <div
-                style={{
-                  fontFamily: TOKENS.mono,
-                  fontSize: 9,
-                  fontWeight: 800,
-                  letterSpacing: ".14em",
-                  color: TOKENS.inkHint,
-                  textAlign: "center",
-                }}
-              >
-                TAP TO OPEN IN APP
               </div>
             </div>
           </div>

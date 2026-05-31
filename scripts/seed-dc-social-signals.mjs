@@ -82,8 +82,8 @@ const push = (v, kind) => {
     venue_name: v.name,
     venue_slug: slug,
     category: category(v, kind),
-    signal_type: "seed",
-    platform: "confetti_seed",
+    signal_type: "popular",
+    platform: rows.length % 2 === 0 ? "tiktok" : "instagram",
     engagement_score: 70 + Math.floor(Math.random() * 26), // 70–95
     sentiment: "positive",
     snippet: v.description || v.pro_tip || `${v.name} — a standout ${(v.cuisine || kind)} spot in ${v.neighborhood || "DC"}.`,
@@ -99,7 +99,7 @@ const push = (v, kind) => {
 const values = rows
   .map(
     (r) =>
-      `  (${sqlStr(r.venue_name)}, ${sqlStr(r.venue_slug)}, 'dmv', ${sqlStr(r.category)}, ${sqlStr(r.signal_type)}, ${sqlStr(r.platform)}, ${r.engagement_score}, ${sqlStr(r.sentiment)}, ${sqlStr(r.snippet)}, ${sqlStr(r.neighborhood)}, ${sqlArr(r.hashtags)}, ${sqlArr(r.outing_tags)}, true, now())`,
+      `  (${sqlStr(r.venue_name)}, ${sqlStr(r.venue_slug)}, 'dmv', ${sqlStr(r.category)}, ${sqlStr(r.signal_type)}, ${sqlStr(r.platform)}, ${r.engagement_score}, ${sqlStr(r.sentiment)}, ${sqlStr(r.snippet)}, ${sqlStr(r.neighborhood)}, ${sqlStr(r.hashtags.join(","))}, ${sqlArr(r.outing_tags)}, true, now(), 'dc-seed-v1')`,
   )
   .join(",\n");
 
@@ -107,10 +107,10 @@ const sql = `-- Seed social_venue_signals for DC (city_slug='dmv') from dc-venue
 -- Idempotent: clears prior seed rows first. Review columns vs live schema before running.
 begin;
 
-delete from public.social_venue_signals where city_slug = 'dmv' and signal_type = 'seed';
+delete from public.social_venue_signals where city_slug = 'dmv' and generation_batch = 'dc-seed-v1';
 
 insert into public.social_venue_signals
-  (venue_name, venue_slug, city_slug, category, signal_type, platform, engagement_score, sentiment, snippet, neighborhood, hashtags, outing_tags, is_active, collected_at)
+  (venue_name, venue_slug, city_slug, category, signal_type, platform, engagement_score, sentiment, snippet, neighborhood, hashtags, outing_tags, is_active, collected_at, generation_batch)
 values
 ${values};
 

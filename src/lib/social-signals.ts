@@ -86,7 +86,7 @@ export function useCitySignals(limit = 20) {
 
   useEffect(() => {
     const city = getSelectedCity();
-    const citySlug = city?.slug ?? "dc";
+    const citySlug = city?.slug ?? "dmv";
 
     supabase
       .from("social_venue_signals")

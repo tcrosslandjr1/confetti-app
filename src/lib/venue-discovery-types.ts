@@ -20,7 +20,7 @@ export type SponsoredCta = {
   /** Button label, e.g. "Claim offer". */
   label: string;
   /** Where the CTA sends the user. */
-  href: string;
+  url: string;
 };
 
 export type VenueCard = {
@@ -30,7 +30,7 @@ export type VenueCard = {
   description?: string;
   tags: string[];
   /** Hero image url. */
-  imageUrl: string;
+  heroImageUrl: string;
   /** 0–5 star rating. */
   rating?: number;
   /** Pre-formatted price band, e.g. "$$". */
@@ -47,7 +47,7 @@ export type VenueCard = {
   /** Sponsored CTA payload (only used when isSponsored is true). */
   sponsoredCta?: SponsoredCta;
   /** Community reels grid (TikTok + Instagram). */
-  reels?: SocialReel[];
+  communityReels?: SocialReel[];
   /** Trust & safety signals shown on the card. */
   trust?: TrustSignals;
 };

@@ -4,9 +4,12 @@ import {
   BrandMark,
   DotsBg,
   Frame,
+  ModePill,
+  PointsPill,
   RouteDots,
   Ticket,
   TOKENS,
+  useAppMode,
 } from "@/components/new-confetti/shell";
 import { useNewAuth } from "@/hooks/useNewAuth";
 import { getActiveLoop } from "@/lib/loop-store";
@@ -23,6 +26,7 @@ function HubPage() {
   const { ready, user } = useNewAuth();
   const navigate = useNavigate();
   const { message } = Route.useSearch();
+  const [mode, setMode] = useAppMode();
 
   useEffect(() => {
     if (message) toast.info(message);
@@ -105,29 +109,37 @@ function HubPage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginBottom: 14,
+            marginBottom: 12,
           }}
         >
           <BrandMark size={18} />
-          <button
-            onClick={() => navigate({ to: "/new/profile" })}
-            style={{
-              appearance: "none",
-              cursor: "pointer",
-              width: 38,
-              height: 38,
-              borderRadius: 999,
-              border: `2.5px solid ${TOKENS.ink}`,
-              background: TOKENS.accent2,
-              fontFamily: TOKENS.display,
-              fontWeight: 900,
-              fontSize: 14,
-              color: TOKENS.ink,
-              boxShadow: `3px 3px 0 ${TOKENS.ink}`,
-            }}
-          >
-            {initials}
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <PointsPill points={0} onClick={() => navigate({ to: "/new/profile" })} />
+            <button
+              onClick={() => navigate({ to: "/new/profile" })}
+              style={{
+                appearance: "none",
+                cursor: "pointer",
+                width: 38,
+                height: 38,
+                borderRadius: 999,
+                border: `2.5px solid ${TOKENS.ink}`,
+                background: TOKENS.accent2,
+                fontFamily: TOKENS.display,
+                fontWeight: 900,
+                fontSize: 14,
+                color: TOKENS.ink,
+                boxShadow: `3px 3px 0 ${TOKENS.ink}`,
+              }}
+            >
+              {initials}
+            </button>
+          </div>
+        </div>
+
+        {/* Mode pill */}
+        <div style={{ position: "relative", zIndex: 2, marginBottom: 14 }}>
+          <ModePill value={mode} onChange={setMode} />
         </div>
 
         <div style={{ position: "relative", zIndex: 2 }}>
@@ -142,7 +154,7 @@ function HubPage() {
               margin: "0 0 4px",
             }}
           >
-            Hey, {greeting}.
+            Hey, {greeting}{mode === "family" || mode === "kids" ? " + family" : ""}.
           </h2>
           <p
             style={{
@@ -153,7 +165,9 @@ function HubPage() {
               margin: "0 0 18px",
             }}
           >
-            {dayLabel}'s {timeLabel}. Print one?
+            {mode === "family" || mode === "kids"
+              ? "What's the plan for the crew today?"
+              : `${dayLabel}'s ${timeLabel}. Print one?`}
           </p>
 
           {/* Big planner CTAs — two paths */}

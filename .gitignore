@@ -37,3 +37,8 @@ dist-ssr
 .env.*
 !.env.example
 _repo-backups/
+
+# Business documents (local only — not for git)
+*.docx
+*.pptx
+business-docs/media/

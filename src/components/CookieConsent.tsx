@@ -144,7 +144,7 @@ export function CookieConsent() {
           role="dialog"
           aria-live="polite"
           aria-label="Cookie and terms consent"
-          className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+7.5rem)] z-[80] mx-auto max-w-2xl rounded-2xl border-2 border-ink bg-cream p-4 text-cream shadow-brut-lg sm:bottom-6 sm:right-auto sm:left-4 sm:mx-0 sm:max-w-sm sm:p-5"
+          className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+7.5rem)] z-[80] mx-auto max-w-2xl rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg sm:bottom-6 sm:right-auto sm:left-4 sm:mx-0 sm:max-w-sm sm:p-5"
         >
           <div className="flex items-start gap-3">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border-2 border-ink bg-coral text-cream">
@@ -155,7 +155,7 @@ export function CookieConsent() {
                 <p className="font-display text-sm font-extrabold leading-tight">
                   A quick housekeeping note
                 </p>
-                <p className="text-xs leading-relaxed text-cream/75">
+                <p className="text-xs leading-relaxed text-ink/70">
                   Confetti uses cookies to keep you signed in, remember your taste, and learn what
                   picks land. By tapping <strong>Accept</strong> you also agree to our{" "}
                   <Link
@@ -192,7 +192,7 @@ export function CookieConsent() {
                   variant="outline"
                   size="sm"
                   onClick={declineAll}
-                  className="rounded-full border-2 border-ink bg-cream"
+                  className="rounded-full border-2 border-ink bg-cream text-ink"
                 >
                   Only essential
                 </Button>

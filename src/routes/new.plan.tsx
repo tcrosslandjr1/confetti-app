@@ -101,23 +101,39 @@ function PlanPage() {
     }
   }
 
-  if (!ready) {
+  if (!ready || generating) {
     return (
       <Frame>
         <div
           style={{
             height: "100%",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             background: TOKENS.bg,
             fontFamily: TOKENS.display,
-            fontSize: 24,
-            fontWeight: 900,
-            color: TOKENS.inkMuted,
+            gap: 16,
+            padding: 32,
+            textAlign: "center",
           }}
         >
-          loading...
+          {generating ? (
+            <>
+              <div style={{ fontSize: 40 }}>🎟️</div>
+              <div style={{ fontSize: 22, fontWeight: 900, color: TOKENS.ink }}>
+                Building your night…
+              </div>
+              <div style={{ fontSize: 14, color: TOKENS.inkMuted, lineHeight: 1.5 }}>
+                AI is picking venues, routes, and insider tips.<br />
+                Usually takes 15–20 seconds.
+              </div>
+            </>
+          ) : (
+            <div style={{ fontSize: 24, fontWeight: 900, color: TOKENS.inkMuted }}>
+              loading...
+            </div>
+          )}
         </div>
       </Frame>
     );
@@ -458,6 +474,7 @@ function PlanPage() {
                 { id: "late", label: "open late", emoji: "🌙" },
                 { id: "snack", label: "snacks", emoji: "🥨" },
                 { id: "patio", label: "patio", emoji: "☀" },
+                { id: "kids", label: "kid-friendly", emoji: "👶" },
               ].map((a) => (
                 <Chip
                   key={a.id}

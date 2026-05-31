@@ -2,12 +2,11 @@
 // Combines Taste Agent + Context Agent + Recommendation Agent + Naming Agent
 // into a 2-call pipeline for speed while preserving agent specialization.
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.com",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { getCorsHeaders } from "../_shared/cors.ts";
+
+// Reassigned per-request inside the handler so CORS echoes the caller's origin
+// (works on both confettiplan.com and the vercel.app production domain).
+let corsHeaders = getCorsHeaders();
 
 type PlanRequest = {
   occasion: string;
@@ -154,6 +153,7 @@ Techniques: juxtaposition, sensory, location+energy, action verbs
 // ─── Main Handler ────────────────────────────────────────────────────
 
 Deno.serve(async (req) => {
+  corsHeaders = getCorsHeaders(req);
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
@@ -162,18 +162,16 @@ Deno.serve(async (req) => {
 
     if (!occasion) return json({ error: "occasion is required" }, 400);
 
-    const apiKey = Deno.env.get("OPENROUTER_API_KEY");
-    if (!apiKey) return json({ error: "missing OPENROUTER_API_KEY" }, 500);
+    const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+    if (!apiKey) return json({ error: "missing ANTHROPIC_API_KEY" }, 500);
 
     const systemPrompt = buildSystemPrompt(body);
 
     // Define the structured output tool
     const planTool = {
-      type: "function",
-      function: {
-        name: "return_itinerary",
-        description: "Return a complete Confetti itinerary with boarding pass",
-        parameters: {
+      name: "return_itinerary",
+      description: "Return a complete Confetti itinerary with boarding pass",
+      input_schema: {
           type: "object",
           properties: {
             title: { type: "string", description: "2-4 word theme name" },
@@ -238,7 +236,6 @@ Deno.serve(async (req) => {
             "total_budget_estimate", "time_window", "stops", "twist", "boarding_pass",
           ],
         },
-      },
     };
 
     // Single orchestrated AI call with all agent intelligence embedded
@@ -246,29 +243,31 @@ Deno.serve(async (req) => {
       ? `Generate a SURPRISE itinerary. The user wants something unexpected — skip the obvious choices. Find hidden gems, unusual combos, or venues with a story. Make it feel like an adventure they'd never plan themselves. City: ${city}, group of ${groupSize}, budget ${body.budget ?? "$$"}, time: ${body.timeOfDay ?? "Tonight"}.`
       : `Generate an itinerary for: ${occasion} night${body.vibe ? ` with a ${body.vibe} vibe` : ""} in ${city}. Group of ${groupSize}, budget ${body.budget ?? "$$"} per person, time: ${body.timeOfDay ?? "Tonight"}.${body.notes ? ` Additional notes: ${body.notes}` : ""}`;
 
-    const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const resp = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: userMessage },
-        ],
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 4096,
+        system: systemPrompt,
+        messages: [{ role: "user", content: userMessage }],
         tools: [planTool],
-        tool_choice: { type: "function", function: { name: "return_itinerary" } },
+        tool_choice: { type: "tool", name: "return_itinerary" },
       }),
     });
 
     if (resp.status === 429) return json({ error: "Rate limit — try again in a moment." }, 429);
-    if (resp.status === 402) return json({ error: "AI credits exhausted." }, 402);
     if (!resp.ok) return json({ error: `AI error ${resp.status}: ${await resp.text()}` }, 500);
 
     const data = await resp.json();
-    const call = data.choices?.[0]?.message?.tool_calls?.[0];
+    const call = data.content?.find((b: { type: string }) => b.type === "tool_use");
     if (!call) return json({ error: "No tool call returned from AI" }, 500);
 
-    const itinerary: PlanResult = JSON.parse(call.function.arguments);
+    const itinerary: PlanResult = call.input as PlanResult;
 
     // Basic validation
     if (!itinerary.stops?.length) return json({ error: "AI returned empty itinerary" }, 500);

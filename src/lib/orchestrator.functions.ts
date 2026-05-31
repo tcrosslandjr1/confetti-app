@@ -88,7 +88,7 @@ export const orchestratePlan = createServerFn({ method: "POST" })
     const defaults = getDefaultsFromProfile(profile);
 
     // Resolve city
-    const city = intent.city ?? data.currentCity ?? "Miami";
+    const city = intent.city ?? data.currentCity ?? "Washington DC";
     const vibe = intent.vibe ?? defaults.defaultVibe ?? "easygoing";
     const category = intent.category ?? defaults.defaultCategory ?? "casual";
     const groupSize = intent.groupSize ?? 2;

@@ -1,18 +1,162 @@
 project_id = "zfeckvxkulreyapadanf"
 
-[functions.generate-ideas]
+[functions.agents-chat]
+verify_jwt = false
+
+[functions.agents-execute-action]
+verify_jwt = false
+
+[functions.ai-chat]
+verify_jwt = false
+
+[functions.ai-pipeline]
+verify_jwt = false
+
+[functions.ai-recommend]
+verify_jwt = false
+
+[functions.analytics-service]
+verify_jwt = false
+
+[functions.auth-service]
+verify_jwt = false
+
+[functions.billing-service]
+verify_jwt = false
+
+[functions.booking-orchestrator]
+verify_jwt = false
+
+[functions.booking-service]
+verify_jwt = false
+
+[functions.build-hangout]
 verify_jwt = false
 
 [functions.build-itinerary]
 verify_jwt = false
 
-[functions.taste-chat]
+[functions.chat-concierge]
+verify_jwt = false
+
+[functions.content-service]
+verify_jwt = false
+
+[functions.contract-expiration-digest]
+verify_jwt = false
+
+[functions.corporate-onboarding]
+verify_jwt = false
+
+[functions.corporate-service]
+verify_jwt = false
+
+[functions.cron-plan-reminders]
+verify_jwt = false
+
+[functions.cron-rate-your-night]
+verify_jwt = false
+
+[functions.cron-recalculate-boosts]
+verify_jwt = false
+
+[functions.cron-refresh-trending]
+verify_jwt = false
+
+[functions.event-discovery]
+verify_jwt = false
+
+[functions.event-service]
+verify_jwt = false
+
+[functions.eventbrite-events]
+verify_jwt = false
+
+[functions.generate-ideas]
+verify_jwt = false
+
+[functions.generate-plan]
+verify_jwt = false
+
+[functions.generate-wallet-pass]
+verify_jwt = false
+
+[functions.geofence-processor]
+verify_jwt = false
+
+[functions.get-venues-by-outing]
+verify_jwt = false
+
+[functions.google-places]
+verify_jwt = false
+
+[functions.hangout-collab]
+verify_jwt = false
+
+[functions.partner-admin]
+verify_jwt = false
+
+[functions.places-photo]
+verify_jwt = false
+
+[functions.places-search]
+verify_jwt = false
+
+[functions.plan-service]
+verify_jwt = false
+
+[functions.rewards-service]
+verify_jwt = false
+
+[functions.route-intelligence]
+verify_jwt = false
+
+[functions.run-migration]
+verify_jwt = false
+
+[functions.send-notification]
 verify_jwt = false
 
 [functions.social-learn]
 verify_jwt = false
 
-[functions.google-places]
+[functions.social-sync]
+verify_jwt = false
+
+[functions.social-trend-scraper]
+verify_jwt = false
+
+[functions.taste-chat]
+verify_jwt = false
+
+[functions.trigger-on-boost-purchased]
+verify_jwt = false
+
+[functions.trigger-on-corporate-booking]
+verify_jwt = false
+
+[functions.trigger-on-plan-request]
+verify_jwt = false
+
+[functions.update-wallet-pass]
+verify_jwt = false
+
+[functions.user-service]
+verify_jwt = false
+
+[functions.venue-discovery-agent]
+verify_jwt = false
+
+[functions.venue-ingest]
+verify_jwt = false
+
+[functions.venue-intel]
+verify_jwt = false
+
+[functions.venue-quality-score]
+verify_jwt = false
+
+[functions.venue-service]
 verify_jwt = false
 
 [functions.wizard-itinerary]

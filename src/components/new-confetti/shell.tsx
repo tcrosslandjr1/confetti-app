@@ -4,7 +4,7 @@
 // (lines 69-128). Used by every /new/* screen so each port is a
 // clean composition of these chunky brutalist primitives.
 
-import type { CSSProperties, ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 
 /* ── Palette tokens (warm) ─────────────────────────────────────────── */
 export const TOKENS = {
@@ -485,6 +485,175 @@ export function RouteDots({
       ))}
     </div>
   );
+}
+
+/* ── ModePill ──────────────────────────────────────────────────────── */
+// Ported from design/new-confetti/project/family.jsx — ModePill component
+
+export type AppMode = "adults" | "family" | "kids" | "all";
+
+const MODES: { id: AppMode; label: string; icon: string; c: string }[] = [
+  { id: "adults", label: "Adults",   icon: "🍷", c: TOKENS.accent3 },
+  { id: "family", label: "Family",   icon: "👨‍👩‍👧", c: TOKENS.accent1 },
+  { id: "kids",   label: "Kids",     icon: "🧸", c: TOKENS.accent2 },
+  { id: "all",    label: "All ages", icon: "✣", c: TOKENS.ink },
+];
+
+export function ModePill({
+  value,
+  onChange,
+  compact = false,
+}: {
+  value: AppMode;
+  onChange: (m: AppMode) => void;
+  compact?: boolean;
+}) {
+  return (
+    <div
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 2,
+        padding: 3,
+        border: `2.5px solid ${TOKENS.ink}`,
+        borderRadius: 999,
+        background: TOKENS.paper,
+        boxShadow: `3px 3px 0 ${TOKENS.ink}`,
+      }}
+    >
+      {MODES.map((m) => {
+        const on = value === m.id;
+        return (
+          <button
+            key={m.id}
+            onClick={() => onChange(m.id)}
+            style={{
+              appearance: "none",
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 4,
+              padding: compact ? "4px 8px" : "6px 10px",
+              border: "none",
+              borderRadius: 999,
+              background: on ? m.c : "transparent",
+              color: on && m.c === TOKENS.ink ? TOKENS.paper : TOKENS.ink,
+              fontFamily: TOKENS.ui,
+              fontSize: compact ? 11 : 12,
+              fontWeight: 800,
+              letterSpacing: "-0.01em",
+              transition: "all .12s",
+            }}
+          >
+            <span style={{ fontSize: compact ? 12 : 13 }}>{m.icon}</span>
+            {!compact && m.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ── PointsPill ────────────────────────────────────────────────────── */
+// Ported from design/new-confetti/project/loyalty.jsx — PointsPill component
+
+const TIERS = [
+  { id: "silver",   label: "Silver",   min: 0,    c: "#c8c5b9" },
+  { id: "gold",     label: "Gold",     min: 1000, c: TOKENS.accent2 },
+  { id: "platinum", label: "Platinum", min: 5000, c: TOKENS.accent3 },
+];
+
+function tierFor(pts: number) {
+  for (let i = TIERS.length - 1; i >= 0; i--) {
+    if (pts >= TIERS[i].min) return { ...TIERS[i], next: TIERS[i + 1] };
+  }
+  return { ...TIERS[0], next: TIERS[1] };
+}
+
+export function PointsPill({
+  points = 0,
+  onClick,
+}: {
+  points?: number;
+  onClick?: () => void;
+}) {
+  const t = tierFor(points);
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        appearance: "none",
+        cursor: "pointer",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "5px 11px 5px 5px",
+        border: `2.5px solid ${TOKENS.ink}`,
+        borderRadius: 999,
+        background: TOKENS.paper,
+        color: TOKENS.ink,
+        boxShadow: `3px 3px 0 ${TOKENS.ink}`,
+      }}
+    >
+      <span
+        style={{
+          width: 22,
+          height: 22,
+          borderRadius: 999,
+          background: t.c,
+          border: `2px solid ${TOKENS.ink}`,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: TOKENS.display,
+          fontWeight: 900,
+          fontSize: 11,
+          color: TOKENS.ink,
+          flexShrink: 0,
+        }}
+      >
+        {t.label[0]}
+      </span>
+      <span
+        style={{
+          fontFamily: TOKENS.display,
+          fontWeight: 900,
+          fontSize: 13,
+          letterSpacing: "-0.01em",
+        }}
+      >
+        {points.toLocaleString()}
+      </span>
+      <span
+        style={{
+          fontFamily: TOKENS.mono,
+          fontSize: 8,
+          fontWeight: 800,
+          letterSpacing: ".12em",
+          opacity: 0.6,
+        }}
+      >
+        PTS
+      </span>
+    </button>
+  );
+}
+
+/* ── useAppMode ────────────────────────────────────────────────────── */
+// Persistent mode stored in localStorage so it survives navigation.
+export function useAppMode(): [AppMode, (m: AppMode) => void] {
+  const [mode, setModeState] = useState<AppMode>(() => {
+    try {
+      return (localStorage.getItem("cf_mode") as AppMode) || "adults";
+    } catch {
+      return "adults";
+    }
+  });
+  const setMode = (m: AppMode) => {
+    try { localStorage.setItem("cf_mode", m); } catch { /* noop */ }
+    setModeState(m);
+  };
+  return [mode, setMode];
 }
 
 /* ── Icon set ──────────────────────────────────────────────────────── */

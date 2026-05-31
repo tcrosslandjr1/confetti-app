@@ -2,12 +2,11 @@
 // Sits on top of a generated plan and lets users tweak it via natural language.
 // "Make stop 2 quieter" / "Add a dessert spot" / "What should I wear?"
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.com",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { getCorsHeaders } from "../_shared/cors.ts";
+
+// Reassigned per-request inside the handler so CORS echoes the caller's origin
+// (works on both confettiplan.com and the vercel.app production domain).
+let corsHeaders = getCorsHeaders();
 
 // ─── Types ──────────────────────────────────────────────────────────
 
@@ -185,6 +184,7 @@ const editPlanTool = {
 // ─── Main Handler ───────────────────────────────────────────────────
 
 Deno.serve(async (req) => {
+  corsHeaders = getCorsHeaders(req);
   if (req.method === "OPTIONS") return json(null, 204);
 
   try {

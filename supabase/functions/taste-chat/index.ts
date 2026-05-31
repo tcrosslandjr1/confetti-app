@@ -1,10 +1,9 @@
 // Confetti AI — taste-profile chat. Returns assistant reply + updated profile.
-const corsHeaders = {
-  "Access-Control-Allow-Origin":
-    Deno.env.get("ALLOWED_ORIGIN") ?? "https://confettiplan.com",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { getCorsHeaders } from "../_shared/cors.ts";
+
+// Reassigned per-request inside the handler so CORS echoes the caller's origin
+// (works on both confettiplan.com and the vercel.app production domain).
+let corsHeaders = getCorsHeaders();
 
 type Msg = { role: "user" | "assistant"; content: string };
 type Profile = {
@@ -21,6 +20,7 @@ type Profile = {
 type Body = { messages: Msg[]; profile?: Profile };
 
 Deno.serve(async (req) => {
+  corsHeaders = getCorsHeaders(req);
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   try {
     const { messages, profile = {} } = (await req.json()) as Body;

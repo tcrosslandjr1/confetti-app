@@ -513,9 +513,45 @@ export default async function handler(req: Request): Promise<Response> {
     model: anthropic("claude-3-5-haiku-20241022"),
     system,
     messages: modelMessages,
-    maxTokens: 2048,
+    // AI SDK v5+/v6 renamed `maxTokens` → `maxOutputTokens`. The old name is
+    // silently ignored, so it must be the new name to take effect.
+    maxOutputTokens: 2048,
+    // Surface model/provider errors in Vercel logs instead of swallowing them.
+    onError: ({ error }) => {
+      console.error("[chat] streamText error:", error);
+    },
   });
 
-  // toTextStreamResponse returns raw text chunks — matches the manual reader in new.chat.tsx
-  return result.toTextStreamResponse({ headers: CORS });
+  // Pump the text stream manually so a mid-stream model error becomes a
+  // VISIBLE message to the user (the default toTextStreamResponse() returns a
+  // 200 with an empty body when the model errors — which renders as a blank
+  // chat bubble). This matches the raw-text reader in new.chat.tsx.
+  const encoder = new TextEncoder();
+  const stream = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      let emittedAny = false;
+      try {
+        for await (const chunk of result.textStream) {
+          if (chunk) emittedAny = true;
+          controller.enqueue(encoder.encode(chunk));
+        }
+        if (!emittedAny) {
+          controller.enqueue(
+            encoder.encode("Hmm, I couldn't pull that together just now — mind trying again?"),
+          );
+        }
+      } catch (err) {
+        console.error("[chat] stream pump error:", err);
+        controller.enqueue(
+          encoder.encode("\n\n⚠️ I hit a snag building that. Give it another shot in a moment."),
+        );
+      } finally {
+        controller.close();
+      }
+    },
+  });
+
+  return new Response(stream, {
+    headers: { ...CORS, "Content-Type": "text/plain; charset=utf-8" },
+  });
 }

@@ -1,80 +1,116 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import {
-  Compass,
-  Search,
-  Plus,
-  Award,
-  User,
-  LayoutDashboard,
-  CalendarPlus,
-  Image as ImageIcon,
-  Link2,
-  Settings,
-} from "lucide-react";
-import { motion } from "framer-motion";
-import { useId } from "react";
+// TabBar — floating pill nav, ported from design/new-confetti/project/extras.jsx
+// 5 tabs: home / plan / feed / crew / you
+// Active tab: filled ink pill + label. Inactive: icon only.
+
+import { useNavigate, useRouterState } from "@tanstack/react-router";
+import { TOKENS } from "@/components/new-confetti/shell";
 import { useAuth } from "@/lib/auth-context";
-import { trackBusinessNavClick } from "@/lib/business-analytics";
 
-type Tab = {
-  to: string;
-  label: string;
-  icon: typeof Compass;
-  match: (p: string) => boolean;
-  prominent?: boolean;
-};
+const TABS = [
+  {
+    id: "hub",
+    label: "home",
+    route: "/new/hub",
+    matches: (p: string) => p === "/" || p === "/new/hub",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path
+          d="M3 9l7-6 7 6v8a1 1 0 0 1-1 1h-4v-5h-4v5H4a1 1 0 0 1-1-1z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "plan",
+    label: "plan",
+    route: "/new/plan",
+    matches: (p: string) => p.startsWith("/new/plan") || p.startsWith("/new/family-plan"),
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path
+          d="M10 1l2 6h6l-5 4 2 7-7-4-7 4 2-7-5-4h6z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+          fill="currentColor"
+          fillOpacity="0.18"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "feed",
+    label: "feed",
+    route: "/new/explore",
+    matches: (p: string) =>
+      p.startsWith("/new/explore") ||
+      p.startsWith("/new/reels") ||
+      p.startsWith("/new/whats-hot"),
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <rect x="3" y="3" width="14" height="14" rx="2.5" stroke="currentColor" strokeWidth="2" />
+        <path d="M7 8h6M7 12h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    id: "crew",
+    label: "crew",
+    route: "/new/crews",
+    matches: (p: string) =>
+      p.startsWith("/new/crews") ||
+      p.startsWith("/new/crew-map") ||
+      p.startsWith("/new/night-together"),
+    icon: (
+      <svg width="22" height="20" viewBox="0 0 22 20" fill="none">
+        <circle cx="7" cy="7" r="3" stroke="currentColor" strokeWidth="2" />
+        <circle cx="15" cy="7" r="3" stroke="currentColor" strokeWidth="2" />
+        <path
+          d="M1 18c0-3 2.7-5 6-5s6 2 6 5M9 18c0-3 2.7-5 6-5s6 2 6 5"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "you",
+    label: "you",
+    route: "/new/profile",
+    matches: (p: string) =>
+      p.startsWith("/new/profile") ||
+      p.startsWith("/new/trips") ||
+      p.startsWith("/new/wallet") ||
+      p.startsWith("/new/settings"),
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="6" r="3.5" stroke="currentColor" strokeWidth="2" />
+        <path
+          d="M2 19c0-4 3.5-7 8-7s8 3 8 7"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+] as const;
 
-const CUSTOMER_TABS: Tab[] = [
-  { to: "/new/hub", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/new/hub" },
-  {
-    to: "/new/explore",
-    label: "Explore",
-    icon: Search,
-    match: (p) => p.startsWith("/new/explore") || p.startsWith("/venue"),
-  },
-  {
-    to: "/new/plan",
-    label: "Plan",
-    icon: Plus,
-    prominent: true,
-    match: (p) => p.startsWith("/new/plan") || p.startsWith("/trips"),
-  },
-  { to: "/new/chat", label: "Chat", icon: Award, match: (p) => p.startsWith("/new/chat") || p.startsWith("/chat") },
-  {
-    to: "/new/profile",
-    label: "Profile",
-    icon: User,
-    match: (p) => p.startsWith("/new/profile"),
-  },
-];
-
-const BUSINESS_TABS: Tab[] = [
-  {
-    to: "/business/dashboard",
-    label: "Dashboard",
-    icon: LayoutDashboard,
-    match: (p) => p.startsWith("/business/dashboard"),
-  },
-  {
-    to: "/business/claim",
-    label: "Claim",
-    icon: CalendarPlus,
-    match: (p) => p.startsWith("/business/claim"),
-  },
-  { to: "/business", label: "Home", icon: ImageIcon, match: (p) => p === "/business" },
-];
-
+// Routes where the tab bar should be hidden entirely
 const HIDE_PREFIXES = [
   "/auth",
   "/admin",
   "/about",
   "/privacy",
-  "/influencer",
   "/promoter",
   "/api",
   "/health",
-  "/business/login",
-  // auth + onboarding flows (no nav chrome)
+  "/business",
+  "/influencer",
   "/new/signin",
   "/new/signup",
   "/new/forgot-pw",
@@ -92,7 +128,8 @@ const HIDE_PREFIXES = [
   "/new/family-plan",
   "/new/referral",
   "/new/learn-explore",
-  // full-screen flows
+  "/new/firstrun",
+  "/new/welcome",
   "/new/printing",
   "/new/night",
   "/new/gated",
@@ -104,143 +141,94 @@ const HIDE_PREFIXES = [
   "/new/command-center",
   "/new/stripe",
   "/new/night-together",
+  "/new/chat",
+  "/new/pass",
+  "/new/plan-review",
+  "/new/loader",
 ];
 
-function TabItem({
-  to,
-  label,
-  icon: Icon,
-  active,
-  prominent,
-  labelId,
-  onClick,
-}: {
-  to: string;
-  label: string;
-  icon: typeof Compass;
-  active: boolean;
-  prominent?: boolean;
-  labelId: string;
-  onClick?: () => void;
-}) {
-  if (prominent) {
-    return (
-      <div className="relative -top-6 flex flex-col items-center">
-        <Link
-          to={to}
-          onClick={onClick}
-          aria-labelledby={labelId}
-          aria-current={active ? "page" : undefined}
-          className="block rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-        >
-          <motion.span
-            whileTap={{ scale: 0.92, x: 2, y: 2 }}
-            transition={{ type: "spring", stiffness: 500, damping: 22 }}
-            className={`grid h-14 w-14 sm:h-16 sm:w-16 place-items-center rounded-full border-2 border-ink bg-coral text-white shadow-[4px_4px_0px_0px_hsl(var(--ink))] transition-shadow duration-75 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none ${
-              active ? "ring-2 ring-coral ring-offset-2 ring-offset-cream" : ""
-            }`}
-          >
-            <Icon
-              className="h-7 w-7 sm:h-8 sm:w-8"
-              strokeWidth={3}
-              strokeLinecap="square"
-              strokeLinejoin="miter"
-              aria-hidden="true"
-            />
-          </motion.span>
-        </Link>
-        <span
-          id={labelId}
-          className={`mt-1 block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-cream"}`}
-        >
-          {label}
-        </span>
-      </div>
-    );
-  }
-
-  return (
-    <Link
-      to={to}
-      onClick={onClick}
-      aria-current={active ? "page" : undefined}
-      className="group flex w-full min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 py-1 min-h-[60px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-    >
-      <motion.span
-        whileTap={{ scale: 0.88 }}
-        transition={{ type: "spring", stiffness: 500, damping: 20 }}
-        className={`p-1.5 transition-colors ${active ? "text-coral" : "text-cream"}`}
-      >
-        <Icon
-          className="h-5 w-5 sm:h-6 sm:w-6"
-          strokeWidth={2.5}
-          strokeLinecap="square"
-          strokeLinejoin="miter"
-          aria-hidden="true"
-        />
-      </motion.span>
-      <span
-        id={labelId}
-        className={`relative block max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none transition-colors ${active ? "text-coral" : "text-cream/60"}`}
-      >
-        {label}
-        {active && (
-          <span
-            aria-hidden="true"
-            className="absolute -bottom-1.5 left-1/2 h-[3px] w-4 -translate-x-1/2 rounded-full bg-coral"
-          />
-        )}
-      </span>
-    </Link>
-  );
-}
+// Screens with dark background — tab bar uses frosted-dark style
+const DARK_PREFIXES = ["/new/explore", "/new/reels", "/new/crew-map"];
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
   const { effectiveRole } = useAuth();
-  const baseId = useId();
-  if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
 
-  const tabs = effectiveRole === "business" ? BUSINESS_TABS : CUSTOMER_TABS;
+  // Hide on non-customer roles and hidden routes
+  if (effectiveRole === "business" || effectiveRole === "admin") return null;
+  if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
+  // Also hide on old (non-new) routes that have their own nav
+  if (!pathname.startsWith("/new/") && pathname !== "/") return null;
+
+  const dark = DARK_PREFIXES.some((p) => pathname.startsWith(p));
+  const bg = dark ? "rgba(10,10,10,0.65)" : "rgba(255,250,240,0.88)";
+  const borderColor = dark ? TOKENS.paper : TOKENS.ink;
 
   return (
-    <nav
+    <div
+      style={{
+        position: "fixed",
+        left: 16,
+        right: 16,
+        bottom: 12,
+        zIndex: 50,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "8px 10px",
+        border: `2.5px solid ${borderColor}`,
+        borderRadius: 999,
+        background: bg,
+        backdropFilter: "blur(24px) saturate(160%)",
+        WebkitBackdropFilter: "blur(24px) saturate(160%)",
+        boxShadow: dark ? `3px 3px 0 ${TOKENS.accent1}` : `4px 4px 0 ${TOKENS.ink}`,
+        // Safe area support
+        paddingBottom: `calc(8px + env(safe-area-inset-bottom, 0px))`,
+        maxWidth: 600,
+        margin: "0 auto",
+        // Centre the pill on wide screens
+        left: "max(16px, calc(50% - 300px + 16px))",
+        right: "max(16px, calc(50% - 300px + 16px))",
+      } as React.CSSProperties}
+      role="navigation"
       aria-label="Primary navigation"
-      className="fixed inset-x-0 bottom-0 z-50 pb-[env(safe-area-inset-bottom)]"
     >
-      {/* soft gradient fade so content scrolls cleanly behind the bar */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 -top-8 h-8 bg-gradient-to-t from-cream/95 to-transparent"
-      />
-      <div className="relative border-t-2 border-ink bg-cream/95 backdrop-blur-xl supports-[backdrop-filter]:bg-cream/80">
-        <div
-          role="list"
-          className="relative mx-auto grid w-full max-w-2xl min-h-[80px] grid-cols-5 place-items-center px-2 sm:px-4"
-        >
-          {tabs.map(({ to, label, icon, match, prominent }, i) => {
-            const active = match(pathname);
-            const labelId = `${baseId}-tab-label-${i}`;
-            return (
-              <div key={to} role="listitem" className="flex min-w-0 justify-center">
-                <TabItem
-                  to={to}
-                  label={label}
-                  icon={icon}
-                  active={active}
-                  prominent={prominent}
-                  labelId={labelId}
-                  onClick={
-                    effectiveRole === "business"
-                      ? () => trackBusinessNavClick(label, to)
-                      : undefined
-                  }
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </nav>
+      {TABS.map((tab) => {
+        const active = tab.matches(pathname);
+        const activeBg = dark ? TOKENS.paper : TOKENS.ink;
+        const activeFg = dark ? TOKENS.ink : TOKENS.paper;
+        const inactiveFg = dark ? TOKENS.paper : TOKENS.ink;
+
+        return (
+          <button
+            key={tab.id}
+            onClick={() => navigate({ to: tab.route })}
+            aria-current={active ? "page" : undefined}
+            aria-label={tab.label}
+            style={{
+              appearance: "none",
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              padding: active ? "6px 12px" : "6px",
+              border: "none",
+              borderRadius: 999,
+              background: active ? activeBg : "transparent",
+              color: active ? activeFg : inactiveFg,
+              fontFamily: TOKENS.ui,
+              fontSize: 12,
+              fontWeight: 800,
+              transition: "all .18s cubic-bezier(.3,.7,.4,1)",
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
+            <span style={{ display: "inline-flex", alignItems: "center" }}>{tab.icon}</span>
+            {active && <span>{tab.label}</span>}
+          </button>
+        );
+      })}
+    </div>
   );
 }

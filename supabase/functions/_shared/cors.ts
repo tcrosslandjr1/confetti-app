@@ -5,17 +5,16 @@ const ALLOWED_ORIGINS = (Deno.env.get("ALLOWED_ORIGINS") ?? "")
 
 function getAllowedOrigin(request?: Request): string {
   const origin = request?.headers.get("origin") ?? "";
-  if (ALLOWED_ORIGINS.length === 0) {
-    // Fallback: allow common dev/preview patterns when env not set
-    if (
-      origin.startsWith("http://localhost") ||
-      origin.endsWith(".confettiplan.com") ||
-      origin.endsWith(".vercel.app")
-    ) {
-      return origin;
-    }
-    return "";
+  // Always allow localhost and common dev/preview patterns
+  if (
+    origin.startsWith("http://localhost") ||
+    origin.startsWith("http://127.0.0.1") ||
+    origin.endsWith(".confettiplan.com") ||
+    origin.endsWith(".vercel.app")
+  ) {
+    return origin;
   }
+  if (ALLOWED_ORIGINS.length === 0) return "";
   if (ALLOWED_ORIGINS.includes(origin)) return origin;
   return "";
 }

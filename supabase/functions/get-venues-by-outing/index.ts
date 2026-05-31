@@ -40,7 +40,7 @@ const VALID_OUTINGS = new Set([
   // Food & Drink
   "Dinner Night","Tapas Night","Brunch Night","Food Truck Night","Fine Dining Night",
   "Tasting Menu Night","Seafood Night","Steakhouse Night","Sushi Night",
-  "Pizza Night","BBQ Night",
+  "Pizza Night","BBQ Night","Happy Hour",
   // Culture & Arts
   "Museum Night","Art District Night","Gallery Night","Theater Night",
   "Comedy Show Night","Jazz Night","Live Music Night","Poetry Night",

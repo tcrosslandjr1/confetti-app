@@ -44,7 +44,7 @@ function ExplainerPage() {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const p = PANELS[page];
-  const onDone = () => navigate({ to: "/new/hub" });
+  const onDone = () => navigate({ to: "/new/invite" });
 
   return (
     <Frame>

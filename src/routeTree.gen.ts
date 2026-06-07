@@ -17,6 +17,7 @@ import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as HealthRouteImport } from './routes/health'
 import { Route as HangoutRouteImport } from './routes/hangout'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
+import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
@@ -37,11 +38,13 @@ import { Route as NewZerostateRouteImport } from './routes/new.zerostate'
 import { Route as NewWhatsHotRouteImport } from './routes/new.whats-hot'
 import { Route as NewWelcomeRouteImport } from './routes/new.welcome'
 import { Route as NewWalletRouteImport } from './routes/new.wallet'
+import { Route as NewVibeModeRouteImport } from './routes/new.vibe-mode'
 import { Route as NewVenueMediaRouteImport } from './routes/new.venue-media'
 import { Route as NewVenueRouteImport } from './routes/new.venue'
 import { Route as NewTripsRouteImport } from './routes/new.trips'
 import { Route as NewTasteRouteImport } from './routes/new.taste'
 import { Route as NewStripeRouteImport } from './routes/new.stripe'
+import { Route as NewSportsNightRouteImport } from './routes/new.sports-night'
 import { Route as NewSocialsRouteImport } from './routes/new.socials'
 import { Route as NewSocialRouteImport } from './routes/new.social'
 import { Route as NewSignupRouteImport } from './routes/new.signup'
@@ -57,14 +60,11 @@ import { Route as NewPushSettingsRouteImport } from './routes/new.push-settings'
 import { Route as NewProfileRouteImport } from './routes/new.profile'
 import { Route as NewPrivacyRouteImport } from './routes/new.privacy'
 import { Route as NewPrintingRouteImport } from './routes/new.printing'
-import { Route as NewVibeModeRouteImport } from './routes/new.vibe-mode'
-import { Route as NewGameNightRouteImport } from './routes/new.game-night'
-import { Route as NewPizzaNightRouteImport } from './routes/new.pizza-night'
-import { Route as NewSportsNightRouteImport } from './routes/new.sports-night'
 import { Route as NewPreorderRouteImport } from './routes/new.preorder'
 import { Route as NewPlanReviewRouteImport } from './routes/new.plan-review'
 import { Route as NewPlanRouteImport } from './routes/new.plan'
 import { Route as NewPlacesRouteImport } from './routes/new.places'
+import { Route as NewPizzaNightRouteImport } from './routes/new.pizza-night'
 import { Route as NewPhoneVerifyRouteImport } from './routes/new.phone-verify'
 import { Route as NewPaywallRouteImport } from './routes/new.paywall'
 import { Route as NewPaymentRouteImport } from './routes/new.payment'
@@ -77,6 +77,7 @@ import { Route as NewManageSubscriptionRouteImport } from './routes/new.manage-s
 import { Route as NewLoyaltyRouteImport } from './routes/new.loyalty'
 import { Route as NewLockedRouteImport } from './routes/new.locked'
 import { Route as NewLearnExploreRouteImport } from './routes/new.learn-explore'
+import { Route as NewInviteRouteImport } from './routes/new.invite'
 import { Route as NewInfoBitsRouteImport } from './routes/new.info-bits'
 import { Route as NewInfluencerLoginRouteImport } from './routes/new.influencer-login'
 import { Route as NewInfluencerDashboardRouteImport } from './routes/new.influencer-dashboard'
@@ -86,6 +87,7 @@ import { Route as NewHubRouteImport } from './routes/new.hub'
 import { Route as NewHelpRouteImport } from './routes/new.help'
 import { Route as NewHashtagReelsRouteImport } from './routes/new.hashtag-reels'
 import { Route as NewGatedRouteImport } from './routes/new.gated'
+import { Route as NewGameNightRouteImport } from './routes/new.game-night'
 import { Route as NewGalleryRouteImport } from './routes/new.gallery'
 import { Route as NewForgotPwRouteImport } from './routes/new.forgot-pw'
 import { Route as NewForBusinessRouteImport } from './routes/new.for-business'
@@ -211,6 +213,11 @@ const ForBusinessRoute = ForBusinessRouteImport.update({
   path: '/for-business',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreatorsRoute = CreatorsRouteImport.update({
+  id: '/creators',
+  path: '/creators',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/creators.lazy').then((d) => d.Route))
 const CheckInRoute = CheckInRouteImport.update({
   id: '/check-in',
   path: '/check-in',
@@ -311,6 +318,11 @@ const NewWalletRoute = NewWalletRouteImport.update({
   path: '/new/wallet',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewVibeModeRoute = NewVibeModeRouteImport.update({
+  id: '/new/vibe-mode',
+  path: '/new/vibe-mode',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewVenueMediaRoute = NewVenueMediaRouteImport.update({
   id: '/new/venue-media',
   path: '/new/venue-media',
@@ -334,6 +346,11 @@ const NewTasteRoute = NewTasteRouteImport.update({
 const NewStripeRoute = NewStripeRouteImport.update({
   id: '/new/stripe',
   path: '/new/stripe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewSportsNightRoute = NewSportsNightRouteImport.update({
+  id: '/new/sports-night',
+  path: '/new/sports-night',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewSocialsRoute = NewSocialsRouteImport.update({
@@ -421,26 +438,6 @@ const NewPlanReviewRoute = NewPlanReviewRouteImport.update({
   path: '/new/plan-review',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NewVibeModeRoute = NewVibeModeRouteImport.update({
-  id: '/new/vibe-mode',
-  path: '/new/vibe-mode',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewGameNightRoute = NewGameNightRouteImport.update({
-  id: '/new/game-night',
-  path: '/new/game-night',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewPizzaNightRoute = NewPizzaNightRouteImport.update({
-  id: '/new/pizza-night',
-  path: '/new/pizza-night',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewSportsNightRoute = NewSportsNightRouteImport.update({
-  id: '/new/sports-night',
-  path: '/new/sports-night',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const NewPlanRoute = NewPlanRouteImport.update({
   id: '/new/plan',
   path: '/new/plan',
@@ -449,6 +446,11 @@ const NewPlanRoute = NewPlanRouteImport.update({
 const NewPlacesRoute = NewPlacesRouteImport.update({
   id: '/new/places',
   path: '/new/places',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewPizzaNightRoute = NewPizzaNightRouteImport.update({
+  id: '/new/pizza-night',
+  path: '/new/pizza-night',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewPhoneVerifyRoute = NewPhoneVerifyRouteImport.update({
@@ -511,6 +513,11 @@ const NewLearnExploreRoute = NewLearnExploreRouteImport.update({
   path: '/new/learn-explore',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewInviteRoute = NewInviteRouteImport.update({
+  id: '/new/invite',
+  path: '/new/invite',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewInfoBitsRoute = NewInfoBitsRouteImport.update({
   id: '/new/info-bits',
   path: '/new/info-bits',
@@ -554,6 +561,11 @@ const NewHashtagReelsRoute = NewHashtagReelsRouteImport.update({
 const NewGatedRoute = NewGatedRouteImport.update({
   id: '/new/gated',
   path: '/new/gated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewGameNightRoute = NewGameNightRouteImport.update({
+  id: '/new/game-night',
+  path: '/new/game-night',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewGalleryRoute = NewGalleryRouteImport.update({
@@ -1004,6 +1016,7 @@ export interface FileRoutesByFullPath {
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
+  '/creators': typeof CreatorsRoute
   '/for-business': typeof ForBusinessRoute
   '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
@@ -1071,6 +1084,7 @@ export interface FileRoutesByFullPath {
   '/new/for-business': typeof NewForBusinessRoute
   '/new/forgot-pw': typeof NewForgotPwRoute
   '/new/gallery': typeof NewGalleryRoute
+  '/new/game-night': typeof NewGameNightRoute
   '/new/gated': typeof NewGatedRoute
   '/new/hashtag-reels': typeof NewHashtagReelsRoute
   '/new/help': typeof NewHelpRoute
@@ -1080,6 +1094,7 @@ export interface FileRoutesByFullPath {
   '/new/influencer-dashboard': typeof NewInfluencerDashboardRoute
   '/new/influencer-login': typeof NewInfluencerLoginRoute
   '/new/info-bits': typeof NewInfoBitsRoute
+  '/new/invite': typeof NewInviteRoute
   '/new/learn-explore': typeof NewLearnExploreRoute
   '/new/locked': typeof NewLockedRoute
   '/new/loyalty': typeof NewLoyaltyRoute
@@ -1092,6 +1107,7 @@ export interface FileRoutesByFullPath {
   '/new/payment': typeof NewPaymentRoute
   '/new/paywall': typeof NewPaywallRoute
   '/new/phone-verify': typeof NewPhoneVerifyRoute
+  '/new/pizza-night': typeof NewPizzaNightRoute
   '/new/places': typeof NewPlacesRoute
   '/new/plan': typeof NewPlanRoute
   '/new/plan-review': typeof NewPlanReviewRoute
@@ -1111,11 +1127,13 @@ export interface FileRoutesByFullPath {
   '/new/signup': typeof NewSignupRoute
   '/new/social': typeof NewSocialRoute
   '/new/socials': typeof NewSocialsRoute
+  '/new/sports-night': typeof NewSportsNightRoute
   '/new/stripe': typeof NewStripeRoute
   '/new/taste': typeof NewTasteRoute
   '/new/trips': typeof NewTripsRoute
   '/new/venue': typeof NewVenueRoute
   '/new/venue-media': typeof NewVenueMediaRoute
+  '/new/vibe-mode': typeof NewVibeModeRoute
   '/new/wallet': typeof NewWalletRoute
   '/new/welcome': typeof NewWelcomeRoute
   '/new/whats-hot': typeof NewWhatsHotRoute
@@ -1163,6 +1181,7 @@ export interface FileRoutesByTo {
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
+  '/creators': typeof CreatorsRoute
   '/for-business': typeof ForBusinessRoute
   '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
@@ -1230,6 +1249,7 @@ export interface FileRoutesByTo {
   '/new/for-business': typeof NewForBusinessRoute
   '/new/forgot-pw': typeof NewForgotPwRoute
   '/new/gallery': typeof NewGalleryRoute
+  '/new/game-night': typeof NewGameNightRoute
   '/new/gated': typeof NewGatedRoute
   '/new/hashtag-reels': typeof NewHashtagReelsRoute
   '/new/help': typeof NewHelpRoute
@@ -1239,6 +1259,7 @@ export interface FileRoutesByTo {
   '/new/influencer-dashboard': typeof NewInfluencerDashboardRoute
   '/new/influencer-login': typeof NewInfluencerLoginRoute
   '/new/info-bits': typeof NewInfoBitsRoute
+  '/new/invite': typeof NewInviteRoute
   '/new/learn-explore': typeof NewLearnExploreRoute
   '/new/locked': typeof NewLockedRoute
   '/new/loyalty': typeof NewLoyaltyRoute
@@ -1251,6 +1272,7 @@ export interface FileRoutesByTo {
   '/new/payment': typeof NewPaymentRoute
   '/new/paywall': typeof NewPaywallRoute
   '/new/phone-verify': typeof NewPhoneVerifyRoute
+  '/new/pizza-night': typeof NewPizzaNightRoute
   '/new/places': typeof NewPlacesRoute
   '/new/plan': typeof NewPlanRoute
   '/new/plan-review': typeof NewPlanReviewRoute
@@ -1270,11 +1292,13 @@ export interface FileRoutesByTo {
   '/new/signup': typeof NewSignupRoute
   '/new/social': typeof NewSocialRoute
   '/new/socials': typeof NewSocialsRoute
+  '/new/sports-night': typeof NewSportsNightRoute
   '/new/stripe': typeof NewStripeRoute
   '/new/taste': typeof NewTasteRoute
   '/new/trips': typeof NewTripsRoute
   '/new/venue': typeof NewVenueRoute
   '/new/venue-media': typeof NewVenueMediaRoute
+  '/new/vibe-mode': typeof NewVibeModeRoute
   '/new/wallet': typeof NewWalletRoute
   '/new/welcome': typeof NewWelcomeRoute
   '/new/whats-hot': typeof NewWhatsHotRoute
@@ -1323,6 +1347,7 @@ export interface FileRoutesById {
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/check-in': typeof CheckInRoute
+  '/creators': typeof CreatorsRoute
   '/for-business': typeof ForBusinessRoute
   '/hangout': typeof HangoutRouteWithChildren
   '/health': typeof HealthRoute
@@ -1390,6 +1415,7 @@ export interface FileRoutesById {
   '/new/for-business': typeof NewForBusinessRoute
   '/new/forgot-pw': typeof NewForgotPwRoute
   '/new/gallery': typeof NewGalleryRoute
+  '/new/game-night': typeof NewGameNightRoute
   '/new/gated': typeof NewGatedRoute
   '/new/hashtag-reels': typeof NewHashtagReelsRoute
   '/new/help': typeof NewHelpRoute
@@ -1399,6 +1425,7 @@ export interface FileRoutesById {
   '/new/influencer-dashboard': typeof NewInfluencerDashboardRoute
   '/new/influencer-login': typeof NewInfluencerLoginRoute
   '/new/info-bits': typeof NewInfoBitsRoute
+  '/new/invite': typeof NewInviteRoute
   '/new/learn-explore': typeof NewLearnExploreRoute
   '/new/locked': typeof NewLockedRoute
   '/new/loyalty': typeof NewLoyaltyRoute
@@ -1411,6 +1438,7 @@ export interface FileRoutesById {
   '/new/payment': typeof NewPaymentRoute
   '/new/paywall': typeof NewPaywallRoute
   '/new/phone-verify': typeof NewPhoneVerifyRoute
+  '/new/pizza-night': typeof NewPizzaNightRoute
   '/new/places': typeof NewPlacesRoute
   '/new/plan': typeof NewPlanRoute
   '/new/plan-review': typeof NewPlanReviewRoute
@@ -1430,11 +1458,13 @@ export interface FileRoutesById {
   '/new/signup': typeof NewSignupRoute
   '/new/social': typeof NewSocialRoute
   '/new/socials': typeof NewSocialsRoute
+  '/new/sports-night': typeof NewSportsNightRoute
   '/new/stripe': typeof NewStripeRoute
   '/new/taste': typeof NewTasteRoute
   '/new/trips': typeof NewTripsRoute
   '/new/venue': typeof NewVenueRoute
   '/new/venue-media': typeof NewVenueMediaRoute
+  '/new/vibe-mode': typeof NewVibeModeRoute
   '/new/wallet': typeof NewWalletRoute
   '/new/welcome': typeof NewWelcomeRoute
   '/new/whats-hot': typeof NewWhatsHotRoute
@@ -1484,6 +1514,7 @@ export interface FileRouteTypes {
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
+    | '/creators'
     | '/for-business'
     | '/hangout'
     | '/health'
@@ -1551,6 +1582,7 @@ export interface FileRouteTypes {
     | '/new/for-business'
     | '/new/forgot-pw'
     | '/new/gallery'
+    | '/new/game-night'
     | '/new/gated'
     | '/new/hashtag-reels'
     | '/new/help'
@@ -1560,6 +1592,7 @@ export interface FileRouteTypes {
     | '/new/influencer-dashboard'
     | '/new/influencer-login'
     | '/new/info-bits'
+    | '/new/invite'
     | '/new/learn-explore'
     | '/new/locked'
     | '/new/loyalty'
@@ -1572,6 +1605,7 @@ export interface FileRouteTypes {
     | '/new/payment'
     | '/new/paywall'
     | '/new/phone-verify'
+    | '/new/pizza-night'
     | '/new/places'
     | '/new/plan'
     | '/new/plan-review'
@@ -1591,11 +1625,13 @@ export interface FileRouteTypes {
     | '/new/signup'
     | '/new/social'
     | '/new/socials'
+    | '/new/sports-night'
     | '/new/stripe'
     | '/new/taste'
     | '/new/trips'
     | '/new/venue'
     | '/new/venue-media'
+    | '/new/vibe-mode'
     | '/new/wallet'
     | '/new/welcome'
     | '/new/whats-hot'
@@ -1643,6 +1679,7 @@ export interface FileRouteTypes {
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
+    | '/creators'
     | '/for-business'
     | '/hangout'
     | '/health'
@@ -1710,6 +1747,7 @@ export interface FileRouteTypes {
     | '/new/for-business'
     | '/new/forgot-pw'
     | '/new/gallery'
+    | '/new/game-night'
     | '/new/gated'
     | '/new/hashtag-reels'
     | '/new/help'
@@ -1719,6 +1757,7 @@ export interface FileRouteTypes {
     | '/new/influencer-dashboard'
     | '/new/influencer-login'
     | '/new/info-bits'
+    | '/new/invite'
     | '/new/learn-explore'
     | '/new/locked'
     | '/new/loyalty'
@@ -1731,6 +1770,7 @@ export interface FileRouteTypes {
     | '/new/payment'
     | '/new/paywall'
     | '/new/phone-verify'
+    | '/new/pizza-night'
     | '/new/places'
     | '/new/plan'
     | '/new/plan-review'
@@ -1750,11 +1790,13 @@ export interface FileRouteTypes {
     | '/new/signup'
     | '/new/social'
     | '/new/socials'
+    | '/new/sports-night'
     | '/new/stripe'
     | '/new/taste'
     | '/new/trips'
     | '/new/venue'
     | '/new/venue-media'
+    | '/new/vibe-mode'
     | '/new/wallet'
     | '/new/welcome'
     | '/new/whats-hot'
@@ -1802,6 +1844,7 @@ export interface FileRouteTypes {
     | '/boarding-pass'
     | '/chat'
     | '/check-in'
+    | '/creators'
     | '/for-business'
     | '/hangout'
     | '/health'
@@ -1869,6 +1912,7 @@ export interface FileRouteTypes {
     | '/new/for-business'
     | '/new/forgot-pw'
     | '/new/gallery'
+    | '/new/game-night'
     | '/new/gated'
     | '/new/hashtag-reels'
     | '/new/help'
@@ -1878,6 +1922,7 @@ export interface FileRouteTypes {
     | '/new/influencer-dashboard'
     | '/new/influencer-login'
     | '/new/info-bits'
+    | '/new/invite'
     | '/new/learn-explore'
     | '/new/locked'
     | '/new/loyalty'
@@ -1890,6 +1935,7 @@ export interface FileRouteTypes {
     | '/new/payment'
     | '/new/paywall'
     | '/new/phone-verify'
+    | '/new/pizza-night'
     | '/new/places'
     | '/new/plan'
     | '/new/plan-review'
@@ -1909,11 +1955,13 @@ export interface FileRouteTypes {
     | '/new/signup'
     | '/new/social'
     | '/new/socials'
+    | '/new/sports-night'
     | '/new/stripe'
     | '/new/taste'
     | '/new/trips'
     | '/new/venue'
     | '/new/venue-media'
+    | '/new/vibe-mode'
     | '/new/wallet'
     | '/new/welcome'
     | '/new/whats-hot'
@@ -1962,6 +2010,7 @@ export interface RootRouteChildren {
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
   CheckInRoute: typeof CheckInRoute
+  CreatorsRoute: typeof CreatorsRoute
   ForBusinessRoute: typeof ForBusinessRoute
   HangoutRoute: typeof HangoutRouteWithChildren
   HealthRoute: typeof HealthRoute
@@ -2027,6 +2076,7 @@ export interface RootRouteChildren {
   NewForBusinessRoute: typeof NewForBusinessRoute
   NewForgotPwRoute: typeof NewForgotPwRoute
   NewGalleryRoute: typeof NewGalleryRoute
+  NewGameNightRoute: typeof NewGameNightRoute
   NewGatedRoute: typeof NewGatedRoute
   NewHashtagReelsRoute: typeof NewHashtagReelsRoute
   NewHelpRoute: typeof NewHelpRoute
@@ -2036,6 +2086,7 @@ export interface RootRouteChildren {
   NewInfluencerDashboardRoute: typeof NewInfluencerDashboardRoute
   NewInfluencerLoginRoute: typeof NewInfluencerLoginRoute
   NewInfoBitsRoute: typeof NewInfoBitsRoute
+  NewInviteRoute: typeof NewInviteRoute
   NewLearnExploreRoute: typeof NewLearnExploreRoute
   NewLockedRoute: typeof NewLockedRoute
   NewLoyaltyRoute: typeof NewLoyaltyRoute
@@ -2048,6 +2099,7 @@ export interface RootRouteChildren {
   NewPaymentRoute: typeof NewPaymentRoute
   NewPaywallRoute: typeof NewPaywallRoute
   NewPhoneVerifyRoute: typeof NewPhoneVerifyRoute
+  NewPizzaNightRoute: typeof NewPizzaNightRoute
   NewPlacesRoute: typeof NewPlacesRoute
   NewPlanRoute: typeof NewPlanRoute
   NewPlanReviewRoute: typeof NewPlanReviewRoute
@@ -2067,11 +2119,13 @@ export interface RootRouteChildren {
   NewSignupRoute: typeof NewSignupRoute
   NewSocialRoute: typeof NewSocialRoute
   NewSocialsRoute: typeof NewSocialsRoute
+  NewSportsNightRoute: typeof NewSportsNightRoute
   NewStripeRoute: typeof NewStripeRoute
   NewTasteRoute: typeof NewTasteRoute
   NewTripsRoute: typeof NewTripsRoute
   NewVenueRoute: typeof NewVenueRoute
   NewVenueMediaRoute: typeof NewVenueMediaRoute
+  NewVibeModeRoute: typeof NewVibeModeRoute
   NewWalletRoute: typeof NewWalletRoute
   NewWelcomeRoute: typeof NewWelcomeRoute
   NewWhatsHotRoute: typeof NewWhatsHotRoute
@@ -2165,6 +2219,13 @@ declare module '@tanstack/react-router' {
       path: '/for-business'
       fullPath: '/for-business'
       preLoaderRoute: typeof ForBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creators': {
+      id: '/creators'
+      path: '/creators'
+      fullPath: '/creators'
+      preLoaderRoute: typeof CreatorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/check-in': {
@@ -2307,6 +2368,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewWalletRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new/vibe-mode': {
+      id: '/new/vibe-mode'
+      path: '/new/vibe-mode'
+      fullPath: '/new/vibe-mode'
+      preLoaderRoute: typeof NewVibeModeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/new/venue-media': {
       id: '/new/venue-media'
       path: '/new/venue-media'
@@ -2340,6 +2408,13 @@ declare module '@tanstack/react-router' {
       path: '/new/stripe'
       fullPath: '/new/stripe'
       preLoaderRoute: typeof NewStripeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/sports-night': {
+      id: '/new/sports-night'
+      path: '/new/sports-night'
+      fullPath: '/new/sports-night'
+      preLoaderRoute: typeof NewSportsNightRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new/socials': {
@@ -2461,34 +2536,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewPlanReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/new/vibe-mode': {
-      id: '/new/vibe-mode'
-      path: '/new/vibe-mode'
-      fullPath: '/new/vibe-mode'
-      preLoaderRoute: typeof NewVibeModeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/new/game-night': {
-      id: '/new/game-night'
-      path: '/new/game-night'
-      fullPath: '/new/game-night'
-      preLoaderRoute: typeof NewGameNightRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/new/pizza-night': {
-      id: '/new/pizza-night'
-      path: '/new/pizza-night'
-      fullPath: '/new/pizza-night'
-      preLoaderRoute: typeof NewPizzaNightRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/new/sports-night': {
-      id: '/new/sports-night'
-      path: '/new/sports-night'
-      fullPath: '/new/sports-night'
-      preLoaderRoute: typeof NewSportsNightRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/new/plan': {
       id: '/new/plan'
       path: '/new/plan'
@@ -2501,6 +2548,13 @@ declare module '@tanstack/react-router' {
       path: '/new/places'
       fullPath: '/new/places'
       preLoaderRoute: typeof NewPlacesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/pizza-night': {
+      id: '/new/pizza-night'
+      path: '/new/pizza-night'
+      fullPath: '/new/pizza-night'
+      preLoaderRoute: typeof NewPizzaNightRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new/phone-verify': {
@@ -2587,6 +2641,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewLearnExploreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new/invite': {
+      id: '/new/invite'
+      path: '/new/invite'
+      fullPath: '/new/invite'
+      preLoaderRoute: typeof NewInviteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/new/info-bits': {
       id: '/new/info-bits'
       path: '/new/info-bits'
@@ -2648,6 +2709,13 @@ declare module '@tanstack/react-router' {
       path: '/new/gated'
       fullPath: '/new/gated'
       preLoaderRoute: typeof NewGatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new/game-night': {
+      id: '/new/game-night'
+      path: '/new/game-night'
+      fullPath: '/new/game-night'
+      preLoaderRoute: typeof NewGameNightRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new/gallery': {
@@ -3294,6 +3362,7 @@ const rootRouteChildren: RootRouteChildren = {
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,
   CheckInRoute: CheckInRoute,
+  CreatorsRoute: CreatorsRoute,
   ForBusinessRoute: ForBusinessRoute,
   HangoutRoute: HangoutRouteWithChildren,
   HealthRoute: HealthRoute,
@@ -3359,6 +3428,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewForBusinessRoute: NewForBusinessRoute,
   NewForgotPwRoute: NewForgotPwRoute,
   NewGalleryRoute: NewGalleryRoute,
+  NewGameNightRoute: NewGameNightRoute,
   NewGatedRoute: NewGatedRoute,
   NewHashtagReelsRoute: NewHashtagReelsRoute,
   NewHelpRoute: NewHelpRoute,
@@ -3368,6 +3438,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewInfluencerDashboardRoute: NewInfluencerDashboardRoute,
   NewInfluencerLoginRoute: NewInfluencerLoginRoute,
   NewInfoBitsRoute: NewInfoBitsRoute,
+  NewInviteRoute: NewInviteRoute,
   NewLearnExploreRoute: NewLearnExploreRoute,
   NewLockedRoute: NewLockedRoute,
   NewLoyaltyRoute: NewLoyaltyRoute,
@@ -3380,11 +3451,8 @@ const rootRouteChildren: RootRouteChildren = {
   NewPaymentRoute: NewPaymentRoute,
   NewPaywallRoute: NewPaywallRoute,
   NewPhoneVerifyRoute: NewPhoneVerifyRoute,
-  NewPlacesRoute: NewPlacesRoute,
-  NewVibeModeRoute: NewVibeModeRoute,
-  NewGameNightRoute: NewGameNightRoute,
   NewPizzaNightRoute: NewPizzaNightRoute,
-  NewSportsNightRoute: NewSportsNightRoute,
+  NewPlacesRoute: NewPlacesRoute,
   NewPlanRoute: NewPlanRoute,
   NewPlanReviewRoute: NewPlanReviewRoute,
   NewPreorderRoute: NewPreorderRoute,
@@ -3403,11 +3471,13 @@ const rootRouteChildren: RootRouteChildren = {
   NewSignupRoute: NewSignupRoute,
   NewSocialRoute: NewSocialRoute,
   NewSocialsRoute: NewSocialsRoute,
+  NewSportsNightRoute: NewSportsNightRoute,
   NewStripeRoute: NewStripeRoute,
   NewTasteRoute: NewTasteRoute,
   NewTripsRoute: NewTripsRoute,
   NewVenueRoute: NewVenueRoute,
   NewVenueMediaRoute: NewVenueMediaRoute,
+  NewVibeModeRoute: NewVibeModeRoute,
   NewWalletRoute: NewWalletRoute,
   NewWelcomeRoute: NewWelcomeRoute,
   NewWhatsHotRoute: NewWhatsHotRoute,

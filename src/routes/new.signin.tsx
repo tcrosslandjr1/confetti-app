@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   BrandMark,
   ChunkyButton,
@@ -29,21 +29,41 @@ export const Route = createFileRoute("/new/signin")({
   }),
 });
 
-type OAuthProvider = "apple" | "google" | "spotify";
+type OAuthProvider = "apple" | "google" | "discord" | "spotify";
+
+const RESEND_DELAY = 60;
 
 function SignInPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [resending, setResending] = useState(false);
+  const [resendCountdown, setResendCountdown] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [comingSoon, setComingSoon] = useState<string | null>(null);
+  const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (!comingSoon) return;
     const t = setTimeout(() => setComingSoon(null), 3500);
     return () => clearTimeout(t);
   }, [comingSoon]);
+
+  useEffect(() => {
+    if (!sent) return;
+    setResendCountdown(RESEND_DELAY);
+    countdownRef.current = setInterval(() => {
+      setResendCountdown((n) => {
+        if (n <= 1) {
+          clearInterval(countdownRef.current!);
+          return 0;
+        }
+        return n - 1;
+      });
+    }, 1000);
+    return () => clearInterval(countdownRef.current!);
+  }, [sent]);
 
   useEffect(() => {
     const {
@@ -59,6 +79,13 @@ function SignInPage() {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
+  const sendOtp = async (address: string) => {
+    return supabase.auth.signInWithOtp({
+      email: address,
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+    });
+  };
+
   const handleMagicLink = async () => {
     if (!email.trim()) {
       setError("Enter your email");
@@ -66,16 +93,32 @@ function SignInPage() {
     }
     setLoading(true);
     setError(null);
-    const { error: authError } = await supabase.auth.signInWithOtp({
-      email: email.trim(),
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
-    });
+    const { error: authError } = await sendOtp(email.trim());
     setLoading(false);
     if (authError) {
       setError(authError.message);
       return;
     }
     setSent(true);
+  };
+
+  const handleResend = async () => {
+    setResending(true);
+    const { error: authError } = await sendOtp(email.trim());
+    setResending(false);
+    if (authError) {
+      setError(authError.message);
+      return;
+    }
+    // Restart countdown
+    clearInterval(countdownRef.current!);
+    setResendCountdown(RESEND_DELAY);
+    countdownRef.current = setInterval(() => {
+      setResendCountdown((n) => {
+        if (n <= 1) { clearInterval(countdownRef.current!); return 0; }
+        return n - 1;
+      });
+    }, 1000);
   };
 
   const handleOAuth = async (provider: OAuthProvider) => {
@@ -268,55 +311,34 @@ function SignInPage() {
                 OR ONE-TAP
                 <div style={{ flex: 1, height: 2, background: TOKENS.ink, opacity: 0.15 }} />
               </div>
+
+              {/* Live providers */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-                <SSOTile
-                  label="Apple"
-                  glyph=""
-                  bg={TOKENS.ink}
-                  fg={TOKENS.paper}
-                  onClick={() => handleOAuth("apple")}
-                />
-                <SSOTile
-                  label="Google"
-                  glyph="G"
-                  bg={TOKENS.paper}
-                  fg={TOKENS.ink}
-                  onClick={() => handleOAuth("google")}
-                />
-                <SSOTile
-                  label="TikTok"
-                  glyph="♪"
-                  bg={TOKENS.ink}
-                  fg={TOKENS.paper}
-                  onClick={() =>
-                    setComingSoon("TikTok login coming soon — use email or Google for now.")
-                  }
-                />
-                <SSOTile
-                  label="Instagram"
-                  glyph="◍"
-                  bg={TOKENS.accent3}
-                  fg={TOKENS.paper}
-                  onClick={() =>
-                    setComingSoon("Instagram login coming soon — use email or Google for now.")
-                  }
-                />
-                <SSOTile
-                  label="X"
-                  glyph="✕"
-                  bg={TOKENS.ink}
-                  fg={TOKENS.paper}
-                  onClick={() =>
-                    setComingSoon("X login coming soon — use email or Google for now.")
-                  }
-                />
-                <SSOTile
-                  label="Spotify"
-                  glyph="♫"
-                  bg="#1DB954"
-                  fg={TOKENS.ink}
-                  onClick={() => handleOAuth("spotify")}
-                />
+                <SSOTile label="Apple" glyph="" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => handleOAuth("apple")} />
+                <SSOTile label="Google" glyph="G" bg={TOKENS.paper} fg={TOKENS.ink} onClick={() => handleOAuth("google")} />
+                <SSOTile label="Discord" glyph="D" bg="#5865F2" fg="#ffffff" onClick={() => handleOAuth("discord")} />
+                <SSOTile label="Spotify" glyph="♫" bg="#1DB954" fg={TOKENS.ink} onClick={() => handleOAuth("spotify")} />
+              </div>
+
+              {/* Coming-soon providers */}
+              <div
+                style={{
+                  fontFamily: TOKENS.mono,
+                  fontSize: 9,
+                  fontWeight: 800,
+                  letterSpacing: ".14em",
+                  opacity: 0.35,
+                  textTransform: "uppercase",
+                  marginTop: 4,
+                  marginBottom: 2,
+                }}
+              >
+                coming soon
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
+                <SSOTile label="TikTok" glyph="♪" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => setComingSoon("TikTok login coming soon — use email or Google for now.")} />
+                <SSOTile label="Instagram" glyph="◍" bg={TOKENS.accent3} fg={TOKENS.paper} onClick={() => setComingSoon("Instagram login coming soon — use email or Google for now.")} />
+                <SSOTile label="X" glyph="✕" bg={TOKENS.ink} fg={TOKENS.paper} onClick={() => setComingSoon("X login coming soon — use email or Google for now.")} />
               </div>
               <button
                 onClick={() => setComingSoon("Phone login coming soon — use email for now.")}
@@ -332,7 +354,7 @@ function SignInPage() {
                   fontSize: 12,
                   fontWeight: 800,
                   color: TOKENS.ink,
-                  marginTop: 8,
+                  marginTop: 4,
                 }}
               >
                 📱 continue with phone
@@ -346,55 +368,130 @@ function SignInPage() {
                 borderRadius: 18,
                 background: TOKENS.accent2,
                 boxShadow: `5px 5px 0 ${TOKENS.ink}`,
+                display: "flex",
+                flexDirection: "column",
+                gap: 14,
               }}
             >
-              <div
-                style={{
-                  fontFamily: TOKENS.mono,
-                  fontSize: 10,
-                  fontWeight: 800,
-                  letterSpacing: ".14em",
-                  textTransform: "uppercase",
-                  opacity: 0.7,
-                }}
-              >
-                CHECK YOUR INBOX
+              <div>
+                <div
+                  style={{
+                    fontFamily: TOKENS.mono,
+                    fontSize: 10,
+                    fontWeight: 800,
+                    letterSpacing: ".14em",
+                    textTransform: "uppercase",
+                    opacity: 0.7,
+                  }}
+                >
+                  CHECK YOUR INBOX
+                </div>
+                <div
+                  style={{
+                    fontFamily: TOKENS.display,
+                    fontWeight: 900,
+                    fontSize: 22,
+                    letterSpacing: "-0.025em",
+                    marginTop: 6,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  Link sent to
+                  <br />
+                  {email}.
+                </div>
               </div>
-              <div
-                style={{
-                  fontFamily: TOKENS.display,
-                  fontWeight: 900,
-                  fontSize: 22,
-                  letterSpacing: "-0.025em",
-                  marginTop: 6,
-                  lineHeight: 1.1,
-                }}
-              >
-                We sent a link to
-                <br />
-                {email}.
+
+              {/* Email app shortcuts */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                <a
+                  href="https://mail.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 6,
+                    padding: "10px 8px",
+                    border: `2px solid ${TOKENS.ink}`,
+                    borderRadius: 10,
+                    background: TOKENS.paper,
+                    fontFamily: TOKENS.ui,
+                    fontSize: 12,
+                    fontWeight: 800,
+                    color: TOKENS.ink,
+                    textDecoration: "none",
+                    boxShadow: `2px 2px 0 ${TOKENS.ink}`,
+                  }}
+                >
+                  <span>M</span> Open Gmail →
+                </a>
+                <a
+                  href="https://outlook.live.com/mail/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 6,
+                    padding: "10px 8px",
+                    border: `2px solid ${TOKENS.ink}`,
+                    borderRadius: 10,
+                    background: TOKENS.paper,
+                    fontFamily: TOKENS.ui,
+                    fontSize: 12,
+                    fontWeight: 800,
+                    color: TOKENS.ink,
+                    textDecoration: "none",
+                    boxShadow: `2px 2px 0 ${TOKENS.ink}`,
+                  }}
+                >
+                  <span>✉</span> Open Outlook →
+                </a>
               </div>
-              <button
-                onClick={() => {
-                  setSent(false);
-                  setEmail("");
-                }}
-                style={{
-                  appearance: "none",
-                  cursor: "pointer",
-                  marginTop: 14,
-                  padding: "10px 16px",
-                  border: `2.5px solid ${TOKENS.ink}`,
-                  borderRadius: 999,
-                  background: TOKENS.ink,
-                  color: TOKENS.paper,
-                  fontFamily: TOKENS.ui,
-                  fontSize: 12,
-                  fontWeight: 800,
-                }}
-              >
-                try different email →
-              </button>
+
+              {/* Resend + change email row */}
+              <div style={{ display: "flex", gap: 8 }}>
+                <button
+                  onClick={handleResend}
+                  disabled={resendCountdown > 0 || resending}
+                  style={{
+                    appearance: "none",
+                    cursor: resendCountdown > 0 ? "default" : "pointer",
+                    flex: 1,
+                    padding: "10px 12px",
+                    border: `2px solid ${TOKENS.ink}`,
+                    borderRadius: 999,
+                    background: resendCountdown > 0 ? "rgba(0,0,0,0.06)" : TOKENS.ink,
+                    color: resendCountdown > 0 ? TOKENS.inkHint : TOKENS.paper,
+                    fontFamily: TOKENS.ui,
+                    fontSize: 12,
+                    fontWeight: 800,
+                    transition: "all .2s",
+                  }}
+                >
+                  {resending ? "sending..." : resendCountdown > 0 ? `resend in ${resendCountdown}s` : "resend link"}
+                </button>
+                <button
+                  onClick={() => { setSent(false); setEmail(""); }}
+                  style={{
+                    appearance: "none",
+                    cursor: "pointer",
+                    padding: "10px 14px",
+                    border: `2px solid ${TOKENS.ink}`,
+                    borderRadius: 999,
+                    background: "transparent",
+                    fontFamily: TOKENS.ui,
+                    fontSize: 12,
+                    fontWeight: 800,
+                    color: TOKENS.ink,
+                  }}
+                >
+                  change →
+                </button>
+              </div>
             </div>
           )}
         </div>

@@ -493,7 +493,7 @@ export function RouteDots({
 export type AppMode = "adults" | "family" | "kids" | "all";
 
 const MODES: { id: AppMode; label: string; icon: string; c: string }[] = [
-  { id: "adults", label: "Adults",   icon: "🍷", c: TOKENS.accent3 },
+  { id: "adults", label: "Grown-ups", icon: "🎉", c: TOKENS.accent3 },
   { id: "family", label: "Family",   icon: "👨‍👩‍👧", c: TOKENS.accent1 },
   { id: "kids",   label: "Kids",     icon: "🧸", c: TOKENS.accent2 },
   { id: "all",    label: "All ages", icon: "✣", c: TOKENS.ink },

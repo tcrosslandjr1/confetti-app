@@ -63,6 +63,10 @@ export type LoopStop = {
   verified?: boolean;
   /** Social media hashtags linked to this stop / venue. */
   hashtags?: string[];
+  /** Google Places rating (0–5). Populated by a per-stop venue lookup. */
+  rating?: number;
+  /** Google Places review count backing `rating`. */
+  userRatingCount?: number;
 };
 
 export type LoopBonusMove = {

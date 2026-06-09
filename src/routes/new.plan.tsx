@@ -16,8 +16,15 @@ import { getSelectedCity } from "@/lib/cities";
 import { useNightBuilder, clearPinnedVenues } from "@/lib/night-builder-store";
 
 // Ported from design/new-confetti/project/screens.jsx (PlanScreen, line 195)
+// Accepts optional ?vibe=<comma-ids>&when=<label> search params so the hub's
+// "plan by vibe" tiles can deep-link with a pre-selected vibe/timing — the
+// selection seeds initial state instead of being dropped on arrival.
 export const Route = createFileRoute("/new/plan")({
   component: PlanPage,
+  validateSearch: (s: Record<string, unknown>) => ({
+    vibe: typeof s.vibe === "string" ? s.vibe : undefined,
+    when: typeof s.when === "string" ? s.when : undefined,
+  }),
 });
 
 const VIBE_OPTIONS = [
@@ -30,6 +37,9 @@ const VIBE_OPTIONS = [
   { id: "culture", label: "culture", emoji: "🎭" },
   { id: "lowkey", label: "low-key", emoji: "☕" },
 ];
+
+const VALID_VIBE_IDS = VIBE_OPTIONS.map((v) => v.id);
+const WHEN_OPTIONS = ["Now", "Tonight", "Tomorrow", "This weekend"];
 
 interface PlanState {
   city: string;
@@ -49,10 +59,20 @@ function PlanPage() {
   const nightBuilder = useNightBuilder();
   const hasPinned = nightBuilder.count > 0;
 
+  // Pre-fill from ?vibe= / ?when= (hub "plan by vibe" tiles) — validated so a
+  // bad/unknown value falls back to defaults rather than seeding garbage.
+  const { vibe: vibeParam, when: whenParam } = Route.useSearch();
+  const seededVibes = (vibeParam ?? "")
+    .split(",")
+    .map((v) => v.trim())
+    .filter((v) => VALID_VIBE_IDS.includes(v))
+    .slice(0, 3);
+  const seededWhen = whenParam && WHEN_OPTIONS.includes(whenParam) ? whenParam : "Tonight";
+
   const [state, setState] = useState<PlanState>({
     city: getSelectedCity()?.name ?? "Washington DC",
-    when: "Tonight",
-    vibes: [],
+    when: seededWhen,
+    vibes: seededVibes,
     budget: "$$",
     crew: 2,
     addons: [],

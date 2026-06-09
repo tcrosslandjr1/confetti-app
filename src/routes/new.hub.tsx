@@ -15,6 +15,18 @@ import { useNewAuth } from "@/hooks/useNewAuth";
 import { getActiveLoop } from "@/lib/loop-store";
 import { toast } from "sonner";
 
+// Occasion shortcuts. `vibe` values map to VIBE_OPTIONS ids in new.plan.tsx
+// and `when` to the planner's timing chips, so a tap pre-fills the planner
+// (the selection is carried via search params, not forgotten on arrival).
+const VIBE_TILES: { slug: string; icon: string; label: string; sub: string; vibe: string; when: string }[] = [
+  { slug: "park-day", icon: "🌳", label: "park day", sub: "chill · outdoors", vibe: "outside,chill", when: "This weekend" },
+  { slug: "night-out", icon: "🍸", label: "night out", sub: "bars · rooftops", vibe: "hype", when: "Tonight" },
+  { slug: "date-night", icon: "🌹", label: "date night", sub: "dinner · drinks", vibe: "romantic", when: "Tonight" },
+  { slug: "event", icon: "🎟", label: "event", sub: "something on", vibe: "hype", when: "This weekend" },
+  { slug: "birthday", icon: "🎂", label: "birthday", sub: "celebrate", vibe: "hype,foodie", when: "This weekend" },
+  { slug: "museum-day", icon: "🏛", label: "museum day", sub: "culture", vibe: "culture", when: "This weekend" },
+];
+
 export const Route = createFileRoute("/new/hub")({
   component: HubPage,
   validateSearch: (s: Record<string, unknown>) => ({
@@ -170,9 +182,10 @@ function HubPage() {
               : `${dayLabel}'s ${timeLabel}. Print one?`}
           </p>
 
-          {/* Big planner CTAs — two paths */}
+          {/* How do you want to plan? — two equal entry points */}
+          <SectionLabel>how do you want to plan?</SectionLabel>
           <div
-            style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 10, marginBottom: 18 }}
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 18 }}
           >
             <button
               onClick={() => onGo("chat")}
@@ -194,17 +207,6 @@ function HubPage() {
             >
               <span
                 style={{
-                  fontFamily: TOKENS.mono,
-                  fontSize: 9,
-                  fontWeight: 800,
-                  letterSpacing: ".14em",
-                  color: TOKENS.inkMuted,
-                }}
-              >
-                NEW · BETA
-              </span>
-              <span
-                style={{
                   fontFamily: TOKENS.display,
                   fontWeight: 900,
                   fontSize: 22,
@@ -212,9 +214,9 @@ function HubPage() {
                   lineHeight: 0.95,
                 }}
               >
-                chat with
+                talk it
                 <br />
-                confetti
+                out
               </span>
               <span
                 style={{
@@ -225,7 +227,7 @@ function HubPage() {
                   marginTop: "auto",
                 }}
               >
-                talk it out, get a pass
+                tell me what you're feeling
               </span>
             </button>
             <button
@@ -248,17 +250,6 @@ function HubPage() {
             >
               <span
                 style={{
-                  fontFamily: TOKENS.mono,
-                  fontSize: 9,
-                  fontWeight: 800,
-                  letterSpacing: ".14em",
-                  color: TOKENS.inkHint,
-                }}
-              >
-                CLASSIC
-              </span>
-              <span
-                style={{
                   fontFamily: TOKENS.display,
                   fontWeight: 900,
                   fontSize: 22,
@@ -266,9 +257,9 @@ function HubPage() {
                   lineHeight: 0.95,
                 }}
               >
-                vibe
+                quick
                 <br />
-                form
+                pick
               </span>
               <span
                 style={{
@@ -303,6 +294,27 @@ function HubPage() {
             </div>
             <span style={{ fontSize: 28 }}>🎮 🍕 🏈</span>
           </button>
+
+          {/* Plan by vibe — occasion shortcuts that pre-fill the planner */}
+          <SectionLabel>plan by vibe</SectionLabel>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 8,
+              marginBottom: 18,
+            }}
+          >
+            {VIBE_TILES.map((t) => (
+              <Portal
+                key={t.slug}
+                icon={t.icon}
+                label={t.label}
+                sub={t.sub}
+                onClick={() => navigate({ to: "/new/plan", search: { vibe: t.vibe, when: t.when } })}
+              />
+            ))}
+          </div>
 
           {/* Tonight pass — conditional on active loop */}
           <SectionLabel>tonight</SectionLabel>
@@ -451,7 +463,7 @@ function HubPage() {
                     lineHeight: 1,
                   }}
                 >
-                  Nothing printed yet.
+                  Nothing planned yet.
                 </div>
                 <div
                   style={{
@@ -462,7 +474,7 @@ function HubPage() {
                     marginTop: 3,
                   }}
                 >
-                  Chat with Confetti to build your night →
+                  Pick a way to start above ↑
                 </div>
               </Ticket>
             </button>

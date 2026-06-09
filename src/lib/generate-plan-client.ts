@@ -22,6 +22,10 @@ export type AiItineraryStop = {
   logistics: string;
   pro_tip: string;
   insider_tip?: string;
+  crowd?: string;
+  dress_code?: string;
+  wait_time?: string;
+  best_for?: string;
 };
 
 export type AiTwist = {
@@ -176,6 +180,10 @@ function itineraryToLoop(it: AiItinerary, input: GeneratePlanInput): ActiveLoop 
     category: s.category,
     priceLevel: input.budget,
     signature: s.insider_tip ?? s.pro_tip,
+    crowd: s.crowd,
+    dressCode: s.dress_code,
+    waitTime: s.wait_time,
+    bestFor: s.best_for,
     tags: [
       { label: s.vibe.split(" ")[0] ?? s.category, variant: "vibe" as const },
       { label: s.duration, variant: "time" as const },

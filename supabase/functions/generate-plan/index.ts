@@ -33,6 +33,10 @@ type ItineraryStop = {
   logistics: string;
   pro_tip: string;
   insider_tip?: string;
+  crowd?: string;
+  dress_code?: string;
+  wait_time?: string;
+  best_for?: string;
 };
 
 type PlanResult = {
@@ -141,6 +145,7 @@ Techniques: juxtaposition, sensory, location+energy, action verbs
 - Make logistics realistic (walking times, Uber estimates)
 - Budget estimates should be honest and specific
 - Pro tips should be genuinely useful (what to order, where to sit, when to arrive)
+- For EACH stop also fill: crowd (who's actually there / age-vibe), dress_code, wait_time (honest walk-in wait), best_for (occasion fit), and an insider_tip that is distinct from pro_tip. Keep every one specific and real — never generic filler like "good vibes" or "all ages"
 - The twist must feel intentional, not random
 
 ## BOARDING PASS FORMAT:
@@ -203,8 +208,13 @@ Deno.serve(async (req) => {
                   vibe: { type: "string", description: "One-line energy description" },
                   logistics: { type: "string", description: "How to get here from previous stop" },
                   pro_tip: { type: "string", description: "Insider recommendation" },
+                  insider_tip: { type: "string", description: "A specific insider move distinct from pro_tip — what to order, where to sit, or a small secret" },
+                  crowd: { type: "string", description: "Who's there / age-vibe, e.g. 'Late-20s creatives', 'Date-night couples'" },
+                  dress_code: { type: "string", description: "Dress hint, e.g. 'Smart casual', 'No sneakers', 'Anything goes'" },
+                  wait_time: { type: "string", description: "Honest walk-in wait, e.g. '15-30 min after 9pm', 'Usually walkable'" },
+                  best_for: { type: "string", description: "Occasion fit, e.g. 'First dates', 'Birthdays', 'Big groups'" },
                 },
-                required: ["order", "venue_name", "neighborhood", "category", "arrival", "duration", "purpose", "vibe", "logistics", "pro_tip"],
+                required: ["order", "venue_name", "neighborhood", "category", "arrival", "duration", "purpose", "vibe", "logistics", "pro_tip", "crowd", "dress_code", "best_for"],
               },
             },
             twist: {

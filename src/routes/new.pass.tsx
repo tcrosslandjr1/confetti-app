@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 import {
   BackButton,
   BrandMark,
@@ -11,6 +12,7 @@ import {
   TOKENS,
 } from "@/components/new-confetti/shell";
 import { getActiveLoop, type LoopStop } from "@/lib/loop-store";
+import { trackFunnel } from "@/lib/funnel";
 
 // Ported from design/new-confetti/project/screens.jsx (PassScreen, line 677)
 // Slim port: header + 3 stops + book CTA. Drop-flip card animation
@@ -23,6 +25,11 @@ function PassPage() {
   const navigate = useNavigate();
 
   const loop = getActiveLoop();
+  useEffect(() => {
+    if (loop) trackFunnel("pass_viewed", { stops: loop.stops?.length ?? 0 });
+    // getActiveLoop() re-parses localStorage each render — key on the id.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loop?.id]);
   const rawStops = loop?.stops ?? [];
   const STOP_COLORS = [TOKENS.accent2, TOKENS.accent1, TOKENS.accent3, TOKENS.accent4];
   const passCode = loop?.id ?? "—";

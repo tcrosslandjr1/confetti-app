@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { trackFunnel } from "@/lib/funnel";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { CheckCircle2, Clock, AlertCircle, Loader2, Sparkles } from "lucide-react";
@@ -108,6 +110,9 @@ function ErrorState({ message }: { message?: string }) {
 }
 
 function SuccessState({ data }: { data: Awaited<ReturnType<typeof getCheckoutSession>> }) {
+  useEffect(() => {
+    trackFunnel("checkout_completed");
+  }, []);
   const isSub = data.mode === "subscription";
   const isPaid = data.paymentStatus === "paid" || data.paymentStatus === "no_payment_required";
   const isProcessing = data.status === "open";

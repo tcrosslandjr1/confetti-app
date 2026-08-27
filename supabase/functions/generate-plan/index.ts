@@ -3,6 +3,7 @@
 // into a 2-call pipeline for speed while preserving agent specialization.
 
 import { getCorsHeaders } from "../_shared/cors.ts";
+import { rateLimitOr429 } from "../_shared/guard.ts";
 
 // Reassigned per-request inside the handler so CORS echoes the caller's origin
 // (works on both confettiplan.com and the vercel.app production domain).
@@ -160,6 +161,17 @@ Techniques: juxtaposition, sensory, location+energy, action verbs
 Deno.serve(async (req) => {
   corsHeaders = getCorsHeaders(req);
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+
+  // One Claude call per request; publicly reachable (guest planning is a
+  // product feature) — so the cap is the only thing between us and a bot loop.
+  {
+    const limited = await rateLimitOr429(
+      req,
+      { scope: "generate-plan", burst: 5, refillPerSec: 1 / 60 },
+      corsHeaders,
+    );
+    if (limited) return limited;
+  }
 
   try {
     const body = (await req.json()) as PlanRequest;

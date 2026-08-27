@@ -1,5 +1,6 @@
 // Google Places lookup — returns live rating, price_level, open_now, photos, address per venue.
 import { getCorsHeaders } from "../_shared/cors.ts";
+import { rateLimitOr429 } from "../_shared/guard.ts";
 
 type Query = { venue: string; address?: string; neighborhood?: string };
 type Body = { queries: Query[] };
@@ -251,6 +252,16 @@ async function placeDetails(placeId: string, key: string, sessionToken?: string)
 Deno.serve(async (req) => {
   const cors = getCorsHeaders(req);
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
+  // A single request here can fan out to ~60 billable Google calls (~$1).
+  // Unlimited public access = unbounded bill.
+  {
+    const limited = await rateLimitOr429(
+      req,
+      { scope: "google-places", burst: 10, refillPerSec: 1 / 30 },
+      cors,
+    );
+    if (limited) return limited;
+  }
   try {
     const key = Deno.env.get("GOOGLE_PLACES_API_KEY");
     const body = (await req.json().catch(() => ({}))) as Body & {

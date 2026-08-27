@@ -15,6 +15,7 @@
 // ============================================================
 
 import { serve } from "../_shared/server.ts";
+import { getCallerUserId, isInternalCaller, rateLimitOr429 } from "../_shared/guard.ts";
 import {
   supabaseAdmin,
   corsHeaders,
@@ -323,6 +324,20 @@ Deno.serve(async (req) => {
     const { user_id, platforms = {}, raw_posts, mode = "saved" } = body;
 
     if (!user_id) return errorResponse("user_id required", 400);
+
+    // Drives Bright Data + LLM spend and writes taste profiles. A caller may
+    // only sync THEIR OWN profile; internal callers (cron/service) may sync any.
+    if (!isInternalCaller(req)) {
+      const callerId = await getCallerUserId(req);
+      if (!callerId || callerId !== user_id) return errorResponse("Unauthorized", 401);
+      const limited = await rateLimitOr429(
+        req,
+        { scope: "social-sync", burst: 3, refillPerSec: 1 / 300 },
+        corsHeaders,
+        callerId,
+      );
+      if (limited) return limited;
+    }
 
     const apiKey = Deno.env.get("OPENROUTER_API_KEY");
     if (!apiKey) return errorResponse("missing OPENROUTER_API_KEY", 500);

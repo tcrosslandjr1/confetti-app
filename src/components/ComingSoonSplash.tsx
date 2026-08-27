@@ -99,16 +99,13 @@ export function ComingSoonSplash() {
     let cancelled = false;
     (async () => {
       try {
-        const { data } = await supabase
-          .from("city_waitlist")
-          .select("voted_city")
-          .not("voted_city", "is", null);
+        // Aggregate RPC — raw city_waitlist rows (emails) are no longer readable.
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { data } = await (supabase as any).rpc("city_waitlist_votes");
         if (cancelled || !data) return;
         const counts: Record<string, number> = {};
-        for (const row of data) {
-          if (row.voted_city) {
-            counts[row.voted_city] = (counts[row.voted_city] || 0) + 1;
-          }
+        for (const row of data as Array<{ voted_city: string; votes: number }>) {
+          if (row.voted_city) counts[row.voted_city] = Number(row.votes) || 0;
         }
         setCityVotes(counts);
       } catch {
@@ -138,14 +135,12 @@ export function ComingSoonSplash() {
 
       setSubmitting(true);
       try {
-        const { error } = await supabase.from("city_waitlist").upsert(
-          {
-            email: trimmed,
-            voted_city: votedCity,
-            source: "coming_soon_splash",
-          },
-          { onConflict: "email" },
-        );
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { error } = await (supabase as any).rpc("join_city_waitlist", {
+          p_email: trimmed,
+          p_voted_city: votedCity,
+          p_source: "coming_soon_splash",
+        });
 
         if (error) throw error;
 

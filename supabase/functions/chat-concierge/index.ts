@@ -3,6 +3,7 @@
 // "Make stop 2 quieter" / "Add a dessert spot" / "What should I wear?"
 
 import { getCorsHeaders } from "../_shared/cors.ts";
+import { rateLimitOr429 } from "../_shared/guard.ts";
 
 // Reassigned per-request inside the handler so CORS echoes the caller's origin
 // (works on both confettiplan.com and the vercel.app production domain).
@@ -186,6 +187,16 @@ const editPlanTool = {
 Deno.serve(async (req) => {
   corsHeaders = getCorsHeaders(req);
   if (req.method === "OPTIONS") return json(null, 204);
+
+  // One LLM call per message, publicly reachable.
+  {
+    const limited = await rateLimitOr429(
+      req,
+      { scope: "chat-concierge", burst: 10, refillPerSec: 1 / 20 },
+      corsHeaders,
+    );
+    if (limited) return limited;
+  }
 
   try {
     const body = (await req.json()) as ConciergeRequest;

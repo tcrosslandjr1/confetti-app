@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Frame, TOKENS } from "@/components/new-confetti/shell";
+import { supabase } from "@/integrations/supabase/client";
 
 // Port of AdvertiseScreen — design/new-confetti/project/new-screens-2.jsx
 
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/new/advertise")({
 });
 
 const PRODUCTS = [
-  { id: "feat", e: "⭐", l: "Featured Listing", d: "appear higher in local recs · 3× tap rate" },
+  { id: "feat", e: "⭐", l: "Featured Listing", d: "appear higher in local recs" },
   { id: "boost", e: "🚀", l: "Event Boost", d: "promote happy hours, brunches, launches" },
   { id: "plan", e: "✣", l: "AI Plan Placement", d: "show up inside Sparkle-generated passes" },
   { id: "data", e: "📊", l: "Analytics", d: "views, saves, clicks, bookings" },
@@ -34,8 +35,34 @@ function AdvertisePage() {
   const [tier, setTier] = useState("gold");
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [lead, setLead] = useState({ business_name: "", city: "", instagram: "", contact_email: "" });
 
   const selectedTier = TIERS.find((t) => t.id === tier)!;
+
+  const submitLead = async () => {
+    if (!lead.business_name.trim() || !lead.contact_email.trim()) {
+      setFormError("Business name and contact email are required.");
+      return;
+    }
+    setBusy(true);
+    setFormError(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any).from("partner_leads").insert({
+      business_name: lead.business_name.trim(),
+      city: lead.city.trim() || null,
+      instagram: lead.instagram.trim() || null,
+      contact_email: lead.contact_email.trim(),
+      interested_tier: tier,
+    });
+    setBusy(false);
+    if (error) {
+      setFormError("Couldn't send — email us at partners@confettiplan.com instead.");
+      return;
+    }
+    setSubmitted(true);
+  };
 
   return (
     <Frame>
@@ -68,7 +95,7 @@ function AdvertisePage() {
             <span style={{ color: TOKENS.accent1 }}>choosing</span> where to go.
           </h1>
           <p style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 600, opacity: 0.75, margin: "0 0 18px", lineHeight: 1.45 }}>
-            Confetti recommends places at the exact moment 50k+ users are planning their night, day, or party — not search results, not feed ads. Pay flat. Cancel any time.
+            Confetti recommends places at the exact moment people are planning their night, day, or party — not search results, not feed ads. Pay flat. Cancel any time.
           </p>
 
           {/* Audience */}
@@ -113,30 +140,32 @@ function AdvertisePage() {
             </button>
           ))}
 
-          {/* Social proof */}
-          <div style={{ padding: 12, marginBottom: 8, border: "1.5px dashed rgba(255,250,240,0.4)", borderRadius: 10, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700, letterSpacing: ".04em", opacity: 0.75, lineHeight: 1.5 }}>
-            <div style={{ marginBottom: 4 }}><b>428 verified venues</b> · BK + Manhattan · avg conv: 11.2%</div>
-            "32 new bookings the first week." <i>— Westlight rooftop</i><br />
-            "Sold out our brunch in 3 hours." <i>— Olmsted</i>
-          </div>
-
           {/* Lead form */}
           {showForm && !submitted && (
             <div style={{ padding: 14, marginTop: 10, background: "rgba(255,250,240,0.06)", border: `2px solid ${TOKENS.paper}`, borderRadius: 14 }}>
               <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 18, letterSpacing: "-0.025em", marginBottom: 10 }}>Tell us about you.</div>
-              {[
-                { l: "business name", ph: "Lupa Notte" },
-                { l: "city", ph: "Brooklyn, NY" },
-                { l: "instagram", ph: "@lupanotte" },
-                { l: "contact email", ph: "hi@lupanotte.com" },
-              ].map((f) => (
-                <div key={f.l} style={{ marginBottom: 8 }}>
+              {([
+                { key: "business_name", l: "business name", ph: "Your venue" },
+                { key: "city", l: "city", ph: "Washington, DC" },
+                { key: "instagram", l: "instagram", ph: "@yourvenue" },
+                { key: "contact_email", l: "contact email", ph: "you@yourvenue.com" },
+              ] as const).map((f) => (
+                <div key={f.key} style={{ marginBottom: 8 }}>
                   <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", opacity: 0.65, marginBottom: 4, textTransform: "uppercase" }}>{f.l}</div>
-                  <input placeholder={f.ph} style={{ width: "100%", padding: "10px 12px", border: `2px solid ${TOKENS.paper}`, borderRadius: 10, background: "rgba(0,0,0,0.4)", color: TOKENS.paper, fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, outline: "none", boxSizing: "border-box" }} />
+                  <input
+                    value={lead[f.key]}
+                    onChange={(e) => setLead((p) => ({ ...p, [f.key]: e.target.value }))}
+                    type={f.key === "contact_email" ? "email" : "text"}
+                    placeholder={f.ph}
+                    style={{ width: "100%", padding: "10px 12px", border: `2px solid ${TOKENS.paper}`, borderRadius: 10, background: "rgba(0,0,0,0.4)", color: TOKENS.paper, fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, outline: "none", boxSizing: "border-box" }}
+                  />
                 </div>
               ))}
-              <button onClick={() => setSubmitted(true)} style={{ appearance: "none", cursor: "pointer", width: "100%", marginTop: 6, padding: "12px 14px", border: `2.5px solid ${TOKENS.paper}`, borderRadius: 10, background: TOKENS.accent4, color: TOKENS.ink, fontFamily: TOKENS.display, fontWeight: 900, fontSize: 14, letterSpacing: "-0.02em" }}>
-                send · we reply in 24h →
+              {formError && (
+                <div style={{ fontFamily: TOKENS.ui, fontSize: 11, fontWeight: 700, color: "#ff9c9c", marginBottom: 8 }}>{formError}</div>
+              )}
+              <button onClick={submitLead} disabled={busy} style={{ appearance: "none", cursor: "pointer", width: "100%", marginTop: 6, padding: "12px 14px", border: `2.5px solid ${TOKENS.paper}`, borderRadius: 10, background: TOKENS.accent4, color: TOKENS.ink, fontFamily: TOKENS.display, fontWeight: 900, fontSize: 14, letterSpacing: "-0.02em", opacity: busy ? 0.6 : 1 }}>
+                {busy ? "sending…" : "send · we reply in 24h →"}
               </button>
             </div>
           )}
@@ -156,7 +185,7 @@ function AdvertisePage() {
               start with {selectedTier.l} · ${selectedTier.price}/mo →
             </button>
             <div style={{ marginTop: 8, textAlign: "center", fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700, opacity: 0.5, letterSpacing: ".12em" }}>
-              FIRST 30 DAYS FREE · CANCEL ANY TIME
+              NO CONTRACTS · CANCEL ANY TIME
             </div>
           </div>
         )}

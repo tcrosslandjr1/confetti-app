@@ -20,26 +20,36 @@ function tsToIso(s?: number | null): string | null {
 }
 
 // ---------- tier + rewards lookup ----------
+// Keys MUST match the Stripe price lookup_keys registered in
+// src/lib/checkout.functions.ts (CONSUMER_PRICES / BUSINESS_PRICES / AD_PRICES).
+// A price missing here silently writes subscriptions.tier = NULL.
 const PRICE_TO_TIER: Record<string, string> = {
-  plus_monthly: "plus",
-  crew_monthly: "crew",
+  consumer_plus_monthly: "plus",
+  consumer_crew_monthly: "crew",
+  user_unlimited_monthly: "unlimited",
+  user_vip_monthly: "vip",
+  business_basic_monthly: "basic",
   business_featured_monthly: "featured",
   business_boosted_monthly: "boosted",
   business_premium_monthly: "premium",
-  ad_featured_month: "ad_featured",
-  ad_boosted_month: "ad_boosted",
-  ad_premium_month: "ad_premium",
+  corporate_addon_monthly: "corporate_addon",
+  ad_featured_monthly: "ad_featured",
+  ad_boosted_monthly: "ad_boosted",
+  ad_premium_monthly: "ad_premium",
 };
 const REWARD_PTS: Record<string, number> = {
   // Subscriptions: bonus on first activation
-  plus_monthly: 100,
-  crew_monthly: 100,
+  consumer_plus_monthly: 100,
+  consumer_crew_monthly: 100,
+  user_unlimited_monthly: 100,
+  user_vip_monthly: 250,
+  business_basic_monthly: 100,
   business_featured_monthly: 250,
   business_boosted_monthly: 500,
   business_premium_monthly: 1000,
   // One-time unlocks
   unlock_premium_plan_once: 25,
-  unlock_vip_30d_once: 250,
+  unlock_vip_access_once: 250,
   user_plan_single_once: 10,
 };
 

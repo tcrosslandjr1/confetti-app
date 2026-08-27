@@ -1,75 +1,145 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { DotsBg, Frame, TOKENS } from "@/components/new-confetti/shell";
+import { useSubscription } from "@/hooks/useSubscription";
+import { cancelSubscription, createPortalSession } from "@/lib/checkout.functions";
+import { getStripeEnvironment } from "@/lib/stripe-env";
 
-// Port of ManageSubscriptionScreen — design/new-confetti/project/new-screens-2.jsx
+// Manage plan — real subscription row, real Stripe cancel + billing portal.
+// (Replaces the design-mockup version that faked plan data and only
+// pretended to cancel.)
 
 export const Route = createFileRoute("/new/manage-subscription")({
   component: ManageSubscriptionPage,
 });
 
-type Phase = "main" | "reason" | "offer" | "confirm" | "gone";
+type Phase = "main" | "reason" | "confirm" | "gone";
 
-interface CancelReason {
-  id: string;
-  l: string;
-  offer: "pause" | "downgrade" | "contact" | "survey";
-}
+const REASONS = [
+  { id: "cost", l: "Too expensive" },
+  { id: "unused", l: "Not using it enough" },
+  { id: "features", l: "Don't need the features" },
+  { id: "bugs", l: "App issues / bugs" },
+  { id: "moved", l: "Moved out of the city" },
+  { id: "other", l: "Other" },
+] as const;
 
-const REASONS: CancelReason[] = [
-  { id: "cost", l: "Too expensive", offer: "pause" },
-  { id: "unused", l: "Not using it enough", offer: "pause" },
-  { id: "features", l: "Don't need the features", offer: "downgrade" },
-  { id: "bugs", l: "App issues / bugs", offer: "contact" },
-  { id: "moved", l: "Moved out of city", offer: "pause" },
-  { id: "other", l: "Other", offer: "survey" },
-];
-
-const USAGE = [
-  { l: "plans made", v: "32", cap: "unlimited" },
-  { l: "stops booked", v: "18", cap: "6 free" },
-  { l: "saved this month", v: "$156", cap: "vs free tier" },
-  { l: "points earned", v: "4,250", cap: "2× multiplier" },
-];
-
-const HISTORY = [
-  { date: "May 1, 2026", desc: "all-access · yearly", amt: "$99.00" },
-  { date: "May 1, 2025", desc: "all-access · yearly", amt: "$99.00" },
-  { date: "Apr 1, 2025", desc: "all-access · monthly upgrade", amt: "$9.99" },
-];
-
-const OFFERS: Record<string, { e: string; t: string; d: string; cta: string }> = {
-  pause: { e: "⏸", t: "Pause for 30 days", d: "Keep your data, no charges. Come back any time.", cta: "pause for 30 days" },
-  downgrade: { e: "↓", t: "Try Lite tier", d: "$4.99/mo · unlimited plans + family mode only.", cta: "switch to lite" },
-  contact: { e: "💬", t: "Talk to support", d: "A real human responds within 4 hours.", cta: "message support" },
-  survey: { e: "📝", t: "50% off next month", d: "Give us 30 sec of feedback, get $5 off May.", cta: "take 30-sec survey" },
+const PLAN_LABEL: Record<string, string> = {
+  consumer_plus_monthly: "confetti plus",
+  consumer_crew_monthly: "crew",
+  user_unlimited_monthly: "unlimited",
+  user_vip_monthly: "vip",
 };
+
+function fmtDate(iso: string | null | undefined): string | null {
+  if (!iso) return null;
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 
 function ManageSubscriptionPage() {
   const navigate = useNavigate();
+  const { subscription, isActive, loading, refetch } = useSubscription();
   const [phase, setPhase] = useState<Phase>("main");
-  const [billing, setBilling] = useState<"monthly" | "yearly">("yearly");
-  const [reason, setReason] = useState<CancelReason | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [accessUntil, setAccessUntil] = useState<string | null>(null);
+
+  const doCancel = useServerFn(cancelSubscription);
+  const openPortal = useServerFn(createPortalSession);
+
+  const planName =
+    (subscription?.price_id && PLAN_LABEL[subscription.price_id]) ||
+    subscription?.tier ||
+    "your plan";
+  const renewDate = fmtDate(subscription?.current_period_end);
+
+  const handlePortal = async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      const url = await openPortal({
+        data: {
+          environment: getStripeEnvironment(),
+          returnUrl: typeof window !== "undefined" ? window.location.href : undefined,
+        },
+      });
+      window.location.href = url;
+    } catch {
+      setError("Couldn't open the billing portal. Try again in a minute.");
+      setBusy(false);
+    }
+  };
+
+  const handleCancel = async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await doCancel({ data: { environment: getStripeEnvironment() } });
+      setAccessUntil(fmtDate(res.accessUntil));
+      await refetch();
+      setPhase("gone");
+    } catch {
+      setError("Cancel didn't go through. Nothing was changed — try again or email support@confettiplan.com.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <Frame>
+        <Screen>
+          <Centered>
+            <p style={mutedText}>loading your plan…</p>
+          </Centered>
+        </Screen>
+      </Frame>
+    );
+  }
+
+  // ─── No active plan ──────────────────────────
+  if (!isActive && phase !== "gone") {
+    return (
+      <Frame>
+        <Screen>
+          <Header onBack={() => navigate({ to: "/new/settings" })} title="manage plan" />
+          <Centered>
+            <h2 style={bigTitle}>no active plan.</h2>
+            <p style={{ ...mutedText, maxWidth: 280, textAlign: "center" }}>
+              You're on the free tier. Upgrade any time — cancel any time.
+            </p>
+            <button onClick={() => navigate({ to: "/new/all-access" })} style={primaryBtn}>
+              see all-access →
+            </button>
+          </Centered>
+        </Screen>
+      </Frame>
+    );
+  }
 
   // ─── Cancelled state ─────────────────────────
   if (phase === "gone") {
     return (
       <Frame>
-        <div style={{ position: "relative", height: "100dvh", background: TOKENS.bg, display: "flex", flexDirection: "column", padding: "56px 22px 24px", overflow: "hidden" }}>
-          <DotsBg opacity={0.05} />
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", gap: 14 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 88, height: 88, borderRadius: "50%", background: TOKENS.accent2, border: `3px solid ${TOKENS.ink}`, boxShadow: `5px 5px 0 ${TOKENS.ink}`, fontSize: 38 }}>✕</span>
-            <h2 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 30, letterSpacing: "-0.04em", margin: 0 }}>cancelled.</h2>
-            <p style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, color: TOKENS.inkMuted, maxWidth: 280, margin: 0, lineHeight: 1.45 }}>
-              You keep All-Access until <b>jun 1, 2026</b>. After that you'll be on the free tier — 3 plans/week, ads visible, family mode off.
+        <Screen>
+          <Centered>
+            <span style={bigBadge}>✓</span>
+            <h2 style={bigTitle}>cancelled.</h2>
+            <p style={{ ...mutedText, maxWidth: 280, textAlign: "center", lineHeight: 1.45 }}>
+              {accessUntil
+                ? <>You keep your plan until <b>{accessUntil}</b>, then you move to the free tier. No further charges.</>
+                : <>Your plan won't renew. You move to the free tier at the end of the paid period.</>}
             </p>
-            <div style={{ padding: "10px 12px", background: TOKENS.paper, border: `2px solid ${TOKENS.ink}`, borderRadius: 10, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700, letterSpacing: ".06em", maxWidth: 280, lineHeight: 1.4 }}>
-              📧 confirmation sent to jess@brooklyn.com<br />scrapbook + saves stay with you forever
-            </div>
-            <button onClick={() => setPhase("main")} style={secondaryBtn}>actually, keep me subscribed ↻</button>
-            <button onClick={() => navigate({ to: "/new/settings" })} style={{ appearance: "none", cursor: "pointer", background: "transparent", border: "none", padding: 6, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700, color: TOKENS.inkHint, letterSpacing: ".1em" }}>BACK TO SETTINGS</button>
-          </div>
-        </div>
+            <button onClick={() => navigate({ to: "/new/settings" })} style={secondaryBtn}>
+              back to settings
+            </button>
+          </Centered>
+        </Screen>
       </Frame>
     );
   }
@@ -78,43 +148,17 @@ function ManageSubscriptionPage() {
   if (phase === "reason") {
     return (
       <Frame>
-        <div style={{ position: "relative", height: "100dvh", background: TOKENS.bg, display: "flex", flexDirection: "column", padding: "56px 22px 24px", overflow: "hidden" }}>
-          <DotsBg opacity={0.05} />
-          <div style={{ marginBottom: 14 }}><button onClick={() => setPhase("main")} style={backBtn}>←</button></div>
-          <h2 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 30, letterSpacing: "-0.04em", margin: "0 0 6px" }}>before you go…</h2>
-          <p style={{ fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700, color: TOKENS.inkMuted, margin: "0 0 18px", lineHeight: 1.4 }}>Why are you cancelling? It helps us improve.</p>
-          <div style={{ flex: 1, overflowY: "auto", scrollbarWidth: "none", display: "flex", flexDirection: "column", gap: 8 }}>
+        <Screen>
+          <Header onBack={() => setPhase("main")} title="before you go…" />
+          <p style={{ ...mutedText, margin: "0 0 18px" }}>Why are you cancelling? It helps us improve.</p>
+          <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column", gap: 8 }}>
             {REASONS.map((r) => (
-              <button key={r.id} onClick={() => { setReason(r); setPhase("offer"); }} style={{ appearance: "none", cursor: "pointer", textAlign: "left", padding: "14px 16px", border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12, background: reason?.id === r.id ? TOKENS.accent1 : TOKENS.paper, fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 800, color: TOKENS.ink, boxShadow: `3px 3px 0 ${TOKENS.ink}` }}>
+              <button key={r.id} onClick={() => setPhase("confirm")} style={listBtn}>
                 {r.l} →
               </button>
             ))}
           </div>
-        </div>
-      </Frame>
-    );
-  }
-
-  // ─── Retention offer ──────────────────────────
-  if (phase === "offer" && reason) {
-    const o = OFFERS[reason.offer];
-    return (
-      <Frame>
-        <div style={{ position: "relative", height: "100dvh", background: TOKENS.bg, display: "flex", flexDirection: "column", padding: "56px 22px 24px", overflow: "hidden" }}>
-          <DotsBg opacity={0.05} />
-          <div style={{ marginBottom: 14 }}><button onClick={() => setPhase("reason")} style={backBtn}>←</button></div>
-          <span style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 800, letterSpacing: ".14em", color: TOKENS.inkHint }}>YOU SAID: {reason.l.toUpperCase()}</span>
-          <h2 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 28, letterSpacing: "-0.04em", margin: "6px 0 14px" }}>How about this instead?</h2>
-          <div style={{ padding: 18, marginBottom: 14, border: `3px solid ${TOKENS.ink}`, borderRadius: 18, background: TOKENS.accent2, boxShadow: `6px 6px 0 ${TOKENS.ink}` }}>
-            <span style={{ fontSize: 40, lineHeight: 1, display: "block" }}>{o.e}</span>
-            <h3 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22, letterSpacing: "-0.03em", margin: "8px 0 4px" }}>{o.t}</h3>
-            <p style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, color: TOKENS.inkMuted, margin: 0, lineHeight: 1.4 }}>{o.d}</p>
-            <button onClick={() => setPhase("main")} style={{ appearance: "none", cursor: "pointer", width: "100%", marginTop: 12, padding: "12px 14px", border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.ink, color: TOKENS.paper, fontFamily: TOKENS.display, fontWeight: 900, fontSize: 14, letterSpacing: "-0.02em" }}>{o.cta}</button>
-          </div>
-          <button onClick={() => setPhase("confirm")} style={{ appearance: "none", cursor: "pointer", padding: "12px 14px", border: `2px dashed ${TOKENS.ink}`, borderRadius: 10, background: "transparent", color: TOKENS.ink, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700, letterSpacing: ".08em", opacity: 0.7 }}>
-            no thanks — cancel anyway →
-          </button>
-        </div>
+        </Screen>
       </Frame>
     );
   }
@@ -123,29 +167,22 @@ function ManageSubscriptionPage() {
   if (phase === "confirm") {
     return (
       <Frame>
-        <div style={{ position: "relative", height: "100dvh", background: TOKENS.bg, display: "flex", flexDirection: "column", padding: "56px 22px 24px", overflow: "hidden" }}>
-          <DotsBg opacity={0.05} />
-          <div style={{ marginBottom: 14 }}><button onClick={() => setPhase("offer")} style={backBtn}>←</button></div>
-          <h2 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 28, letterSpacing: "-0.04em", margin: "0 0 14px" }}>You'll lose these.</h2>
-          <div style={{ padding: 12, marginBottom: 14, background: "rgba(211,35,35,0.1)", border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12 }}>
-            {["Unlimited plans (back to 3/week)", "Family Mode + kids parties", "Pre-order menus at verified venues", "2× points multiplier", "TikTok taste sync", "Per-stop reel cloning"].map((f, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0", borderTop: i ? "1px dashed rgba(0,0,0,0.15)" : "none", fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700, color: TOKENS.ink }}>
-                <span style={{ color: "#d32323", fontWeight: 900, fontSize: 14 }}>✕</span>{f}
-              </div>
-            ))}
-          </div>
-          <div style={{ padding: "10px 12px", marginBottom: 14, background: "rgba(43,182,115,0.18)", border: `1.5px dashed ${TOKENS.ink}`, borderRadius: 10, fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700, letterSpacing: ".06em", lineHeight: 1.4 }}>
-            ✓ Your scrapbook + saves + check-ins stay with you forever, free.
-          </div>
+        <Screen>
+          <Header onBack={() => setPhase("reason")} title="confirm cancel" />
+          <p style={{ ...mutedText, margin: "0 0 14px", lineHeight: 1.5 }}>
+            Your plan stays active until {renewDate ?? "the end of the paid period"}, then it
+            won't renew. Your saves, plans, and check-ins stay with you on the free tier.
+          </p>
+          {error && <p style={errorText}>{error}</p>}
           <div style={{ marginTop: "auto" }}>
-            <button onClick={() => setPhase("gone")} style={{ appearance: "none", cursor: "pointer", width: "100%", padding: "14px 16px", border: `3px solid ${TOKENS.ink}`, borderRadius: 14, background: "#d32323", color: "#fff", fontFamily: TOKENS.display, fontWeight: 900, fontSize: 16, letterSpacing: "-0.02em", boxShadow: `5px 5px 0 ${TOKENS.ink}` }}>
-              yes, cancel All-Access
+            <button onClick={handleCancel} disabled={busy} style={{ ...dangerBtn, opacity: busy ? 0.6 : 1 }}>
+              {busy ? "cancelling…" : `yes, cancel ${planName}`}
             </button>
-            <button onClick={() => setPhase("main")} style={{ appearance: "none", cursor: "pointer", width: "100%", marginTop: 8, padding: "12px 14px", border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.paper, color: TOKENS.ink, fontFamily: TOKENS.ui, fontWeight: 800, fontSize: 13 }}>
+            <button onClick={() => setPhase("main")} disabled={busy} style={{ ...secondaryBtn, width: "100%", marginTop: 8 }}>
               keep my plan
             </button>
           </div>
-        </div>
+        </Screen>
       </Frame>
     );
   }
@@ -153,74 +190,79 @@ function ManageSubscriptionPage() {
   // ─── Main view ────────────────────────────────
   return (
     <Frame>
-      <div style={{ position: "relative", height: "100dvh", background: TOKENS.bg, display: "flex", flexDirection: "column", padding: "56px 0 24px", overflow: "hidden" }}>
-        <DotsBg opacity={0.05} />
-        <div style={{ position: "relative", zIndex: 2, padding: "0 22px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <button onClick={() => navigate({ to: "/new/settings" })} style={backBtn}>←</button>
-          <h2 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22, letterSpacing: "-0.035em", margin: 0 }}>manage plan</h2>
-          <span style={{ width: 36 }} />
-        </div>
-
-        <div style={{ position: "relative", zIndex: 2, flex: 1, overflowY: "auto", padding: "0 22px 12px", scrollbarWidth: "none" }}>
-          {/* Current plan card */}
-          <div style={{ padding: 18, marginBottom: 14, border: `3px solid ${TOKENS.ink}`, borderRadius: 18, background: TOKENS.accent3, color: TOKENS.paper, boxShadow: `6px 6px 0 ${TOKENS.ink}` }}>
-            <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".16em", opacity: 0.85 }}>YOUR PLAN · ACTIVE</div>
-            <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 28, letterSpacing: "-0.04em", marginTop: 6, lineHeight: 1 }}>✦ all-access</div>
-            <div style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, opacity: 0.85, marginTop: 6 }}>renews jun 1 · $99/yr ($8.25/mo equiv)</div>
-            <div style={{ marginTop: 12, padding: "6px 10px", background: "rgba(0,0,0,0.25)", border: "1.5px solid rgba(255,255,255,0.4)", borderRadius: 8, fontFamily: TOKENS.mono, fontSize: 9.5, fontWeight: 700, letterSpacing: ".06em", display: "inline-block" }}>
-              visa •••• 4242 · expires 09/27
+      <Screen>
+        <Header onBack={() => navigate({ to: "/new/settings" })} title="manage plan" />
+        <div style={{ flex: 1, overflowY: "auto" }}>
+          <div style={planCard}>
+            <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".16em", opacity: 0.85 }}>
+              YOUR PLAN · {(subscription?.status ?? "active").toUpperCase()}
             </div>
-          </div>
-
-          {/* Usage */}
-          <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: TOKENS.inkHint, marginBottom: 8, textTransform: "uppercase" }}>your value · this month</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 16 }}>
-            {USAGE.map((u, i) => (
-              <div key={i} style={{ padding: 10, border: `2px solid ${TOKENS.ink}`, borderRadius: 10, background: TOKENS.paper, boxShadow: `2px 2px 0 ${TOKENS.ink}` }}>
-                <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".12em", color: TOKENS.inkHint, textTransform: "uppercase" }}>{u.l}</div>
-                <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22, letterSpacing: "-0.03em", marginTop: 2 }}>{u.v}</div>
-                <div style={{ fontFamily: TOKENS.mono, fontSize: 8.5, fontWeight: 700, color: TOKENS.inkHint, marginTop: 1, letterSpacing: ".04em" }}>{u.cap}</div>
+            <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 28, letterSpacing: "-0.04em", marginTop: 6, lineHeight: 1 }}>
+              ✦ {planName}
+            </div>
+            {renewDate && (
+              <div style={{ fontFamily: TOKENS.ui, fontSize: 13, fontWeight: 700, opacity: 0.85, marginTop: 6 }}>
+                {subscription?.cancel_at_period_end ? `ends ${renewDate} · won't renew` : `renews ${renewDate}`}
               </div>
-            ))}
+            )}
           </div>
 
-          {/* Billing cycle */}
-          <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: TOKENS.inkHint, marginBottom: 8, textTransform: "uppercase" }}>billing cycle</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 16 }}>
-            {([["monthly", "monthly", "$9.99/mo", null], ["yearly", "yearly", "$99/yr", "save $20"]] as const).map(([id, l, p, save]) => (
-              <button key={id} onClick={() => setBilling(id)} style={{ appearance: "none", cursor: "pointer", textAlign: "left", padding: 12, border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12, background: billing === id ? TOKENS.accent1 : TOKENS.paper, color: TOKENS.ink, boxShadow: billing === id ? "none" : `3px 3px 0 ${TOKENS.ink}`, transition: "all .15s" }}>
-                <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 16, letterSpacing: "-0.025em" }}>{l}</div>
-                <div style={{ fontFamily: TOKENS.mono, fontSize: 10, fontWeight: 700, marginTop: 2, letterSpacing: ".04em" }}>{p}</div>
-                {save && <div style={{ marginTop: 4, display: "inline-block", padding: "2px 7px", background: TOKENS.accent4, border: `1.5px solid ${TOKENS.ink}`, borderRadius: 999, fontFamily: TOKENS.mono, fontSize: 8.5, fontWeight: 800, letterSpacing: ".06em" }}>{save}</div>}
-              </button>
-            ))}
-          </div>
+          {error && <p style={errorText}>{error}</p>}
 
-          {/* Billing history */}
-          <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 800, letterSpacing: ".14em", color: TOKENS.inkHint, marginBottom: 8, textTransform: "uppercase" }}>billing history</div>
-          <div style={{ padding: 12, marginBottom: 16, border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.paper, boxShadow: `3px 3px 0 ${TOKENS.ink}` }}>
-            {HISTORY.map((h, i) => (
-              <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderTop: i ? "1px dashed rgba(0,0,0,0.15)" : "none" }}>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800, color: TOKENS.ink }}>{h.desc}</div>
-                  <div style={{ fontFamily: TOKENS.mono, fontSize: 9, fontWeight: 700, color: TOKENS.inkHint, marginTop: 1, letterSpacing: ".04em" }}>{h.date} · receipt available</div>
-                </div>
-                <div style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 14 }}>{h.amt}</div>
-              </div>
-            ))}
-          </div>
-
-          <button onClick={() => navigate({ to: "/new/payment" })} style={{ appearance: "none", cursor: "pointer", width: "100%", padding: "14px 16px", marginBottom: 8, border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.paper, color: TOKENS.ink, fontFamily: TOKENS.ui, fontWeight: 800, fontSize: 13, boxShadow: `3px 3px 0 ${TOKENS.ink}` }}>
-            💳 update payment method
+          <button onClick={handlePortal} disabled={busy} style={{ ...listBtn, width: "100%", marginBottom: 8 }}>
+            💳 payment method, invoices &amp; history →
           </button>
-          <button onClick={() => setPhase("reason")} style={{ appearance: "none", cursor: "pointer", width: "100%", padding: "12px 16px", border: `2px dashed ${TOKENS.ink}`, borderRadius: 12, background: "transparent", color: TOKENS.ink, fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800, letterSpacing: ".06em", opacity: 0.7 }}>
-            pause or cancel subscription
-          </button>
+          <p style={{ ...mutedText, fontSize: 10, margin: "0 0 16px" }}>
+            Opens Stripe's secure billing portal — Confetti never sees your card.
+          </p>
+
+          {!subscription?.cancel_at_period_end && (
+            <button onClick={() => setPhase("reason")} style={ghostBtn}>
+              pause or cancel subscription
+            </button>
+          )}
         </div>
-      </div>
+      </Screen>
     </Frame>
   );
 }
 
+// ─── Layout + style helpers ─────────────────────
+function Screen({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ position: "relative", height: "100dvh", background: TOKENS.bg, display: "flex", flexDirection: "column", padding: "56px 22px 24px", overflow: "hidden" }}>
+      <DotsBg opacity={0.05} />
+      <div style={{ position: "relative", zIndex: 2, flex: 1, display: "flex", flexDirection: "column", minHeight: 0 }}>{children}</div>
+    </div>
+  );
+}
+
+function Header({ onBack, title }: { onBack: () => void; title: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+      <button onClick={onBack} style={backBtn}>←</button>
+      <h2 style={{ fontFamily: TOKENS.display, fontWeight: 900, fontSize: 22, letterSpacing: "-0.035em", margin: 0 }}>{title}</h2>
+      <span style={{ width: 36 }} />
+    </div>
+  );
+}
+
+function Centered({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
+      {children}
+    </div>
+  );
+}
+
 const backBtn: React.CSSProperties = { appearance: "none", cursor: "pointer", width: 36, height: 36, borderRadius: 999, border: `2.5px solid ${TOKENS.ink}`, background: TOKENS.paper, fontSize: 14, fontWeight: 900, boxShadow: `3px 3px 0 ${TOKENS.ink}` };
-const secondaryBtn: React.CSSProperties = { appearance: "none", cursor: "pointer", marginTop: 4, padding: "10px 14px", border: `2px solid ${TOKENS.ink}`, borderRadius: 999, background: TOKENS.accent1, color: TOKENS.ink, fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800, boxShadow: `3px 3px 0 ${TOKENS.ink}` };
+const secondaryBtn: React.CSSProperties = { appearance: "none", cursor: "pointer", padding: "10px 14px", border: `2px solid ${TOKENS.ink}`, borderRadius: 999, background: TOKENS.accent1, color: TOKENS.ink, fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 800, boxShadow: `3px 3px 0 ${TOKENS.ink}` };
+const primaryBtn: React.CSSProperties = { appearance: "none", cursor: "pointer", padding: "12px 18px", border: `3px solid ${TOKENS.ink}`, borderRadius: 14, background: TOKENS.ink, color: TOKENS.paper, fontFamily: TOKENS.display, fontWeight: 900, fontSize: 15, letterSpacing: "-0.02em", boxShadow: `4px 4px 0 ${TOKENS.ink}` };
+const dangerBtn: React.CSSProperties = { appearance: "none", cursor: "pointer", width: "100%", padding: "14px 16px", border: `3px solid ${TOKENS.ink}`, borderRadius: 14, background: "#d32323", color: "#fff", fontFamily: TOKENS.display, fontWeight: 900, fontSize: 16, letterSpacing: "-0.02em", boxShadow: `5px 5px 0 ${TOKENS.ink}` };
+const listBtn: React.CSSProperties = { appearance: "none", cursor: "pointer", textAlign: "left", padding: "14px 16px", border: `2.5px solid ${TOKENS.ink}`, borderRadius: 12, background: TOKENS.paper, fontFamily: TOKENS.ui, fontSize: 14, fontWeight: 800, color: TOKENS.ink, boxShadow: `3px 3px 0 ${TOKENS.ink}` };
+const ghostBtn: React.CSSProperties = { appearance: "none", cursor: "pointer", width: "100%", padding: "12px 16px", border: `2px dashed ${TOKENS.ink}`, borderRadius: 12, background: "transparent", color: TOKENS.ink, fontFamily: TOKENS.mono, fontSize: 11, fontWeight: 800, letterSpacing: ".06em", opacity: 0.7 };
+const bigTitle: React.CSSProperties = { fontFamily: TOKENS.display, fontWeight: 900, fontSize: 30, letterSpacing: "-0.04em", margin: 0 };
+const bigBadge: React.CSSProperties = { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 88, height: 88, borderRadius: "50%", background: TOKENS.accent2, border: `3px solid ${TOKENS.ink}`, boxShadow: `5px 5px 0 ${TOKENS.ink}`, fontSize: 38 };
+const mutedText: React.CSSProperties = { fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700, color: TOKENS.inkMuted, margin: 0 };
+const errorText: React.CSSProperties = { fontFamily: TOKENS.ui, fontSize: 12, fontWeight: 700, color: "#d32323", margin: "0 0 10px" };
+const planCard: React.CSSProperties = { padding: 18, marginBottom: 14, border: `3px solid ${TOKENS.ink}`, borderRadius: 18, background: TOKENS.accent3, color: TOKENS.paper, boxShadow: `6px 6px 0 ${TOKENS.ink}` };

@@ -14,7 +14,10 @@ export const Route = createFileRoute("/new/stripe")({
 
 const PRICE_MAP: Record<string, string> = {
   monthly: "consumer_plus_monthly",
-  yearly: "consumer_plus_yearly",
+  // No yearly price is registered in Stripe or the catalog (checkout.functions.ts
+  // ALL_PRICES) yet — a "consumer_plus_yearly" lookup key fails server validation.
+  // Until a yearly price exists in Stripe, yearly requests fall through to monthly.
+  yearly: "consumer_plus_monthly",
 };
 
 function StripePage() {

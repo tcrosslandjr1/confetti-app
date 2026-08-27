@@ -23,10 +23,12 @@ export async function consumeRateLimit(opts: RateLimitOptions): Promise<boolean>
     p_refill_per_sec: opts.refillPerSec,
   });
   if (error) {
-    // Fail-open on infra error — better to take the call than break the app.
-    // The error itself will surface in logs.
-    console.error("[ratelimit] consume_rate_limit RPC failed:", error.message);
-    return true;
+    // Fail-CLOSED. Every caller of this limiter spends real money (LLM calls,
+    // Google Places, SMS). If the limiter itself is down, letting all traffic
+    // through means an unbounded bill with zero protection — a hard 429 for
+    // the duration of a DB hiccup is the cheaper failure.
+    console.error("[ratelimit] consume_rate_limit RPC failed (failing closed):", error.message);
+    return false;
   }
   return data === true;
 }

@@ -187,7 +187,7 @@ function PaywallPage() {
                 marginTop: 4,
               }}
             >
-              Or $99/yr · save 17%
+              Cancel any time in Settings
             </div>
             <ul
               style={{

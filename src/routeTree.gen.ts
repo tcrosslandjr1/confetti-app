@@ -67,7 +67,6 @@ import { Route as NewPlacesRouteImport } from './routes/new.places'
 import { Route as NewPizzaNightRouteImport } from './routes/new.pizza-night'
 import { Route as NewPhoneVerifyRouteImport } from './routes/new.phone-verify'
 import { Route as NewPaywallRouteImport } from './routes/new.paywall'
-import { Route as NewPaymentRouteImport } from './routes/new.payment'
 import { Route as NewPassRouteImport } from './routes/new.pass'
 import { Route as NewParentalConsentRouteImport } from './routes/new.parental-consent'
 import { Route as NewNightTogetherRouteImport } from './routes/new.night-together'
@@ -461,11 +460,6 @@ const NewPhoneVerifyRoute = NewPhoneVerifyRouteImport.update({
 const NewPaywallRoute = NewPaywallRouteImport.update({
   id: '/new/paywall',
   path: '/new/paywall',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewPaymentRoute = NewPaymentRouteImport.update({
-  id: '/new/payment',
-  path: '/new/payment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewPassRoute = NewPassRouteImport.update({
@@ -1104,7 +1098,6 @@ export interface FileRoutesByFullPath {
   '/new/night-together': typeof NewNightTogetherRoute
   '/new/parental-consent': typeof NewParentalConsentRoute
   '/new/pass': typeof NewPassRoute
-  '/new/payment': typeof NewPaymentRoute
   '/new/paywall': typeof NewPaywallRoute
   '/new/phone-verify': typeof NewPhoneVerifyRoute
   '/new/pizza-night': typeof NewPizzaNightRoute
@@ -1269,7 +1262,6 @@ export interface FileRoutesByTo {
   '/new/night-together': typeof NewNightTogetherRoute
   '/new/parental-consent': typeof NewParentalConsentRoute
   '/new/pass': typeof NewPassRoute
-  '/new/payment': typeof NewPaymentRoute
   '/new/paywall': typeof NewPaywallRoute
   '/new/phone-verify': typeof NewPhoneVerifyRoute
   '/new/pizza-night': typeof NewPizzaNightRoute
@@ -1435,7 +1427,6 @@ export interface FileRoutesById {
   '/new/night-together': typeof NewNightTogetherRoute
   '/new/parental-consent': typeof NewParentalConsentRoute
   '/new/pass': typeof NewPassRoute
-  '/new/payment': typeof NewPaymentRoute
   '/new/paywall': typeof NewPaywallRoute
   '/new/phone-verify': typeof NewPhoneVerifyRoute
   '/new/pizza-night': typeof NewPizzaNightRoute
@@ -1602,7 +1593,6 @@ export interface FileRouteTypes {
     | '/new/night-together'
     | '/new/parental-consent'
     | '/new/pass'
-    | '/new/payment'
     | '/new/paywall'
     | '/new/phone-verify'
     | '/new/pizza-night'
@@ -1767,7 +1757,6 @@ export interface FileRouteTypes {
     | '/new/night-together'
     | '/new/parental-consent'
     | '/new/pass'
-    | '/new/payment'
     | '/new/paywall'
     | '/new/phone-verify'
     | '/new/pizza-night'
@@ -1932,7 +1921,6 @@ export interface FileRouteTypes {
     | '/new/night-together'
     | '/new/parental-consent'
     | '/new/pass'
-    | '/new/payment'
     | '/new/paywall'
     | '/new/phone-verify'
     | '/new/pizza-night'
@@ -2096,7 +2084,6 @@ export interface RootRouteChildren {
   NewNightTogetherRoute: typeof NewNightTogetherRoute
   NewParentalConsentRoute: typeof NewParentalConsentRoute
   NewPassRoute: typeof NewPassRoute
-  NewPaymentRoute: typeof NewPaymentRoute
   NewPaywallRoute: typeof NewPaywallRoute
   NewPhoneVerifyRoute: typeof NewPhoneVerifyRoute
   NewPizzaNightRoute: typeof NewPizzaNightRoute
@@ -2569,13 +2556,6 @@ declare module '@tanstack/react-router' {
       path: '/new/paywall'
       fullPath: '/new/paywall'
       preLoaderRoute: typeof NewPaywallRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/new/payment': {
-      id: '/new/payment'
-      path: '/new/payment'
-      fullPath: '/new/payment'
-      preLoaderRoute: typeof NewPaymentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new/pass': {
@@ -3448,7 +3428,6 @@ const rootRouteChildren: RootRouteChildren = {
   NewNightTogetherRoute: NewNightTogetherRoute,
   NewParentalConsentRoute: NewParentalConsentRoute,
   NewPassRoute: NewPassRoute,
-  NewPaymentRoute: NewPaymentRoute,
   NewPaywallRoute: NewPaywallRoute,
   NewPhoneVerifyRoute: NewPhoneVerifyRoute,
   NewPizzaNightRoute: NewPizzaNightRoute,

@@ -1,5 +1,6 @@
 import { corsHeaders } from "../_shared/cors.ts";
 import { funSectors, getAgentSectorContext } from "../_shared/fun-sectors.ts";
+import { rateLimitOr429 } from "../_shared/guard.ts";
 
 type StopInput = {
   name: string;
@@ -25,6 +26,16 @@ Deno.serve(async (req) => {
 
   if (req.method !== "POST") {
     return json({ error: "Use POST" }, 405);
+  }
+
+  // TomTom + geocoding calls per stop — publicly reachable, so cap it.
+  {
+    const limited = await rateLimitOr429(
+      req,
+      { scope: "route-intelligence", burst: 20, refillPerSec: 0.2 },
+      corsHeaders,
+    );
+    if (limited) return limited;
   }
 
   try {

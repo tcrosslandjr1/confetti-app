@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { trackFunnel } from "@/lib/funnel";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   BrandMark,
@@ -80,6 +81,7 @@ function SignInPage() {
   }, [navigate]);
 
   const sendOtp = async (address: string) => {
+    trackFunnel("signup_requested");
     return supabase.auth.signInWithOtp({
       email: address,
       options: { emailRedirectTo: `${window.location.origin}/auth/callback` },

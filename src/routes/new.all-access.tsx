@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { trackFunnel } from "@/lib/funnel";
 import { useState } from "react";
 import {
   BrandMark,
@@ -32,7 +33,9 @@ const FEATURES = [
 
 function AllAccessPage() {
   const navigate = useNavigate();
-  const [plan, setPlan] = useState<"monthly" | "yearly">("yearly");
+  // Yearly is hidden until a yearly price exists in Stripe (see PRICE_MAP in
+  // new.stripe.tsx) — advertising $99/yr and charging $9.99/mo would be a lie.
+  const [plan, setPlan] = useState<"monthly" | "yearly">("monthly");
 
   return (
     <Frame>
@@ -134,31 +137,7 @@ function AllAccessPage() {
               <div style={{ fontSize: 24, fontWeight: 900, marginTop: 2 }}>$9.99</div>
               <div style={{ fontSize: 10, fontWeight: 700, opacity: 0.6 }}>/mo</div>
             </button>
-            <button onClick={() => setPlan("yearly")} style={pricingBtn(plan === "yearly")}>
-              <div
-                style={{
-                  position: "absolute",
-                  top: -10,
-                  right: 8,
-                  padding: "2px 8px",
-                  background: TOKENS.accent2,
-                  color: TOKENS.ink,
-                  border: `2px solid ${TOKENS.ink}`,
-                  borderRadius: 999,
-                  fontFamily: TOKENS.mono,
-                  fontSize: 8,
-                  fontWeight: 800,
-                  letterSpacing: ".14em",
-                }}
-              >
-                SAVE 17%
-              </div>
-              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: ".12em", opacity: 0.7 }}>
-                YEARLY
-              </div>
-              <div style={{ fontSize: 24, fontWeight: 900, marginTop: 2 }}>$99</div>
-              <div style={{ fontSize: 10, fontWeight: 700, opacity: 0.6 }}>/yr · $8.25/mo</div>
-            </button>
+            {/* Yearly option returns when a yearly price is registered in Stripe. */}
           </div>
 
           {/* Feature grid */}
@@ -228,7 +207,7 @@ function AllAccessPage() {
                 opacity: 0.7,
               }}
             >
-              WHY PEOPLE UPGRADE
+              THE BIG ONE
             </div>
             <div
               style={{
@@ -240,18 +219,7 @@ function AllAccessPage() {
                 lineHeight: 1.15,
               }}
             >
-              "Family Mode saved Saturdays. Used to dread them."
-            </div>
-            <div
-              style={{
-                fontFamily: TOKENS.ui,
-                fontSize: 11,
-                fontWeight: 700,
-                opacity: 0.75,
-                marginTop: 6,
-              }}
-            >
-              — Maya · DMV mom of 2
+              Family Mode: one tap plans the whole Saturday — kids included.
             </div>
           </Ticket>
 
@@ -261,7 +229,7 @@ function AllAccessPage() {
         <div style={{ position: "relative", zIndex: 2, paddingTop: 12 }}>
           <ChunkyButton
             variant="accent"
-            onClick={() => navigate({ to: "/new/stripe", search: { plan } })}
+            onClick={() => { trackFunnel("upgrade_started", { plan }); navigate({ to: "/new/stripe", search: { plan } }); }}
             icon={Icons.arrow}
           >
             Start 7-day free trial

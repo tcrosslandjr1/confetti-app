@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { WizardProvider } from "@/components/wizard/wizard-context";
 import { preloadFallbackImages } from "@/lib/venue-images";
 import { installErrorTracking, RouteAnalytics } from "@/lib/analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { CustomerOnly } from "@/components/CustomerOnly";
 
@@ -281,6 +282,7 @@ function RootComponent() {
       <AuthProvider>
         <ViewAsRedirector />
         <RouteAnalytics />
+        <VercelAnalytics />
         <Suspense fallback={null}>
           <MapProvider>
             <WizardProvider>

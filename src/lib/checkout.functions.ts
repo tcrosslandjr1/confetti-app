@@ -351,7 +351,8 @@ export const changePlan = createServerFn({ method: "POST" })
   });
 
 // ============================================================================
-// cancelSubscription — immediate revoke
+// cancelSubscription — cancel at period end (user keeps what they paid for;
+// webhook records cancel_at_period_end, access lapses at renewal)
 // ============================================================================
 export const cancelSubscription = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
@@ -360,7 +361,7 @@ export const cancelSubscription = createServerFn({ method: "POST" })
     const { supabase, userId } = context;
     const { data: sub } = await supabase
       .from("subscriptions")
-      .select("stripe_subscription_id")
+      .select("stripe_subscription_id, current_period_end")
       .eq("user_id", userId)
       .eq("environment", data.environment)
       .in("status", ["active", "trialing", "past_due"])
@@ -370,12 +371,15 @@ export const cancelSubscription = createServerFn({ method: "POST" })
     if (!sub?.stripe_subscription_id) throw new Error("No active subscription");
 
     const stripe = createStripeClient(data.environment);
-    // Immediate cancel — webhook flips status + tier flips to Free.
-    await stripe.subscriptions.cancel(sub.stripe_subscription_id, {
-      invoice_now: false,
-      prorate: false,
+    const updated = await stripe.subscriptions.update(sub.stripe_subscription_id, {
+      cancel_at_period_end: true,
     });
-    return { ok: true };
+    const endsAt =
+      updated.items?.data?.[0]?.current_period_end ?? (updated as any).current_period_end;
+    return {
+      ok: true,
+      accessUntil: endsAt ? new Date(endsAt * 1000).toISOString() : sub.current_period_end,
+    };
   });
 
 // ============================================================================

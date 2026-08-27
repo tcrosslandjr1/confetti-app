@@ -6,6 +6,7 @@
 // ============================================================
 
 import { serve } from "../_shared/server.ts";
+import { rateLimitOr429 } from "../_shared/guard.ts";
 import { corsHeaders, jsonResponse, errorResponse } from "../_shared/supabase-client.ts";
 
 // ─── Types ────────────────────────────────────────────────────
@@ -44,6 +45,16 @@ serve(async (req: Request) => {
 
   if (req.method !== "POST") {
     return errorResponse("Method not allowed", 405);
+  }
+
+  // One uncached Claude call per venue viewed — publicly reachable.
+  {
+    const limited = await rateLimitOr429(
+      req,
+      { scope: "venue-intel", burst: 12, refillPerSec: 0.1 },
+      corsHeaders,
+    );
+    if (limited) return limited;
   }
 
   // Parse body

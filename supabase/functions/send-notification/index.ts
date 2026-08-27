@@ -9,6 +9,7 @@
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { getCorsHeaders } from "../_shared/cors.ts";
+import { isInternalCaller, rateLimitOr429 } from "../_shared/guard.ts";
 
 // Reassigned per-request inside the handler so CORS echoes the caller's origin
 // (works on both confettiplan.com and the vercel.app production domain).
@@ -36,19 +37,41 @@ Deno.serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
 
   try {
-    const payload = (await req.json()) as WebhookPayload | { notification: NotificationRow };
+    // This function sends real email (Resend) and SMS (Twilio) on our bill.
+    // Anyone on the internet can reach it (verify_jwt=false), so:
+    //  1. rate-limit non-internal callers hard, and
+    //  2. NEVER trust payload content — only take the id, re-fetch the row,
+    //     and deliver what the database says. Content injection is impossible
+    //     because inserting into public.notifications is RLS-protected.
+    if (!isInternalCaller(req)) {
+      const limited = await rateLimitOr429(
+        req,
+        { scope: "send-notification", burst: 5, refillPerSec: 1 / 60 },
+        corsHeaders,
+      );
+      if (limited) return limited;
+    }
 
-    // Support both webhook format and direct call
-    const notification: NotificationRow =
+    const payload = (await req.json()) as WebhookPayload | { notification: NotificationRow };
+    const claimed: NotificationRow | undefined =
       "record" in payload ? payload.record : (payload as any).notification;
 
-    if (!notification?.id || !notification?.user_id) {
-      return json({ error: "Invalid payload — missing notification data" }, 400);
+    if (!claimed?.id) {
+      return json({ error: "Invalid payload — missing notification id" }, 400);
     }
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, serviceKey);
+
+    const { data: notification } = await supabase
+      .from("notifications")
+      .select("id, user_id, kind, title, body, link")
+      .eq("id", claimed.id)
+      .maybeSingle<NotificationRow>();
+    if (!notification) {
+      return json({ error: "Notification not found" }, 404);
+    }
 
     // 1. Load user notification preferences
     const { data: prefs } = await supabase

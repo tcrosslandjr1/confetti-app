@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { trackFunnel } from "@/lib/funnel";
 import { useState, type ReactNode } from "react";
 import {
   BrandMark,
@@ -113,6 +114,7 @@ function PlanPage() {
       });
       clearPinnedVenues(); // reset after generating
       setActiveLoop(loop);
+      trackFunnel("plan_generated", { vibe: state.vibes?.[0] ?? "unset" });
       navigate({ to: "/new/printing" });
     } catch (err: any) {
       setError(err.message ?? "Something went wrong — try again.");

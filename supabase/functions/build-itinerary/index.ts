@@ -1,6 +1,7 @@
 // Confetti AI — build a full-day itinerary.
 // Venue grounding uses the curated venues table, bootstrapping new cities via Google Places.
 import { getCorsHeaders } from "../_shared/cors.ts";
+import { rateLimitOr429 } from "../_shared/guard.ts";
 import { supabaseAdmin } from "../_shared/supabase-client.ts";
 import { ensureCityVenuesFromPlaces } from "../_shared/places-discovery.ts";
 
@@ -508,6 +509,17 @@ async function verifyItinerary(
 Deno.serve(async (req) => {
   _currentReq = req;
   if (req.method === "OPTIONS") return new Response(null, { headers: getCorsHeaders(req) });
+
+  // Most expensive request in the codebase: large Claude prompt + up to a
+  // dozen Google Places verification calls per run.
+  {
+    const limited = await rateLimitOr429(
+      req,
+      { scope: "build-itinerary", burst: 3, refillPerSec: 1 / 300 },
+      getCorsHeaders(req),
+    );
+    if (limited) return limited;
+  }
 
   try {
     const b = (await req.json()) as Body;

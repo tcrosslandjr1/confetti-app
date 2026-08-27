@@ -9,6 +9,7 @@
 // ============================================================
 
 import { serve } from "../_shared/server.ts";
+import { getCallerUserId, isInternalCaller, rateLimitOr429 } from "../_shared/guard.ts";
 import {
   supabaseAdmin,
   corsHeaders,
@@ -61,6 +62,21 @@ const FIELD_MASK = [
 serve(async (req: Request) => {
   if (req.method === "OPTIONS")
     return new Response("ok", { headers: corsHeaders() });
+
+  // Pipeline tool: 12 Enterprise-tier Google Text Searches per call, and
+  // forceRefresh bypasses the cache. Internal callers pass; humans must be
+  // signed in and are tightly limited.
+  if (!isInternalCaller(req)) {
+    const userId = await getCallerUserId(req);
+    if (!userId) return errorResponse("Unauthorized", 401);
+    const limited = await rateLimitOr429(
+      req,
+      { scope: "venue-ingest", burst: 3, refillPerSec: 1 / 300 },
+      corsHeaders(),
+      userId,
+    );
+    if (limited) return limited;
+  }
 
   const apiKey = Deno.env.get("GOOGLE_PLACES_API_KEY");
   if (!apiKey) return errorResponse("GOOGLE_PLACES_API_KEY not configured", 500);
